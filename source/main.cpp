@@ -1,11 +1,9 @@
+#include "Example.hpp"
 #include <iostream>
-#include <iomanip>
-#include <cstdlib>
 
 int main(int argc, char *argv[])
 {
-    std::cout << "Hello World!\n";
-
+    print_hello_world();
     std::cin.get();
     return EXIT_SUCCESS; // optional return value
 }
