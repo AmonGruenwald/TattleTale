@@ -16,9 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os-settings: [{os: ubuntu-latest, binary_path: TattleTale_run},{os: macos-latest, binary_path: TattleTale_run},{os: windows-latest, binary_path: TattleTale_run}]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os-settings.os }}
 
     steps:
     - uses: actions/checkout@v2
