@@ -1,5 +1,6 @@
 # For project specific files
 build
+.vscode/*
 
 # For CMake specific files
 # From: https://github.com/github/gitignore/blob/main/CMake.gitignore
