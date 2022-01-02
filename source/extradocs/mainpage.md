@@ -1,0 +1,1 @@
+**TattleTale** tries to use curation to generate dramatic narratives out of randomly generated events.
