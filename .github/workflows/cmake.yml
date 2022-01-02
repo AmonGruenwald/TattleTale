@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-settings: [{os: ubuntu-latest, binary_path: TattleTale_run},{os: macos-latest, binary_path: TattleTale_run},{os: windows-latest, binary_path: TattleTale_run}]
+        os-settings: [{os: ubuntu-latest, binary_path: /build/source/TattleTale_run},{os: macos-latest, binary_path: /build/source/TattleTale_run},{os: windows-latest, binary_path: /build/source/Release/TattleTale_run.exe}]
 
     runs-on: ${{ matrix.os-settings.os }}
 
@@ -31,7 +31,12 @@ jobs:
     - name: 🚧 Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: TattleTale
+        path: |
+          ${{ github.workspace }}${{ matrix.os-settings.binary_path }}
     - name: 💣 Test
       working-directory: ${{github.workspace}}/build
       # Execute tests defined by the CMake configuration.  
