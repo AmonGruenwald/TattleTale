@@ -1,9 +1,9 @@
-#include "Example.hpp"
-#include <iostream>
+#include "tale/tale.hpp"
+#include "tattle/tattle.hpp"
 
 int main(int argc, char *argv[])
 {
-    print_hello_world();
-    std::cin.get();
-    return EXIT_SUCCESS; // optional return value
+    tattle::TattlePrintExample();
+    tale::TalePrintExample();
+    return 0; // optional return value
 }

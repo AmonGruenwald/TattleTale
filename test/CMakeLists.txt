@@ -11,7 +11,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-set(SOURCES Example-test.cpp)
+set(SOURCES tale-test.cpp tattle-test.cpp)
 
 add_executable(${BINARY} ${SOURCES})
 

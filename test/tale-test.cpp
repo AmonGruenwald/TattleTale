@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
-#include "Example.hpp"
+#include "tale/tale.hpp"
 
 // Demonstrate some basic assertions.
-TEST(ExampleTests, BasicAssertions)
+TEST(TaleTests, BasicAssertions)
 {
     // Expect two strings not to be equal.
     EXPECT_STRNE("hello", "world");
@@ -10,9 +10,8 @@ TEST(ExampleTests, BasicAssertions)
     EXPECT_EQ(7 * 6, 42);
 }
 
-TEST(ExampleTests, Add)
+TEST(TaleTests, TaleIntExample)
 {
-    int a = 14;
-    int b = 45;
-    EXPECT_EQ(a + b, add(a, b));
+    int expected = 1;
+    EXPECT_EQ(expected, tale::TaleIntExample());
 }
