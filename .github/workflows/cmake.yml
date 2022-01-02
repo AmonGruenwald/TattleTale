@@ -16,7 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-settings: [{os: ubuntu-latest, binary_path: /build/source/TattleTale_run},{os: macos-latest, binary_path: /build/source/TattleTale_run},{os: windows-latest, binary_path: /build/source/Release/TattleTale_run.exe}]
+        os-settings: [{os: ubuntu-latest, name: linux, binary_path: /build/source/TattleTale_run,}
+        ,{os: macos-latest,name: mac, binary_path: /build/source/TattleTale_run}
+        ,{os: windows-latest,name: windows, binary_path: /build/source/Release/TattleTale_run.exe}]
 
     runs-on: ${{ matrix.os-settings.os }}
 
@@ -34,7 +36,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: TattleTale
+        name: TattleTale_${{ matrix.os-settings.name }}
         path: |
           ${{ github.workspace }}${{ matrix.os-settings.binary_path }}
     - name: 💣 Test
