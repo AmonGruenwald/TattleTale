@@ -1,5 +1,3 @@
-set(BINARY ${CMAKE_PROJECT_NAME}_test)
-
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -13,11 +11,10 @@ enable_testing()
 
 set(SOURCES tale-test.cpp tattle-test.cpp)
 
-add_executable(${BINARY} ${SOURCES})
+add_executable(${TEST_EXECUTABLE_NAME} ${SOURCES})
 
-
-target_link_libraries(${BINARY} ${CMAKE_PROJECT_NAME}_lib gtest_main)
+target_link_libraries(${TEST_EXECUTABLE_NAME} ${LIBRARY_NAME} gtest_main)
 
 
 include(GoogleTest)
-gtest_discover_tests(${BINARY})
+gtest_discover_tests(${TEST_EXECUTABLE_NAME})

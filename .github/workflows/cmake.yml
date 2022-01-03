@@ -16,9 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-settings: [{os: ubuntu-latest, name: linux, binary_path: /build/source/TattleTale_run,}
-        ,{os: macos-latest,name: mac, binary_path: /build/source/TattleTale_run}
-        ,{os: windows-latest,name: windows, binary_path: /build/source/Release/TattleTale_run.exe}]
+        os-settings: [{os: ubuntu-latest, name: linux, binary_path: /build/source/TattleTale,}
+        ,{os: macos-latest,name: mac, binary_path: /build/source/TattleTale}
+        ,{os: windows-latest,name: windows, binary_path: /build/source/Release/TattleTale.exe}]
 
     runs-on: ${{ matrix.os-settings.os }}
 

@@ -1,9 +1,11 @@
-set(BINARY ${CMAKE_PROJECT_NAME})
-
-set(SOURCES 
+set(LIBRARY_SOURCES 
     tale/tale.hpp tale/tale.cpp tattle/tattle.hpp tattle/tattle.cpp
 )
 
-add_executable(${BINARY}_run main.cpp ${SOURCES})
+set(ADDITIONAL_EXECTUABLE_SOURCES 
+    main.cpp
+)
 
-add_library(${BINARY}_lib STATIC ${SOURCES})
+add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES} ${LIBRARY_SOURCES})
+
+add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
