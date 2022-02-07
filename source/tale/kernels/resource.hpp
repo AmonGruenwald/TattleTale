@@ -1,0 +1,20 @@
+#ifndef TALE_RESOURCE_H
+#define TALE_RESOURCE_H
+
+#include "tale/kernels/kernel.hpp"
+
+namespace tale
+{
+    /**
+     * @brief Represents the abstract Resources an Actor has.
+     * 
+     */
+    class Resource : Kernel
+    {
+    public:
+        Resource(std::vector<std::weak_ptr<Kernel>> reasons);
+        std::string ToString();
+    };
+
+} // namespace tale
+#endif // TALE_RESOURCE_H

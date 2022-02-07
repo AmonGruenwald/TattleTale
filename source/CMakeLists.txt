@@ -5,6 +5,20 @@ set(LIBRARY_SOURCES
     tale/actor.cpp
     tale/kernels/kernel.hpp
     tale/kernels/kernel.cpp
+    tale/kernels/action.hpp
+    tale/kernels/action.cpp
+    tale/kernels/emotion.hpp
+    tale/kernels/emotion.cpp
+    tale/kernels/goal.hpp
+    tale/kernels/goal.cpp
+    tale/kernels/interaction.hpp
+    tale/kernels/interaction.cpp
+    tale/kernels/relationship.hpp
+    tale/kernels/relationship.cpp
+    tale/kernels/resource.hpp
+    tale/kernels/resource.cpp
+    tale/kernels/trait.hpp
+    tale/kernels/trait.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )
