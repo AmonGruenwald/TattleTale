@@ -15,3 +15,9 @@ TEST(TaleTests, TaleIntExample)
     int expected = 1;
     EXPECT_EQ(expected, tale::TaleIntExample());
 }
+
+TEST(TaleTests, CreateDefaultActor)
+{
+    tale::Actor actor;
+    EXPECT_EQ("John Doe", actor.name_);
+}
