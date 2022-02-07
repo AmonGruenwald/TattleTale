@@ -5,6 +5,7 @@
 namespace tale
 {
 
+    size_t Kernel::current_number_ = 0;
     // TODO: Add day tracking once gameloop is implemented
     Kernel::Kernel(std::vector<std::weak_ptr<Kernel>> reasons)
     {
