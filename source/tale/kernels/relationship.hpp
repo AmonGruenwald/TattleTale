@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents a Relationship an Actor has with another Actor
      * 
      */
-    class Relationship : Kernel
+    class Relationship : public Kernel
     {
     public:
         Relationship(std::vector<std::weak_ptr<Kernel>> reasons);

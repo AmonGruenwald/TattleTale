@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents the Goal an Actor strives to fulfill.
      * 
      */
-    class Goal : Kernel
+    class Goal : public Kernel
     {
     public:
         Goal(std::vector<std::weak_ptr<Kernel>> reasons);

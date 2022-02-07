@@ -18,7 +18,7 @@ namespace tale
      * @brief Represents the Emotions an Actor has.
      * 
      */
-    class Emotion : Kernel
+    class Emotion : public Kernel
     {
     public:
         Emotion(std::vector<std::weak_ptr<Kernel>> reasons);

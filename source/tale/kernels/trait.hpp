@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents the Traits an Actor has.
      * 
      */
-    class Trait : Kernel
+    class Trait : public Kernel
     {
     public:
         Trait(std::vector<std::weak_ptr<Kernel>> reasons);

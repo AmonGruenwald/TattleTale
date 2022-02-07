@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents the abstract Resources an Actor has.
      * 
      */
-    class Resource : Kernel
+    class Resource : public Kernel
     {
     public:
         Resource(std::vector<std::weak_ptr<Kernel>> reasons);

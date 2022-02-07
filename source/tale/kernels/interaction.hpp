@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents an Interaction an Actor had with another Actor
      * 
      */
-    class Interaction : Kernel
+    class Interaction : public Kernel
     {
     public:
         Interaction(std::vector<std::weak_ptr<Kernel>> reasons);

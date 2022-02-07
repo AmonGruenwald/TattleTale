@@ -9,7 +9,7 @@ namespace tale
      * @brief Represents an Action an Actor took that did not involve other Actors.
      * 
      */
-    class Action : Kernel
+    class Action : public Kernel
     {
     public:
         Action(std::vector<std::weak_ptr<Kernel>> reasons);
