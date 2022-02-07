@@ -3,8 +3,8 @@ set(LIBRARY_SOURCES
     tale/tale.cpp 
     tale/actor.hpp
     tale/actor.cpp
-    tale/kernel.hpp
-    tale/kernel.cpp
+    tale/kernels/kernel.hpp
+    tale/kernels/kernel.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )

@@ -1,4 +1,4 @@
-#include "tale/kernel.hpp"
+#include "tale/kernels/kernel.hpp"
 
 #include <iostream>
 
