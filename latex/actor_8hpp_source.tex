@@ -1,0 +1,33 @@
+\hypertarget{actor_8hpp_source}{}\doxysection{actor.\+hpp}
+\label{actor_8hpp_source}\index{tale/actor.hpp@{tale/actor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_ACTOR\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_ACTOR\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/emotion.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/kernels/relationship.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/trait.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/kernels/resource.hpp"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_actor}{Actor}}}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21     \textcolor{keyword}{public}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}();}
+\DoxyCodeLine{23         std::string name\_;}
+\DoxyCodeLine{24         std::shared\_ptr<Goal> goal\_;}
+\DoxyCodeLine{25         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
+\DoxyCodeLine{26         std::vector<std::shared\_ptr<Trait>> traits\_;}
+\DoxyCodeLine{27         std::shared\_ptr<Resource> resource\_;}
+\DoxyCodeLine{28     \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+
+\end{DoxyCode}

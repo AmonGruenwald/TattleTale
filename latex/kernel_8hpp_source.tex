@@ -1,0 +1,32 @@
+\hypertarget{kernel_8hpp_source}{}\doxysection{kernel.\+hpp}
+\label{kernel_8hpp_source}\index{tale/kernels/kernel.hpp@{tale/kernels/kernel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_KERNEL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNEL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20     \textcolor{keyword}{public}:}
+\DoxyCodeLine{21         \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} current\_number\_;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
+\DoxyCodeLine{24         std::vector<std::weak\_ptr<Kernel>> consequences\_;}
+\DoxyCodeLine{25         \textcolor{keywordtype}{size\_t} number\_;}
+\DoxyCodeLine{26         \textcolor{keywordtype}{size\_t} tick\_;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}(std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
+\DoxyCodeLine{30         \textcolor{keyword}{virtual} std::string ToString() = 0;}
+\DoxyCodeLine{31     \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
+
+\end{DoxyCode}

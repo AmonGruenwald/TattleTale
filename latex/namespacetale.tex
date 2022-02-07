@@ -5,6 +5,27 @@
 Responsible for the event generation of the Tattle\+Tale project. For now it just contains two basic functions for testing purposes.  
 
 
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtale_1_1_action}{Action}}
+\begin{DoxyCompactList}\small\item\em Represents an \mbox{\hyperlink{classtale_1_1_action}{Action}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} took that did not involve other Actors. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_actor}{Actor}}
+\begin{DoxyCompactList}\small\item\em Represents one person in the simulation. An actor has to act accordingly to their internal state. So this class needs to contain everything neccessary. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}}
+\begin{DoxyCompactList}\small\item\em Represents the Emotions an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_goal}{Goal}}
+\begin{DoxyCompactList}\small\item\em Represents the \mbox{\hyperlink{classtale_1_1_goal}{Goal}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} strives to fulfill. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}
+\begin{DoxyCompactList}\small\item\em Represents an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} had with another \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}
+\begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} was created. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has with another \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_resource}{Resource}}
+\begin{DoxyCompactList}\small\item\em Represents the abstract Resources an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_trait}{Trait}}
+\begin{DoxyCompactList}\small\item\em Represents the Traits an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 

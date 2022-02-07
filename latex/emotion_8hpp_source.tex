@@ -1,0 +1,31 @@
+\hypertarget{emotion_8hpp_source}{}\doxysection{emotion.\+hpp}
+\label{emotion_8hpp_source}\index{tale/kernels/emotion.hpp@{tale/kernels/emotion.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_EMOTION\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_EMOTION\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tale/kernels/kernel.hpp"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{enum class} EmotionType}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10         kHappy,}
+\DoxyCodeLine{11         kCalm,}
+\DoxyCodeLine{12         kSatisfied,}
+\DoxyCodeLine{13         kBrave,}
+\DoxyCodeLine{14         kExtroverted}
+\DoxyCodeLine{15     \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}}(std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{25         std::string ToString();}
+\DoxyCodeLine{26     \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_EMOTION\_H}}
+
+\end{DoxyCode}
