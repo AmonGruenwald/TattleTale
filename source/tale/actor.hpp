@@ -2,6 +2,13 @@
 #define TALE_ACTOR_H
 
 #include <string>
+#include <map>
+#include <memory>
+#include "tale/kernels/goal.hpp"
+#include "tale/kernels/emotion.hpp"
+#include "tale/kernels/relationship.hpp"
+#include "tale/kernels/trait.hpp"
+#include "tale/kernels/resource.hpp"
 
 namespace tale
 {
@@ -14,6 +21,10 @@ namespace tale
     public:
         Actor();
         std::string name_;
+        std::shared_ptr<Goal> goal_;
+        std::map<EmotionType, std::shared_ptr<Emotion>> emotions_;
+        std::vector<std::shared_ptr<Trait>> traits_;
+        std::shared_ptr<Resource> resource_;
     };
 
 } // namespace tale
