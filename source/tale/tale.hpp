@@ -1,6 +1,7 @@
 /// @file tale.hpp For now just provides two basic functions for testing purposes.
 #ifndef TALE_TALE_H
 #define TALE_TALE_H
+#include "tale/kernel.hpp"
 #include "tale/actor.hpp"
 /**
  * @brief Responsible for the event generation of the TattleTale project.

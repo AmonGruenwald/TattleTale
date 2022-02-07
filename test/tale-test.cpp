@@ -21,3 +21,5 @@ TEST(TaleTests, CreateDefaultActor)
     tale::Actor actor;
     EXPECT_EQ("John Doe", actor.name_);
 }
+
+// TODO: Add Kernel Tests: number increasing, correct storing of other Kernels etc.
