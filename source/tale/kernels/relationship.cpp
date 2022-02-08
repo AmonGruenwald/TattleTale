@@ -24,9 +24,12 @@ namespace tale
     }
     std::string Relationship::RelationshipTypeToString(RelationshipType relationship_type)
     {
-        assert(relationship_type != RelationshipType::kNone); // invalid enum was passed
         switch (relationship_type)
         {
+        case RelationshipType::kNone:
+            assert(false); // invalid enum was passed
+            return "none";
+            break;
         case RelationshipType::kLove:
             return "love";
             break;

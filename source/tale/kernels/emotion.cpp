@@ -22,9 +22,12 @@ namespace tale
     }
     std::string Emotion::EmotionTypeToString(EmotionType emotion_type)
     {
-        assert(emotion_type != EmotionType::kNone); // invalid enum was passed
         switch (emotion_type)
         {
+        case EmotionType::kNone:
+            assert(false); // invalid enum was passed
+            return "none";
+            break;
         case EmotionType::kHappy:
             return "happy";
             break;
