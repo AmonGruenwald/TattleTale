@@ -27,6 +27,7 @@ namespace tale
 
     private:
         Interaction();
+        friend class InteractionStore;
     };
 
 } // namespace tale
