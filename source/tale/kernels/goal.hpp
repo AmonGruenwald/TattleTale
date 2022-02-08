@@ -7,12 +7,12 @@ namespace tale
 {
     /**
      * @brief Represents the Goal an Actor strives to fulfill.
-     * 
+     *
      */
     class Goal : public Kernel
     {
     public:
-        Goal(std::vector<std::weak_ptr<Kernel>> reasons);
+        Goal(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

@@ -4,7 +4,7 @@
 
 namespace tale
 {
-    Emotion::Emotion(std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(reasons){};
+    Emotion::Emotion(std::string name, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, reasons){};
     std::string Emotion::ToString()
     {
         return "I am an Emotion.\n";

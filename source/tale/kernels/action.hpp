@@ -12,7 +12,7 @@ namespace tale
     class Action : public Kernel
     {
     public:
-        Action(std::vector<std::weak_ptr<Kernel>> reasons);
+        Action(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

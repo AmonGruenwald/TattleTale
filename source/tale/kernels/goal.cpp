@@ -4,7 +4,7 @@
 
 namespace tale
 {
-    Goal::Goal(std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(reasons){};
+    Goal::Goal(std::string name, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, reasons){};
     std::string Goal::ToString()
     {
         return "I am a Goal.\n";

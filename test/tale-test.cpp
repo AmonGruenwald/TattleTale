@@ -28,13 +28,13 @@ TEST(TaleTests, CreateDefaultActor)
 TEST(TaleTests, IncreasingKernelNumber)
 {
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-    tale::Action action(default_reasons);
-    tale::Emotion emotion(default_reasons);
-    tale::Goal goal(default_reasons);
-    tale::Interaction interaction(default_reasons);
-    tale::Relationship relationship(default_reasons);
-    tale::Resource resource(default_reasons);
-    tale::Trait trait(default_reasons);
+    tale::Action action("action", default_reasons);
+    tale::Emotion emotion("emotion", default_reasons);
+    tale::Goal goal("goal", default_reasons);
+    tale::Interaction interaction("interaction", default_reasons);
+    tale::Relationship relationship("relationship", default_reasons);
+    tale::Resource resource("resource", default_reasons);
+    tale::Trait trait("trait", default_reasons);
 
     EXPECT_EQ(0, action.number_);
     EXPECT_EQ(1, emotion.number_);

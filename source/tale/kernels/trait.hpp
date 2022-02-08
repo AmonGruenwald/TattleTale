@@ -7,12 +7,12 @@ namespace tale
 {
     /**
      * @brief Represents the Traits an Actor has.
-     * 
+     *
      */
     class Trait : public Kernel
     {
     public:
-        Trait(std::vector<std::weak_ptr<Kernel>> reasons);
+        Trait(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

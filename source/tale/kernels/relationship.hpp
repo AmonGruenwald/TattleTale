@@ -7,12 +7,12 @@ namespace tale
 {
     /**
      * @brief Represents a Relationship an Actor has with another Actor
-     * 
+     *
      */
     class Relationship : public Kernel
     {
     public:
-        Relationship(std::vector<std::weak_ptr<Kernel>> reasons);
+        Relationship(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

@@ -7,12 +7,12 @@ namespace tale
 {
     /**
      * @brief Represents an Interaction an Actor had with another Actor
-     * 
+     *
      */
     class Interaction : public Kernel
     {
     public:
-        Interaction(std::vector<std::weak_ptr<Kernel>> reasons);
+        Interaction(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 
