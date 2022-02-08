@@ -19,6 +19,8 @@ set(LIBRARY_SOURCES
     tale/kernels/resource.cpp
     tale/kernels/trait.hpp
     tale/kernels/trait.cpp
+    tale/globals/interactionstore.hpp
+    tale/globals/interactionstore.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )
@@ -49,5 +51,10 @@ target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt )
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 
+add_custom_command(
+        TARGET ${EXECUTABLE_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+                ${CMAKE_CURRENT_SOURCE_DIR}/tale/resources
+                $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/tale/resources)
 
 target_link_libraries(${EXECUTABLE_NAME} ${LIBRARY_NAME})

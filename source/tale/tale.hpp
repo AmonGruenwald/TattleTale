@@ -9,6 +9,7 @@
 #include "tale/kernels/relationship.hpp"
 #include "tale/kernels/resource.hpp"
 #include "tale/kernels/trait.hpp"
+#include "tale/globals/interactionstore.hpp"
 #include "tale/actor.hpp"
 /**
  * @brief Responsible for the event generation of the TattleTale project.
