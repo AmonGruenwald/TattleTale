@@ -7,6 +7,7 @@ namespace tale
 {
     enum class RelationshipType
     {
+        kNone,
         kLove,
         kAttraction,
         kFriendship,
@@ -21,6 +22,8 @@ namespace tale
     {
     public:
         Relationship(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        static RelationshipType StringToRelationshipType(std::string relationship_string);
+        static std::string RelationshipTypeToString(RelationshipType relationship_type);
         std::string ToString();
     };
 
