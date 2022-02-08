@@ -6,17 +6,30 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTION\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tale/kernels/kernel.hpp"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{13     \{}
-\DoxyCodeLine{14     \textcolor{keyword}{public}:}
-\DoxyCodeLine{15         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}(std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{16         std::string ToString();}
-\DoxyCodeLine{17     \};}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTION\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/emotion.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/kernels/relationship.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/actor.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{15     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \textcolor{keywordtype}{size\_t} participant\_count\_;}
+\DoxyCodeLine{19         std::vector<std::weak\_ptr<Actor>> participants\_;}
+\DoxyCodeLine{20         std::vector<float> resource\_effects\_;}
+\DoxyCodeLine{21         std::vector<std::map<EmotionType, float>> emotion\_effects\_;}
+\DoxyCodeLine{22         \textcolor{comment}{// For each actor hold a map which maps to participants a map of relationship type value pais}}
+\DoxyCodeLine{23         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> relationship\_effects\_;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}(std::string name, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{26         std::string ToString();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{private}:}
+\DoxyCodeLine{29         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}();}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTION\_H}}
 
 \end{DoxyCode}

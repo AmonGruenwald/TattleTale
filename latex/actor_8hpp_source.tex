@@ -22,12 +22,13 @@
 \DoxyCodeLine{22         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}();}
 \DoxyCodeLine{23         std::string name\_;}
 \DoxyCodeLine{24         std::shared\_ptr<Goal> goal\_;}
-\DoxyCodeLine{25         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
-\DoxyCodeLine{26         std::vector<std::shared\_ptr<Trait>> traits\_;}
-\DoxyCodeLine{27         std::shared\_ptr<Resource> resource\_;}
-\DoxyCodeLine{28     \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{25         std::vector<std::shared\_ptr<Trait>> traits\_;}
+\DoxyCodeLine{26         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
+\DoxyCodeLine{27         std::map<std::weak\_ptr<Actor>, std::map<RelationshipType, std::shared\_ptr<Relationship>>> relationships\_;}
+\DoxyCodeLine{28         std::shared\_ptr<Resource> resource\_;}
+\DoxyCodeLine{29     \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}

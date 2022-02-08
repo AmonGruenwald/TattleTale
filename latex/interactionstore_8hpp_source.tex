@@ -1,0 +1,29 @@
+\hypertarget{interactionstore_8hpp_source}{}\doxysection{interactionstore.\+hpp}
+\label{interactionstore_8hpp_source}\index{tale/globals/interactionstore.hpp@{tale/globals/interactionstore.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/kernels/interaction.hpp"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15     \textcolor{keyword}{public}:}
+\DoxyCodeLine{16         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}();}
+\DoxyCodeLine{17         std::string GetRandomInteractionName();}
+\DoxyCodeLine{18         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} CloneInteraction();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{private}:}
+\DoxyCodeLine{21         std::map<std::string, Interaction> prototype\_catalogue\_;}
+\DoxyCodeLine{22         std::string prototype\_json\_path\_ = \textcolor{stringliteral}{"{}tale/resources/interactionprototypes.json"{}};}
+\DoxyCodeLine{23     \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+
+\end{DoxyCode}
