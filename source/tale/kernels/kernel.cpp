@@ -13,8 +13,13 @@ namespace tale
         number_ = current_number_;
         ++current_number_;
     }
+    Kernel::Kernel()
+    {
+        std::cout << "Kernel default constructor" << std::endl;
+    }
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
     {
         consequences_.push_back(consequence);
     }
+
 } // namespace tale

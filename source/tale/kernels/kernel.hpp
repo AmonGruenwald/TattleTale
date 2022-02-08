@@ -29,6 +29,15 @@ namespace tale
         Kernel(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
         void AddConsequence(std::weak_ptr<Kernel> consequence);
         virtual std::string ToString() = 0;
+
+    protected:
+        /**
+         * @brief Default constructor should generally not be callable.
+         *
+         * It only exists because some Prototypes shoule be able to create Kernels without increasing
+         * the number_ or giving reasons_.
+         */
+        Kernel();
     };
 
 } // namespace tale
