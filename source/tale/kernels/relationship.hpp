@@ -5,6 +5,14 @@
 
 namespace tale
 {
+    enum class RelationshipType
+    {
+        kLove,
+        kAttraction,
+        kFriendship,
+        kAnger,
+        kProtective
+    };
     /**
      * @brief Represents a Relationship an Actor has with another Actor
      *

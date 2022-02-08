@@ -6,7 +6,7 @@ namespace tale
 {
     Actor::Actor()
     {
-        // TOOD: Create random starting values for everything
+        // TOOD: Create random starting values for everything (including some random relationships)
         name_ = "John Doe";
         std::vector<std::weak_ptr<Kernel>> default_reasons;
         goal_ = std::shared_ptr<Goal>(new Goal("goal", default_reasons));
