@@ -5,11 +5,14 @@
 namespace tale
 {
     size_t Kernel::current_number_ = 0;
-    // TODO: Add day tracking once gameloop is implemented
-    Kernel::Kernel(std::string name, std::vector<std::weak_ptr<Kernel>> reasons)
+    Kernel::Kernel(
+        std::string name,
+        size_t tick,
+        std::vector<std::weak_ptr<Kernel>> reasons)
+        : name_(name),
+          tick_(tick),
+          reasons_(reasons)
     {
-        name_ = name;
-        reasons_ = reasons;
         number_ = current_number_;
         ++current_number_;
     }

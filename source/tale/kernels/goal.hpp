@@ -12,7 +12,7 @@ namespace tale
     class Goal : public Kernel
     {
     public:
-        Goal(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Goal(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

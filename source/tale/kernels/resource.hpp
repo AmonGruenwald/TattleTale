@@ -12,7 +12,7 @@ namespace tale
     class Resource : public Kernel
     {
     public:
-        Resource(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

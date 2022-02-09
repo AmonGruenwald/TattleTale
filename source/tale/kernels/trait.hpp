@@ -12,7 +12,7 @@ namespace tale
     class Trait : public Kernel
     {
     public:
-        Trait(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Trait(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
     };
 

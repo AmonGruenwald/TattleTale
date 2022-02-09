@@ -5,7 +5,22 @@
 
 namespace tale
 {
-    Interaction::Interaction(std::string name, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, reasons){};
+    Interaction::Interaction(
+        std::string name,
+        size_t tick,
+        std::vector<std::weak_ptr<Kernel>> reasons,
+        size_t participant_count,
+        std::vector<std::weak_ptr<Actor>> participants,
+        std::vector<float> resource_effects,
+        std::vector<std::map<EmotionType, float>> emotion_effects,
+        std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects)
+        : Kernel(name, tick, reasons),
+          participant_count_(participant_count),
+          participants_(participants),
+          resource_effects_(resource_effects),
+          emotion_effects_(emotion_effects),
+          relationship_effects_(relationship_effects){};
+
     Interaction::Interaction() : Kernel()
     {
         std::cout << "Interaction default constructor" << std::endl;

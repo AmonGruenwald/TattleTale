@@ -5,7 +5,7 @@
 
 namespace tale
 {
-    Relationship::Relationship(std::string name, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, reasons){};
+    Relationship::Relationship(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, tick, reasons){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {

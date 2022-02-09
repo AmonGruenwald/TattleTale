@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <memory>
 #include "tale/kernels/interaction.hpp"
 
 namespace tale
@@ -15,7 +16,8 @@ namespace tale
     public:
         InteractionStore();
         std::string GetRandomInteractionName();
-        Interaction CloneInteraction();
+        size_t GetParticipantCount(std::string interaction_name);
+        std::shared_ptr<Interaction> CreateInteraction(std::string interaction_name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
 
     private:
         std::map<std::string, Interaction> prototype_catalogue_;

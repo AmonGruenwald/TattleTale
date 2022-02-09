@@ -23,7 +23,7 @@ namespace tale
     class Emotion : public Kernel
     {
     public:
-        Emotion(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Emotion(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         static EmotionType StringToEmotionType(std::string emotion_string);
         static std::string EmotionTypeToString(EmotionType emotion_type);
         std::string ToString();

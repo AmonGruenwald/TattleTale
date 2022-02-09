@@ -26,7 +26,7 @@ namespace tale
         size_t number_;
         size_t tick_;
 
-        Kernel(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Kernel(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         void AddConsequence(std::weak_ptr<Kernel> consequence);
         virtual std::string ToString() = 0;
 

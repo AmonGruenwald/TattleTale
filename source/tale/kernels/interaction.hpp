@@ -22,7 +22,16 @@ namespace tale
         // For each actor hold a map which maps to participants a map of relationship type value pais
         std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects_;
 
-        Interaction(std::string name, std::vector<std::weak_ptr<Kernel>> reasons);
+        Interaction(
+            std::string name,
+            size_t tick,
+            std::vector<std::weak_ptr<Kernel>> reasons,
+            size_t participant_count,
+            std::vector<std::weak_ptr<Actor>> participants,
+            std::vector<float> resource_effects,
+            std::vector<std::map<EmotionType, float>> emotion_effects,
+            std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects);
+
         std::string ToString();
 
     private:
