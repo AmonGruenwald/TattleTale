@@ -68,12 +68,15 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classtale_1_1_interaction-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Interaction Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with another Actor.">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with another <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a>.  
+<p>Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>.  
  <a href="classtale_1_1_interaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="interaction_8hpp_source.html">tale/kernels/interaction.hpp</a>&gt;</code></p>
@@ -87,6 +90,42 @@ Inheritance diagram for tale::Interaction:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9995a181b7f3482b725266b4b8d01a3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#a9995a181b7f3482b725266b4b8d01a3e">Interaction</a> (std::string name, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t participant_count, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; participants, std::vector&lt; float &gt; resource_effects, std::vector&lt; std::map&lt; EmotionType, float &gt; &gt; emotion_effects, std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt; relationship_effects)</td></tr>
+<tr class="memdesc:a9995a181b7f3482b725266b4b8d01a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only publically available Constructor. Fills out every member variable.  <a href="classtale_1_1_interaction.html#a9995a181b7f3482b725266b4b8d01a3e">More...</a><br /></td></tr>
+<tr class="separator:a9995a181b7f3482b725266b4b8d01a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abace54ec1b4f7a207fb7f6d14added96"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#abace54ec1b4f7a207fb7f6d14added96">ToString</a> ()</td></tr>
+<tr class="memdesc:abace54ec1b4f7a207fb7f6d14added96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a string representation of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>.  <a href="classtale_1_1_interaction.html#abace54ec1b4f7a207fb7f6d14added96">More...</a><br /></td></tr>
+<tr class="separator:abace54ec1b4f7a207fb7f6d14added96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa2b930663cd47e41ddcb1c41ba5dc0c7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#aa2b930663cd47e41ddcb1c41ba5dc0c7">participant_count_</a></td></tr>
+<tr class="memdesc:aa2b930663cd47e41ddcb1c41ba5dc0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores how many <a class="el" href="classtale_1_1_actor.html">Actors </a> were involved.  <a href="classtale_1_1_interaction.html#aa2b930663cd47e41ddcb1c41ba5dc0c7">More...</a><br /></td></tr>
+<tr class="separator:aa2b930663cd47e41ddcb1c41ba5dc0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ed099c8cdb1b77ec5e25bfbcbe0f6a"><td class="memItemLeft" align="right" valign="top"><a id="a95ed099c8cdb1b77ec5e25bfbcbe0f6a" name="a95ed099c8cdb1b77ec5e25bfbcbe0f6a"></a>
+std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>participants_</b></td></tr>
+<tr class="memdesc:a95ed099c8cdb1b77ec5e25bfbcbe0f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores Pointers to the involved <a class="el" href="classtale_1_1_actor.html">Actors </a>. <br /></td></tr>
+<tr class="separator:a95ed099c8cdb1b77ec5e25bfbcbe0f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="memItemLeft" align="right" valign="top"><a id="a2148ceda13aeb1d56e4e965a5b42d72b" name="a2148ceda13aeb1d56e4e965a5b42d72b"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>resource_effects_</b></td></tr>
+<tr class="memdesc:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_resource.html">Resources </a>. <br /></td></tr>
+<tr class="separator:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab412693330f98c7d9ee9b7cd46986fa"><td class="memItemLeft" align="right" valign="top"><a id="aab412693330f98c7d9ee9b7cd46986fa" name="aab412693330f98c7d9ee9b7cd46986fa"></a>
+std::vector&lt; std::map&lt; EmotionType, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotion_effects_</b></td></tr>
+<tr class="memdesc:aab412693330f98c7d9ee9b7cd46986fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_emotion.html">Emotions </a>. <br /></td></tr>
+<tr class="separator:aab412693330f98c7d9ee9b7cd46986fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ac9643af2e5e00621a0a0f3861054e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#af3ac9643af2e5e00621a0a0f3861054e">relationship_effects_</a></td></tr>
+<tr class="memdesc:af3ac9643af2e5e00621a0a0f3861054e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>.  <a href="classtale_1_1_interaction.html#af3ac9643af2e5e00621a0a0f3861054e">More...</a><br /></td></tr>
+<tr class="separator:af3ac9643af2e5e00621a0a0f3861054e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ab6b336a4675ab63e42b3e1ade4383baa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#ab6b336a4675ab63e42b3e1ade4383baa">Interaction</a> ()</td></tr>
+<tr class="memdesc:ab6b336a4675ab63e42b3e1ade4383baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor should never be called.  <a href="classtale_1_1_interaction.html#ab6b336a4675ab63e42b3e1ade4383baa">More...</a><br /></td></tr>
+<tr class="separator:ab6b336a4675ab63e42b3e1ade4383baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classtale_1_1_kernel"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classtale_1_1_kernel')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtale_1_1_kernel.html">tale::Kernel</a></td></tr>
@@ -95,8 +134,171 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a7887405bbbc64ab91ecf82dbf01bdb34 inherit pro_methods_classtale_1_1_kernel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with another Actor.">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with another <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a>. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. </p>
+<p >Extends the <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9995a181b7f3482b725266b4b8d01a3e" name="a9995a181b7f3482b725266b4b8d01a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9995a181b7f3482b725266b4b8d01a3e">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tale::Interaction::Interaction </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>tick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>reasons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>participants</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
+          <td class="paramname"><em>resource_effects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::map&lt; EmotionType, float &gt; &gt;&#160;</td>
+          <td class="paramname"><em>emotion_effects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt;&#160;</td>
+          <td class="paramname"><em>relationship_effects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Only publically available Constructor. Fills out every member variable. </p>
+<p >Even though it is publically available, this probably should only be called from <a class="el" href="classtale_1_1_interaction_store.html" title="Stores Prototypes for all possible interactions.">InteractionStore</a>. It is only publically available because it might be needed for testing purposes. </p>
+
+</div>
+</div>
+<a id="ab6b336a4675ab63e42b3e1ade4383baa" name="ab6b336a4675ab63e42b3e1ade4383baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6b336a4675ab63e42b3e1ade4383baa">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tale::Interaction::Interaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor should never be called. </p>
+<p >This only exists so <a class="el" href="classtale_1_1_interaction_store.html" title="Stores Prototypes for all possible interactions.">InteractionStore</a> can create the prototypes. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abace54ec1b4f7a207fb7f6d14added96" name="abace54ec1b4f7a207fb7f6d14added96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abace54ec1b4f7a207fb7f6d14added96">&#9670;&nbsp;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tale::Interaction::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a string representation of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>String describing the status of the object </dd></dl>
+
+<p>Implements <a class="el" href="classtale_1_1_kernel.html">tale::Kernel</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa2b930663cd47e41ddcb1c41ba5dc0c7" name="aa2b930663cd47e41ddcb1c41ba5dc0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b930663cd47e41ddcb1c41ba5dc0c7">&#9670;&nbsp;</a></span>participant_count_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tale::Interaction::participant_count_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores how many <a class="el" href="classtale_1_1_actor.html">Actors </a> were involved. </p>
+<p >This is variable is only necessary because prototypes in <a class="el" href="classtale_1_1_interaction_store.html" title="Stores Prototypes for all possible interactions.">InteractionStore</a> cannot yet hold actual <a class="el" href="classtale_1_1_actor.html">Actors </a>, but need to store how many are needed. </p>
+
+</div>
+</div>
+<a id="af3ac9643af2e5e00621a0a0f3861054e" name="af3ac9643af2e5e00621a0a0f3861054e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ac9643af2e5e00621a0a0f3861054e">&#9670;&nbsp;</a></span>relationship_effects_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::map&lt;size_t, std::map&lt;RelationshipType, float&gt; &gt; &gt; tale::Interaction::relationship_effects_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>. </p>
+<p >For each <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs. Those pairs signal how much each <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> axis would be changed. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>tale/kernels/<a class="el" href="interaction_8hpp_source.html">interaction.hpp</a></li>
 <li>tale/kernels/interaction.cpp</li>
 </ul>

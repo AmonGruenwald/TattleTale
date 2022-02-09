@@ -9,10 +9,156 @@ Stores Prototypes for all possible interactions.
 
 {\ttfamily \#include $<$tale/globals/interactionstore.\+hpp$>$}
 
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}{Interaction\+Store}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor populates catalogue. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}{Get\+Random\+Interaction\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Returns a random interaction name from the catalogue. \end{DoxyCompactList}\item 
+const size\+\_\+t \& \mbox{\hyperlink{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}{Get\+Participant\+Count}} (std\+::string interaction\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Returns the participation count for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_ac5d8ddc5b1427db9ab8e181a0bbd16d2}{Get\+Resource\+Effects}} (std\+::string interaction\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Returns the resource effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a3e784024ba951c8f1a868822001c96ad}{Get\+Emotion\+Effects}} (std\+::string interaction\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}{Get\+Relationship\+Effects}} (std\+::string interaction\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}{Create\+Interaction}} (std\+::string interaction\+\_\+name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
+\begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued prototype. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}\label{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}\label{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}} 
+std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = \char`\"{}tale/resources/interactionprototypes.\+json\char`\"{}
+\begin{DoxyCompactList}\small\item\em Path to the json file where \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes are defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Stores Prototypes for all possible interactions. 
+
+An \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} options for each situation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}\label{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!InteractionStore@{InteractionStore}}
+\index{InteractionStore@{InteractionStore}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{InteractionStore()}{InteractionStore()}}
+{\footnotesize\ttfamily tale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor populates catalogue. 
+
+Reads from tale/resources/interactionprototypes.\+json to get the data to build up the interaction catalogue. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}\label{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!CreateInteraction@{CreateInteraction}}
+\index{CreateInteraction@{CreateInteraction}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ tale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{std\+::string}]{interaction\+\_\+name,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
+
+
+
+Creates an interaction from a catalogued prototype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+\_\+name} & Name of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototype that should be used as a template \\
+\hline
+{\em tick} & Tick this interaction was created \\
+\hline
+{\em participants} & Vectors holding every \mbox{\hyperlink{classtale_1_1_actor}{Actor}} that was involved in the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} This is the only way an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} should be created. This ensures that the member variables of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} is properly populated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a3e784024ba951c8f1a868822001c96ad}\label{classtale_1_1_interaction_store_a3e784024ba951c8f1a868822001c96ad}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetEmotionEffects@{GetEmotionEffects}}
+\index{GetEmotionEffects@{GetEmotionEffects}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetEmotionEffects()}{GetEmotionEffects()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Emotion\+Effects (\begin{DoxyParamCaption}\item[{std\+::string}]{interaction\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Returns the emotion effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+\_\+name} & Name of the queried \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototype Should only really be needed for testing purposes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The emotion effects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}\label{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetParticipantCount@{GetParticipantCount}}
+\index{GetParticipantCount@{GetParticipantCount}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetParticipantCount()}{GetParticipantCount()}}
+{\footnotesize\ttfamily const size\+\_\+t \& tale\+::\+Interaction\+Store\+::\+Get\+Participant\+Count (\begin{DoxyParamCaption}\item[{std\+::string}]{interaction\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Returns the participation count for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. 
+
+Participation count is needed to know how many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} are necessary for creation of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. This Will fail if the name is invalid. \begin{DoxyReturn}{Returns}
+The participation count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}\label{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetRandomInteractionName@{GetRandomInteractionName}}
+\index{GetRandomInteractionName@{GetRandomInteractionName}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetRandomInteractionName()}{GetRandomInteractionName()}}
+{\footnotesize\ttfamily std\+::string tale\+::\+Interaction\+Store\+::\+Get\+Random\+Interaction\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a random interaction name from the catalogue. 
+
+\begin{DoxyReturn}{Returns}
+A random \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}\label{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetRelationshipEffects@{GetRelationshipEffects}}
+\index{GetRelationshipEffects@{GetRelationshipEffects}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetRelationshipEffects()}{GetRelationshipEffects()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Relationship\+Effects (\begin{DoxyParamCaption}\item[{std\+::string}]{interaction\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Returns the relationship effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+\_\+name} & Name of the queried \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototype Should only really be needed for testing purposes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The relationship effects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_ac5d8ddc5b1427db9ab8e181a0bbd16d2}\label{classtale_1_1_interaction_store_ac5d8ddc5b1427db9ab8e181a0bbd16d2}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetResourceEffects@{GetResourceEffects}}
+\index{GetResourceEffects@{GetResourceEffects}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetResourceEffects()}{GetResourceEffects()}}
+{\footnotesize\ttfamily const std\+::vector$<$ float $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Resource\+Effects (\begin{DoxyParamCaption}\item[{std\+::string}]{interaction\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Returns the resource effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+\_\+name} & Name of the queried \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototype Should only really be needed for testing purposes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resource effects 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

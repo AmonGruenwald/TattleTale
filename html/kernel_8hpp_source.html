@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">size_t</span> number_;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">size_t</span> tick_;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_function" href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">Kernel</a>(std::string name, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <a class="code hl_function" href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">Kernel</a>(std::string name, <span class="keywordtype">size_t</span> tick, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">void</span> AddConsequence(std::weak_ptr&lt;Kernel&gt; consequence);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">virtual</span> std::string ToString() = 0;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
@@ -101,7 +101,7 @@ $(function() {
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <span class="comment">// namespace tale</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">// TALE_KERNEL_H</span></div>
 <div class="ttc" id="aclasstale_1_1_kernel_html"><div class="ttname"><a href="classtale_1_1_kernel.html">tale::Kernel</a></div><div class="ttdoc">Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...</div><div class="ttdef"><b>Definition:</b> kernel.hpp:19</div></div>
-<div class="ttc" id="aclasstale_1_1_kernel_html_a7887405bbbc64ab91ecf82dbf01bdb34"><div class="ttname"><a href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">tale::Kernel::Kernel</a></div><div class="ttdeci">Kernel()</div><div class="ttdoc">Default constructor should generally not be callable.</div><div class="ttdef"><b>Definition:</b> kernel.cpp:16</div></div>
+<div class="ttc" id="aclasstale_1_1_kernel_html_a7887405bbbc64ab91ecf82dbf01bdb34"><div class="ttname"><a href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">tale::Kernel::Kernel</a></div><div class="ttdeci">Kernel()</div><div class="ttdoc">Default constructor should generally not be callable.</div><div class="ttdef"><b>Definition:</b> kernel.cpp:19</div></div>
 <div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project. For now it just contains two basic fu...</div><div class="ttdef"><b>Definition:</b> actor.cpp:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

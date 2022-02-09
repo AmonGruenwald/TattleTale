@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['relationship_0',['Relationship',['../classtale_1_1_relationship.html',1,'tale']]],
-  ['resource_1',['Resource',['../classtale_1_1_resource.html',1,'tale']]]
+  ['kernel_0',['Kernel',['../classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34',1,'tale::Kernel::Kernel()'],['../classtale_1_1_kernel.html',1,'tale::Kernel']]]
 ];

@@ -12,25 +12,36 @@
 \DoxyCodeLine{8 }
 \DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
 \DoxyCodeLine{10 \{}
-\DoxyCodeLine{15     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{16     \{}
-\DoxyCodeLine{17     \textcolor{keyword}{public}:}
-\DoxyCodeLine{18         \textcolor{keywordtype}{size\_t} participant\_count\_;}
-\DoxyCodeLine{19         std::vector<std::weak\_ptr<Actor>> participants\_;}
-\DoxyCodeLine{20         std::vector<float> resource\_effects\_;}
-\DoxyCodeLine{21         std::vector<std::map<EmotionType, float>> emotion\_effects\_;}
-\DoxyCodeLine{22         \textcolor{comment}{// For each actor hold a map which maps to participants a map of relationship type value pais}}
-\DoxyCodeLine{23         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> relationship\_effects\_;}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}(std::string name, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{26         std::string ToString();}
+\DoxyCodeLine{17     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19     \textcolor{keyword}{public}:}
+\DoxyCodeLine{26         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_interaction_aa2b930663cd47e41ddcb1c41ba5dc0c7}{participant\_count\_}};}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keyword}{private}:}
-\DoxyCodeLine{29         \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}();}
-\DoxyCodeLine{30         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}};}
-\DoxyCodeLine{31     \};}
+\DoxyCodeLine{31         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}{participants\_}};}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{33 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTION\_H}}
+\DoxyCodeLine{36         std::vector<float> \mbox{\hyperlink{classtale_1_1_interaction_a2148ceda13aeb1d56e4e965a5b42d72b}{resource\_effects\_}};}
+\DoxyCodeLine{40         std::vector<std::map<EmotionType, float>> \mbox{\hyperlink{classtale_1_1_interaction_aab412693330f98c7d9ee9b7cd46986fa}{emotion\_effects\_}};}
+\DoxyCodeLine{48         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \mbox{\hyperlink{classtale_1_1_interaction_af3ac9643af2e5e00621a0a0f3861054e}{relationship\_effects\_}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56         \mbox{\hyperlink{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}{Interaction}}(}
+\DoxyCodeLine{57             std::string name,}
+\DoxyCodeLine{58             \textcolor{keywordtype}{size\_t} tick,}
+\DoxyCodeLine{59             std::vector<std::weak\_ptr<Kernel>> reasons,}
+\DoxyCodeLine{60             \textcolor{keywordtype}{size\_t} participant\_count,}
+\DoxyCodeLine{61             std::vector<std::weak\_ptr<Actor>> participants,}
+\DoxyCodeLine{62             std::vector<float> resource\_effects,}
+\DoxyCodeLine{63             std::vector<std::map<EmotionType, float>> emotion\_effects,}
+\DoxyCodeLine{64             std::vector<std::map<\textcolor{keywordtype}{size\_t}, std::map<RelationshipType, float>>> relationship\_effects);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71         std::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{ToString}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{private}:}
+\DoxyCodeLine{79         \mbox{\hyperlink{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}{Interaction}}();}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}};}
+\DoxyCodeLine{82     \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTION\_H}}
 
 \end{DoxyCode}
