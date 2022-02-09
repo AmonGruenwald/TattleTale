@@ -85,10 +85,26 @@ namespace tale
         // TODO: use random value
         return keys[0];
     }
-    size_t InteractionStore::GetParticipantCount(std::string interaction_name)
+    const size_t &InteractionStore::GetParticipantCount(std::string interaction_name)
     {
         assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
         return prototype_catalogue_.at(interaction_name).participant_count_;
+    }
+    const std::vector<float> &InteractionStore::GetResourceEffects(std::string interaction_name)
+    {
+        assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
+        return prototype_catalogue_.at(interaction_name).resource_effects_;
+    }
+
+    const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(std::string interaction_name)
+    {
+        assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
+        return prototype_catalogue_.at(interaction_name).emotion_effects_;
+    }
+    const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(std::string interaction_name)
+    {
+        assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
+        return prototype_catalogue_.at(interaction_name).relationship_effects_;
     }
     std::shared_ptr<Interaction> InteractionStore::CreateInteraction(std::string interaction_name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
