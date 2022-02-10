@@ -33,12 +33,15 @@ namespace tale
         for (auto &course : courses_)
         {
             uint16_t group_used = 0;
-            std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, 30);
+            std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, actors_per_class);
             while (!course.AllSlotsFilled())
             {
-                if (group_used == 4)
+
+                // TODO: add as a parameter
+                uint16_t same_course_per_week = 4;
+                if (group_used == same_course_per_week)
                 {
-                    course_group = FindRandomCourseGroup(course.id_, 30);
+                    course_group = FindRandomCourseGroup(course.id_, actors_per_class);
                     group_used = 0;
                 }
                 ++group_used;
