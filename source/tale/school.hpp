@@ -5,6 +5,7 @@
 #include <vector>
 #include "tale/course.hpp"
 #include "tale/actor.hpp"
+#include "tale/globals/random.hpp"
 
 namespace tale
 {
@@ -14,11 +15,12 @@ namespace tale
     class School
     {
     public:
-        School(size_t actor_count);
+        School(Random &random, size_t actor_count);
 
     private:
         std::vector<Course> courses_;
         std::vector<std::shared_ptr<Actor>> actors_;
+        Random &random_;
     };
 
 } // namespace tale

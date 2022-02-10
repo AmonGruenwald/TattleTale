@@ -1,9 +1,10 @@
 #include <algorithm>
+#include <iostream>
 #include "tale/school.hpp"
 
 namespace tale
 {
-    School::School(size_t actor_count)
+    School::School(Random &random, size_t actor_count) : random_(random)
     {
         for (size_t i = 0; i < actor_count; ++i)
         {
