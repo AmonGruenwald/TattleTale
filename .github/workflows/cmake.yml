@@ -48,6 +48,7 @@ jobs:
       run: cd ${{github.workspace}}/build/test && ctest -C ${{env.BUILD_TYPE}}
       
     - name: 📜 Archive Test Logs
+      if: failure()
       uses: actions/upload-artifact@v2
       with:
         name: LastTest_${{ matrix.os-settings.name }}
