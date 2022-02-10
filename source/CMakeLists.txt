@@ -3,6 +3,10 @@ set(LIBRARY_SOURCES
     tale/tale.cpp 
     tale/actor.hpp
     tale/actor.cpp
+    tale/school.hpp
+    tale/school.cpp
+    tale/course.hpp
+    tale/course.cpp
     tale/kernels/kernel.hpp
     tale/kernels/kernel.cpp
     tale/kernels/action.hpp
