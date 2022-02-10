@@ -1,0 +1,32 @@
+\hypertarget{course_8hpp_source}{}\doxysection{course.\+hpp}
+\label{course_8hpp_source}\index{tale/course.hpp@{tale/course.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_COURSE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_COURSE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/actor.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{14     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_course}{Course}}}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17         \textcolor{keyword}{const} std::string name\_;}
+\DoxyCodeLine{18         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} id\_;}
+\DoxyCodeLine{19         \mbox{\hyperlink{classtale_1_1_course}{Course}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string name\_);}
+\DoxyCodeLine{20         \textcolor{keywordtype}{bool} AllSlotsFilled();}
+\DoxyCodeLine{21         \textcolor{keywordtype}{int} AddToRandomEmptySlot(std::vector<std::weak\_ptr<Actor>> actors);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{private}:}
+\DoxyCodeLine{24         std::vector<std::vector<std::weak\_ptr<Actor>>> slots\_;}
+\DoxyCodeLine{25         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{26     \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_COURSE\_H}}
+
+\end{DoxyCode}

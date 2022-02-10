@@ -64,13 +64,12 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle"><div class="title">tale Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Responsible for the event generation of the TattleTale project. For now it just contains two basic functions for testing purposes.  
+<p>Responsible for the event generation of the TattleTale project.  
 <a href="namespacetale.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -80,6 +79,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html">Actor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one person in the simulation. An actor has to act accordingly to their internal state. So this class needs to contain everything neccessary.  <a href="classtale_1_1_actor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html">Course</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtale_1_1_course.html" title="Course managing actors.">Course</a> managing actors.  <a href="classtale_1_1_course.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_emotion.html">Emotion</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the Emotions an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> has.  <a href="classtale_1_1_emotion.html#details">More...</a><br /></td></tr>
@@ -96,69 +98,24 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_kernel.html">Kernel</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> and storing on which tick the <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> was created.  <a href="classtale_1_1_kernel.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_random.html">Random</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_relationship.html">Relationship</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> has with another <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a>.  <a href="classtale_1_1_relationship.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html">Resource</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the abstract Resources an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> has.  <a href="classtale_1_1_resource.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html">School</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtale_1_1_school.html" title="School managing actors and courses.">School</a> managing actors and courses.  <a href="classtale_1_1_school.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_trait.html">Trait</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the Traits an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> has.  <a href="classtale_1_1_trait.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a61003a6965804dedf7d8dfba36b053b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html#a61003a6965804dedf7d8dfba36b053b4">TalePrintExample</a> ()</td></tr>
-<tr class="memdesc:a61003a6965804dedf7d8dfba36b053b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints "Tale".  <a href="namespacetale.html#a61003a6965804dedf7d8dfba36b053b4">More...</a><br /></td></tr>
-<tr class="separator:a61003a6965804dedf7d8dfba36b053b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3de93d8c61a0f80e11ccb19244d8e7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html#ab3de93d8c61a0f80e11ccb19244d8e7c">TaleIntExample</a> ()</td></tr>
-<tr class="memdesc:ab3de93d8c61a0f80e11ccb19244d8e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns 1.  <a href="namespacetale.html#ab3de93d8c61a0f80e11ccb19244d8e7c">More...</a><br /></td></tr>
-<tr class="separator:ab3de93d8c61a0f80e11ccb19244d8e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Responsible for the event generation of the TattleTale project. For now it just contains two basic functions for testing purposes. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab3de93d8c61a0f80e11ccb19244d8e7c" name="ab3de93d8c61a0f80e11ccb19244d8e7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3de93d8c61a0f80e11ccb19244d8e7c">&#9670;&nbsp;</a></span>TaleIntExample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int tale::TaleIntExample </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns 1. </p>
-<p >Literally always just returns 1. </p><dl class="section return"><dt>Returns</dt><dd>The integer 1. </dd></dl>
-
-</div>
-</div>
-<a id="a61003a6965804dedf7d8dfba36b053b4" name="a61003a6965804dedf7d8dfba36b053b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61003a6965804dedf7d8dfba36b053b4">&#9670;&nbsp;</a></span>TalePrintExample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tale::TalePrintExample </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints "Tale". </p>
-<p >Literally just prints "Tale". </p>
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p >Responsible for the event generation of the TattleTale project. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3

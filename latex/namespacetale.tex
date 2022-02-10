@@ -2,7 +2,7 @@
 \label{namespacetale}\index{tale@{tale}}
 
 
-Responsible for the event generation of the Tattle\+Tale project. For now it just contains two basic functions for testing purposes.  
+Responsible for the event generation of the Tattle\+Tale project.  
 
 
 \doxysubsection*{Classes}
@@ -12,6 +12,8 @@ class \mbox{\hyperlink{classtale_1_1_action}{Action}}
 \begin{DoxyCompactList}\small\item\em Represents an \mbox{\hyperlink{classtale_1_1_action}{Action}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} took that did not involve other Actors. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_actor}{Actor}}
 \begin{DoxyCompactList}\small\item\em Represents one person in the simulation. An actor has to act accordingly to their internal state. So this class needs to contain everything neccessary. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_course}{Course}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtale_1_1_course}{Course}} managing actors. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}}
 \begin{DoxyCompactList}\small\item\em Represents the Emotions an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_goal}{Goal}}
@@ -22,46 +24,17 @@ class \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}}
 \begin{DoxyCompactList}\small\item\em Stores Prototypes for all possible interactions. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}
 \begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} was created. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_random}{Random}}
+\item 
 class \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}}
 \begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has with another \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_resource}{Resource}}
 \begin{DoxyCompactList}\small\item\em Represents the abstract Resources an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtale_1_1_school}{School}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtale_1_1_school}{School}} managing actors and courses. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_trait}{Trait}}
 \begin{DoxyCompactList}\small\item\em Represents the Traits an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{namespacetale_a61003a6965804dedf7d8dfba36b053b4}{Tale\+Print\+Example}} ()
-\begin{DoxyCompactList}\small\item\em Prints \char`\"{}\+Tale\char`\"{}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{namespacetale_ab3de93d8c61a0f80e11ccb19244d8e7c}{Tale\+Int\+Example}} ()
-\begin{DoxyCompactList}\small\item\em Returns 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Responsible for the event generation of the Tattle\+Tale project. For now it just contains two basic functions for testing purposes. 
-
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacetale_ab3de93d8c61a0f80e11ccb19244d8e7c}\label{namespacetale_ab3de93d8c61a0f80e11ccb19244d8e7c}} 
-\index{tale@{tale}!TaleIntExample@{TaleIntExample}}
-\index{TaleIntExample@{TaleIntExample}!tale@{tale}}
-\doxysubsubsection{\texorpdfstring{TaleIntExample()}{TaleIntExample()}}
-{\footnotesize\ttfamily int tale\+::\+Tale\+Int\+Example (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Returns 1. 
-
-Literally always just returns 1. \begin{DoxyReturn}{Returns}
-The integer 1. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{namespacetale_a61003a6965804dedf7d8dfba36b053b4}\label{namespacetale_a61003a6965804dedf7d8dfba36b053b4}} 
-\index{tale@{tale}!TalePrintExample@{TalePrintExample}}
-\index{TalePrintExample@{TalePrintExample}!tale@{tale}}
-\doxysubsubsection{\texorpdfstring{TalePrintExample()}{TalePrintExample()}}
-{\footnotesize\ttfamily void tale\+::\+Tale\+Print\+Example (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Prints \char`\"{}\+Tale\char`\"{}. 
-
-Literally just prints \char`\"{}\+Tale\char`\"{}. 
+Responsible for the event generation of the Tattle\+Tale project. 
