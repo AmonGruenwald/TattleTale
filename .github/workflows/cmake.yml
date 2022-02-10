@@ -16,9 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-settings: [{os: ubuntu-latest, name: linux, binary_path: /build/source/TattleTale}
-        ,{os: macos-latest,name: mac, binary_path: /build/source/TattleTale}
-        ,{os: windows-latest,name: windows, binary_path: /build/source/Release/TattleTale.exe}]
+        os-settings: [{os: ubuntu-latest, name: linux, binary_path: /build/source/TattleTale, test_binary_directory: /build/test}
+        ,{os: macos-latest,name: mac, binary_path: /build/source/TattleTale, test_binary_directory: /build/test}
+        ,{os: windows-latest,name: windows, binary_path: /build/source/Release/TattleTale.exe, test_binary_directory: /build/test/Release}]
 
     runs-on: ${{ matrix.os-settings.os }}
 
@@ -39,10 +39,10 @@ jobs:
       with:
         name: TattleTale_${{ matrix.os-settings.name }}
         path: |
-          ${{ github.workspace }}${{ matrix.os-settings.binary_path }}
+          ${{ github.workspace }}${{ matrix.os-settings.test_binary_directory }}
     
     - name: 💣 Test
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}${{ matrix.os-settings.binary_path }}
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: cd ${{github.workspace}}/build/test && ctest -C ${{env.BUILD_TYPE}}
