@@ -1,4 +1,4 @@
-/// @file tale.hpp For now just provides two basic functions for testing purposes.
+/// @file tale.hpp Collects everything that is necessary so user only have to include this one file.
 #ifndef TALE_TALE_H
 #define TALE_TALE_H
 #include "tale/kernels/kernel.hpp"
@@ -13,23 +13,10 @@
 #include "tale/actor.hpp"
 /**
  * @brief Responsible for the event generation of the TattleTale project.
- * For now it just contains two basic functions for testing purposes.
  */
 namespace tale
 {
-    /**
-     * @brief Prints "Tale".
-     *
-     * Literally just prints "Tale".
-     */
-    void TalePrintExample();
-
-    /**
-     * @brief Returns 1.
-     *
-     * Literally always just returns 1.
-     * @return The integer 1.
-     */
-    int TaleIntExample();
+    // TODO: should return events and needs to be parameterizable
+    void Run();
 } // namespace tale
 #endif // TALE_TALE_H

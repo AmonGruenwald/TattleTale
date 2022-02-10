@@ -3,8 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    tale::InteractionStore store;
+    tale::Run();
     tattle::TattlePrintExample();
-    tale::TalePrintExample();
     return 0; // optional return value
 }

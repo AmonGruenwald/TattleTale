@@ -4,12 +4,11 @@
 
 namespace tale
 {
-    void TalePrintExample()
+
+    void Run()
     {
-        std::cout << "Tale";
+        std::cout << "TALE STARTED" << std::endl;
+        std::cout << "INITIALIZING INTERACTION STORE" << std::endl;
+        InteractionStore interaction_store;
     }
-    int TaleIntExample()
-    {
-        return 1;
-    }
-} //namespace tale
+} // namespace tale
