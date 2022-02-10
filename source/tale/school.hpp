@@ -18,6 +18,7 @@ namespace tale
         School(Random &random, size_t actor_count);
 
     private:
+        std::vector<std::weak_ptr<Actor>> FindRandomCourseGroup(size_t course_id, size_t actor_count);
         std::vector<Course> courses_;
         std::vector<std::shared_ptr<Actor>> actors_;
         Random &random_;

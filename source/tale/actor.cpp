@@ -1,6 +1,8 @@
 #include "tale/actor.hpp"
 
 #include <iostream>
+#include <assert.h>
+#include <algorithm>
 
 namespace tale
 {
@@ -35,5 +37,16 @@ namespace tale
         };
         traits_.push_back(std::shared_ptr<Trait>(new Trait("trait", tick, default_reasons)));
         resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, default_reasons));
+    }
+
+    bool Actor::IsEnrolledInCourse(size_t course_id)
+    {
+        return std::count(enrolled_courses_id_.begin(), enrolled_courses_id_.end(), course_id);
+    }
+
+    void Actor::EnrollInCourse(size_t course_id)
+    {
+        assert(!IsEnrolledInCourse(course_id));
+        enrolled_courses_id_.push_back(course_id);
     }
 } // namespace tale

@@ -20,12 +20,17 @@ namespace tale
     {
     public:
         Actor();
+        bool IsEnrolledInCourse(size_t course_id);
+        void EnrollInCourse(size_t course_id);
         std::string name_;
         std::shared_ptr<Goal> goal_;
         std::vector<std::shared_ptr<Trait>> traits_;
         std::map<EmotionType, std::shared_ptr<Emotion>> emotions_;
         std::map<std::weak_ptr<Actor>, std::map<RelationshipType, std::shared_ptr<Relationship>>> relationships_;
         std::shared_ptr<Resource> resource_;
+
+    private:
+        std::vector<size_t> enrolled_courses_id_;
     };
 
 } // namespace tale
