@@ -25,6 +25,8 @@ set(LIBRARY_SOURCES
     tale/kernels/trait.cpp
     tale/globals/interactionstore.hpp
     tale/globals/interactionstore.cpp
+    tale/globals/random.cpp
+    tale/globals/random.hpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )
