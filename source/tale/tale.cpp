@@ -14,5 +14,8 @@ namespace tale
         InteractionStore interaction_store;
         std::cout << "SETTING UP SCHOOL" << std::endl;
         School school(random, 300);
+
+        size_t days_to_simulate = 30;
+        school.SimulateDays(days_to_simulate);
     }
 } // namespace tale

@@ -9,6 +9,18 @@
 
 namespace tale
 {
+    enum class Weekday
+    {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    };
+    static const char *weekday_string[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
     /**
      * @brief School managing actors and courses
      */
@@ -16,12 +28,20 @@ namespace tale
     {
     public:
         School(Random &random, size_t actor_count);
+        void SimulateDays(size_t days);
 
     private:
+        void SimulateDay(size_t day, Weekday weekday);
+        void FreeTimeTick();
+        bool IsWorkday(Weekday weekday);
+        size_t WeekdayTickToSlot(Weekday weekday, size_t tick);
         std::vector<std::weak_ptr<Actor>> FindRandomCourseGroup(size_t course_id, size_t actor_count);
         std::vector<Course> courses_;
         std::vector<std::shared_ptr<Actor>> actors_;
         Random &random_;
+        size_t current_tick = 0;
+        size_t current_day_ = 0;
+        Weekday current_weekday_ = Weekday::Monday;
     };
 
 } // namespace tale

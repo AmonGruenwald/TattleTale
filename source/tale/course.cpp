@@ -1,3 +1,4 @@
+#include <iostream>
 #include "tale/course.hpp"
 
 namespace tale
@@ -5,11 +6,16 @@ namespace tale
     Course::Course(Random &random, size_t id, std::string name) : id_(id), name_(name), random_(random)
     {
         // TODO: add as a parameter depenend on amount of courses per day
-        size_t slot_count = 30;
+        size_t courses_per_day = 6;
+        size_t slot_count = courses_per_day * 5;
         for (size_t i = 0; i < slot_count; ++i)
         {
             slots_.push_back(std::vector<std::weak_ptr<Actor>>());
         }
+    }
+    void Course::TickSlot(size_t slot)
+    {
+        std::cout << "TICKING SLOT " << slot << " OF COURSE " << id_ << std::endl;
     }
 
     bool Course::AllSlotsFilled()

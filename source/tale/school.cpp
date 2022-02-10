@@ -60,6 +60,63 @@ namespace tale
         }
     }
 
+    void School::SimulateDays(size_t days)
+    {
+        for (size_t i = 0; i < days; ++i)
+        {
+            SimulateDay(current_day_, current_weekday_);
+            ++current_day_;
+            current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
+        }
+    }
+
+    void School::SimulateDay(size_t day, Weekday weekday)
+    {
+        // TODO: add as parameter
+        size_t courses_per_day = 6;
+        std::cout << "SIMULATING DAY " << day << " WHICH IS A " << weekday_string[static_cast<int>(weekday)] << std::endl;
+        if (IsWorkday(weekday))
+        {
+            for (size_t i = 0; i < courses_per_day; ++i)
+            {
+                size_t slot = WeekdayTickToSlot(weekday, i);
+                for (auto &course : courses_)
+                {
+                    course.TickSlot(slot);
+                }
+                ++current_tick;
+            }
+            FreeTimeTick();
+        }
+        else
+        {
+            for (size_t i = 0; i < courses_per_day + 1; ++i)
+            {
+                FreeTimeTick();
+            }
+        }
+    }
+    void School::FreeTimeTick()
+    {
+        std::cout << "FREETIME TICK " << std::endl;
+        ++current_tick;
+    }
+    bool School::IsWorkday(Weekday weekday)
+    {
+        if (weekday == Weekday::Saturday || weekday == Weekday::Sunday)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    size_t School::WeekdayTickToSlot(Weekday weekday, size_t tick)
+    {
+        // TODO: add as parameter
+        size_t courses_per_day = 6;
+        return static_cast<size_t>(weekday) * courses_per_day + tick;
+    }
+
     std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, size_t actor_count)
     {
         std::vector<std::weak_ptr<Actor>> course_group;
