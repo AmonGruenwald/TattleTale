@@ -23,4 +23,4 @@ target_link_libraries(${TEST_EXECUTABLE_NAME} ${LIBRARY_NAME} gtest_main)
 
 
 include(GoogleTest)
-gtest_discover_tests(${TEST_EXECUTABLE_NAME})
+gtest_discover_tests(${TEST_EXECUTABLE_NAME} WORKING_DIRECTORY $<TARGET_FILE_DIR:${TEST_EXECUTABLE_NAME}>)
