@@ -8,7 +8,7 @@ namespace tale
     {
         for (size_t i = 0; i < setting_.actor_count; ++i)
         {
-            std::shared_ptr<Actor> actor(new Actor());
+            std::shared_ptr<Actor> actor(new Actor(random, setting));
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
         }
@@ -19,36 +19,42 @@ namespace tale
             Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
         }
-        // Pseudocode:
-        //  for course in all courses (min 8)
-        //      until all 30 slot are filled
-        //          get 30 random actors (check if they are still free and dont have this course)
-        //          assign to 4 random slots
 
         for (auto &course : courses_)
         {
-            uint16_t group_used = 0;
-            std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, setting_.actors_per_course);
-            while (!course.AllSlotsFilled())
+            std::vector<uint32_t> random_slot_order;
+            size_t slot_count_per_week = setting_.slot_count_per_week();
+            while (random_slot_order.size() < slot_count_per_week)
             {
-                if (group_used == setting_.same_course_per_week)
+                uint32_t random_slot = random_.GetUInt(0, slot_count_per_week - 1);
+                while (std::count(random_slot_order.begin(), random_slot_order.end(), random_slot))
                 {
-                    course_group = FindRandomCourseGroup(course.id_, setting_.actors_per_course);
-                    group_used = 0;
+                    random_slot += 1;
+                    random_slot %= slot_count_per_week;
                 }
-                ++group_used;
-                uint32_t slot = course.AddToRandomEmptySlot(course_group);
-                if (slot == -1)
-                {
-                    break;
-                }
-                std::cout << "Slot " << slot << " of course " << course.id_ << " filled with " << course_group.size() << " actors: ";
-                for (auto &actor : course_group)
-                {
-                    std::cout << actor.lock()->name_;
-                }
-                std::cout << std::endl;
+                random_slot_order.push_back(random_slot);
             }
+
+            size_t slot_index = 0;
+            while (slot_index < random_slot_order.size())
+            {
+                std::vector<uint32_t> slots;
+                for (size_t i = 0; i < setting_.same_course_per_week && slot_index < random_slot_order.size(); ++i)
+                {
+                    slots.push_back(random_slot_order[slot_index]);
+                    ++slot_index;
+                }
+                std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, slots);
+
+                for (size_t i = 0; i < slots.size(); ++i)
+                {
+                    course.AddToSlot(course_group, slots[i]);
+                }
+            }
+        }
+        for (auto &actor : actors_)
+        {
+            std::cout << actor->name_ << "is enrolled in " << actor->GetFilledSlotsCount() << " Courses." << std::endl;
         }
     }
 
@@ -61,7 +67,6 @@ namespace tale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
     }
-
     void School::SimulateDay(size_t day, Weekday weekday)
     {
         std::cout << "SIMULATING DAY " << day << " WHICH IS A " << weekday_string[static_cast<int>(weekday)] << std::endl;
@@ -88,10 +93,10 @@ namespace tale
     }
     void School::FreeTimeTick()
     {
-        std::cout << "FREETIME TICK " << std::endl;
+        // std::cout << "FREETIME TICK " << std::endl;
         ++current_tick;
     }
-    bool School::IsWorkday(Weekday weekday)
+    bool School::IsWorkday(Weekday weekday) const
     {
         if (weekday == Weekday::Saturday || weekday == Weekday::Sunday)
         {
@@ -100,21 +105,34 @@ namespace tale
         return true;
     }
 
-    size_t School::WeekdayAndDailyTickToSlot(Weekday weekday, size_t tick)
+    bool School::ActorIsInCourseGroup(const std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &course_group) const
+    {
+        for (auto &actor_in_course_group : course_group)
+        {
+            if (actor_in_course_group.lock() == actor)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    size_t School::WeekdayAndDailyTickToSlot(Weekday weekday, size_t tick) const
     {
         return static_cast<size_t>(weekday) * setting_.courses_per_day + tick;
     }
 
-    std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, size_t actor_count)
+    std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
     {
         std::vector<std::weak_ptr<Actor>> course_group;
         size_t current_try = 0;
-        while (course_group.size() < actor_count && current_try < actor_count)
+        while (course_group.size() < setting_.actor_count && current_try < setting_.actor_count)
         {
             size_t random_actor_index = random_.GetUInt(0, actors_.size() - 1);
 
             size_t current_index_search_try = 0;
-            while (actors_[random_actor_index]->IsEnrolledInCourse(course_id) && current_index_search_try < actors_.size())
+            while (
+                (actors_[random_actor_index]->AllSlotsFilled() || actors_[random_actor_index]->IsEnrolledInCourse(course_id) || ActorIsInCourseGroup(actors_[random_actor_index], course_group) || !actors_[random_actor_index]->SlotsEmpty(slots)) && current_index_search_try < actors_.size())
             {
                 random_actor_index += -1;
                 random_actor_index %= actors_.size();
@@ -122,7 +140,6 @@ namespace tale
             }
             if (current_index_search_try != actors_.size())
             {
-                actors_[random_actor_index]->EnrollInCourse(course_id);
                 course_group.push_back(actors_[random_actor_index]);
             }
             ++current_try;

@@ -4,6 +4,8 @@
 #include <string>
 #include <map>
 #include <memory>
+#include "tale/setting.hpp"
+#include "tale/globals/random.hpp"
 #include "tale/kernels/goal.hpp"
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/relationship.hpp"
@@ -19,9 +21,12 @@ namespace tale
     class Actor
     {
     public:
-        Actor();
-        bool IsEnrolledInCourse(size_t course_id);
-        void EnrollInCourse(size_t course_id);
+        Actor(Random &random, const Setting &setting);
+        bool IsEnrolledInCourse(size_t course_id) const;
+        void EnrollInCourse(size_t course_id, uint32_t slot);
+        size_t GetFilledSlotsCount() const;
+        bool AllSlotsFilled() const;
+        bool SlotsEmpty(const std::vector<uint32_t> &slots) const;
         std::string name_;
         std::shared_ptr<Goal> goal_;
         std::vector<std::shared_ptr<Trait>> traits_;
@@ -30,7 +35,10 @@ namespace tale
         std::shared_ptr<Resource> resource_;
 
     private:
-        std::vector<size_t> enrolled_courses_id_;
+        Random &random_;
+        const Setting &setting_;
+        size_t filled_slots_count_ = 0;
+        std::vector<int> enrolled_courses_id_;
     };
 
 } // namespace tale

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <assert.h>
 #include "tale/course.hpp"
 
 namespace tale
@@ -13,10 +14,10 @@ namespace tale
     }
     void Course::TickSlot(size_t slot)
     {
-        std::cout << "TICKING SLOT " << slot << " OF COURSE " << id_ << std::endl;
+        // std::cout << "TICKING SLOT " << slot << " OF COURSE " << id_ << std::endl;
     }
 
-    bool Course::AllSlotsFilled()
+    bool Course::AllSlotsFilled() const
     {
         for (auto &slot : slots_)
         {
@@ -27,25 +28,25 @@ namespace tale
         }
         return true;
     }
-    int Course::AddToRandomEmptySlot(std::vector<std::weak_ptr<Actor>> actors)
+    int Course::GetRandomEmptySlot() const
     {
+        assert(!AllSlotsFilled()); // no more empty slots
         uint32_t random_slot = random_.GetUInt(0, slots_.size() - 1);
-        size_t current_try = 0;
-        while (slots_[random_slot].size() != 0 && current_try <= slots_.size() + 1)
+        while (slots_[random_slot].size() != 0)
         {
-            ++current_try;
             random_slot += 1;
             random_slot %= slots_.size();
         }
-        slots_[random_slot] = actors;
-        if (current_try <= slots_.size() + 1)
+        return random_slot;
+    }
+    void Course::AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot)
+    {
+        assert(!AllSlotsFilled());        // no more empty slots
+        assert(slots_[slot].size() == 0); // slot not empty
+        slots_[slot] = actors;
+        for (auto &actor : actors)
         {
-
-            return random_slot;
-        }
-        else
-        {
-            return -1;
+            actor.lock()->EnrollInCourse(id_, slot);
         }
     }
 } // namespace tale

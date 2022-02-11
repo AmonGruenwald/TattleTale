@@ -6,7 +6,9 @@
 
 TEST(TaleTests, CreateDefaultActor)
 {
-    tale::Actor actor;
+    tale::Random random;
+    tale::Setting setting;
+    tale::Actor actor(random, setting);
     EXPECT_EQ("John Doe", actor.name_);
 }
 
@@ -36,13 +38,14 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
     std::string interaction_name = interaction_store.GetRandomInteractionName();
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-
+    tale::Random random;
+    tale::Setting setting;
     size_t participant_count = interaction_store.GetParticipantCount(interaction_name);
     std::vector<std::weak_ptr<tale::Actor>> participants;
     std::vector<std::shared_ptr<tale::Actor>> actors;
     for (size_t i = 0; i < participant_count; ++i)
     {
-        std::shared_ptr<tale::Actor> actor = std::shared_ptr<tale::Actor>(new tale::Actor());
+        std::shared_ptr<tale::Actor> actor = std::shared_ptr<tale::Actor>(new tale::Actor(random, setting));
         actors.push_back(actor);
         participants.push_back(actor);
     }

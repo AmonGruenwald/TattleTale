@@ -6,7 +6,7 @@
 
 namespace tale
 {
-    Actor::Actor()
+    Actor::Actor(Random &random, const Setting &setting) : random_(random), setting_(setting)
     {
         // TOOD: Create random starting values for everything (including some random relationships)
         name_ = "John Doe";
@@ -37,16 +37,42 @@ namespace tale
         };
         traits_.push_back(std::shared_ptr<Trait>(new Trait("trait", tick, default_reasons)));
         resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, default_reasons));
+        enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
     }
 
-    bool Actor::IsEnrolledInCourse(size_t course_id)
+    bool Actor::IsEnrolledInCourse(size_t course_id) const
     {
         return std::count(enrolled_courses_id_.begin(), enrolled_courses_id_.end(), course_id);
     }
 
-    void Actor::EnrollInCourse(size_t course_id)
+    void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
-        assert(!IsEnrolledInCourse(course_id));
-        enrolled_courses_id_.push_back(course_id);
+        // TODO: actual error handling
+        assert(enrolled_courses_id_[slot] == -1);
+        assert(filled_slots_count_ < setting_.slot_count_per_week()); // enrolled in too many courses
+        ++filled_slots_count_;
+        enrolled_courses_id_[slot] = course_id;
+    }
+
+    size_t Actor::GetFilledSlotsCount() const
+    {
+        return filled_slots_count_;
+    }
+    bool Actor::AllSlotsFilled() const
+    {
+        assert(filled_slots_count_ <= setting_.slot_count_per_week()); // enrolled in too many courses
+        return filled_slots_count_ == setting_.slot_count_per_week();
+    }
+
+    bool Actor::SlotsEmpty(const std::vector<uint32_t> &slots) const
+    {
+        for (auto &slot : slots)
+        {
+            if (enrolled_courses_id_[slot] != -1)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 } // namespace tale
