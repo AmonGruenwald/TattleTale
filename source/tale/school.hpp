@@ -34,7 +34,7 @@ namespace tale
         void SimulateDay(size_t day, Weekday weekday);
         void FreeTimeTick();
         bool IsWorkday(Weekday weekday);
-        size_t WeekdayTickToSlot(Weekday weekday, size_t tick);
+        size_t WeekdayAndTickToSlot(Weekday weekday, size_t tick);
         std::vector<std::weak_ptr<Actor>> FindRandomCourseGroup(size_t course_id, size_t actor_count);
         std::vector<Course> courses_;
         std::vector<std::shared_ptr<Actor>> actors_;
