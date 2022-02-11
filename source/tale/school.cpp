@@ -110,7 +110,7 @@ namespace tale
         return true;
     }
 
-    size_t School::WeekdayTickToSlot(Weekday weekday, size_t tick)
+    size_t School::WeekdayAndTickToSlot(Weekday weekday, size_t tick)
     {
         // TODO: add as parameter
         size_t courses_per_day = 6;
