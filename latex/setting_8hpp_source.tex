@@ -1,0 +1,39 @@
+\hypertarget{setting_8hpp_source}{}\doxysection{setting.\+hpp}
+\label{setting_8hpp_source}\index{tale/setting.hpp@{tale/setting.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_SETTING\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_SETTING\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_setting}{Setting}}}
+\DoxyCodeLine{12     \{}
+\DoxyCodeLine{13         \textcolor{keywordtype}{size\_t} days\_to\_simulate = 30;}
+\DoxyCodeLine{14         \textcolor{keywordtype}{size\_t} actor\_count = 300;}
+\DoxyCodeLine{15         \textcolor{keywordtype}{size\_t} courses\_per\_day = 6;}
+\DoxyCodeLine{16         \textcolor{keywordtype}{size\_t} actors\_per\_course = 30;}
+\DoxyCodeLine{17         \textcolor{keywordtype}{size\_t} same\_course\_per\_week = 4;}
+\DoxyCodeLine{18         \textcolor{comment}{// 8 different courses are necessary to completely fill an actors schedule, assuming he has that course 4 times a week}}
+\DoxyCodeLine{19         \textcolor{comment}{// and there are 6 courses per day (in a 5 day workweek)}}
+\DoxyCodeLine{20         \textcolor{keywordtype}{size\_t} slot\_count\_per\_week()\textcolor{keyword}{ const}}
+\DoxyCodeLine{21 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{22             \textcolor{comment}{// 5 day workweek}}
+\DoxyCodeLine{23             \textcolor{keywordflow}{return} courses\_per\_day * 5;}
+\DoxyCodeLine{24         \}}
+\DoxyCodeLine{30         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{31 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})slot\_count\_per\_week() / (\textcolor{keywordtype}{double})same\_course\_per\_week);}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34         \textcolor{keywordtype}{size\_t} course\_count()\textcolor{keyword}{ const}}
+\DoxyCodeLine{35 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return} std::max((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}(), (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})actor\_count / (\textcolor{keywordtype}{double})actors\_per\_course));}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38     \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SETTING\_H}}
+
+\end{DoxyCode}

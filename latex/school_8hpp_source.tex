@@ -9,43 +9,45 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/course.hpp"{}}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/actor.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{11 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{enum class} Weekday}
-\DoxyCodeLine{13     \{}
-\DoxyCodeLine{14         Monday,}
-\DoxyCodeLine{15         Tuesday,}
-\DoxyCodeLine{16         Wednesday,}
-\DoxyCodeLine{17         Thursday,}
-\DoxyCodeLine{18         Friday,}
-\DoxyCodeLine{19         Saturday,}
-\DoxyCodeLine{20         Sunday}
-\DoxyCodeLine{21     \};}
-\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *weekday\_string[] = \{\textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{27     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_school}{School}}}
-\DoxyCodeLine{28     \{}
-\DoxyCodeLine{29     \textcolor{keyword}{public}:}
-\DoxyCodeLine{30         \mbox{\hyperlink{classtale_1_1_school}{School}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keywordtype}{size\_t} actor\_count);}
-\DoxyCodeLine{31         \textcolor{keywordtype}{void} SimulateDays(\textcolor{keywordtype}{size\_t} days);}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keyword}{private}:}
-\DoxyCodeLine{34         \textcolor{keywordtype}{void} SimulateDay(\textcolor{keywordtype}{size\_t} day, Weekday weekday);}
-\DoxyCodeLine{35         \textcolor{keywordtype}{void} FreeTimeTick();}
-\DoxyCodeLine{36         \textcolor{keywordtype}{bool} IsWorkday(Weekday weekday);}
-\DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} WeekdayAndTickToSlot(Weekday weekday, \textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{38         std::vector<std::weak\_ptr<Actor>> FindRandomCourseGroup(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keywordtype}{size\_t} actor\_count);}
-\DoxyCodeLine{39         std::vector<Course> courses\_;}
-\DoxyCodeLine{40         std::vector<std::shared\_ptr<Actor>> actors\_;}
-\DoxyCodeLine{41         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{42         \textcolor{keywordtype}{size\_t} current\_tick = 0;}
-\DoxyCodeLine{43         \textcolor{keywordtype}{size\_t} current\_day\_ = 0;}
-\DoxyCodeLine{44         Weekday current\_weekday\_ = Weekday::Monday;}
-\DoxyCodeLine{45     \};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/setting.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{enum class} Weekday}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         Monday,}
+\DoxyCodeLine{16         Tuesday,}
+\DoxyCodeLine{17         Wednesday,}
+\DoxyCodeLine{18         Thursday,}
+\DoxyCodeLine{19         Friday,}
+\DoxyCodeLine{20         Saturday,}
+\DoxyCodeLine{21         Sunday}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *weekday\_string[] = \{\textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{28     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_school}{School}}}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30     \textcolor{keyword}{public}:}
+\DoxyCodeLine{31         \mbox{\hyperlink{classtale_1_1_school}{School}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting);}
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} SimulateDays(\textcolor{keywordtype}{size\_t} days);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{private}:}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} SimulateDay(\textcolor{keywordtype}{size\_t} day, Weekday weekday);}
+\DoxyCodeLine{36         \textcolor{keywordtype}{void} FreeTimeTick();}
+\DoxyCodeLine{37         \textcolor{keywordtype}{bool} IsWorkday(Weekday weekday);}
+\DoxyCodeLine{38         \textcolor{keywordtype}{size\_t} WeekdayAndDailyTickToSlot(Weekday weekday, \textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{39         std::vector<std::weak\_ptr<Actor>> FindRandomCourseGroup(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keywordtype}{size\_t} actor\_count);}
+\DoxyCodeLine{40         std::vector<Course> courses\_;}
+\DoxyCodeLine{41         std::vector<std::shared\_ptr<Actor>> actors\_;}
+\DoxyCodeLine{42         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{43         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{44         \textcolor{keywordtype}{size\_t} current\_tick = 0;}
+\DoxyCodeLine{45         \textcolor{keywordtype}{size\_t} current\_day\_ = 0;}
+\DoxyCodeLine{46         Weekday current\_weekday\_ = Weekday::Monday;}
+\DoxyCodeLine{47     \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}

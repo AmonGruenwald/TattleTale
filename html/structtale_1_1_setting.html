@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TattleTale: tale/tale.hpp File Reference</title>
+<title>TattleTale: tale::Setting Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,44 +63,63 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c885feba15e1f1e66d0fde18d4ff9c2f.html">tale</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetale.html">tale</a></li><li class="navelem"><a class="el" href="structtale_1_1_setting.html">Setting</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">tale.hpp File Reference</div></div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="structtale_1_1_setting-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">tale::Setting Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Collects everything that is necessary so user only have to include this one file.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;tale/kernels/kernel.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/action.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/emotion.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/goal.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/interaction.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/relationship.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/resource.hpp&quot;</code><br />
-<code>#include &quot;tale/kernels/trait.hpp&quot;</code><br />
-<code>#include &quot;tale/globals/interactionstore.hpp&quot;</code><br />
-<code>#include &quot;tale/globals/random.hpp&quot;</code><br />
-<code>#include &quot;tale/actor.hpp&quot;</code><br />
-<code>#include &quot;tale/school.hpp&quot;</code><br />
-<code>#include &quot;tale/course.hpp&quot;</code><br />
-<code>#include &quot;tale/setting.hpp&quot;</code><br />
-</div>
-<p><a href="tale_8hpp_source.html">Go to the source code of this file.</a></p>
+<p>Stores all settings necessary for the simulation.  
+ <a href="structtale_1_1_setting.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="setting_8hpp_source.html">tale/setting.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacetale"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html">tale</a></td></tr>
-<tr class="memdesc:namespacetale"><td class="mdescLeft">&#160;</td><td class="mdescRight">Responsible for the event generation of the TattleTale project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a60e67e920a23742b4c7f2e15025d3c81"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81">minimum_necessary_course_count</a> () const</td></tr>
+<tr class="memdesc:a60e67e920a23742b4c7f2e15025d3c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum necessary amount of courses so every actor can completely feel their schedule.  <a href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81">More...</a><br /></td></tr>
+<tr class="separator:a60e67e920a23742b4c7f2e15025d3c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Collects everything that is necessary so user only have to include this one file. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p >Stores all settings necessary for the simulation. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a60e67e920a23742b4c7f2e15025d3c81" name="a60e67e920a23742b4c7f2e15025d3c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60e67e920a23742b4c7f2e15025d3c81">&#9670;&nbsp;</a></span>minimum_necessary_course_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tale::Setting::minimum_necessary_course_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the minimum necessary amount of courses so every actor can completely feel their schedule. </p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of courses </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>tale/<a class="el" href="setting_8hpp_source.html">setting.hpp</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
