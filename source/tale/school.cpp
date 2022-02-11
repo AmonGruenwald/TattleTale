@@ -79,7 +79,7 @@ namespace tale
         {
             for (size_t i = 0; i < courses_per_day; ++i)
             {
-                size_t slot = WeekdayTickToSlot(weekday, i);
+                size_t slot = WeekdayAndTickToSlot(weekday, i);
                 for (auto &course : courses_)
                 {
                     course.TickSlot(slot);
