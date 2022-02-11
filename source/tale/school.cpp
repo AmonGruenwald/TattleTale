@@ -69,7 +69,7 @@ namespace tale
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)
             {
-                size_t slot = WeekdayAndTickToSlot(weekday, i);
+                size_t slot = WeekdayAndDailyTickToSlot(weekday, i);
                 for (auto &course : courses_)
                 {
                     course.TickSlot(slot);
@@ -100,7 +100,7 @@ namespace tale
         return true;
     }
 
-    size_t School::WeekdayAndTickToSlot(Weekday weekday, size_t tick)
+    size_t School::WeekdayAndDailyTickToSlot(Weekday weekday, size_t tick)
     {
         return static_cast<size_t>(weekday) * setting_.courses_per_day + tick;
     }
