@@ -4,24 +4,19 @@
 
 namespace tale
 {
-    School::School(Random &random, size_t actor_count) : random_(random)
+    School::School(Random &random, const Setting &setting) : random_(random), setting_(setting)
     {
-        for (size_t i = 0; i < actor_count; ++i)
+        for (size_t i = 0; i < setting_.actor_count; ++i)
         {
             std::shared_ptr<Actor> actor(new Actor());
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
         }
-        actors_[0]->EnrollInCourse(0);
-        // TODO: add as a parameter
-        size_t actors_per_class = 30;
-        // 8 different courses are necessary to completely fill an actors schedule, assuming he has that course 4 times a week
-        // and there are 6 courses per day (in a 5 day workweek)
-        size_t min_course_count = 8;
-        size_t course_count = std::max(actor_count / actors_per_class, min_course_count);
+        size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)
         {
-            Course course(random_, i, "Course" + std::to_string(i));
+            // TODO: create better names
+            Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
         }
         // Pseudocode:
@@ -33,15 +28,12 @@ namespace tale
         for (auto &course : courses_)
         {
             uint16_t group_used = 0;
-            std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, actors_per_class);
+            std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, setting_.actors_per_course);
             while (!course.AllSlotsFilled())
             {
-
-                // TODO: add as a parameter
-                uint16_t same_course_per_week = 4;
-                if (group_used == same_course_per_week)
+                if (group_used == setting_.same_course_per_week)
                 {
-                    course_group = FindRandomCourseGroup(course.id_, actors_per_class);
+                    course_group = FindRandomCourseGroup(course.id_, setting_.actors_per_course);
                     group_used = 0;
                 }
                 ++group_used;
@@ -72,12 +64,10 @@ namespace tale
 
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        // TODO: add as parameter
-        size_t courses_per_day = 6;
         std::cout << "SIMULATING DAY " << day << " WHICH IS A " << weekday_string[static_cast<int>(weekday)] << std::endl;
         if (IsWorkday(weekday))
         {
-            for (size_t i = 0; i < courses_per_day; ++i)
+            for (size_t i = 0; i < setting_.courses_per_day; ++i)
             {
                 size_t slot = WeekdayAndTickToSlot(weekday, i);
                 for (auto &course : courses_)
@@ -90,7 +80,7 @@ namespace tale
         }
         else
         {
-            for (size_t i = 0; i < courses_per_day + 1; ++i)
+            for (size_t i = 0; i < setting_.courses_per_day + 1; ++i)
             {
                 FreeTimeTick();
             }
@@ -112,9 +102,7 @@ namespace tale
 
     size_t School::WeekdayAndTickToSlot(Weekday weekday, size_t tick)
     {
-        // TODO: add as parameter
-        size_t courses_per_day = 6;
-        return static_cast<size_t>(weekday) * courses_per_day + tick;
+        return static_cast<size_t>(weekday) * setting_.courses_per_day + tick;
     }
 
     std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, size_t actor_count)

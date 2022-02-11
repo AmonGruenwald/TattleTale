@@ -7,6 +7,7 @@ set(LIBRARY_SOURCES
     tale/school.cpp
     tale/course.hpp
     tale/course.cpp
+    tale/setting.hpp
     tale/kernels/kernel.hpp
     tale/kernels/kernel.cpp
     tale/kernels/action.hpp

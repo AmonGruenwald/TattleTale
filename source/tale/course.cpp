@@ -3,12 +3,10 @@
 
 namespace tale
 {
-    Course::Course(Random &random, size_t id, std::string name) : id_(id), name_(name), random_(random)
+    Course::Course(Random &random, const Setting &setting, size_t id, std::string name) : id_(id), name_(name), random_(random)
     {
-        // TODO: add as a parameter depenend on amount of courses per day
-        size_t courses_per_day = 6;
-        size_t slot_count = courses_per_day * 5;
-        for (size_t i = 0; i < slot_count; ++i)
+        size_t slot_count_per_week = setting.slot_count_per_week();
+        for (size_t i = 0; i < slot_count_per_week; ++i)
         {
             slots_.push_back(std::vector<std::weak_ptr<Actor>>());
         }

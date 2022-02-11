@@ -14,12 +14,13 @@
 #include "tale/actor.hpp"
 #include "tale/school.hpp"
 #include "tale/course.hpp"
+#include "tale/setting.hpp"
 /**
  * @brief Responsible for the event generation of the TattleTale project.
  */
 namespace tale
 {
     // TODO: should return events and needs to be parameterizable
-    void Run();
+    void Run(const Setting &setting);
 } // namespace tale
 #endif // TALE_TALE_H

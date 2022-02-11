@@ -5,7 +5,7 @@
 namespace tale
 {
 
-    void Run()
+    void Run(const Setting &setting)
     {
         std::cout << "TALE STARTED" << std::endl;
         std::cout << "INITIALIZING UP RNG" << std::endl;
@@ -13,7 +13,7 @@ namespace tale
         Random random;
         InteractionStore interaction_store;
         std::cout << "SETTING UP SCHOOL" << std::endl;
-        School school(random, 300);
+        School school(random, setting);
 
         size_t days_to_simulate = 30;
         school.SimulateDays(days_to_simulate);

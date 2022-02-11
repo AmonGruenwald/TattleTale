@@ -5,6 +5,7 @@
 #include <vector>
 #include "tale/course.hpp"
 #include "tale/actor.hpp"
+#include "tale/setting.hpp"
 #include "tale/globals/random.hpp"
 
 namespace tale
@@ -27,7 +28,7 @@ namespace tale
     class School
     {
     public:
-        School(Random &random, size_t actor_count);
+        School(Random &random, const Setting &setting);
         void SimulateDays(size_t days);
 
     private:
@@ -39,6 +40,7 @@ namespace tale
         std::vector<Course> courses_;
         std::vector<std::shared_ptr<Actor>> actors_;
         Random &random_;
+        const Setting &setting_;
         size_t current_tick = 0;
         size_t current_day_ = 0;
         Weekday current_weekday_ = Weekday::Monday;
