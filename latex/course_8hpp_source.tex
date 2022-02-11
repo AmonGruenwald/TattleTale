@@ -20,15 +20,16 @@
 \DoxyCodeLine{19         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} id\_;}
 \DoxyCodeLine{20         \mbox{\hyperlink{classtale_1_1_course}{Course}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string name\_);}
 \DoxyCodeLine{21         \textcolor{keywordtype}{void} TickSlot(\textcolor{keywordtype}{size\_t} slot);}
-\DoxyCodeLine{22         \textcolor{keywordtype}{bool} AllSlotsFilled();}
-\DoxyCodeLine{23         \textcolor{keywordtype}{int} AddToRandomEmptySlot(std::vector<std::weak\_ptr<Actor>> actors);}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25     \textcolor{keyword}{private}:}
-\DoxyCodeLine{26         std::vector<std::vector<std::weak\_ptr<Actor>>> slots\_;}
-\DoxyCodeLine{27         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{28     \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_COURSE\_H}}
+\DoxyCodeLine{22         \textcolor{keywordtype}{bool} AllSlotsFilled() \textcolor{keyword}{const};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{int} GetRandomEmptySlot() \textcolor{keyword}{const};}
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} AddToSlot(std::vector<std::weak\_ptr<Actor>> actors, \textcolor{keywordtype}{size\_t} slot);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{private}:}
+\DoxyCodeLine{27         std::vector<std::vector<std::weak\_ptr<Actor>>> slots\_;}
+\DoxyCodeLine{28         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{29     \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_COURSE\_H}}
 
 \end{DoxyCode}

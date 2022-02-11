@@ -8,32 +8,40 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/emotion.hpp"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/kernels/relationship.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/trait.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/kernels/resource.hpp"{}}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{14 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_actor}{Actor}}}
-\DoxyCodeLine{20     \{}
-\DoxyCodeLine{21     \textcolor{keyword}{public}:}
-\DoxyCodeLine{22         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}();}
-\DoxyCodeLine{23         \textcolor{keywordtype}{bool} IsEnrolledInCourse(\textcolor{keywordtype}{size\_t} course\_id);}
-\DoxyCodeLine{24         \textcolor{keywordtype}{void} EnrollInCourse(\textcolor{keywordtype}{size\_t} course\_id);}
-\DoxyCodeLine{25         std::string name\_;}
-\DoxyCodeLine{26         std::shared\_ptr<Goal> goal\_;}
-\DoxyCodeLine{27         std::vector<std::shared\_ptr<Trait>> traits\_;}
-\DoxyCodeLine{28         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
-\DoxyCodeLine{29         std::map<std::weak\_ptr<Actor>, std::map<RelationshipType, std::shared\_ptr<Relationship>>> relationships\_;}
-\DoxyCodeLine{30         std::shared\_ptr<Resource> resource\_;}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keyword}{private}:}
-\DoxyCodeLine{33         std::vector<size\_t> enrolled\_courses\_id\_;}
-\DoxyCodeLine{34     \};}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/setting.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/emotion.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/kernels/relationship.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}tale/kernels/trait.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}tale/kernels/resource.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_actor}{Actor}}}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting);}
+\DoxyCodeLine{25         \textcolor{keywordtype}{bool} IsEnrolledInCourse(\textcolor{keywordtype}{size\_t} course\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} EnrollInCourse(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
+\DoxyCodeLine{27         \textcolor{keywordtype}{size\_t} GetFilledSlotsCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{28         \textcolor{keywordtype}{bool} AllSlotsFilled() \textcolor{keyword}{const};}
+\DoxyCodeLine{29         \textcolor{keywordtype}{bool} SlotsEmpty(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
+\DoxyCodeLine{30         std::string name\_;}
+\DoxyCodeLine{31         std::shared\_ptr<Goal> goal\_;}
+\DoxyCodeLine{32         std::vector<std::shared\_ptr<Trait>> traits\_;}
+\DoxyCodeLine{33         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
+\DoxyCodeLine{34         std::map<std::weak\_ptr<Actor>, std::map<RelationshipType, std::shared\_ptr<Relationship>>> relationships\_;}
+\DoxyCodeLine{35         std::shared\_ptr<Resource> resource\_;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keyword}{private}:}
+\DoxyCodeLine{38         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{39         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{40         \textcolor{keywordtype}{size\_t} filled\_slots\_count\_ = 0;}
+\DoxyCodeLine{41         std::vector<int> enrolled\_courses\_id\_;}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}

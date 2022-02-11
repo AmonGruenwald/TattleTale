@@ -35,19 +35,20 @@
 \DoxyCodeLine{34     \textcolor{keyword}{private}:}
 \DoxyCodeLine{35         \textcolor{keywordtype}{void} SimulateDay(\textcolor{keywordtype}{size\_t} day, Weekday weekday);}
 \DoxyCodeLine{36         \textcolor{keywordtype}{void} FreeTimeTick();}
-\DoxyCodeLine{37         \textcolor{keywordtype}{bool} IsWorkday(Weekday weekday);}
-\DoxyCodeLine{38         \textcolor{keywordtype}{size\_t} WeekdayAndDailyTickToSlot(Weekday weekday, \textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{39         std::vector<std::weak\_ptr<Actor>> FindRandomCourseGroup(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keywordtype}{size\_t} actor\_count);}
-\DoxyCodeLine{40         std::vector<Course> courses\_;}
-\DoxyCodeLine{41         std::vector<std::shared\_ptr<Actor>> actors\_;}
-\DoxyCodeLine{42         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{43         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{44         \textcolor{keywordtype}{size\_t} current\_tick = 0;}
-\DoxyCodeLine{45         \textcolor{keywordtype}{size\_t} current\_day\_ = 0;}
-\DoxyCodeLine{46         Weekday current\_weekday\_ = Weekday::Monday;}
-\DoxyCodeLine{47     \};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{37         \textcolor{keywordtype}{bool} IsWorkday(Weekday weekday) \textcolor{keyword}{const};}
+\DoxyCodeLine{38         \textcolor{keywordtype}{bool} ActorIsInCourseGroup(\textcolor{keyword}{const} std::shared\_ptr<Actor> \&actor, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group) \textcolor{keyword}{const};}
+\DoxyCodeLine{39         \textcolor{keywordtype}{size\_t} WeekdayAndDailyTickToSlot(Weekday weekday, \textcolor{keywordtype}{size\_t} tick) \textcolor{keyword}{const};}
+\DoxyCodeLine{40         std::vector<std::weak\_ptr<Actor>> FindRandomCourseGroup(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
+\DoxyCodeLine{41         std::vector<Course> courses\_;}
+\DoxyCodeLine{42         std::vector<std::shared\_ptr<Actor>> actors\_;}
+\DoxyCodeLine{43         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{44         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{45         \textcolor{keywordtype}{size\_t} current\_tick = 0;}
+\DoxyCodeLine{46         \textcolor{keywordtype}{size\_t} current\_day\_ = 0;}
+\DoxyCodeLine{47         Weekday current\_weekday\_ = Weekday::Monday;}
+\DoxyCodeLine{48     \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}
