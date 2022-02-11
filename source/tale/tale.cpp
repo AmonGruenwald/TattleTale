@@ -10,7 +10,7 @@ namespace tale
         std::cout << "TALE STARTED" << std::endl;
         std::cout << "INITIALIZING UP RNG" << std::endl;
         std::cout << "INITIALIZING INTERACTION STORE" << std::endl;
-        Random random;
+        Random random(setting.seed);
         InteractionStore interaction_store;
         std::cout << "SETTING UP SCHOOL" << std::endl;
         School school(random, setting);

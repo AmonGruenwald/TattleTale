@@ -10,6 +10,7 @@ namespace tale
      */
     struct Setting
     {
+        uint32_t seed = 123456789;
         size_t days_to_simulate = 30;
         size_t actor_count = 300;
         size_t courses_per_day = 6;
