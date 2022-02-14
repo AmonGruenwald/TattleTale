@@ -12,9 +12,10 @@ namespace tale
             slots_.push_back(std::vector<std::weak_ptr<Actor>>());
         }
     }
-    void Course::TickSlot(size_t slot)
+
+    const std::vector<std::weak_ptr<Actor>> &Course::GetCourseGroupForSlot(size_t slot)
     {
-        // std::cout << "TICKING SLOT " << slot << " OF COURSE " << id_ << std::endl;
+        return slots_[slot];
     }
 
     bool Course::AllSlotsFilled() const

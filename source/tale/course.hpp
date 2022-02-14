@@ -18,7 +18,7 @@ namespace tale
         const std::string name_;
         const size_t id_;
         Course(Random &random, const Setting &setting, size_t id, std::string name_);
-        void TickSlot(size_t slot);
+        const std::vector<std::weak_ptr<Actor>> &GetCourseGroupForSlot(size_t slot);
         bool AllSlotsFilled() const;
         int GetRandomEmptySlot() const;
         void AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot);
