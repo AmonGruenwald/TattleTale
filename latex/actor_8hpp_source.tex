@@ -37,32 +37,21 @@
 \DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} GetFilledSlotsCount() \textcolor{keyword}{const};}
 \DoxyCodeLine{38         \textcolor{keywordtype}{bool} AllSlotsFilled() \textcolor{keyword}{const};}
 \DoxyCodeLine{39         \textcolor{keywordtype}{bool} SlotsEmpty(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
-\DoxyCodeLine{40         std::string Actor::ChooseInteraction(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group,}
-\DoxyCodeLine{41                                              std::vector<std::weak\_ptr<Kernel>> \&out\_reasons,}
-\DoxyCodeLine{42                                              std::vector<std::weak\_ptr<Actor>> \&out\_participants);}
-\DoxyCodeLine{43         \textcolor{keywordtype}{void} ApplyResourceChange(std::vector<std::weak\_ptr<Kernel>> reasons,}
-\DoxyCodeLine{44                                  \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{45                                  \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{46         \textcolor{keywordtype}{void} ApplyEmotionChange(std::vector<std::weak\_ptr<Kernel>> reasons,}
-\DoxyCodeLine{47                                 \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{48                                 EmotionType type,}
-\DoxyCodeLine{49                                 \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{50         \textcolor{keywordtype}{void} ApplyRelationshipChange(std::vector<std::weak\_ptr<Kernel>> reasons,}
-\DoxyCodeLine{51                                      \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{52                                      \textcolor{keywordtype}{size\_t} actor\_id,}
-\DoxyCodeLine{53                                      RelationshipType type,}
-\DoxyCodeLine{54                                      \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keyword}{private}:}
-\DoxyCodeLine{57         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{58         \mbox{\hyperlink{classtale_1_1_school}{School}} \&school\_;}
-\DoxyCodeLine{59         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&interaction\_store\_;}
-\DoxyCodeLine{60         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{61         \textcolor{keywordtype}{size\_t} filled\_slots\_count\_ = 0;}
-\DoxyCodeLine{62         std::vector<int> enrolled\_courses\_id\_;}
-\DoxyCodeLine{63     \};}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{40         std::string ChooseInteraction(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group, std::vector<std::weak\_ptr<Kernel>> \&out\_reasons, std::vector<std::weak\_ptr<Actor>> \&out\_participants);}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} ApplyResourceChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{42         \textcolor{keywordtype}{void} ApplyEmotionChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} ApplyRelationshipChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, RelationshipType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{private}:}
+\DoxyCodeLine{46         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{47         \mbox{\hyperlink{classtale_1_1_school}{School}} \&school\_;}
+\DoxyCodeLine{48         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&interaction\_store\_;}
+\DoxyCodeLine{49         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{50         \textcolor{keywordtype}{size\_t} filled\_slots\_count\_ = 0;}
+\DoxyCodeLine{51         std::vector<int> enrolled\_courses\_id\_;}
+\DoxyCodeLine{52     \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}
