@@ -37,21 +37,10 @@ namespace tale
         size_t GetFilledSlotsCount() const;
         bool AllSlotsFilled() const;
         bool SlotsEmpty(const std::vector<uint32_t> &slots) const;
-        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group,
-                                      std::vector<std::weak_ptr<Kernel>> &out_reasons,
-                                      std::vector<std::weak_ptr<Actor>> &out_participants);
-        void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons,
-                                 size_t tick,
-                                 float value);
-        void ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons,
-                                size_t tick,
-                                EmotionType type,
-                                float value);
-        void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons,
-                                     size_t tick,
-                                     size_t actor_id,
-                                     RelationshipType type,
-                                     float value);
+        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
+        void ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value);
+        void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
 
     private:
         Random &random_;
