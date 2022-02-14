@@ -1,11 +1,13 @@
 #include "tale/actor.hpp"
+#include "tale/school.hpp"
+#include "tale/school.hpp"
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
 
 namespace tale
 {
-    Actor::Actor(Random &random, const Setting &setting, InteractionStore &interaction_store) : random_(random), setting_(setting), interaction_store_(interaction_store)
+    Actor::Actor(Random &random, const Setting &setting, School &school, InteractionStore &interaction_store, size_t id) : random_(random), setting_(setting), school_(school), interaction_store_(interaction_store), id_(id)
     {
         // TOOD: Create random starting values for everything (including some random relationships) and register those
         name_ = "John Doe";
@@ -91,6 +93,35 @@ namespace tale
         // TODO: add logic for choosing an interaction and fill in reasons correctly
 
         return interaction_store_.GetRandomInteractionName();
+    }
+
+    void Actor::ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
+    {
+        float previous_value = resource_->GetValue();
+        float new_value = previous_value + value;
+        // TODO: register new resource
+        resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, reasons, new_value));
+    }
+    void Actor::ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value)
+    {
+        float previous_value = emotions_[type]->GetValue();
+        float new_value = previous_value + value;
+        // TODO: register new emotion
+        emotions_[type] = std::shared_ptr<Emotion>(new Emotion(Emotion::EmotionTypeToString(type), tick, reasons, new_value));
+    }
+    void Actor::ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
+    {
+        float previous_value = 0;
+        if (relationships_.count(actor_id))
+        {
+            if (relationships_.at(actor_id).count(type))
+            {
+                previous_value = relationships_.at(actor_id).at(type)->GetValue();
+            }
+        }
+        float new_value = previous_value + value;
+        // TODO: register new emotion
+        relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(Relationship::RelationshipTypeToString(type), tick, reasons, new_value));
     }
 
 } // namespace tale

@@ -8,7 +8,7 @@ namespace tale
     {
         for (size_t i = 0; i < setting_.actor_count; ++i)
         {
-            std::shared_ptr<Actor> actor(new Actor(random_, setting_, interaction_store_));
+            std::shared_ptr<Actor> actor(new Actor(random_, setting_, *this, interaction_store_, i));
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
         }
