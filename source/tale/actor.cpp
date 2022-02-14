@@ -78,7 +78,7 @@ namespace tale
         return true;
     }
 
-    std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> out_reasons, std::vector<std::weak_ptr<Actor>> out_participants)
+    std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
         out_participants.push_back(weak_from_this());
         // TODO: this just adds the first other actor to the participants
