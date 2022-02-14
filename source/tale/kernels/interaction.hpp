@@ -4,10 +4,11 @@
 #include "tale/kernels/kernel.hpp"
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/relationship.hpp"
-#include "tale/actor.hpp"
+#include <map>
 
 namespace tale
 {
+    class Actor;
     /**
      * @brief Represents an Interaction an Actor had with other \link Actor Actors \endlink
      *

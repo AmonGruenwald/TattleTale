@@ -4,10 +4,10 @@
 #include <memory>
 #include <vector>
 #include "tale/course.hpp"
-#include "tale/actor.hpp"
 #include "tale/setting.hpp"
 #include "tale/globals/random.hpp"
 #include "tale/globals/interactionstore.hpp"
+#include "tale/actor.hpp"
 
 namespace tale
 {

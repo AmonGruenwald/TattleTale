@@ -1,5 +1,4 @@
 #include "tale/kernels/interaction.hpp"
-
 #include <fmt/core.h>
 #include <iostream>
 

@@ -1,12 +1,11 @@
 #include "tale/actor.hpp"
-
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
 
 namespace tale
 {
-    Actor::Actor(Random &random, const Setting &setting) : random_(random), setting_(setting)
+    Actor::Actor(Random &random, const Setting &setting, InteractionStore &interaction_store) : random_(random), setting_(setting), interaction_store_(interaction_store)
     {
         // TOOD: Create random starting values for everything (including some random relationships)
         name_ = "John Doe";

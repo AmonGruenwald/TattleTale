@@ -1,6 +1,6 @@
-#include <algorithm>
-#include <iostream>
 #include "tale/school.hpp"
+#include <iostream>
+#include <algorithm>
 
 namespace tale
 {
@@ -8,7 +8,7 @@ namespace tale
     {
         for (size_t i = 0; i < setting_.actor_count; ++i)
         {
-            std::shared_ptr<Actor> actor(new Actor(random, setting));
+            std::shared_ptr<Actor> actor(new Actor(random_, setting_, interaction_store_));
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
         }

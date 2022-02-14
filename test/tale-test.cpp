@@ -8,7 +8,8 @@ TEST(TaleTests, CreateDefaultActor)
 {
     tale::Random random;
     tale::Setting setting;
-    tale::Actor actor(random, setting);
+    tale::InteractionStore interaction_store;
+    tale::Actor actor(random, setting, interaction_store);
     EXPECT_EQ("John Doe", actor.name_);
 }
 
@@ -45,7 +46,7 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
     std::vector<std::shared_ptr<tale::Actor>> actors;
     for (size_t i = 0; i < participant_count; ++i)
     {
-        std::shared_ptr<tale::Actor> actor = std::shared_ptr<tale::Actor>(new tale::Actor(random, setting));
+        std::shared_ptr<tale::Actor> actor = std::shared_ptr<tale::Actor>(new tale::Actor(random, setting, interaction_store));
         actors.push_back(actor);
         participants.push_back(actor);
     }
