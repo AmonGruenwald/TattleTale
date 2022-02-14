@@ -13,7 +13,7 @@ namespace tale
         Random random(setting.seed);
         InteractionStore interaction_store;
         std::cout << "SETTING UP SCHOOL" << std::endl;
-        School school(random, setting);
+        School school(random, setting, interaction_store);
 
         size_t days_to_simulate = 30;
         school.SimulateDays(days_to_simulate);

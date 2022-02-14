@@ -7,6 +7,7 @@
 #include "tale/actor.hpp"
 #include "tale/setting.hpp"
 #include "tale/globals/random.hpp"
+#include "tale/globals/interactionstore.hpp"
 
 namespace tale
 {
@@ -28,7 +29,7 @@ namespace tale
     class School
     {
     public:
-        School(Random &random, const Setting &setting);
+        School(Random &random, const Setting &setting, InteractionStore &interaction_store);
         void SimulateDays(size_t days);
 
     private:
@@ -42,6 +43,7 @@ namespace tale
         std::vector<std::shared_ptr<Actor>> actors_;
         Random &random_;
         const Setting &setting_;
+        InteractionStore &interaction_store_;
         size_t current_tick = 0;
         size_t current_day_ = 0;
         Weekday current_weekday_ = Weekday::Monday;

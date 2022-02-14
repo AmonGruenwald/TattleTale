@@ -4,7 +4,7 @@
 
 namespace tale
 {
-    School::School(Random &random, const Setting &setting) : random_(random), setting_(setting)
+    School::School(Random &random, const Setting &setting, InteractionStore &interaction_store) : random_(random), setting_(setting), interaction_store_(interaction_store)
     {
         for (size_t i = 0; i < setting_.actor_count; ++i)
         {
