@@ -1,6 +1,7 @@
 #include "tale/globals/interactionstore.hpp"
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/relationship.hpp"
+#include "tale/actor.hpp"
 #include <iostream>
 #include <assert.h>
 #include <fstream>

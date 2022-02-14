@@ -8,6 +8,7 @@
 
 namespace tale
 {
+    class Actor;
     /**
      * @brief Stores Prototypes for all possible interactions.
      *
@@ -73,7 +74,7 @@ namespace tale
          * @return A pointer to the created Interaction
          */
         std::shared_ptr<Interaction> CreateInteraction(std::string interaction_name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
-        // TODO: Create helper funcitons to find options for each situation
+
     private:
         /**
          * @brief Holds all available Interaction prototypes.
