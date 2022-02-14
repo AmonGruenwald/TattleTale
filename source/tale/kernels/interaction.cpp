@@ -28,6 +28,21 @@ namespace tale
 
     void Interaction::Apply(size_t tick)
     {
+        std::string description = "";
+        description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
+        for (size_t i = 1; i < participant_count_; ++i)
+        {
+            if (i == 1)
+            {
+                description += " with ";
+            }
+            else
+            {
+                description += " and ";
+            }
+            description += fmt::format("{}", participants_[i].lock()->name_);
+        }
+        std::cout << description << std::endl;
         std::weak_ptr<Interaction> self = weak_from_this();
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
