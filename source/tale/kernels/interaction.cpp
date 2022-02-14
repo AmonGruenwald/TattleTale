@@ -1,6 +1,7 @@
 #include "tale/kernels/interaction.hpp"
 #include <fmt/core.h>
 #include <iostream>
+#include "tale/actor.hpp"
 
 namespace tale
 {
@@ -24,6 +25,28 @@ namespace tale
     {
         std::cout << "Interaction default constructor" << std::endl;
     };
+
+    void Interaction::Apply(size_t tick)
+    {
+        std::weak_ptr<Interaction> self = weak_from_this();
+        std::vector<std::weak_ptr<Kernel>> reasons{self};
+        for (size_t i = 0; i < participant_count_; ++i)
+        {
+            participants_.at(i).lock()->ApplyResourceChange(reasons, tick, resource_effects_[i]);
+            for (auto &[type, value] : emotion_effects_[i])
+            {
+                participants_.at(i).lock()->ApplyEmotionChange(reasons, tick, type, value);
+            }
+            for (auto &[other, change] : relationship_effects_[i])
+            {
+                for (auto &[type, value] : change)
+                {
+                    participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick, participants_[other].lock()->id_, type, value);
+                }
+            }
+        }
+    }
+
     std::string Interaction::ToString()
     {
         std::string name_string = fmt::format("Name: {}\n", name_);

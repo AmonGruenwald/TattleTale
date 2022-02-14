@@ -5,6 +5,7 @@
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/relationship.hpp"
 #include <map>
+#include <memory>
 
 namespace tale
 {
@@ -15,7 +16,7 @@ namespace tale
      * Extends the Kernel class, so it has to hold every information that is necessary to recreate the causal
      * chain leading to this Event.
      */
-    class Interaction : public Kernel
+    class Interaction : public Kernel, public std::enable_shared_from_this<Interaction>
     {
     public:
         /**
@@ -64,6 +65,7 @@ namespace tale
             std::vector<std::map<EmotionType, float>> emotion_effects,
             std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects);
 
+        void Apply(size_t tick);
         /**
          * @brief Gets a string representation of the Interaction.
          *
