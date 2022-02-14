@@ -88,7 +88,15 @@ namespace tale
         }
         else
         {
-            out_participants.push_back(course_group.at(1));
+            // TODO: this should never happen when we choose correctly but with the current status this could crash the application
+            if (course_group.size() > 1)
+            {
+                out_participants.push_back(course_group.at(1));
+            }
+            else
+            {
+                out_participants.push_back(course_group.at(0));
+            }
         }
         // TODO: add logic for choosing an interaction and fill in reasons correctly
 
