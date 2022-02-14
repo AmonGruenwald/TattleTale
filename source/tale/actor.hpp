@@ -19,7 +19,7 @@ namespace tale
      * @brief Represents one person in the simulation.
      * An actor has to act accordingly to their internal state. So this class needs to contain everything neccessary.
      */
-    class Actor
+    class Actor : public std::enable_shared_from_this<Actor>
     {
     public:
         std::string name_;
@@ -35,6 +35,9 @@ namespace tale
         size_t GetFilledSlotsCount() const;
         bool AllSlotsFilled() const;
         bool SlotsEmpty(const std::vector<uint32_t> &slots) const;
+        std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group,
+                                             std::vector<std::weak_ptr<Kernel>> out_reasons,
+                                             std::vector<std::weak_ptr<Actor>> out_participants);
 
     private:
         Random &random_;
