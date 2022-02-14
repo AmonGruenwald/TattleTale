@@ -37,9 +37,9 @@ namespace tale
         size_t GetFilledSlotsCount() const;
         bool AllSlotsFilled() const;
         bool SlotsEmpty(const std::vector<uint32_t> &slots) const;
-        std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group,
-                                             std::vector<std::weak_ptr<Kernel>> &out_reasons,
-                                             std::vector<std::weak_ptr<Actor>> &out_participants);
+        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group,
+                                      std::vector<std::weak_ptr<Kernel>> &out_reasons,
+                                      std::vector<std::weak_ptr<Actor>> &out_participants);
         void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons,
                                  size_t tick,
                                  float value);
