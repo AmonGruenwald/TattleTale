@@ -12,8 +12,12 @@ namespace tale
     class Resource : public Kernel
     {
     public:
-        Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
+        Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        float GetValue() const;
         std::string ToString();
+
+    private:
+        float value_;
     };
 
 } // namespace tale

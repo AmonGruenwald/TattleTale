@@ -1,10 +1,12 @@
 #include "tale/kernels/emotion.hpp"
 #include <assert.h>
 #include <iostream>
+#include <fmt/core.h>
 
 namespace tale
 {
-    Emotion::Emotion(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, tick, reasons){};
+    Emotion::Emotion(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
+
     EmotionType Emotion::StringToEmotionType(std::string emotion_string)
     {
         if (emotion_string == "happy")
@@ -47,8 +49,13 @@ namespace tale
         return "none";
     }
 
+    float Emotion::GetValue() const
+    {
+        return value_;
+    }
+
     std::string Emotion::ToString()
     {
-        return "I am an Emotion.\n";
+        return fmt::format("{} with value: {}", name_, value_);
     }
 } // namespace tale

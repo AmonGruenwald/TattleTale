@@ -1,12 +1,17 @@
 #include "tale/kernels/resource.hpp"
 
 #include <iostream>
+#include <fmt/core.h>
 
 namespace tale
 {
-    Resource::Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, tick, reasons){};
+    Resource::Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
+    float Resource::GetValue() const
+    {
+        return value_;
+    }
     std::string Resource::ToString()
     {
-        return "I am a Resource.\n";
+        return fmt::format("{} with value: {}", name_, value_);
     }
 } // namespace tale

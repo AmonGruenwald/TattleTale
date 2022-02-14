@@ -18,10 +18,10 @@ TEST(TaleTests, IncreasingKernelNumber)
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
     size_t tick = 0;
     tale::Action action("action", tick, default_reasons);
-    tale::Emotion emotion("emotion", tick, default_reasons);
+    tale::Emotion emotion("emotion", tick, default_reasons, 1);
     tale::Goal goal("goal", tick, default_reasons);
-    tale::Relationship relationship("relationship", tick, default_reasons);
-    tale::Resource resource("resource", tick, default_reasons);
+    tale::Relationship relationship("relationship", tick, default_reasons, 1);
+    tale::Resource resource("resource", tick, default_reasons, 1);
     tale::Trait trait("trait", tick, default_reasons);
 
     EXPECT_EQ(0, action.number_);

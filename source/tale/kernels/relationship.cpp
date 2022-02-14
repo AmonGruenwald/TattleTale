@@ -2,10 +2,11 @@
 
 #include <assert.h>
 #include <iostream>
+#include <fmt/core.h>
 
 namespace tale
 {
-    Relationship::Relationship(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, tick, reasons){};
+    Relationship::Relationship(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {
@@ -48,9 +49,12 @@ namespace tale
         }
         return "none";
     }
-
+    float Relationship::GetValue() const
+    {
+        return value_;
+    }
     std::string Relationship::ToString()
     {
-        return "I am Relationship.\n";
+        return fmt::format("{} with value: {}", name_, value_);
     }
 } // namespace tale

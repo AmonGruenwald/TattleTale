@@ -16,27 +16,27 @@ namespace tale
         emotions_ = {
             {
                 EmotionType::kHappy,
-                std::shared_ptr<Emotion>(new Emotion("happy", tick, default_reasons)),
+                std::shared_ptr<Emotion>(new Emotion("happy", tick, default_reasons, 1)),
             },
             {
                 EmotionType::kCalm,
-                std::shared_ptr<Emotion>(new Emotion("calm", tick, default_reasons)),
+                std::shared_ptr<Emotion>(new Emotion("calm", tick, default_reasons, 1)),
             },
             {
                 EmotionType::kSatisfied,
-                std::shared_ptr<Emotion>(new Emotion("satisfied", tick, default_reasons)),
+                std::shared_ptr<Emotion>(new Emotion("satisfied", tick, default_reasons, 1)),
             },
             {
                 EmotionType::kBrave,
-                std::shared_ptr<Emotion>(new Emotion("brave", tick, default_reasons)),
+                std::shared_ptr<Emotion>(new Emotion("brave", tick, default_reasons, 1)),
             },
             {
                 EmotionType::kExtroverted,
-                std::shared_ptr<Emotion>(new Emotion("extroverted", tick, default_reasons)),
+                std::shared_ptr<Emotion>(new Emotion("extroverted", tick, default_reasons, 1)),
             },
         };
         traits_.push_back(std::shared_ptr<Trait>(new Trait("trait", tick, default_reasons)));
-        resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, default_reasons));
+        resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, default_reasons, 1));
         enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
     }
 
