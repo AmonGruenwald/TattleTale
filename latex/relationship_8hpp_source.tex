@@ -21,13 +21,17 @@
 \DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
 \DoxyCodeLine{22     \{}
 \DoxyCodeLine{23     \textcolor{keyword}{public}:}
-\DoxyCodeLine{24         \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}}(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}}(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
 \DoxyCodeLine{25         \textcolor{keyword}{static} RelationshipType StringToRelationshipType(std::string relationship\_string);}
 \DoxyCodeLine{26         \textcolor{keyword}{static} std::string RelationshipTypeToString(RelationshipType relationship\_type);}
-\DoxyCodeLine{27         std::string ToString();}
-\DoxyCodeLine{28     \};}
+\DoxyCodeLine{27         \textcolor{keywordtype}{float} GetValue() \textcolor{keyword}{const};}
+\DoxyCodeLine{28         std::string ToString();}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{30 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_RELATIONSHIP\_H}}
+\DoxyCodeLine{30     \textcolor{keyword}{private}:}
+\DoxyCodeLine{31         \textcolor{keywordtype}{float} value\_;}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_RELATIONSHIP\_H}}
 
 \end{DoxyCode}
