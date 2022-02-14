@@ -8,6 +8,7 @@ namespace tale
     {
         for (size_t i = 0; i < setting_.actor_count; ++i)
         {
+            std::cout << "CREATING ACTOR " << i << std::endl;
             std::shared_ptr<Actor> actor(new Actor(random_, setting_, *this, interaction_store_, i));
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
@@ -15,6 +16,7 @@ namespace tale
         size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)
         {
+            std::cout << "CREATING COURSE " << i << std::endl;
             // TODO: create better names
             Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
@@ -22,6 +24,7 @@ namespace tale
 
         for (auto &course : courses_)
         {
+            std::cout << "FILLING COURSE " << course.id_ << std::endl;
             std::vector<uint32_t> random_slot_order;
             size_t slot_count_per_week = setting_.slot_count_per_week();
             while (random_slot_order.size() < slot_count_per_week)
@@ -77,24 +80,34 @@ namespace tale
                 size_t slot = WeekdayAndDailyTickToSlot(weekday, i);
                 for (auto &course : courses_)
                 {
-                    course.TickSlot(slot);
+                    auto course_group = course.GetCourseGroupForSlot(slot);
+                    for (auto &actor : course_group)
+                    {
+                        std::vector<std::weak_ptr<Kernel>> reasons;
+                        std::vector<std::weak_ptr<Actor>> participants;
+                        std::string interaction_name = actor.lock()->ChooseInteraction(course_group, reasons, participants);
+                        // TODO: registers interaction to events
+                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick, reasons, participants);
+                        interaction->Apply(current_tick);
+                    }
                 }
                 ++current_tick;
             }
             FreeTimeTick();
+            ++current_tick;
         }
         else
         {
             for (size_t i = 0; i < setting_.courses_per_day + 1; ++i)
             {
                 FreeTimeTick();
+                ++current_tick;
             }
         }
     }
     void School::FreeTimeTick()
     {
         // std::cout << "FREETIME TICK " << std::endl;
-        ++current_tick;
     }
     bool School::IsWorkday(Weekday weekday) const
     {
