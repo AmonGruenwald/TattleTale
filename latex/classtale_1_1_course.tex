@@ -2,17 +2,142 @@
 \label{classtale_1_1_course}\index{tale::Course@{tale::Course}}
 
 
-\mbox{\hyperlink{classtale_1_1_course}{Course}} managing actors.  
+A \mbox{\hyperlink{classtale_1_1_course}{Course}} grouping \mbox{\hyperlink{classtale_1_1_actor}{Actors }} together during different slots of the day.  
 
 
 
 
 {\ttfamily \#include $<$tale/course.\+hpp$>$}
 
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtale_1_1_course_a36f6e71bbf3ffd95ca2a4412d5521f6e}{Course}} (\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting, size\+\_\+t id, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Constructor that uses the passed \mbox{\hyperlink{structtale_1_1_setting}{Setting}} to setup the course. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_course_a07ea8bb9158f71d319409f148466008b}{Get\+Course\+Group\+For\+Slot}} (size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Finds the group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} for the passed slot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtale_1_1_course_a818dbcdbe6bf8871afe382e31060d15b}{All\+Slots\+Filled}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the course has all slots filled. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classtale_1_1_course_a3d6e78ff1f8fccfbc7cf7337bb220e43}{Get\+Random\+Empty\+Slot}} () const
+\begin{DoxyCompactList}\small\item\em Looks for a random empty slot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtale_1_1_course_a6ba3c66fa9806f6f2464d75ea132376a}{Add\+To\+Slot}} (std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ actors, size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Adds the passed group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} to the passed slot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtale_1_1_course_aaf9e48900055416682f901d148802f56}\label{classtale_1_1_course_aaf9e48900055416682f901d148802f56}} 
+const std\+::string {\bfseries name\+\_\+}
+\begin{DoxyCompactList}\small\item\em Name of the \mbox{\hyperlink{classtale_1_1_course}{Course}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_course_ae05cecff9054949024885c6ddc72b1fe}\label{classtale_1_1_course_ae05cecff9054949024885c6ddc72b1fe}} 
+const size\+\_\+t {\bfseries id\+\_\+}
+\begin{DoxyCompactList}\small\item\em Id of the \mbox{\hyperlink{classtale_1_1_course}{Course}}. Should correspond to the index of it in the vector holding all courses in an \mbox{\hyperlink{classtale_1_1_school}{School}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtale_1_1_course_a2e40b0c0bec95d1cc327bb0be1f5e8fa}\label{classtale_1_1_course_a2e40b0c0bec95d1cc327bb0be1f5e8fa}} 
+std\+::vector$<$ std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ $>$ {\bfseries slots\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} for each slot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_course_aaa065ab0238a481b94a3b14664ba9b9c}\label{classtale_1_1_course_aaa065ab0238a481b94a3b14664ba9b9c}} 
+\mbox{\hyperlink{classtale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds a reference to the Randmo objec that was passed during construction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classtale_1_1_course}{Course}} managing actors. 
+A \mbox{\hyperlink{classtale_1_1_course}{Course}} grouping \mbox{\hyperlink{classtale_1_1_actor}{Actors }} together during different slots of the day. 
+
+A \mbox{\hyperlink{classtale_1_1_course}{Course}} happens a few times week. Those times are called slots. Each slots has a fixed group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that visit the \mbox{\hyperlink{classtale_1_1_course}{Course}} during that time. As \mbox{\hyperlink{classtale_1_1_actor}{Actors }} can have the same \mbox{\hyperlink{classtale_1_1_course}{Course}} a few times each week, some slots feature the same group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} but it is guaranteed that \mbox{\hyperlink{classtale_1_1_actor}{Actors }} always visit a single \mbox{\hyperlink{classtale_1_1_course}{Course}} in the same group. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtale_1_1_course_a36f6e71bbf3ffd95ca2a4412d5521f6e}\label{classtale_1_1_course_a36f6e71bbf3ffd95ca2a4412d5521f6e}} 
+\index{tale::Course@{tale::Course}!Course@{Course}}
+\index{Course@{Course}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{Course()}{Course()}}
+{\footnotesize\ttfamily tale\+::\+Course\+::\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtale_1_1_random}{Random}} \&}]{random,  }\item[{const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&}]{setting,  }\item[{size\+\_\+t}]{id,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Constructor that uses the passed \mbox{\hyperlink{structtale_1_1_setting}{Setting}} to setup the course. 
+
+In addition to seting up the slots\+\_\+ vector depending on the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object, the Constructor stores a reference to the passed \mbox{\hyperlink{classtale_1_1_random}{Random}} object and applies the name. 
+\begin{DoxyParams}{Parameters}
+{\em random} & Reference to \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation \\
+\hline
+{\em setting} & Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation \\
+\hline
+{\em name} & The name of the \mbox{\hyperlink{classtale_1_1_course}{Course}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtale_1_1_course_a6ba3c66fa9806f6f2464d75ea132376a}\label{classtale_1_1_course_a6ba3c66fa9806f6f2464d75ea132376a}} 
+\index{tale::Course@{tale::Course}!AddToSlot@{AddToSlot}}
+\index{AddToSlot@{AddToSlot}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{AddToSlot()}{AddToSlot()}}
+{\footnotesize\ttfamily void tale\+::\+Course\+::\+Add\+To\+Slot (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{actors,  }\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+
+
+
+Adds the passed group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} to the passed slot. 
+
+This can crash if slot is not empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em actors} & Vector of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that will be added to the slot. \\
+\hline
+{\em slot} & The slot the \mbox{\hyperlink{classtale_1_1_actor}{Actors }} will be added to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtale_1_1_course_a818dbcdbe6bf8871afe382e31060d15b}\label{classtale_1_1_course_a818dbcdbe6bf8871afe382e31060d15b}} 
+\index{tale::Course@{tale::Course}!AllSlotsFilled@{AllSlotsFilled}}
+\index{AllSlotsFilled@{AllSlotsFilled}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{AllSlotsFilled()}{AllSlotsFilled()}}
+{\footnotesize\ttfamily bool tale\+::\+Course\+::\+All\+Slots\+Filled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the course has all slots filled. 
+
+\begin{DoxyReturn}{Returns}
+The result of the check. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_course_a07ea8bb9158f71d319409f148466008b}\label{classtale_1_1_course_a07ea8bb9158f71d319409f148466008b}} 
+\index{tale::Course@{tale::Course}!GetCourseGroupForSlot@{GetCourseGroupForSlot}}
+\index{GetCourseGroupForSlot@{GetCourseGroupForSlot}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{GetCourseGroupForSlot()}{GetCourseGroupForSlot()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& tale\+::\+Course\+::\+Get\+Course\+Group\+For\+Slot (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+
+
+
+Finds the group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} for the passed slot. 
+
+Looks in the slot\+\_\+ vector for the group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that visit the course during the passed slot. This can crash if the slot is not filled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & The slot where the group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} will be looked up. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The found group. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_course_a3d6e78ff1f8fccfbc7cf7337bb220e43}\label{classtale_1_1_course_a3d6e78ff1f8fccfbc7cf7337bb220e43}} 
+\index{tale::Course@{tale::Course}!GetRandomEmptySlot@{GetRandomEmptySlot}}
+\index{GetRandomEmptySlot@{GetRandomEmptySlot}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{GetRandomEmptySlot()}{GetRandomEmptySlot()}}
+{\footnotesize\ttfamily uint32\+\_\+t tale\+::\+Course\+::\+Get\+Random\+Empty\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Looks for a random empty slot. 
+
+This can crash if there is no empty slot.
+
+\begin{DoxyReturn}{Returns}
+The found slot. 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

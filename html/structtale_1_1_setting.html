@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtale_1_1_setting-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Setting Struct Reference</div></div>
 </div><!--header-->
@@ -81,13 +82,76 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8f68e5b07e5552d37fcd99e7137407a8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html#a8f68e5b07e5552d37fcd99e7137407a8">slot_count_per_week</a> () const</td></tr>
+<tr class="memdesc:a8f68e5b07e5552d37fcd99e7137407a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates how many slots are there in total in a week.  <a href="structtale_1_1_setting.html#a8f68e5b07e5552d37fcd99e7137407a8">More...</a><br /></td></tr>
+<tr class="separator:a8f68e5b07e5552d37fcd99e7137407a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60e67e920a23742b4c7f2e15025d3c81"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81">minimum_necessary_course_count</a> () const</td></tr>
-<tr class="memdesc:a60e67e920a23742b4c7f2e15025d3c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum necessary amount of courses so every actor can completely feel their schedule.  <a href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81">More...</a><br /></td></tr>
+<tr class="memdesc:a60e67e920a23742b4c7f2e15025d3c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule.  <a href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81">More...</a><br /></td></tr>
 <tr class="separator:a60e67e920a23742b4c7f2e15025d3c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5364c51aa0cc630c9708cfdf7ab72b7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html#ae5364c51aa0cc630c9708cfdf7ab72b7">course_count</a> () const</td></tr>
+<tr class="memdesc:ae5364c51aa0cc630c9708cfdf7ab72b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of courses that the simulation will have.  <a href="structtale_1_1_setting.html#ae5364c51aa0cc630c9708cfdf7ab72b7">More...</a><br /></td></tr>
+<tr class="separator:ae5364c51aa0cc630c9708cfdf7ab72b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aa780a7e73bd6f47ee6bf8b3f43386c31"><td class="memItemLeft" align="right" valign="top"><a id="aa780a7e73bd6f47ee6bf8b3f43386c31" name="aa780a7e73bd6f47ee6bf8b3f43386c31"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>seed</b> = 123456789</td></tr>
+<tr class="memdesc:aa780a7e73bd6f47ee6bf8b3f43386c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed used for the <a class="el" href="classtale_1_1_random.html">Random</a> object used in the Simulation. <br /></td></tr>
+<tr class="separator:aa780a7e73bd6f47ee6bf8b3f43386c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac632dc09e50030988540c2cc999adc25"><td class="memItemLeft" align="right" valign="top"><a id="ac632dc09e50030988540c2cc999adc25" name="ac632dc09e50030988540c2cc999adc25"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>days_to_simulate</b> = 30</td></tr>
+<tr class="memdesc:ac632dc09e50030988540c2cc999adc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many days will be simulated. <br /></td></tr>
+<tr class="separator:ac632dc09e50030988540c2cc999adc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adcc2da645c5e5239bd8f86be022554"><td class="memItemLeft" align="right" valign="top"><a id="a9adcc2da645c5e5239bd8f86be022554" name="a9adcc2da645c5e5239bd8f86be022554"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>actor_count</b> = 300</td></tr>
+<tr class="memdesc:a9adcc2da645c5e5239bd8f86be022554"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many <a class="el" href="classtale_1_1_actor.html">Actors </a> will be instanced. <br /></td></tr>
+<tr class="separator:a9adcc2da645c5e5239bd8f86be022554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e9cc8b73e56ff6611f779577dd4989"><td class="memItemLeft" align="right" valign="top"><a id="a03e9cc8b73e56ff6611f779577dd4989" name="a03e9cc8b73e56ff6611f779577dd4989"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>courses_per_day</b> = 6</td></tr>
+<tr class="memdesc:a03e9cc8b73e56ff6611f779577dd4989"><td class="mdescLeft">&#160;</td><td class="mdescRight">How may <a class="el" href="classtale_1_1_course.html">Courses </a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> can visit per day. <br /></td></tr>
+<tr class="separator:a03e9cc8b73e56ff6611f779577dd4989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c462a4413b50ab2b3855a1095ce2f6"><td class="memItemLeft" align="right" valign="top"><a id="a88c462a4413b50ab2b3855a1095ce2f6" name="a88c462a4413b50ab2b3855a1095ce2f6"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>actors_per_course</b> = 30</td></tr>
+<tr class="memdesc:a88c462a4413b50ab2b3855a1095ce2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many <a class="el" href="classtale_1_1_actor.html">Actors </a> a <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> can hold at the same time. <br /></td></tr>
+<tr class="separator:a88c462a4413b50ab2b3855a1095ce2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae4fcace71e7262eea1d52c78144eac"><td class="memItemLeft" align="right" valign="top"><a id="a1ae4fcace71e7262eea1d52c78144eac" name="a1ae4fcace71e7262eea1d52c78144eac"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>same_course_per_week</b> = 4</td></tr>
+<tr class="memdesc:a1ae4fcace71e7262eea1d52c78144eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many times an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> can visit the same <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> per week. <br /></td></tr>
+<tr class="separator:a1ae4fcace71e7262eea1d52c78144eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Stores all settings necessary for the simulation. </p>
+<p >Only one <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> object should exist per simulation, so its run can be reproduced using the same <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae5364c51aa0cc630c9708cfdf7ab72b7" name="ae5364c51aa0cc630c9708cfdf7ab72b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5364c51aa0cc630c9708cfdf7ab72b7">&#9670;&nbsp;</a></span>course_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tale::Setting::course_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the amount of courses that the simulation will have. </p>
+<p >This is either the <a class="el" href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81" title="Calculates the minimum necessary amount of courses so every actor can theoretically completely feel t...">minimum_necessary_course_count()</a> or actor_count/actor_per_course, which ever is bigger.</p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of courses </dd></dl>
+
+</div>
+</div>
 <a id="a60e67e920a23742b4c7f2e15025d3c81" name="a60e67e920a23742b4c7f2e15025d3c81"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60e67e920a23742b4c7f2e15025d3c81">&#9670;&nbsp;</a></span>minimum_necessary_course_count()</h2>
 
@@ -111,8 +175,37 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the minimum necessary amount of courses so every actor can completely feel their schedule. </p>
+<p>Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule. </p>
 <dl class="section return"><dt>Returns</dt><dd>The amount of courses </dd></dl>
+
+</div>
+</div>
+<a id="a8f68e5b07e5552d37fcd99e7137407a8" name="a8f68e5b07e5552d37fcd99e7137407a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f68e5b07e5552d37fcd99e7137407a8">&#9670;&nbsp;</a></span>slot_count_per_week()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tale::Setting::slot_count_per_week </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates how many slots are there in total in a week. </p>
+<p >This is just the amount of courses per day times the length of a workweek (which is hardcoded as 5).</p>
+<dl class="section return"><dt>Returns</dt><dd>The amount of slots </dd></dl>
 
 </div>
 </div>

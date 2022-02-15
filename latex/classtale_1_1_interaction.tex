@@ -20,6 +20,9 @@ Inheritance diagram for tale\+::Interaction\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classtale_1_1_interaction_a9995a181b7f3482b725266b4b8d01a3e}{Interaction}} (std\+::string name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t participant\+\_\+count, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants, std\+::vector$<$ float $>$ resource\+\_\+effects, std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ emotion\+\_\+effects, std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ relationship\+\_\+effects)
 \begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}\label{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}} 
+void {\bfseries Apply} ()
+\begin{DoxyCompactList}\small\item\em Applies the effects of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} to all participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{To\+String}} ()
 \begin{DoxyCompactList}\small\item\em Gets a string representation of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
@@ -62,7 +65,26 @@ Extends the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class, so it has to 
 
 Only publically available Constructor. Fills out every member variable. 
 
-Even though it is publically available, this probably should only be called from \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}}. It is only publically available because it might be needed for testing purposes. \mbox{\Hypertarget{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}\label{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}} 
+Even though it is publically available, this probably should only be called from \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}}. It is only publically available because it might be needed for testing purposes. 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
+\hline
+{\em tick} & The tick during which this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} happens. \\
+\hline
+{\em reasons} & Vector of \mbox{\hyperlink{classtale_1_1_kernel}{Kernels }} that are responsible for this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} happening. \\
+\hline
+{\em participant\+\_\+count} & How many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} are participating in this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. Seperate from participants because protoypes of Interactions do not actually have participants \\
+\hline
+{\em participants} & Vector of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that are participating in this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
+\hline
+{\em resource\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \\
+\hline
+{\em emotion\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_emotion}{Emotions }} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. Maps Emotiontype to float value. \\
+\hline
+{\em relationship\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. Maps index of \mbox{\hyperlink{classtale_1_1_actor}{Actor}} in participants\+\_\+ vector to map of Relationship\+Type to float value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}\label{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}} 
 \index{tale::Interaction@{tale::Interaction}!Interaction@{Interaction}}
 \index{Interaction@{Interaction}!tale::Interaction@{tale::Interaction}}
 \doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}

@@ -15,42 +15,46 @@
 \DoxyCodeLine{11 }
 \DoxyCodeLine{12 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
 \DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     \textcolor{keyword}{enum class} Weekday}
-\DoxyCodeLine{15     \{}
-\DoxyCodeLine{16         Monday,}
-\DoxyCodeLine{17         Tuesday,}
-\DoxyCodeLine{18         Wednesday,}
-\DoxyCodeLine{19         Thursday,}
-\DoxyCodeLine{20         Friday,}
-\DoxyCodeLine{21         Saturday,}
-\DoxyCodeLine{22         Sunday}
-\DoxyCodeLine{23     \};}
-\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *weekday\_string[] = \{\textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{29     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_school}{School}}}
-\DoxyCodeLine{30     \{}
-\DoxyCodeLine{31     \textcolor{keyword}{public}:}
-\DoxyCodeLine{32         \mbox{\hyperlink{classtale_1_1_school}{School}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting, \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&interaction\_store);}
-\DoxyCodeLine{33         \textcolor{keywordtype}{void} SimulateDays(\textcolor{keywordtype}{size\_t} days);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keyword}{private}:}
-\DoxyCodeLine{36         \textcolor{keywordtype}{void} SimulateDay(\textcolor{keywordtype}{size\_t} day, Weekday weekday);}
-\DoxyCodeLine{37         \textcolor{keywordtype}{void} FreeTimeTick();}
-\DoxyCodeLine{38         \textcolor{keywordtype}{bool} IsWorkday(Weekday weekday) \textcolor{keyword}{const};}
-\DoxyCodeLine{39         \textcolor{keywordtype}{bool} ActorIsInCourseGroup(\textcolor{keyword}{const} std::shared\_ptr<Actor> \&actor, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group) \textcolor{keyword}{const};}
-\DoxyCodeLine{40         \textcolor{keywordtype}{size\_t} WeekdayAndDailyTickToSlot(Weekday weekday, \textcolor{keywordtype}{size\_t} tick) \textcolor{keyword}{const};}
-\DoxyCodeLine{41         std::vector<std::weak\_ptr<Actor>> FindRandomCourseGroup(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
-\DoxyCodeLine{42         std::vector<Course> courses\_;}
-\DoxyCodeLine{43         std::vector<std::shared\_ptr<Actor>> actors\_;}
-\DoxyCodeLine{44         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{45         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{46         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&interaction\_store\_;}
-\DoxyCodeLine{47         \textcolor{keywordtype}{size\_t} current\_tick = 0;}
-\DoxyCodeLine{48         \textcolor{keywordtype}{size\_t} current\_day\_ = 0;}
-\DoxyCodeLine{49         Weekday current\_weekday\_ = Weekday::Monday;}
-\DoxyCodeLine{50     \};}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{17     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}}}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         Monday,}
+\DoxyCodeLine{20         Tuesday,}
+\DoxyCodeLine{21         Wednesday,}
+\DoxyCodeLine{22         Thursday,}
+\DoxyCodeLine{23         Friday,}
+\DoxyCodeLine{24         Saturday,}
+\DoxyCodeLine{25         Sunday}
+\DoxyCodeLine{26     \};}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *weekday\_string[] = \{\textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{38     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_school}{School}}}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40     \textcolor{keyword}{public}:}
+\DoxyCodeLine{48         \mbox{\hyperlink{classtale_1_1_school_a58b33316cfcf6b44daec246f69d4f0fa}{School}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{57         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_a0f54fb8a405defd17c71182c9ae8df6a}{SimulateDays}}(\textcolor{keywordtype}{size\_t} days);}
+\DoxyCodeLine{63         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_school_aa81268087c49316734bca8d7f1b23f46}{GetSetting}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtale_1_1_school_a58a0a6ea0a90b8e38145c9aae8e5a76e}{GetInteractionStore}}();}
+\DoxyCodeLine{75         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_school_ab6b2f5dd4516d9319e2f8034c83d1a68}{GetRandom}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keyword}{private}:}
+\DoxyCodeLine{81         std::vector<Course> \mbox{\hyperlink{classtale_1_1_school_a3ea64ebc979438d38918cc4a2014a17f}{courses\_}};}
+\DoxyCodeLine{85         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a384e4007d95d0405aebb49881f190a8f}{actors\_}};}
+\DoxyCodeLine{89         \mbox{\hyperlink{classtale_1_1_random}{Random}} \mbox{\hyperlink{classtale_1_1_school_a9faeedcae3a7c6297d36c4a315d2d9ac}{random\_}};}
+\DoxyCodeLine{93         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_school_a9e677df6848364810d1b4eb5e1aca32f}{setting\_}};}
+\DoxyCodeLine{97         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}{interaction\_store\_}};}
+\DoxyCodeLine{101         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a4cccbd355eb313b0511a9edf93ad4248}{current\_tick}} = 0;}
+\DoxyCodeLine{105         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a540626af1e9f9d2b85ad2d2e9472de94}{current\_day\_}} = 0;}
+\DoxyCodeLine{109         \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} \mbox{\hyperlink{classtale_1_1_school_abe473eed6787ef800133c2fbb729837a}{current\_weekday\_}} = Weekday::Monday;}
+\DoxyCodeLine{118         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_ad164e018ad618dc4859448c0a11addbe}{SimulateDay}}(\textcolor{keywordtype}{size\_t} day, \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday);}
+\DoxyCodeLine{122         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_af2e20378b185dd70f581d759896d5c50}{FreeTimeTick}}();}
+\DoxyCodeLine{129         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}{IsWorkday}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday) \textcolor{keyword}{const};}
+\DoxyCodeLine{137         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_a65fdd724d413035d79148a7764ee52e3}{ActorIsInCourseGroup}}(\textcolor{keyword}{const} std::shared\_ptr<Actor> \&actor, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group) \textcolor{keyword}{const};}
+\DoxyCodeLine{148         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a557cf91eee5ba6d30072ab98adfc0565}{WeekdayAndDailyTickToSlot}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday, \textcolor{keywordtype}{size\_t} daily\_tick) \textcolor{keyword}{const};}
+\DoxyCodeLine{159         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a981efdafe40ea393d59fb91e241c1bef}{FindRandomCourseGroup}}(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
+\DoxyCodeLine{160     \};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}

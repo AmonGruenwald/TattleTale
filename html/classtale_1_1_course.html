@@ -68,18 +68,222 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtale_1_1_course-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Course Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classtale_1_1_course.html" title="Course managing actors.">Course</a> managing actors.  
+<p>A <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> grouping <a class="el" href="classtale_1_1_actor.html">Actors </a> together during different slots of the day.  
  <a href="classtale_1_1_course.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="course_8hpp_source.html">tale/course.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a36f6e71bbf3ffd95ca2a4412d5521f6e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html#a36f6e71bbf3ffd95ca2a4412d5521f6e">Course</a> (<a class="el" href="classtale_1_1_random.html">Random</a> &amp;random, const <a class="el" href="structtale_1_1_setting.html">Setting</a> &amp;setting, size_t id, std::string name)</td></tr>
+<tr class="memdesc:a36f6e71bbf3ffd95ca2a4412d5521f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that uses the passed <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> to setup the course.  <a href="classtale_1_1_course.html#a36f6e71bbf3ffd95ca2a4412d5521f6e">More...</a><br /></td></tr>
+<tr class="separator:a36f6e71bbf3ffd95ca2a4412d5521f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ea8bb9158f71d319409f148466008b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html#a07ea8bb9158f71d319409f148466008b">GetCourseGroupForSlot</a> (size_t slot)</td></tr>
+<tr class="memdesc:a07ea8bb9158f71d319409f148466008b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the group of <a class="el" href="classtale_1_1_actor.html">Actors </a> for the passed slot.  <a href="classtale_1_1_course.html#a07ea8bb9158f71d319409f148466008b">More...</a><br /></td></tr>
+<tr class="separator:a07ea8bb9158f71d319409f148466008b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818dbcdbe6bf8871afe382e31060d15b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html#a818dbcdbe6bf8871afe382e31060d15b">AllSlotsFilled</a> () const</td></tr>
+<tr class="memdesc:a818dbcdbe6bf8871afe382e31060d15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the course has all slots filled.  <a href="classtale_1_1_course.html#a818dbcdbe6bf8871afe382e31060d15b">More...</a><br /></td></tr>
+<tr class="separator:a818dbcdbe6bf8871afe382e31060d15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6e78ff1f8fccfbc7cf7337bb220e43"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html#a3d6e78ff1f8fccfbc7cf7337bb220e43">GetRandomEmptySlot</a> () const</td></tr>
+<tr class="memdesc:a3d6e78ff1f8fccfbc7cf7337bb220e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks for a random empty slot.  <a href="classtale_1_1_course.html#a3d6e78ff1f8fccfbc7cf7337bb220e43">More...</a><br /></td></tr>
+<tr class="separator:a3d6e78ff1f8fccfbc7cf7337bb220e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba3c66fa9806f6f2464d75ea132376a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_course.html#a6ba3c66fa9806f6f2464d75ea132376a">AddToSlot</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; actors, size_t slot)</td></tr>
+<tr class="memdesc:a6ba3c66fa9806f6f2464d75ea132376a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the passed group of <a class="el" href="classtale_1_1_actor.html">Actors </a> to the passed slot.  <a href="classtale_1_1_course.html#a6ba3c66fa9806f6f2464d75ea132376a">More...</a><br /></td></tr>
+<tr class="separator:a6ba3c66fa9806f6f2464d75ea132376a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aaf9e48900055416682f901d148802f56"><td class="memItemLeft" align="right" valign="top"><a id="aaf9e48900055416682f901d148802f56" name="aaf9e48900055416682f901d148802f56"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="memdesc:aaf9e48900055416682f901d148802f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>. <br /></td></tr>
+<tr class="separator:aaf9e48900055416682f901d148802f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae05cecff9054949024885c6ddc72b1fe"><td class="memItemLeft" align="right" valign="top"><a id="ae05cecff9054949024885c6ddc72b1fe" name="ae05cecff9054949024885c6ddc72b1fe"></a>
+const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>id_</b></td></tr>
+<tr class="memdesc:ae05cecff9054949024885c6ddc72b1fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id of the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>. Should correspond to the index of it in the vector holding all courses in an <a class="el" href="classtale_1_1_school.html" title="School class that is responsible for managing actors and courses during the simulation.">School</a> object. <br /></td></tr>
+<tr class="separator:ae05cecff9054949024885c6ddc72b1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a2e40b0c0bec95d1cc327bb0be1f5e8fa"><td class="memItemLeft" align="right" valign="top"><a id="a2e40b0c0bec95d1cc327bb0be1f5e8fa" name="a2e40b0c0bec95d1cc327bb0be1f5e8fa"></a>
+std::vector&lt; std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>slots_</b></td></tr>
+<tr class="memdesc:a2e40b0c0bec95d1cc327bb0be1f5e8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the group of <a class="el" href="classtale_1_1_actor.html">Actors </a> for each slot. <br /></td></tr>
+<tr class="separator:a2e40b0c0bec95d1cc327bb0be1f5e8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa065ab0238a481b94a3b14664ba9b9c"><td class="memItemLeft" align="right" valign="top"><a id="aaa065ab0238a481b94a3b14664ba9b9c" name="aaa065ab0238a481b94a3b14664ba9b9c"></a>
+<a class="el" href="classtale_1_1_random.html">Random</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>random_</b></td></tr>
+<tr class="memdesc:aaa065ab0238a481b94a3b14664ba9b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a reference to the Randmo objec that was passed during construction. <br /></td></tr>
+<tr class="separator:aaa065ab0238a481b94a3b14664ba9b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="classtale_1_1_course.html" title="Course managing actors.">Course</a> managing actors. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p >A <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> grouping <a class="el" href="classtale_1_1_actor.html">Actors </a> together during different slots of the day. </p>
+<p >A <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> happens a few times week. Those times are called slots. Each slots has a fixed group of <a class="el" href="classtale_1_1_actor.html">Actors </a> that visit the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> during that time. As <a class="el" href="classtale_1_1_actor.html">Actors </a> can have the same <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> a few times each week, some slots feature the same group of <a class="el" href="classtale_1_1_actor.html">Actors </a> but it is guaranteed that <a class="el" href="classtale_1_1_actor.html">Actors </a> always visit a single <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> in the same group. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a36f6e71bbf3ffd95ca2a4412d5521f6e" name="a36f6e71bbf3ffd95ca2a4412d5521f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36f6e71bbf3ffd95ca2a4412d5521f6e">&#9670;&nbsp;</a></span>Course()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tale::Course::Course </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtale_1_1_random.html">Random</a> &amp;&#160;</td>
+          <td class="paramname"><em>random</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtale_1_1_setting.html">Setting</a> &amp;&#160;</td>
+          <td class="paramname"><em>setting</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor that uses the passed <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> to setup the course. </p>
+<p >In addition to seting up the slots_ vector depending on the <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> object, the Constructor stores a reference to the passed <a class="el" href="classtale_1_1_random.html">Random</a> object and applies the name. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">random</td><td>Reference to <a class="el" href="classtale_1_1_random.html">Random</a> object of the simulation </td></tr>
+    <tr><td class="paramname">setting</td><td>Reference to the <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> object of the simulation </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6ba3c66fa9806f6f2464d75ea132376a" name="a6ba3c66fa9806f6f2464d75ea132376a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ba3c66fa9806f6f2464d75ea132376a">&#9670;&nbsp;</a></span>AddToSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tale::Course::AddToSlot </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>actors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>slot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds the passed group of <a class="el" href="classtale_1_1_actor.html">Actors </a> to the passed slot. </p>
+<p >This can crash if slot is not empty.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actors</td><td>Vector of <a class="el" href="classtale_1_1_actor.html">Actors </a> that will be added to the slot. </td></tr>
+    <tr><td class="paramname">slot</td><td>The slot the <a class="el" href="classtale_1_1_actor.html">Actors </a> will be added to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a818dbcdbe6bf8871afe382e31060d15b" name="a818dbcdbe6bf8871afe382e31060d15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818dbcdbe6bf8871afe382e31060d15b">&#9670;&nbsp;</a></span>AllSlotsFilled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tale::Course::AllSlotsFilled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the course has all slots filled. </p>
+<dl class="section return"><dt>Returns</dt><dd>The result of the check. </dd></dl>
+
+</div>
+</div>
+<a id="a07ea8bb9158f71d319409f148466008b" name="a07ea8bb9158f71d319409f148466008b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ea8bb9158f71d319409f148466008b">&#9670;&nbsp;</a></span>GetCourseGroupForSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp; tale::Course::GetCourseGroupForSlot </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>slot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the group of <a class="el" href="classtale_1_1_actor.html">Actors </a> for the passed slot. </p>
+<p >Looks in the slot_ vector for the group of <a class="el" href="classtale_1_1_actor.html">Actors </a> that visit the course during the passed slot. This can crash if the slot is not filled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>The slot where the group of <a class="el" href="classtale_1_1_actor.html">Actors </a> will be looked up. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The found group. </dd></dl>
+
+</div>
+</div>
+<a id="a3d6e78ff1f8fccfbc7cf7337bb220e43" name="a3d6e78ff1f8fccfbc7cf7337bb220e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6e78ff1f8fccfbc7cf7337bb220e43">&#9670;&nbsp;</a></span>GetRandomEmptySlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t tale::Course::GetRandomEmptySlot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Looks for a random empty slot. </p>
+<p >This can crash if there is no empty slot.</p>
+<dl class="section return"><dt>Returns</dt><dd>The found slot. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>tale/<a class="el" href="course_8hpp_source.html">course.hpp</a></li>
 <li>tale/course.cpp</li>
 </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['relationship_5feffects_5f_0',['relationship_effects_',['../classtale_1_1_interaction.html#af3ac9643af2e5e00621a0a0f3861054e',1,'tale::Interaction']]],
-  ['resource_5feffects_5f_1',['resource_effects_',['../classtale_1_1_interaction.html#a2148ceda13aeb1d56e4e965a5b42d72b',1,'tale::Interaction']]]
+  ['days_5fto_5fsimulate_0',['days_to_simulate',['../structtale_1_1_setting.html#ac632dc09e50030988540c2cc999adc25',1,'tale::Setting']]]
 ];

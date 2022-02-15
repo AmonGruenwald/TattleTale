@@ -12,14 +12,56 @@ Stores all settings necessary for the simulation.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}{slot\+\_\+count\+\_\+per\+\_\+week}} () const
+\begin{DoxyCompactList}\small\item\em Calculates how many slots are there in total in a week. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\+\_\+necessary\+\_\+course\+\_\+count}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the minimum necessary amount of courses so every actor can completely feel their schedule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtale_1_1_setting_aa780a7e73bd6f47ee6bf8b3f43386c31}\label{structtale_1_1_setting_aa780a7e73bd6f47ee6bf8b3f43386c31}} 
+uint32\+\_\+t {\bfseries seed} = 123456789
+\begin{DoxyCompactList}\small\item\em Seed used for the \mbox{\hyperlink{classtale_1_1_random}{Random}} object used in the Simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_ac632dc09e50030988540c2cc999adc25}\label{structtale_1_1_setting_ac632dc09e50030988540c2cc999adc25}} 
+size\+\_\+t {\bfseries days\+\_\+to\+\_\+simulate} = 30
+\begin{DoxyCompactList}\small\item\em How many days will be simulated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}\label{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}} 
+size\+\_\+t {\bfseries actor\+\_\+count} = 300
+\begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} will be instanced. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_a03e9cc8b73e56ff6611f779577dd4989}\label{structtale_1_1_setting_a03e9cc8b73e56ff6611f779577dd4989}} 
+size\+\_\+t {\bfseries courses\+\_\+per\+\_\+day} = 6
+\begin{DoxyCompactList}\small\item\em How may \mbox{\hyperlink{classtale_1_1_course}{Courses }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can visit per day. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}\label{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}} 
+size\+\_\+t {\bfseries actors\+\_\+per\+\_\+course} = 30
+\begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} a \mbox{\hyperlink{classtale_1_1_course}{Course}} can hold at the same time. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}\label{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}} 
+size\+\_\+t {\bfseries same\+\_\+course\+\_\+per\+\_\+week} = 4
+\begin{DoxyCompactList}\small\item\em How many times an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can visit the same \mbox{\hyperlink{classtale_1_1_course}{Course}} per week. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Stores all settings necessary for the simulation. 
 
+Only one \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object should exist per simulation, so its run can be reproduced using the same \mbox{\hyperlink{structtale_1_1_setting}{Setting}}. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}\label{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}} 
+\index{tale::Setting@{tale::Setting}!course\_count@{course\_count}}
+\index{course\_count@{course\_count}!tale::Setting@{tale::Setting}}
+\doxysubsubsection{\texorpdfstring{course\_count()}{course\_count()}}
+{\footnotesize\ttfamily size\+\_\+t tale\+::\+Setting\+::course\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the amount of courses that the simulation will have. 
+
+This is either the \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\+\_\+necessary\+\_\+course\+\_\+count()}} or actor\+\_\+count/actor\+\_\+per\+\_\+course, which ever is bigger.
+
+\begin{DoxyReturn}{Returns}
+The amount of courses 
+\end{DoxyReturn}
 \mbox{\Hypertarget{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}\label{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}} 
 \index{tale::Setting@{tale::Setting}!minimum\_necessary\_course\_count@{minimum\_necessary\_course\_count}}
 \index{minimum\_necessary\_course\_count@{minimum\_necessary\_course\_count}!tale::Setting@{tale::Setting}}
@@ -28,10 +70,25 @@ Stores all settings necessary for the simulation.
 
 
 
-Calculates the minimum necessary amount of courses so every actor can completely feel their schedule. 
+Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule. 
 
 \begin{DoxyReturn}{Returns}
 The amount of courses 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}\label{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}} 
+\index{tale::Setting@{tale::Setting}!slot\_count\_per\_week@{slot\_count\_per\_week}}
+\index{slot\_count\_per\_week@{slot\_count\_per\_week}!tale::Setting@{tale::Setting}}
+\doxysubsubsection{\texorpdfstring{slot\_count\_per\_week()}{slot\_count\_per\_week()}}
+{\footnotesize\ttfamily size\+\_\+t tale\+::\+Setting\+::slot\+\_\+count\+\_\+per\+\_\+week (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates how many slots are there in total in a week. 
+
+This is just the amount of courses per day times the length of a workweek (which is hardcoded as 5).
+
+\begin{DoxyReturn}{Returns}
+The amount of slots 
 \end{DoxyReturn}
 
 

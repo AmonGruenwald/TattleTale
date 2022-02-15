@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['getemotioneffects_0',['GetEmotionEffects',['../classtale_1_1_interaction_store.html#a3e784024ba951c8f1a868822001c96ad',1,'tale::InteractionStore']]],
-  ['getparticipantcount_1',['GetParticipantCount',['../classtale_1_1_interaction_store.html#a35959cf28a362cebb67f5bd8be476802',1,'tale::InteractionStore']]],
-  ['getrandominteractionname_2',['GetRandomInteractionName',['../classtale_1_1_interaction_store.html#a43cb572984d075858ec5867f24345566',1,'tale::InteractionStore']]],
-  ['getrelationshipeffects_3',['GetRelationshipEffects',['../classtale_1_1_interaction_store.html#ac1e3e73a0edfe990df67f74d713803c5',1,'tale::InteractionStore']]],
-  ['getresourceeffects_4',['GetResourceEffects',['../classtale_1_1_interaction_store.html#ac5d8ddc5b1427db9ab8e181a0bbd16d2',1,'tale::InteractionStore']]]
+  ['course_0',['Course',['../classtale_1_1_course.html#a36f6e71bbf3ffd95ca2a4412d5521f6e',1,'tale::Course']]],
+  ['course_5fcount_1',['course_count',['../structtale_1_1_setting.html#ae5364c51aa0cc630c9708cfdf7ab72b7',1,'tale::Setting']]],
+  ['createinteraction_2',['CreateInteraction',['../classtale_1_1_interaction_store.html#a7d322c0989d4d29910ef060d9786588c',1,'tale::InteractionStore']]]
 ];
