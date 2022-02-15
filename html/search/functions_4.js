@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['interaction_0',['Interaction',['../classtale_1_1_interaction.html#a9995a181b7f3482b725266b4b8d01a3e',1,'tale::Interaction::Interaction(std::string name, size_t tick, std::vector&lt; std::weak_ptr&lt; Kernel &gt; &gt; reasons, size_t participant_count, std::vector&lt; std::weak_ptr&lt; Actor &gt; &gt; participants, std::vector&lt; float &gt; resource_effects, std::vector&lt; std::map&lt; EmotionType, float &gt; &gt; emotion_effects, std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt; relationship_effects)'],['../classtale_1_1_interaction.html#ab6b336a4675ab63e42b3e1ade4383baa',1,'tale::Interaction::Interaction()']]],
-  ['interactionstore_1',['InteractionStore',['../classtale_1_1_interaction_store.html#a5395841632702c7bd314f1ecdb14a9e0',1,'tale::InteractionStore']]],
-  ['isworkday_2',['IsWorkday',['../classtale_1_1_school.html#accd65b68115bd75bae9efe7eb48589d1',1,'tale::School']]]
+  ['getcoursegroupforslot_0',['GetCourseGroupForSlot',['../classtale_1_1_course.html#a07ea8bb9158f71d319409f148466008b',1,'tale::Course']]],
+  ['getemotioneffects_1',['GetEmotionEffects',['../classtale_1_1_interaction_store.html#a3e784024ba951c8f1a868822001c96ad',1,'tale::InteractionStore']]],
+  ['getfilledslotscount_2',['GetFilledSlotsCount',['../classtale_1_1_actor.html#a358943a8762ed47edf8f48b1d24aec19',1,'tale::Actor']]],
+  ['getinteractionstore_3',['GetInteractionStore',['../classtale_1_1_school.html#a58a0a6ea0a90b8e38145c9aae8e5a76e',1,'tale::School']]],
+  ['getparticipantcount_4',['GetParticipantCount',['../classtale_1_1_interaction_store.html#a35959cf28a362cebb67f5bd8be476802',1,'tale::InteractionStore']]],
+  ['getrandom_5',['GetRandom',['../classtale_1_1_school.html#ab6b2f5dd4516d9319e2f8034c83d1a68',1,'tale::School']]],
+  ['getrandomemptyslot_6',['GetRandomEmptySlot',['../classtale_1_1_course.html#a3d6e78ff1f8fccfbc7cf7337bb220e43',1,'tale::Course']]],
+  ['getrandominteractionname_7',['GetRandomInteractionName',['../classtale_1_1_interaction_store.html#a43cb572984d075858ec5867f24345566',1,'tale::InteractionStore']]],
+  ['getrelationshipeffects_8',['GetRelationshipEffects',['../classtale_1_1_interaction_store.html#ac1e3e73a0edfe990df67f74d713803c5',1,'tale::InteractionStore']]],
+  ['getresourceeffects_9',['GetResourceEffects',['../classtale_1_1_interaction_store.html#ac5d8ddc5b1427db9ab8e181a0bbd16d2',1,'tale::InteractionStore']]],
+  ['getsetting_10',['GetSetting',['../classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46',1,'tale::School']]]
 ];

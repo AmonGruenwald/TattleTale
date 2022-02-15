@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>.  
+<p>Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>.  
  <a href="classtale_1_1_interaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="interaction_8hpp_source.html">tale/kernels/interaction.hpp</a>&gt;</code></p>
@@ -138,7 +138,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a7887405bbbc64ab91ecf82dbf01bdb34 inherit pro_methods_classtale_1_1_kernel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. </p>
+<div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. </p>
 <p >Extends the <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9995a181b7f3482b725266b4b8d01a3e" name="a9995a181b7f3482b725266b4b8d01a3e"></a>
@@ -213,7 +213,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">participants</td><td>Vector of <a class="el" href="classtale_1_1_actor.html">Actors </a> that are participating in this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. </td></tr>
     <tr><td class="paramname">resource_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_resource.html" title="Represents the abstract Resources an Actor has.">Resource</a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. </td></tr>
     <tr><td class="paramname">emotion_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_emotion.html">Emotions </a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps Emotiontype to float value. </td></tr>
-    <tr><td class="paramname">relationship_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_relationship.html">Relationships </a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps index of <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> in participants_ vector to map of RelationshipType to float value. </td></tr>
+    <tr><td class="paramname">relationship_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_relationship.html">Relationships </a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps index of <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> in participants_ vector to map of RelationshipType to float value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -310,7 +310,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>. </p>
-<p >For each <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An actor has to act accordingly to their internal state....">Actor</a> a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs. Those pairs signal how much each <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> axis would be changed. </p>
+<p >For each <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs. Those pairs signal how much each <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> axis would be changed. </p>
 
 </div>
 </div>

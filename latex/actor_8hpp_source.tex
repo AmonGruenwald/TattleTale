@@ -23,35 +23,37 @@
 \DoxyCodeLine{23     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_actor}{Actor}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Actor>}
 \DoxyCodeLine{24     \{}
 \DoxyCodeLine{25     \textcolor{keyword}{public}:}
-\DoxyCodeLine{26         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} id\_;}
-\DoxyCodeLine{27         std::string name\_;}
-\DoxyCodeLine{28         std::shared\_ptr<Goal> goal\_;}
-\DoxyCodeLine{29         std::vector<std::shared\_ptr<Trait>> traits\_;}
-\DoxyCodeLine{30         std::map<EmotionType, std::shared\_ptr<Emotion>> emotions\_;}
-\DoxyCodeLine{31         std::map<size\_t, std::map<RelationshipType, std::shared\_ptr<Relationship>>> relationships\_;}
-\DoxyCodeLine{32         std::shared\_ptr<Resource> resource\_;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}(\mbox{\hyperlink{classtale_1_1_school}{School}} \&school, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{35         \textcolor{keywordtype}{bool} IsEnrolledInCourse(\textcolor{keywordtype}{size\_t} course\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{36         \textcolor{keywordtype}{void} EnrollInCourse(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
-\DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} GetFilledSlotsCount() \textcolor{keyword}{const};}
-\DoxyCodeLine{38         \textcolor{keywordtype}{bool} AllSlotsFilled() \textcolor{keyword}{const};}
-\DoxyCodeLine{39         \textcolor{keywordtype}{bool} SlotsEmpty(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
-\DoxyCodeLine{40         std::string ChooseInteraction(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group, std::vector<std::weak\_ptr<Kernel>> \&out\_reasons, std::vector<std::weak\_ptr<Actor>> \&out\_participants);}
-\DoxyCodeLine{41         \textcolor{keywordtype}{void} ApplyResourceChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{42         \textcolor{keywordtype}{void} ApplyEmotionChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{43         \textcolor{keywordtype}{void} ApplyRelationshipChange(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, RelationshipType type, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45     \textcolor{keyword}{private}:}
-\DoxyCodeLine{46         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{47         \mbox{\hyperlink{classtale_1_1_school}{School}} \&school\_;}
-\DoxyCodeLine{48         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&interaction\_store\_;}
-\DoxyCodeLine{49         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{50         \textcolor{keywordtype}{size\_t} filled\_slots\_count\_ = 0;}
-\DoxyCodeLine{51         std::vector<int> enrolled\_courses\_id\_;}
-\DoxyCodeLine{52     \};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{29         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_actor_af7e52683a15674295c1cc009c9ee8827}{id\_}};}
+\DoxyCodeLine{33         std::string \mbox{\hyperlink{classtale_1_1_actor_a86d006fe2e3d80ea674d1edd0324eb48}{name\_}};}
+\DoxyCodeLine{37         std::shared\_ptr<Goal> \mbox{\hyperlink{classtale_1_1_actor_a13b3a7cd1451c7994aa61b6fe58f14f6}{goal\_}};}
+\DoxyCodeLine{41         std::vector<std::shared\_ptr<Trait>> \mbox{\hyperlink{classtale_1_1_actor_a599c708b1b01f2c97765cc8da0ad5da1}{traits\_}};}
+\DoxyCodeLine{45         std::map<EmotionType, std::shared\_ptr<Emotion>> \mbox{\hyperlink{classtale_1_1_actor_a043f3b48b195c7c31a014caf1d076c16}{emotions\_}};}
+\DoxyCodeLine{50         std::map<size\_t, std::map<RelationshipType, std::shared\_ptr<Relationship>>> \mbox{\hyperlink{classtale_1_1_actor_aa02d343332bfc895391e6729facb899b}{relationships\_}};}
+\DoxyCodeLine{54         std::shared\_ptr<Resource> \mbox{\hyperlink{classtale_1_1_actor_a3ac7c0dc95f3bcacf36d9ba3b35940e0}{resource\_}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \mbox{\hyperlink{classtale_1_1_actor}{Actor}}(\mbox{\hyperlink{classtale_1_1_school}{School}} \&school, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{63         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_adced7f601f68a004a0e2b047c5954cad}{IsEnrolledInCourse}}(\textcolor{keywordtype}{size\_t} course\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{72         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_abaf48912c1386a3f1c3feef0cb5554b1}{EnrollInCourse}}(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
+\DoxyCodeLine{78         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_actor_a358943a8762ed47edf8f48b1d24aec19}{GetFilledSlotsCount}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{84         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}{AllSlotsFilled}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{91         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}{SlotsEmpty}}(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
+\DoxyCodeLine{102         std::string \mbox{\hyperlink{classtale_1_1_actor_a6a3e7163c5c9a745bcaf73244805fb96}{ChooseInteraction}}(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group, std::vector<std::weak\_ptr<Kernel>> \&out\_reasons, std::vector<std::weak\_ptr<Actor>> \&out\_participants);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{113         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a5f33e65fcb59ebad33c64401fdfa1aeb}{ApplyResourceChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{125         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}{ApplyEmotionChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{137         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}{ApplyRelationshipChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, RelationshipType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{keyword}{private}:}
+\DoxyCodeLine{143         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_actor_a589ad88bd32aa87029fdd4f30d059bb6}{random\_}};}
+\DoxyCodeLine{147         \mbox{\hyperlink{classtale_1_1_school}{School}} \&\mbox{\hyperlink{classtale_1_1_actor_a822a5c5e0484b21932d4faf42d44a15d}{school\_}};}
+\DoxyCodeLine{151         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtale_1_1_actor_a1ca3019978ddeca9e26d86cedc9b0b75}{interaction\_store\_}};}
+\DoxyCodeLine{155         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_actor_a10bb3d000d14e1cf888f59e0407c97c7}{setting\_}};}
+\DoxyCodeLine{159         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_actor_a9eea67b53dc323cc31a8705dd536eac1}{filled\_slots\_count\_}} = 0;}
+\DoxyCodeLine{163         std::vector<int> \mbox{\hyperlink{classtale_1_1_actor_a8523f3a44c93d312293f809c933eef96}{enrolled\_courses\_id\_}};}
+\DoxyCodeLine{164     \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}

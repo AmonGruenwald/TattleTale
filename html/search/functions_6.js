@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['minimum_5fnecessary_5fcourse_5fcount_0',['minimum_necessary_course_count',['../structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81',1,'tale::Setting']]]
+  ['kernel_0',['Kernel',['../classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34',1,'tale::Kernel']]]
 ];

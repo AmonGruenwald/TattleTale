@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['participant_5fcount_5f_0',['participant_count_',['../classtale_1_1_interaction.html#aa2b930663cd47e41ddcb1c41ba5dc0c7',1,'tale::Interaction']]],
-  ['participants_5f_1',['participants_',['../classtale_1_1_interaction.html#a95ed099c8cdb1b77ec5e25bfbcbe0f6a',1,'tale::Interaction']]],
-  ['prototype_5fcatalogue_5f_2',['prototype_catalogue_',['../classtale_1_1_interaction_store.html#aa10134aeb39f5b49501d1c6df25a7d1a',1,'tale::InteractionStore']]],
-  ['prototype_5fjson_5fpath_5f_3',['prototype_json_path_',['../classtale_1_1_interaction_store.html#ad6d0dd8803d84e0eddf5a0e5fd621075',1,'tale::InteractionStore']]]
+  ['id_5f_0',['id_',['../classtale_1_1_actor.html#af7e52683a15674295c1cc009c9ee8827',1,'tale::Actor::id_()'],['../classtale_1_1_course.html#ae05cecff9054949024885c6ddc72b1fe',1,'tale::Course::id_()']]],
+  ['interaction_5fstore_5f_1',['interaction_store_',['../classtale_1_1_actor.html#a1ca3019978ddeca9e26d86cedc9b0b75',1,'tale::Actor::interaction_store_()'],['../classtale_1_1_school.html#a511e471fc76d154b55195d275451b70c',1,'tale::School::interaction_store_()']]]
 ];

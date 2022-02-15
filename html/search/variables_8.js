@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['same_5fcourse_5fper_5fweek_0',['same_course_per_week',['../structtale_1_1_setting.html#a1ae4fcace71e7262eea1d52c78144eac',1,'tale::Setting']]],
-  ['seed_1',['seed',['../structtale_1_1_setting.html#aa780a7e73bd6f47ee6bf8b3f43386c31',1,'tale::Setting']]],
-  ['setting_5f_2',['setting_',['../classtale_1_1_school.html#a9e677df6848364810d1b4eb5e1aca32f',1,'tale::School']]],
-  ['slots_5f_3',['slots_',['../classtale_1_1_course.html#a2e40b0c0bec95d1cc327bb0be1f5e8fa',1,'tale::Course']]]
+  ['participant_5fcount_5f_0',['participant_count_',['../classtale_1_1_interaction.html#aa2b930663cd47e41ddcb1c41ba5dc0c7',1,'tale::Interaction']]],
+  ['participants_5f_1',['participants_',['../classtale_1_1_interaction.html#a95ed099c8cdb1b77ec5e25bfbcbe0f6a',1,'tale::Interaction']]],
+  ['prototype_5fcatalogue_5f_2',['prototype_catalogue_',['../classtale_1_1_interaction_store.html#aa10134aeb39f5b49501d1c6df25a7d1a',1,'tale::InteractionStore']]],
+  ['prototype_5fjson_5fpath_5f_3',['prototype_json_path_',['../classtale_1_1_interaction_store.html#ad6d0dd8803d84e0eddf5a0e5fd621075',1,'tale::InteractionStore']]]
 ];

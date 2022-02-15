@@ -8,5 +8,6 @@ var searchData=
   ['tattleprintexample_5',['TattlePrintExample',['../namespacetattle.html#a2fc1fffb51898dd7d9d1254855f20129',1,'tattle']]],
   ['tattletale_6',['TattleTale',['../index.html',1,'']]],
   ['tostring_7',['ToString',['../classtale_1_1_interaction.html#abace54ec1b4f7a207fb7f6d14added96',1,'tale::Interaction']]],
-  ['trait_8',['Trait',['../classtale_1_1_trait.html',1,'tale']]]
+  ['trait_8',['Trait',['../classtale_1_1_trait.html',1,'tale']]],
+  ['traits_5f_9',['traits_',['../classtale_1_1_actor.html#a599c708b1b01f2c97765cc8da0ad5da1',1,'tale::Actor']]]
 ];

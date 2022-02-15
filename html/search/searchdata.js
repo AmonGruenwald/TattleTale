@@ -4,8 +4,8 @@ var indexSectionsWithContent =
   1: "acegikrst",
   2: "t",
   3: "t",
-  4: "acfgikmstw",
-  5: "acdeinprs",
+  4: "acefgikmstw",
+  5: "acdefginprst",
   6: "w",
   7: "t"
 };
