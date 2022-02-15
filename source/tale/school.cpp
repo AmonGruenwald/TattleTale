@@ -102,7 +102,7 @@ namespace tale
                         std::string interaction_name = actor.lock()->ChooseInteraction(course_group, reasons, participants);
                         // TODO: registers interaction to events
                         std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick, reasons, participants);
-                        interaction->Apply(current_tick);
+                        interaction->Apply();
                     }
                 }
                 ++current_tick;
