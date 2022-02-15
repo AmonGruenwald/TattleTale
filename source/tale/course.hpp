@@ -31,14 +31,18 @@ namespace tale
          * @brief Constructor that uses the passed Setting to setup the course.
          *
          * In addition to seting up the slots_ vector depending on the Setting object, the Constructor stores a reference to the passed Random object and applies the name.
+         * @param random Reference to Random object of the simulation
+         * @param setting Reference to the Setting object of the simulation
+         * @param name The name of the Course
          */
-        Course(Random &random, const Setting &setting, size_t id, std::string name_);
+        Course(Random &random, const Setting &setting, size_t id, std::string name);
         /**
          * @brief Finds the group of \link Actor Actors \endlink for the passed slot.
          *
          * Looks in the slot_ vector for the group of \link Actor Actors \endlink that visit the course during the passed slot.
          * This can crash if the slot is not filled.
          *
+         * @param slot The slot where the group of \link Actor Actors \endlink will be looked up.
          * @return The found group.
          */
         const std::vector<std::weak_ptr<Actor>> &GetCourseGroupForSlot(size_t slot);
@@ -61,6 +65,9 @@ namespace tale
          * @brief Adds the passed group of \link Actor Actors \endlink to the passed slot.
          *
          * This can crash if slot is not empty.
+         *
+         * @param actors Vector of \link Actor Actors \endlink that will be added to the slot.
+         * @param slot The slot the \link Actor Actors \endlink will be added to.
          */
         void AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot);
 
