@@ -37,7 +37,7 @@ namespace tale
          *
          * Stores references to a Random and an InteractionStore Object, to be used in the simulation. Uses the passed Setting object to instance actors and courses correctly.
          */
-        School(Random &random, const Setting &setting, InteractionStore &interaction_store);
+        School(const Setting &setting);
 
         /**
          * @brief Runs the simulation for the passed amount of days.
@@ -45,6 +45,24 @@ namespace tale
          * Calls the private SimulatedDay function and increases current_day_ and increments current_weekday_.
          */
         void SimulateDays(size_t days);
+        /**
+         * @brief Getter for the Setting object of the simulation
+         *
+         * @return Reference to the Setting object.
+         */
+        const Setting &GetSetting() const;
+        /**
+         * @brief Getter for the InteractionStore object of the simulation
+         *
+         * @return Reference to the InteractionStore object.
+         */
+        InteractionStore &GetInteractionStore();
+        /**
+         * @brief Getter for the Random object of the simulation
+         *
+         * @return Reference to the Random object.
+         */
+        Random &GetRandom();
 
     private:
         /**
@@ -56,17 +74,17 @@ namespace tale
          */
         std::vector<std::shared_ptr<Actor>> actors_;
         /**
-         * @brief Holds a reference to an instance of the Random object that was passed during construction.
+         * @brief Holds the instance of the Random object of the simulation.
          */
-        Random &random_;
+        Random random_;
         /**
          * @brief Holds a reference to an instance of the Setting object that was passed during construction.
          */
         const Setting &setting_;
         /**
-         * @brief Holds a reference to an instance of the InteractionStore object that was passed during construction.
+         * @brief Holds the instance of the InteractionStore object for the simulation.
          */
-        InteractionStore &interaction_store_;
+        InteractionStore interaction_store_;
         /**
          * @brief The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next.
          */

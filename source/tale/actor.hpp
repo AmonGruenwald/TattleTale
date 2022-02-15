@@ -31,7 +31,7 @@ namespace tale
         std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> relationships_;
         std::shared_ptr<Resource> resource_;
 
-        Actor(Random &random, const Setting &setting, School &school, InteractionStore &interaction_store, size_t id);
+        Actor(School &school, size_t id);
         bool IsEnrolledInCourse(size_t course_id) const;
         void EnrollInCourse(size_t course_id, uint32_t slot);
         size_t GetFilledSlotsCount() const;

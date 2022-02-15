@@ -7,7 +7,7 @@
 
 namespace tale
 {
-    Actor::Actor(Random &random, const Setting &setting, School &school, InteractionStore &interaction_store, size_t id) : random_(random), setting_(setting), school_(school), interaction_store_(interaction_store), id_(id)
+    Actor::Actor(School &school, size_t id) : random_(school.GetRandom()), setting_(school.GetSetting()), school_(school), interaction_store_(school.GetInteractionStore()), id_(id)
     {
         // TOOD: Create random starting values for everything (including some random relationships) and register those
         name_ = "John Doe";

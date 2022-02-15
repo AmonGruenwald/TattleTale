@@ -4,13 +4,15 @@
 
 namespace tale
 {
-    School::School(Random &random, const Setting &setting, InteractionStore &interaction_store) : random_(random), setting_(setting), interaction_store_(interaction_store)
+    School::School(const Setting &setting) : setting_(setting)
     {
+        random_ = Random(setting_.seed);
+        interaction_store_ = InteractionStore();
         size_t actor_count = setting_.actor_count;
         for (size_t i = 0; i < actor_count; ++i)
         {
             std::cout << "CREATING ACTOR " << i << std::endl;
-            std::shared_ptr<Actor> actor(new Actor(random_, setting_, *this, interaction_store_, i));
+            std::shared_ptr<Actor> actor(new Actor(*this, i));
             // TODO: not needed after random names are used
             actor->name_ = (std::to_string(i) + " ");
             actors_.push_back(actor);
@@ -84,6 +86,18 @@ namespace tale
         }
     }
 
+    const Setting &School::GetSetting() const
+    {
+        return setting_;
+    }
+    InteractionStore &School::GetInteractionStore()
+    {
+        return interaction_store_;
+    }
+    Random &School::GetRandom()
+    {
+        return random_;
+    }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
         std::cout << "SIMULATING DAY " << day << " WHICH IS A " << weekday_string[static_cast<int>(weekday)] << std::endl;
