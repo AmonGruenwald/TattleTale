@@ -160,9 +160,9 @@ namespace tale
         return false;
     }
 
-    size_t School::WeekdayAndDailyTickToSlot(Weekday weekday, size_t tick) const
+    size_t School::WeekdayAndDailyTickToSlot(Weekday weekday, size_t daily_tick) const
     {
-        return static_cast<size_t>(weekday) * setting_.courses_per_day + tick;
+        return static_cast<size_t>(weekday) * setting_.courses_per_day + daily_tick;
     }
 
     std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
