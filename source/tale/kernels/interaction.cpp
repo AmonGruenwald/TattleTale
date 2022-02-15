@@ -26,7 +26,7 @@ namespace tale
         std::cout << "Interaction default constructor" << std::endl;
     };
 
-    void Interaction::Apply(size_t tick)
+    void Interaction::Apply()
     {
         std::string description = "";
         description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
@@ -47,16 +47,16 @@ namespace tale
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
         {
-            participants_.at(i).lock()->ApplyResourceChange(reasons, tick, resource_effects_[i]);
+            participants_.at(i).lock()->ApplyResourceChange(reasons, tick_, resource_effects_[i]);
             for (auto &[type, value] : emotion_effects_[i])
             {
-                participants_.at(i).lock()->ApplyEmotionChange(reasons, tick, type, value);
+                participants_.at(i).lock()->ApplyEmotionChange(reasons, tick_, type, value);
             }
             for (auto &[other, change] : relationship_effects_[i])
             {
                 for (auto &[type, value] : change)
                 {
-                    participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick, participants_[other].lock()->id_, type, value);
+                    participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick_, participants_[other].lock()->id_, type, value);
                 }
             }
         }
