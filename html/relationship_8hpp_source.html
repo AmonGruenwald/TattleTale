@@ -84,25 +84,26 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        kAttraction,</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        kFriendship,</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        kAnger,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        kProtective</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    };</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classtale_1_1_relationship.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtale_1_1_kernel.html">Kernel</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a>(std::string name, <span class="keywordtype">size_t</span> tick, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> RelationshipType StringToRelationshipType(std::string relationship_string);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> std::string RelationshipTypeToString(RelationshipType relationship_type);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">float</span> GetValue() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        std::string ToString();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">float</span> value_;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    };</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>} <span class="comment">// namespace tale</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// TALE_RELATIONSHIP_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        kProtective,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        kLast</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classtale_1_1_relationship.html">   22</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtale_1_1_kernel.html">Kernel</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a>(std::string name, <span class="keywordtype">size_t</span> tick, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> RelationshipType StringToRelationshipType(std::string relationship_string);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">static</span> std::string RelationshipTypeToString(RelationshipType relationship_type);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">float</span> GetValue() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        std::string ToString();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">float</span> value_;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace tale</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// TALE_RELATIONSHIP_H</span></div>
 <div class="ttc" id="aclasstale_1_1_kernel_html"><div class="ttname"><a href="classtale_1_1_kernel.html">tale::Kernel</a></div><div class="ttdoc">Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...</div><div class="ttdef"><b>Definition:</b> kernel.hpp:19</div></div>
-<div class="ttc" id="aclasstale_1_1_relationship_html"><div class="ttname"><a href="classtale_1_1_relationship.html">tale::Relationship</a></div><div class="ttdoc">Represents a Relationship an Actor has with another Actor.</div><div class="ttdef"><b>Definition:</b> relationship.hpp:22</div></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html"><div class="ttname"><a href="classtale_1_1_relationship.html">tale::Relationship</a></div><div class="ttdoc">Represents a Relationship an Actor has with another Actor.</div><div class="ttdef"><b>Definition:</b> relationship.hpp:23</div></div>
 <div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

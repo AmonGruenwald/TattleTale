@@ -16,6 +16,14 @@
 \begin{DoxyCompactList}\small\item\em Constructor that sets up everything necessayr for the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_school_a0f54fb8a405defd17c71182c9ae8df6a}{Simulate\+Days}} (size\+\_\+t days)
 \begin{DoxyCompactList}\small\item\em Runs the simulation for the passed amount of days. \end{DoxyCompactList}\item 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ \mbox{\hyperlink{classtale_1_1_school_a801df8970ef80db1ca2250b642056087}{Get\+Actor}} (size\+\_\+t actor\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Getter for an \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtale_1_1_course}{Course}} \& \mbox{\hyperlink{classtale_1_1_school_ace7a55761403a0e0ee728a4e4b9ff777}{Get\+Course}} (size\+\_\+t course\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Getter for a \mbox{\hyperlink{classtale_1_1_course}{Course}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} \mbox{\hyperlink{classtale_1_1_school_abf5587f1541b6eec4d4f74f8cd41b2f7}{Get\+Current\+Weekday}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the current Weekday. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtale_1_1_school_a295ef104f1ee2159ed1a9df5ee0343fe}{Get\+Current\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the current day. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \& \mbox{\hyperlink{classtale_1_1_school_aa81268087c49316734bca8d7f1b23f46}{Get\+Setting}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} \& \mbox{\hyperlink{classtale_1_1_school_a58a0a6ea0a90b8e38145c9aae8e5a76e}{Get\+Interaction\+Store}} ()
@@ -134,6 +142,68 @@ Picks random \mbox{\hyperlink{classtale_1_1_actor}{Actors }} and checks if they 
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The found group of Actors. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_a801df8970ef80db1ca2250b642056087}\label{classtale_1_1_school_a801df8970ef80db1ca2250b642056087}} 
+\index{tale::School@{tale::School}!GetActor@{GetActor}}
+\index{GetActor@{GetActor}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetActor()}{GetActor()}}
+{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ tale\+::\+School\+::\+Get\+Actor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Getter for an \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor\+\_\+id} & The id of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} we want to get. Corresponds to index in actors\+\_\+ vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_ace7a55761403a0e0ee728a4e4b9ff777}\label{classtale_1_1_school_ace7a55761403a0e0ee728a4e4b9ff777}} 
+\index{tale::School@{tale::School}!GetCourse@{GetCourse}}
+\index{GetCourse@{GetCourse}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetCourse()}{GetCourse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtale_1_1_course}{Course}} \& tale\+::\+School\+::\+Get\+Course (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{course\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Getter for a \mbox{\hyperlink{classtale_1_1_course}{Course}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor\+\_\+id} & The id of the \mbox{\hyperlink{classtale_1_1_course}{Course}} we want to get. Corresponds to index in courses\+\_\+ vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classtale_1_1_course}{Course}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_a295ef104f1ee2159ed1a9df5ee0343fe}\label{classtale_1_1_school_a295ef104f1ee2159ed1a9df5ee0343fe}} 
+\index{tale::School@{tale::School}!GetCurrentDay@{GetCurrentDay}}
+\index{GetCurrentDay@{GetCurrentDay}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetCurrentDay()}{GetCurrentDay()}}
+{\footnotesize\ttfamily size\+\_\+t tale\+::\+School\+::\+Get\+Current\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the current day. 
+
+\begin{DoxyReturn}{Returns}
+The current day. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_abf5587f1541b6eec4d4f74f8cd41b2f7}\label{classtale_1_1_school_abf5587f1541b6eec4d4f74f8cd41b2f7}} 
+\index{tale::School@{tale::School}!GetCurrentWeekday@{GetCurrentWeekday}}
+\index{GetCurrentWeekday@{GetCurrentWeekday}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetCurrentWeekday()}{GetCurrentWeekday()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} tale\+::\+School\+::\+Get\+Current\+Weekday (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the current Weekday. 
+
+\begin{DoxyReturn}{Returns}
+The current Weekday. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_school_a58a0a6ea0a90b8e38145c9aae8e5a76e}\label{classtale_1_1_school_a58a0a6ea0a90b8e38145c9aae8e5a76e}} 
 \index{tale::School@{tale::School}!GetInteractionStore@{GetInteractionStore}}

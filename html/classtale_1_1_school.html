@@ -89,6 +89,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f54fb8a405defd17c71182c9ae8df6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a0f54fb8a405defd17c71182c9ae8df6a">SimulateDays</a> (size_t days)</td></tr>
 <tr class="memdesc:a0f54fb8a405defd17c71182c9ae8df6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the simulation for the passed amount of days.  <a href="classtale_1_1_school.html#a0f54fb8a405defd17c71182c9ae8df6a">More...</a><br /></td></tr>
 <tr class="separator:a0f54fb8a405defd17c71182c9ae8df6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a801df8970ef80db1ca2250b642056087"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a801df8970ef80db1ca2250b642056087">GetActor</a> (size_t actor_id)</td></tr>
+<tr class="memdesc:a801df8970ef80db1ca2250b642056087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtale_1_1_school.html#a801df8970ef80db1ca2250b642056087">More...</a><br /></td></tr>
+<tr class="separator:a801df8970ef80db1ca2250b642056087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace7a55761403a0e0ee728a4e4b9ff777"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtale_1_1_course.html">Course</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#ace7a55761403a0e0ee728a4e4b9ff777">GetCourse</a> (size_t course_id)</td></tr>
+<tr class="memdesc:ace7a55761403a0e0ee728a4e4b9ff777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>.  <a href="classtale_1_1_school.html#ace7a55761403a0e0ee728a4e4b9ff777">More...</a><br /></td></tr>
+<tr class="separator:ace7a55761403a0e0ee728a4e4b9ff777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5587f1541b6eec4d4f74f8cd41b2f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetale.html#ad595b201ea86d7ebf4b21df67f60e76d">Weekday</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#abf5587f1541b6eec4d4f74f8cd41b2f7">GetCurrentWeekday</a> () const</td></tr>
+<tr class="memdesc:abf5587f1541b6eec4d4f74f8cd41b2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the current Weekday.  <a href="classtale_1_1_school.html#abf5587f1541b6eec4d4f74f8cd41b2f7">More...</a><br /></td></tr>
+<tr class="separator:abf5587f1541b6eec4d4f74f8cd41b2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a295ef104f1ee2159ed1a9df5ee0343fe"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a295ef104f1ee2159ed1a9df5ee0343fe">GetCurrentDay</a> () const</td></tr>
+<tr class="memdesc:a295ef104f1ee2159ed1a9df5ee0343fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the current day.  <a href="classtale_1_1_school.html#a295ef104f1ee2159ed1a9df5ee0343fe">More...</a><br /></td></tr>
+<tr class="separator:a295ef104f1ee2159ed1a9df5ee0343fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa81268087c49316734bca8d7f1b23f46"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structtale_1_1_setting.html">Setting</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46">GetSetting</a> () const</td></tr>
 <tr class="memdesc:aa81268087c49316734bca8d7f1b23f46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the <a class="el" href="structtale_1_1_setting.html" title="Stores all settings necessary for the simulation.">Setting</a> object of the simulation.  <a href="classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46">More...</a><br /></td></tr>
 <tr class="separator:aa81268087c49316734bca8d7f1b23f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -278,6 +290,100 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_day_</b> = 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The found group of Actors. </dd></dl>
+
+</div>
+</div>
+<a id="a801df8970ef80db1ca2250b642056087" name="a801df8970ef80db1ca2250b642056087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a801df8970ef80db1ca2250b642056087">&#9670;&nbsp;</a></span>GetActor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; tale::School::GetActor </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>actor_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actor_id</td><td>The id of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> we want to get. Corresponds to index in actors_ vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ace7a55761403a0e0ee728a4e4b9ff777" name="ace7a55761403a0e0ee728a4e4b9ff777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace7a55761403a0e0ee728a4e4b9ff777">&#9670;&nbsp;</a></span>GetCourse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtale_1_1_course.html">Course</a> &amp; tale::School::GetCourse </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>course_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for a <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actor_id</td><td>The id of the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> we want to get. Corresponds to index in courses_ vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a295ef104f1ee2159ed1a9df5ee0343fe" name="a295ef104f1ee2159ed1a9df5ee0343fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a295ef104f1ee2159ed1a9df5ee0343fe">&#9670;&nbsp;</a></span>GetCurrentDay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t tale::School::GetCurrentDay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the current day. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current day. </dd></dl>
+
+</div>
+</div>
+<a id="abf5587f1541b6eec4d4f74f8cd41b2f7" name="abf5587f1541b6eec4d4f74f8cd41b2f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf5587f1541b6eec4d4f74f8cd41b2f7">&#9670;&nbsp;</a></span>GetCurrentWeekday()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetale.html#ad595b201ea86d7ebf4b21df67f60e76d">Weekday</a> tale::School::GetCurrentWeekday </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the current Weekday. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current Weekday. </dd></dl>
 
 </div>
 </div>
