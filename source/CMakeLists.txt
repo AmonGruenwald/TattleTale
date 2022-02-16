@@ -1,6 +1,7 @@
 set(LIBRARY_SOURCES 
     tale/tale.hpp 
     tale/tale.cpp 
+    tale/talecore.hpp
     tale/actor.hpp
     tale/actor.cpp
     tale/school.hpp
@@ -57,6 +58,9 @@ add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
 target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt )
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
+# Uncomment for prints
+target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+
 
 add_custom_command(
         TARGET ${EXECUTABLE_NAME} POST_BUILD

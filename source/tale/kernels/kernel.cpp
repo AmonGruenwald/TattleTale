@@ -1,3 +1,4 @@
+#include "tale/talecore.hpp"
 #include "tale/kernels/kernel.hpp"
 
 #include <iostream>
@@ -18,7 +19,7 @@ namespace tale
     }
     Kernel::Kernel()
     {
-        std::cout << "Kernel default constructor" << std::endl;
+        TALE_DEBUG_PRINT("Kernel default constructor\n");
     }
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
     {

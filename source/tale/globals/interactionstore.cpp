@@ -1,3 +1,4 @@
+#include "tale/talecore.hpp"
 #include "tale/globals/interactionstore.hpp"
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/relationship.hpp"
@@ -15,12 +16,10 @@ namespace tale
         nlohmann::json prototype_json;
         prototype_json_file >> prototype_json;
         prototype_json_file.close();
-        std::cout << "READ FROM PROTOTYPE FILE:" << std::endl;
-        std::cout << prototype_json.dump(4) << std::endl;
-        std::cout << "------------------------------------------" << std::endl
-                  << std::endl;
-
-        std::cout << "CREATING INTERACTION PROTOTYPE CATALOGUE:" << std::endl;
+        TALE_DEBUG_PRINT("READ FROM PROTOTYPE FILE:\n");
+        TALE_DEBUG_PRINT(prototype_json.dump(4) + "\n");
+        TALE_DEBUG_PRINT("------------------------------------------\n\n");
+        TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE:\n");
 
         for (auto &[key, value] : prototype_json.items())
         {
@@ -70,11 +69,10 @@ namespace tale
             }
 
             prototype_catalogue_.insert({interaction.name_, interaction});
-            std::cout << std::endl
-                      << interaction.ToString() << std::endl;
+
+            TALE_DEBUG_PRINT("\n" + interaction.ToString() + "\n");
         }
-        std::cout << "------------------------------------------" << std::endl
-                  << std::endl;
+        TALE_DEBUG_PRINT("------------------------------------------\n\n");
     }
     std::string InteractionStore::GetRandomInteractionName()
     {

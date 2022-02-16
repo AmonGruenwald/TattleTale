@@ -1,5 +1,7 @@
+#include "tale/talecore.hpp"
 #include "tale/school.hpp"
 #include <iostream>
+#include <assert.h>
 #include <algorithm>
 
 namespace tale
@@ -11,7 +13,7 @@ namespace tale
         size_t actor_count = setting_.actor_count;
         for (size_t i = 0; i < actor_count; ++i)
         {
-            std::cout << "CREATING ACTOR " << i << std::endl;
+            TALE_DEBUG_PRINT("CREATING ACTOR " + std::to_string(i) + "\n");
             std::shared_ptr<Actor> actor(new Actor(*this, i));
             // TODO: not needed after random names are used
             actor->name_ = (std::to_string(i) + " ");
@@ -21,7 +23,7 @@ namespace tale
         size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)
         {
-            std::cout << "CREATING COURSE " << i << std::endl;
+            TALE_DEBUG_PRINT("CREATING COURSE " + std::to_string(i) + "\n");
             // TODO: create better names
             Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
@@ -31,7 +33,7 @@ namespace tale
         std::vector<uint32_t> random_slot_order;
         for (auto &course : courses_)
         {
-            std::cout << "FILLING COURSE " << course.id_ << std::endl;
+            TALE_DEBUG_PRINT("FILLING COURSE " + std::to_string(course.id_) + "|n");
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -59,19 +61,19 @@ namespace tale
                 }
                 std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, slots);
 
-                std::cout << "\tSLOTS ";
+                TALE_DEBUG_PRINT("\tSLOTS ");
                 for (size_t i = 0; i < slots.size(); ++i)
                 {
-                    std::cout << slots[i];
+                    TALE_DEBUG_PRINT(slots[i]);
                     if (i != slots.size() - 1)
                     {
-                        std::cout << ",";
+                        TALE_DEBUG_PRINT(",");
                     }
-                    std::cout << " ";
+                    TALE_DEBUG_PRINT(" ");
                     course.AddToSlot(course_group, slots[i]);
                 }
 
-                std::cout << "FILLED WITH " << course_group.size() << " ACTORS." << std::endl;
+                TALE_DEBUG_PRINT("FILLED WITH " + std::to_string(course_group.size()) + " ACTORS.\n");
             }
         }
     }
@@ -85,7 +87,6 @@ namespace tale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
     }
-
     const Setting &School::GetSetting() const
     {
         return setting_;
@@ -100,7 +101,7 @@ namespace tale
     }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        std::cout << "SIMULATING DAY " << day << " WHICH IS A " << weekday_string[static_cast<int>(weekday)] << std::endl;
+        TALE_DEBUG_PRINT("SIMULATING DAY " + std::to_string(day) + " WHICH IS A " + weekday_string[static_cast<int>(weekday)] + "\n");
         if (IsWorkday(weekday))
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)
@@ -136,7 +137,7 @@ namespace tale
 
     void School::FreeTimeTick()
     {
-        std::cout << "FREETIME TICK " << std::endl;
+        TALE_DEBUG_PRINT("FREETIME TICK\n");
     }
 
     bool School::IsWorkday(Weekday weekday) const

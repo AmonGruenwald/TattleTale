@@ -1,3 +1,4 @@
+#include "tale/talecore.hpp"
 #include "tale/kernels/interaction.hpp"
 #include <fmt/core.h>
 #include <iostream>
@@ -23,11 +24,12 @@ namespace tale
 
     Interaction::Interaction() : Kernel()
     {
-        std::cout << "Interaction default constructor" << std::endl;
+        TALE_DEBUG_PRINT("Interaction default constructor\n");
     };
 
     void Interaction::Apply()
     {
+
         std::string description = "";
         description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
         for (size_t i = 1; i < participant_count_; ++i)
@@ -42,7 +44,7 @@ namespace tale
             }
             description += fmt::format("{}", participants_[i].lock()->name_);
         }
-        std::cout << description << std::endl;
+        TALE_DEBUG_PRINT(description + "\n");
         std::weak_ptr<Interaction> self = weak_from_this();
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
