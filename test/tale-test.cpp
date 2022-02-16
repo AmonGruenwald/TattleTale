@@ -4,12 +4,30 @@
 #include <memory>
 #include "tale/tale.hpp"
 
-TEST(TaleTests, CreateDefaultActor)
+TEST(TaleTests, CreateSchool)
 {
     tale::Setting setting;
+    setting.actor_count = 10;
     tale::School school(setting);
-    tale::Actor actor(school, 0);
-    EXPECT_EQ("John Doe", actor.name_);
+    for (size_t i = 0; i < setting.actor_count; ++i)
+    {
+        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
+    }
+    for (size_t i = 0; i < setting.course_count(); ++i)
+    {
+        EXPECT_EQ(school.GetCourse(i).id_, i);
+    }
+}
+
+TEST(TaleTests, CorrectCurrentDay)
+{
+    tale::Setting setting;
+    setting.actor_count = 10;
+    setting.days_to_simulate = 5;
+    tale::School school(setting);
+    school.SimulateDays(setting.days_to_simulate);
+    EXPECT_EQ(school.GetCurrentDay(), 5);
+    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
 }
 
 TEST(TaleTests, IncreasingKernelNumber)

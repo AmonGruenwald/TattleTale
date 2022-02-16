@@ -46,7 +46,6 @@ namespace tale
          * @param setting Reference to the Setting object for the Simulation
          */
         School(const Setting &setting);
-
         /**
          * @brief Runs the simulation for the passed amount of days.
          *
@@ -55,6 +54,32 @@ namespace tale
          * @param days How many days we want to simulate
          */
         void SimulateDays(size_t days);
+        /**
+         * @brief Getter for an Actor
+         *
+         * @param  actor_id The id of the Actor we want to get. Corresponds to index in actors_ vector.
+         * @return The Actor.
+         */
+        std::weak_ptr<Actor> GetActor(size_t actor_id);
+        /**
+         * @brief Getter for a Course
+         *
+         * @param  actor_id The id of the Course we want to get. Corresponds to index in courses_ vector.
+         * @return The Course.
+         */
+        Course &GetCourse(size_t course_id);
+        /**
+         * @brief Getter for the current Weekday.
+         *
+         * @return The current Weekday.
+         */
+        Weekday GetCurrentWeekday() const;
+        /**
+         * @brief Getter for the current day
+         *
+         * @return The current day.
+         */
+        size_t GetCurrentDay() const;
         /**
          * @brief Getter for the Setting object of the simulation
          *

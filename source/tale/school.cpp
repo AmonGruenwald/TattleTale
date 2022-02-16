@@ -87,6 +87,25 @@ namespace tale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
     }
+    std::weak_ptr<Actor> School::GetActor(size_t actor_id)
+    {
+        assert(actor_id < actors_.size());
+        return actors_[actor_id];
+    }
+    Course &School::GetCourse(size_t course_id)
+    {
+        assert(course_id < courses_.size());
+        return courses_[course_id];
+    }
+
+    size_t School::GetCurrentDay() const
+    {
+        return current_day_;
+    }
+    Weekday School::GetCurrentWeekday() const
+    {
+        return current_weekday_;
+    }
     const Setting &School::GetSetting() const
     {
         return setting_;
