@@ -4,32 +4,6 @@
 #include <memory>
 #include "tale/tale.hpp"
 
-TEST(TaleTests, CreateSchool)
-{
-    tale::Setting setting;
-    setting.actor_count = 10;
-    tale::School school(setting);
-    for (size_t i = 0; i < setting.actor_count; ++i)
-    {
-        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
-    }
-    for (size_t i = 0; i < setting.course_count(); ++i)
-    {
-        EXPECT_EQ(school.GetCourse(i).id_, i);
-    }
-}
-
-TEST(TaleTests, CorrectCurrentDay)
-{
-    tale::Setting setting;
-    setting.actor_count = 10;
-    setting.days_to_simulate = 5;
-    tale::School school(setting);
-    school.SimulateDays(setting.days_to_simulate);
-    EXPECT_EQ(school.GetCurrentDay(), 5);
-    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
-}
-
 TEST(TaleTests, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
@@ -56,17 +30,14 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
     std::string interaction_name = interaction_store.GetRandomInteractionName();
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-    tale::Random random;
     tale::Setting setting;
-    tale::School school(setting);
     size_t participant_count = interaction_store.GetParticipantCount(interaction_name);
+    setting.actor_count = participant_count;
+    tale::School school(setting);
     std::vector<std::weak_ptr<tale::Actor>> participants;
-    std::vector<std::shared_ptr<tale::Actor>> actors;
     for (size_t i = 0; i < participant_count; ++i)
     {
-        std::shared_ptr<tale::Actor> actor = std::shared_ptr<tale::Actor>(new tale::Actor(school, i));
-        actors.push_back(actor);
-        participants.push_back(actor);
+        participants.push_back(school.GetActor(i));
     }
     std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_name, tick, default_reasons, participants);
     EXPECT_EQ(interaction->name_, interaction_name);
@@ -74,7 +45,7 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
     EXPECT_EQ(interaction->participant_count_, participant_count);
     for (size_t i = 0; i < participant_count; ++i)
     {
-        EXPECT_EQ(interaction->participants_[i].lock(), actors[i]);
+        EXPECT_EQ(interaction->participants_[i].lock(), school.GetActor(i).lock());
     }
     for (size_t i = 0; i < interaction->resource_effects_.size(); ++i)
     {
@@ -97,5 +68,160 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
             }
         }
     }
+}
+
+TEST(TaleTests, ApplyInteraction)
+{
+    size_t tick = 0;
+    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    tale::Setting setting;
+    size_t participant_count = 2;
+    setting.actor_count = participant_count;
+    tale::School school(setting);
+    std::vector<std::weak_ptr<tale::Actor>> participants;
+    participants.push_back(school.GetActor(0));
+    participants.push_back(school.GetActor(1));
+    std::vector<float> resource_effects;
+    std::vector<std::map<tale::EmotionType, float>> emotion_effects;
+    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
+    std::vector<float> expected_resource_values;
+    std::vector<std::map<tale::EmotionType, float>> expected_emotion_values;
+    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> expected_relationship_values;
+    std::vector<float> signs = {1.0f, -1.0f};
+    for (size_t participant_index = 0; participant_index < 2; ++participant_index)
+    {
+        float sign = signs[participant_index];
+        resource_effects.push_back(0.5f * sign);
+        expected_resource_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->resource_->GetValue());
+        std::map<tale::EmotionType, float> emotion_map;
+        std::map<tale::EmotionType, float> expected_emotion_values_map;
+        for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
+        {
+            tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
+            emotion_map.insert({type, emotion_type_int * 0.1f * sign});
+            expected_emotion_values_map.insert({type, emotion_type_int * 0.1f * sign + school.GetActor(participant_index).lock()->emotions_[type]->GetValue()});
+        }
+        emotion_effects.push_back(emotion_map);
+        expected_emotion_values.push_back(expected_emotion_values_map);
+
+        std::map<tale::RelationshipType, float> relationship_map;
+        std::map<tale::RelationshipType, float> expected_relationship_values_map;
+        size_t other_participant = (participant_index == 0 ? 1 : 0);
+        for (int relationship_type_int = (int)tale::RelationshipType::kNone + 1; relationship_type_int != (int)tale::RelationshipType::kLast; ++relationship_type_int)
+        {
+            tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
+            relationship_map.insert({type, relationship_type_int * 0.1f * sign});
+            // No relationship value at start
+            // TODO: (this might change if we have random start relationships)
+            expected_relationship_values_map.insert({type, relationship_type_int * 0.1f * sign});
+        }
+        std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
+        std::map<size_t, std::map<tale::RelationshipType, float>> expected_participant_relationship_map = {{other_participant, expected_relationship_values_map}};
+        relationship_effects.push_back(participant_relationship_map);
+        expected_relationship_values.push_back(expected_participant_relationship_map);
+    }
+    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction("Test", tick, default_reasons, participant_count, participants, resource_effects, emotion_effects, relationship_effects));
+    interaction->Apply();
+
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
+    {
+        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->GetValue(), expected_resource_values[participant_index]);
+        for (auto &[type, value] : expected_emotion_values[participant_index])
+        {
+            EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type]->GetValue(), value);
+        }
+        for (auto &[other_participant_index, map] : expected_relationship_values[participant_index])
+        {
+            for (auto &[type, value] : map)
+            {
+                EXPECT_EQ(school.GetActor(participant_index).lock()->relationships_[other_participant_index][type]->GetValue(), value);
+            }
+        }
+    }
+}
+
+TEST(TaleTests, InteractionBecomesReason)
+{
+    size_t tick = 0;
+    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    tale::Setting setting;
+    size_t participant_count = 2;
+    setting.actor_count = participant_count;
+    tale::School school(setting);
+    std::vector<std::weak_ptr<tale::Actor>> participants;
+    participants.push_back(school.GetActor(0));
+    participants.push_back(school.GetActor(1));
+    std::vector<float> resource_effects;
+    std::vector<std::map<tale::EmotionType, float>> emotion_effects;
+    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
+    for (size_t participant_index = 0; participant_index < 2; ++participant_index)
+    {
+        resource_effects.push_back(0.1f);
+        std::map<tale::EmotionType, float> emotion_map;
+        for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
+        {
+            tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
+            emotion_map.insert({type, 0.1f});
+        }
+        emotion_effects.push_back(emotion_map);
+
+        std::map<tale::RelationshipType, float> relationship_map;
+        size_t other_participant = (participant_index == 0 ? 1 : 0);
+        for (int relationship_type_int = (int)tale::RelationshipType::kNone + 1; relationship_type_int != (int)tale::RelationshipType::kLast; ++relationship_type_int)
+        {
+            tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
+            relationship_map.insert({type, 0.1f});
+        }
+        std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
+        relationship_effects.push_back(participant_relationship_map);
+    }
+    std::string name = "InteractionBecomesReason";
+    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(name, tick, default_reasons, participant_count, participants, resource_effects, emotion_effects, relationship_effects));
+    interaction->Apply();
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
+    {
+        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->reasons_[0].lock()->name_, name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->reasons_[0].lock()->number_, interaction->number_);
+        for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
+        {
+            EXPECT_EQ(emotion->reasons_[0].lock()->name_, name);
+            EXPECT_EQ(emotion->reasons_[0].lock()->number_, interaction->number_);
+        }
+        for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
+        {
+            // TODO: this will break if actors get random relationships
+            for (auto &[type, relationship] : map)
+            {
+                EXPECT_EQ(relationship->reasons_[0].lock()->name_, name);
+                EXPECT_EQ(relationship->reasons_[0].lock()->number_, interaction->number_);
+            }
+        }
+    }
+}
+
+TEST(TaleTests, CreateSchool)
+{
+    tale::Setting setting;
+    setting.actor_count = 10;
+    tale::School school(setting);
+    for (size_t i = 0; i < setting.actor_count; ++i)
+    {
+        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
+    }
+    for (size_t i = 0; i < setting.course_count(); ++i)
+    {
+        EXPECT_EQ(school.GetCourse(i).id_, i);
+    }
+}
+
+TEST(TaleTests, CorrectCurrentDay)
+{
+    tale::Setting setting;
+    setting.actor_count = 10;
+    setting.days_to_simulate = 5;
+    tale::School school(setting);
+    school.SimulateDays(setting.days_to_simulate);
+    EXPECT_EQ(school.GetCurrentDay(), 5);
+    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
 }
 // TODO: Add more Kernel Tests: correct storing of other Kernels, special tests for each type etc.

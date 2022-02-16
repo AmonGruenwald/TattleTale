@@ -12,7 +12,8 @@ namespace tale
         kAttraction,
         kFriendship,
         kAnger,
-        kProtective
+        kProtective,
+        kLast
     };
     /**
      * @brief Represents a Relationship an Actor has with another Actor

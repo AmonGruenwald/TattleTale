@@ -13,7 +13,8 @@ namespace tale
         kCalm,
         kSatisfied,
         kBrave,
-        kExtroverted
+        kExtroverted,
+        kLast
     };
 
     /**
