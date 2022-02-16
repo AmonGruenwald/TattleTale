@@ -15,7 +15,6 @@ namespace tale
 
     const std::vector<std::weak_ptr<Actor>> &Course::GetCourseGroupForSlot(size_t slot)
     {
-        assert(slots_[slot].size() != 0); // slot not empty
         return slots_[slot];
     }
 
