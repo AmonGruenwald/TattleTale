@@ -135,21 +135,21 @@ namespace tale
                         std::vector<std::weak_ptr<Actor>> participants;
                         std::string interaction_name = actor.lock()->ChooseInteraction(course_group, reasons, participants);
                         // TODO: registers interaction to events
-                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick, reasons, participants);
+                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick_, reasons, participants);
                         interaction->Apply();
                     }
                 }
-                ++current_tick;
+                ++current_tick_;
             }
             FreeTimeTick();
-            ++current_tick;
+            ++current_tick_;
         }
         else
         {
             for (size_t i = 0; i < setting_.courses_per_day + 1; ++i)
             {
                 FreeTimeTick();
-                ++current_tick;
+                ++current_tick_;
             }
         }
     }

@@ -123,7 +123,7 @@ namespace tale
         /**
          * @brief The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next.
          */
-        size_t current_tick = 0;
+        size_t current_tick_ = 0;
         /**
          * @brief The current day. This is always the day that will be simulated next.
          */
