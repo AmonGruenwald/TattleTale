@@ -188,21 +188,24 @@ namespace tale
     std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
     {
         std::vector<std::weak_ptr<Actor>> course_group;
-        for (size_t i = 0; i < setting_.actors_per_course; ++i)
+        if (actors_.size() > 0)
         {
-            size_t random_actor_index = random_.GetUInt(0, actors_.size() - 1);
+            for (size_t i = 0; i < setting_.actors_per_course; ++i)
+            {
+                size_t random_actor_index = random_.GetUInt(0, actors_.size() - 1);
 
-            size_t current_index_search_try = 0;
-            while (
-                (actors_[random_actor_index]->AllSlotsFilled() || actors_[random_actor_index]->IsEnrolledInCourse(course_id) || ActorIsInCourseGroup(actors_[random_actor_index], course_group) || !actors_[random_actor_index]->SlotsEmpty(slots)) && current_index_search_try < setting_.actor_count)
-            {
-                random_actor_index += -1;
-                random_actor_index %= actors_.size();
-                ++current_index_search_try;
-            }
-            if (current_index_search_try != actors_.size())
-            {
-                course_group.push_back(actors_[random_actor_index]);
+                size_t current_index_search_try = 0;
+                while (
+                    (actors_[random_actor_index]->AllSlotsFilled() || actors_[random_actor_index]->IsEnrolledInCourse(course_id) || ActorIsInCourseGroup(actors_[random_actor_index], course_group) || !actors_[random_actor_index]->SlotsEmpty(slots)) && current_index_search_try < setting_.actor_count)
+                {
+                    random_actor_index += -1;
+                    random_actor_index %= actors_.size();
+                    ++current_index_search_try;
+                }
+                if (current_index_search_try != actors_.size())
+                {
+                    course_group.push_back(actors_[random_actor_index]);
+                }
             }
         }
         return course_group;

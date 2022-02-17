@@ -4,7 +4,7 @@
 #include <memory>
 #include "tale/tale.hpp"
 
-TEST(TaleTests, IncreasingKernelNumber)
+TEST(Tale_Kernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -24,7 +24,33 @@ TEST(TaleTests, IncreasingKernelNumber)
     EXPECT_EQ(5, trait.number_);
 }
 
-TEST(TaleTests, CreateRandomInteractionFromStore)
+TEST(Tale_School, CreateSchool)
+{
+    tale::Setting setting;
+    setting.actor_count = 10;
+    tale::School school(setting);
+    for (size_t i = 0; i < setting.actor_count; ++i)
+    {
+        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
+    }
+    for (size_t i = 0; i < setting.course_count(); ++i)
+    {
+        EXPECT_EQ(school.GetCourse(i).id_, i);
+    }
+}
+
+TEST(Tale_School, CorrectCurrentDay)
+{
+    tale::Setting setting;
+    setting.actor_count = 10;
+    setting.days_to_simulate = 5;
+    tale::School school(setting);
+    school.SimulateDays(setting.days_to_simulate);
+    EXPECT_EQ(school.GetCurrentDay(), 5);
+    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
+}
+
+TEST(Tale_Interactions, CreateRandomInteractionFromStore)
 {
     tale::InteractionStore interaction_store;
     std::string interaction_name = interaction_store.GetRandomInteractionName();
@@ -70,7 +96,7 @@ TEST(TaleTests, CreateRandomInteractionFromStore)
     }
 }
 
-TEST(TaleTests, ApplyInteraction)
+TEST(Tale_Interactions, ApplyInteraction)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -140,7 +166,7 @@ TEST(TaleTests, ApplyInteraction)
     }
 }
 
-TEST(TaleTests, InteractionBecomesReason)
+TEST(Tale_Interactions, InteractionBecomesReason)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -199,29 +225,95 @@ TEST(TaleTests, InteractionBecomesReason)
     }
 }
 
-TEST(TaleTests, CreateSchool)
+TEST(Tale_Course, CreateCourse)
 {
     tale::Setting setting;
-    setting.actor_count = 10;
+    tale::Random random;
+    tale::Course course(random, setting, 0, "Test");
+    EXPECT_EQ(course.GetSlotCount(), setting.slot_count_per_week());
+}
+
+TEST(Tale_Course, AddGroupsToSlot)
+{
+    tale::Setting setting;
+    tale::Random random;
+    tale::Course course(random, setting, 0, "Test");
+    setting.actor_count = 0;
     tale::School school(setting);
-    for (size_t i = 0; i < setting.actor_count; ++i)
+    std::vector<std::shared_ptr<tale::Actor>> actors;
+    for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
-        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
+        std::vector<std::weak_ptr<tale::Actor>> course_group;
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot));
+        actors.push_back(actor);
+        course_group.push_back(actor);
+        course.AddToSlot(course_group, slot);
+        EXPECT_EQ(course.GetCourseGroupForSlot(slot)[0].lock()->id_, slot);
     }
-    for (size_t i = 0; i < setting.course_count(); ++i)
+    for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
-        EXPECT_EQ(school.GetCourse(i).id_, i);
+        EXPECT_EQ(course.GetCourseGroupForSlot(slot)[0].lock()->id_, slot);
     }
 }
 
-TEST(TaleTests, CorrectCurrentDay)
+TEST(Tale_Course, AreAllSlotsFilled)
 {
     tale::Setting setting;
-    setting.actor_count = 10;
-    setting.days_to_simulate = 5;
+    tale::Random random;
+    tale::Course course(random, setting, 0, "Test");
+    setting.actor_count = 0;
     tale::School school(setting);
-    school.SimulateDays(setting.days_to_simulate);
-    EXPECT_EQ(school.GetCurrentDay(), 5);
-    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
+    std::vector<std::shared_ptr<tale::Actor>> actors;
+    EXPECT_FALSE(course.AllSlotsFilled());
+    for (size_t slot = 0; slot < course.GetSlotCount() - 1; ++slot)
+    {
+        std::vector<std::weak_ptr<tale::Actor>> course_group;
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot));
+        actors.push_back(actor);
+        course_group.push_back(actor);
+        course.AddToSlot(course_group, slot);
+        EXPECT_FALSE(course.AllSlotsFilled());
+    }
+    std::vector<std::weak_ptr<tale::Actor>> course_group;
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1));
+    actors.push_back(actor);
+    course_group.push_back(actor);
+    course.AddToSlot(course_group, course.GetSlotCount() - 1);
+    EXPECT_TRUE(course.AllSlotsFilled());
+}
+
+TEST(Tale_Course, GetRandomCourseSlot)
+{
+    tale::Setting setting;
+    tale::Random random;
+    setting.actor_count = 300;
+    setting.actors_per_course = 30;
+    setting.courses_per_day = 6;
+    setting.same_course_per_week = 4;
+    tale::Course course(random, setting, 0, "Test");
+    setting.actor_count = 0;
+    tale::School school(setting);
+    std::vector<std::shared_ptr<tale::Actor>> actors;
+
+    std::vector<uint32_t> random_filled_slots = {2, 6, 3, 10, 1, 23, 24, 5};
+    for (size_t i = 0; i < random_filled_slots.size(); ++i)
+    {
+
+        std::vector<std::weak_ptr<tale::Actor>> course_group;
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i]));
+        actors.push_back(actor);
+        course_group.push_back(actor);
+        course.AddToSlot(course_group, random_filled_slots[i]);
+    }
+
+    size_t tries = 10000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        uint32_t random_empty_slot = course.GetRandomEmptySlot();
+        for (size_t j = 0; j < random_filled_slots.size(); ++j)
+        {
+            EXPECT_NE(random_empty_slot, random_filled_slots[j]);
+        }
+    }
 }
 // TODO: Add more Kernel Tests: correct storing of other Kernels, special tests for each type etc.

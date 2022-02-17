@@ -50,4 +50,9 @@ namespace tale
             actor.lock()->EnrollInCourse(id_, slot);
         }
     }
+
+    size_t Course::GetSlotCount() const
+    {
+        return slots_.size();
+    }
 } // namespace tale

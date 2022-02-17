@@ -70,6 +70,12 @@ namespace tale
          * @param slot The slot the \link Actor Actors \endlink will be added to.
          */
         void AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot);
+        /**
+         * @brief Getter for the amount of slots the Course currenty holds.
+         *
+         * @return The amount of slots.
+         */
+        size_t GetSlotCount() const;
 
     private:
         /**
