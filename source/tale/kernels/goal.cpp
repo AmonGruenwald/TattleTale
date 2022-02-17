@@ -7,6 +7,6 @@ namespace tale
     Goal::Goal(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons) : Kernel(name, tick, reasons){};
     std::string Goal::ToString()
     {
-        return "I am a Goal.\n";
+        return "Goals are not implented yet.";
     }
 } // namespace tale

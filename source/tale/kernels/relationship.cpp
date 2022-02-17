@@ -55,6 +55,6 @@ namespace tale
     }
     std::string Relationship::ToString()
     {
-        return fmt::format("{} with value: {}", name_, value_);
+        return fmt::format("{}: {}", name_, value_);
     }
 } // namespace tale
