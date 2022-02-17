@@ -32,13 +32,9 @@ namespace tale
          */
         std::string name_;
         /**
-         * @brief The Goal the Actor is trying to reach during the simulation.
+         * @brief The abstract state of the  \link Actor Actor's \endlink \link Resource Resources \endlink.
          */
-        std::shared_ptr<Goal> goal_;
-        /**
-         * @brief The \link Trait Traits \endlink  the Actor posses.
-         */
-        std::vector<std::shared_ptr<Trait>> traits_;
+        std::shared_ptr<Resource> resource_;
         /**
          * @brief The \link Actor Actor's \endlink current \link Emotion Emotional \endlink state is. Maps one Emotion to each EmotionType.
          */
@@ -49,11 +45,15 @@ namespace tale
          */
         std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> relationships_;
         /**
-         * @brief The abstract state of the  \link Actor Actor's \endlink \link Resource Resources \endlink.
+         * @brief The \link Trait Traits \endlink  the Actor posses.
          */
-        std::shared_ptr<Resource> resource_;
+        std::vector<std::shared_ptr<Trait>> traits_;
+        /**
+         * @brief The Goal the Actor is trying to reach during the simulation.
+         */
+        std::shared_ptr<Goal> goal_;
 
-        Actor(School &school, size_t id);
+        Actor(School &school, size_t id, std::string name, size_t tick);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
          *
@@ -92,7 +92,7 @@ namespace tale
         /**
          * @brief Let's the actor decide on an Interaction for the currrent situation.
          *
-         * WIP! Currently just chooses an Interaction at random.
+         * WIP: Currently just chooses an Interaction at random.
          *
          * @param[in] course_group The course group the Actor is currently interacting in.
          * @param[out] out_reasons Vector the Actor will write it's reason for the decision to.
@@ -161,6 +161,52 @@ namespace tale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
+
+        /**
+         * @brief Initializes the passed Resource with a random value.
+         *
+         *
+         *
+         * @param[in] tick The tick during which this happens.
+         * @param[out] out_resource The Resource that shoud be initialized.
+         */
+        void InitializeRandomResource(size_t tick, std::shared_ptr<Resource> &out_resource);
+        /**
+         * @brief Initializes the passed Emotion map with random values.
+         *
+         *
+         *
+         * @param[in] tick The tick during which this happens.
+         * @param[out] out_resource The map that shoud be initialized.
+         */
+        void InitializeRandomEmotions(size_t tick, std::map<EmotionType, std::shared_ptr<Emotion>> &out_emotions);
+        /**
+         * @brief Initializes the passed Relationship map with random values.
+         *
+         * WIP: this does not to anything yet
+         *
+         * @param[in] tick The tick during which this happens.
+         * @param[out] out_resource The map that shoud be initialized.
+         */
+        void InitializeRandomRelationships(size_t tick, std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &out_relationships);
+        /**
+         * @brief Initializes the passed Goal with a random value.
+         *
+         * WIP: this does not to anything yet
+         *
+         * @param[in] tick The tick during which this happens.
+         * @param[out] out_resource The Goal that shoud be initialized.
+         */
+        void InitializeRandomGoal(size_t tick, std::shared_ptr<Goal> &out_goals);
+        /**
+         * @brief Initializes the passed Trait vector with a random \link Trait Traits \endlink.
+         *
+         * WIP: this does not to anything yet
+         *
+         * @param[in] tick The tick during which this happens.
+         * @param[out] out_resource The Trait vector that shoud be initialized.
+         */
+        void InitializeRandomTraits(size_t tick, std::vector<std::shared_ptr<Trait>> &out_traits);
     };
 
 } // namespace tale

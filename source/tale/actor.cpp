@@ -7,37 +7,19 @@
 
 namespace tale
 {
-    Actor::Actor(School &school, size_t id) : random_(school.GetRandom()), setting_(school.GetSetting()), school_(school), interaction_store_(school.GetInteractionStore()), id_(id)
+    Actor::Actor(School &school, size_t id, std::string name, size_t tick)
+        : random_(school.GetRandom()),
+          setting_(school.GetSetting()),
+          school_(school),
+          interaction_store_(school.GetInteractionStore()),
+          id_(id),
+          name_(name)
     {
-        // TOOD: Create random starting values for everything (including some random relationships) and register those
-        name_ = "John Doe";
-        size_t tick = 0;
-        std::vector<std::weak_ptr<Kernel>> default_reasons;
-        goal_ = std::shared_ptr<Goal>(new Goal("goal", tick, default_reasons));
-        emotions_ = {
-            {
-                EmotionType::kHappy,
-                std::shared_ptr<Emotion>(new Emotion("happy", tick, default_reasons, 1)),
-            },
-            {
-                EmotionType::kCalm,
-                std::shared_ptr<Emotion>(new Emotion("calm", tick, default_reasons, 1)),
-            },
-            {
-                EmotionType::kSatisfied,
-                std::shared_ptr<Emotion>(new Emotion("satisfied", tick, default_reasons, 1)),
-            },
-            {
-                EmotionType::kBrave,
-                std::shared_ptr<Emotion>(new Emotion("brave", tick, default_reasons, 1)),
-            },
-            {
-                EmotionType::kExtroverted,
-                std::shared_ptr<Emotion>(new Emotion("extroverted", tick, default_reasons, 1)),
-            },
-        };
-        traits_.push_back(std::shared_ptr<Trait>(new Trait("trait", tick, default_reasons)));
-        resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, default_reasons, 1));
+        InitializeRandomResource(tick, resource_);
+        InitializeRandomEmotions(tick, emotions_);
+        InitializeRandomRelationships(tick, relationships_);
+        InitializeRandomGoal(tick, goal_);
+        InitializeRandomTraits(tick, traits_);
         enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
     }
 
@@ -132,4 +114,51 @@ namespace tale
         relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(Relationship::RelationshipTypeToString(type), tick, reasons, new_value));
     }
 
+    void Actor::InitializeRandomResource(size_t tick, std::shared_ptr<Resource> &out_resource)
+    {
+        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        out_resource = std::shared_ptr<Resource>(new Resource("resource", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)));
+    }
+    void Actor::InitializeRandomEmotions(size_t tick, std::map<EmotionType, std::shared_ptr<Emotion>> &out_emotions)
+    {
+        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        out_emotions =
+            {
+                {
+                    EmotionType::kHappy,
+                    std::shared_ptr<Emotion>(new Emotion("happy", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                },
+                {
+                    EmotionType::kCalm,
+                    std::shared_ptr<Emotion>(new Emotion("calm", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                },
+                {
+                    EmotionType::kSatisfied,
+                    std::shared_ptr<Emotion>(new Emotion("satisfied", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                },
+                {
+                    EmotionType::kBrave,
+                    std::shared_ptr<Emotion>(new Emotion("brave", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                },
+                {
+                    EmotionType::kExtroverted,
+                    std::shared_ptr<Emotion>(new Emotion("extroverted", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                },
+            };
+    }
+    void Actor::InitializeRandomRelationships(size_t tick, std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &out_relationships)
+    {
+        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        out_relationships = std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>>();
+    }
+    void Actor::InitializeRandomGoal(size_t tick, std::shared_ptr<Goal> &out_goals)
+    {
+        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        out_goals = std::shared_ptr<Goal>(new Goal("goal", tick, no_reasons));
+    }
+    void Actor::InitializeRandomTraits(size_t tick, std::vector<std::shared_ptr<Trait>> &out_traits)
+    {
+        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        out_traits = {std::shared_ptr<Trait>(new Trait("trait", tick, no_reasons))};
+    }
 } // namespace tale

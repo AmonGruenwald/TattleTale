@@ -353,7 +353,7 @@ TEST(Tale_Course, AddGroupsToSlot)
     for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe", 0));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
@@ -377,14 +377,14 @@ TEST(Tale_Course, AreAllSlotsFilled)
     for (size_t slot = 0; slot < course.GetSlotCount() - 1; ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe", 0));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
         EXPECT_FALSE(course.AllSlotsFilled());
     }
     std::vector<std::weak_ptr<tale::Actor>> course_group;
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1));
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John Doe", 0));
     actors.push_back(actor);
     course_group.push_back(actor);
     course.AddToSlot(course_group, course.GetSlotCount() - 1);
@@ -421,7 +421,7 @@ TEST(Tale_Course, GetRandomCourseSlot)
     {
 
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i]));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John Doe", 0));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, random_filled_slots[i]);

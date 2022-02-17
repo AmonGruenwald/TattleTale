@@ -11,12 +11,11 @@ namespace tale
         random_ = Random(setting_.seed);
         interaction_store_ = InteractionStore();
         size_t actor_count = setting_.actor_count;
+        size_t tick = 0;
         for (size_t i = 0; i < actor_count; ++i)
         {
             TALE_DEBUG_PRINT("CREATING ACTOR " + std::to_string(i) + "\n");
-            std::shared_ptr<Actor> actor(new Actor(*this, i));
-            // TODO: not needed after random names are used
-            actor->name_ = (std::to_string(i) + " ");
+            std::shared_ptr<Actor> actor(new Actor(*this, i, (std::to_string(i) + " "), tick));
             actors_.push_back(actor);
         }
 
