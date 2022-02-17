@@ -27,11 +27,11 @@ TEST(Tale_Kernels, IncreasingKernelNumber)
     EXPECT_EQ(5, trait.number_);
 }
 
-class Tale_School : public ::testing::Test
+class Tale_CreateAndRunSchool : public ::testing::Test
 {
 protected:
-    Tale_School() {}
-    virtual ~Tale_School() {}
+    Tale_CreateAndRunSchool() {}
+    virtual ~Tale_CreateAndRunSchool() {}
     void SetUp(const tale::Setting &setting)
     {
         tale::School school(setting);
@@ -48,41 +48,41 @@ protected:
     virtual void TearDown() {}
 };
 
-TEST_F(Tale_School, CreateAndRunDefaultSchool)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunDefaultSchool)
 {
     tale::Setting setting;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithZeroActors)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActors)
 {
     tale::Setting setting;
     setting.actor_count = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithZeroActorsPerCourse)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActorsPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithZeroCoursesPerDay)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroCoursesPerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroSameCoursesPerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithZeroInAllSettings)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 0;
@@ -92,35 +92,35 @@ TEST_F(Tale_School, CreateAndRunSchoolWithZeroInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithOneActor)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActor)
 {
     tale::Setting setting;
     setting.actor_count = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithOneActorPerCourse)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActorPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithOneCoursePerDay)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneCoursePerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithOneSameCoursePerWeek)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithOneInAllSettings)
+TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 1;
@@ -130,7 +130,7 @@ TEST_F(Tale_School, CreateAndRunSchoolWithOneInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(Tale_School, CreateAndRunSchoolWithRandomValuesInAllSettings)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 {
     time_t seconds = time(NULL);
     tale::Random random(seconds);
