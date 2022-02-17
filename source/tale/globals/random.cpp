@@ -14,6 +14,11 @@ namespace tale
     {
         rng_.seed(seed);
     }
+    int Random::GetInt(int min, int max)
+    {
+        std::uniform_int_distribution<int> distribution(min, max);
+        return distribution(rng_);
+    }
     uint32_t Random::GetUInt(uint32_t min, uint32_t max)
     {
         std::uniform_int_distribution<uint32_t> distribution(min, max);
