@@ -113,7 +113,46 @@ namespace tale
         // TODO: register new emotion
         relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(Relationship::RelationshipTypeToString(type), tick, reasons, new_value));
     }
-
+    std::string Actor::GetResourceDescriptionString()
+    {
+        return "RESOURCES:\n\t" + resource_->ToString();
+    }
+    std::string Actor::GetEmotionsDescriptionString()
+    {
+        std::string emotion_string = "EMOTIONS:";
+        for (auto &[type, emotion] : emotions_)
+        {
+            emotion_string += "\n\t" + emotion->ToString();
+        }
+        return emotion_string;
+    }
+    std::string Actor::GetRelationshipsDescriptionString()
+    {
+        std::string relationship_string = "RELATIONSHIPS:";
+        for (auto &[actor_index, map] : relationships_)
+        {
+            // TODO: this will only work after all actors have been created, which is wonky
+            relationship_string += ("\n\tWith " + school_.GetActor(actor_index).lock()->name_ + " (ID: " + std::to_string(school_.GetActor(actor_index).lock()->id_) + "):");
+            for (auto &[type, relationship] : map)
+            {
+                relationship_string += "\n\t\t" + relationship->ToString();
+            }
+        }
+        return relationship_string;
+    }
+    std::string Actor::GetGoalDescriptionString()
+    {
+        return "GOALS:\n\t" + goal_->ToString();
+    }
+    std::string Actor::GetTraitsDescriptionString()
+    {
+        std::string trait_string = "TRAITS:";
+        for (auto &trait : traits_)
+        {
+            trait_string += "\n\t" + trait->ToString();
+        }
+        return trait_string;
+    }
     void Actor::InitializeRandomResource(size_t tick, std::shared_ptr<Resource> &out_resource)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
@@ -148,8 +187,42 @@ namespace tale
     }
     void Actor::InitializeRandomRelationships(size_t tick, std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &out_relationships)
     {
+        out_relationships.clear();
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        out_relationships = std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>>();
+        uint32_t relationship_count = random_.GetUInt(0, setting_.max_start_relationships_count);
+        for (size_t i = 0; i < relationship_count; ++i)
+        {
+            uint32_t other_actor_id = random_.GetUInt(0, setting_.actor_count - 1);
+            while (other_actor_id == id_ || ActorInRelationshipMap(other_actor_id, out_relationships))
+            {
+                ++other_actor_id;
+                other_actor_id %= setting_.actor_count;
+            }
+            out_relationships.insert(
+                {other_actor_id,
+                 {
+                     {
+                         RelationshipType::kLove,
+                         std::shared_ptr<Relationship>(new Relationship("love", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                     },
+                     {
+                         RelationshipType::kAttraction,
+                         std::shared_ptr<Relationship>(new Relationship("attraction", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                     },
+                     {
+                         RelationshipType::kFriendship,
+                         std::shared_ptr<Relationship>(new Relationship("friendship", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                     },
+                     {
+                         RelationshipType::kAnger,
+                         std::shared_ptr<Relationship>(new Relationship("anger", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                     },
+                     {
+                         RelationshipType::kProtective,
+                         std::shared_ptr<Relationship>(new Relationship("protective", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                     },
+                 }});
+        }
     }
     void Actor::InitializeRandomGoal(size_t tick, std::shared_ptr<Goal> &out_goals)
     {
@@ -160,5 +233,16 @@ namespace tale
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
         out_traits = {std::shared_ptr<Trait>(new Trait("trait", tick, no_reasons))};
+    }
+    bool Actor::ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &relationships) const
+    {
+        for (auto &[key, value] : relationships)
+        {
+            if (key == actor)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 } // namespace tale

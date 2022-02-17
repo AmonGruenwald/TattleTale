@@ -22,6 +22,17 @@ namespace tale
             std::shared_ptr<Actor> actor(new Actor(*this, i, name, tick));
             actors_.push_back(actor);
         }
+        std::string actors_created_descriptions = "ALL ACTORS CREATED:\n";
+        for (size_t i = 0; i < actor_count; ++i)
+        {
+            actors_created_descriptions += (actors_[i]->name_ + "\n");
+            actors_created_descriptions += (actors_[i]->GetResourceDescriptionString() + "\n");
+            actors_created_descriptions += (actors_[i]->GetEmotionsDescriptionString() + "\n");
+            actors_created_descriptions += (actors_[i]->GetRelationshipsDescriptionString() + "\n");
+            actors_created_descriptions += (actors_[i]->GetTraitsDescriptionString() + "\n");
+            actors_created_descriptions += (actors_[i]->GetGoalDescriptionString() + "\n");
+        }
+        TALE_DEBUG_PRINT(actors_created_descriptions);
 
         size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)

@@ -38,6 +38,11 @@ namespace tale
         size_t same_course_per_week = 4;
 
         /**
+         * @brief How many \link Relationship Relationships \endlink an Actor can have when he gets initialized
+         */
+        uint32_t max_start_relationships_count = 10;
+
+        /**
          * @brief Calculates how many slots are there in total in a week.
          *
          * This is just the amount of courses per day times the length of a workweek (which is hardcoded as 5).

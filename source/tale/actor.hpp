@@ -136,6 +136,40 @@ namespace tale
          */
         void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
 
+        /**
+         * @brief Creates a string describing the current Resource status of the Actor.
+         *
+         * @return The description string.
+         */
+        std::string GetResourceDescriptionString();
+        /**
+         * @brief Creates a string describing the current Emotion status of the Actor.
+         *
+         * @return The description string.
+         */
+        std::string GetEmotionsDescriptionString();
+
+        /**
+         * @brief Creates a string describing the current \link Relationship Relationships \endlink  status of the Actor.
+         *
+         * @return The description string.
+         */
+        std::string GetRelationshipsDescriptionString();
+
+        /**
+         * @brief Creates a string describing the Goal of the Actor.
+         *
+         * @return The description string.
+         */
+        std::string GetGoalDescriptionString();
+
+        /**
+         * @brief Creates a string describing the \link Trait Traits \endlink  of the Actor.
+         *
+         * @return The description string.
+         */
+        std::string GetTraitsDescriptionString();
+
     private:
         /**
          * @brief Holds a Reference to the Random object of the simulation.
@@ -207,6 +241,14 @@ namespace tale
          * @param[out] out_resource The Trait vector that shoud be initialized.
          */
         void InitializeRandomTraits(size_t tick, std::vector<std::shared_ptr<Trait>> &out_traits);
+        /**
+         * @brief Checks wether an Actor is already included in a Relationship map.
+         *
+         * @param actor The inex of the Actor we want to check.
+         * @param relationships The Relatinship map we want to look for the actor in.
+         * @return The result of the check.
+         */
+        bool ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &relationships) const;
     };
 
 } // namespace tale
