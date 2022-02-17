@@ -19,7 +19,7 @@ namespace tale
         /**
          * @brief How many days will be simulated.
          */
-        size_t days_to_simulate = 30;
+        size_t days_to_simulate = 10;
         /**
          * @brief How many \link Actor Actors \endlink will be instanced.
          */
