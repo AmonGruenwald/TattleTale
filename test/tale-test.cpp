@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <memory>
 #include "tale/tale.hpp"
 #include <time.h>
@@ -393,7 +394,8 @@ TEST(Tale_Course, AreAllSlotsFilled)
 TEST(Tale_Course, GetRandomCourseSlot)
 {
     tale::Setting setting;
-    tale::Random random;
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
     setting.actor_count = 300;
     setting.actors_per_course = 30;
     setting.courses_per_day = 6;
@@ -403,7 +405,18 @@ TEST(Tale_Course, GetRandomCourseSlot)
     tale::School school(setting);
     std::vector<std::shared_ptr<tale::Actor>> actors;
 
-    std::vector<uint32_t> random_filled_slots = {2, 6, 3, 10, 1, 23, 24, 5};
+    std::vector<uint32_t> random_filled_slots;
+
+    for (size_t i = 0; i < setting.slot_count_per_week() / 2; ++i)
+    {
+        uint32_t random_slot = random.GetUInt(0, setting.slot_count_per_week() - 1);
+        while (std::count(random_filled_slots.begin(), random_filled_slots.end(), random_slot))
+        {
+            ++random_slot;
+            random_slot %= setting.slot_count_per_week();
+        }
+        random_filled_slots.push_back(random_slot);
+    }
     for (size_t i = 0; i < random_filled_slots.size(); ++i)
     {
 
