@@ -21,7 +21,9 @@ bool \mbox{\hyperlink{classtale_1_1_course_a818dbcdbe6bf8871afe382e31060d15b}{Al
 uint32\+\_\+t \mbox{\hyperlink{classtale_1_1_course_a3d6e78ff1f8fccfbc7cf7337bb220e43}{Get\+Random\+Empty\+Slot}} () const
 \begin{DoxyCompactList}\small\item\em Looks for a random empty slot. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_course_a6ba3c66fa9806f6f2464d75ea132376a}{Add\+To\+Slot}} (std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ actors, size\+\_\+t slot)
-\begin{DoxyCompactList}\small\item\em Adds the passed group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} to the passed slot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adds the passed group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} to the passed slot. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtale_1_1_course_a54b8b1cb1ac9fd7fc17deed61ee6ea32}{Get\+Slot\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the amount of slots the \mbox{\hyperlink{classtale_1_1_course}{Course}} currenty holds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -136,6 +138,19 @@ This can crash if there is no empty slot.
 
 \begin{DoxyReturn}{Returns}
 The found slot. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_course_a54b8b1cb1ac9fd7fc17deed61ee6ea32}\label{classtale_1_1_course_a54b8b1cb1ac9fd7fc17deed61ee6ea32}} 
+\index{tale::Course@{tale::Course}!GetSlotCount@{GetSlotCount}}
+\index{GetSlotCount@{GetSlotCount}!tale::Course@{tale::Course}}
+\doxysubsubsection{\texorpdfstring{GetSlotCount()}{GetSlotCount()}}
+{\footnotesize\ttfamily size\+\_\+t tale\+::\+Course\+::\+Get\+Slot\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the amount of slots the \mbox{\hyperlink{classtale_1_1_course}{Course}} currenty holds. 
+
+\begin{DoxyReturn}{Returns}
+The amount of slots. 
 \end{DoxyReturn}
 
 

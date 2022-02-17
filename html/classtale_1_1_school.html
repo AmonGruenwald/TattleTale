@@ -132,6 +132,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FreeTimeTick</b> ()</
 <tr class="memitem:a981efdafe40ea393d59fb91e241c1bef"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a981efdafe40ea393d59fb91e241c1bef">FindRandomCourseGroup</a> (size_t course_id, const std::vector&lt; uint32_t &gt; &amp;slots)</td></tr>
 <tr class="memdesc:a981efdafe40ea393d59fb91e241c1bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a random group of <a class="el" href="classtale_1_1_actor.html">Actors </a> that could take the <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> during those slots.  <a href="classtale_1_1_school.html#a981efdafe40ea393d59fb91e241c1bef">More...</a><br /></td></tr>
 <tr class="separator:a981efdafe40ea393d59fb91e241c1bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89928744027ee017ceacc54548bf6f8e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a89928744027ee017ceacc54548bf6f8e">GetRandomFirstnames</a> (size_t count)</td></tr>
+<tr class="memdesc:a89928744027ee017ceacc54548bf6f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked firstnames.  <a href="classtale_1_1_school.html#a89928744027ee017ceacc54548bf6f8e">More...</a><br /></td></tr>
+<tr class="separator:a89928744027ee017ceacc54548bf6f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04e5876e5fe16fe02288595629b57b7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#ac04e5876e5fe16fe02288595629b57b7">GetRandomSurames</a> (size_t count)</td></tr>
+<tr class="memdesc:ac04e5876e5fe16fe02288595629b57b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked surnames.  <a href="classtale_1_1_school.html#ac04e5876e5fe16fe02288595629b57b7">More...</a><br /></td></tr>
+<tr class="separator:ac04e5876e5fe16fe02288595629b57b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7971f0a08bf58726cba539e0fef94371"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_school.html#a7971f0a08bf58726cba539e0fef94371">GetRandomNames</a> (size_t count, std::string path)</td></tr>
+<tr class="memdesc:a7971f0a08bf58726cba539e0fef94371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked names.  <a href="classtale_1_1_school.html#a7971f0a08bf58726cba539e0fef94371">More...</a><br /></td></tr>
+<tr class="separator:a7971f0a08bf58726cba539e0fef94371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -155,10 +164,10 @@ const <a class="el" href="structtale_1_1_setting.html">Setting</a> &amp;&#160;</
 <a class="el" href="classtale_1_1_interaction_store.html">InteractionStore</a>&#160;</td><td class="memItemRight" valign="bottom"><b>interaction_store_</b></td></tr>
 <tr class="memdesc:a511e471fc76d154b55195d275451b70c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the instance of the <a class="el" href="classtale_1_1_interaction_store.html" title="Stores Prototypes for all possible interactions.">InteractionStore</a> object for the simulation. <br /></td></tr>
 <tr class="separator:a511e471fc76d154b55195d275451b70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cccbd355eb313b0511a9edf93ad4248"><td class="memItemLeft" align="right" valign="top"><a id="a4cccbd355eb313b0511a9edf93ad4248" name="a4cccbd355eb313b0511a9edf93ad4248"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_tick</b> = 0</td></tr>
-<tr class="memdesc:a4cccbd355eb313b0511a9edf93ad4248"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next. <br /></td></tr>
-<tr class="separator:a4cccbd355eb313b0511a9edf93ad4248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa34373e9b88989aa1c10fd42dbefc2e5"><td class="memItemLeft" align="right" valign="top"><a id="aa34373e9b88989aa1c10fd42dbefc2e5" name="aa34373e9b88989aa1c10fd42dbefc2e5"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_tick_</b> = 0</td></tr>
+<tr class="memdesc:aa34373e9b88989aa1c10fd42dbefc2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next. <br /></td></tr>
+<tr class="separator:aa34373e9b88989aa1c10fd42dbefc2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a540626af1e9f9d2b85ad2d2e9472de94"><td class="memItemLeft" align="right" valign="top"><a id="a540626af1e9f9d2b85ad2d2e9472de94" name="a540626af1e9f9d2b85ad2d2e9472de94"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_day_</b> = 0</td></tr>
 <tr class="memdesc:a540626af1e9f9d2b85ad2d2e9472de94"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current day. This is always the day that will be simulated next. <br /></td></tr>
@@ -424,6 +433,125 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_day_</b> = 
 
 <p>Getter for the <a class="el" href="classtale_1_1_random.html">Random</a> object of the simulation. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="classtale_1_1_random.html">Random</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a89928744027ee017ceacc54548bf6f8e" name="a89928744027ee017ceacc54548bf6f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89928744027ee017ceacc54548bf6f8e">&#9670;&nbsp;</a></span>GetRandomFirstnames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; tale::School::GetRandomFirstnames </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a vector of randomly picked firstnames. </p>
+<p >Reads from the file tale/resources/firstname.txt to get random names;</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>How many firstnames the vector should contain. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector of firstnames. </dd></dl>
+
+</div>
+</div>
+<a id="a7971f0a08bf58726cba539e0fef94371" name="a7971f0a08bf58726cba539e0fef94371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7971f0a08bf58726cba539e0fef94371">&#9670;&nbsp;</a></span>GetRandomNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; tale::School::GetRandomNames </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a vector of randomly picked names. </p>
+<p >Reads from the passed filepath. This function should probably only be used internally by GetRandomFirstnames and GetRandomSurnames</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>How many surnames the vector should contain. </td></tr>
+    <tr><td class="paramname">path</td><td>The path of the file containing the names to pick from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>he vector of names. </dd></dl>
+
+</div>
+</div>
+<a id="ac04e5876e5fe16fe02288595629b57b7" name="ac04e5876e5fe16fe02288595629b57b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac04e5876e5fe16fe02288595629b57b7">&#9670;&nbsp;</a></span>GetRandomSurames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; tale::School::GetRandomSurames </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a vector of randomly picked surnames. </p>
+<p >Reads from the file tale/resources/surname.txt to get random names;</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>How many surnames the vector should contain. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>he vector of surnames. </dd></dl>
 
 </div>
 </div>

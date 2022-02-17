@@ -5,9 +5,18 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{2 }
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef TALE\_DEBUG\_PRINT\_OUTPUT}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x) std::cout << x}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x)}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x) std::cout << "{}[DEBUG]["{}} << \_\_TIME\_\_ << "{}]\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{5                                       << x << "{}\(\backslash\)n"{}                       \(\backslash\)}
+\DoxyCodeLine{6                                       << "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x)}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifdef TALE\_VERBOSE\_PRINT\_OUTPUT}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x) std::cout << "{}[ VERBOSE ]["{}} << \_\_TIME\_\_ << "{}]\(\backslash\)n"{} \(\backslash\)}
+\DoxyCodeLine{13                                         << x}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

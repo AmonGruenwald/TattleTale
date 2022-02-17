@@ -45,7 +45,13 @@ bool \mbox{\hyperlink{classtale_1_1_school_a65fdd724d413035d79148a7764ee52e3}{Ac
 size\+\_\+t \mbox{\hyperlink{classtale_1_1_school_a557cf91eee5ba6d30072ab98adfc0565}{Weekday\+And\+Daily\+Tick\+To\+Slot}} (\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday, size\+\_\+t daily\+\_\+tick) const
 \begin{DoxyCompactList}\small\item\em Transforms a Weekday and a daily tick to a slot index. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \mbox{\hyperlink{classtale_1_1_school_a981efdafe40ea393d59fb91e241c1bef}{Find\+Random\+Course\+Group}} (size\+\_\+t course\+\_\+id, const std\+::vector$<$ uint32\+\_\+t $>$ \&slots)
-\begin{DoxyCompactList}\small\item\em Finds a random group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that could take the \mbox{\hyperlink{classtale_1_1_course}{Course}} during those slots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Finds a random group of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that could take the \mbox{\hyperlink{classtale_1_1_course}{Course}} during those slots. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtale_1_1_school_a89928744027ee017ceacc54548bf6f8e}{Get\+Random\+Firstnames}} (size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked firstnames. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtale_1_1_school_ac04e5876e5fe16fe02288595629b57b7}{Get\+Random\+Surames}} (size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked surnames. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtale_1_1_school_a7971f0a08bf58726cba539e0fef94371}{Get\+Random\+Names}} (size\+\_\+t count, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked names. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,8 +70,8 @@ const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \& {\bfseries setting\+
 \mbox{\Hypertarget{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}\label{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}} 
 \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} {\bfseries interaction\+\_\+store\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object for the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_school_a4cccbd355eb313b0511a9edf93ad4248}\label{classtale_1_1_school_a4cccbd355eb313b0511a9edf93ad4248}} 
-size\+\_\+t {\bfseries current\+\_\+tick} = 0
+\mbox{\Hypertarget{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}\label{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}} 
+size\+\_\+t {\bfseries current\+\_\+tick\+\_\+} = 0
 \begin{DoxyCompactList}\small\item\em The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_school_a540626af1e9f9d2b85ad2d2e9472de94}\label{classtale_1_1_school_a540626af1e9f9d2b85ad2d2e9472de94}} 
 size\+\_\+t {\bfseries current\+\_\+day\+\_\+} = 0
@@ -230,6 +236,68 @@ Getter for the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the sim
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_a89928744027ee017ceacc54548bf6f8e}\label{classtale_1_1_school_a89928744027ee017ceacc54548bf6f8e}} 
+\index{tale::School@{tale::School}!GetRandomFirstnames@{GetRandomFirstnames}}
+\index{GetRandomFirstnames@{GetRandomFirstnames}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetRandomFirstnames()}{GetRandomFirstnames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ tale\+::\+School\+::\+Get\+Random\+Firstnames (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a vector of randomly picked firstnames. 
+
+Reads from the file tale/resources/firstname.\+txt to get random names;
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & How many firstnames the vector should contain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of firstnames. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_a7971f0a08bf58726cba539e0fef94371}\label{classtale_1_1_school_a7971f0a08bf58726cba539e0fef94371}} 
+\index{tale::School@{tale::School}!GetRandomNames@{GetRandomNames}}
+\index{GetRandomNames@{GetRandomNames}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetRandomNames()}{GetRandomNames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ tale\+::\+School\+::\+Get\+Random\+Names (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a vector of randomly picked names. 
+
+Reads from the passed filepath. This function should probably only be used internally by Get\+Random\+Firstnames and Get\+Random\+Surnames
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & How many surnames the vector should contain. \\
+\hline
+{\em path} & The path of the file containing the names to pick from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+he vector of names. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_ac04e5876e5fe16fe02288595629b57b7}\label{classtale_1_1_school_ac04e5876e5fe16fe02288595629b57b7}} 
+\index{tale::School@{tale::School}!GetRandomSurames@{GetRandomSurames}}
+\index{GetRandomSurames@{GetRandomSurames}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetRandomSurames()}{GetRandomSurames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ tale\+::\+School\+::\+Get\+Random\+Surames (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a vector of randomly picked surnames. 
+
+Reads from the file tale/resources/surname.\+txt to get random names;
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & How many surnames the vector should contain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+he vector of surnames. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_school_aa81268087c49316734bca8d7f1b23f46}\label{classtale_1_1_school_aa81268087c49316734bca8d7f1b23f46}} 
 \index{tale::School@{tale::School}!GetSetting@{GetSetting}}
