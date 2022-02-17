@@ -58,8 +58,9 @@ add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
 target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt )
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
-# Uncomment for prints
-target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+# Uncomment?/comment out for prints
+# target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+# target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
 
 
 add_custom_command(
