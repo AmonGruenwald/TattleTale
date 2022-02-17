@@ -50,7 +50,7 @@ namespace tale
 
             size_t slot_index = 0;
             // Go over everyslot
-            while (slot_index < random_slot_order.size())
+            while (slot_index < random_slot_order.size() && setting_.same_course_per_week > 0)
             {
                 std::vector<uint32_t> slots;
                 // Because Actor have the same course a few times per week use the same group a few times

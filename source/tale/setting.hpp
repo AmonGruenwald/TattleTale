@@ -56,6 +56,10 @@ namespace tale
          */
         size_t minimum_necessary_course_count() const
         {
+            if (same_course_per_week == 0)
+            {
+                return 0;
+            }
             return (size_t)ceil((double)slot_count_per_week() / (double)same_course_per_week);
         }
 
@@ -68,6 +72,10 @@ namespace tale
          */
         size_t course_count() const
         {
+            if (actors_per_course == 0)
+            {
+                return 0;
+            }
             return std::max((size_t)minimum_necessary_course_count(), (size_t)ceil((double)actor_count / (double)actors_per_course));
         }
     };

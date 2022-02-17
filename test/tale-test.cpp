@@ -3,7 +3,9 @@
 #include <vector>
 #include <memory>
 #include "tale/tale.hpp"
+#include <time.h>
 
+#define GTEST_INFO std::cerr << "[   INFO   ] "
 TEST(Tale_Kernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
@@ -24,22 +26,128 @@ TEST(Tale_Kernels, IncreasingKernelNumber)
     EXPECT_EQ(5, trait.number_);
 }
 
-TEST(Tale_School, CreateSchool)
+class Tale_School : public ::testing::Test
+{
+protected:
+    Tale_School() {}
+    virtual ~Tale_School() {}
+    void SetUp(const tale::Setting &setting)
+    {
+        tale::School school(setting);
+        for (size_t i = 0; i < setting.actor_count; ++i)
+        {
+            EXPECT_EQ(school.GetActor(i).lock()->id_, i);
+        }
+        for (size_t i = 0; i < setting.course_count(); ++i)
+        {
+            EXPECT_EQ(school.GetCourse(i).id_, i);
+        }
+        school.SimulateDays(setting.days_to_simulate);
+    }
+    virtual void TearDown() {}
+};
+
+TEST_F(Tale_School, CreateAndRunDefaultSchool)
 {
     tale::Setting setting;
-    setting.actor_count = 10;
-    tale::School school(setting);
-    for (size_t i = 0; i < setting.actor_count; ++i)
-    {
-        EXPECT_EQ(school.GetActor(i).lock()->id_, i);
-    }
-    for (size_t i = 0; i < setting.course_count(); ++i)
-    {
-        EXPECT_EQ(school.GetCourse(i).id_, i);
-    }
+    SetUp(setting);
 }
 
-TEST(Tale_School, CorrectCurrentDay)
+TEST_F(Tale_School, CreateAndRunSchoolWithZeroActors)
+{
+    tale::Setting setting;
+    setting.actor_count = 0;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithZeroActorsPerCourse)
+{
+    tale::Setting setting;
+    setting.actors_per_course = 0;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithZeroCoursesPerDay)
+{
+    tale::Setting setting;
+    setting.courses_per_day = 0;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
+{
+    tale::Setting setting;
+    setting.same_course_per_week = 0;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithZeroInAllSettings)
+{
+    tale::Setting setting;
+    setting.actor_count = 0;
+    setting.actors_per_course = 0;
+    setting.courses_per_day = 0;
+    setting.same_course_per_week = 0;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithOneActor)
+{
+    tale::Setting setting;
+    setting.actor_count = 1;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithOneActorPerCourse)
+{
+    tale::Setting setting;
+    setting.actors_per_course = 1;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithOneCoursePerDay)
+{
+    tale::Setting setting;
+    setting.courses_per_day = 1;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithOneSameCoursePerWeek)
+{
+    tale::Setting setting;
+    setting.same_course_per_week = 1;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithOneInAllSettings)
+{
+    tale::Setting setting;
+    setting.actor_count = 1;
+    setting.actors_per_course = 1;
+    setting.courses_per_day = 1;
+    setting.same_course_per_week = 1;
+    SetUp(setting);
+}
+
+TEST_F(Tale_School, CreateAndRunSchoolWithRandomValuesInAllSettings)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    tale::Setting setting;
+    setting.actor_count = random.GetUInt(0, 1000);
+    setting.actors_per_course = random.GetUInt(0, 50);
+    setting.courses_per_day = random.GetUInt(0, 10);
+    setting.same_course_per_week = random.GetUInt(0, 10);
+    setting.days_to_simulate = random.GetUInt(0, 50);
+    GTEST_INFO << "Actor Count = " << setting.actor_count << std::endl;
+    GTEST_INFO << "Actors per Course = " << setting.actors_per_course << std::endl;
+    GTEST_INFO << "Courses per Day = " << setting.courses_per_day << std::endl;
+    GTEST_INFO << "Same Course per Week = " << setting.same_course_per_week << std::endl;
+    GTEST_INFO << "Days to Simulate = " << setting.days_to_simulate << std::endl;
+    SetUp(setting);
+}
+
+TEST(Tale_ExtraSchoolTests, CorrectCurrentDay)
 {
     tale::Setting setting;
     setting.actor_count = 10;
