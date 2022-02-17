@@ -12,13 +12,12 @@ namespace tale
 {
     InteractionStore::InteractionStore()
     {
+        TALE_DEBUG_PRINT("READ FROM PROTOTYPE FILE:\n");
         std::ifstream prototype_json_file(prototype_json_path_);
         nlohmann::json prototype_json;
         prototype_json_file >> prototype_json;
         prototype_json_file.close();
-        TALE_DEBUG_PRINT("READ FROM PROTOTYPE FILE:\n");
-        TALE_DEBUG_PRINT(prototype_json.dump(4) + "\n");
-        TALE_DEBUG_PRINT("------------------------------------------\n\n");
+        TALE_DEBUG_PRINT(prototype_json.dump(4) + "\n\n");
         TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE:\n");
 
         for (auto &[key, value] : prototype_json.items())
@@ -70,9 +69,8 @@ namespace tale
 
             prototype_catalogue_.insert({interaction.name_, interaction});
 
-            TALE_DEBUG_PRINT("\n" + interaction.ToString() + "\n");
+            TALE_DEBUG_PRINT("\nCREATED INTERACTION:\n" + interaction.ToString() + "\n");
         }
-        TALE_DEBUG_PRINT("------------------------------------------\n\n");
     }
     std::string InteractionStore::GetRandomInteractionName()
     {

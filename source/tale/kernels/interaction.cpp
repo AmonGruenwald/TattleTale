@@ -44,7 +44,7 @@ namespace tale
             }
             description += fmt::format("{}", participants_[i].lock()->name_);
         }
-        TALE_DEBUG_PRINT(description + "\n");
+        TALE_VERBOSE_PRINT(description + "\n");
         std::weak_ptr<Interaction> self = weak_from_this();
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
