@@ -182,6 +182,35 @@ namespace tale
          * @return The found group of Actors.
          */
         std::vector<std::weak_ptr<Actor>> FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots);
+
+        /**
+         * @brief Creates a vector of randomly picked firstnames.
+         *
+         * Reads from the file tale/resources/firstname.txt to get random names;
+         *
+         * @param count How many firstnames the vector should contain.
+         * @return The vector of firstnames.
+         */
+        std::vector<std::string> GetRandomFirstnames(size_t count);
+        /**
+         * @brief Creates a vector of randomly picked surnames.
+         *
+         * Reads from the file tale/resources/surname.txt to get random names;
+         *
+         * @param count How many surnames the vector should contain.
+         * @return he vector of surnames.
+         */
+        std::vector<std::string> GetRandomSurames(size_t count);
+        /**
+         * @brief Creates a vector of randomly picked names.
+         *
+         * Reads from the passed filepath. This function should probably only be used internally by GetRandomFirstnames and GetRandomSurnames
+         *
+         * @param count How many surnames the vector should contain.
+         * @param path The path of the file containing the names to pick from.
+         * @return he vector of names.
+         */
+        std::vector<std::string> GetRandomNames(size_t count, std::string path);
     };
 
 } // namespace tale

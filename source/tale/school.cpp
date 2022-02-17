@@ -3,19 +3,23 @@
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
+#include <fstream>
 
 namespace tale
 {
-    School::School(const Setting &setting) : setting_(setting)
+    School::School(const Setting &setting) : setting_(setting), interaction_store_(), random_(setting.seed)
     {
-        random_ = Random(setting_.seed);
-        interaction_store_ = InteractionStore();
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
+
+        TALE_DEBUG_PRINT("CREATING NAMES\n");
+        std::vector<std::string> firstnames = GetRandomFirstnames(actor_count);
+        std::vector<std::string> surnames = GetRandomSurames(actor_count);
         for (size_t i = 0; i < actor_count; ++i)
         {
-            TALE_DEBUG_PRINT("CREATING ACTOR " + std::to_string(i) + "\n");
-            std::shared_ptr<Actor> actor(new Actor(*this, i, (std::to_string(i) + " "), tick));
+            std::string name = firstnames[i] + " " + surnames[i];
+            TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name + "\n");
+            std::shared_ptr<Actor> actor(new Actor(*this, i, name, tick));
             actors_.push_back(actor);
         }
 
@@ -32,7 +36,7 @@ namespace tale
         std::vector<uint32_t> random_slot_order;
         for (auto &course : courses_)
         {
-            TALE_DEBUG_PRINT("FILLING COURSE " + std::to_string(course.id_) + "|n");
+            std::string course_filling_description = ("FILLING COURSE " + std::to_string(course.id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -60,20 +64,21 @@ namespace tale
                 }
                 std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, slots);
 
-                TALE_DEBUG_PRINT("\tSLOTS ");
+                course_filling_description += "\n\tSLOTS ";
                 for (size_t i = 0; i < slots.size(); ++i)
                 {
-                    TALE_DEBUG_PRINT(slots[i]);
+                    course_filling_description += std::to_string(slots[i]);
                     if (i != slots.size() - 1)
                     {
-                        TALE_DEBUG_PRINT(",");
+                        course_filling_description += ",";
                     }
-                    TALE_DEBUG_PRINT(" ");
+                    course_filling_description += " ";
                     course.AddToSlot(course_group, slots[i]);
                 }
-
-                TALE_DEBUG_PRINT("FILLED WITH " + std::to_string(course_group.size()) + " ACTORS.\n");
+                course_filling_description += ("FILLED WITH " + std::to_string(course_group.size()) + " ACTORS.");
             }
+            course_filling_description += "\n";
+            TALE_DEBUG_PRINT(course_filling_description);
         }
     }
 
@@ -155,7 +160,7 @@ namespace tale
 
     void School::FreeTimeTick()
     {
-        TALE_DEBUG_PRINT("FREETIME TICK\n");
+        TALE_VERBOSE_PRINT("FREETIME TICK\n");
     }
 
     bool School::IsWorkday(Weekday weekday) const
@@ -209,4 +214,31 @@ namespace tale
         }
         return course_group;
     }
+    std::vector<std::string> School::GetRandomFirstnames(size_t count)
+    {
+        return GetRandomNames(count, "tale/resources/firstname.txt");
+    }
+    std::vector<std::string> School::GetRandomSurames(size_t count)
+    {
+        return GetRandomNames(count, "tale/resources/surname.txt");
+    }
+
+    std::vector<std::string> School::GetRandomNames(size_t count, std::string path)
+    {
+        std::vector<std::string> all_names;
+        std::string firstname;
+        std::ifstream firstname_file(path);
+        assert(firstname_file.is_open()); // Couldn't open the file
+        while (getline(firstname_file, firstname))
+        {
+            all_names.push_back(firstname);
+        }
+        std::vector<std::string> random_names;
+        for (size_t i = 0; i < count; ++i)
+        {
+            random_names.push_back(all_names[random_.GetUInt(0, all_names.size() - 1)]);
+        }
+        return random_names;
+    }
+
 } // namespace tale
