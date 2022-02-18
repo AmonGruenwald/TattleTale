@@ -1,11 +1,12 @@
-#include "tale/kernels/emotion.hpp"
+#include "tale/kernels/resourcekernels/emotion.hpp"
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
 
 namespace tale
 {
-    Emotion::Emotion(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
+    Emotion::Emotion(EmotionType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+        : Resource(EmotionTypeToString(type), tick, reasons, value), type_(type){};
 
     EmotionType Emotion::StringToEmotionType(std::string emotion_string)
     {
@@ -30,6 +31,10 @@ namespace tale
             assert(false); // invalid enum was passed
             return "none";
             break;
+        case EmotionType::kLast:
+            assert(false); // invalid enum was passed
+            return "last";
+            break;
         case EmotionType::kHappy:
             return "happy";
             break;
@@ -47,15 +52,5 @@ namespace tale
             break;
         }
         return "none";
-    }
-
-    float Emotion::GetValue() const
-    {
-        return value_;
-    }
-
-    std::string Emotion::ToString()
-    {
-        return fmt::format("{}: {}", name_, value_);
     }
 } // namespace tale

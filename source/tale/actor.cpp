@@ -15,7 +15,7 @@ namespace tale
           id_(id),
           name_(name)
     {
-        InitializeRandomResource(tick, resource_);
+        InitializeRandomWealth(tick, wealth_);
         InitializeRandomEmotions(tick, emotions_);
         InitializeRandomRelationships(tick, relationships_);
         InitializeRandomGoal(tick, goal_);
@@ -85,19 +85,19 @@ namespace tale
         return interaction_store_.GetRandomInteractionName();
     }
 
-    void Actor::ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
+    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
     {
-        float previous_value = resource_->GetValue();
+        float previous_value = wealth_->GetValue();
         float new_value = previous_value + value;
         // TODO: register new resource
-        resource_ = std::shared_ptr<Resource>(new Resource("resource", tick, reasons, new_value));
+        wealth_ = std::shared_ptr<Resource>(new Resource("wealth", tick, reasons, new_value));
     }
     void Actor::ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value)
     {
         float previous_value = emotions_[type]->GetValue();
         float new_value = previous_value + value;
         // TODO: register new emotion
-        emotions_[type] = std::shared_ptr<Emotion>(new Emotion(Emotion::EmotionTypeToString(type), tick, reasons, new_value));
+        emotions_[type] = std::shared_ptr<Emotion>(new Emotion(type, tick, reasons, new_value));
     }
     void Actor::ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
     {
@@ -111,11 +111,11 @@ namespace tale
         }
         float new_value = previous_value + value;
         // TODO: register new emotion
-        relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(Relationship::RelationshipTypeToString(type), tick, reasons, new_value));
+        relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(type, tick, reasons, new_value));
     }
-    std::string Actor::GetResourceDescriptionString()
+    std::string Actor::GetWealthDescriptionString()
     {
-        return "RESOURCES:\n\t" + resource_->ToString();
+        return "WEALTH:\n\t" + wealth_->ToString();
     }
     std::string Actor::GetEmotionsDescriptionString()
     {
@@ -153,10 +153,10 @@ namespace tale
         }
         return trait_string;
     }
-    void Actor::InitializeRandomResource(size_t tick, std::shared_ptr<Resource> &out_resource)
+    void Actor::InitializeRandomWealth(size_t tick, std::shared_ptr<Resource> &out_wealth)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        out_resource = std::shared_ptr<Resource>(new Resource("resource", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)));
+        out_wealth = std::shared_ptr<Resource>(new Resource("wealth", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)));
     }
     void Actor::InitializeRandomEmotions(size_t tick, std::map<EmotionType, std::shared_ptr<Emotion>> &out_emotions)
     {
@@ -165,23 +165,23 @@ namespace tale
             {
                 {
                     EmotionType::kHappy,
-                    std::shared_ptr<Emotion>(new Emotion("happy", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                    std::shared_ptr<Emotion>(new Emotion(EmotionType::kHappy, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                 },
                 {
                     EmotionType::kCalm,
-                    std::shared_ptr<Emotion>(new Emotion("calm", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                    std::shared_ptr<Emotion>(new Emotion(EmotionType::kCalm, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                 },
                 {
                     EmotionType::kSatisfied,
-                    std::shared_ptr<Emotion>(new Emotion("satisfied", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                    std::shared_ptr<Emotion>(new Emotion(EmotionType::kSatisfied, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                 },
                 {
                     EmotionType::kBrave,
-                    std::shared_ptr<Emotion>(new Emotion("brave", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                    std::shared_ptr<Emotion>(new Emotion(EmotionType::kBrave, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                 },
                 {
                     EmotionType::kExtroverted,
-                    std::shared_ptr<Emotion>(new Emotion("extroverted", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                    std::shared_ptr<Emotion>(new Emotion(EmotionType::kExtroverted, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                 },
             };
     }
@@ -203,23 +203,23 @@ namespace tale
                  {
                      {
                          RelationshipType::kLove,
-                         std::shared_ptr<Relationship>(new Relationship("love", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                         std::shared_ptr<Relationship>(new Relationship(RelationshipType::kLove, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                      },
                      {
                          RelationshipType::kAttraction,
-                         std::shared_ptr<Relationship>(new Relationship("attraction", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                         std::shared_ptr<Relationship>(new Relationship(RelationshipType::kAttraction, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                      },
                      {
                          RelationshipType::kFriendship,
-                         std::shared_ptr<Relationship>(new Relationship("friendship", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                         std::shared_ptr<Relationship>(new Relationship(RelationshipType::kFriendship, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                      },
                      {
                          RelationshipType::kAnger,
-                         std::shared_ptr<Relationship>(new Relationship("anger", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                         std::shared_ptr<Relationship>(new Relationship(RelationshipType::kAnger, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                      },
                      {
                          RelationshipType::kProtective,
-                         std::shared_ptr<Relationship>(new Relationship("protective", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
+                         std::shared_ptr<Relationship>(new Relationship(RelationshipType::kProtective, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))),
                      },
                  }});
         }

@@ -26,13 +26,13 @@ namespace tale
         for (size_t i = 0; i < actor_count; ++i)
         {
             actors_created_descriptions += (actors_[i]->name_ + "\n");
-            actors_created_descriptions += (actors_[i]->GetResourceDescriptionString() + "\n");
+            actors_created_descriptions += (actors_[i]->GetWealthDescriptionString() + "\n");
             actors_created_descriptions += (actors_[i]->GetEmotionsDescriptionString() + "\n");
             actors_created_descriptions += (actors_[i]->GetRelationshipsDescriptionString() + "\n");
             actors_created_descriptions += (actors_[i]->GetTraitsDescriptionString() + "\n");
             actors_created_descriptions += (actors_[i]->GetGoalDescriptionString() + "\n");
         }
-        TALE_DEBUG_PRINT(actors_created_descriptions);
+        TALE_VERBOSE_PRINT(actors_created_descriptions);
 
         size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)

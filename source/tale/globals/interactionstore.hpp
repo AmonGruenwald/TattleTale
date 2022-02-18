@@ -40,13 +40,13 @@ namespace tale
          */
         const size_t &GetParticipantCount(std::string interaction_name);
         /**
-         * @brief Returns the resource effects for a catalogued Interaction name.
+         * @brief Returns the wealth effects for a catalogued Interaction name.
          *
          * @param interaction_name Name of the queried Interaction prototype
          * Should only really be needed for testing purposes
-         * @return The resource effects
+         * @return The wealth effects
          */
-        const std::vector<float> &GetResourceEffects(std::string interaction_name);
+        const std::vector<float> &GetWealthEffects(std::string interaction_name);
         /**
          * @brief Returns the emotion effects for a catalogued Interaction name.
          *

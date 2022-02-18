@@ -8,10 +8,10 @@
 #include "tale/globals/random.hpp"
 #include "tale/globals/interactionstore.hpp"
 #include "tale/kernels/goal.hpp"
-#include "tale/kernels/emotion.hpp"
-#include "tale/kernels/relationship.hpp"
+#include "tale/kernels/resourcekernels/resource.hpp"
+#include "tale/kernels/resourcekernels/emotion.hpp"
+#include "tale/kernels/resourcekernels/relationship.hpp"
 #include "tale/kernels/trait.hpp"
-#include "tale/kernels/resource.hpp"
 
 namespace tale
 {
@@ -32,9 +32,9 @@ namespace tale
          */
         std::string name_;
         /**
-         * @brief The abstract state of the  \link Actor Actor's \endlink \link Resource Resources \endlink.
+         * @brief The abstract state of the  \link Actor Actor's \endlink wealth.
          */
-        std::shared_ptr<Resource> resource_;
+        std::shared_ptr<Resource> wealth_;
         /**
          * @brief The \link Actor Actor's \endlink current \link Emotion Emotional \endlink state is. Maps one Emotion to each EmotionType.
          */
@@ -101,15 +101,15 @@ namespace tale
          */
         std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
         /**
-         * @brief Applies a change to the \link Actor Actor's \endlink Resource.
+         * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *
          *
          *
          * @param reasons Vector holding the reasons for this change.
          * @param tick The tick during which this change happened.
-         * @param value By how much the Resource gets changed.
+         * @param value By how much the wealth gets changed.
          */
-        void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
+        void ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Emotion Emotional \endlink state.
          *
@@ -134,11 +134,11 @@ namespace tale
          */
         void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
         /**
-         * @brief Creates a string describing the current Resource status of the Actor.
+         * @brief Creates a string describing the current wealth status of the Actor.
          *
          * @return The description string.
          */
-        std::string GetResourceDescriptionString();
+        std::string GetWealthDescriptionString();
         /**
          * @brief Creates a string describing the current Emotion status of the Actor.
          *
@@ -190,21 +190,21 @@ namespace tale
          */
         std::vector<int> enrolled_courses_id_;
         /**
-         * @brief Initializes the passed Resource with a random value.
+         * @brief Initializes the passed wealth Resource with a random value.
          *
          *
          *
          * @param[in] tick The tick during which this happens.
-         * @param[out] out_resource The Resource that shoud be initialized.
+         * @param[out] out_wealth The wealth Resource that shoud be initialized.
          */
-        void InitializeRandomResource(size_t tick, std::shared_ptr<Resource> &out_resource);
+        void InitializeRandomWealth(size_t tick, std::shared_ptr<Resource> &out_wealth);
         /**
          * @brief Initializes the passed Emotion map with random values.
          *
          *
          *
          * @param[in] tick The tick during which this happens.
-         * @param[out] out_resource The map that shoud be initialized.
+         * @param[out] out_emotions The map that shoud be initialized.
          */
         void InitializeRandomEmotions(size_t tick, std::map<EmotionType, std::shared_ptr<Emotion>> &out_emotions);
         /**
@@ -213,7 +213,7 @@ namespace tale
          * WIP: this does not to anything yet
          *
          * @param[in] tick The tick during which this happens.
-         * @param[out] out_resource The map that shoud be initialized.
+         * @param[out] out_relationships The map that shoud be initialized.
          */
         void InitializeRandomRelationships(size_t tick, std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &out_relationships);
         /**
@@ -222,7 +222,7 @@ namespace tale
          * WIP: this does not to anything yet
          *
          * @param[in] tick The tick during which this happens.
-         * @param[out] out_resource The Goal that shoud be initialized.
+         * @param[out] out_goals The Goal that shoud be initialized.
          */
         void InitializeRandomGoal(size_t tick, std::shared_ptr<Goal> &out_goals);
         /**
@@ -231,7 +231,7 @@ namespace tale
          * WIP: this does not to anything yet
          *
          * @param[in] tick The tick during which this happens.
-         * @param[out] out_resource The Trait vector that shoud be initialized.
+         * @param[out] out_traits The Trait vector that shoud be initialized.
          */
         void InitializeRandomTraits(size_t tick, std::vector<std::shared_ptr<Trait>> &out_traits);
         /**

@@ -1,4 +1,4 @@
-#include "tale/kernels/resource.hpp"
+#include "tale/kernels/resourcekernels/resource.hpp"
 
 #include <iostream>
 #include <fmt/core.h>

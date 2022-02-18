@@ -12,13 +12,13 @@ namespace tale
         std::vector<std::weak_ptr<Kernel>> reasons,
         size_t participant_count,
         std::vector<std::weak_ptr<Actor>> participants,
-        std::vector<float> resource_effects,
+        std::vector<float> wealth_effects,
         std::vector<std::map<EmotionType, float>> emotion_effects,
         std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects)
         : Kernel(name, tick, reasons),
           participant_count_(participant_count),
           participants_(participants),
-          resource_effects_(resource_effects),
+          wealth_effects_(wealth_effects),
           emotion_effects_(emotion_effects),
           relationship_effects_(relationship_effects){};
 
@@ -49,7 +49,7 @@ namespace tale
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
         {
-            participants_.at(i).lock()->ApplyResourceChange(reasons, tick_, resource_effects_[i]);
+            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, wealth_effects_[i]);
             for (auto &[type, value] : emotion_effects_[i])
             {
                 participants_.at(i).lock()->ApplyEmotionChange(reasons, tick_, type, value);
@@ -67,10 +67,10 @@ namespace tale
     std::string Interaction::ToString()
     {
         std::string name_string = fmt::format("Name: {}\n", name_);
-        std::string resource_effects_string = "";
-        for (size_t i = 0; i < resource_effects_.size(); ++i)
+        std::string wealth_effects_string = "";
+        for (size_t i = 0; i < wealth_effects_.size(); ++i)
         {
-            resource_effects_string += fmt::format("\t{}. Resource Effect: {}\n", i, resource_effects_[i]);
+            wealth_effects_string += fmt::format("\t{}. Wealth Effect: {}\n", i, wealth_effects_[i]);
         }
         std::string emotion_effects_string = "";
         for (size_t i = 0; i < emotion_effects_.size(); ++i)
@@ -96,6 +96,6 @@ namespace tale
             }
             relationship_effects_string += "\n";
         }
-        return (name_string + "\n" + resource_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string + "\n");
+        return (name_string + "\n" + wealth_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string + "\n");
     }
 } // namespace tale

@@ -1,7 +1,7 @@
 #include "tale/talecore.hpp"
 #include "tale/globals/interactionstore.hpp"
-#include "tale/kernels/emotion.hpp"
-#include "tale/kernels/relationship.hpp"
+#include "tale/kernels/resourcekernels/emotion.hpp"
+#include "tale/kernels/resourcekernels/relationship.hpp"
 #include "tale/actor.hpp"
 #include <iostream>
 #include <assert.h>
@@ -31,10 +31,10 @@ namespace tale
 
             auto effects = value["effects"];
 
-            interaction.resource_effects_.reserve(participant_count);
-            for (auto &resource : effects["resources"])
+            interaction.wealth_effects_.reserve(participant_count);
+            for (auto &wealth : effects["wealth"])
             {
-                interaction.resource_effects_.push_back(resource);
+                interaction.wealth_effects_.push_back(wealth);
             }
 
             interaction.emotion_effects_.reserve(participant_count);
@@ -87,10 +87,10 @@ namespace tale
         assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
         return prototype_catalogue_.at(interaction_name).participant_count_;
     }
-    const std::vector<float> &InteractionStore::GetResourceEffects(std::string interaction_name)
+    const std::vector<float> &InteractionStore::GetWealthEffects(std::string interaction_name)
     {
         assert(prototype_catalogue_.count(interaction_name) == 1); // no interaction of that name
-        return prototype_catalogue_.at(interaction_name).resource_effects_;
+        return prototype_catalogue_.at(interaction_name).wealth_effects_;
     }
 
     const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(std::string interaction_name)
@@ -113,7 +113,7 @@ namespace tale
             reasons,
             prototype.participant_count_,
             participants,
-            prototype.resource_effects_,
+            prototype.wealth_effects_,
             prototype.emotion_effects_,
             prototype.relationship_effects_));
 

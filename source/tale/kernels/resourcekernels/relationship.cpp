@@ -1,4 +1,4 @@
-#include "tale/kernels/relationship.hpp"
+#include "tale/kernels/resourcekernels/relationship.hpp"
 
 #include <assert.h>
 #include <iostream>
@@ -6,7 +6,7 @@
 
 namespace tale
 {
-    Relationship::Relationship(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
+    Relationship::Relationship(RelationshipType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Resource(RelationshipTypeToString(type), tick, reasons, value), type_(type){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {
@@ -31,6 +31,10 @@ namespace tale
             assert(false); // invalid enum was passed
             return "none";
             break;
+        case RelationshipType::kLast:
+            assert(false); // invalid enum was passed
+            return "last";
+            break;
         case RelationshipType::kLove:
             return "love";
             break;
@@ -48,13 +52,5 @@ namespace tale
             break;
         }
         return "none";
-    }
-    float Relationship::GetValue() const
-    {
-        return value_;
-    }
-    std::string Relationship::ToString()
-    {
-        return fmt::format("{}: {}", name_, value_);
     }
 } // namespace tale

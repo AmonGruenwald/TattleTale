@@ -2,8 +2,8 @@
 #define TALE_INTERACTION_H
 
 #include "tale/kernels/kernel.hpp"
-#include "tale/kernels/emotion.hpp"
-#include "tale/kernels/relationship.hpp"
+#include "tale/kernels/resourcekernels/emotion.hpp"
+#include "tale/kernels/resourcekernels/relationship.hpp"
 #include <map>
 #include <memory>
 
@@ -33,9 +33,9 @@ namespace tale
         std::vector<std::weak_ptr<Actor>> participants_;
 
         /**
-         * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink \link Resource Resources \endlink.
+         * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink wealth.
          */
-        std::vector<float> resource_effects_;
+        std::vector<float> wealth_effects_;
         /**
          * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink \link Emotion Emotions \endlink.
          */
@@ -60,7 +60,7 @@ namespace tale
          * @param participant_count How many \link Actor Actors \endlink are participating in this Interaction. Seperate from participants because
          * protoypes of Interactions do not actually have participants
          * @param participants Vector of \link Actor Actors \endlink that are participating in this Interaction.
-         * @param resource_effects Vector holding the effects this Interaction will have on the Resource of the participating \link Actor Actors \endlink.
+         * @param wealth_effects Vector holding the effects this Interaction will have on the wealth of the participating \link Actor Actors \endlink.
          * @param emotion_effects Vector holding the effects this Interaction will have on the \link Emotion Emotions \endlink  of the participating \link Actor Actors \endlink.
          * Maps Emotiontype to float value.
          * @param relationship_effects Vector holding the effects this Interaction will have on the \link Relationship Relationships \endlink  of the
@@ -72,7 +72,7 @@ namespace tale
             std::vector<std::weak_ptr<Kernel>> reasons,
             size_t participant_count,
             std::vector<std::weak_ptr<Actor>> participants,
-            std::vector<float> resource_effects,
+            std::vector<float> wealth_effects,
             std::vector<std::map<EmotionType, float>> emotion_effects,
             std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects);
 

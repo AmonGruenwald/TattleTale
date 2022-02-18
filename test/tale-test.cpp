@@ -12,16 +12,16 @@ TEST(Tale_Kernels, IncreasingKernelNumber)
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
     size_t tick = 0;
-    tale::Emotion emotion("emotion", tick, default_reasons, 1);
+    tale::Emotion emotion(tale::EmotionType::kHappy, tick, default_reasons, 1);
     tale::Goal goal("goal", tick, default_reasons);
-    tale::Relationship relationship("relationship", tick, default_reasons, 1);
-    tale::Resource resource("resource", tick, default_reasons, 1);
+    tale::Relationship relationship(tale::RelationshipType::kLove, tick, default_reasons, 1);
+    tale::Resource wealth("wealth", tick, default_reasons, 1);
     tale::Trait trait("trait", tick, default_reasons);
 
     EXPECT_EQ(0, emotion.number_);
     EXPECT_EQ(1, goal.number_);
     EXPECT_EQ(2, relationship.number_);
-    EXPECT_EQ(3, resource.number_);
+    EXPECT_EQ(3, wealth.number_);
     EXPECT_EQ(4, trait.number_);
 }
 
@@ -180,9 +180,9 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     {
         EXPECT_EQ(interaction->participants_[i].lock(), school.GetActor(i).lock());
     }
-    for (size_t i = 0; i < interaction->resource_effects_.size(); ++i)
+    for (size_t i = 0; i < interaction->wealth_effects_.size(); ++i)
     {
-        EXPECT_EQ(interaction->resource_effects_[i], interaction_store.GetResourceEffects(interaction_name)[i]);
+        EXPECT_EQ(interaction->wealth_effects_[i], interaction_store.GetWealthEffects(interaction_name)[i]);
     }
     for (size_t i = 0; i < interaction->emotion_effects_.size(); ++i)
     {
@@ -214,18 +214,18 @@ TEST(TaleInteractions, ApplyInteraction)
     std::vector<std::weak_ptr<tale::Actor>> participants;
     participants.push_back(school.GetActor(0));
     participants.push_back(school.GetActor(1));
-    std::vector<float> resource_effects;
+    std::vector<float> wealth_effects;
     std::vector<std::map<tale::EmotionType, float>> emotion_effects;
     std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
-    std::vector<float> expected_resource_values;
+    std::vector<float> expected_wealth_values;
     std::vector<std::map<tale::EmotionType, float>> expected_emotion_values;
     std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> expected_relationship_values;
     std::vector<float> signs = {1.0f, -1.0f};
     for (size_t participant_index = 0; participant_index < 2; ++participant_index)
     {
         float sign = signs[participant_index];
-        resource_effects.push_back(0.5f * sign);
-        expected_resource_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->resource_->GetValue());
+        wealth_effects.push_back(0.5f * sign);
+        expected_wealth_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->wealth_->GetValue());
         std::map<tale::EmotionType, float> emotion_map;
         std::map<tale::EmotionType, float> expected_emotion_values_map;
         for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
@@ -263,12 +263,12 @@ TEST(TaleInteractions, ApplyInteraction)
         relationship_effects.push_back(participant_relationship_map);
         expected_relationship_values.push_back(expected_participant_relationship_map);
     }
-    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction("Test", tick, default_reasons, participant_count, participants, resource_effects, emotion_effects, relationship_effects));
+    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction("Test", tick, default_reasons, participant_count, participants, wealth_effects, emotion_effects, relationship_effects));
     interaction->Apply();
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->GetValue(), expected_resource_values[participant_index]);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->GetValue(), expected_wealth_values[participant_index]);
         for (auto &[type, value] : expected_emotion_values[participant_index])
         {
             EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type]->GetValue(), value);
@@ -294,12 +294,12 @@ TEST(TaleInteractions, InteractionBecomesReason)
     std::vector<std::weak_ptr<tale::Actor>> participants;
     participants.push_back(school.GetActor(0));
     participants.push_back(school.GetActor(1));
-    std::vector<float> resource_effects;
+    std::vector<float> wealth_effects;
     std::vector<std::map<tale::EmotionType, float>> emotion_effects;
     std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
     for (size_t participant_index = 0; participant_index < 2; ++participant_index)
     {
-        resource_effects.push_back(0.1f);
+        wealth_effects.push_back(0.1f);
         std::map<tale::EmotionType, float> emotion_map;
         for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
         {
@@ -319,12 +319,12 @@ TEST(TaleInteractions, InteractionBecomesReason)
         relationship_effects.push_back(participant_relationship_map);
     }
     std::string name = "InteractionBecomesReason";
-    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(name, tick, default_reasons, participant_count, participants, resource_effects, emotion_effects, relationship_effects));
+    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(name, tick, default_reasons, participant_count, participants, wealth_effects, emotion_effects, relationship_effects));
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->reasons_[0].lock()->name_, name);
-        EXPECT_EQ(school.GetActor(participant_index).lock()->resource_->reasons_[0].lock()->number_, interaction->number_);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->name_, name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->number_, interaction->number_);
         for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
         {
             EXPECT_EQ(emotion->reasons_[0].lock()->name_, name);
@@ -477,7 +477,7 @@ TEST_F(TaleActor, CreateActor)
 
 TEST_F(TaleActor, ActorHasInitializedStartingValues)
 {
-    EXPECT_TRUE(actor_->resource_);
+    EXPECT_TRUE(actor_->wealth_);
     EXPECT_NE(actor_->emotions_.size(), 0);
     GTEST_INFO << "Relationship Size: " << actor_->relationships_.size() << "\n";
     EXPECT_GE(actor_->relationships_.size(), desired_min_start_relationships_count_);
