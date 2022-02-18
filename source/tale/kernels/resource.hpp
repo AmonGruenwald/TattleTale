@@ -7,7 +7,6 @@ namespace tale
 {
     /**
      * @brief Represents the abstract Resources an Actor has.
-     *
      */
     class Resource : public Kernel
     {

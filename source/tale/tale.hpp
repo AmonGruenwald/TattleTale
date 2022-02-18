@@ -2,7 +2,6 @@
 #ifndef TALE_TALE_H
 #define TALE_TALE_H
 #include "tale/kernels/kernel.hpp"
-#include "tale/kernels/action.hpp"
 #include "tale/kernels/emotion.hpp"
 #include "tale/kernels/goal.hpp"
 #include "tale/kernels/interaction.hpp"
