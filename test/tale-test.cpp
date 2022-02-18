@@ -475,9 +475,9 @@ TEST_F(TaleActor, CreateActor)
 
 TEST_F(TaleActor, ActorHasInitializedStartingValues)
 {
-    // EXPECT_TRUE(actor_->resource_);
+    EXPECT_TRUE(actor_->resource_);
     EXPECT_NE(actor_->emotions_.size(), 0);
-    EXPECT_NE(actor_->relationships_.size(), 0);
+    // EXPECT_NE(actor_->relationships_.size(), 0);
 }
 
 TEST_F(TaleActor, AddActorToCourse)
