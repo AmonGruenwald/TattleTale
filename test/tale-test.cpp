@@ -447,3 +447,91 @@ TEST(Tale_Course, GetRandomCourseSlot)
         }
     }
 }
+
+class Tale_Actor : public ::testing::Test
+{
+protected:
+    std::string actor_name_ = "John Doe";
+    size_t actor_id_ = 9;
+    std::shared_ptr<tale::Actor> actor_;
+    tale::Setting setting_;
+    std::shared_ptr<tale::School> school_;
+    Tale_Actor()
+    {
+        setting_.actor_count = 10;
+        school_ = std::shared_ptr<tale::School>(new tale::School(setting_));
+        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_name_, 0));
+    }
+    virtual ~Tale_Actor() {}
+    void SetUp() {}
+    virtual void TearDown() {}
+};
+
+TEST_F(Tale_Actor, CreateActor)
+{
+    EXPECT_EQ(actor_->name_, actor_name_);
+    EXPECT_EQ(actor_->id_, actor_id_);
+}
+
+TEST_F(Tale_Actor, ActorHasInitializedStartingValues)
+{
+    EXPECT_NE(actor_->resource_, nullptr);
+    EXPECT_NE(actor_->emotions_.size(), 0);
+    EXPECT_NE(actor_->relationships_.size(), 0);
+}
+
+TEST_F(Tale_Actor, AddActorToCourse)
+{
+    size_t course_id = 5;
+    tale::Course course(school_->GetRandom(), setting_, course_id, "Test");
+    std::vector<std::weak_ptr<tale::Actor>> course_group;
+    std::vector<uint32_t> slots_to_check;
+    course_group.push_back(actor_);
+    EXPECT_FALSE(actor_->IsEnrolledInCourse(course_id));
+    EXPECT_EQ(actor_->GetFilledSlotsCount(), 0);
+    for (size_t i = 0; i < setting_.slot_count_per_week(); ++i)
+    {
+        slots_to_check.push_back(i);
+        EXPECT_TRUE(actor_->SlotsEmpty(slots_to_check));
+    }
+    for (size_t i = 0; i < setting_.slot_count_per_week(); ++i)
+    {
+        EXPECT_FALSE(actor_->AllSlotsFilled());
+        course.AddToSlot(course_group, i);
+        EXPECT_EQ(actor_->GetFilledSlotsCount(), i + 1);
+        EXPECT_TRUE(actor_->IsEnrolledInCourse(course_id));
+        EXPECT_FALSE(actor_->SlotsEmpty(slots_to_check));
+    }
+    EXPECT_TRUE(actor_->AllSlotsFilled());
+}
+
+TEST_F(Tale_Actor, AddActorToCourse)
+{
+    size_t course_id = 5;
+    tale::Course course(school_->GetRandom(), setting_, course_id, "Test");
+    std::vector<std::weak_ptr<tale::Actor>> course_group;
+    std::vector<uint32_t> slots_to_check;
+    course_group.push_back(actor_);
+    EXPECT_FALSE(actor_->IsEnrolledInCourse(course_id));
+    EXPECT_EQ(actor_->GetFilledSlotsCount(), 0);
+    for (size_t i = 0; i < setting_.slot_count_per_week(); ++i)
+    {
+        slots_to_check.push_back(i);
+        EXPECT_TRUE(actor_->SlotsEmpty(slots_to_check));
+    }
+    for (size_t i = 0; i < setting_.slot_count_per_week(); ++i)
+    {
+        EXPECT_FALSE(actor_->AllSlotsFilled());
+        course.AddToSlot(course_group, i);
+        EXPECT_EQ(actor_->GetFilledSlotsCount(), i + 1);
+        EXPECT_TRUE(actor_->IsEnrolledInCourse(course_id));
+        EXPECT_FALSE(actor_->SlotsEmpty(slots_to_check));
+    }
+    EXPECT_TRUE(actor_->AllSlotsFilled());
+}
+
+// void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
+// void ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value);
+// void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
+
+// bool AllSlotsFilled() const;
