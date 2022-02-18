@@ -19,7 +19,7 @@ size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025
 size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\+\_\+count}} () const
 \begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}{max\+\_\+start\+\_\+relationships\+\_\+count}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the amount of max start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -75,12 +75,12 @@ The amount of courses
 
 
 
-Calculates the amount of courses that the simulation will have. 
+Calculates the amount of max start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. 
 
-This is either the \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\+\_\+necessary\+\_\+course\+\_\+count()}} or actor\+\_\+count/actor\+\_\+per\+\_\+course, which ever is bigger.
+This is either whatever desired\+\_\+max\+\_\+start\+\_\+relationships\+\_\+count is or equal to actor\+\_\+count -\/ 1 as an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can\textquotesingle{}t have more \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} than there are \mbox{\hyperlink{classtale_1_1_actor}{Actors }}
 
 \begin{DoxyReturn}{Returns}
-The amount of courses 
+The max amount of start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}\label{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}} 
 \index{tale::Setting@{tale::Setting}!minimum\_necessary\_course\_count@{minimum\_necessary\_course\_count}}

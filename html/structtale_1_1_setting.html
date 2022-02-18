@@ -92,7 +92,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae5364c51aa0cc630c9708cfdf7ab72b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of courses that the simulation will have.  <a href="structtale_1_1_setting.html#ae5364c51aa0cc630c9708cfdf7ab72b7">More...</a><br /></td></tr>
 <tr class="separator:ae5364c51aa0cc630c9708cfdf7ab72b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a717f90e13292976d5332fa443ddcd8df"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html#a717f90e13292976d5332fa443ddcd8df">max_start_relationships_count</a> () const</td></tr>
-<tr class="memdesc:a717f90e13292976d5332fa443ddcd8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of courses that the simulation will have.  <a href="structtale_1_1_setting.html#a717f90e13292976d5332fa443ddcd8df">More...</a><br /></td></tr>
+<tr class="memdesc:a717f90e13292976d5332fa443ddcd8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the amount of max start <a class="el" href="classtale_1_1_relationship.html">Relationships </a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> can potentially have.  <a href="structtale_1_1_setting.html#a717f90e13292976d5332fa443ddcd8df">More...</a><br /></td></tr>
 <tr class="separator:a717f90e13292976d5332fa443ddcd8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -182,9 +182,9 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>desired_max_start
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the amount of courses that the simulation will have. </p>
-<p >This is either the <a class="el" href="structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81" title="Calculates the minimum necessary amount of courses so every actor can theoretically completely feel t...">minimum_necessary_course_count()</a> or actor_count/actor_per_course, which ever is bigger.</p>
-<dl class="section return"><dt>Returns</dt><dd>The amount of courses </dd></dl>
+<p>Calculates the amount of max start <a class="el" href="classtale_1_1_relationship.html">Relationships </a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> can potentially have. </p>
+<p >This is either whatever desired_max_start_relationships_count is or equal to actor_count - 1 as an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> can't have more <a class="el" href="classtale_1_1_relationship.html">Relationships </a> than there are <a class="el" href="classtale_1_1_actor.html">Actors </a></p>
+<dl class="section return"><dt>Returns</dt><dd>The max amount of start <a class="el" href="classtale_1_1_relationship.html">Relationships </a>. </dd></dl>
 
 </div>
 </div>
