@@ -2,6 +2,7 @@
 #define TALE_SETTING_H
 
 #include <math.h>
+#include <assert.h>
 #include <algorithm>
 namespace tale
 {
@@ -36,7 +37,10 @@ namespace tale
          * @brief How many times an Actor can visit the same Course per week.
          */
         size_t same_course_per_week = 4;
-
+        /**
+         * @brief How many \link Relationship Relationships \endlink an Actor should at least have when he gets initialized
+         */
+        uint32_t desired_min_start_relationships_count = 1;
         /**
          * @brief How many \link Relationship Relationships \endlink an Actor can have when he gets initialized
          */
@@ -84,7 +88,20 @@ namespace tale
             return std::max((size_t)minimum_necessary_course_count(), (size_t)ceil((double)actor_count / (double)actors_per_course));
         }
         /**
-         * @brief Calculates the amount of max start \link Relationship Relationships \endlink an Actor can potentially have.
+         * @brief Calculates the amount of minimum start \link Relationship Relationships \endlink an Actor should have.
+         *
+         * This is either whatever desired_min_start_relationships_count is or equal to actor_count - 1 as an Actor can't have more
+         * \link Relationship Relationships \endlink than there are \link Actor Actors \endlink
+         *
+         * @return The max amount of start \link Relationship Relationships \endlink.
+         */
+        uint32_t min_start_relationships_count() const
+        {
+            assert(desired_min_start_relationships_count <= desired_max_start_relationships_count); // min must be less than max
+            return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_min_start_relationships_count);
+        }
+        /**
+         * @brief Calculates the amount of maximum start \link Relationship Relationships \endlink an Actor can potentially have.
          *
          * This is either whatever desired_max_start_relationships_count is or equal to actor_count - 1 as an Actor can't have more
          * \link Relationship Relationships \endlink than there are \link Actor Actors \endlink
@@ -93,6 +110,7 @@ namespace tale
          */
         uint32_t max_start_relationships_count() const
         {
+            assert(desired_min_start_relationships_count <= desired_max_start_relationships_count); // min must be less than max
             return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_max_start_relationships_count);
         }
     };
