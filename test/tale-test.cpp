@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define GTEST_INFO std::cerr << "[   INFO   ] "
-TEST(Tale_Kernels, DISABLE_IncreasingKernelNumber)
+TEST(Tale_Kernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -452,6 +452,8 @@ class TaleActor : public ::testing::Test
 {
 protected:
     std::string actor_name_ = "John Doe";
+    uint32_t desired_min_start_relationships_count_ = 3;
+    uint32_t desired_max_start_relationships_count_ = 5;
     size_t actor_id_ = 9;
     std::shared_ptr<tale::Actor> actor_;
     tale::Setting setting_;
@@ -459,6 +461,8 @@ protected:
     TaleActor()
     {
         setting_.actor_count = 10;
+        setting_.desired_min_start_relationships_count = desired_min_start_relationships_count_;
+        setting_.desired_max_start_relationships_count = desired_max_start_relationships_count_;
         school_ = std::shared_ptr<tale::School>(new tale::School(setting_));
         actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_name_, 0));
     }
@@ -477,7 +481,9 @@ TEST_F(TaleActor, ActorHasInitializedStartingValues)
 {
     EXPECT_TRUE(actor_->resource_);
     EXPECT_NE(actor_->emotions_.size(), 0);
-    EXPECT_NE(actor_->relationships_.size(), 0);
+    GTEST_INFO << "Relationship Size: " << actor_->relationships_.size() << "\n";
+    EXPECT_GE(actor_->relationships_.size(), desired_min_start_relationships_count_);
+    EXPECT_LE(actor_->relationships_.size(), desired_max_start_relationships_count_);
 }
 
 TEST_F(TaleActor, AddActorToCourse)
