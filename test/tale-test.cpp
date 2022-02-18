@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define GTEST_INFO std::cerr << "[   INFO   ] "
-TEST(Tale_Kernels, DISABLED_IncreasingKernelNumber)
+TEST(Tale_Kernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -48,41 +48,41 @@ protected:
     virtual void TearDown() {}
 };
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunDefaultSchool)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunDefaultSchool)
 {
     tale::Setting setting;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActors)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActors)
 {
     tale::Setting setting;
     setting.actor_count = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActorsPerCourse)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActorsPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroCoursesPerDay)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroCoursesPerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroSameCoursesPerWeek)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroInAllSettings)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 0;
@@ -92,35 +92,35 @@ TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActor)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActor)
 {
     tale::Setting setting;
     setting.actor_count = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActorPerCourse)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneCoursePerDay)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneSameCoursePerWeek)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneInAllSettings)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 1;
@@ -130,7 +130,7 @@ TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithRandomValuesInAllSettings)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 {
     time_t seconds = time(NULL);
     tale::Random random(seconds);
@@ -148,7 +148,7 @@ TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithRandomValuesInAllS
     SetUp(setting);
 }
 
-TEST(TaleExtraSchoolTests, DISABLED_CorrectCurrentDayAfterSimulation)
+TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 {
     tale::Setting setting;
     setting.actor_count = 10;
@@ -159,7 +159,7 @@ TEST(TaleExtraSchoolTests, DISABLED_CorrectCurrentDayAfterSimulation)
     EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
 }
 
-TEST(TaleInteractions, DISABLED_CreateRandomInteractionFromStore)
+TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
     tale::InteractionStore interaction_store;
     std::string interaction_name = interaction_store.GetRandomInteractionName();
@@ -205,7 +205,7 @@ TEST(TaleInteractions, DISABLED_CreateRandomInteractionFromStore)
     }
 }
 
-TEST(TaleInteractions, DISABLED_ApplyInteraction)
+TEST(TaleInteractions, ApplyInteraction)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -285,7 +285,7 @@ TEST(TaleInteractions, DISABLED_ApplyInteraction)
     }
 }
 
-TEST(TaleInteractions, DISABLED_InteractionBecomesReason)
+TEST(TaleInteractions, InteractionBecomesReason)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -344,7 +344,7 @@ TEST(TaleInteractions, DISABLED_InteractionBecomesReason)
     }
 }
 
-TEST(TaleCourse, DISABLED_CreateCourse)
+TEST(TaleCourse, CreateCourse)
 {
     tale::Setting setting;
     tale::Random random;
@@ -352,7 +352,7 @@ TEST(TaleCourse, DISABLED_CreateCourse)
     EXPECT_EQ(course.GetSlotCount(), setting.slot_count_per_week());
 }
 
-TEST(TaleCourse, DISABLED_AddGroupsToSlot)
+TEST(TaleCourse, AddGroupsToSlot)
 {
     tale::Setting setting;
     tale::Random random;
@@ -375,7 +375,7 @@ TEST(TaleCourse, DISABLED_AddGroupsToSlot)
     }
 }
 
-TEST(TaleCourse, DISABLED_AreAllSlotsFilled)
+TEST(TaleCourse, AreAllSlotsFilled)
 {
     tale::Setting setting;
     tale::Random random;
@@ -401,7 +401,7 @@ TEST(TaleCourse, DISABLED_AreAllSlotsFilled)
     EXPECT_TRUE(course.AllSlotsFilled());
 }
 
-TEST(TaleCourse, DISABLED_GetRandomCourseSlot)
+TEST(TaleCourse, GetRandomCourseSlot)
 {
     tale::Setting setting;
     time_t seconds = time(NULL);
