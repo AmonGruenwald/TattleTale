@@ -10,5 +10,7 @@ var searchData=
   ['simulatedays_7',['SimulateDays',['../classtale_1_1_school.html#a0f54fb8a405defd17c71182c9ae8df6a',1,'tale::School']]],
   ['slot_5fcount_5fper_5fweek_8',['slot_count_per_week',['../structtale_1_1_setting.html#a8f68e5b07e5552d37fcd99e7137407a8',1,'tale::Setting']]],
   ['slots_5f_9',['slots_',['../classtale_1_1_course.html#a2e40b0c0bec95d1cc327bb0be1f5e8fa',1,'tale::Course']]],
-  ['slotsempty_10',['SlotsEmpty',['../classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab',1,'tale::Actor']]]
+  ['slotsempty_10',['SlotsEmpty',['../classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab',1,'tale::Actor']]],
+  ['stringtoemotiontype_11',['StringToEmotionType',['../classtale_1_1_emotion.html#a8092b3fc401bf81231773382145a867b',1,'tale::Emotion']]],
+  ['stringtorelationshiptype_12',['StringToRelationshipType',['../classtale_1_1_relationship.html#ac6a85cea66d72180cdd7cf916d2b9d2d',1,'tale::Relationship']]]
 ];

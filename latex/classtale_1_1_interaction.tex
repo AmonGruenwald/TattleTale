@@ -18,7 +18,7 @@ Inheritance diagram for tale\+::Interaction\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_interaction_a9995a181b7f3482b725266b4b8d01a3e}{Interaction}} (std\+::string name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t participant\+\_\+count, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants, std\+::vector$<$ float $>$ resource\+\_\+effects, std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ emotion\+\_\+effects, std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ relationship\+\_\+effects)
+\mbox{\hyperlink{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}{Interaction}} (std\+::string name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t participant\+\_\+count, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants, std\+::vector$<$ float $>$ wealth\+\_\+effects, std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ emotion\+\_\+effects, std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ relationship\+\_\+effects)
 \begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}\label{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}} 
 void {\bfseries Apply} ()
@@ -33,9 +33,9 @@ size\+\_\+t \mbox{\hyperlink{classtale_1_1_interaction_aa2b930663cd47e41ddcb1c41
 \mbox{\Hypertarget{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}\label{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}} 
 std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ {\bfseries participants\+\_\+}
 \begin{DoxyCompactList}\small\item\em Stores Pointers to the involved \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_interaction_a2148ceda13aeb1d56e4e965a5b42d72b}\label{classtale_1_1_interaction_a2148ceda13aeb1d56e4e965a5b42d72b}} 
-std\+::vector$<$ float $>$ {\bfseries resource\+\_\+effects\+\_\+}
-\begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_resource}{Resources }}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_adde6b2120023ec461c4236fbb7659418}\label{classtale_1_1_interaction_adde6b2120023ec461c4236fbb7659418}} 
+std\+::vector$<$ float $>$ {\bfseries wealth\+\_\+effects\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_aab412693330f98c7d9ee9b7cd46986fa}\label{classtale_1_1_interaction_aab412693330f98c7d9ee9b7cd46986fa}} 
 std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ {\bfseries emotion\+\_\+effects\+\_\+}
 \begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_emotion}{Emotions }}. \end{DoxyCompactList}\item 
@@ -55,11 +55,11 @@ Represents an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} an \mbox
 Extends the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_a9995a181b7f3482b725266b4b8d01a3e}\label{classtale_1_1_interaction_a9995a181b7f3482b725266b4b8d01a3e}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}\label{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}} 
 \index{tale::Interaction@{tale::Interaction}!Interaction@{Interaction}}
 \index{Interaction@{Interaction}!tale::Interaction@{tale::Interaction}}
 \doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{participant\+\_\+count,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants,  }\item[{std\+::vector$<$ float $>$}]{resource\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$}]{emotion\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$}]{relationship\+\_\+effects }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{participant\+\_\+count,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants,  }\item[{std\+::vector$<$ float $>$}]{wealth\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$}]{emotion\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$}]{relationship\+\_\+effects }\end{DoxyParamCaption})}
 
 
 
@@ -77,7 +77,7 @@ Even though it is publically available, this probably should only be called from
 \hline
 {\em participants} & Vector of \mbox{\hyperlink{classtale_1_1_actor}{Actors }} that are participating in this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
 \hline
-{\em resource\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \\
+{\em wealth\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the wealth of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \\
 \hline
 {\em emotion\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_emotion}{Emotions }} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. Maps Emotiontype to float value. \\
 \hline

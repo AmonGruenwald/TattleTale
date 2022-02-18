@@ -2,26 +2,98 @@
 \label{classtale_1_1_resource}\index{tale::Resource@{tale::Resource}}
 
 
-Represents the abstract Resources an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has.  
+Represents an abstract \mbox{\hyperlink{classtale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has.  
 
 
 
 
-{\ttfamily \#include $<$tale/kernels/resource.\+hpp$>$}
+{\ttfamily \#include $<$tale/kernels/resourcekernels/resource.\+hpp$>$}
 
 Inheritance diagram for tale\+::Resource\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classtale_1_1_resource}
+\includegraphics[height=3.000000cm]{classtale_1_1_resource}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtale_1_1_resource_af06ff66b84d50f6c45a33d48b6469e23}{Resource}} (std\+::string name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}{Get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the value of the \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}\label{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}} 
+float {\bfseries value\+\_\+}
+\begin{DoxyCompactList}\small\item\em The value of this \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-Represents the abstract Resources an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. 
+Represents an abstract \mbox{\hyperlink{classtale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtale_1_1_resource_af06ff66b84d50f6c45a33d48b6469e23}\label{classtale_1_1_resource_af06ff66b84d50f6c45a33d48b6469e23}} 
+\index{tale::Resource@{tale::Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!tale::Resource@{tale::Resource}}
+\doxysubsubsection{\texorpdfstring{Resource()}{Resource()}}
+{\footnotesize\ttfamily tale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Constructor initializing base \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class and value\+\_\+ member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of this \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. Should describe what this \mbox{\hyperlink{classtale_1_1_resource}{Resource}} is tracking. \\
+\hline
+{\em tick} & In which tick this \mbox{\hyperlink{classtale_1_1_resource}{Resource}} was created. \\
+\hline
+{\em reasons} & What other \mbox{\hyperlink{classtale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtale_1_1_resource}{Resource}} and its value. \\
+\hline
+{\em value} & Value of the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} between -\/1.\+0 and 1.\+0. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}\label{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}} 
+\index{tale::Resource@{tale::Resource}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!tale::Resource@{tale::Resource}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily float tale\+::\+Resource\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the value of the \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. 
+
+\begin{DoxyReturn}{Returns}
+The value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}\label{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}} 
+\index{tale::Resource@{tale::Resource}!ToString@{ToString}}
+\index{ToString@{ToString}!tale::Resource@{tale::Resource}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string tale\+::\+Resource\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates a string describing the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} for easy printing. 
+
+\begin{DoxyReturn}{Returns}
+The description string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtale_1_1_kernel}{tale\+::\+Kernel}}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-tale/kernels/resource.\+hpp\item 
-tale/kernels/resource.\+cpp\end{DoxyCompactItemize}
+tale/kernels/resourcekernels/resource.\+hpp\item 
+tale/kernels/resourcekernels/resource.\+cpp\end{DoxyCompactItemize}

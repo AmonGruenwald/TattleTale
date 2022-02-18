@@ -92,9 +92,9 @@ Inheritance diagram for tale::Interaction:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9995a181b7f3482b725266b4b8d01a3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#a9995a181b7f3482b725266b4b8d01a3e">Interaction</a> (std::string name, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t participant_count, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; participants, std::vector&lt; float &gt; resource_effects, std::vector&lt; std::map&lt; EmotionType, float &gt; &gt; emotion_effects, std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt; relationship_effects)</td></tr>
-<tr class="memdesc:a9995a181b7f3482b725266b4b8d01a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only publically available Constructor. Fills out every member variable.  <a href="classtale_1_1_interaction.html#a9995a181b7f3482b725266b4b8d01a3e">More...</a><br /></td></tr>
-<tr class="separator:a9995a181b7f3482b725266b4b8d01a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d840abfa1451fa9f4d8a1dd1b28220e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction.html#a2d840abfa1451fa9f4d8a1dd1b28220e">Interaction</a> (std::string name, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t participant_count, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; participants, std::vector&lt; float &gt; wealth_effects, std::vector&lt; std::map&lt; EmotionType, float &gt; &gt; emotion_effects, std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt; relationship_effects)</td></tr>
+<tr class="memdesc:a2d840abfa1451fa9f4d8a1dd1b28220e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only publically available Constructor. Fills out every member variable.  <a href="classtale_1_1_interaction.html#a2d840abfa1451fa9f4d8a1dd1b28220e">More...</a><br /></td></tr>
+<tr class="separator:a2d840abfa1451fa9f4d8a1dd1b28220e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeae12102f802d68e0504e19bb413960"><td class="memItemLeft" align="right" valign="top"><a id="aaeae12102f802d68e0504e19bb413960" name="aaeae12102f802d68e0504e19bb413960"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Apply</b> ()</td></tr>
 <tr class="memdesc:aaeae12102f802d68e0504e19bb413960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the effects of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to all participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. <br /></td></tr>
@@ -112,10 +112,10 @@ Public Attributes</h2></td></tr>
 std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>participants_</b></td></tr>
 <tr class="memdesc:a95ed099c8cdb1b77ec5e25bfbcbe0f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores Pointers to the involved <a class="el" href="classtale_1_1_actor.html">Actors </a>. <br /></td></tr>
 <tr class="separator:a95ed099c8cdb1b77ec5e25bfbcbe0f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="memItemLeft" align="right" valign="top"><a id="a2148ceda13aeb1d56e4e965a5b42d72b" name="a2148ceda13aeb1d56e4e965a5b42d72b"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>resource_effects_</b></td></tr>
-<tr class="memdesc:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_resource.html">Resources </a>. <br /></td></tr>
-<tr class="separator:a2148ceda13aeb1d56e4e965a5b42d72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde6b2120023ec461c4236fbb7659418"><td class="memItemLeft" align="right" valign="top"><a id="adde6b2120023ec461c4236fbb7659418" name="adde6b2120023ec461c4236fbb7659418"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_effects_</b></td></tr>
+<tr class="memdesc:adde6b2120023ec461c4236fbb7659418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
+<tr class="separator:adde6b2120023ec461c4236fbb7659418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab412693330f98c7d9ee9b7cd46986fa"><td class="memItemLeft" align="right" valign="top"><a id="aab412693330f98c7d9ee9b7cd46986fa" name="aab412693330f98c7d9ee9b7cd46986fa"></a>
 std::vector&lt; std::map&lt; EmotionType, float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotion_effects_</b></td></tr>
 <tr class="memdesc:aab412693330f98c7d9ee9b7cd46986fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the effect this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_emotion.html">Emotions </a>. <br /></td></tr>
@@ -141,8 +141,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> had with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. </p>
 <p >Extends the <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9995a181b7f3482b725266b4b8d01a3e" name="a9995a181b7f3482b725266b4b8d01a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9995a181b7f3482b725266b4b8d01a3e">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[1/2]</span></h2>
+<a id="a2d840abfa1451fa9f4d8a1dd1b28220e" name="a2d840abfa1451fa9f4d8a1dd1b28220e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d840abfa1451fa9f4d8a1dd1b28220e">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +181,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
-          <td class="paramname"><em>resource_effects</em>, </td>
+          <td class="paramname"><em>wealth_effects</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -211,7 +211,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">reasons</td><td>Vector of <a class="el" href="classtale_1_1_kernel.html">Kernels </a> that are responsible for this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> happening. </td></tr>
     <tr><td class="paramname">participant_count</td><td>How many <a class="el" href="classtale_1_1_actor.html">Actors </a> are participating in this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. Seperate from participants because protoypes of Interactions do not actually have participants </td></tr>
     <tr><td class="paramname">participants</td><td>Vector of <a class="el" href="classtale_1_1_actor.html">Actors </a> that are participating in this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. </td></tr>
-    <tr><td class="paramname">resource_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_resource.html" title="Represents the abstract Resources an Actor has.">Resource</a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. </td></tr>
+    <tr><td class="paramname">wealth_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the wealth of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. </td></tr>
     <tr><td class="paramname">emotion_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_emotion.html">Emotions </a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps Emotiontype to float value. </td></tr>
     <tr><td class="paramname">relationship_effects</td><td>Vector holding the effects this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> will have on the <a class="el" href="classtale_1_1_relationship.html">Relationships </a> of the participating <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps index of <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> in participants_ vector to map of RelationshipType to float value. </td></tr>
   </table>

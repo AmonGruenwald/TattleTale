@@ -19,11 +19,12 @@ var searchData=
   ['getrandomsurames_16',['GetRandomSurames',['../classtale_1_1_school.html#ac04e5876e5fe16fe02288595629b57b7',1,'tale::School']]],
   ['getrelationshipeffects_17',['GetRelationshipEffects',['../classtale_1_1_interaction_store.html#ac1e3e73a0edfe990df67f74d713803c5',1,'tale::InteractionStore']]],
   ['getrelationshipsdescriptionstring_18',['GetRelationshipsDescriptionString',['../classtale_1_1_actor.html#a089d41abd6ff6c41d3dd0078926a5d2e',1,'tale::Actor']]],
-  ['getresourcedescriptionstring_19',['GetResourceDescriptionString',['../classtale_1_1_actor.html#a077ef8f6f26c78291293ed954a2a5394',1,'tale::Actor']]],
-  ['getresourceeffects_20',['GetResourceEffects',['../classtale_1_1_interaction_store.html#ac5d8ddc5b1427db9ab8e181a0bbd16d2',1,'tale::InteractionStore']]],
-  ['getsetting_21',['GetSetting',['../classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46',1,'tale::School']]],
-  ['getslotcount_22',['GetSlotCount',['../classtale_1_1_course.html#a54b8b1cb1ac9fd7fc17deed61ee6ea32',1,'tale::Course']]],
-  ['gettraitsdescriptionstring_23',['GetTraitsDescriptionString',['../classtale_1_1_actor.html#a4855909ea2480144e63d4764d5a5784e',1,'tale::Actor']]],
-  ['goal_24',['Goal',['../classtale_1_1_goal.html',1,'tale']]],
-  ['goal_5f_25',['goal_',['../classtale_1_1_actor.html#a13b3a7cd1451c7994aa61b6fe58f14f6',1,'tale::Actor']]]
+  ['getsetting_19',['GetSetting',['../classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46',1,'tale::School']]],
+  ['getslotcount_20',['GetSlotCount',['../classtale_1_1_course.html#a54b8b1cb1ac9fd7fc17deed61ee6ea32',1,'tale::Course']]],
+  ['gettraitsdescriptionstring_21',['GetTraitsDescriptionString',['../classtale_1_1_actor.html#a4855909ea2480144e63d4764d5a5784e',1,'tale::Actor']]],
+  ['getvalue_22',['GetValue',['../classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5',1,'tale::Resource']]],
+  ['getwealthdescriptionstring_23',['GetWealthDescriptionString',['../classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85',1,'tale::Actor']]],
+  ['getwealtheffects_24',['GetWealthEffects',['../classtale_1_1_interaction_store.html#a8203c63b7f1d6dfb4cfc3c7186698248',1,'tale::InteractionStore']]],
+  ['goal_25',['Goal',['../classtale_1_1_goal.html',1,'tale']]],
+  ['goal_5f_26',['goal_',['../classtale_1_1_actor.html#a13b3a7cd1451c7994aa61b6fe58f14f6',1,'tale::Actor']]]
 ];

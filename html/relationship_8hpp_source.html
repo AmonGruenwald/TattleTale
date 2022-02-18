@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TattleTale: tale/kernels/relationship.hpp Source File</title>
+<title>TattleTale: tale/kernels/resourcekernels/relationship.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c885feba15e1f1e66d0fde18d4ff9c2f.html">tale</a></li><li class="navelem"><a class="el" href="dir_1b4e0d327c72eca5a1af64697a747364.html">kernels</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c885feba15e1f1e66d0fde18d4ff9c2f.html">tale</a></li><li class="navelem"><a class="el" href="dir_1b4e0d327c72eca5a1af64697a747364.html">kernels</a></li><li class="navelem"><a class="el" href="dir_a6f9b1909279db3a483519bbe25e5279.html">resourcekernels</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,7 +73,7 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TALE_RELATIONSHIP_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TALE_RELATIONSHIP_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;tale/kernels/kernel.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;tale/kernels/resourcekernels/resource.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetale.html">tale</a></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
@@ -87,23 +87,25 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        kProtective,</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        kLast</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classtale_1_1_relationship.html">   22</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtale_1_1_kernel.html">Kernel</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a>(std::string name, <span class="keywordtype">size_t</span> tick, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> RelationshipType StringToRelationshipType(std::string relationship_string);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">static</span> std::string RelationshipTypeToString(RelationshipType relationship_type);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">float</span> GetValue() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        std::string ToString();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">float</span> value_;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace tale</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">// TALE_RELATIONSHIP_H</span></div>
-<div class="ttc" id="aclasstale_1_1_kernel_html"><div class="ttname"><a href="classtale_1_1_kernel.html">tale::Kernel</a></div><div class="ttdoc">Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...</div><div class="ttdef"><b>Definition:</b> kernel.hpp:19</div></div>
-<div class="ttc" id="aclasstale_1_1_relationship_html"><div class="ttname"><a href="classtale_1_1_relationship.html">tale::Relationship</a></div><div class="ttdoc">Represents a Relationship an Actor has with another Actor.</div><div class="ttdef"><b>Definition:</b> relationship.hpp:23</div></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classtale_1_1_relationship.html">   25</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtale_1_1_relationship.html">Relationship</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtale_1_1_resource.html">Resource</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_function" href="classtale_1_1_relationship.html#ab88bdd562b58ab9b309a639f3f2d3a8f">Relationship</a>(RelationshipType type, <span class="keywordtype">size_t</span> tick, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> RelationshipType <a class="code hl_function" href="classtale_1_1_relationship.html#ac6a85cea66d72180cdd7cf916d2b9d2d">StringToRelationshipType</a>(std::string relationship_string);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">static</span> std::string <a class="code hl_function" href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">RelationshipTypeToString</a>(RelationshipType relationship_type);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classtale_1_1_relationship.html#a6f6458c71051dd8c887aa2cd4c29a271">   62</a></span>        RelationshipType <a class="code hl_variable" href="classtale_1_1_relationship.html#a6f6458c71051dd8c887aa2cd4c29a271">type_</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    };</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>} <span class="comment">// namespace tale</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif </span><span class="comment">// TALE_RELATIONSHIP_H</span></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html"><div class="ttname"><a href="classtale_1_1_relationship.html">tale::Relationship</a></div><div class="ttdoc">Represents a Relationship an Actor has with another Actor.</div><div class="ttdef"><b>Definition:</b> relationship.hpp:26</div></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html_a6f6458c71051dd8c887aa2cd4c29a271"><div class="ttname"><a href="classtale_1_1_relationship.html#a6f6458c71051dd8c887aa2cd4c29a271">tale::Relationship::type_</a></div><div class="ttdeci">RelationshipType type_</div><div class="ttdoc">The RelationshipType of this Relationship.</div><div class="ttdef"><b>Definition:</b> relationship.hpp:62</div></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html_ab88bdd562b58ab9b309a639f3f2d3a8f"><div class="ttname"><a href="classtale_1_1_relationship.html#ab88bdd562b58ab9b309a639f3f2d3a8f">tale::Relationship::Relationship</a></div><div class="ttdeci">Relationship(RelationshipType type, size_t tick, std::vector&lt; std::weak_ptr&lt; Kernel &gt; &gt; reasons, float value)</div><div class="ttdoc">Constructor initializing base Resource class and type_ member.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:9</div></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html_ac6a85cea66d72180cdd7cf916d2b9d2d"><div class="ttname"><a href="classtale_1_1_relationship.html#ac6a85cea66d72180cdd7cf916d2b9d2d">tale::Relationship::StringToRelationshipType</a></div><div class="ttdeci">static RelationshipType StringToRelationshipType(std::string relationship_string)</div><div class="ttdoc">Converts a string to an RelationshipType.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:11</div></div>
+<div class="ttc" id="aclasstale_1_1_relationship_html_af3c1111122993bce5b76b7b2a12a5e11"><div class="ttname"><a href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">tale::Relationship::RelationshipTypeToString</a></div><div class="ttdeci">static std::string RelationshipTypeToString(RelationshipType relationship_type)</div><div class="ttdoc">Converts an RelationshipType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:26</div></div>
+<div class="ttc" id="aclasstale_1_1_resource_html"><div class="ttname"><a href="classtale_1_1_resource.html">tale::Resource</a></div><div class="ttdoc">Represents an abstract Resource an Actor has.</div><div class="ttdef"><b>Definition:</b> resource.hpp:12</div></div>
 <div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
