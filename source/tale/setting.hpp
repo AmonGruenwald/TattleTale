@@ -40,7 +40,7 @@ namespace tale
         /**
          * @brief How many \link Relationship Relationships \endlink an Actor can have when he gets initialized
          */
-        uint32_t max_start_relationships_count = 10;
+        uint32_t desired_max_start_relationships_count = 10;
 
         /**
          * @brief Calculates how many slots are there in total in a week.
@@ -82,6 +82,17 @@ namespace tale
                 return 0;
             }
             return std::max((size_t)minimum_necessary_course_count(), (size_t)ceil((double)actor_count / (double)actors_per_course));
+        }
+        /**
+         * @brief Calculates the amount of courses that the simulation will have.
+         *
+         * This is either the minimum_necessary_course_count() or actor_count/actor_per_course, which ever is bigger.
+         *
+         * @return The amount of courses
+         */
+        uint32_t max_start_relationships_count() const
+        {
+            return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_max_start_relationships_count);
         }
     };
 

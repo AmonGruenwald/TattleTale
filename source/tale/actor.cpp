@@ -189,7 +189,7 @@ namespace tale
     {
         out_relationships.clear();
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        uint32_t relationship_count = random_.GetUInt(0, setting_.max_start_relationships_count);
+        uint32_t relationship_count = random_.GetUInt(0, setting_.max_start_relationships_count());
         for (size_t i = 0; i < relationship_count; ++i)
         {
             uint32_t other_actor_id = random_.GetUInt(0, setting_.actor_count - 1);

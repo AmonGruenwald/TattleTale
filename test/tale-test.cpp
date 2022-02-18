@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define GTEST_INFO std::cerr << "[   INFO   ] "
-TEST(Tale_Kernels, IncreasingKernelNumber)
+TEST(Tale_Kernels, DISABLE_IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -48,41 +48,41 @@ protected:
     virtual void TearDown() {}
 };
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunDefaultSchool)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunDefaultSchool)
 {
     tale::Setting setting;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActors)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithZeroActors)
 {
     tale::Setting setting;
     setting.actor_count = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroActorsPerCourse)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithZeroActorsPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroCoursesPerDay)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithZeroCoursesPerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroSameCoursesPerWeek)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 0;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroInAllSettings)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 0;
@@ -92,35 +92,35 @@ TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithZeroInAllSettings
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActor)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithOneActor)
 {
     tale::Setting setting;
     setting.actor_count = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActorPerCourse)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneCoursePerDay)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneSameCoursePerWeek)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 1;
     SetUp(setting);
 }
 
-TEST_F(Tale_CreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneInAllSettings)
+TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 1;
@@ -148,7 +148,7 @@ TEST_F(Tale_CreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
     SetUp(setting);
 }
 
-TEST(Tale_ExtraSchoolTests, CorrectCurrentDay)
+TEST(Tale_ExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 {
     tale::Setting setting;
     setting.actor_count = 10;
@@ -246,9 +246,19 @@ TEST(Tale_Interactions, ApplyInteraction)
         {
             tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
             relationship_map.insert({type, relationship_type_int * 0.1f * sign});
-            // No relationship value at start
-            // TODO: (this might change if we have random start relationships)
-            expected_relationship_values_map.insert({type, relationship_type_int * 0.1f * sign});
+
+            float existing_value = 0;
+            std::shared_ptr<tale::Actor> actor = school.GetActor(participant_index).lock();
+            if (actor->relationships_.count(other_participant))
+            {
+                std::map<tale::RelationshipType, std::shared_ptr<tale::Relationship>> existing_map = actor->relationships_.at(other_participant);
+                if (existing_map.count(type))
+                {
+                    existing_value = existing_map.at(type)->GetValue();
+                }
+            }
+
+            expected_relationship_values_map.insert({type, existing_value + relationship_type_int * 0.1f * sign});
         }
         std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
         std::map<size_t, std::map<tale::RelationshipType, float>> expected_participant_relationship_map = {{other_participant, expected_relationship_values_map}};
@@ -437,4 +447,3 @@ TEST(Tale_Course, GetRandomCourseSlot)
         }
     }
 }
-// TODO: Add more Kernel Tests: correct storing of other Kernels, special tests for each type etc.
