@@ -17,6 +17,8 @@ size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137
 size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\+\_\+necessary\+\_\+course\+\_\+count}} () const
 \begin{DoxyCompactList}\small\item\em Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}{max\+\_\+start\+\_\+relationships\+\_\+count}} () const
 \begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -39,8 +41,8 @@ size\+\_\+t {\bfseries actors\+\_\+per\+\_\+course} = 30
 \mbox{\Hypertarget{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}\label{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}} 
 size\+\_\+t {\bfseries same\+\_\+course\+\_\+per\+\_\+week} = 4
 \begin{DoxyCompactList}\small\item\em How many times an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can visit the same \mbox{\hyperlink{classtale_1_1_course}{Course}} per week. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structtale_1_1_setting_a44ea37e840d81a0fc3d59039408d90d9}\label{structtale_1_1_setting_a44ea37e840d81a0fc3d59039408d90d9}} 
-uint32\+\_\+t {\bfseries max\+\_\+start\+\_\+relationships\+\_\+count} = 10
+\mbox{\Hypertarget{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}\label{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}} 
+uint32\+\_\+t {\bfseries desired\+\_\+max\+\_\+start\+\_\+relationships\+\_\+count} = 10
 \begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can have when he gets initialized. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -55,6 +57,21 @@ Only one \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object should exist 
 \index{course\_count@{course\_count}!tale::Setting@{tale::Setting}}
 \doxysubsubsection{\texorpdfstring{course\_count()}{course\_count()}}
 {\footnotesize\ttfamily size\+\_\+t tale\+::\+Setting\+::course\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the amount of courses that the simulation will have. 
+
+This is either the \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\+\_\+necessary\+\_\+course\+\_\+count()}} or actor\+\_\+count/actor\+\_\+per\+\_\+course, which ever is bigger.
+
+\begin{DoxyReturn}{Returns}
+The amount of courses 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}\label{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}} 
+\index{tale::Setting@{tale::Setting}!max\_start\_relationships\_count@{max\_start\_relationships\_count}}
+\index{max\_start\_relationships\_count@{max\_start\_relationships\_count}!tale::Setting@{tale::Setting}}
+\doxysubsubsection{\texorpdfstring{max\_start\_relationships\_count()}{max\_start\_relationships\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t tale\+::\+Setting\+::max\+\_\+start\+\_\+relationships\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
