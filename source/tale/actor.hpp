@@ -100,7 +100,6 @@ namespace tale
          * @return The name of the Interaction the Actor wants to do.
          */
         std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
-
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink Resource.
          *
@@ -111,7 +110,6 @@ namespace tale
          * @param value By how much the Resource gets changed.
          */
         void ApplyResourceChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
-
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Emotion Emotional \endlink state.
          *
@@ -135,7 +133,6 @@ namespace tale
          * @param value By how much the Relationship gets changed.
          */
         void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
-
         /**
          * @brief Creates a string describing the current Resource status of the Actor.
          *
@@ -148,21 +145,18 @@ namespace tale
          * @return The description string.
          */
         std::string GetEmotionsDescriptionString();
-
         /**
          * @brief Creates a string describing the current \link Relationship Relationships \endlink  status of the Actor.
          *
          * @return The description string.
          */
         std::string GetRelationshipsDescriptionString();
-
         /**
          * @brief Creates a string describing the Goal of the Actor.
          *
          * @return The description string.
          */
         std::string GetGoalDescriptionString();
-
         /**
          * @brief Creates a string describing the \link Trait Traits \endlink  of the Actor.
          *
@@ -195,7 +189,6 @@ namespace tale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
-
         /**
          * @brief Initializes the passed Resource with a random value.
          *
