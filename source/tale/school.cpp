@@ -18,7 +18,7 @@ namespace tale
         for (size_t i = 0; i < actor_count; ++i)
         {
             std::string name = firstnames[i] + " " + surnames[i];
-            TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name + "\n");
+            TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name);
             std::shared_ptr<Actor> actor(new Actor(*this, i, name, tick));
             actors_.push_back(actor);
         }
