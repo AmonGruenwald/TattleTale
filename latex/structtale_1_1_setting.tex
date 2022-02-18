@@ -18,8 +18,10 @@ size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025
 \begin{DoxyCompactList}\small\item\em Calculates the minimum necessary amount of courses so every actor can theoretically completely feel their schedule. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\+\_\+count}} () const
 \begin{DoxyCompactList}\small\item\em Calculates the amount of courses that the simulation will have. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a90f958c2745456208c84727cb6884ff4}{min\+\_\+start\+\_\+relationships\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the amount of minimum start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} should have. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}{max\+\_\+start\+\_\+relationships\+\_\+count}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the amount of max start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the amount of maximum start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,6 +43,9 @@ size\+\_\+t {\bfseries actors\+\_\+per\+\_\+course} = 30
 \mbox{\Hypertarget{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}\label{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}} 
 size\+\_\+t {\bfseries same\+\_\+course\+\_\+per\+\_\+week} = 4
 \begin{DoxyCompactList}\small\item\em How many times an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can visit the same \mbox{\hyperlink{classtale_1_1_course}{Course}} per week. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}\label{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}} 
+uint32\+\_\+t {\bfseries desired\+\_\+min\+\_\+start\+\_\+relationships\+\_\+count} = 1
+\begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} should at least have when he gets initialized. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}\label{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}} 
 uint32\+\_\+t {\bfseries desired\+\_\+max\+\_\+start\+\_\+relationships\+\_\+count} = 10
 \begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can have when he gets initialized. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -75,9 +80,24 @@ The amount of courses
 
 
 
-Calculates the amount of max start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. 
+Calculates the amount of maximum start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can potentially have. 
 
 This is either whatever desired\+\_\+max\+\_\+start\+\_\+relationships\+\_\+count is or equal to actor\+\_\+count -\/ 1 as an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can\textquotesingle{}t have more \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} than there are \mbox{\hyperlink{classtale_1_1_actor}{Actors }}
+
+\begin{DoxyReturn}{Returns}
+The max amount of start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtale_1_1_setting_a90f958c2745456208c84727cb6884ff4}\label{structtale_1_1_setting_a90f958c2745456208c84727cb6884ff4}} 
+\index{tale::Setting@{tale::Setting}!min\_start\_relationships\_count@{min\_start\_relationships\_count}}
+\index{min\_start\_relationships\_count@{min\_start\_relationships\_count}!tale::Setting@{tale::Setting}}
+\doxysubsubsection{\texorpdfstring{min\_start\_relationships\_count()}{min\_start\_relationships\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t tale\+::\+Setting\+::min\+\_\+start\+\_\+relationships\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the amount of minimum start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} should have. 
+
+This is either whatever desired\+\_\+min\+\_\+start\+\_\+relationships\+\_\+count is or equal to actor\+\_\+count -\/ 1 as an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} can\textquotesingle{}t have more \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} than there are \mbox{\hyperlink{classtale_1_1_actor}{Actors }}
 
 \begin{DoxyReturn}{Returns}
 The max amount of start \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. 
