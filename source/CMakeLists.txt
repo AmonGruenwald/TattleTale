@@ -11,18 +11,16 @@ set(LIBRARY_SOURCES
     tale/setting.hpp
     tale/kernels/kernel.hpp
     tale/kernels/kernel.cpp
-    tale/kernels/action.hpp
-    tale/kernels/action.cpp
-    tale/kernels/emotion.hpp
-    tale/kernels/emotion.cpp
+    tale/kernels/resourcekernels/resource.hpp
+    tale/kernels/resourcekernels/resource.cpp
+    tale/kernels/resourcekernels/emotion.hpp
+    tale/kernels/resourcekernels/emotion.cpp
+    tale/kernels/resourcekernels/relationship.hpp
+    tale/kernels/resourcekernels/relationship.cpp
     tale/kernels/goal.hpp
     tale/kernels/goal.cpp
     tale/kernels/interaction.hpp
     tale/kernels/interaction.cpp
-    tale/kernels/relationship.hpp
-    tale/kernels/relationship.cpp
-    tale/kernels/resource.hpp
-    tale/kernels/resource.cpp
     tale/kernels/trait.hpp
     tale/kernels/trait.cpp
     tale/globals/interactionstore.hpp
@@ -58,9 +56,9 @@ add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
 target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt )
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
-# Uncomment?/comment out for prints
-# target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
-# target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
+# Uncomment/comment out for prints
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
 
 
 add_custom_command(
