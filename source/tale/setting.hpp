@@ -84,11 +84,12 @@ namespace tale
             return std::max((size_t)minimum_necessary_course_count(), (size_t)ceil((double)actor_count / (double)actors_per_course));
         }
         /**
-         * @brief Calculates the amount of courses that the simulation will have.
+         * @brief Calculates the amount of max start \link Relationship Relationships \endlink an Actor can potentially have.
          *
-         * This is either the minimum_necessary_course_count() or actor_count/actor_per_course, which ever is bigger.
+         * This is either whatever desired_max_start_relationships_count is or equal to actor_count - 1 as an Actor can't have more
+         * \link Relationship Relationships \endlink than there are \link Actor Actors \endlink
          *
-         * @return The amount of courses
+         * @return The max amount of start \link Relationship Relationships \endlink.
          */
         uint32_t max_start_relationships_count() const
         {
