@@ -1,5 +1,5 @@
-#ifndef TALE_EMOTION_H
-#define TALE_EMOTION_H
+#ifndef TALE_KERNELS_RESOURCEKERNELS_EMOTION_H
+#define TALE_KERNELS_RESOURCEKERNELS_EMOTION_H
 
 #include <string>
 #include "tale/kernels/resourcekernels/resource.hpp"
@@ -64,4 +64,4 @@ namespace tale
     };
 
 } // namespace tale
-#endif // TALE_EMOTION_H
+#endif // TALE_KERNELS_RESOURCEKERNELS_EMOTION_H

@@ -1,5 +1,5 @@
-#ifndef TALE_RELATIONSHIP_H
-#define TALE_RELATIONSHIP_H
+#ifndef TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H
+#define TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H
 
 #include "tale/kernels/resourcekernels/resource.hpp"
 
@@ -63,4 +63,4 @@ namespace tale
     };
 
 } // namespace tale
-#endif // TALE_RELATIONSHIP_H
+#endif // TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H

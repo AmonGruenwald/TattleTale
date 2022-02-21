@@ -1,5 +1,5 @@
-#ifndef TALE_RESOURCE_H
-#define TALE_RESOURCE_H
+#ifndef TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H
+#define TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H
 
 #include "tale/kernels/kernel.hpp"
 
@@ -41,4 +41,4 @@ namespace tale
     };
 
 } // namespace tale
-#endif // TALE_RESOURCE_H
+#endif // TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H
