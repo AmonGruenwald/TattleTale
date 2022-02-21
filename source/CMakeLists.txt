@@ -19,8 +19,9 @@ set(LIBRARY_SOURCES
     tale/kernels/resourcekernels/relationship.cpp
     tale/kernels/goal.hpp
     tale/kernels/goal.cpp
-    tale/kernels/interaction.hpp
-    tale/kernels/interaction.cpp
+    tale/kernels/interactions/interaction.hpp
+    tale/kernels/interactions/interaction.cpp
+    tale/kernels/interactions/requirement.hpp
     tale/kernels/trait.hpp
     tale/kernels/trait.cpp
     tale/globals/interactionstore.hpp

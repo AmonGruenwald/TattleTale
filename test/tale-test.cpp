@@ -159,7 +159,8 @@ TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 
 TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
-    tale::InteractionStore interaction_store;
+    tale::Random random;
+    tale::InteractionStore interaction_store(random);
     std::string interaction_name = interaction_store.GetRandomInteractionName();
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;

@@ -1,5 +1,6 @@
 #include "tale/talecore.hpp"
 #include "tale/school.hpp"
+#include "tale/kernels/interactions/requirement.hpp"
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
@@ -7,7 +8,7 @@
 
 namespace tale
 {
-    School::School(const Setting &setting) : setting_(setting), interaction_store_(), random_(setting.seed)
+    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), interaction_store_(random_)
     {
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
@@ -21,6 +22,7 @@ namespace tale
             TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name);
             std::shared_ptr<Actor> actor(new Actor(*this, i, name, tick));
             actors_.push_back(actor);
+            freetime_group_.push_back(actor);
         }
         std::string actors_created_descriptions = "ALL ACTORS CREATED:\n";
         for (size_t i = 0; i < actor_count; ++i)
@@ -135,7 +137,7 @@ namespace tale
     }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        TALE_DEBUG_PRINT("SIMULATING DAY " + std::to_string(day) + " WHICH IS A " + weekday_string[static_cast<int>(weekday)] + "\n");
+        TALE_DEBUG_PRINT("SIMULATING DAY " + std::to_string(day) + " WHICH IS A " + weekday_string[static_cast<int>(weekday)]);
         if (IsWorkday(weekday))
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)
@@ -148,10 +150,11 @@ namespace tale
                     {
                         std::vector<std::weak_ptr<Kernel>> reasons;
                         std::vector<std::weak_ptr<Actor>> participants;
-                        std::string interaction_name = actor.lock()->ChooseInteraction(course_group, reasons, participants);
+                        std::string interaction_name = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
                         // TODO: registers interaction to events
                         std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick_, reasons, participants);
                         interaction->Apply();
+                        TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->GetDescriptionString());
                     }
                 }
                 ++current_tick_;
@@ -171,7 +174,16 @@ namespace tale
 
     void School::FreeTimeTick()
     {
-        TALE_VERBOSE_PRINT("FREETIME TICK\n");
+        for (auto &actor : actors_)
+        {
+            std::vector<std::weak_ptr<Kernel>> reasons;
+            std::vector<std::weak_ptr<Actor>> participants;
+            std::string interaction_name = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
+            // TODO: registers interaction to events
+            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick_, reasons, participants);
+            interaction->Apply();
+            TALE_VERBOSE_PRINT("During Freetime " + interaction->GetDescriptionString());
+        }
     }
 
     bool School::IsWorkday(Weekday weekday) const

@@ -60,29 +60,27 @@ namespace tale
         return true;
     }
 
-    std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
+    std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
-        out_participants.push_back(weak_from_this());
-        // TODO: this just adds the first other actor to the participants
-        if (course_group.at(0).lock().get() != this)
+        auto hard_requirements = interaction_store_.GetHardRequirementCatalogue();
+        auto soft_requirements = interaction_store_.GetSoftRequirementCatalogue();
+        std::vector<size_t> possible_soft_requirement_indices;
+        for (size_t i = 0; i < hard_requirements.size(); ++i)
         {
-            out_participants.push_back(course_group.at(0));
-        }
-        else
-        {
-            // TODO: this should never happen when we choose correctly but with the current status this could crash the application
-            if (course_group.size() > 1)
+            // TODO: check for other requirements eg. participant count
+            if (hard_requirements.at(i).context == context || hard_requirements.at(i).context == context)
             {
-                out_participants.push_back(course_group.at(1));
-            }
-            else
-            {
-                out_participants.push_back(course_group.at(0));
+                possible_soft_requirement_indices.push_back(i);
             }
         }
-        // TODO: add logic for choosing an interaction and fill in reasons correctly
 
-        return interaction_store_.GetRandomInteractionName();
+        // TODO: decide on which one to pick and add appropriate reasons to out_reasons
+        std::string name = soft_requirements[possible_soft_requirement_indices.at(0)].name;
+        // TODO: decide on participants
+        out_participants.push_back(weak_from_this());
+        out_participants.push_back(actor_group[0]);
+
+        return name;
     }
 
     void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)

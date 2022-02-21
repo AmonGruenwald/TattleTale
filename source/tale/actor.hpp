@@ -12,6 +12,7 @@
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"
 #include "tale/kernels/trait.hpp"
+#include "tale/kernels/interactions/requirement.hpp"
 
 namespace tale
 {
@@ -99,7 +100,7 @@ namespace tale
          * @param[out] out_participants Vector the Actor will to with which other \link Actor Actors \endlink he wants to do the Interaction.
          * @return The name of the Interaction the Actor wants to do.
          */
-        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &course_group, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *

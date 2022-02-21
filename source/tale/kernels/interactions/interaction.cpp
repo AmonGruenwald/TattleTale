@@ -1,5 +1,5 @@
 #include "tale/talecore.hpp"
-#include "tale/kernels/interaction.hpp"
+#include "tale/kernels/interactions/interaction.hpp"
 #include <fmt/core.h>
 #include <iostream>
 #include "tale/actor.hpp"
@@ -29,22 +29,6 @@ namespace tale
 
     void Interaction::Apply()
     {
-
-        std::string description = "";
-        description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
-        for (size_t i = 1; i < participant_count_; ++i)
-        {
-            if (i == 1)
-            {
-                description += " with ";
-            }
-            else
-            {
-                description += " and ";
-            }
-            description += fmt::format("{}", participants_[i].lock()->name_);
-        }
-        TALE_VERBOSE_PRINT(description + "\n");
         std::weak_ptr<Interaction> self = weak_from_this();
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participant_count_; ++i)
@@ -64,6 +48,24 @@ namespace tale
         }
     }
 
+    std::string Interaction::GetDescriptionString() const
+    {
+        std::string description = "";
+        description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
+        for (size_t i = 1; i < participant_count_; ++i)
+        {
+            if (i == 1)
+            {
+                description += " with ";
+            }
+            else
+            {
+                description += " and ";
+            }
+            description += fmt::format("{}", participants_[i].lock()->name_);
+        }
+        return description;
+    }
     std::string Interaction::ToString()
     {
         std::string name_string = fmt::format("Name: {}\n", name_);

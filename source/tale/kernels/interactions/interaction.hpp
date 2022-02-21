@@ -1,5 +1,5 @@
-#ifndef TALE_INTERACTION_H
-#define TALE_INTERACTION_H
+#ifndef TALE_KERNELS_INTERACTIONS_INTERACTION_H
+#define TALE_KERNELS_INTERACTIONS_INTERACTION_H
 
 #include "tale/kernels/kernel.hpp"
 #include "tale/kernels/resourcekernels/emotion.hpp"
@@ -9,6 +9,7 @@
 
 namespace tale
 {
+
     class Actor;
     /**
      * @brief Represents an Interaction an Actor had with other \link Actor Actors \endlink
@@ -81,6 +82,12 @@ namespace tale
          */
         void Apply();
         /**
+         * @brief Gets a string description of what would happen during the Interaction.
+         *
+         * @return String describing the Interaction
+         */
+        std::string GetDescriptionString() const;
+        /**
          * @brief Gets a string representation of the Interaction.
          *
          * @return String describing the status of the object
@@ -99,4 +106,4 @@ namespace tale
     };
 
 } // namespace tale
-#endif // TALE_INTERACTION_H
+#endif // TALE_KERNELS_INTERACTIONS_INTERACTION_H

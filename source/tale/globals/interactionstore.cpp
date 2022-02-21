@@ -10,24 +10,37 @@
 
 namespace tale
 {
-    InteractionStore::InteractionStore()
+    InteractionStore::InteractionStore(Random &random) : random_(random)
     {
         TALE_DEBUG_PRINT("READ FROM PROTOTYPE FILE:\n");
         std::ifstream prototype_json_file(prototype_json_path_);
         nlohmann::json prototype_json;
         prototype_json_file >> prototype_json;
         prototype_json_file.close();
-        TALE_DEBUG_PRINT(prototype_json.dump(4) + "\n\n");
+        TALE_VERBOSE_PRINT(prototype_json.dump(4) + "\n\n");
         TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE:\n");
 
         for (auto &[key, value] : prototype_json.items())
         {
+            TALE_DEBUG_PRINT("CREATING INTERACTION NAMED: " + key);
             Interaction interaction;
 
             interaction.name_ = key;
 
             size_t participant_count = value["participant_count"];
             interaction.participant_count_ = participant_count;
+
+            auto requirements = value["requirements"];
+
+            Requirement hard_requirement;
+            hard_requirement.name = key;
+            hard_requirement.context = Requirement::StringToContextType(requirements["hard"]["context"]);
+            Requirement soft_requirement;
+            soft_requirement.name = key;
+            soft_requirement.context = Requirement::StringToContextType(requirements["soft"]["context"]);
+
+            hard_requirements_catalogue_.push_back(hard_requirement);
+            soft_requirements_catalogue_.push_back(soft_requirement);
 
             auto effects = value["effects"];
 
@@ -69,18 +82,21 @@ namespace tale
 
             prototype_catalogue_.insert({interaction.name_, interaction});
 
-            TALE_DEBUG_PRINT("\nCREATED INTERACTION:\n" + interaction.ToString() + "\n");
+            TALE_VERBOSE_PRINT("\nCREATED INTERACTION:\n" + interaction.ToString() + "\n");
         }
     }
     std::string InteractionStore::GetRandomInteractionName()
     {
+        if (prototype_catalogue_.size() == 0)
+        {
+            return "none";
+        }
         std::vector<std::string> keys;
         for (const auto &[key, _] : prototype_catalogue_)
         {
             keys.push_back(key);
         }
-        // TODO: use random value
-        return keys[0];
+        return keys[random_.GetUInt(0, keys.size() - 1)];
     }
     const size_t &InteractionStore::GetParticipantCount(std::string interaction_name)
     {
@@ -118,5 +134,13 @@ namespace tale
             prototype.relationship_effects_));
 
         return interaction;
+    }
+    const std::vector<Requirement> &InteractionStore::GetHardRequirementCatalogue() const
+    {
+        return hard_requirements_catalogue_;
+    }
+    const std::vector<Requirement> &InteractionStore::GetSoftRequirementCatalogue() const
+    {
+        return soft_requirements_catalogue_;
     }
 } // namespace tale

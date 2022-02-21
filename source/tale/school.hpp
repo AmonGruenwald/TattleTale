@@ -109,13 +109,17 @@ namespace tale
          */
         std::vector<std::shared_ptr<Actor>> actors_;
         /**
-         * @brief Holds the instance of the Random object of the simulation.
+         * @brief Holds all instanced actors as weak_ptrs.
          */
-        Random random_;
+        std::vector<std::weak_ptr<Actor>> freetime_group_;
         /**
          * @brief Holds a reference to an instance of the Setting object that was passed during construction.
          */
         const Setting &setting_;
+        /**
+         * @brief Holds the instance of the Random object of the simulation.
+         */
+        Random random_;
         /**
          * @brief Holds the instance of the InteractionStore object for the simulation.
          */

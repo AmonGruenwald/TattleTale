@@ -4,7 +4,9 @@
 #include <string>
 #include <map>
 #include <memory>
-#include "tale/kernels/interaction.hpp"
+#include "tale/kernels/interactions/interaction.hpp"
+#include "tale/kernels/interactions/requirement.hpp"
+#include "tale/globals/random.hpp"
 
 namespace tale
 {
@@ -22,8 +24,10 @@ namespace tale
          * @brief Default constructor populates catalogue.
          *
          * Reads from tale/resources/interactionprototypes.json to get the data to build up the interaction catalogue.
+         *
+         * @param random Reference to the Random object used by the simulation.
          */
-        InteractionStore();
+        InteractionStore(Random &random);
         /**
          * @brief Returns a random interaction name from the catalogue.
          *
@@ -74,12 +78,36 @@ namespace tale
          * @return A pointer to the created Interaction
          */
         std::shared_ptr<Interaction> CreateInteraction(std::string interaction_name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
+        /**
+         * @brief Gettter for a Reference to the hard Requirement catalogue.
+         *
+         * @return A Reference to the catalogue for the hard \link Requirement Requirements \endlink.
+         */
+        const std::vector<Requirement> &GetHardRequirementCatalogue() const;
+        /**
+         * @brief Gettter for a Reference to the soft Requirement catalogue.
+         *
+         * @return A Reference to the catalogue for the soft \link Requirement Requirements \endlink.
+         */
+        const std::vector<Requirement> &GetSoftRequirementCatalogue() const;
 
     private:
+        /**
+         * @brief Holds a reference to the Random object of the simulation.
+         */
+        Random &random_;
         /**
          * @brief Holds all available Interaction prototypes.
          */
         std::map<std::string, Interaction> prototype_catalogue_;
+        /**
+         * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
+         */
+        std::vector<Requirement> hard_requirements_catalogue_;
+        /**
+         * @brief Holds the soft \link Requirement Requirements \endlink for all available Interaction prototypes.
+         */
+        std::vector<Requirement> soft_requirements_catalogue_;
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */

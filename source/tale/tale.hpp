@@ -3,7 +3,7 @@
 #define TALE_TALE_H
 #include "tale/kernels/kernel.hpp"
 #include "tale/kernels/goal.hpp"
-#include "tale/kernels/interaction.hpp"
+#include "tale/kernels/interactions/interaction.hpp"
 #include "tale/kernels/resourcekernels/resource.hpp"
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"
