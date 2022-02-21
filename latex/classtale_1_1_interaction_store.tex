@@ -12,7 +12,7 @@ Stores Prototypes for all possible interactions.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}{Interaction\+Store}} ()
+\mbox{\hyperlink{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}{Interaction\+Store}} (\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random)
 \begin{DoxyCompactList}\small\item\em Default constructor populates catalogue. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}{Get\+Random\+Interaction\+Name}} ()
 \begin{DoxyCompactList}\small\item\em Returns a random interaction name from the catalogue. \end{DoxyCompactList}\item 
@@ -25,13 +25,26 @@ const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hype
 const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}{Get\+Relationship\+Effects}} (std\+::string interaction\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} name. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}{Create\+Interaction}} (std\+::string interaction\+\_\+name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
-\begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued prototype. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued prototype. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a08668121315bf13d554a4f75aed748f6}{Get\+Hard\+Requirement\+Catalogue}} () const
+\begin{DoxyCompactList}\small\item\em Gettter for a Reference to the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a2007721c43ffc8db4a8d5e63dfb45916}{Get\+Soft\+Requirement\+Catalogue}} () const
+\begin{DoxyCompactList}\small\item\em Gettter for a Reference to the soft \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}\label{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}} 
+\mbox{\hyperlink{classtale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}\label{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}} 
 std\+::map$<$ std\+::string, \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_acb77fdf264ac8b97d225c3b7c543b3d0}\label{classtale_1_1_interaction_store_acb77fdf264ac8b97d225c3b7c543b3d0}} 
+std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ {\bfseries hard\+\_\+requirements\+\_\+catalogue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }} for all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a5858128cc265eb8c220fe33a21e68724}\label{classtale_1_1_interaction_store_a5858128cc265eb8c220fe33a21e68724}} 
+std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ {\bfseries soft\+\_\+requirements\+\_\+catalogue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the soft \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }} for all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}\label{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}} 
 std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = \char`\"{}tale/resources/interactionprototypes.\+json\char`\"{}
 \begin{DoxyCompactList}\small\item\em Path to the json file where \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes are defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -43,17 +56,24 @@ Stores Prototypes for all possible interactions.
 An \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} options for each situation 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}\label{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}\label{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!InteractionStore@{InteractionStore}}
 \index{InteractionStore@{InteractionStore}!tale::InteractionStore@{tale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{InteractionStore()}{InteractionStore()}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtale_1_1_random}{Random}} \&}]{random }\end{DoxyParamCaption})}
 
 
 
 Default constructor populates catalogue. 
 
-Reads from tale/resources/interactionprototypes.\+json to get the data to build up the interaction catalogue. 
+Reads from tale/resources/interactionprototypes.\+json to get the data to build up the interaction catalogue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em random} & Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object used by the simulation. \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}\label{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}} 
@@ -95,6 +115,19 @@ Returns the emotion effects for a catalogued \mbox{\hyperlink{classtale_1_1_inte
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The emotion effects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a08668121315bf13d554a4f75aed748f6}\label{classtale_1_1_interaction_store_a08668121315bf13d554a4f75aed748f6}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetHardRequirementCatalogue@{GetHardRequirementCatalogue}}
+\index{GetHardRequirementCatalogue@{GetHardRequirementCatalogue}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetHardRequirementCatalogue()}{GetHardRequirementCatalogue()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Hard\+Requirement\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gettter for a Reference to the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. 
+
+\begin{DoxyReturn}{Returns}
+A Reference to the catalogue for the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}\label{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!GetParticipantCount@{GetParticipantCount}}
@@ -139,6 +172,19 @@ Returns the relationship effects for a catalogued \mbox{\hyperlink{classtale_1_1
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The relationship effects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a2007721c43ffc8db4a8d5e63dfb45916}\label{classtale_1_1_interaction_store_a2007721c43ffc8db4a8d5e63dfb45916}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetSoftRequirementCatalogue@{GetSoftRequirementCatalogue}}
+\index{GetSoftRequirementCatalogue@{GetSoftRequirementCatalogue}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetSoftRequirementCatalogue()}{GetSoftRequirementCatalogue()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Soft\+Requirement\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gettter for a Reference to the soft \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. 
+
+\begin{DoxyReturn}{Returns}
+A Reference to the catalogue for the soft \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_store_a8203c63b7f1d6dfb4cfc3c7186698248}\label{classtale_1_1_interaction_store_a8203c63b7f1d6dfb4cfc3c7186698248}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!GetWealthEffects@{GetWealthEffects}}

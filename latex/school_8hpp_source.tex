@@ -43,25 +43,26 @@
 \DoxyCodeLine{102     \textcolor{keyword}{private}:}
 \DoxyCodeLine{106         std::vector<Course> \mbox{\hyperlink{classtale_1_1_school_a3ea64ebc979438d38918cc4a2014a17f}{courses\_}};}
 \DoxyCodeLine{110         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a384e4007d95d0405aebb49881f190a8f}{actors\_}};}
-\DoxyCodeLine{114         \mbox{\hyperlink{classtale_1_1_random}{Random}} \mbox{\hyperlink{classtale_1_1_school_a9faeedcae3a7c6297d36c4a315d2d9ac}{random\_}};}
+\DoxyCodeLine{114         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a6e8bd5c5d41a6ec4ff7bb9f0f286542e}{freetime\_group\_}};}
 \DoxyCodeLine{118         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_school_a9e677df6848364810d1b4eb5e1aca32f}{setting\_}};}
-\DoxyCodeLine{122         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}{interaction\_store\_}};}
-\DoxyCodeLine{126         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}{current\_tick\_}} = 0;}
-\DoxyCodeLine{130         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a540626af1e9f9d2b85ad2d2e9472de94}{current\_day\_}} = 0;}
-\DoxyCodeLine{134         \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} \mbox{\hyperlink{classtale_1_1_school_abe473eed6787ef800133c2fbb729837a}{current\_weekday\_}} = Weekday::Monday;}
-\DoxyCodeLine{143         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_ad164e018ad618dc4859448c0a11addbe}{SimulateDay}}(\textcolor{keywordtype}{size\_t} day, \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday);}
-\DoxyCodeLine{147         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_af2e20378b185dd70f581d759896d5c50}{FreeTimeTick}}();}
-\DoxyCodeLine{154         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}{IsWorkday}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday) \textcolor{keyword}{const};}
-\DoxyCodeLine{162         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_a65fdd724d413035d79148a7764ee52e3}{ActorIsInCourseGroup}}(\textcolor{keyword}{const} std::shared\_ptr<Actor> \&actor, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group) \textcolor{keyword}{const};}
-\DoxyCodeLine{173         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a557cf91eee5ba6d30072ab98adfc0565}{WeekdayAndDailyTickToSlot}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday, \textcolor{keywordtype}{size\_t} daily\_tick) \textcolor{keyword}{const};}
-\DoxyCodeLine{184         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a981efdafe40ea393d59fb91e241c1bef}{FindRandomCourseGroup}}(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
-\DoxyCodeLine{185 }
-\DoxyCodeLine{194         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_a89928744027ee017ceacc54548bf6f8e}{GetRandomFirstnames}}(\textcolor{keywordtype}{size\_t} count);}
-\DoxyCodeLine{203         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_ac04e5876e5fe16fe02288595629b57b7}{GetRandomSurames}}(\textcolor{keywordtype}{size\_t} count);}
-\DoxyCodeLine{213         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_a7971f0a08bf58726cba539e0fef94371}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
-\DoxyCodeLine{214     \};}
-\DoxyCodeLine{215 }
-\DoxyCodeLine{216 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{217 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{122         \mbox{\hyperlink{classtale_1_1_random}{Random}} \mbox{\hyperlink{classtale_1_1_school_a9faeedcae3a7c6297d36c4a315d2d9ac}{random\_}};}
+\DoxyCodeLine{126         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}{interaction\_store\_}};}
+\DoxyCodeLine{130         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}{current\_tick\_}} = 0;}
+\DoxyCodeLine{134         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a540626af1e9f9d2b85ad2d2e9472de94}{current\_day\_}} = 0;}
+\DoxyCodeLine{138         \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} \mbox{\hyperlink{classtale_1_1_school_abe473eed6787ef800133c2fbb729837a}{current\_weekday\_}} = Weekday::Monday;}
+\DoxyCodeLine{147         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_ad164e018ad618dc4859448c0a11addbe}{SimulateDay}}(\textcolor{keywordtype}{size\_t} day, \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday);}
+\DoxyCodeLine{151         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_school_af2e20378b185dd70f581d759896d5c50}{FreeTimeTick}}();}
+\DoxyCodeLine{158         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}{IsWorkday}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday) \textcolor{keyword}{const};}
+\DoxyCodeLine{166         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_school_a65fdd724d413035d79148a7764ee52e3}{ActorIsInCourseGroup}}(\textcolor{keyword}{const} std::shared\_ptr<Actor> \&actor, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&course\_group) \textcolor{keyword}{const};}
+\DoxyCodeLine{177         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_school_a557cf91eee5ba6d30072ab98adfc0565}{WeekdayAndDailyTickToSlot}}(\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday, \textcolor{keywordtype}{size\_t} daily\_tick) \textcolor{keyword}{const};}
+\DoxyCodeLine{188         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_school_a981efdafe40ea393d59fb91e241c1bef}{FindRandomCourseGroup}}(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{198         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_a89928744027ee017ceacc54548bf6f8e}{GetRandomFirstnames}}(\textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{207         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_ac04e5876e5fe16fe02288595629b57b7}{GetRandomSurames}}(\textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{217         std::vector<std::string> \mbox{\hyperlink{classtale_1_1_school_a7971f0a08bf58726cba539e0fef94371}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
+\DoxyCodeLine{218     \};}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}

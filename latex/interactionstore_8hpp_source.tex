@@ -8,28 +8,35 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/interaction.hpp"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{11     \textcolor{keyword}{class }Actor;}
-\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}}
-\DoxyCodeLine{19     \{}
-\DoxyCodeLine{20     \textcolor{keyword}{public}:}
-\DoxyCodeLine{26         \mbox{\hyperlink{classtale_1_1_interaction_store_a5395841632702c7bd314f1ecdb14a9e0}{InteractionStore}}();}
-\DoxyCodeLine{32         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}{GetRandomInteractionName}}();}
-\DoxyCodeLine{41         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}{GetParticipantCount}}(std::string interaction\_name);}
-\DoxyCodeLine{49         \textcolor{keyword}{const} std::vector<float> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a8203c63b7f1d6dfb4cfc3c7186698248}{GetWealthEffects}}(std::string interaction\_name);}
-\DoxyCodeLine{57         \textcolor{keyword}{const} std::vector<std::map<EmotionType, float>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a3e784024ba951c8f1a868822001c96ad}{GetEmotionEffects}}(std::string interaction\_name);}
-\DoxyCodeLine{65         \textcolor{keyword}{const} std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}{GetRelationshipEffects}}(std::string interaction\_name);}
-\DoxyCodeLine{76         std::shared\_ptr<Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}{CreateInteraction}}(std::string interaction\_name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \textcolor{keyword}{private}:}
-\DoxyCodeLine{82         std::map<std::string, Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}{prototype\_catalogue\_}};}
-\DoxyCodeLine{86         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}tale/resources/interactionprototypes.json"{}};}
-\DoxyCodeLine{87     \};}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{89 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interaction.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/requirement.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{class }Actor;}
+\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22     \textcolor{keyword}{public}:}
+\DoxyCodeLine{30         \mbox{\hyperlink{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}{InteractionStore}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{36         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_a43cb572984d075858ec5867f24345566}{GetRandomInteractionName}}();}
+\DoxyCodeLine{45         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a35959cf28a362cebb67f5bd8be476802}{GetParticipantCount}}(std::string interaction\_name);}
+\DoxyCodeLine{53         \textcolor{keyword}{const} std::vector<float> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a8203c63b7f1d6dfb4cfc3c7186698248}{GetWealthEffects}}(std::string interaction\_name);}
+\DoxyCodeLine{61         \textcolor{keyword}{const} std::vector<std::map<EmotionType, float>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a3e784024ba951c8f1a868822001c96ad}{GetEmotionEffects}}(std::string interaction\_name);}
+\DoxyCodeLine{69         \textcolor{keyword}{const} std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_ac1e3e73a0edfe990df67f74d713803c5}{GetRelationshipEffects}}(std::string interaction\_name);}
+\DoxyCodeLine{80         std::shared\_ptr<Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_a7d322c0989d4d29910ef060d9786588c}{CreateInteraction}}(std::string interaction\_name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
+\DoxyCodeLine{86         \textcolor{keyword}{const} std::vector<Requirement> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a08668121315bf13d554a4f75aed748f6}{GetHardRequirementCatalogue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{92         \textcolor{keyword}{const} std::vector<Requirement> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a2007721c43ffc8db4a8d5e63dfb45916}{GetSoftRequirementCatalogue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keyword}{private}:}
+\DoxyCodeLine{98         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}{random\_}};}
+\DoxyCodeLine{102         std::map<std::string, Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_aa10134aeb39f5b49501d1c6df25a7d1a}{prototype\_catalogue\_}};}
+\DoxyCodeLine{106         std::vector<Requirement> \mbox{\hyperlink{classtale_1_1_interaction_store_acb77fdf264ac8b97d225c3b7c543b3d0}{hard\_requirements\_catalogue\_}};}
+\DoxyCodeLine{110         std::vector<Requirement> \mbox{\hyperlink{classtale_1_1_interaction_store_a5858128cc265eb8c220fe33a21e68724}{soft\_requirements\_catalogue\_}};}
+\DoxyCodeLine{114         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}tale/resources/interactionprototypes.json"{}};}
+\DoxyCodeLine{115     \};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
 
 \end{DoxyCode}

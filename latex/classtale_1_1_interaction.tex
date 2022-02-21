@@ -7,7 +7,7 @@ Represents an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} an \mbox
 
 
 
-{\ttfamily \#include $<$tale/kernels/interaction.\+hpp$>$}
+{\ttfamily \#include $<$tale/kernels/interactions/interaction.\+hpp$>$}
 
 Inheritance diagram for tale\+::Interaction\+:\begin{figure}[H]
 \begin{center}
@@ -23,6 +23,8 @@ Inheritance diagram for tale\+::Interaction\+:\begin{figure}[H]
 \mbox{\Hypertarget{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}\label{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}} 
 void {\bfseries Apply} ()
 \begin{DoxyCompactList}\small\item\em Applies the effects of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} to all participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}{Get\+Description\+String}} () const
+\begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{To\+String}} ()
 \begin{DoxyCompactList}\small\item\em Gets a string representation of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
@@ -97,6 +99,19 @@ Default constructor should never be called.
 This only exists so \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} can create the prototypes. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}\label{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}} 
+\index{tale::Interaction@{tale::Interaction}!GetDescriptionString@{GetDescriptionString}}
+\index{GetDescriptionString@{GetDescriptionString}!tale::Interaction@{tale::Interaction}}
+\doxysubsubsection{\texorpdfstring{GetDescriptionString()}{GetDescriptionString()}}
+{\footnotesize\ttfamily std\+::string tale\+::\+Interaction\+::\+Get\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. 
+
+\begin{DoxyReturn}{Returns}
+String describing the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}\label{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}} 
 \index{tale::Interaction@{tale::Interaction}!ToString@{ToString}}
 \index{ToString@{ToString}!tale::Interaction@{tale::Interaction}}
@@ -141,5 +156,5 @@ For each \mbox{\hyperlink{classtale_1_1_actor}{Actor}} a map is created that map
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-tale/kernels/interaction.\+hpp\item 
-tale/kernels/interaction.\+cpp\end{DoxyCompactItemize}
+tale/kernels/interactions/interaction.\+hpp\item 
+tale/kernels/interactions/interaction.\+cpp\end{DoxyCompactItemize}
