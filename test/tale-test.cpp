@@ -162,11 +162,11 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     tale::Random random;
     tale::InteractionStore interaction_store(random);
     size_t interaction_index = interaction_store.GetRandomInteractionPrototypeIndex();
-    size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-    tale::Setting setting;
-    size_t participant_count = interaction_store.GetParticipantCount(interaction_index);
-    setting.actor_count = participant_count;
+    // size_t tick = 0;
+    // std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    // size_t participant_count = interaction_store.GetParticipantCount(interaction_index);
+    // tale::Setting setting;
+    // setting.actor_count = participant_count;
     // tale::School school(setting);
     // std::vector<std::weak_ptr<tale::Actor>> participants;
     // for (size_t i = 0; i < participant_count; ++i)
