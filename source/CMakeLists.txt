@@ -21,6 +21,7 @@ set(LIBRARY_SOURCES
     tale/kernels/goal.cpp
     tale/kernels/interactions/interaction.hpp
     tale/kernels/interactions/interaction.cpp
+    tale/kernels/interactions/interactionprototype.hpp
     tale/kernels/interactions/requirement.hpp
     tale/kernels/trait.hpp
     tale/kernels/trait.cpp
