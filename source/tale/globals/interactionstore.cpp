@@ -40,18 +40,18 @@ namespace tale
             hard_requirements_catalogue_.push_back(hard_requirement);
             soft_requirements_catalogue_.push_back(soft_requirement);
 
-            InteractionPrototype interaction_prototype;
-            interaction_prototype.name = key;
+            InteractionPrototype prototype;
+            prototype.name = key;
 
             auto effects = value["effects"];
 
-            interaction_prototype.wealth_effects.reserve(participant_count);
+            prototype.wealth_effects.reserve(participant_count);
             for (auto &wealth : effects["wealth"])
             {
-                interaction_prototype.wealth_effects.push_back(wealth);
+                prototype.wealth_effects.push_back(wealth);
             }
 
-            interaction_prototype.emotion_effects.reserve(participant_count);
+            prototype.emotion_effects.reserve(participant_count);
             for (auto &emotions : effects["emotions"])
             {
                 std::map<EmotionType, float> emotions_changes_map;
@@ -60,10 +60,10 @@ namespace tale
                     EmotionType type = Emotion::StringToEmotionType(emotion_key);
                     emotions_changes_map.insert({type, emotion_change});
                 }
-                interaction_prototype.emotion_effects.push_back(emotions_changes_map);
+                prototype.emotion_effects.push_back(emotions_changes_map);
             }
 
-            interaction_prototype.relationship_effects.reserve(participant_count);
+            prototype.relationship_effects.reserve(participant_count);
             for (auto &relationships : effects["relationships"])
             {
                 std::map<size_t, std::map<RelationshipType, float>> relationship_per_participant_change_map;
@@ -78,49 +78,49 @@ namespace tale
                     }
                     relationship_per_participant_change_map.insert({participant, relationship_change_map});
                 }
-                interaction_prototype.relationship_effects.push_back(relationship_per_participant_change_map);
+                prototype.relationship_effects.push_back(relationship_per_participant_change_map);
             }
 
-            interaction_prototype_catalogue_.push_back(interaction_prototype);
+            prototype_catalogue_.push_back(prototype);
 
-            TALE_VERBOSE_PRINT("\nCREATED INTERACTION PROTOTYPE:\n" + interaction_prototype.ToString() + "\n");
+            TALE_VERBOSE_PRINT("\nCREATED INTERACTION PROTOTYPE:\n" + prototype.ToString() + "\n");
         }
     }
     const size_t &InteractionStore::GetRandomInteractionPrototypeIndex() const
     {
-        assert(interaction_prototype_catalogue_.size() > 0); // No interaction prototype created
-        return random_.GetUInt(0, interaction_prototype_catalogue_.size() - 1);
+        assert(prototype_catalogue_.size() > 0); // No interaction prototype created
+        return random_.GetUInt(0, prototype_catalogue_.size() - 1);
     }
-    std::string InteractionStore::GetInteractionName(size_t interaction_prototype_index) const
+    std::string InteractionStore::GetInteractionName(size_t prototype_index) const
     {
-        assert(interaction_prototype_catalogue_.size() > interaction_prototype_index); // faulty index
-        return interaction_prototype_catalogue_.at(interaction_prototype_index).name;
+        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        return prototype_catalogue_.at(prototype_index).name;
     }
-    const size_t &InteractionStore::GetParticipantCount(size_t interaction_prototype_index) const
+    const size_t &InteractionStore::GetParticipantCount(size_t prototype_index) const
     {
-        assert(hard_requirements_catalogue_.size() > interaction_prototype_index); // faulty index
-        return hard_requirements_catalogue_.at(interaction_prototype_index).participant_count;
+        assert(hard_requirements_catalogue_.size() > prototype_index); // faulty index
+        return hard_requirements_catalogue_.at(prototype_index).participant_count;
     }
-    const std::vector<float> &InteractionStore::GetWealthEffects(size_t interaction_prototype_index) const
+    const std::vector<float> &InteractionStore::GetWealthEffects(size_t prototype_index) const
     {
-        assert(interaction_prototype_catalogue_.size() > interaction_prototype_index); // faulty index
-        return interaction_prototype_catalogue_.at(interaction_prototype_index).wealth_effects;
+        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        return prototype_catalogue_.at(prototype_index).wealth_effects;
     }
 
-    const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(size_t interaction_prototype_index) const
+    const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(size_t prototype_index) const
     {
-        assert(interaction_prototype_catalogue_.size() > interaction_prototype_index); // faulty index
-        return interaction_prototype_catalogue_.at(interaction_prototype_index).emotion_effects;
+        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        return prototype_catalogue_.at(prototype_index).emotion_effects;
     }
-    const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(size_t interaction_prototype_index) const
+    const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
     {
-        assert(interaction_prototype_catalogue_.size() > interaction_prototype_index); // faulty index
-        return interaction_prototype_catalogue_.at(interaction_prototype_index).relationship_effects;
+        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        return prototype_catalogue_.at(prototype_index).relationship_effects;
     }
-    std::shared_ptr<Interaction> InteractionStore::CreateInteraction(size_t interaction_prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
+    std::shared_ptr<Interaction> InteractionStore::CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
-        assert(interaction_prototype_catalogue_.size() > interaction_prototype_index); // faulty index
-        InteractionPrototype &prototype = interaction_prototype_catalogue_.at(interaction_prototype_index);
+        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        InteractionPrototype &prototype = prototype_catalogue_.at(prototype_index);
         std::shared_ptr<Interaction> interaction(new Interaction(prototype, tick, reasons, participants));
         return interaction;
     }
