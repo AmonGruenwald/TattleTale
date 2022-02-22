@@ -76,7 +76,7 @@ namespace tale
             TALE_VERBOSE_PRINT("\nCREATED INTERACTION PROTOTYPE:\n" + prototype.ToString() + "\n");
         }
     }
-    const uint32_t &InteractionStore::GetRandomInteractionPrototypeIndex() const
+    uint32_t InteractionStore::GetRandomInteractionPrototypeIndex() const
     {
         assert(prototype_catalogue_.size() > 0); // No interaction prototype created
         return random_.GetUInt(0, prototype_catalogue_.size() - 1);
