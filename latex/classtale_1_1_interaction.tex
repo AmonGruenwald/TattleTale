@@ -27,7 +27,7 @@ std\+::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6
 \begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \& \mbox{\hyperlink{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}{Get\+Prototype}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\item 
-const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}{Interaction\+::\+Get\+Participants}} () const
+const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_a9da010016f5a366e05fc2b19d9809571}{Get\+Participants}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -79,6 +79,19 @@ Even though it is publically available, this probably should only be called from
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtale_1_1_interaction_a9da010016f5a366e05fc2b19d9809571}\label{classtale_1_1_interaction_a9da010016f5a366e05fc2b19d9809571}} 
+\index{tale::Interaction@{tale::Interaction}!GetParticipants@{GetParticipants}}
+\index{GetParticipants@{GetParticipants}!tale::Interaction@{tale::Interaction}}
+\doxysubsubsection{\texorpdfstring{GetParticipants()}{GetParticipants()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& tale\+::\+Interaction\+::\+Get\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the participants this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. 
+
+\begin{DoxyReturn}{Returns}
+The participants. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}\label{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}} 
 \index{tale::Interaction@{tale::Interaction}!GetPrototype@{GetPrototype}}
 \index{GetPrototype@{GetPrototype}!tale::Interaction@{tale::Interaction}}
@@ -91,19 +104,6 @@ Getter for the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interactio
 
 \begin{DoxyReturn}{Returns}
 The \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}\label{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}} 
-\index{tale::Interaction@{tale::Interaction}!Interaction::GetParticipants@{Interaction::GetParticipants}}
-\index{Interaction::GetParticipants@{Interaction::GetParticipants}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{Interaction::GetParticipants()}{Interaction::GetParticipants()}}
-{\footnotesize\ttfamily const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& tale\+::\+Interaction\+::\+Interaction\+::\+Get\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Getter for the participants this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. 
-
-\begin{DoxyReturn}{Returns}
-The participants. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}\label{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}} 
 \index{tale::Interaction@{tale::Interaction}!ToString@{ToString}}
