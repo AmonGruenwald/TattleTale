@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtale_1_1_requirement-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Requirement Struct Reference</div></div>
 </div><!--header-->
@@ -77,20 +78,34 @@ $(function() {
 <p>Stores all necessary <a class="el" href="structtale_1_1_requirement.html">Requirements </a> for an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen.  
  <a href="structtale_1_1_requirement.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="requirement_8hpp_source.html">tale/kernels/interactions/requirement.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="interactionrequirement_8hpp_source.html">tale/kernels/interactions/interactionrequirement.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7629cd95cc7ea1a3f82f60e104593fd"><td class="memItemLeft" align="right" valign="top">static ContextType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_requirement.html#ac7629cd95cc7ea1a3f82f60e104593fd">StringToContextType</a> (std::string context_string)</td></tr>
+<tr class="memitem:ac7629cd95cc7ea1a3f82f60e104593fd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_requirement.html#ac7629cd95cc7ea1a3f82f60e104593fd">StringToContextType</a> (std::string context_string)</td></tr>
 <tr class="memdesc:ac7629cd95cc7ea1a3f82f60e104593fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an ContextType.  <a href="structtale_1_1_requirement.html#ac7629cd95cc7ea1a3f82f60e104593fd">More...</a><br /></td></tr>
 <tr class="separator:ac7629cd95cc7ea1a3f82f60e104593fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63ef690a7a19fdfaf48dbaf17a0a9d35"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_requirement.html#a63ef690a7a19fdfaf48dbaf17a0a9d35">ContextTypeToString</a> (ContextType context_type)</td></tr>
+<tr class="memitem:a63ef690a7a19fdfaf48dbaf17a0a9d35"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_requirement.html#a63ef690a7a19fdfaf48dbaf17a0a9d35">ContextTypeToString</a> (<a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context_type)</td></tr>
 <tr class="memdesc:a63ef690a7a19fdfaf48dbaf17a0a9d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ContextType to a string for easy printing.  <a href="structtale_1_1_requirement.html#a63ef690a7a19fdfaf48dbaf17a0a9d35">More...</a><br /></td></tr>
 <tr class="separator:a63ef690a7a19fdfaf48dbaf17a0a9d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a7de1ed3066eacc2446a321f6f495ba2a"><td class="memItemLeft" align="right" valign="top"><a id="a7de1ed3066eacc2446a321f6f495ba2a" name="a7de1ed3066eacc2446a321f6f495ba2a"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> = &quot;&quot;</td></tr>
+<tr class="memdesc:a7de1ed3066eacc2446a321f6f495ba2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> this <a class="el" href="structtale_1_1_requirement.html" title="Stores all necessary Requirements  for an Interaction to happen.">Requirement</a> concerns. <br /></td></tr>
+<tr class="separator:a7de1ed3066eacc2446a321f6f495ba2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ead86ba585b33b101e57835cf1351b"><td class="memItemLeft" align="right" valign="top"><a id="ab7ead86ba585b33b101e57835cf1351b" name="ab7ead86ba585b33b101e57835cf1351b"></a>
+<a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>context</b> = ContextType::kNone</td></tr>
+<tr class="memdesc:ab7ead86ba585b33b101e57835cf1351b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ContextType the corresponding <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> needs. <br /></td></tr>
+<tr class="separator:ab7ead86ba585b33b101e57835cf1351b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b5fd04a0d1044b45bf1253990cf40f"><td class="memItemLeft" align="right" valign="top"><a id="a12b5fd04a0d1044b45bf1253990cf40f" name="a12b5fd04a0d1044b45bf1253990cf40f"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>participant_count</b> = 1</td></tr>
+<tr class="memdesc:a12b5fd04a0d1044b45bf1253990cf40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many <a class="el" href="classtale_1_1_actor.html">Actors </a> the corresponding <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> needs. <br /></td></tr>
+<tr class="separator:a12b5fd04a0d1044b45bf1253990cf40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Stores all necessary <a class="el" href="structtale_1_1_requirement.html">Requirements </a> for an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. </p>
-<p >enum class ContextType { kNone, kCourse, kFreetime, kLast }; </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a63ef690a7a19fdfaf48dbaf17a0a9d35" name="a63ef690a7a19fdfaf48dbaf17a0a9d35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63ef690a7a19fdfaf48dbaf17a0a9d35">&#9670;&nbsp;</a></span>ContextTypeToString()</h2>
@@ -104,7 +119,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string tale::Requirement::ContextTypeToString </td>
           <td>(</td>
-          <td class="paramtype">ContextType&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td>
           <td class="paramname"><em>context_type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -137,7 +152,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static ContextType tale::Requirement::StringToContextType </td>
+          <td class="memname">static <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> tale::Requirement::StringToContextType </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>context_string</em></td><td>)</td>
@@ -164,7 +179,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>tale/kernels/interactions/<a class="el" href="requirement_8hpp_source.html">requirement.hpp</a></li>
+<li>tale/kernels/interactions/<a class="el" href="interactionrequirement_8hpp_source.html">interactionrequirement.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

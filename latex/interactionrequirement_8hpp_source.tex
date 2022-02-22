@@ -1,0 +1,58 @@
+\hypertarget{interactionrequirement_8hpp_source}{}\doxysection{interactionrequirement.\+hpp}
+\label{interactionrequirement_8hpp_source}\index{tale/kernels/interactions/interactionrequirement.hpp@{tale/kernels/interactions/interactionrequirement.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}}}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         kNone,}
+\DoxyCodeLine{16         kCourse,}
+\DoxyCodeLine{17         kFreetime,}
+\DoxyCodeLine{18         kLast}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{23     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{28         std::string \mbox{\hyperlink{structtale_1_1_requirement_a7de1ed3066eacc2446a321f6f495ba2a}{name}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{32         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
+\DoxyCodeLine{36         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{47         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ac7629cd95cc7ea1a3f82f60e104593fd}{StringToContextType}}(std::string context\_string)}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}course"{}})}
+\DoxyCodeLine{50                 \textcolor{keywordflow}{return} ContextType::kCourse;}
+\DoxyCodeLine{51             \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}freetime"{}})}
+\DoxyCodeLine{52                 \textcolor{keywordflow}{return} ContextType::kFreetime;}
+\DoxyCodeLine{53             \textcolor{keywordflow}{return} ContextType::kNone;}
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{61         \textcolor{keyword}{static} std::string \mbox{\hyperlink{structtale_1_1_requirement_a63ef690a7a19fdfaf48dbaf17a0a9d35}{ContextTypeToString}}(\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} context\_type)}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63             \textcolor{keywordflow}{switch} (context\_type)}
+\DoxyCodeLine{64             \{}
+\DoxyCodeLine{65             \textcolor{keywordflow}{case} ContextType::kNone:}
+\DoxyCodeLine{66                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{68             \textcolor{keywordflow}{case} ContextType::kLast:}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}last"{}};}
+\DoxyCodeLine{70                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{71             \textcolor{keywordflow}{case} ContextType::kCourse:}
+\DoxyCodeLine{72                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}course"{}};}
+\DoxyCodeLine{73                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{74             \textcolor{keywordflow}{case} ContextType::kFreetime:}
+\DoxyCodeLine{75                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}freetime"{}};}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80     \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+
+\end{DoxyCode}

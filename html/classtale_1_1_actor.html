@@ -105,9 +105,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa74a2d4bebd404b57147f1a382934fab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab">SlotsEmpty</a> (const std::vector&lt; uint32_t &gt; &amp;slots) const</td></tr>
 <tr class="memdesc:aa74a2d4bebd404b57147f1a382934fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether the passed slots are empty.  <a href="classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab">More...</a><br /></td></tr>
 <tr class="separator:aa74a2d4bebd404b57147f1a382934fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a490c071483905538da70954302f65291"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a490c071483905538da70954302f65291">ChooseInteraction</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;actor_group, ContextType context, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;out_reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;out_participants)</td></tr>
-<tr class="memdesc:a490c071483905538da70954302f65291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#a490c071483905538da70954302f65291">More...</a><br /></td></tr>
-<tr class="separator:a490c071483905538da70954302f65291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3af58bc5bca455e7930d641da16e5d8d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a3af58bc5bca455e7930d641da16e5d8d">ChooseInteraction</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;actor_group, <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;out_reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;out_participants)</td></tr>
+<tr class="memdesc:a3af58bc5bca455e7930d641da16e5d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#a3af58bc5bca455e7930d641da16e5d8d">More...</a><br /></td></tr>
+<tr class="separator:a3af58bc5bca455e7930d641da16e5d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1591d410e677de016a55445e3538b371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">ApplyWealthChange</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t tick, float value)</td></tr>
 <tr class="memdesc:a1591d410e677de016a55445e3538b371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth.  <a href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">More...</a><br /></td></tr>
 <tr class="separator:a1591d410e677de016a55445e3538b371"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -434,14 +434,14 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a490c071483905538da70954302f65291" name="a490c071483905538da70954302f65291"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a490c071483905538da70954302f65291">&#9670;&nbsp;</a></span>ChooseInteraction()</h2>
+<a id="a3af58bc5bca455e7930d641da16e5d8d" name="a3af58bc5bca455e7930d641da16e5d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3af58bc5bca455e7930d641da16e5d8d">&#9670;&nbsp;</a></span>ChooseInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string tale::Actor::ChooseInteraction </td>
+          <td class="memname">size_t tale::Actor::ChooseInteraction </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>actor_group</em>, </td>
@@ -449,7 +449,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ContextType&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -482,7 +482,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The name of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> wants to do. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> chose. </dd></dl>
 
 </div>
 </div>

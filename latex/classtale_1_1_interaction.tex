@@ -18,36 +18,26 @@ Inheritance diagram for tale\+::Interaction\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}{Interaction}} (std\+::string name, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t participant\+\_\+count, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants, std\+::vector$<$ float $>$ wealth\+\_\+effects, std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ emotion\+\_\+effects, std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ relationship\+\_\+effects)
+\mbox{\hyperlink{classtale_1_1_interaction_a446f563fa8b7d25c4a8fba09ceae20c8}{Interaction}} (const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&prototype, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}\label{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}} 
 void {\bfseries Apply} ()
 \begin{DoxyCompactList}\small\item\em Applies the effects of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} to all participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}{Get\+Description\+String}} () const
-\begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{To\+String}} ()
-\begin{DoxyCompactList}\small\item\em Gets a string representation of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \& \mbox{\hyperlink{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}{Get\+Prototype}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}{Interaction\+::\+Get\+Participants}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-size\+\_\+t \mbox{\hyperlink{classtale_1_1_interaction_aa2b930663cd47e41ddcb1c41ba5dc0c7}{participant\+\_\+count\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Stores how many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} were involved. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_ac6dd450a4a73e3013c7d2d24b79ff7e7}\label{classtale_1_1_interaction_ac6dd450a4a73e3013c7d2d24b79ff7e7}} 
+const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \& {\bfseries prototype\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores a Reference to the corresponding \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}\label{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}} 
 std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ {\bfseries participants\+\_\+}
-\begin{DoxyCompactList}\small\item\em Stores Pointers to the involved \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_interaction_adde6b2120023ec461c4236fbb7659418}\label{classtale_1_1_interaction_adde6b2120023ec461c4236fbb7659418}} 
-std\+::vector$<$ float $>$ {\bfseries wealth\+\_\+effects\+\_\+}
-\begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_interaction_aab412693330f98c7d9ee9b7cd46986fa}\label{classtale_1_1_interaction_aab412693330f98c7d9ee9b7cd46986fa}} 
-std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ {\bfseries emotion\+\_\+effects\+\_\+}
-\begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_emotion}{Emotions }}. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \mbox{\hyperlink{classtale_1_1_interaction_af3ac9643af2e5e00621a0a0f3861054e}{relationship\+\_\+effects\+\_\+}}
-\begin{DoxyCompactList}\small\item\em Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}{Interaction}} ()
-\begin{DoxyCompactList}\small\item\em Default constructor should never be called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stores Pointers to the involved \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -57,11 +47,11 @@ Represents an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} an \mbox
 Extends the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}\label{classtale_1_1_interaction_a2d840abfa1451fa9f4d8a1dd1b28220e}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_a446f563fa8b7d25c4a8fba09ceae20c8}\label{classtale_1_1_interaction_a446f563fa8b7d25c4a8fba09ceae20c8}} 
 \index{tale::Interaction@{tale::Interaction}!Interaction@{Interaction}}
 \index{Interaction@{Interaction}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{participant\+\_\+count,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants,  }\item[{std\+::vector$<$ float $>$}]{wealth\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$}]{emotion\+\_\+effects,  }\item[{std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$}]{relationship\+\_\+effects }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}}
+{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&}]{prototype,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
 
 
 
@@ -86,31 +76,34 @@ Even though it is publically available, this probably should only be called from
 {\em relationship\+\_\+effects} & Vector holding the effects this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} will have on the \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} of the participating \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. Maps index of \mbox{\hyperlink{classtale_1_1_actor}{Actor}} in participants\+\_\+ vector to map of Relationship\+Type to float value. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}\label{classtale_1_1_interaction_ab6b336a4675ab63e42b3e1ade4383baa}} 
-\index{tale::Interaction@{tale::Interaction}!Interaction@{Interaction}}
-\index{Interaction@{Interaction}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-
-
-Default constructor should never be called. 
-
-This only exists so \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} can create the prototypes. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}\label{classtale_1_1_interaction_a047de0e20c124561961fd1394c72e3cf}} 
-\index{tale::Interaction@{tale::Interaction}!GetDescriptionString@{GetDescriptionString}}
-\index{GetDescriptionString@{GetDescriptionString}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{GetDescriptionString()}{GetDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tale\+::\+Interaction\+::\+Get\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}\label{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}} 
+\index{tale::Interaction@{tale::Interaction}!GetPrototype@{GetPrototype}}
+\index{GetPrototype@{GetPrototype}!tale::Interaction@{tale::Interaction}}
+\doxysubsubsection{\texorpdfstring{GetPrototype()}{GetPrototype()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \& tale\+::\+Interaction\+::\+Get\+Prototype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. 
+Getter for the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. 
 
 \begin{DoxyReturn}{Returns}
-String describing the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} 
+The \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}\label{classtale_1_1_interaction_ad3a0205e08b74af8a9f7e7decff11c4b}} 
+\index{tale::Interaction@{tale::Interaction}!Interaction::GetParticipants@{Interaction::GetParticipants}}
+\index{Interaction::GetParticipants@{Interaction::GetParticipants}!tale::Interaction@{tale::Interaction}}
+\doxysubsubsection{\texorpdfstring{Interaction::GetParticipants()}{Interaction::GetParticipants()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \& tale\+::\+Interaction\+::\+Interaction\+::\+Get\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the participants this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. 
+
+\begin{DoxyReturn}{Returns}
+The participants. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}\label{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}} 
 \index{tale::Interaction@{tale::Interaction}!ToString@{ToString}}
@@ -120,39 +113,16 @@ String describing the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}
 
 
 
-Gets a string representation of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. 
+Gets a string description of what would happen during the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. 
 
 \begin{DoxyReturn}{Returns}
-String describing the status of the object 
+String describing the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classtale_1_1_kernel}{tale\+::\+Kernel}}.
 
 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_aa2b930663cd47e41ddcb1c41ba5dc0c7}\label{classtale_1_1_interaction_aa2b930663cd47e41ddcb1c41ba5dc0c7}} 
-\index{tale::Interaction@{tale::Interaction}!participant\_count\_@{participant\_count\_}}
-\index{participant\_count\_@{participant\_count\_}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{participant\_count\_}{participant\_count\_}}
-{\footnotesize\ttfamily size\+\_\+t tale\+::\+Interaction\+::participant\+\_\+count\+\_\+}
-
-
-
-Stores how many \mbox{\hyperlink{classtale_1_1_actor}{Actors }} were involved. 
-
-This is variable is only necessary because prototypes in \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} cannot yet hold actual \mbox{\hyperlink{classtale_1_1_actor}{Actors }}, but need to store how many are needed. \mbox{\Hypertarget{classtale_1_1_interaction_af3ac9643af2e5e00621a0a0f3861054e}\label{classtale_1_1_interaction_af3ac9643af2e5e00621a0a0f3861054e}} 
-\index{tale::Interaction@{tale::Interaction}!relationship\_effects\_@{relationship\_effects\_}}
-\index{relationship\_effects\_@{relationship\_effects\_}!tale::Interaction@{tale::Interaction}}
-\doxysubsubsection{\texorpdfstring{relationship\_effects\_}{relationship\_effects\_}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::map$<$size\+\_\+t, std\+::map$<$Relationship\+Type, float$>$ $>$ $>$ tale\+::\+Interaction\+::relationship\+\_\+effects\+\_\+}
-
-
-
-Stores the effect this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. 
-
-For each \mbox{\hyperlink{classtale_1_1_actor}{Actor}} a map is created that maps to participants index in the participants\+\_\+ vector another map of Relationship\+Type float pairs. Those pairs signal how much each \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} axis would be changed. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

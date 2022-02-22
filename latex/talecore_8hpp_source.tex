@@ -2,22 +2,23 @@
 \label{talecore_8hpp_source}\index{tale/talecore.hpp@{tale/talecore.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}rang.hpp"{}}}
 \DoxyCodeLine{2 }
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef TALE\_DEBUG\_PRINT\_OUTPUT}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x) std::cout << "{}[ DEBUG ]["{}} << \_\_TIME\_\_ << "{}]\(\backslash\)n"{} \(\backslash\)}
-\DoxyCodeLine{5                                       << x << "{}\(\backslash\)n"{}                         \(\backslash\)}
-\DoxyCodeLine{6                                       << "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x)}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifdef TALE\_VERBOSE\_PRINT\_OUTPUT}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x) std::cout << "{}[VERBOSE]["{}} << \_\_TIME\_\_ << "{}]\(\backslash\)n"{} \(\backslash\)}
-\DoxyCodeLine{13                                         << x << "{}\(\backslash\)n"{}                         \(\backslash\)}
-\DoxyCodeLine{14                                         << "{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x)}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "{}[ DEBUG ]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{5                                       << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                         \(\backslash\)}
+\DoxyCodeLine{6                                       << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define TALE\_DEBUG\_PRINT(x)}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifdef TALE\_VERBOSE\_PRINT\_OUTPUT}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x) std::cout << rang::bg::yellow << rang::fg::reset << rang::style::bold << "{}[VERBOSE]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{14                                         << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                            \(\backslash\)}
+\DoxyCodeLine{15                                         << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

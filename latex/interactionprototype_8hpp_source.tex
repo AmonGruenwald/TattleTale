@@ -1,0 +1,63 @@
+\hypertarget{interactionprototype_8hpp_source}{}\doxysection{interactionprototype.\+hpp}
+\label{interactionprototype_8hpp_source}\index{tale/kernels/interactions/interactionprototype.hpp@{tale/kernels/interactions/interactionprototype.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}}}
+\DoxyCodeLine{19     \{ }
+\DoxyCodeLine{22         std::string \mbox{\hyperlink{structtale_1_1_interaction_prototype_a3749f03872c07e6022669f8f4d7975e6}{name}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{26         std::vector<float> \mbox{\hyperlink{structtale_1_1_interaction_prototype_ae6f7e4c7d6e85a7b4f2b1ec901f3b44b}{wealth\_effects}};}
+\DoxyCodeLine{30         std::vector<std::map<EmotionType, float>> \mbox{\hyperlink{structtale_1_1_interaction_prototype_a1eda68e594704f86057bb77177cce0a5}{emotion\_effects}};}
+\DoxyCodeLine{37         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \mbox{\hyperlink{structtale_1_1_interaction_prototype_a37940758c97a670f387d855f3543bedb}{relationship\_effects}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{44         std::string \mbox{\hyperlink{structtale_1_1_interaction_prototype_a7f305230ee0694525a56cdf57a834722}{ToString}}()}
+\DoxyCodeLine{45         \{}
+\DoxyCodeLine{46             std::string name\_string = fmt::format(\textcolor{stringliteral}{"{}Name: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{structtale_1_1_interaction_prototype_a3749f03872c07e6022669f8f4d7975e6}{name}});}
+\DoxyCodeLine{47             std::string wealth\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{48             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtale_1_1_interaction_prototype_ae6f7e4c7d6e85a7b4f2b1ec901f3b44b}{wealth\_effects}}.size(); ++i)}
+\DoxyCodeLine{49             \{}
+\DoxyCodeLine{50                 wealth\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Wealth Effect: \{\}\(\backslash\)n"{}}, i, \mbox{\hyperlink{structtale_1_1_interaction_prototype_ae6f7e4c7d6e85a7b4f2b1ec901f3b44b}{wealth\_effects}}[i]);}
+\DoxyCodeLine{51             \}}
+\DoxyCodeLine{52             std::string emotion\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{53             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtale_1_1_interaction_prototype_a1eda68e594704f86057bb77177cce0a5}{emotion\_effects}}.size(); ++i)}
+\DoxyCodeLine{54             \{}
+\DoxyCodeLine{55                 emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Emotion Effect:"{}}, i);}
+\DoxyCodeLine{56                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[emotion\_type, emotion\_value] : \mbox{\hyperlink{structtale_1_1_interaction_prototype_a1eda68e594704f86057bb77177cce0a5}{emotion\_effects}}[i])}
+\DoxyCodeLine{57                 \{}
+\DoxyCodeLine{58                     emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{Emotion::EmotionTypeToString}}(emotion\_type), emotion\_value);}
+\DoxyCodeLine{59                 \}}
+\DoxyCodeLine{60                 emotion\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{61             \}}
+\DoxyCodeLine{62             std::string relationship\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{63             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtale_1_1_interaction_prototype_a37940758c97a670f387d855f3543bedb}{relationship\_effects}}.size(); ++i)}
+\DoxyCodeLine{64             \{}
+\DoxyCodeLine{65                 relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tRelationship Effects for Participant \{\}:"{}}, i);}
+\DoxyCodeLine{66                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[other\_participant, relationship\_map] : \mbox{\hyperlink{structtale_1_1_interaction_prototype_a37940758c97a670f387d855f3543bedb}{relationship\_effects}}[i])}
+\DoxyCodeLine{67                 \{}
+\DoxyCodeLine{68                     relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)tWith Participant \{\}:"{}}, other\_participant);}
+\DoxyCodeLine{69                     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[relationship\_type, relationship\_value] : \mbox{\hyperlink{structtale_1_1_interaction_prototype_a37940758c97a670f387d855f3543bedb}{relationship\_effects}}[i][other\_participant])}
+\DoxyCodeLine{70                     \{}
+\DoxyCodeLine{71                         relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{Relationship::RelationshipTypeToString}}(relationship\_type), relationship\_value);}
+\DoxyCodeLine{72                     \}}
+\DoxyCodeLine{73                 \}}
+\DoxyCodeLine{74                 relationship\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{75             \}}
+\DoxyCodeLine{76             \textcolor{keywordflow}{return} (name\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + wealth\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + emotion\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + relationship\_effects\_string);}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78     \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
+
+\end{DoxyCode}
