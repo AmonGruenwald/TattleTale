@@ -167,14 +167,14 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     tale::Setting setting;
     size_t participant_count = interaction_store.GetParticipantCount(interaction_index);
     setting.actor_count = participant_count;
-    tale::School school(setting);
-    std::vector<std::weak_ptr<tale::Actor>> participants;
-    for (size_t i = 0; i < participant_count; ++i)
-    {
-        participants.push_back(school.GetActor(i));
-    }
-    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants);
-    // EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
+    // tale::School school(setting);
+    // std::vector<std::weak_ptr<tale::Actor>> participants;
+    // for (size_t i = 0; i < participant_count; ++i)
+    // {
+    //     participants.push_back(school.GetActor(i));
+    // }
+    // std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants);
+    // // EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     // EXPECT_EQ(interaction->tick_, tick);
     // EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
     // for (size_t i = 0; i < participant_count; ++i)
