@@ -13,37 +13,31 @@ namespace tale
     InteractionStore::InteractionStore(Random &random) : random_(random)
     {
         TALE_DEBUG_PRINT("READING FROM PROTOTYPE FILE");
-        std::ifstream prototype_json_file(prototype_json_path_);
-        nlohmann::json prototype_json;
-        prototype_json_file >> prototype_json;
-        prototype_json_file.close();
-        TALE_VERBOSE_PRINT(prototype_json.dump(4) + "\n\n");
+        std::ifstream catalogue_json_file(prototype_json_path_);
+        nlohmann::json catalogue_json;
+        catalogue_json_file >> catalogue_json;
+        catalogue_json_file.close();
+        TALE_VERBOSE_PRINT(catalogue_json.dump(4) + "\n\n");
         TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
 
-        for (auto &[key, value] : prototype_json.items())
+        for (auto &interaction : catalogue_json)
         {
-            TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE NAMED: " + key);
+            std::string name = interaction["prototype"]["name"];
+            TALE_DEBUG_PRINT("DESERIALIZING CATALOGUE INFO FOR: " + name);
 
-            auto requirements = value["requirements"];
+            TALE_DEBUG_PRINT("CREATING PROTOTYPE");
 
-            Requirement requirement;
-            requirement.name = key;
-            requirement.participant_count = requirements["participant_count"];
-            requirement.context = Requirement::StringToContextType(requirements["context"]);
-
-            requirements_catalogue_.push_back(requirement);
-
+            auto prototype_json = interaction["prototype"];
             InteractionPrototype prototype;
-            prototype.name = key;
 
-            auto effects = value["effects"];
+            prototype.name = prototype_json["name"];
 
-            for (auto &wealth : effects["wealth"])
+            for (auto &wealth : prototype_json["wealth"])
             {
                 prototype.wealth_effects.push_back(wealth);
             }
 
-            for (auto &emotions : effects["emotions"])
+            for (auto &emotions : prototype_json["emotions"])
             {
                 std::map<EmotionType, float> emotions_changes_map;
                 for (auto &[emotion_key, emotion_change] : emotions.items())
@@ -54,7 +48,7 @@ namespace tale
                 prototype.emotion_effects.push_back(emotions_changes_map);
             }
 
-            for (auto &relationships : effects["relationships"])
+            for (auto &relationships : prototype_json["relationships"])
             {
                 std::map<size_t, std::map<RelationshipType, float>> relationship_per_participant_change_map;
                 for (auto &change_per_participant : relationships)
@@ -74,6 +68,38 @@ namespace tale
             prototype_catalogue_.push_back(prototype);
 
             TALE_VERBOSE_PRINT("\nCREATED INTERACTION PROTOTYPE:\n" + prototype.ToString() + "\n");
+
+            TALE_DEBUG_PRINT("CREATING REQUIREMENTS");
+
+            auto requirement_json = interaction["requirements"];
+            Requirement requirement;
+
+            requirement.participant_count = requirement_json["participant_count"];
+
+            requirement.context = StringToContextType(requirement_json["context"]);
+
+            requirements_catalogue_.push_back(requirement);
+
+            TALE_DEBUG_PRINT("CREATING TENDENCY");
+
+            auto tendency_json = interaction["tendencies"];
+            Tendency tendency;
+            tendency.group_size = tendency_json["group_size"];
+            for (auto &[type, value] : tendency_json["contexts"].items())
+            {
+                tendency.contexts[StringToContextType(type)] = value;
+            }
+            tendency.wealth = tendency_json["wealth"];
+            for (auto &[type, value] : tendency_json["emotions"].items())
+            {
+                tendency.emotions[Emotion::StringToEmotionType(type)] = value;
+            }
+            for (auto &[type, value] : tendency_json["relationships"].items())
+            {
+                tendency.relationships[Relationship::StringToRelationshipType(type)] = value;
+            }
+
+            tendencies_catalogue_.push_back(tendency);
         }
     }
     uint32_t InteractionStore::GetRandomInteractionPrototypeIndex() const
@@ -117,5 +143,9 @@ namespace tale
     const std::vector<Requirement> &InteractionStore::GetRequirementCatalogue() const
     {
         return requirements_catalogue_;
+    }
+    const std::vector<Tendency> &InteractionStore::GetTendencyCatalogue() const
+    {
+        return tendencies_catalogue_;
     }
 } // namespace tale

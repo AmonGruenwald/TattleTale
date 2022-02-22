@@ -23,6 +23,8 @@ set(LIBRARY_SOURCES
     tale/kernels/interactions/interaction.cpp
     tale/kernels/interactions/interactionprototype.hpp
     tale/kernels/interactions/interactionrequirement.hpp
+    tale/kernels/interactions/interactioncontexttype.hpp
+    tale/kernels/interactions/interactiontendency.hpp
     tale/kernels/trait.hpp
     tale/kernels/trait.cpp
     tale/globals/interactionstore.hpp

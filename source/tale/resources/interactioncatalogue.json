@@ -1,12 +1,8 @@
-{
-    "Course Interaction": 
+[
     {
-        "requirements":{
-            "participant_count": 2,
-            "context": "course"
-        },
-        "effects": 
+        "prototype": 
         {
+            "name": "Freetime Interaction",
             "wealth": 
             [
                 0.5,
@@ -58,16 +54,44 @@
                     }
                 ]
             ]
-        }
-    },
-    "Freetime Interaction": 
-    {
-        "requirements":{
+        },
+        "requirements":
+        {
             "context": "freetime",
             "participant_count": 2
         },
-        "effects": 
+        "tendencies":
         {
+            "group_size": 0,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 0.0
+            },
+            "wealth": 0.0,
+            "emotions": 
+            { 
+                "happy": 0.0,
+                "calm": 0.0,
+                "satisfied": 0.0,
+                "brave": 0.0,
+                "extroverted": 0.0
+            }, 
+            "relationships":
+            {
+                "love": 0.0,
+                "attraction": 0.0,
+                "friendship": 0.0,
+                "anger": 0.0,
+                "protective": 0.0
+            }
+        
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Course Interaction",
             "wealth": 
             [
                 0.5,
@@ -119,7 +143,38 @@
                     }
                 ]
             ]
+        },
+        "requirements":
+        {
+            "context": "course",
+            "participant_count": 2
+        },
+        "tendencies":
+        {
+            "group_size": 0,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 0.0
+            },
+            "wealth": 0.0,
+            "emotions": 
+            { 
+                "happy": 0.0,
+                "calm": 0.0,
+                "satisfied": 0.0,
+                "brave": 0.0,
+                "extroverted": 0.0
+            }, 
+            "relationships":
+            {
+                "love": 0.0,
+                "attraction": 0.0,
+                "friendship": 0.0,
+                "anger": 0.0,
+                "protective": 0.0
+            }
+        
         }
     }
- 
- }
+]

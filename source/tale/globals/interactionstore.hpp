@@ -7,6 +7,7 @@
 #include "tale/kernels/interactions/interaction.hpp"
 #include "tale/kernels/interactions/interactionprototype.hpp"
 #include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "tale/kernels/interactions/interactiontendency.hpp"
 #include "tale/globals/random.hpp"
 
 namespace tale
@@ -89,11 +90,18 @@ namespace tale
          */
         std::shared_ptr<Interaction> CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         /**
-         * @brief Gettter for a Reference to the hard Requirement catalogue.
+         * @brief Gettter for a Reference to the  Requirement catalogue.
          *
-         * @return A Reference to the catalogue for the hard \link Requirement Requirements \endlink.
+         * @return A Reference to the catalogue for the \link Requirement Requirements \endlink.
          */
         const std::vector<Requirement> &GetRequirementCatalogue() const;
+
+        /**
+         * @brief Gettter for a Reference to the Tendency catalogue.
+         *
+         * @return A Reference to the catalogue for the \link Tendency Tendencies \endlink.
+         */
+        const std::vector<Tendency> &GetTendencyCatalogue() const;
 
     private:
         /**
@@ -108,6 +116,10 @@ namespace tale
          * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
          */
         std::vector<Requirement> requirements_catalogue_;
+        /**
+         * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
+         */
+        std::vector<Tendency> tendencies_catalogue_;
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */
