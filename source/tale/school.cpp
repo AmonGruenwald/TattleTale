@@ -13,7 +13,7 @@ namespace tale
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
 
-        TALE_DEBUG_PRINT("CREATING NAMES\n");
+        TALE_DEBUG_PRINT("CREATING NAMES");
         std::vector<std::string> firstnames = GetRandomFirstnames(actor_count);
         std::vector<std::string> surnames = GetRandomSurames(actor_count);
         for (size_t i = 0; i < actor_count; ++i)
@@ -39,7 +39,7 @@ namespace tale
         size_t course_count = setting_.course_count();
         for (size_t i = 0; i < course_count; ++i)
         {
-            TALE_DEBUG_PRINT("CREATING COURSE " + std::to_string(i) + "\n");
+            TALE_DEBUG_PRINT("CREATING COURSE " + std::to_string(i));
             // TODO: create better names
             Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
@@ -90,7 +90,6 @@ namespace tale
                 }
                 course_filling_description += ("FILLED WITH " + std::to_string(course_group.size()) + " ACTORS.");
             }
-            course_filling_description += "\n";
             TALE_DEBUG_PRINT(course_filling_description);
         }
     }

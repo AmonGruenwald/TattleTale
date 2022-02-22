@@ -19,7 +19,6 @@ namespace tale
     }
     Kernel::Kernel()
     {
-        TALE_DEBUG_PRINT("Kernel default constructor\n");
     }
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
     {

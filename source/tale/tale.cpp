@@ -7,8 +7,8 @@ namespace tale
 
     void Run(const Setting &setting)
     {
-        TALE_DEBUG_PRINT("TALE STARTED\n");
-        TALE_DEBUG_PRINT("SETTING UP SCHOOL\n");
+        TALE_DEBUG_PRINT("TALE STARTED");
+        TALE_DEBUG_PRINT("SETTING UP SCHOOL");
         School school(setting);
 
         school.SimulateDays(setting.days_to_simulate);

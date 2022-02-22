@@ -22,10 +22,7 @@ namespace tale
           emotion_effects_(emotion_effects),
           relationship_effects_(relationship_effects){};
 
-    Interaction::Interaction() : Kernel()
-    {
-        TALE_DEBUG_PRINT("Interaction default constructor\n");
-    };
+    Interaction::Interaction() : Kernel(){};
 
     void Interaction::Apply()
     {
