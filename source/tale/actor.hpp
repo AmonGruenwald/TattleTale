@@ -98,9 +98,9 @@ namespace tale
          * @param[in] course_group The course group the Actor is currently interacting in.
          * @param[out] out_reasons Vector the Actor will write it's reason for the decision to.
          * @param[out] out_participants Vector the Actor will to with which other \link Actor Actors \endlink he wants to do the Interaction.
-         * @return The name of the Interaction the Actor wants to do.
+         * @return The index of the InteractionPrototype the Actor chose.
          */
-        std::string ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        size_t ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *

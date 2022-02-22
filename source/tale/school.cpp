@@ -149,11 +149,11 @@ namespace tale
                     {
                         std::vector<std::weak_ptr<Kernel>> reasons;
                         std::vector<std::weak_ptr<Actor>> participants;
-                        std::string interaction_name = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
+                        size_t interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
                         // TODO: registers interaction to events
-                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick_, reasons, participants);
+                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
                         interaction->Apply();
-                        TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->GetDescriptionString());
+                        TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->ToString());
                     }
                 }
                 ++current_tick_;
@@ -177,11 +177,11 @@ namespace tale
         {
             std::vector<std::weak_ptr<Kernel>> reasons;
             std::vector<std::weak_ptr<Actor>> participants;
-            std::string interaction_name = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
+            size_t interaction_index = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
             // TODO: registers interaction to events
-            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_name, current_tick_, reasons, participants);
+            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
             interaction->Apply();
-            TALE_VERBOSE_PRINT("During Freetime " + interaction->GetDescriptionString());
+            TALE_VERBOSE_PRINT("During Freetime " + interaction->ToString());
         }
     }
 

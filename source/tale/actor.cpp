@@ -60,7 +60,7 @@ namespace tale
         return true;
     }
 
-    std::string Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
+    size_t Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
         auto hard_requirements = interaction_store_.GetHardRequirementCatalogue();
         auto soft_requirements = interaction_store_.GetSoftRequirementCatalogue();
@@ -75,12 +75,12 @@ namespace tale
         }
 
         // TODO: decide on which one to pick and add appropriate reasons to out_reasons
-        std::string name = soft_requirements[possible_soft_requirement_indices.at(0)].name;
+        size_t index = possible_soft_requirement_indices.at(0);
         // TODO: decide on participants
         out_participants.push_back(weak_from_this());
         out_participants.push_back(actor_group[0]);
 
-        return name;
+        return index;
     }
 
     void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)

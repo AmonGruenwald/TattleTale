@@ -161,11 +161,11 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
     tale::Random random;
     tale::InteractionStore interaction_store(random);
-    std::string interaction_name = interaction_store.GetRandomInteractionName();
+    size_t interaction_index = interaction_store.GetRandomInteractionPrototypeIndex();
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
     tale::Setting setting;
-    size_t participant_count = interaction_store.GetParticipantCount(interaction_name);
+    size_t participant_count = interaction_store.GetParticipantCount(interaction_index);
     setting.actor_count = participant_count;
     tale::School school(setting);
     std::vector<std::weak_ptr<tale::Actor>> participants;
@@ -173,32 +173,32 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     {
         participants.push_back(school.GetActor(i));
     }
-    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_name, tick, default_reasons, participants);
-    EXPECT_EQ(interaction->name_, interaction_name);
+    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants);
+    EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     EXPECT_EQ(interaction->tick_, tick);
-    EXPECT_EQ(interaction->participant_count_, participant_count);
+    EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
     for (size_t i = 0; i < participant_count; ++i)
     {
-        EXPECT_EQ(interaction->participants_[i].lock(), school.GetActor(i).lock());
+        EXPECT_EQ(interaction->GetParticipants()[i].lock(), school.GetActor(i).lock());
     }
-    for (size_t i = 0; i < interaction->wealth_effects_.size(); ++i)
+    for (size_t i = 0; i < interaction->GetPrototype().wealth_effects.size(); ++i)
     {
-        EXPECT_EQ(interaction->wealth_effects_[i], interaction_store.GetWealthEffects(interaction_name)[i]);
+        EXPECT_EQ(interaction->GetPrototype().wealth_effects[i], interaction_store.GetWealthEffects(interaction_index)[i]);
     }
-    for (size_t i = 0; i < interaction->emotion_effects_.size(); ++i)
+    for (size_t i = 0; i < interaction->GetPrototype().emotion_effects.size(); ++i)
     {
-        for (auto &[emotion_type, value] : interaction->emotion_effects_[i])
+        for (auto &[emotion_type, value] : interaction->GetPrototype().emotion_effects[i])
         {
-            EXPECT_EQ(value, interaction_store.GetEmotionEffects(interaction_name)[i].at(emotion_type));
+            EXPECT_EQ(value, interaction_store.GetEmotionEffects(interaction_index)[i].at(emotion_type));
         }
     }
-    for (size_t i = 0; i < interaction->relationship_effects_.size(); ++i)
+    for (size_t i = 0; i < interaction->GetPrototype().relationship_effects.size(); ++i)
     {
-        for (auto &[participant, map] : interaction->relationship_effects_[i])
+        for (auto &[participant, map] : interaction->GetPrototype().relationship_effects[i])
         {
             for (auto &[relationship_type, value] : map)
             {
-                EXPECT_EQ(value, interaction_store.GetRelationshipEffects(interaction_name)[i].at(participant).at(relationship_type));
+                EXPECT_EQ(value, interaction_store.GetRelationshipEffects(interaction_index)[i].at(participant).at(relationship_type));
             }
         }
     }
@@ -264,7 +264,14 @@ TEST(TaleInteractions, ApplyInteraction)
         relationship_effects.push_back(participant_relationship_map);
         expected_relationship_values.push_back(expected_participant_relationship_map);
     }
-    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction("Test", tick, default_reasons, participant_count, participants, wealth_effects, emotion_effects, relationship_effects));
+    tale::InteractionPrototype prototype;
+    prototype.name = "Test";
+    prototype.wealth_effects = wealth_effects;
+    prototype.emotion_effects = emotion_effects;
+    prototype.relationship_effects = relationship_effects;
+
+    std::shared_ptr<tale::Interaction>
+        interaction(new tale::Interaction(prototype, tick, default_reasons, participants));
     interaction->Apply();
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
@@ -319,16 +326,21 @@ TEST(TaleInteractions, InteractionBecomesReason)
         std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
         relationship_effects.push_back(participant_relationship_map);
     }
-    std::string name = "InteractionBecomesReason";
-    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(name, tick, default_reasons, participant_count, participants, wealth_effects, emotion_effects, relationship_effects));
+
+    tale::InteractionPrototype prototype;
+    prototype.name = "InteractionBecomesReason";
+    prototype.wealth_effects = wealth_effects;
+    prototype.emotion_effects = emotion_effects;
+    prototype.relationship_effects = relationship_effects;
+    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(prototype, tick, default_reasons, participants));
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->name_, name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->name_, prototype.name);
         EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->number_, interaction->number_);
         for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
         {
-            EXPECT_EQ(emotion->reasons_[0].lock()->name_, name);
+            EXPECT_EQ(emotion->reasons_[0].lock()->name_, prototype.name);
             EXPECT_EQ(emotion->reasons_[0].lock()->number_, interaction->number_);
         }
         for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
@@ -336,7 +348,7 @@ TEST(TaleInteractions, InteractionBecomesReason)
             // TODO: this will break if actors get random relationships
             for (auto &[type, relationship] : map)
             {
-                EXPECT_EQ(relationship->reasons_[0].lock()->name_, name);
+                EXPECT_EQ(relationship->reasons_[0].lock()->name_, prototype.name);
                 EXPECT_EQ(relationship->reasons_[0].lock()->number_, interaction->number_);
             }
         }
