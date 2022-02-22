@@ -7,35 +7,26 @@
 namespace tale
 {
     Interaction::Interaction(
-        std::string name,
+        const InteractionPrototype &prototype,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
-        size_t participant_count,
-        std::vector<std::weak_ptr<Actor>> participants,
-        std::vector<float> wealth_effects,
-        std::vector<std::map<EmotionType, float>> emotion_effects,
-        std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects)
-        : Kernel(name, tick, reasons),
-          participant_count_(participant_count),
-          participants_(participants),
-          wealth_effects_(wealth_effects),
-          emotion_effects_(emotion_effects),
-          relationship_effects_(relationship_effects){};
-
-    Interaction::Interaction() : Kernel(){};
+        std::vector<std::weak_ptr<Actor>> participants)
+        : Kernel(prototype.name, tick, reasons),
+          prototype_(prototype),
+          participants_(participants){};
 
     void Interaction::Apply()
     {
         std::weak_ptr<Interaction> self = weak_from_this();
         std::vector<std::weak_ptr<Kernel>> reasons{self};
-        for (size_t i = 0; i < participant_count_; ++i)
+        for (size_t i = 0; i < participants_.size(); ++i)
         {
-            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, wealth_effects_[i]);
-            for (auto &[type, value] : emotion_effects_[i])
+            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, prototype_.wealth_effects[i]);
+            for (auto &[type, value] : prototype_.emotion_effects[i])
             {
                 participants_.at(i).lock()->ApplyEmotionChange(reasons, tick_, type, value);
             }
-            for (auto &[other, change] : relationship_effects_[i])
+            for (auto &[other, change] : prototype_.relationship_effects[i])
             {
                 for (auto &[type, value] : change)
                 {
@@ -45,11 +36,11 @@ namespace tale
         }
     }
 
-    std::string Interaction::GetDescriptionString() const
+    std::string Interaction::ToString()
     {
         std::string description = "";
         description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
-        for (size_t i = 1; i < participant_count_; ++i)
+        for (size_t i = 1; i < participants_.size(); ++i)
         {
             if (i == 1)
             {
@@ -62,39 +53,5 @@ namespace tale
             description += fmt::format("{}", participants_[i].lock()->name_);
         }
         return description;
-    }
-    std::string Interaction::ToString()
-    {
-        std::string name_string = fmt::format("Name: {}\n", name_);
-        std::string wealth_effects_string = "";
-        for (size_t i = 0; i < wealth_effects_.size(); ++i)
-        {
-            wealth_effects_string += fmt::format("\t{}. Wealth Effect: {}\n", i, wealth_effects_[i]);
-        }
-        std::string emotion_effects_string = "";
-        for (size_t i = 0; i < emotion_effects_.size(); ++i)
-        {
-            emotion_effects_string += fmt::format("\t{}. Emotion Effect:", i);
-            for (auto &[emotion_type, emotion_value] : emotion_effects_[i])
-            {
-                emotion_effects_string += fmt::format("\n\t\t{}: {}", Emotion::EmotionTypeToString(emotion_type), emotion_value);
-            }
-            emotion_effects_string += "\n";
-        }
-        std::string relationship_effects_string = "";
-        for (size_t i = 0; i < relationship_effects_.size(); ++i)
-        {
-            relationship_effects_string += fmt::format("\tRelationship Effects for Participant {}:", i);
-            for (auto &[other_participant, relationship_map] : relationship_effects_[i])
-            {
-                relationship_effects_string += fmt::format("\n\t\tWith Participant {}:", other_participant);
-                for (auto &[relationship_type, relationship_value] : relationship_effects_[i][other_participant])
-                {
-                    relationship_effects_string += fmt::format("\n\t\t\t{}: {}", Relationship::RelationshipTypeToString(relationship_type), relationship_value);
-                }
-            }
-            relationship_effects_string += "\n";
-        }
-        return (name_string + "\n" + wealth_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string + "\n");
     }
 } // namespace tale

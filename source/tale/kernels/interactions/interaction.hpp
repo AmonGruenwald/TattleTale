@@ -4,6 +4,7 @@
 #include "tale/kernels/kernel.hpp"
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"
+#include "tale/kernels/interactions/interactionprototype.hpp"
 #include <map>
 #include <memory>
 
@@ -20,36 +21,6 @@ namespace tale
     class Interaction : public Kernel, public std::enable_shared_from_this<Interaction>
     {
     public:
-        /**
-         * @brief Stores how many \link Actor Actors \endlink were involved.
-         *
-         * This is variable is only necessary because prototypes in InteractionStore cannot yet hold actual
-         * \link Actor Actors \endlink, but need to store how many are needed.
-         */
-        size_t participant_count_;
-
-        /**
-         * @brief Stores Pointers to the involved \link Actor Actors \endlink.
-         */
-        std::vector<std::weak_ptr<Actor>> participants_;
-
-        /**
-         * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink wealth.
-         */
-        std::vector<float> wealth_effects_;
-        /**
-         * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink \link Emotion Emotions \endlink.
-         */
-        std::vector<std::map<EmotionType, float>> emotion_effects_;
-        /**
-         * @brief Stores the effect this Interaction has on each participating \link Actor Actor's \endlink \link Relationship Relationships \endlink.
-         *
-         * For each Actor a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs.
-         * Those pairs signal how much each Relationship axis would be changed.
-         */
-
-        std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects_;
-
         /**
          * @brief Only publically available Constructor. Fills out every member variable.
          *
@@ -68,14 +39,10 @@ namespace tale
          * participating \link Actor Actors \endlink. Maps index of Actor in participants_ vector to map of RelationshipType to float value.
          */
         Interaction(
-            std::string name,
+            const InteractionPrototype &prototype,
             size_t tick,
             std::vector<std::weak_ptr<Kernel>> reasons,
-            size_t participant_count,
-            std::vector<std::weak_ptr<Actor>> participants,
-            std::vector<float> wealth_effects,
-            std::vector<std::map<EmotionType, float>> emotion_effects,
-            std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects);
+            std::vector<std::weak_ptr<Actor>> participants);
 
         /**
          * @brief Applies the effects of the Interaction to all participating \link Actor Actors \endlink.
@@ -86,23 +53,17 @@ namespace tale
          *
          * @return String describing the Interaction
          */
-        std::string GetDescriptionString() const;
-        /**
-         * @brief Gets a string representation of the Interaction.
-         *
-         * @return String describing the status of the object
-         */
         std::string ToString();
 
     private:
         /**
-         * @brief Default constructor should never be called.
-         *
-         * This only exists so InteractionStore can create the prototypes.
+         * @brief Stores a Reference to the corresponding InteractionPrototype.
          */
-        Interaction();
-
-        friend class InteractionStore;
+        const InteractionPrototype &prototype_;
+        /**
+         * @brief Stores Pointers to the involved \link Actor Actors \endlink.
+         */
+        std::vector<std::weak_ptr<Actor>> participants_;
     };
 
 } // namespace tale
