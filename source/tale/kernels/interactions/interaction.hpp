@@ -55,6 +55,19 @@ namespace tale
          */
         std::string ToString();
 
+        /**
+         * @brief Getter for the InteractionPrototype this Interaction uses.
+         *
+         * @return The InteractionPrototype.
+         */
+        const InteractionPrototype &GetPrototype() const;
+        /**
+         * @brief Getter for the participants this Interaction uses.
+         *
+         * @return The participants.
+         */
+        const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const;
+
     private:
         /**
          * @brief Stores a Reference to the corresponding InteractionPrototype.

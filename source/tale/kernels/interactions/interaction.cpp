@@ -54,4 +54,13 @@ namespace tale
         }
         return description;
     }
+
+    const InteractionPrototype &Interaction::GetPrototype() const
+    {
+        return prototype_;
+    }
+    const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const
+    {
+        return participants_;
+    }
 } // namespace tale
