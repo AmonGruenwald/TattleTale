@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define GTEST_INFO std::cerr << "[   INFO   ] "
-TEST(Tale_Kernels, IncreasingKernelNumber)
+TEST(TaleKernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
