@@ -7,6 +7,9 @@
 #include <algorithm>
 namespace tale
 {
+    /**
+     * @brief Types of Context an Interaction can happen in.
+     */
     enum class ContextType
     {
         kNone,
@@ -19,8 +22,17 @@ namespace tale
      */
     struct Requirement
     {
+        /**
+         * @brief Name of the Interaction this Requirement concerns.
+         */
         std::string name = "";
+        /**
+         * @brief ContextType the corresponding Interaction needs.
+         */
         ContextType context = ContextType::kNone;
+        /**
+         * @brief How many \link Actor Actors \endlink the corresponding Interaction needs.
+         */
         size_t participant_count = 1;
         /**
          * @brief Converts a string to an ContextType.
