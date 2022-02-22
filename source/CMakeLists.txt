@@ -1,7 +1,7 @@
 set(LIBRARY_SOURCES 
+    tale/talecore.hpp
     tale/tale.hpp 
     tale/tale.cpp 
-    tale/talecore.hpp
     tale/actor.hpp
     tale/actor.cpp
     tale/school.hpp
@@ -49,17 +49,25 @@ FetchContent_Declare(fmt
 )
 FetchContent_MakeAvailable(fmt)
 
+FetchContent_Declare(rang
+  GIT_REPOSITORY https://github.com/agauniyal/rang.git
+  GIT_TAG master
+)
+FetchContent_MakeAvailable(rang)
+
 
 
 add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
 
 
-target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt )
+target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang)
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 # Uncomment/comment out for prints
-#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
-#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
+target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
+
+target_compile_definitions(${LIBRARY_NAME} PUBLIC NOMINMAX)
 
 
 add_custom_command(
