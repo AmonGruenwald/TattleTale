@@ -12,7 +12,7 @@
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"
 #include "tale/kernels/trait.hpp"
-#include "tale/kernels/interactions/requirement.hpp"
+#include "tale/kernels/interactions/interactionrequirement.hpp"
 
 namespace tale
 {

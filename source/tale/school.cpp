@@ -1,6 +1,6 @@
 #include "tale/talecore.hpp"
 #include "tale/school.hpp"
-#include "tale/kernels/interactions/requirement.hpp"
+#include "tale/kernels/interactions/interactionrequirement.hpp"
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
