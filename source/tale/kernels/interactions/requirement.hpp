@@ -15,20 +15,13 @@ namespace tale
         kLast
     };
     /**
-    enum class ContextType
-    {
-        kNone,
-        kCourse,
-        kFreetime,
-        kLast
-    };
      * @brief Stores all necessary \link Requirement Requirements \endlink for an Interaction to happen.
      */
     struct Requirement
     {
         std::string name = "";
         ContextType context = ContextType::kNone;
-
+        size_t participant_count = 1;
         /**
          * @brief Converts a string to an ContextType.
          *
