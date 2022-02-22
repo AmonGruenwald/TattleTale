@@ -66,7 +66,7 @@ namespace tale
          *
          * @return The participants.
          */
-        const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const;
+        const std::vector<std::weak_ptr<Actor>> &GetParticipants() const;
 
     private:
         /**
