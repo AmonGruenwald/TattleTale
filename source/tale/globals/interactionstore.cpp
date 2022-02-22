@@ -38,13 +38,11 @@ namespace tale
 
             auto effects = value["effects"];
 
-            prototype.wealth_effects.reserve(requirement.participant_count);
             for (auto &wealth : effects["wealth"])
             {
                 prototype.wealth_effects.push_back(wealth);
             }
 
-            prototype.emotion_effects.reserve(requirement.participant_count);
             for (auto &emotions : effects["emotions"])
             {
                 std::map<EmotionType, float> emotions_changes_map;
@@ -56,7 +54,6 @@ namespace tale
                 prototype.emotion_effects.push_back(emotions_changes_map);
             }
 
-            prototype.relationship_effects.reserve(requirement.participant_count);
             for (auto &relationships : effects["relationships"])
             {
                 std::map<size_t, std::map<RelationshipType, float>> relationship_per_participant_change_map;
@@ -79,7 +76,7 @@ namespace tale
             TALE_VERBOSE_PRINT("\nCREATED INTERACTION PROTOTYPE:\n" + prototype.ToString() + "\n");
         }
     }
-    const size_t &InteractionStore::GetRandomInteractionPrototypeIndex() const
+    const uint32_t &InteractionStore::GetRandomInteractionPrototypeIndex() const
     {
         assert(prototype_catalogue_.size() > 0); // No interaction prototype created
         return random_.GetUInt(0, prototype_catalogue_.size() - 1);

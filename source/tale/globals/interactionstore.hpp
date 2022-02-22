@@ -34,7 +34,7 @@ namespace tale
          *
          * @return A random interactionPrototype index
          */
-        const size_t &GetRandomInteractionPrototypeIndex() const;
+        const uint32_t &GetRandomInteractionPrototypeIndex() const;
         /**
          * @brief Returns the name of the Interaction that would be created with the passed index.
          *
