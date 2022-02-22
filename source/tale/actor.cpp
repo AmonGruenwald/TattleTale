@@ -62,20 +62,19 @@ namespace tale
 
     size_t Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
-        auto hard_requirements = interaction_store_.GetHardRequirementCatalogue();
-        auto soft_requirements = interaction_store_.GetSoftRequirementCatalogue();
-        std::vector<size_t> possible_soft_requirement_indices;
-        for (size_t i = 0; i < hard_requirements.size(); ++i)
+        auto requirements = interaction_store_.GetRequirementCatalogue();
+        std::vector<size_t> possible_tendencies_indices;
+        for (size_t i = 0; i < requirements.size(); ++i)
         {
             // TODO: check for other requirements eg. participant count
-            if (hard_requirements.at(i).context == context || hard_requirements.at(i).context == context)
+            if (requirements.at(i).context == context || requirements.at(i).context == context)
             {
-                possible_soft_requirement_indices.push_back(i);
+                possible_tendencies_indices.push_back(i);
             }
         }
 
         // TODO: decide on which one to pick and add appropriate reasons to out_reasons
-        size_t index = possible_soft_requirement_indices.at(0);
+        size_t index = possible_tendencies_indices.at(0);
         // TODO: decide on participants
         out_participants.push_back(weak_from_this());
         out_participants.push_back(actor_group[0]);

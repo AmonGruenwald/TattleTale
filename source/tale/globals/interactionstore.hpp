@@ -93,13 +93,7 @@ namespace tale
          *
          * @return A Reference to the catalogue for the hard \link Requirement Requirements \endlink.
          */
-        const std::vector<Requirement> &GetHardRequirementCatalogue() const;
-        /**
-         * @brief Gettter for a Reference to the soft Requirement catalogue.
-         *
-         * @return A Reference to the catalogue for the soft \link Requirement Requirements \endlink.
-         */
-        const std::vector<Requirement> &GetSoftRequirementCatalogue() const;
+        const std::vector<Requirement> &GetRequirementCatalogue() const;
 
     private:
         /**
@@ -113,11 +107,7 @@ namespace tale
         /**
          * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
          */
-        std::vector<Requirement> hard_requirements_catalogue_;
-        /**
-         * @brief Holds the soft \link Requirement Requirements \endlink for all available Interaction prototypes.
-         */
-        std::vector<Requirement> soft_requirements_catalogue_;
+        std::vector<Requirement> requirements_catalogue_;
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */

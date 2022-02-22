@@ -26,32 +26,25 @@ namespace tale
 
             auto requirements = value["requirements"];
 
-            Requirement hard_requirement;
-            hard_requirement.name = key;
-            hard_requirement.context = Requirement::StringToContextType(requirements["hard"]["context"]);
+            Requirement requirement;
+            requirement.name = key;
+            requirement.participant_count = requirements["participant_count"];
+            requirement.context = Requirement::StringToContextType(requirements["context"]);
 
-            size_t participant_count = value["participant_count"];
-            hard_requirement.participant_count = participant_count;
-
-            Requirement soft_requirement;
-            soft_requirement.name = key;
-            soft_requirement.context = Requirement::StringToContextType(requirements["soft"]["context"]);
-
-            hard_requirements_catalogue_.push_back(hard_requirement);
-            soft_requirements_catalogue_.push_back(soft_requirement);
+            requirements_catalogue_.push_back(requirement);
 
             InteractionPrototype prototype;
             prototype.name = key;
 
             auto effects = value["effects"];
 
-            prototype.wealth_effects.reserve(participant_count);
+            prototype.wealth_effects.reserve(requirement.participant_count);
             for (auto &wealth : effects["wealth"])
             {
                 prototype.wealth_effects.push_back(wealth);
             }
 
-            prototype.emotion_effects.reserve(participant_count);
+            prototype.emotion_effects.reserve(requirement.participant_count);
             for (auto &emotions : effects["emotions"])
             {
                 std::map<EmotionType, float> emotions_changes_map;
@@ -63,7 +56,7 @@ namespace tale
                 prototype.emotion_effects.push_back(emotions_changes_map);
             }
 
-            prototype.relationship_effects.reserve(participant_count);
+            prototype.relationship_effects.reserve(requirement.participant_count);
             for (auto &relationships : effects["relationships"])
             {
                 std::map<size_t, std::map<RelationshipType, float>> relationship_per_participant_change_map;
@@ -98,8 +91,8 @@ namespace tale
     }
     const size_t &InteractionStore::GetParticipantCount(size_t prototype_index) const
     {
-        assert(hard_requirements_catalogue_.size() > prototype_index); // faulty index
-        return hard_requirements_catalogue_.at(prototype_index).participant_count;
+        assert(requirements_catalogue_.size() > prototype_index); // faulty index
+        return requirements_catalogue_.at(prototype_index).participant_count;
     }
     const std::vector<float> &InteractionStore::GetWealthEffects(size_t prototype_index) const
     {
@@ -124,12 +117,8 @@ namespace tale
         std::shared_ptr<Interaction> interaction(new Interaction(prototype, tick, reasons, participants));
         return interaction;
     }
-    const std::vector<Requirement> &InteractionStore::GetHardRequirementCatalogue() const
+    const std::vector<Requirement> &InteractionStore::GetRequirementCatalogue() const
     {
-        return hard_requirements_catalogue_;
-    }
-    const std::vector<Requirement> &InteractionStore::GetSoftRequirementCatalogue() const
-    {
-        return soft_requirements_catalogue_;
+        return requirements_catalogue_;
     }
 } // namespace tale

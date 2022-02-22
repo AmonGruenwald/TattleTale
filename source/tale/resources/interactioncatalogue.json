@@ -1,14 +1,9 @@
 {
     "Course Interaction": 
     {
-        "participant_count": 2,
         "requirements":{
-            "hard":{
-                "context": "course"
-            },
-            "soft":{
-                "context": "none"
-            }
+            "participant_count": 2,
+            "context": "course"
         },
         "effects": 
         {
@@ -67,14 +62,9 @@
     },
     "Freetime Interaction": 
     {
-        "participant_count": 2,
         "requirements":{
-            "hard":{
-                "context": "freetime"
-            },
-            "soft":{
-                "context": "none"
-            }
+            "context": "freetime",
+            "participant_count": 2
         },
         "effects": 
         {
