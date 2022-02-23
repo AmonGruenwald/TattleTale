@@ -100,11 +100,24 @@ namespace tale
          * @param[out] out_participants Vector the Actor will to with which other \link Actor Actors \endlink he wants to do the Interaction.
          * @return The index of the InteractionPrototype the Actor chose.
          */
-        size_t ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        /**
+         * @brief Calculates the chance of an Interaction based on its Tendency and the \link Actor Actor's \endlink current state.
+         *
+         * Every value used is based between -1.0 and 1.0 except the return value which is between 0.0 and 1.0.
+         * Because the Actor uses this value for a distribution to pick the Interaction it wants to do, 1.0 does not
+         * automatically mean an Interaction has a 100% chance of being picked. If we have for example three
+         * \link Interaction Interactions \endlink, which prodcue the retun values 1.0, 1.0 and 0.0. Then the first
+         * two Interactions have a chance of 50% each and the last one has a 0% chance.
+         *
+         * @param[in] tendency The tendency of the Interaction we want the chance for.
+         * @param[out] context In which context the Interaction would happen.
+         * @param[out] group_size_ratio How big the group is in which this Interaction is happening (between -1.0 and 1.0).
+         * @return A chance value between 0.0 and 1.0.
+         */
+        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
-         *
-         *
          *
          * @param reasons Vector holding the reasons for this change.
          * @param tick The tick during which this change happened.

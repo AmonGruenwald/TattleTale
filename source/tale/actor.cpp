@@ -60,9 +60,9 @@ namespace tale
         return true;
     }
 
-    size_t Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
+    int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
-        auto requirements = interaction_store_.GetRequirementCatalogue();
+        const std::vector<Requirement> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_tendencies_indices;
         for (size_t i = 0; i < requirements.size(); ++i)
         {
@@ -74,12 +74,66 @@ namespace tale
         }
 
         // TODO: decide on which one to pick and add appropriate reasons to out_reasons
-        size_t index = possible_tendencies_indices.at(0);
+        const std::vector<Tendency> &tendencies = interaction_store_.GetTendencyCatalogue();
+        std::vector<float> chances;
+        chances.reserve(possible_tendencies_indices.size());
+        for (auto &i : possible_tendencies_indices)
+        {
+            const Tendency &tendency = tendencies[i];
+            // TODO: rethink if this makes sense
+            float group_size_ratio = (context == ContextType::kCourse
+                                          ? static_cast<float>(actor_group.size())
+                                          : static_cast<float>(requirements.at(i).participant_count)) /
+                                     static_cast<float>(setting_.actors_per_course);
+            group_size_ratio = std::clamp(group_size_ratio, 0.0f, 1.0f);
+            group_size_ratio *= 2;
+            group_size_ratio -= 1.0f;
+            float chance = CalculateTendencyChance(tendency, context, group_size_ratio);
+            chances.push_back(chance);
+        }
+
+        size_t index = possible_tendencies_indices.at(random_.PickIndex(chances));
+
         // TODO: decide on participants
         out_participants.push_back(weak_from_this());
         out_participants.push_back(actor_group[0]);
 
         return index;
+    }
+
+    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio)
+    {
+        float chance = 0.0f;
+
+        uint16_t chance_parts = 0;
+
+        chance += tendency.group_size * group_size_ratio;
+        ++chance_parts;
+        std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+        for (auto &[type, value] : tendency.contexts)
+        {
+            // TODO: rethink wether this makes sense
+            chance += (value * (context == type ? 1.0f : -1.0f));
+            ++chance_parts;
+            std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+        }
+
+        chance += tendency.wealth * wealth_->GetValue();
+        ++chance_parts;
+        std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+
+        for (auto &[type, value] : tendency.emotions)
+        {
+            chance += (value * emotions_[type]->GetValue());
+            ++chance_parts;
+            std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+        }
+        chance += static_cast<float>(chance_parts);
+
+        std::cout << "CHANCE: " << chance << std::endl;
+        chance /= static_cast<float>(chance_parts * 2);
+        std::cout << "CHANCE: " << chance << std::endl;
+        return chance;
     }
 
     void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)

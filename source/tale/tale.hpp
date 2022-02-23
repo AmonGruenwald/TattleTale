@@ -6,6 +6,8 @@
 #include "tale/kernels/interactions/interaction.hpp"
 #include "tale/kernels/interactions/interactionprototype.hpp"
 #include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "tale/kernels/interactions/interactioncontexttype.hpp"
 #include "tale/kernels/resourcekernels/resource.hpp"
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"

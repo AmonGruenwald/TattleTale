@@ -6,7 +6,7 @@
 #include "tale/tale.hpp"
 #include <time.h>
 
-#define GTEST_INFO std::cerr << "[   INFO   ] "
+#define GTEST_INFO std::cout << "[   INFO   ] "
 TEST(TaleKernels, IncreasingKernelNumber)
 {
     tale::Kernel::current_number_ = 0;
@@ -522,4 +522,130 @@ TEST_F(TaleActor, AddActorToCourse)
     EXPECT_TRUE(actor_->AllSlotsFilled());
 }
 
+TEST_F(TaleActor, DefaultTendencyChanceCalculation)
+{
+    tale::Tendency tendency;
+    tale::ContextType context = tale::ContextType::kNone;
+    float group_size_ratio = 0.0f;
+    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+    EXPECT_FLOAT_EQ(chance, 0.5f);
+}
+
+TEST_F(TaleActor, MaxTendencyChanceCalculation)
+{
+    tale::Tendency tendency;
+    tendency.group_size = 1.0f;
+    tendency.contexts[tale::ContextType::kCourse] = 1.0f;
+    tendency.contexts[tale::ContextType::kFreetime] = -1.0f;
+    tendency.wealth = 1.0f;
+    for (auto &[type, value] : tendency.emotions)
+    {
+        tendency.emotions[type] = 1.0f;
+    }
+    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    actor_->wealth_ = std::shared_ptr<tale::Resource>(new tale::Resource("wealth", 0, default_reasons, 1.0f));
+    for (auto &[type, value] : tendency.emotions)
+    {
+        actor_->emotions_[type] = std::shared_ptr<tale::Emotion>(new tale::Emotion(type, 0, default_reasons, 1.0f));
+    }
+    tale::ContextType context = tale::ContextType::kCourse;
+    float group_size_ratio = 1.0f;
+    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+    EXPECT_FLOAT_EQ(chance, 1.0f);
+}
+
+TEST_F(TaleActor, RandomTendencyChanceCalculation)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    tale::Tendency tendency;
+    size_t tries = 1000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        tendency.group_size = random.GetFloat(-1.0f, 1.0f);
+        tendency.contexts[tale::ContextType::kCourse] = random.GetFloat(-1.0f, 1.0f);
+        tendency.contexts[tale::ContextType::kFreetime] = random.GetFloat(-1.0f, 1.0f);
+        tendency.wealth = random.GetFloat(-1.0f, 1.0f);
+        for (auto &[type, value] : tendency.emotions)
+        {
+            tendency.emotions[type] = random.GetFloat(-1.0f, 1.0f);
+        }
+        std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+        actor_->wealth_ = std::shared_ptr<tale::Resource>(new tale::Resource("wealth", 0, default_reasons, random.GetFloat(-1.0f, 1.0f)));
+        for (auto &[type, value] : tendency.emotions)
+        {
+            actor_->emotions_[type] = std::shared_ptr<tale::Emotion>(new tale::Emotion(type, 0, default_reasons, random.GetFloat(-1.0f, 1.0f)));
+        }
+        tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
+        float group_size_ratio = random.GetFloat(-1.0f, 1.0f);
+        float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+        EXPECT_GE(chance, 0.0f);
+        EXPECT_LE(chance, 1.0f);
+    }
+}
+TEST(TaleRandom, PickIndexWithHundredPercentChance)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    size_t tries = 1000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        uint32_t random_index = random.GetUInt(0, tries - 1);
+        std::vector<float> distribution;
+        distribution.reserve(tries);
+        for (size_t j = 0; j < tries; ++j)
+        {
+            distribution.push_back((j == random_index ? 1.0f : 0.0f));
+        }
+        EXPECT_EQ(random.PickIndex(distribution), random_index);
+    }
+}
+TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    size_t tries = 1000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
+        uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
+        std::vector<float> distribution(tries, 1.0f);
+        EXPECT_GE(random.PickIndex(distribution), 0);
+        EXPECT_LT(random.PickIndex(distribution), tries);
+    }
+}
+
+TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    size_t tries = 1000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
+        uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
+        std::vector<float> distribution(tries, 0.0f);
+        EXPECT_GE(random.PickIndex(distribution), 0);
+        EXPECT_LT(random.PickIndex(distribution), tries);
+    }
+}
+TEST(TaleRandom, PickBetweenRandomRange)
+{
+    time_t seconds = time(NULL);
+    tale::Random random(seconds);
+    size_t tries = 1000;
+    for (size_t i = 0; i < tries; ++i)
+    {
+        uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
+        uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
+        std::vector<float> distribution;
+        distribution.reserve(tries);
+        for (size_t j = 0; j < tries; ++j)
+        {
+            distribution.push_back(((j >= random_index_bottom && j <= random_index_top) ? 1.0f : 0.0f));
+        }
+        EXPECT_GE(random.PickIndex(distribution), random_index_bottom);
+        EXPECT_LE(random.PickIndex(distribution), random_index_top);
+    }
+}
 // bool AllSlotsFilled() const;
