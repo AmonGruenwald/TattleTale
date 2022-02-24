@@ -39,32 +39,33 @@
 \DoxyCodeLine{85         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}{AllSlotsFilled}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{92         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}{SlotsEmpty}}(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
 \DoxyCodeLine{103         \textcolor{keywordtype}{int} \mbox{\hyperlink{classtale_1_1_actor_ac27fdc4a07ed2f1f1870c754517f2774}{ChooseInteraction}}(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&actor\_group, \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} context, std::vector<std::weak\_ptr<Kernel>> \&out\_reasons, std::vector<std::weak\_ptr<Actor>> \&out\_participants);}
-\DoxyCodeLine{118         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_actor_a49a97fb9caf009723cfbbf3ec297221d}{CalculateTendencyChance}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \&context, \textcolor{keyword}{const} \textcolor{keywordtype}{float} \&group\_size\_ratio);}
-\DoxyCodeLine{126         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1591d410e677de016a55445e3538b371}{ApplyWealthChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{137         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}{ApplyEmotionChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{149         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}{ApplyRelationshipChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, RelationshipType type, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{155         std::string \mbox{\hyperlink{classtale_1_1_actor_a3cff1f8b6b3f68e6af8c327f5e7d8d85}{GetWealthDescriptionString}}();}
-\DoxyCodeLine{161         std::string \mbox{\hyperlink{classtale_1_1_actor_a0f49eaa23e0dfc803c460fdf1a06c8cc}{GetEmotionsDescriptionString}}();}
-\DoxyCodeLine{167         std::string \mbox{\hyperlink{classtale_1_1_actor_a089d41abd6ff6c41d3dd0078926a5d2e}{GetRelationshipsDescriptionString}}();}
-\DoxyCodeLine{173         std::string \mbox{\hyperlink{classtale_1_1_actor_a45f596aedccf92eb464a11374eb8eaae}{GetGoalDescriptionString}}();}
-\DoxyCodeLine{179         std::string \mbox{\hyperlink{classtale_1_1_actor_a4855909ea2480144e63d4764d5a5784e}{GetTraitsDescriptionString}}();}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181     \textcolor{keyword}{private}:}
-\DoxyCodeLine{185         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_actor_a589ad88bd32aa87029fdd4f30d059bb6}{random\_}};}
-\DoxyCodeLine{189         \mbox{\hyperlink{classtale_1_1_school}{School}} \&\mbox{\hyperlink{classtale_1_1_actor_a822a5c5e0484b21932d4faf42d44a15d}{school\_}};}
-\DoxyCodeLine{193         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtale_1_1_actor_a1ca3019978ddeca9e26d86cedc9b0b75}{interaction\_store\_}};}
-\DoxyCodeLine{197         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_actor_a10bb3d000d14e1cf888f59e0407c97c7}{setting\_}};}
-\DoxyCodeLine{201         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_actor_a9eea67b53dc323cc31a8705dd536eac1}{filled\_slots\_count\_}} = 0;}
-\DoxyCodeLine{205         std::vector<int> \mbox{\hyperlink{classtale_1_1_actor_a8523f3a44c93d312293f809c933eef96}{enrolled\_courses\_id\_}};}
-\DoxyCodeLine{214         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a950865b299533fdd99b14e11a52f5530}{InitializeRandomWealth}}(\textcolor{keywordtype}{size\_t} tick, std::shared\_ptr<Resource> \&out\_wealth);}
-\DoxyCodeLine{223         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a51e57fd64e7b6bd02102d26fe0913442}{InitializeRandomEmotions}}(\textcolor{keywordtype}{size\_t} tick, std::map<EmotionType, std::shared\_ptr<Emotion>> \&out\_emotions);}
-\DoxyCodeLine{232         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1668b314da1d8fb62d26cc4ebbdfe4e3}{InitializeRandomRelationships}}(\textcolor{keywordtype}{size\_t} tick, std::map<\textcolor{keywordtype}{size\_t}, std::map<RelationshipType, std::shared\_ptr<Relationship>>> \&out\_relationships);}
-\DoxyCodeLine{241         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a6274d0ac937dc5f74c42ddc0cab140ef}{InitializeRandomGoal}}(\textcolor{keywordtype}{size\_t} tick, std::shared\_ptr<Goal> \&out\_goals);}
-\DoxyCodeLine{250         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_aad65ddf7d935e35bb31e49b7edd14003}{InitializeRandomTraits}}(\textcolor{keywordtype}{size\_t} tick, std::vector<std::shared\_ptr<Trait>> \&out\_traits);}
-\DoxyCodeLine{258         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}{ActorInRelationshipMap}}(\textcolor{keywordtype}{size\_t} actor, \textcolor{keyword}{const} std::map<\textcolor{keywordtype}{size\_t}, std::map<RelationshipType, std::shared\_ptr<Relationship>>> \&relationships) \textcolor{keyword}{const};}
-\DoxyCodeLine{259     \};}
-\DoxyCodeLine{260 }
-\DoxyCodeLine{261 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{262 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{119         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_actor_a0849ba394e879a908664ccd261090ed2}{CalculateTendencyChance}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \&context, \textcolor{keyword}{const} \textcolor{keywordtype}{float} \&group\_size\_ratio, std::shared\_ptr<Kernel> \&out\_reason);}
+\DoxyCodeLine{120         \textcolor{keywordtype}{bool} CheckRequirements(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} \&requirement, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&actor\_group, \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} context) \textcolor{keyword}{const};}
+\DoxyCodeLine{128         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1591d410e677de016a55445e3538b371}{ApplyWealthChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{139         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}{ApplyEmotionChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{151         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}{ApplyRelationshipChange}}(std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, RelationshipType type, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{157         std::string \mbox{\hyperlink{classtale_1_1_actor_a3cff1f8b6b3f68e6af8c327f5e7d8d85}{GetWealthDescriptionString}}();}
+\DoxyCodeLine{163         std::string \mbox{\hyperlink{classtale_1_1_actor_a0f49eaa23e0dfc803c460fdf1a06c8cc}{GetEmotionsDescriptionString}}();}
+\DoxyCodeLine{169         std::string \mbox{\hyperlink{classtale_1_1_actor_a089d41abd6ff6c41d3dd0078926a5d2e}{GetRelationshipsDescriptionString}}();}
+\DoxyCodeLine{175         std::string \mbox{\hyperlink{classtale_1_1_actor_a45f596aedccf92eb464a11374eb8eaae}{GetGoalDescriptionString}}();}
+\DoxyCodeLine{181         std::string \mbox{\hyperlink{classtale_1_1_actor_a4855909ea2480144e63d4764d5a5784e}{GetTraitsDescriptionString}}();}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{keyword}{private}:}
+\DoxyCodeLine{187         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_actor_a589ad88bd32aa87029fdd4f30d059bb6}{random\_}};}
+\DoxyCodeLine{191         \mbox{\hyperlink{classtale_1_1_school}{School}} \&\mbox{\hyperlink{classtale_1_1_actor_a822a5c5e0484b21932d4faf42d44a15d}{school\_}};}
+\DoxyCodeLine{195         \mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtale_1_1_actor_a1ca3019978ddeca9e26d86cedc9b0b75}{interaction\_store\_}};}
+\DoxyCodeLine{199         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtale_1_1_actor_a10bb3d000d14e1cf888f59e0407c97c7}{setting\_}};}
+\DoxyCodeLine{203         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtale_1_1_actor_a9eea67b53dc323cc31a8705dd536eac1}{filled\_slots\_count\_}} = 0;}
+\DoxyCodeLine{207         std::vector<int> \mbox{\hyperlink{classtale_1_1_actor_a8523f3a44c93d312293f809c933eef96}{enrolled\_courses\_id\_}};}
+\DoxyCodeLine{216         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a950865b299533fdd99b14e11a52f5530}{InitializeRandomWealth}}(\textcolor{keywordtype}{size\_t} tick, std::shared\_ptr<Resource> \&out\_wealth);}
+\DoxyCodeLine{225         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a51e57fd64e7b6bd02102d26fe0913442}{InitializeRandomEmotions}}(\textcolor{keywordtype}{size\_t} tick, std::map<EmotionType, std::shared\_ptr<Emotion>> \&out\_emotions);}
+\DoxyCodeLine{234         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a1668b314da1d8fb62d26cc4ebbdfe4e3}{InitializeRandomRelationships}}(\textcolor{keywordtype}{size\_t} tick, std::map<\textcolor{keywordtype}{size\_t}, std::map<RelationshipType, std::shared\_ptr<Relationship>>> \&out\_relationships);}
+\DoxyCodeLine{243         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_a6274d0ac937dc5f74c42ddc0cab140ef}{InitializeRandomGoal}}(\textcolor{keywordtype}{size\_t} tick, std::shared\_ptr<Goal> \&out\_goals);}
+\DoxyCodeLine{252         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_actor_aad65ddf7d935e35bb31e49b7edd14003}{InitializeRandomTraits}}(\textcolor{keywordtype}{size\_t} tick, std::vector<std::shared\_ptr<Trait>> \&out\_traits);}
+\DoxyCodeLine{260         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}{ActorInRelationshipMap}}(\textcolor{keywordtype}{size\_t} actor, \textcolor{keyword}{const} std::map<\textcolor{keywordtype}{size\_t}, std::map<RelationshipType, std::shared\_ptr<Relationship>>> \&relationships) \textcolor{keyword}{const};}
+\DoxyCodeLine{261     \};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}

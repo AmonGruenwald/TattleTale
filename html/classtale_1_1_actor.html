@@ -108,9 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">ChooseInteraction</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;actor_group, <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;out_reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;out_participants)</td></tr>
 <tr class="memdesc:ac27fdc4a07ed2f1f1870c754517f2774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">More...</a><br /></td></tr>
 <tr class="separator:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a97fb9caf009723cfbbf3ec297221d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a49a97fb9caf009723cfbbf3ec297221d">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, const float &amp;group_size_ratio)</td></tr>
-<tr class="memdesc:a49a97fb9caf009723cfbbf3ec297221d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a49a97fb9caf009723cfbbf3ec297221d">More...</a><br /></td></tr>
-<tr class="separator:a49a97fb9caf009723cfbbf3ec297221d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0849ba394e879a908664ccd261090ed2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a0849ba394e879a908664ccd261090ed2">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, const float &amp;group_size_ratio, std::shared_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
+<tr class="memdesc:a0849ba394e879a908664ccd261090ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a0849ba394e879a908664ccd261090ed2">More...</a><br /></td></tr>
+<tr class="separator:a0849ba394e879a908664ccd261090ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1591d410e677de016a55445e3538b371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">ApplyWealthChange</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t tick, float value)</td></tr>
 <tr class="memdesc:a1591d410e677de016a55445e3538b371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth.  <a href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">More...</a><br /></td></tr>
 <tr class="separator:a1591d410e677de016a55445e3538b371"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -437,8 +437,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a49a97fb9caf009723cfbbf3ec297221d" name="a49a97fb9caf009723cfbbf3ec297221d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49a97fb9caf009723cfbbf3ec297221d">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
+<a id="a0849ba394e879a908664ccd261090ed2" name="a0849ba394e879a908664ccd261090ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0849ba394e879a908664ccd261090ed2">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,7 +459,13 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float &amp;&#160;</td>
-          <td class="paramname"><em>group_size_ratio</em>&#160;</td>
+          <td class="paramname"><em>group_size_ratio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out_reason</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -474,8 +480,9 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tendency</td><td>The tendency of the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> we want the chance for. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">context</td><td>In which context the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> would happen. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">group_size_ratio</td><td>How big the group is in which this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> is happening (between -1.0 and 1.0). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>In which context the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> would happen. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_size_ratio</td><td>How big the group is in which this <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> is happening (between -1.0 and 1.0). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_reason</td><td>Which part of the state of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> increased the chance the most. </td></tr>
   </table>
   </dd>
 </dl>

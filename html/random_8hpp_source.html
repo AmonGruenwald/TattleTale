@@ -86,7 +86,7 @@ $(function() {
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">int</span> GetInt(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        uint32_t GetUInt(uint32_t min, uint32_t max);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordtype">float</span> GetFloat(<span class="keywordtype">float</span> min, <span class="keywordtype">float</span> max);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">size_t</span> PickIndex(<span class="keyword">const</span> std::vector&lt;float&gt; &amp;probability_distribution);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">size_t</span> PickIndex(<span class="keyword">const</span> std::vector&lt;float&gt; &amp;probability_distribution, <span class="keywordtype">bool</span> all_zeroes_means_equal_chance = <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::mt19937 rng_;</div>
