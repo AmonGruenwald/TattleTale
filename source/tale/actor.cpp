@@ -109,20 +109,54 @@ namespace tale
 
         out_participants.push_back(weak_from_this());
         std::vector<float> participant_chances;
+        uint32_t participant_zero_count = 0;
         const Requirement &requirement = requirements[interaction_index];
         const Tendency &tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement.participant_count; ++i)
         {
+
+            std::vector<std::shared_ptr<Kernel>> participant_reasons;
             for (auto &actor : actor_group)
             {
                 // TODO: check if actor is even allowed per requirement
-                // TODO: calculate chances per participant
-                participant_chances.push_back(1.0f);
-            }
-            size_t participant_index = random_.PickIndex(participant_chances);
-            out_participants.push_back(actor_group[participant_index]);
-        }
+                std::shared_ptr<Kernel> reason(nullptr);
+                size_t id = actor.lock()->id_;
+                if (relationships_.count(id))
+                {
+                    std::map<RelationshipType, std::shared_ptr<Relationship>> relationship_map = relationships_[id];
 
+                    float chance = 0.0f;
+                    float highest_chance_increase = 0.0f;
+                    float current_chance_increase = 0.0f;
+                    uint16_t chance_parts = 0;
+
+                    for (auto &[type, relationship] : relationship_map)
+                    {
+                        current_chance_increase = relationship->GetValue() * tendency.relationships[i - 1].at(type);
+                        chance += current_chance_increase;
+                        ++chance_parts;
+                        if (current_chance_increase > highest_chance_increase)
+                        {
+                            highest_chance_increase = current_chance_increase;
+                            reason = relationship;
+                        }
+                    }
+                    if (chance == 0.0f)
+                    {
+                        ++participant_zero_count;
+                    }
+                    participant_chances.push_back(chance);
+                }
+                else
+                {
+                    participant_chances.push_back(0.5f);
+                }
+                participant_reasons.push_back(reason);
+            }
+            size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
+            out_participants.push_back(actor_group[participant_index]);
+            out_reasons.push_back(participant_reasons[participant_index]);
+        }
         return interaction_index;
     }
     bool Actor::CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
@@ -184,7 +218,7 @@ namespace tale
         return chance;
     }
 
-    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
+    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
     {
         float previous_value = wealth_->GetValue();
         float new_value = previous_value + value;
