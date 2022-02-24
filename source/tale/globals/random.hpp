@@ -14,7 +14,7 @@ namespace tale
         int GetInt(int min, int max);
         uint32_t GetUInt(uint32_t min, uint32_t max);
         float GetFloat(float min, float max);
-        size_t PickIndex(const std::vector<float> &probability_distribution);
+        size_t PickIndex(const std::vector<float> &probability_distribution, bool all_zeroes_means_equal_chance = false);
 
     private:
         std::mt19937 rng_;
