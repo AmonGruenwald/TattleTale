@@ -218,7 +218,7 @@ namespace tale
         return chance;
     }
 
-    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
+    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
     {
         float previous_value = wealth_->GetValue();
         float new_value = previous_value + value;
