@@ -1,0 +1,48 @@
+\hypertarget{interactioncontexttype_8hpp_source}{}\doxysection{interactioncontexttype.\+hpp}
+\label{interactioncontexttype_8hpp_source}\index{tale/kernels/interactions/interactioncontexttype.hpp@{tale/kernels/interactions/interactioncontexttype.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11         kNone,}
+\DoxyCodeLine{12         kCourse,}
+\DoxyCodeLine{13         kFreetime,}
+\DoxyCodeLine{14         kLast}
+\DoxyCodeLine{15     \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{27     \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{namespacetale_a968911e65591b2889a53adf7e3d150da}{StringToContextType}}(std::string context\_string)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}course"{}})}
+\DoxyCodeLine{30             \textcolor{keywordflow}{return} ContextType::kCourse;}
+\DoxyCodeLine{31         \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}freetime"{}})}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} ContextType::kFreetime;}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} ContextType::kNone;}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{41     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} context\_type)}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{switch} (context\_type)}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{case} ContextType::kNone:}
+\DoxyCodeLine{46             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
+\DoxyCodeLine{47             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{48         \textcolor{keywordflow}{case} ContextType::kLast:}
+\DoxyCodeLine{49             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}last"{}};}
+\DoxyCodeLine{50             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{51         \textcolor{keywordflow}{case} ContextType::kCourse:}
+\DoxyCodeLine{52             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}course"{}};}
+\DoxyCodeLine{53             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{54         \textcolor{keywordflow}{case} ContextType::kFreetime:}
+\DoxyCodeLine{55             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}freetime"{}};}
+\DoxyCodeLine{56             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+
+\end{DoxyCode}

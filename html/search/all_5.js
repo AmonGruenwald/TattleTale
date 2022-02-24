@@ -25,10 +25,11 @@ var searchData=
   ['getrequirementcatalogue_22',['GetRequirementCatalogue',['../classtale_1_1_interaction_store.html#aeba185508945c3ca34c6019880d56934',1,'tale::InteractionStore']]],
   ['getsetting_23',['GetSetting',['../classtale_1_1_school.html#aa81268087c49316734bca8d7f1b23f46',1,'tale::School']]],
   ['getslotcount_24',['GetSlotCount',['../classtale_1_1_course.html#a54b8b1cb1ac9fd7fc17deed61ee6ea32',1,'tale::Course']]],
-  ['gettraitsdescriptionstring_25',['GetTraitsDescriptionString',['../classtale_1_1_actor.html#a4855909ea2480144e63d4764d5a5784e',1,'tale::Actor']]],
-  ['getvalue_26',['GetValue',['../classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5',1,'tale::Resource']]],
-  ['getwealthdescriptionstring_27',['GetWealthDescriptionString',['../classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85',1,'tale::Actor']]],
-  ['getwealtheffects_28',['GetWealthEffects',['../classtale_1_1_interaction_store.html#a4a531cb8ddffe4381108ca8c4b9af4aa',1,'tale::InteractionStore']]],
-  ['goal_29',['Goal',['../classtale_1_1_goal.html',1,'tale']]],
-  ['goal_5f_30',['goal_',['../classtale_1_1_actor.html#a13b3a7cd1451c7994aa61b6fe58f14f6',1,'tale::Actor']]]
+  ['gettendencycatalogue_25',['GetTendencyCatalogue',['../classtale_1_1_interaction_store.html#a8aca354fe4fcadcaa4a82e95f1e4ed4b',1,'tale::InteractionStore']]],
+  ['gettraitsdescriptionstring_26',['GetTraitsDescriptionString',['../classtale_1_1_actor.html#a4855909ea2480144e63d4764d5a5784e',1,'tale::Actor']]],
+  ['getvalue_27',['GetValue',['../classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5',1,'tale::Resource']]],
+  ['getwealthdescriptionstring_28',['GetWealthDescriptionString',['../classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85',1,'tale::Actor']]],
+  ['getwealtheffects_29',['GetWealthEffects',['../classtale_1_1_interaction_store.html#a4a531cb8ddffe4381108ca8c4b9af4aa',1,'tale::InteractionStore']]],
+  ['goal_30',['Goal',['../classtale_1_1_goal.html',1,'tale']]],
+  ['goal_5f_31',['goal_',['../classtale_1_1_actor.html#a13b3a7cd1451c7994aa61b6fe58f14f6',1,'tale::Actor']]]
 ];

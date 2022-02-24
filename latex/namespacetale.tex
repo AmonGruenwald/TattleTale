@@ -36,6 +36,8 @@ class \mbox{\hyperlink{classtale_1_1_school}{School}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtale_1_1_school}{School}} class that is responsible for managing actors and courses during the simulation. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtale_1_1_setting}{Setting}}
 \begin{DoxyCompactList}\small\item\em Stores all settings necessary for the simulation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}}
+\begin{DoxyCompactList}\small\item\em TODO. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtale_1_1_trait}{Trait}}
 \begin{DoxyCompactList}\small\item\em Represents the Traits an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
@@ -47,7 +49,54 @@ enum class \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Con
 \mbox{\Hypertarget{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}\label{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}} 
 enum class \mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} 
 \begin{DoxyCompactList}\small\item\em Enum specifying the days of the week. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \mbox{\hyperlink{namespacetale_a968911e65591b2889a53adf7e3d150da}{String\+To\+Context\+Type}} (std\+::string context\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{Context\+Type\+To\+String}} (\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} context\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Converts an Context\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Responsible for the event generation of the Tattle\+Tale project. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetale_a2f024f99510d373736fae7eb2001519e}\label{namespacetale_a2f024f99510d373736fae7eb2001519e}} 
+\index{tale@{tale}!ContextTypeToString@{ContextTypeToString}}
+\index{ContextTypeToString@{ContextTypeToString}!tale@{tale}}
+\doxysubsubsection{\texorpdfstring{ContextTypeToString()}{ContextTypeToString()}}
+{\footnotesize\ttfamily std\+::string tale\+::\+Context\+Type\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}}}]{context\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts an Context\+Type to a string for easy printing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context\+\_\+type} & The Context\+Type we want to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacetale_a968911e65591b2889a53adf7e3d150da}\label{namespacetale_a968911e65591b2889a53adf7e3d150da}} 
+\index{tale@{tale}!StringToContextType@{StringToContextType}}
+\index{StringToContextType@{StringToContextType}!tale@{tale}}
+\doxysubsubsection{\texorpdfstring{StringToContextType()}{StringToContextType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} tale\+::\+String\+To\+Context\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{context\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a string to an Context\+Type. 
+
+Uses the same string values Context\+Type\+To\+String returns. So valid strings are\+: \char`\"{}course\char`\"{} and\char`\"{}freetime\char`\"{}. Everything else just return Context\+Type\+::k\+None.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context\+\_\+string} & The string we want to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding Context\+Type value. 
+\end{DoxyReturn}

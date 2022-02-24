@@ -6,22 +6,24 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_GLOBALS\_RANDOM\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <random>}}
-\DoxyCodeLine{5 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_random}{Random}}}
-\DoxyCodeLine{8     \{}
-\DoxyCodeLine{9     \textcolor{keyword}{public}:}
-\DoxyCodeLine{10         \mbox{\hyperlink{classtale_1_1_random}{Random}}();}
-\DoxyCodeLine{11         \mbox{\hyperlink{classtale_1_1_random}{Random}}(uint32\_t seed);}
-\DoxyCodeLine{12         \textcolor{keywordtype}{void} Seed(uint32\_t seed);}
-\DoxyCodeLine{13         \textcolor{keywordtype}{int} GetInt(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max);}
-\DoxyCodeLine{14         uint32\_t GetUInt(uint32\_t min, uint32\_t max);}
-\DoxyCodeLine{15         \textcolor{keywordtype}{float} GetFloat(\textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max);}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keyword}{private}:}
-\DoxyCodeLine{18         std::mt19937 rng\_;}
-\DoxyCodeLine{19     \};}
-\DoxyCodeLine{20 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_RANDOM\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_random}{Random}}}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10     \textcolor{keyword}{public}:}
+\DoxyCodeLine{11         \mbox{\hyperlink{classtale_1_1_random}{Random}}();}
+\DoxyCodeLine{12         \mbox{\hyperlink{classtale_1_1_random}{Random}}(uint32\_t seed);}
+\DoxyCodeLine{13         \textcolor{keywordtype}{void} Seed(uint32\_t seed);}
+\DoxyCodeLine{14         \textcolor{keywordtype}{int} GetInt(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{15         uint32\_t GetUInt(uint32\_t min, uint32\_t max);}
+\DoxyCodeLine{16         \textcolor{keywordtype}{float} GetFloat(\textcolor{keywordtype}{float} min, \textcolor{keywordtype}{float} max);}
+\DoxyCodeLine{17         \textcolor{keywordtype}{size\_t} PickIndex(\textcolor{keyword}{const} std::vector<float> \&probability\_distribution);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{private}:}
+\DoxyCodeLine{20         std::mt19937 rng\_;}
+\DoxyCodeLine{21     \};}
+\DoxyCodeLine{22 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_RANDOM\_H}}
 
 \end{DoxyCode}

@@ -29,7 +29,9 @@ const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Ty
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_ac2128b942bb61d30d7f3f06dfab59ca1}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_aeba185508945c3ca34c6019880d56934}{Get\+Requirement\+Catalogue}} () const
-\begin{DoxyCompactList}\small\item\em Gettter for a Reference to the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a8aca354fe4fcadcaa4a82e95f1e4ed4b}{Get\+Tendency\+Catalogue}} () const
+\begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,6 +43,9 @@ std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interact
 \begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototypes }}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_ae7bff2929f7b0373e0f257f3860e0905}\label{classtale_1_1_interaction_store_ae7bff2929f7b0373e0f257f3860e0905}} 
 std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ {\bfseries requirements\+\_\+catalogue\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }} for all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_af67bce01f9f22a06a7e29e25a34a6ea4}\label{classtale_1_1_interaction_store_af67bce01f9f22a06a7e29e25a34a6ea4}} 
+std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} $>$ {\bfseries tendencies\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }} for all available \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}\label{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}} 
 std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = \char`\"{}tale/resources/interactioncatalogue.\+json\char`\"{}
@@ -190,10 +195,23 @@ The relationship effects
 
 
 
-Gettter for a Reference to the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. 
+Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. 
 
 \begin{DoxyReturn}{Returns}
-A Reference to the catalogue for the hard \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }}. 
+A Reference to the catalogue for the \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a8aca354fe4fcadcaa4a82e95f1e4ed4b}\label{classtale_1_1_interaction_store_a8aca354fe4fcadcaa4a82e95f1e4ed4b}} 
+\index{tale::InteractionStore@{tale::InteractionStore}!GetTendencyCatalogue@{GetTendencyCatalogue}}
+\index{GetTendencyCatalogue@{GetTendencyCatalogue}!tale::InteractionStore@{tale::InteractionStore}}
+\doxysubsubsection{\texorpdfstring{GetTendencyCatalogue()}{GetTendencyCatalogue()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} $>$ \& tale\+::\+Interaction\+Store\+::\+Get\+Tendency\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} catalogue. 
+
+\begin{DoxyReturn}{Returns}
+A Reference to the catalogue for the \mbox{\hyperlink{structtale_1_1_tendency}{Tendencies }}. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_interaction_store_a4a531cb8ddffe4381108ca8c4b9af4aa}\label{classtale_1_1_interaction_store_a4a531cb8ddffe4381108ca8c4b9af4aa}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!GetWealthEffects@{GetWealthEffects}}

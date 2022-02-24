@@ -9,19 +9,9 @@ Stores all necessary \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }
 
 {\ttfamily \#include $<$tale/kernels/interactions/interactionrequirement.\+hpp$>$}
 
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \mbox{\hyperlink{structtale_1_1_requirement_ac7629cd95cc7ea1a3f82f60e104593fd}{String\+To\+Context\+Type}} (std\+::string context\+\_\+string)
-\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\item 
-static std\+::string \mbox{\hyperlink{structtale_1_1_requirement_a63ef690a7a19fdfaf48dbaf17a0a9d35}{Context\+Type\+To\+String}} (\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} context\+\_\+type)
-\begin{DoxyCompactList}\small\item\em Converts an Context\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structtale_1_1_requirement_a7de1ed3066eacc2446a321f6f495ba2a}\label{structtale_1_1_requirement_a7de1ed3066eacc2446a321f6f495ba2a}} 
-std\+::string {\bfseries name} = \char`\"{}\char`\"{}
-\begin{DoxyCompactList}\small\item\em Name of the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} this \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} concerns. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}\label{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}} 
 \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} {\bfseries context} = Context\+Type\+::k\+None
 \begin{DoxyCompactList}\small\item\em Context\+Type the corresponding \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} needs. \end{DoxyCompactList}\item 
@@ -32,47 +22,6 @@ size\+\_\+t {\bfseries participant\+\_\+count} = 1
 
 \doxysubsection{Detailed Description}
 Stores all necessary \mbox{\hyperlink{structtale_1_1_requirement}{Requirements }} for an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} to happen. 
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{structtale_1_1_requirement_a63ef690a7a19fdfaf48dbaf17a0a9d35}\label{structtale_1_1_requirement_a63ef690a7a19fdfaf48dbaf17a0a9d35}} 
-\index{tale::Requirement@{tale::Requirement}!ContextTypeToString@{ContextTypeToString}}
-\index{ContextTypeToString@{ContextTypeToString}!tale::Requirement@{tale::Requirement}}
-\doxysubsubsection{\texorpdfstring{ContextTypeToString()}{ContextTypeToString()}}
-{\footnotesize\ttfamily static std\+::string tale\+::\+Requirement\+::\+Context\+Type\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}}}]{context\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Converts an Context\+Type to a string for easy printing. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em context\+\_\+type} & The Context\+Type we want to convert. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The corresponding string. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{structtale_1_1_requirement_ac7629cd95cc7ea1a3f82f60e104593fd}\label{structtale_1_1_requirement_ac7629cd95cc7ea1a3f82f60e104593fd}} 
-\index{tale::Requirement@{tale::Requirement}!StringToContextType@{StringToContextType}}
-\index{StringToContextType@{StringToContextType}!tale::Requirement@{tale::Requirement}}
-\doxysubsubsection{\texorpdfstring{StringToContextType()}{StringToContextType()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} tale\+::\+Requirement\+::\+String\+To\+Context\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{context\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Converts a string to an Context\+Type. 
-
-Uses the same string values Context\+Type\+To\+String returns. So valid strings are\+: \char`\"{}course\char`\"{} and\char`\"{}freetime\char`\"{}. Everything else just return Context\+Type\+::k\+None.
-
-
-\begin{DoxyParams}{Parameters}
-{\em context\+\_\+string} & The string we want to convert. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The corresponding Context\+Type value. 
-\end{DoxyReturn}
-
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -65,7 +65,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">tale Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -116,6 +117,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_setting.html">Setting</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all settings necessary for the simulation.  <a href="structtale_1_1_setting.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtale_1_1_tendency.html">Tendency</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="structtale_1_1_tendency.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_trait.html">Trait</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the Traits an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has.  <a href="classtale_1_1_trait.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,10 +132,91 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ad595b201ea86d7ebf4b21df67f60e76d"><td class="memItemLeft" align="right" valign="top"><a id="ad595b201ea86d7ebf4b21df67f60e76d" name="ad595b201ea86d7ebf4b21df67f60e76d"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html#ad595b201ea86d7ebf4b21df67f60e76d">Weekday</a> </td></tr>
 <tr class="memdesc:ad595b201ea86d7ebf4b21df67f60e76d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum specifying the days of the week. <br /></td></tr>
 <tr class="separator:ad595b201ea86d7ebf4b21df67f60e76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a968911e65591b2889a53adf7e3d150da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html#a968911e65591b2889a53adf7e3d150da">StringToContextType</a> (std::string context_string)</td></tr>
+<tr class="memdesc:a968911e65591b2889a53adf7e3d150da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an ContextType.  <a href="namespacetale.html#a968911e65591b2889a53adf7e3d150da">More...</a><br /></td></tr>
+<tr class="separator:a968911e65591b2889a53adf7e3d150da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f024f99510d373736fae7eb2001519e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">ContextTypeToString</a> (<a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context_type)</td></tr>
+<tr class="memdesc:a2f024f99510d373736fae7eb2001519e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ContextType to a string for easy printing.  <a href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">More...</a><br /></td></tr>
+<tr class="separator:a2f024f99510d373736fae7eb2001519e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Responsible for the event generation of the TattleTale project. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2f024f99510d373736fae7eb2001519e" name="a2f024f99510d373736fae7eb2001519e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f024f99510d373736fae7eb2001519e">&#9670;&nbsp;</a></span>ContextTypeToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tale::ContextTypeToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td>
+          <td class="paramname"><em>context_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts an ContextType to a string for easy printing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context_type</td><td>The ContextType we want to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The corresponding string. </dd></dl>
+
+</div>
+</div>
+<a id="a968911e65591b2889a53adf7e3d150da" name="a968911e65591b2889a53adf7e3d150da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968911e65591b2889a53adf7e3d150da">&#9670;&nbsp;</a></span>StringToContextType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> tale::StringToContextType </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>context_string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a string to an ContextType. </p>
+<p >Uses the same string values ContextTypeToString returns. So valid strings are: "course" and"freetime". Everything else just return ContextType::kNone.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context_string</td><td>The string we want to convert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The corresponding ContextType value. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
