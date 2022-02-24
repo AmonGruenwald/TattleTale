@@ -218,33 +218,39 @@ namespace tale
         return chance;
     }
 
-    void Actor::ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value)
+    void Actor::ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
     {
         float previous_value = wealth_->GetValue();
         float new_value = previous_value + value;
+        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
+        all_reasons.push_back(wealth_);
         // TODO: register new resource
-        wealth_ = std::shared_ptr<Resource>(new Resource("wealth", tick, reasons, new_value));
+        wealth_ = std::shared_ptr<Resource>(new Resource("wealth", tick, all_reasons, new_value));
     }
-    void Actor::ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value)
+    void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
         float previous_value = emotions_[type]->GetValue();
         float new_value = previous_value + value;
+        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
+        all_reasons.push_back(emotions_[type]);
         // TODO: register new emotion
-        emotions_[type] = std::shared_ptr<Emotion>(new Emotion(type, tick, reasons, new_value));
+        emotions_[type] = std::shared_ptr<Emotion>(new Emotion(type, tick, all_reasons, new_value));
     }
-    void Actor::ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
+    void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
     {
         float previous_value = 0;
+        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         if (relationships_.count(actor_id))
         {
             if (relationships_.at(actor_id).count(type))
             {
                 previous_value = relationships_.at(actor_id).at(type)->GetValue();
+                all_reasons.push_back(relationships_.at(actor_id).at(type));
             }
         }
         float new_value = previous_value + value;
         // TODO: register new emotion
-        relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(type, tick, reasons, new_value));
+        relationships_[actor_id][type] = std::shared_ptr<Relationship>(new Relationship(type, tick, all_reasons, new_value));
     }
     std::string Actor::GetWealthDescriptionString()
     {

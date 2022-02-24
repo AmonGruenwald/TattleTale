@@ -125,7 +125,7 @@ namespace tale
          * @param tick The tick during which this change happened.
          * @param value By how much the wealth gets changed.
          */
-        void ApplyWealthChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, float value);
+        void ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Emotion Emotional \endlink state.
          *
@@ -136,7 +136,7 @@ namespace tale
          * @param type The type of Emotion that gets changed.
          * @param value By how much the Emotion gets changed.
          */
-        void ApplyEmotionChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, EmotionType type, float value);
+        void ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *
@@ -148,7 +148,7 @@ namespace tale
          * @param type The type of Relationship that gets changed.
          * @param value By how much the Relationship gets changed.
          */
-        void ApplyRelationshipChange(std::vector<std::weak_ptr<Kernel>> reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
+        void ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
         /**
          * @brief Creates a string describing the current wealth status of the Actor.
          *
