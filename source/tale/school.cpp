@@ -149,11 +149,19 @@ namespace tale
                     {
                         std::vector<std::weak_ptr<Kernel>> reasons;
                         std::vector<std::weak_ptr<Actor>> participants;
-                        size_t interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
-                        // TODO: registers interaction to events
-                        std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
-                        interaction->Apply();
-                        TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->ToString());
+                        int interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
+
+                        if (interaction_index != -1)
+                        {
+                            // TODO: registers interaction to events
+                            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                            interaction->Apply();
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->ToString());
+                        }
+                        else
+                        {
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " does nothing.");
+                        }
                     }
                 }
                 ++current_tick_;
@@ -177,11 +185,18 @@ namespace tale
         {
             std::vector<std::weak_ptr<Kernel>> reasons;
             std::vector<std::weak_ptr<Actor>> participants;
-            size_t interaction_index = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
+            int interaction_index = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
             // TODO: registers interaction to events
-            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
-            interaction->Apply();
-            TALE_VERBOSE_PRINT("During Freetime " + interaction->ToString());
+            if (interaction_index != -1)
+            {
+                std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                interaction->Apply();
+                TALE_VERBOSE_PRINT("During Freetime " + interaction->ToString());
+            }
+            else
+            {
+                TALE_VERBOSE_PRINT("During Freetime " + actor->name_ + " does nothing.");
+            }
         }
     }
 

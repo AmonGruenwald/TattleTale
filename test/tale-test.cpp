@@ -527,7 +527,8 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
     tale::Tendency tendency;
     tale::ContextType context = tale::ContextType::kNone;
     float group_size_ratio = 0.0f;
-    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+    std::shared_ptr<tale::Kernel> reason(nullptr);
+    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
 
@@ -550,7 +551,8 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     }
     tale::ContextType context = tale::ContextType::kCourse;
     float group_size_ratio = 1.0f;
-    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+    std::shared_ptr<tale::Kernel> reason(nullptr);
+    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
 
@@ -578,7 +580,8 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
         }
         tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
         float group_size_ratio = random.GetFloat(-1.0f, 1.0f);
-        float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio);
+        std::shared_ptr<tale::Kernel> reason(nullptr);
+        float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
         EXPECT_GE(chance, 0.0f);
         EXPECT_LE(chance, 1.0f);
     }
@@ -614,7 +617,6 @@ TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
         EXPECT_LT(random.PickIndex(distribution), tries);
     }
 }
-
 TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
 {
     time_t seconds = time(NULL);
@@ -625,8 +627,8 @@ TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
         uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
         uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
         std::vector<float> distribution(tries, 0.0f);
-        EXPECT_GE(random.PickIndex(distribution), 0);
-        EXPECT_LT(random.PickIndex(distribution), tries);
+        EXPECT_GE(random.PickIndex(distribution, true), 0);
+        EXPECT_LT(random.PickIndex(distribution, true), tries);
     }
 }
 TEST(TaleRandom, PickBetweenRandomRange)
@@ -644,8 +646,8 @@ TEST(TaleRandom, PickBetweenRandomRange)
         {
             distribution.push_back(((j >= random_index_bottom && j <= random_index_top) ? 1.0f : 0.0f));
         }
-        EXPECT_GE(random.PickIndex(distribution), random_index_bottom);
-        EXPECT_LE(random.PickIndex(distribution), random_index_top);
+        EXPECT_GE(random.PickIndex(distribution, true), random_index_bottom);
+        EXPECT_LE(random.PickIndex(distribution, true), random_index_top);
     }
 }
 // bool AllSlotsFilled() const;
