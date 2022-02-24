@@ -24,12 +24,7 @@ namespace tale
             {EmotionType::kSatisfied, 0.0f},
             {EmotionType::kBrave, 0.0f},
             {EmotionType::kExtroverted, 0.0f}};
-        std::map<RelationshipType, float> relationships = {
-            {RelationshipType::kLove, 0.0f},
-            {RelationshipType::kAttraction, 0.0f},
-            {RelationshipType::kFriendship, 0.0f},
-            {RelationshipType::kAnger, 0.0f},
-            {RelationshipType::kProtective, 0.0f}};
+        std::vector<std::map<RelationshipType, float>> relationships = {};
     };
 
 } // namespace tale
