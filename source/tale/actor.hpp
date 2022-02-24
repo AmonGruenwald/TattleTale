@@ -111,11 +111,13 @@ namespace tale
          * two Interactions have a chance of 50% each and the last one has a 0% chance.
          *
          * @param[in] tendency The tendency of the Interaction we want the chance for.
-         * @param[out] context In which context the Interaction would happen.
-         * @param[out] group_size_ratio How big the group is in which this Interaction is happening (between -1.0 and 1.0).
+         * @param[in] context In which context the Interaction would happen.
+         * @param[in] group_size_ratio How big the group is in which this Interaction is happening (between -1.0 and 1.0).
+         * @param[out] out_reason Which part of the state of the Actor increased the chance the most.
          * @return A chance value between 0.0 and 1.0.
          */
-        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio);
+        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::shared_ptr<Kernel> &out_reason);
+        bool CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *

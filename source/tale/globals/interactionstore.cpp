@@ -94,9 +94,14 @@ namespace tale
             {
                 tendency.emotions[Emotion::StringToEmotionType(type)] = value;
             }
-            for (auto &[type, value] : tendency_json["relationships"].items())
+            for (auto relationship : tendency_json["relationships"])
             {
-                tendency.relationships[Relationship::StringToRelationshipType(type)] = value;
+                std::map<RelationshipType, float> relationship_map;
+                for (auto &[type, value] : relationship.items())
+                {
+                    relationship_map.insert({Relationship::StringToRelationshipType(type), value});
+                }
+                tendency.relationships.push_back(relationship_map);
             }
 
             tendencies_catalogue_.push_back(tendency);

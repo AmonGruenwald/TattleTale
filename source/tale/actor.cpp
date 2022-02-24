@@ -63,21 +63,26 @@ namespace tale
     int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
     {
         const std::vector<Requirement> &requirements = interaction_store_.GetRequirementCatalogue();
-        std::vector<size_t> possible_tendencies_indices;
+        std::vector<size_t> possible_interaction_indices;
         for (size_t i = 0; i < requirements.size(); ++i)
         {
-            // TODO: check for other requirements eg. participant count
-            if (requirements.at(i).context == context || requirements.at(i).context == context)
+            if (CheckRequirements(requirements[i], actor_group, context))
             {
-                possible_tendencies_indices.push_back(i);
+                possible_interaction_indices.push_back(i);
             }
         }
+        if (possible_interaction_indices.size() == 0)
+        {
+            return -1;
+        }
 
-        // TODO: decide on which one to pick and add appropriate reasons to out_reasons
         const std::vector<Tendency> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
-        chances.reserve(possible_tendencies_indices.size());
-        for (auto &i : possible_tendencies_indices)
+        chances.reserve(possible_interaction_indices.size());
+        std::vector<std::shared_ptr<Kernel>> reasons;
+        reasons.reserve(possible_interaction_indices.size());
+        uint32_t zero_count = 0;
+        for (auto &i : possible_interaction_indices)
         {
             const Tendency &tendency = tendencies[i];
             // TODO: rethink if this makes sense
@@ -88,51 +93,128 @@ namespace tale
             group_size_ratio = std::clamp(group_size_ratio, 0.0f, 1.0f);
             group_size_ratio *= 2;
             group_size_ratio -= 1.0f;
-            float chance = CalculateTendencyChance(tendency, context, group_size_ratio);
+            std::shared_ptr<Kernel> reason(nullptr);
+            float chance = CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+            if (chance == 0.0f)
+            {
+                ++zero_count;
+            }
             chances.push_back(chance);
+            reasons.push_back(reason);
         }
 
-        size_t index = possible_tendencies_indices.at(random_.PickIndex(chances));
+        size_t index = random_.PickIndex(chances, (zero_count == chances.size()));
+        out_reasons.push_back(reasons[index]);
+        size_t interaction_index = possible_interaction_indices[index];
 
-        // TODO: decide on participants
         out_participants.push_back(weak_from_this());
-        out_participants.push_back(actor_group[0]);
+        std::vector<float> participant_chances;
+        uint32_t participant_zero_count = 0;
+        const Requirement &requirement = requirements[interaction_index];
+        const Tendency &tendency = tendencies[interaction_index];
+        for (size_t i = 1; i < requirement.participant_count; ++i)
+        {
 
-        return index;
+            std::vector<std::shared_ptr<Kernel>> participant_reasons;
+            for (auto &actor : actor_group)
+            {
+                // TODO: check if actor is even allowed per requirement
+                std::shared_ptr<Kernel> reason(nullptr);
+                size_t id = actor.lock()->id_;
+                if (relationships_.count(id))
+                {
+                    std::map<RelationshipType, std::shared_ptr<Relationship>> relationship_map = relationships_[id];
+
+                    float chance = 0.0f;
+                    float highest_chance_increase = 0.0f;
+                    float current_chance_increase = 0.0f;
+                    uint16_t chance_parts = 0;
+
+                    for (auto &[type, relationship] : relationship_map)
+                    {
+                        current_chance_increase = relationship->GetValue() * tendency.relationships[i - 1].at(type);
+                        chance += current_chance_increase;
+                        ++chance_parts;
+                        if (current_chance_increase > highest_chance_increase)
+                        {
+                            highest_chance_increase = current_chance_increase;
+                            reason = relationship;
+                        }
+                    }
+                    if (chance == 0.0f)
+                    {
+                        ++participant_zero_count;
+                    }
+                    participant_chances.push_back(chance);
+                }
+                else
+                {
+                    participant_chances.push_back(0.5f);
+                }
+                participant_reasons.push_back(reason);
+            }
+            size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
+            out_participants.push_back(actor_group[participant_index]);
+            out_reasons.push_back(participant_reasons[participant_index]);
+        }
+        return interaction_index;
     }
-
-    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio)
+    bool Actor::CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
     {
+        // TODO: check for other requirements eg. participant count
+        if (requirement.context != ContextType::kNone && requirement.context == context)
+        {
+            return false;
+        }
+        if (requirement.participant_count > actor_group.size())
+        {
+            return false;
+        }
+        return true;
+    }
+    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::shared_ptr<Kernel> &out_reason)
+    {
+        // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
+        // TODO: reasons also will never include groupsize or context
         float chance = 0.0f;
-
+        float highest_chance_increase = 0.0f;
+        float current_chance_increase = 0.0f;
         uint16_t chance_parts = 0;
 
-        chance += tendency.group_size * group_size_ratio;
+        current_chance_increase = tendency.group_size * group_size_ratio;
+        chance += current_chance_increase;
         ++chance_parts;
-        std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
         for (auto &[type, value] : tendency.contexts)
         {
             // TODO: rethink wether this makes sense
-            chance += (value * (context == type ? 1.0f : -1.0f));
+            current_chance_increase = (value * (context == type ? 1.0f : -1.0f));
+            chance += current_chance_increase;
             ++chance_parts;
-            std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
         }
 
-        chance += tendency.wealth * wealth_->GetValue();
+        current_chance_increase = tendency.wealth * wealth_->GetValue();
+        chance += current_chance_increase;
         ++chance_parts;
-        std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+        if (current_chance_increase > highest_chance_increase)
+        {
+            highest_chance_increase = current_chance_increase;
+            out_reason = wealth_;
+        }
 
         for (auto &[type, value] : tendency.emotions)
         {
-            chance += (value * emotions_[type]->GetValue());
+            current_chance_increase = (value * emotions_[type]->GetValue());
+            chance += current_chance_increase;
             ++chance_parts;
-            std::cout << "CHANCE: " << chance << "PARTS: " << chance_parts << std::endl;
+            if (current_chance_increase > highest_chance_increase)
+            {
+                highest_chance_increase = current_chance_increase;
+                out_reason = emotions_[type];
+            }
         }
-        chance += static_cast<float>(chance_parts);
 
-        std::cout << "CHANCE: " << chance << std::endl;
+        chance += static_cast<float>(chance_parts);
         chance /= static_cast<float>(chance_parts * 2);
-        std::cout << "CHANCE: " << chance << std::endl;
         return chance;
     }
 
