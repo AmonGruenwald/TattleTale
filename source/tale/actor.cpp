@@ -7,7 +7,7 @@
 
 namespace tale
 {
-    Actor::Actor(School &school, size_t id, std::string name, size_t tick)
+    Actor::Actor(School &school, size_t id, std::string name)
         : random_(school.GetRandom()),
           setting_(school.GetSetting()),
           chronicle_(school.GetChronicle()),
@@ -16,12 +16,16 @@ namespace tale
           id_(id),
           name_(name)
     {
+        enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
+    }
+
+    void Actor::SetupRandomValues(size_t tick)
+    {
         InitializeRandomWealth(tick);
         InitializeRandomEmotions(tick);
         InitializeRandomRelationships(tick);
         InitializeRandomGoal(tick);
         InitializeRandomTraits(tick);
-        enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
     }
 
     bool Actor::IsEnrolledInCourse(size_t course_id) const
@@ -105,7 +109,10 @@ namespace tale
         }
 
         size_t index = random_.PickIndex(chances, (zero_count == chances.size()));
-        out_reasons.push_back(reasons[index]);
+        if (reasons[index].lock())
+        {
+            out_reasons.push_back(reasons[index]);
+        }
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
@@ -156,7 +163,10 @@ namespace tale
             }
             size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
             out_participants.push_back(actor_group[participant_index]);
-            out_reasons.push_back(participant_reasons[participant_index]);
+            if (participant_reasons[participant_index].lock())
+            {
+                out_reasons.push_back(participant_reasons[participant_index]);
+            }
         }
         return interaction_index;
     }
@@ -225,7 +235,7 @@ namespace tale
         float new_value = previous_value + value;
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(wealth_);
-        wealth_ = chronicle_.CreateResource("wealth", tick, all_reasons, new_value);
+        wealth_ = chronicle_.CreateResource("wealth", tick, weak_from_this(), all_reasons, new_value);
     }
     void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
@@ -233,7 +243,7 @@ namespace tale
         float new_value = previous_value + value;
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(emotions_[type]);
-        emotions_[type] = chronicle_.CreateEmotion(type, tick, all_reasons, new_value);
+        emotions_[type] = chronicle_.CreateEmotion(type, tick, weak_from_this(), all_reasons, new_value);
     }
     void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
     {
@@ -248,7 +258,7 @@ namespace tale
             }
         }
         float new_value = previous_value + value;
-        relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, all_reasons, new_value);
+        relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), all_reasons, new_value);
     }
     std::string Actor::GetWealthDescriptionString()
     {
@@ -293,7 +303,7 @@ namespace tale
     void Actor::InitializeRandomWealth(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        wealth_ = chronicle_.CreateResource("wealth", tick, no_reasons, random_.GetFloat(-1.0f, 1.0f));
+        wealth_ = chronicle_.CreateResource("wealth", tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f));
     }
     void Actor::InitializeRandomEmotions(size_t tick)
     {
@@ -302,23 +312,23 @@ namespace tale
             {
                 {
                     EmotionType::kHappy,
-                    chronicle_.CreateEmotion(EmotionType::kHappy, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kHappy, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kCalm,
-                    chronicle_.CreateEmotion(EmotionType::kCalm, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kCalm, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kSatisfied,
-                    chronicle_.CreateEmotion(EmotionType::kSatisfied, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kSatisfied, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kBrave,
-                    chronicle_.CreateEmotion(EmotionType::kBrave, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kBrave, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kExtroverted,
-                    chronicle_.CreateEmotion(EmotionType::kExtroverted, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kExtroverted, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
             };
     }
@@ -338,15 +348,15 @@ namespace tale
             relationships_.insert(
                 {other_actor_id,
                  {{RelationshipType::kLove,
-                   chronicle_.CreateRelationship(RelationshipType::kLove, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kAttraction,
-                   chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kFriendship,
-                   chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kAnger,
-                   chronicle_.CreateRelationship(RelationshipType::kAnger, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kProtective,
-                   chronicle_.CreateRelationship(RelationshipType::kProtective, tick, no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
+                   chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
         }
     }
     void Actor::InitializeRandomGoal(size_t tick)

@@ -55,10 +55,11 @@ namespace tale
          * @param type What RelationshipType this Relationship is of.
          * @param id The index this Kernel holds in the Chronicle.
          * @param tick In which tick this Relationship was created.
+         * @param owner The Actor which owns this Resource.
          * @param reasons What other \link Kernel Kernels \endlink led to this Relationship and its value.
          * @param value Value of the Relationship between -1.0 and 1.0.
          */
-        Relationship(RelationshipType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
         /**
          * @brief The RelationshipType of this Relationship.
          */

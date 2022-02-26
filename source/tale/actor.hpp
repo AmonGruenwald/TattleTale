@@ -54,13 +54,14 @@ namespace tale
          */
         std::weak_ptr<Goal> goal_;
 
-        Actor(School &school, size_t id, std::string name, size_t tick);
+        Actor(School &school, size_t id, std::string name);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
          *
          * @param course_id The id of the Course we want to check.
          * @return The result of the check.
          */
+        void SetupRandomValues(size_t tick);
         bool IsEnrolledInCourse(size_t course_id) const;
         /**
          * @brief Enrolls the Actor in the passed course during the passed slot.

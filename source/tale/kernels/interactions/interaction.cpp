@@ -40,7 +40,7 @@ namespace tale
     std::string Interaction::ToString()
     {
         std::string description = "";
-        description += fmt::format("{} does {}", participants_[0].lock()->name_, name_);
+        description += fmt::format("{} did {}", participants_[0].lock()->name_, name_);
         for (size_t i = 1; i < participants_.size(); ++i)
         {
             if (i == 1)

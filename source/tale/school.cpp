@@ -8,7 +8,7 @@
 
 namespace tale
 {
-    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(), interaction_store_(random_, chronicle_)
+    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(random_), interaction_store_(random_, chronicle_)
     {
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
@@ -20,7 +20,8 @@ namespace tale
         {
             std::string name = firstnames[i] + " " + surnames[i];
             TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name);
-            std::shared_ptr<Actor> actor(new Actor(*this, i, name, tick));
+            std::shared_ptr<Actor> actor(new Actor(*this, i, name));
+            actor->SetupRandomValues(tick);
             actors_.push_back(actor);
             freetime_group_.push_back(actor);
         }
@@ -103,6 +104,7 @@ namespace tale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
         TALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_.GetRandomCausalityChainDescription(5));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -164,7 +166,7 @@ namespace tale
                         }
                         else
                         {
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " does nothing.");
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
                         }
                     }
                 }

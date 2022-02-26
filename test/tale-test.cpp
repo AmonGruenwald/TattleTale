@@ -9,13 +9,19 @@
 #define GTEST_INFO std::cout << "[   INFO   ] "
 TEST(TaleKernels, IncreasingKernelId)
 {
-    tale::Chronicle chronicle;
+    tale::Random random;
+    tale::Chronicle chronicle(random);
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
     size_t tick = 0;
-    std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, no_reasons, 1);
+    tale::Setting setting;
+    setting.actor_count = 0;
+    setting.days_to_simulate = 0;
+    tale::School school(setting);
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, 0, "John Doe"));
+    std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, actor, no_reasons, 1);
     std::weak_ptr<tale::Goal> goal = chronicle.CreateGoal("goal", tick, no_reasons);
-    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, no_reasons, 1);
-    std::weak_ptr<tale::Resource> wealth = chronicle.CreateResource("wealth", tick, no_reasons, 1);
+    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, actor, no_reasons, 1);
+    std::weak_ptr<tale::Resource> wealth = chronicle.CreateResource("wealth", tick, actor, no_reasons, 1);
     std::weak_ptr<tale::Trait> trait = chronicle.CreateTrait("trait", tick, no_reasons);
 
     EXPECT_EQ(0, emotion.lock()->id_);
@@ -160,7 +166,7 @@ TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
     tale::Random random;
-    tale::Chronicle chronicle;
+    tale::Chronicle chronicle(random);
     tale::InteractionStore interaction_store(random, chronicle);
     size_t interaction_index = interaction_store.GetRandomInteractionPrototypeIndex();
     size_t tick = 0;
@@ -209,7 +215,8 @@ TEST(TaleInteractions, ApplyInteraction)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Chronicle chronicle;
+    tale::Random random;
+    tale::Chronicle chronicle(random);
     tale::Setting setting;
     size_t participant_count = 2;
     setting.actor_count = participant_count;
@@ -296,7 +303,8 @@ TEST(TaleInteractions, InteractionBecomesReason)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Chronicle chronicle;
+    tale::Random random;
+    tale::Chronicle chronicle(random);
     tale::Setting setting;
     size_t participant_count = 2;
     setting.actor_count = participant_count;
@@ -376,7 +384,7 @@ TEST(TaleCourse, AddGroupsToSlot)
     for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe", 0));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
@@ -400,14 +408,14 @@ TEST(TaleCourse, AreAllSlotsFilled)
     for (size_t slot = 0; slot < course.GetSlotCount() - 1; ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe", 0));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
         EXPECT_FALSE(course.AllSlotsFilled());
     }
     std::vector<std::weak_ptr<tale::Actor>> course_group;
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John Doe", 0));
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John Doe"));
     actors.push_back(actor);
     course_group.push_back(actor);
     course.AddToSlot(course_group, course.GetSlotCount() - 1);
@@ -444,7 +452,7 @@ TEST(TaleCourse, GetRandomCourseSlot)
     {
 
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John Doe", 0));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, random_filled_slots[i]);
@@ -477,7 +485,8 @@ protected:
         setting_.desired_min_start_relationships_count = desired_min_start_relationships_count_;
         setting_.desired_max_start_relationships_count = desired_max_start_relationships_count_;
         school_ = std::shared_ptr<tale::School>(new tale::School(setting_));
-        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_name_, 0));
+        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_name_));
+        actor_->SetupRandomValues(0);
     }
     virtual ~TaleActor() {}
     void SetUp() {}
@@ -546,11 +555,12 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
         tendency.emotions[type] = 1.0f;
     }
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Chronicle chronicle;
-    actor_->wealth_ = chronicle.CreateResource("wealth", 0, no_reasons, 1.0f);
+    tale::Random random;
+    tale::Chronicle chronicle(random);
+    actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, 1.0f);
     for (auto &[type, value] : tendency.emotions)
     {
-        actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, no_reasons, 1.0f);
+        actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, 1.0f);
     }
     tale::ContextType context = tale::ContextType::kCourse;
     float group_size_ratio = 1.0f;
@@ -576,11 +586,11 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
             tendency.emotions[type] = random.GetFloat(-1.0f, 1.0f);
         }
         std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-        tale::Chronicle chronicle;
-        actor_->wealth_ = chronicle.CreateResource("wealth", 0, no_reasons, random.GetFloat(-1.0f, 1.0f));
+        tale::Chronicle chronicle(random);
+        actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         for (auto &[type, value] : tendency.emotions)
         {
-            actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, no_reasons, random.GetFloat(-1.0f, 1.0f));
+            actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         }
         tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
         float group_size_ratio = random.GetFloat(-1.0f, 1.0f);

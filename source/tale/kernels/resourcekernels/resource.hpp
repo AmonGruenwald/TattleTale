@@ -5,6 +5,7 @@
 
 namespace tale
 {
+    class Actor;
     /**
      * @brief Represents an abstract Resource an Actor has.
      */
@@ -33,16 +34,21 @@ namespace tale
          * @param name The name of this Resource. Should describe what this Resource is tracking.
          * @param id The index this Kernel holds in the Chronicle.
          * @param tick In which tick this Resource was created.
+         * @param owner The Actor which owns this Resource.
          * @param reasons What other \link Kernel Kernels \endlink  led to this Resource and its value.
          * @param value Value of the Resource between -1.0 and 1.0.
          */
-        Resource(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Resource(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
 
     private:
         /**
          * @brief The value of this Resource.
          */
         float value_;
+        /**
+         * @brief The Actor owning this Resource.
+         */
+        std::weak_ptr<Actor> owner_;
         friend class Chronicle;
     };
 
