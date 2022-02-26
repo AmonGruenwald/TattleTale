@@ -68,8 +68,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtale_1_1_emotion-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Emotion Class Reference</div></div>
@@ -86,27 +86,11 @@ Inheritance diagram for tale::Emotion:</div>
  <div class="center">
   <img src="classtale_1_1_emotion.png" usemap="#tale::Emotion_map" alt=""/>
   <map id="tale::Emotion_map" name="tale::Emotion_map">
-<area href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has." alt="tale::Resource" shape="rect" coords="0,56,92,80"/>
-<area href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality..." alt="tale::Kernel" shape="rect" coords="0,0,92,24"/>
+<area href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has." alt="tale::Resource" shape="rect" coords="0,112,237,136"/>
+<area href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality..." alt="tale::Kernel" shape="rect" coords="0,56,237,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab211c1fe4074b9d4e5cdd54ceda54c5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_emotion.html#ab211c1fe4074b9d4e5cdd54ceda54c5f">Emotion</a> (EmotionType type, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value)</td></tr>
-<tr class="memdesc:ab211c1fe4074b9d4e5cdd54ceda54c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> class and type_ member.  <a href="classtale_1_1_emotion.html#ab211c1fe4074b9d4e5cdd54ceda54c5f">More...</a><br /></td></tr>
-<tr class="separator:ab211c1fe4074b9d4e5cdd54ceda54c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classtale_1_1_resource"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtale_1_1_resource')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtale_1_1_resource.html">tale::Resource</a></td></tr>
-<tr class="memitem:af06ff66b84d50f6c45a33d48b6469e23 inherit pub_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#af06ff66b84d50f6c45a33d48b6469e23">Resource</a> (std::string name, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value)</td></tr>
-<tr class="memdesc:af06ff66b84d50f6c45a33d48b6469e23 inherit pub_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class and value_ member.  <a href="classtale_1_1_resource.html#af06ff66b84d50f6c45a33d48b6469e23">More...</a><br /></td></tr>
-<tr class="separator:af06ff66b84d50f6c45a33d48b6469e23 inherit pub_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">GetValue</a> () const</td></tr>
-<tr class="memdesc:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the value of the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">More...</a><br /></td></tr>
-<tr class="separator:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">ToString</a> ()</td></tr>
-<tr class="memdesc:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> for easy printing.  <a href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">More...</a><br /></td></tr>
-<tr class="separator:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8092b3fc401bf81231773382145a867b"><td class="memItemLeft" align="right" valign="top">static EmotionType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_emotion.html#a8092b3fc401bf81231773382145a867b">StringToEmotionType</a> (std::string emotion_string)</td></tr>
@@ -115,6 +99,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af02a9111d0edce779fc77f336eaa6e42"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">EmotionTypeToString</a> (EmotionType emotion_type)</td></tr>
 <tr class="memdesc:af02a9111d0edce779fc77f336eaa6e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an EmotionType to a string for easy printing.  <a href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">More...</a><br /></td></tr>
 <tr class="separator:af02a9111d0edce779fc77f336eaa6e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:acdc6e24c51f8368ac19450e897c93971"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_emotion.html#acdc6e24c51f8368ac19450e897c93971">Emotion</a> (EmotionType type, size_t id, size_t tick, std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; owner, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value)</td></tr>
+<tr class="memdesc:acdc6e24c51f8368ac19450e897c93971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> class and type_ member.  <a href="classtale_1_1_emotion.html#acdc6e24c51f8368ac19450e897c93971">More...</a><br /></td></tr>
+<tr class="separator:acdc6e24c51f8368ac19450e897c93971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -125,20 +115,30 @@ EmotionType&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_classtale_1_1_kernel"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classtale_1_1_kernel')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtale_1_1_kernel.html">tale::Kernel</a></td></tr>
-<tr class="memitem:a7887405bbbc64ab91ecf82dbf01bdb34 inherit pro_methods_classtale_1_1_kernel"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">Kernel</a> ()</td></tr>
-<tr class="memdesc:a7887405bbbc64ab91ecf82dbf01bdb34 inherit pro_methods_classtale_1_1_kernel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor should generally not be callable.  <a href="classtale_1_1_kernel.html#a7887405bbbc64ab91ecf82dbf01bdb34">More...</a><br /></td></tr>
-<tr class="separator:a7887405bbbc64ab91ecf82dbf01bdb34 inherit pro_methods_classtale_1_1_kernel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtale_1_1_resource"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtale_1_1_resource')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtale_1_1_resource.html">tale::Resource</a></td></tr>
+<tr class="memitem:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">GetValue</a> () const</td></tr>
+<tr class="memdesc:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the value of the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">More...</a><br /></td></tr>
+<tr class="separator:a4de342e7674278b3666d361f89d478f5 inherit pub_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">ToString</a> ()</td></tr>
+<tr class="memdesc:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> for easy printing.  <a href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">More...</a><br /></td></tr>
+<tr class="separator:a5056c415f16e2f4166a099f493ae5f65 inherit pub_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classtale_1_1_resource"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classtale_1_1_resource')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtale_1_1_resource.html">tale::Resource</a></td></tr>
+<tr class="memitem:a1adca9805b51e035addfa27c5dcf97c9 inherit pro_methods_classtale_1_1_resource"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a1adca9805b51e035addfa27c5dcf97c9">Resource</a> (std::string name, size_t id, size_t tick, std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; owner, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value)</td></tr>
+<tr class="memdesc:a1adca9805b51e035addfa27c5dcf97c9 inherit pro_methods_classtale_1_1_resource"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class and value_ member.  <a href="classtale_1_1_resource.html#a1adca9805b51e035addfa27c5dcf97c9">More...</a><br /></td></tr>
+<tr class="separator:a1adca9805b51e035addfa27c5dcf97c9 inherit pro_methods_classtale_1_1_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents an <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has. </p>
 <p >Will be instantiated inside a map connecting different <a class="el" href="">EmotionTypes </a> to different <a class="el" href="classtale_1_1_emotion.html">Emotions </a> for each <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab211c1fe4074b9d4e5cdd54ceda54c5f" name="ab211c1fe4074b9d4e5cdd54ceda54c5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab211c1fe4074b9d4e5cdd54ceda54c5f">&#9670;&nbsp;</a></span>Emotion()</h2>
+<a id="acdc6e24c51f8368ac19450e897c93971" name="acdc6e24c51f8368ac19450e897c93971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc6e24c51f8368ac19450e897c93971">&#9670;&nbsp;</a></span>Emotion()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tale::Emotion::Emotion </td>
@@ -150,7 +150,19 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>tick</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt;&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -170,13 +182,21 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor initializing base <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> class and type_ member. </p>
+<p >This should only ever be called through the <a class="el" href="classtale_1_1_chronicle.html">Chronicle</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">type</td><td>What EmotionType this <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> is of. </td></tr>
+    <tr><td class="paramname">id</td><td>The index this <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> holds in the <a class="el" href="classtale_1_1_chronicle.html">Chronicle</a>. </td></tr>
     <tr><td class="paramname">tick</td><td>In which tick this <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> was created. </td></tr>
+    <tr><td class="paramname">owner</td><td>The <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> which owns this <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. </td></tr>
     <tr><td class="paramname">reasons</td><td>What other <a class="el" href="classtale_1_1_kernel.html">Kernels </a> led to this <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> and its value. </td></tr>
     <tr><td class="paramname">value</td><td>Value of the <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> between -1.0 and 1.0. </td></tr>
   </table>

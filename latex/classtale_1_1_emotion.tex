@@ -12,14 +12,9 @@ Represents an \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} an \mbox{\hyperl
 Inheritance diagram for tale\+::Emotion\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classtale_1_1_emotion}
+\includegraphics[height=4.000000cm]{classtale_1_1_emotion}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classtale_1_1_emotion_ab211c1fe4074b9d4e5cdd54ceda54c5f}{Emotion}} (Emotion\+Type type, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
-\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,6 +22,11 @@ static Emotion\+Type \mbox{\hyperlink{classtale_1_1_emotion_a8092b3fc401bf812317
 \begin{DoxyCompactList}\small\item\em Converts a string to an Emotion\+Type. \end{DoxyCompactList}\item 
 static std\+::string \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{Emotion\+Type\+To\+String}} (Emotion\+Type emotion\+\_\+type)
 \begin{DoxyCompactList}\small\item\em Converts an Emotion\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtale_1_1_emotion_acdc6e24c51f8368ac19450e897c93971}{Emotion}} (Emotion\+Type type, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ owner, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,21 +42,27 @@ Represents an \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} an \mbox{\hyperl
 Will be instantiated inside a map connecting different \mbox{\hyperlink{}{Emotion\+Types }} to different \mbox{\hyperlink{classtale_1_1_emotion}{Emotions }} for each \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_emotion_ab211c1fe4074b9d4e5cdd54ceda54c5f}\label{classtale_1_1_emotion_ab211c1fe4074b9d4e5cdd54ceda54c5f}} 
+\mbox{\Hypertarget{classtale_1_1_emotion_acdc6e24c51f8368ac19450e897c93971}\label{classtale_1_1_emotion_acdc6e24c51f8368ac19450e897c93971}} 
 \index{tale::Emotion@{tale::Emotion}!Emotion@{Emotion}}
 \index{Emotion@{Emotion}!tale::Emotion@{tale::Emotion}}
 \doxysubsubsection{\texorpdfstring{Emotion()}{Emotion()}}
-{\footnotesize\ttfamily tale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{Emotion\+Type}]{type,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{Emotion\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 Constructor initializing base \mbox{\hyperlink{classtale_1_1_resource}{Resource}} class and type\+\_\+ member. 
 
+This should only ever be called through the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}.
+
 
 \begin{DoxyParams}{Parameters}
 {\em type} & What Emotion\+Type this \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} is of. \\
 \hline
+{\em id} & The index this \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}. \\
+\hline
 {\em tick} & In which tick this \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} was created. \\
+\hline
+{\em owner} & The \mbox{\hyperlink{classtale_1_1_actor}{Actor}} which owns this \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. \\
 \hline
 {\em reasons} & What other \mbox{\hyperlink{classtale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} and its value. \\
 \hline

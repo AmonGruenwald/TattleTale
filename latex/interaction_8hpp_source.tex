@@ -16,27 +16,29 @@
 \DoxyCodeLine{12 \{}
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14     \textcolor{keyword}{class }Actor;}
-\DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}, \textcolor{keyword}{public} std::enable\_shared\_from\_this<Interaction>}
+\DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
 \DoxyCodeLine{22     \{}
 \DoxyCodeLine{23     \textcolor{keyword}{public}:}
-\DoxyCodeLine{41         \mbox{\hyperlink{classtale_1_1_interaction_a446f563fa8b7d25c4a8fba09ceae20c8}{Interaction}}(}
-\DoxyCodeLine{42             \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype,}
-\DoxyCodeLine{43             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{44             std::vector<std::weak\_ptr<Kernel>> reasons,}
-\DoxyCodeLine{45             std::vector<std::weak\_ptr<Actor>> participants);}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{50         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}{Apply}}();}
-\DoxyCodeLine{56         std::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{ToString}}();}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{63         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&\mbox{\hyperlink{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}{GetPrototype}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{69         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&\mbox{\hyperlink{classtale_1_1_interaction_a9da010016f5a366e05fc2b19d9809571}{GetParticipants}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71     \textcolor{keyword}{private}:}
-\DoxyCodeLine{75         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&\mbox{\hyperlink{classtale_1_1_interaction_ac6dd450a4a73e3013c7d2d24b79ff7e7}{prototype\_}};}
-\DoxyCodeLine{79         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}{participants\_}};}
-\DoxyCodeLine{80     \};}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_INTERACTIONS\_INTERACTION\_H}}
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtale_1_1_interaction_aaeae12102f802d68e0504e19bb413960}{Apply}}();}
+\DoxyCodeLine{33         std::string \mbox{\hyperlink{classtale_1_1_interaction_abace54ec1b4f7a207fb7f6d14added96}{ToString}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&\mbox{\hyperlink{classtale_1_1_interaction_a87b803221285d33ab4ad33a72db800ce}{GetPrototype}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&\mbox{\hyperlink{classtale_1_1_interaction_a9da010016f5a366e05fc2b19d9809571}{GetParticipants}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{private}:}
+\DoxyCodeLine{60         \mbox{\hyperlink{classtale_1_1_interaction_abf8173f7747821c4a6f728b67817b7a5}{Interaction}}(}
+\DoxyCodeLine{61             \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype,}
+\DoxyCodeLine{62             \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id},}
+\DoxyCodeLine{63             \textcolor{keywordtype}{size\_t} tick,}
+\DoxyCodeLine{64             std::vector<std::weak\_ptr<Kernel>> reasons,}
+\DoxyCodeLine{65             std::vector<std::weak\_ptr<Actor>>}
+\DoxyCodeLine{66                 participants);}
+\DoxyCodeLine{70         \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&\mbox{\hyperlink{classtale_1_1_interaction_ac6dd450a4a73e3013c7d2d24b79ff7e7}{prototype\_}};}
+\DoxyCodeLine{74         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_interaction_a95ed099c8cdb1b77ec5e25bfbcbe0f6a}{participants\_}};}
+\DoxyCodeLine{75         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{76     \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_INTERACTIONS\_INTERACTION\_H}}
 
 \end{DoxyCode}

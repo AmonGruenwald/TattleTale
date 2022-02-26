@@ -90,9 +90,9 @@ Inheritance diagram for tale::Actor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adced7f601f68a004a0e2b047c5954cad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#adced7f601f68a004a0e2b047c5954cad">IsEnrolledInCourse</a> (size_t course_id) const</td></tr>
-<tr class="memdesc:adced7f601f68a004a0e2b047c5954cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is enrolled in the passed <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>.  <a href="classtale_1_1_actor.html#adced7f601f68a004a0e2b047c5954cad">More...</a><br /></td></tr>
-<tr class="separator:adced7f601f68a004a0e2b047c5954cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#aab1865ab7cc4f2512b84ef8a04969e1d">SetupRandomValues</a> (size_t tick)</td></tr>
+<tr class="memdesc:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is enrolled in the passed <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>.  <a href="classtale_1_1_actor.html#aab1865ab7cc4f2512b84ef8a04969e1d">More...</a><br /></td></tr>
+<tr class="separator:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaf48912c1386a3f1c3feef0cb5554b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1">EnrollInCourse</a> (size_t course_id, uint32_t slot)</td></tr>
 <tr class="memdesc:abaf48912c1386a3f1c3feef0cb5554b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enrolls the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> in the passed course during the passed slot.  <a href="classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1">More...</a><br /></td></tr>
 <tr class="separator:abaf48912c1386a3f1c3feef0cb5554b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,18 +108,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">ChooseInteraction</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;actor_group, <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;out_reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;out_participants)</td></tr>
 <tr class="memdesc:ac27fdc4a07ed2f1f1870c754517f2774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">More...</a><br /></td></tr>
 <tr class="separator:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0849ba394e879a908664ccd261090ed2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a0849ba394e879a908664ccd261090ed2">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, const float &amp;group_size_ratio, std::shared_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
-<tr class="memdesc:a0849ba394e879a908664ccd261090ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a0849ba394e879a908664ccd261090ed2">More...</a><br /></td></tr>
-<tr class="separator:a0849ba394e879a908664ccd261090ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1591d410e677de016a55445e3538b371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">ApplyWealthChange</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t tick, float value)</td></tr>
-<tr class="memdesc:a1591d410e677de016a55445e3538b371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth.  <a href="classtale_1_1_actor.html#a1591d410e677de016a55445e3538b371">More...</a><br /></td></tr>
-<tr class="separator:a1591d410e677de016a55445e3538b371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22215c0773b0cd90117b40aeda17f8ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a22215c0773b0cd90117b40aeda17f8ee">ApplyEmotionChange</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t tick, EmotionType type, float value)</td></tr>
-<tr class="memdesc:a22215c0773b0cd90117b40aeda17f8ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_emotion.html">Emotional </a> state.  <a href="classtale_1_1_actor.html#a22215c0773b0cd90117b40aeda17f8ee">More...</a><br /></td></tr>
-<tr class="separator:a22215c0773b0cd90117b40aeda17f8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d1c070e6fe6324f2d55713f8e859765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1d1c070e6fe6324f2d55713f8e859765">ApplyRelationshipChange</a> (std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, size_t tick, size_t actor_id, RelationshipType type, float value)</td></tr>
-<tr class="memdesc:a1d1c070e6fe6324f2d55713f8e859765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>.  <a href="classtale_1_1_actor.html#a1d1c070e6fe6324f2d55713f8e859765">More...</a><br /></td></tr>
-<tr class="separator:a1d1c070e6fe6324f2d55713f8e859765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e32405d42406bf6af27088e2d2e21b3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a5e32405d42406bf6af27088e2d2e21b3">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, const float &amp;group_size_ratio, std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
+<tr class="memdesc:a5e32405d42406bf6af27088e2d2e21b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a5e32405d42406bf6af27088e2d2e21b3">More...</a><br /></td></tr>
+<tr class="separator:a5e32405d42406bf6af27088e2d2e21b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b9a636a41cd0ff4643f06d320de991d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d">ApplyWealthChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, float value)</td></tr>
+<tr class="memdesc:a6b9a636a41cd0ff4643f06d320de991d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth.  <a href="classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d">More...</a><br /></td></tr>
+<tr class="separator:a6b9a636a41cd0ff4643f06d320de991d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1e01ae3cb1b7e8cebf9f2b02edf60e8d">ApplyEmotionChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, EmotionType type, float value)</td></tr>
+<tr class="memdesc:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_emotion.html">Emotional </a> state.  <a href="classtale_1_1_actor.html#a1e01ae3cb1b7e8cebf9f2b02edf60e8d">More...</a><br /></td></tr>
+<tr class="separator:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588d52e5006f014cd84e06a30d7bc614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a588d52e5006f014cd84e06a30d7bc614">ApplyRelationshipChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, size_t actor_id, RelationshipType type, float value)</td></tr>
+<tr class="memdesc:a588d52e5006f014cd84e06a30d7bc614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>.  <a href="classtale_1_1_actor.html#a588d52e5006f014cd84e06a30d7bc614">More...</a><br /></td></tr>
+<tr class="separator:a588d52e5006f014cd84e06a30d7bc614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85">GetWealthDescriptionString</a> ()</td></tr>
 <tr class="memdesc:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the current wealth status of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85">More...</a><br /></td></tr>
 <tr class="separator:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,47 +146,47 @@ const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>id_</b></td><
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
 <tr class="memdesc:a86d006fe2e3d80ea674d1edd0324eb48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
 <tr class="separator:a86d006fe2e3d80ea674d1edd0324eb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7d3f51f3c833e226809c6afd85aea0"><td class="memItemLeft" align="right" valign="top"><a id="adb7d3f51f3c833e226809c6afd85aea0" name="adb7d3f51f3c833e226809c6afd85aea0"></a>
-std::shared_ptr&lt; <a class="el" href="classtale_1_1_resource.html">Resource</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_</b></td></tr>
-<tr class="memdesc:adb7d3f51f3c833e226809c6afd85aea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The abstract state of the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
-<tr class="separator:adb7d3f51f3c833e226809c6afd85aea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a043f3b48b195c7c31a014caf1d076c16"><td class="memItemLeft" align="right" valign="top"><a id="a043f3b48b195c7c31a014caf1d076c16" name="a043f3b48b195c7c31a014caf1d076c16"></a>
-std::map&lt; EmotionType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_emotion.html">Emotion</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions_</b></td></tr>
-<tr class="memdesc:a043f3b48b195c7c31a014caf1d076c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_actor.html">Actor's </a> current <a class="el" href="classtale_1_1_emotion.html">Emotional </a> state is. Maps one <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> to each EmotionType. <br /></td></tr>
-<tr class="separator:a043f3b48b195c7c31a014caf1d076c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa02d343332bfc895391e6729facb899b"><td class="memItemLeft" align="right" valign="top"><a id="aa02d343332bfc895391e6729facb899b" name="aa02d343332bfc895391e6729facb899b"></a>
-std::map&lt; size_t, std::map&lt; RelationshipType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationships_</b></td></tr>
-<tr class="memdesc:aa02d343332bfc895391e6729facb899b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a> with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps the other <a class="el" href="classtale_1_1_actor.html">Actor's </a> id to another map of RelationshipType to <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a>. <br /></td></tr>
-<tr class="separator:aa02d343332bfc895391e6729facb899b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a599c708b1b01f2c97765cc8da0ad5da1"><td class="memItemLeft" align="right" valign="top"><a id="a599c708b1b01f2c97765cc8da0ad5da1" name="a599c708b1b01f2c97765cc8da0ad5da1"></a>
-std::vector&lt; std::shared_ptr&lt; <a class="el" href="classtale_1_1_trait.html">Trait</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>traits_</b></td></tr>
-<tr class="memdesc:a599c708b1b01f2c97765cc8da0ad5da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_trait.html">Traits </a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> posses. <br /></td></tr>
-<tr class="separator:a599c708b1b01f2c97765cc8da0ad5da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13b3a7cd1451c7994aa61b6fe58f14f6"><td class="memItemLeft" align="right" valign="top"><a id="a13b3a7cd1451c7994aa61b6fe58f14f6" name="a13b3a7cd1451c7994aa61b6fe58f14f6"></a>
-std::shared_ptr&lt; <a class="el" href="classtale_1_1_goal.html">Goal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>goal_</b></td></tr>
-<tr class="memdesc:a13b3a7cd1451c7994aa61b6fe58f14f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is trying to reach during the simulation. <br /></td></tr>
-<tr class="separator:a13b3a7cd1451c7994aa61b6fe58f14f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63120828ec30882a6d52de004cf30afd"><td class="memItemLeft" align="right" valign="top"><a id="a63120828ec30882a6d52de004cf30afd" name="a63120828ec30882a6d52de004cf30afd"></a>
+std::weak_ptr&lt; <a class="el" href="classtale_1_1_resource.html">Resource</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_</b></td></tr>
+<tr class="memdesc:a63120828ec30882a6d52de004cf30afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The abstract state of the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
+<tr class="separator:a63120828ec30882a6d52de004cf30afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af23bc6c5c6ba6490570b330e73967b2b"><td class="memItemLeft" align="right" valign="top"><a id="af23bc6c5c6ba6490570b330e73967b2b" name="af23bc6c5c6ba6490570b330e73967b2b"></a>
+std::map&lt; EmotionType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_emotion.html">Emotion</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions_</b></td></tr>
+<tr class="memdesc:af23bc6c5c6ba6490570b330e73967b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_actor.html">Actor's </a> current <a class="el" href="classtale_1_1_emotion.html">Emotional </a> state is. Maps one <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> to each EmotionType. <br /></td></tr>
+<tr class="separator:af23bc6c5c6ba6490570b330e73967b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8a3892c01d9e11fc35437405bfd5e9"><td class="memItemLeft" align="right" valign="top"><a id="a4e8a3892c01d9e11fc35437405bfd5e9" name="a4e8a3892c01d9e11fc35437405bfd5e9"></a>
+std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationships_</b></td></tr>
+<tr class="memdesc:a4e8a3892c01d9e11fc35437405bfd5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a> with other <a class="el" href="classtale_1_1_actor.html">Actors </a>. Maps the other <a class="el" href="classtale_1_1_actor.html">Actor's </a> id to another map of RelationshipType to <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a>. <br /></td></tr>
+<tr class="separator:a4e8a3892c01d9e11fc35437405bfd5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac955da0036f4080f1244984513cf4dc3"><td class="memItemLeft" align="right" valign="top"><a id="ac955da0036f4080f1244984513cf4dc3" name="ac955da0036f4080f1244984513cf4dc3"></a>
+std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_trait.html">Trait</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>traits_</b></td></tr>
+<tr class="memdesc:ac955da0036f4080f1244984513cf4dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_trait.html">Traits </a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> posses. <br /></td></tr>
+<tr class="separator:ac955da0036f4080f1244984513cf4dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af89d11036063da76c3e79d5a967baf7a"><td class="memItemLeft" align="right" valign="top"><a id="af89d11036063da76c3e79d5a967baf7a" name="af89d11036063da76c3e79d5a967baf7a"></a>
+std::weak_ptr&lt; <a class="el" href="classtale_1_1_goal.html">Goal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>goal_</b></td></tr>
+<tr class="memdesc:af89d11036063da76c3e79d5a967baf7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is trying to reach during the simulation. <br /></td></tr>
+<tr class="separator:af89d11036063da76c3e79d5a967baf7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a950865b299533fdd99b14e11a52f5530"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a950865b299533fdd99b14e11a52f5530">InitializeRandomWealth</a> (size_t tick, std::shared_ptr&lt; <a class="el" href="classtale_1_1_resource.html">Resource</a> &gt; &amp;out_wealth)</td></tr>
-<tr class="memdesc:a950865b299533fdd99b14e11a52f5530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the passed wealth <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> with a random value.  <a href="classtale_1_1_actor.html#a950865b299533fdd99b14e11a52f5530">More...</a><br /></td></tr>
-<tr class="separator:a950865b299533fdd99b14e11a52f5530"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51e57fd64e7b6bd02102d26fe0913442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a51e57fd64e7b6bd02102d26fe0913442">InitializeRandomEmotions</a> (size_t tick, std::map&lt; EmotionType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_emotion.html">Emotion</a> &gt; &gt; &amp;out_emotions)</td></tr>
-<tr class="memdesc:a51e57fd64e7b6bd02102d26fe0913442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the passed <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> map with random values.  <a href="classtale_1_1_actor.html#a51e57fd64e7b6bd02102d26fe0913442">More...</a><br /></td></tr>
-<tr class="separator:a51e57fd64e7b6bd02102d26fe0913442"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1668b314da1d8fb62d26cc4ebbdfe4e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1668b314da1d8fb62d26cc4ebbdfe4e3">InitializeRandomRelationships</a> (size_t tick, std::map&lt; size_t, std::map&lt; RelationshipType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;out_relationships)</td></tr>
-<tr class="memdesc:a1668b314da1d8fb62d26cc4ebbdfe4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the passed <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map with random values.  <a href="classtale_1_1_actor.html#a1668b314da1d8fb62d26cc4ebbdfe4e3">More...</a><br /></td></tr>
-<tr class="separator:a1668b314da1d8fb62d26cc4ebbdfe4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6274d0ac937dc5f74c42ddc0cab140ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a6274d0ac937dc5f74c42ddc0cab140ef">InitializeRandomGoal</a> (size_t tick, std::shared_ptr&lt; <a class="el" href="classtale_1_1_goal.html">Goal</a> &gt; &amp;out_goals)</td></tr>
-<tr class="memdesc:a6274d0ac937dc5f74c42ddc0cab140ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the passed <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> with a random value.  <a href="classtale_1_1_actor.html#a6274d0ac937dc5f74c42ddc0cab140ef">More...</a><br /></td></tr>
-<tr class="separator:a6274d0ac937dc5f74c42ddc0cab140ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad65ddf7d935e35bb31e49b7edd14003"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#aad65ddf7d935e35bb31e49b7edd14003">InitializeRandomTraits</a> (size_t tick, std::vector&lt; std::shared_ptr&lt; <a class="el" href="classtale_1_1_trait.html">Trait</a> &gt; &gt; &amp;out_traits)</td></tr>
-<tr class="memdesc:aad65ddf7d935e35bb31e49b7edd14003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the passed <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> vector with a random <a class="el" href="classtale_1_1_trait.html">Traits </a>.  <a href="classtale_1_1_actor.html#aad65ddf7d935e35bb31e49b7edd14003">More...</a><br /></td></tr>
-<tr class="separator:aad65ddf7d935e35bb31e49b7edd14003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a398cae0950efe85eae6434fb4fa273"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a3a398cae0950efe85eae6434fb4fa273">ActorInRelationshipMap</a> (size_t actor, const std::map&lt; size_t, std::map&lt; RelationshipType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;relationships) const</td></tr>
-<tr class="memdesc:a3a398cae0950efe85eae6434fb4fa273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is already included in a <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map.  <a href="classtale_1_1_actor.html#a3a398cae0950efe85eae6434fb4fa273">More...</a><br /></td></tr>
-<tr class="separator:a3a398cae0950efe85eae6434fb4fa273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4aa68fa8e36a8a92b09c80c4f331a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#abb4aa68fa8e36a8a92b09c80c4f331a1">InitializeRandomWealth</a> (size_t tick)</td></tr>
+<tr class="memdesc:abb4aa68fa8e36a8a92b09c80c4f331a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Wealth member with a random value.  <a href="classtale_1_1_actor.html#abb4aa68fa8e36a8a92b09c80c4f331a1">More...</a><br /></td></tr>
+<tr class="separator:abb4aa68fa8e36a8a92b09c80c4f331a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a387082f460376d3e7a3853f5377f7b04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a387082f460376d3e7a3853f5377f7b04">InitializeRandomEmotions</a> (size_t tick)</td></tr>
+<tr class="memdesc:a387082f460376d3e7a3853f5377f7b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> member map with random values.  <a href="classtale_1_1_actor.html#a387082f460376d3e7a3853f5377f7b04">More...</a><br /></td></tr>
+<tr class="separator:a387082f460376d3e7a3853f5377f7b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac154b98d1cbadcd80421ae15122dec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a7ac154b98d1cbadcd80421ae15122dec">InitializeRandomRelationships</a> (size_t tick)</td></tr>
+<tr class="memdesc:a7ac154b98d1cbadcd80421ae15122dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> member map with random values.  <a href="classtale_1_1_actor.html#a7ac154b98d1cbadcd80421ae15122dec">More...</a><br /></td></tr>
+<tr class="separator:a7ac154b98d1cbadcd80421ae15122dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb56061a1a70a15fbd80ffaa03f46dca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#afb56061a1a70a15fbd80ffaa03f46dca">InitializeRandomGoal</a> (size_t tick)</td></tr>
+<tr class="memdesc:afb56061a1a70a15fbd80ffaa03f46dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the the <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> member with a random value.  <a href="classtale_1_1_actor.html#afb56061a1a70a15fbd80ffaa03f46dca">More...</a><br /></td></tr>
+<tr class="separator:afb56061a1a70a15fbd80ffaa03f46dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a35502b65911d71bcb0a3b2e8ced3e25a">InitializeRandomTraits</a> (size_t tick)</td></tr>
+<tr class="memdesc:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> member vector with a random <a class="el" href="classtale_1_1_trait.html">Traits </a>.  <a href="classtale_1_1_actor.html#a35502b65911d71bcb0a3b2e8ced3e25a">More...</a><br /></td></tr>
+<tr class="separator:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b2f545fa3a833a6ea4df57100a1819"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a53b2f545fa3a833a6ea4df57100a1819">ActorInRelationshipMap</a> (size_t actor, const std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;relationships) const</td></tr>
+<tr class="memdesc:a53b2f545fa3a833a6ea4df57100a1819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is already included in a <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map.  <a href="classtale_1_1_actor.html#a53b2f545fa3a833a6ea4df57100a1819">More...</a><br /></td></tr>
+<tr class="separator:a53b2f545fa3a833a6ea4df57100a1819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -194,6 +194,10 @@ Private Attributes</h2></td></tr>
 <a class="el" href="classtale_1_1_random.html">Random</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>random_</b></td></tr>
 <tr class="memdesc:a589ad88bd32aa87029fdd4f30d059bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a Reference to the <a class="el" href="classtale_1_1_random.html">Random</a> object of the simulation. <br /></td></tr>
 <tr class="separator:a589ad88bd32aa87029fdd4f30d059bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedf2f03ce2e0634a6cfa4afdd800875"><td class="memItemLeft" align="right" valign="top"><a id="adedf2f03ce2e0634a6cfa4afdd800875" name="adedf2f03ce2e0634a6cfa4afdd800875"></a>
+<a class="el" href="classtale_1_1_chronicle.html">Chronicle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>chronicle_</b></td></tr>
+<tr class="memdesc:adedf2f03ce2e0634a6cfa4afdd800875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a Reference to the <a class="el" href="classtale_1_1_chronicle.html">Chronicle</a> object of the simulation. <br /></td></tr>
+<tr class="separator:adedf2f03ce2e0634a6cfa4afdd800875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a822a5c5e0484b21932d4faf42d44a15d"><td class="memItemLeft" align="right" valign="top"><a id="a822a5c5e0484b21932d4faf42d44a15d" name="a822a5c5e0484b21932d4faf42d44a15d"></a>
 <a class="el" href="classtale_1_1_school.html">School</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>school_</b></td></tr>
 <tr class="memdesc:a822a5c5e0484b21932d4faf42d44a15d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a Reference to the <a class="el" href="classtale_1_1_school.html" title="School class that is responsible for managing actors and courses during the simulation.">School</a> object of the simulation. <br /></td></tr>
@@ -218,8 +222,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents one person in the simulation. An <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3a398cae0950efe85eae6434fb4fa273" name="a3a398cae0950efe85eae6434fb4fa273"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a398cae0950efe85eae6434fb4fa273">&#9670;&nbsp;</a></span>ActorInRelationshipMap()</h2>
+<a id="a53b2f545fa3a833a6ea4df57100a1819" name="a53b2f545fa3a833a6ea4df57100a1819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b2f545fa3a833a6ea4df57100a1819">&#9670;&nbsp;</a></span>ActorInRelationshipMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +240,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::map&lt; size_t, std::map&lt; RelationshipType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>relationships</em>&#160;</td>
         </tr>
         <tr>
@@ -284,8 +288,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a22215c0773b0cd90117b40aeda17f8ee" name="a22215c0773b0cd90117b40aeda17f8ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22215c0773b0cd90117b40aeda17f8ee">&#9670;&nbsp;</a></span>ApplyEmotionChange()</h2>
+<a id="a1e01ae3cb1b7e8cebf9f2b02edf60e8d" name="a1e01ae3cb1b7e8cebf9f2b02edf60e8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e01ae3cb1b7e8cebf9f2b02edf60e8d">&#9670;&nbsp;</a></span>ApplyEmotionChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +297,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tale::Actor::ApplyEmotionChange </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -335,8 +339,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a1d1c070e6fe6324f2d55713f8e859765" name="a1d1c070e6fe6324f2d55713f8e859765"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d1c070e6fe6324f2d55713f8e859765">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
+<a id="a588d52e5006f014cd84e06a30d7bc614" name="a588d52e5006f014cd84e06a30d7bc614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a588d52e5006f014cd84e06a30d7bc614">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -344,7 +348,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tale::Actor::ApplyRelationshipChange </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -393,8 +397,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a1591d410e677de016a55445e3538b371" name="a1591d410e677de016a55445e3538b371"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1591d410e677de016a55445e3538b371">&#9670;&nbsp;</a></span>ApplyWealthChange()</h2>
+<a id="a6b9a636a41cd0ff4643f06d320de991d" name="a6b9a636a41cd0ff4643f06d320de991d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9a636a41cd0ff4643f06d320de991d">&#9670;&nbsp;</a></span>ApplyWealthChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -402,7 +406,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tale::Actor::ApplyWealthChange </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -437,8 +441,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a0849ba394e879a908664ccd261090ed2" name="a0849ba394e879a908664ccd261090ed2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0849ba394e879a908664ccd261090ed2">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
+<a id="a5e32405d42406bf6af27088e2d2e21b3" name="a5e32405d42406bf6af27088e2d2e21b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e32405d42406bf6af27088e2d2e21b3">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -464,7 +468,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>out_reason</em>&#160;</td>
         </tr>
         <tr>
@@ -700,8 +704,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a51e57fd64e7b6bd02102d26fe0913442" name="a51e57fd64e7b6bd02102d26fe0913442"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51e57fd64e7b6bd02102d26fe0913442">&#9670;&nbsp;</a></span>InitializeRandomEmotions()</h2>
+<a id="a387082f460376d3e7a3853f5377f7b04" name="a387082f460376d3e7a3853f5377f7b04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a387082f460376d3e7a3853f5377f7b04">&#9670;&nbsp;</a></span>InitializeRandomEmotions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -713,18 +717,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="memname">void tale::Actor::InitializeRandomEmotions </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::map&lt; EmotionType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_emotion.html">Emotion</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_emotions</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -734,19 +728,18 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the passed <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> map with random values. </p>
+<p>Initializes the <a class="el" href="classtale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> member map with random values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_emotions</td><td>The map that shoud be initialized. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a6274d0ac937dc5f74c42ddc0cab140ef" name="a6274d0ac937dc5f74c42ddc0cab140ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6274d0ac937dc5f74c42ddc0cab140ef">&#9670;&nbsp;</a></span>InitializeRandomGoal()</h2>
+<a id="afb56061a1a70a15fbd80ffaa03f46dca" name="afb56061a1a70a15fbd80ffaa03f46dca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb56061a1a70a15fbd80ffaa03f46dca">&#9670;&nbsp;</a></span>InitializeRandomGoal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -758,18 +751,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="memname">void tale::Actor::InitializeRandomGoal </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtale_1_1_goal.html">Goal</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_goals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -779,20 +762,19 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the passed <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> with a random value. </p>
+<p>Initializes the the <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> member with a random value. </p>
 <p >WIP: this does not to anything yet</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_goals</td><td>The <a class="el" href="classtale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> that shoud be initialized. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a1668b314da1d8fb62d26cc4ebbdfe4e3" name="a1668b314da1d8fb62d26cc4ebbdfe4e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1668b314da1d8fb62d26cc4ebbdfe4e3">&#9670;&nbsp;</a></span>InitializeRandomRelationships()</h2>
+<a id="a7ac154b98d1cbadcd80421ae15122dec" name="a7ac154b98d1cbadcd80421ae15122dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ac154b98d1cbadcd80421ae15122dec">&#9670;&nbsp;</a></span>InitializeRandomRelationships()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -804,18 +786,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="memname">void tale::Actor::InitializeRandomRelationships </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::map&lt; size_t, std::map&lt; RelationshipType, std::shared_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_relationships</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -825,20 +797,19 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the passed <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map with random values. </p>
+<p>Initializes the <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> member map with random values. </p>
 <p >WIP: this does not to anything yet</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_relationships</td><td>The map that shoud be initialized. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aad65ddf7d935e35bb31e49b7edd14003" name="aad65ddf7d935e35bb31e49b7edd14003"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad65ddf7d935e35bb31e49b7edd14003">&#9670;&nbsp;</a></span>InitializeRandomTraits()</h2>
+<a id="a35502b65911d71bcb0a3b2e8ced3e25a" name="a35502b65911d71bcb0a3b2e8ced3e25a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35502b65911d71bcb0a3b2e8ced3e25a">&#9670;&nbsp;</a></span>InitializeRandomTraits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -850,18 +821,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="memname">void tale::Actor::InitializeRandomTraits </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classtale_1_1_trait.html">Trait</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_traits</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -871,20 +832,19 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the passed <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> vector with a random <a class="el" href="classtale_1_1_trait.html">Traits </a>. </p>
+<p>Initializes the <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> member vector with a random <a class="el" href="classtale_1_1_trait.html">Traits </a>. </p>
 <p >WIP: this does not to anything yet</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_traits</td><td>The <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> vector that shoud be initialized. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a950865b299533fdd99b14e11a52f5530" name="a950865b299533fdd99b14e11a52f5530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a950865b299533fdd99b14e11a52f5530">&#9670;&nbsp;</a></span>InitializeRandomWealth()</h2>
+<a id="abb4aa68fa8e36a8a92b09c80c4f331a1" name="abb4aa68fa8e36a8a92b09c80c4f331a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4aa68fa8e36a8a92b09c80c4f331a1">&#9670;&nbsp;</a></span>InitializeRandomWealth()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -896,18 +856,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td class="memname">void tale::Actor::InitializeRandomWealth </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classtale_1_1_resource.html">Resource</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_wealth</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -917,29 +867,28 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the passed wealth <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> with a random value. </p>
+<p>Initializes the Wealth member with a random value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_wealth</td><td>The wealth <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> that shoud be initialized. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick during which this happens. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="adced7f601f68a004a0e2b047c5954cad" name="adced7f601f68a004a0e2b047c5954cad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adced7f601f68a004a0e2b047c5954cad">&#9670;&nbsp;</a></span>IsEnrolledInCourse()</h2>
+<a id="aab1865ab7cc4f2512b84ef8a04969e1d" name="aab1865ab7cc4f2512b84ef8a04969e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab1865ab7cc4f2512b84ef8a04969e1d">&#9670;&nbsp;</a></span>SetupRandomValues()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tale::Actor::IsEnrolledInCourse </td>
+          <td class="memname">void tale::Actor::SetupRandomValues </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>course_id</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>tick</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

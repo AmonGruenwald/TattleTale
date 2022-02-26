@@ -9,18 +9,23 @@
 \DoxyCodeLine{5 }
 \DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
 \DoxyCodeLine{7 \{}
-\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_resource}{Resource}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{12     \{}
-\DoxyCodeLine{13     \textcolor{keyword}{public}:}
-\DoxyCodeLine{22         \mbox{\hyperlink{classtale_1_1_resource_af06ff66b84d50f6c45a33d48b6469e23}{Resource}}(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{28         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}{GetValue}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{34         std::string \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{ToString}}();}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \textcolor{keyword}{private}:}
-\DoxyCodeLine{40         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}{value\_}};}
-\DoxyCodeLine{41     \};}
+\DoxyCodeLine{8     \textcolor{keyword}{class }Actor;}
+\DoxyCodeLine{12     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_resource}{Resource}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14     \textcolor{keyword}{public}:}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}{GetValue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{26         std::string \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{ToString}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41         \mbox{\hyperlink{classtale_1_1_resource_a1adca9805b51e035addfa27c5dcf97c9}{Resource}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
 \DoxyCodeLine{42 }
-\DoxyCodeLine{43 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
+\DoxyCodeLine{43     \textcolor{keyword}{private}:}
+\DoxyCodeLine{47         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}{value\_}};}
+\DoxyCodeLine{51         std::weak\_ptr<Actor> \mbox{\hyperlink{classtale_1_1_resource_a64a4020428e0c16606821628cc0a617a}{owner\_}};}
+\DoxyCodeLine{52         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{53     \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
 
 \end{DoxyCode}

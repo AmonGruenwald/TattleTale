@@ -22,15 +22,16 @@
 \DoxyCodeLine{25     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_resource}{Resource}}}
 \DoxyCodeLine{26     \{}
 \DoxyCodeLine{27     \textcolor{keyword}{public}:}
-\DoxyCodeLine{36         \mbox{\hyperlink{classtale_1_1_relationship_ab88bdd562b58ab9b309a639f3f2d3a8f}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{47         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtale_1_1_relationship_ac6a85cea66d72180cdd7cf916d2b9d2d}{StringToRelationshipType}}(std::string relationship\_string);}
-\DoxyCodeLine{56         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58     \textcolor{keyword}{private}:}
-\DoxyCodeLine{62         RelationshipType \mbox{\hyperlink{classtale_1_1_relationship_a6f6458c71051dd8c887aa2cd4c29a271}{type\_}};}
-\DoxyCodeLine{63     \};}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{38         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtale_1_1_relationship_ac6a85cea66d72180cdd7cf916d2b9d2d}{StringToRelationshipType}}(std::string relationship\_string);}
+\DoxyCodeLine{47         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{private}:}
+\DoxyCodeLine{62         \mbox{\hyperlink{classtale_1_1_relationship_a33983bfa878b73aadbd07e6e49c0dc23}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{66         RelationshipType \mbox{\hyperlink{classtale_1_1_relationship_a6f6458c71051dd8c887aa2cd4c29a271}{type\_}};}
+\DoxyCodeLine{67         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{68     \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
 
 \end{DoxyCode}

@@ -25,11 +25,13 @@ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ \mbox{
 size\+\_\+t \mbox{\hyperlink{classtale_1_1_school_a295ef104f1ee2159ed1a9df5ee0343fe}{Get\+Current\+Day}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the current day. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \& \mbox{\hyperlink{classtale_1_1_school_aa81268087c49316734bca8d7f1b23f46}{Get\+Setting}} () const
-\begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} \& \mbox{\hyperlink{classtale_1_1_school_a58a0a6ea0a90b8e38145c9aae8e5a76e}{Get\+Interaction\+Store}} ()
-\begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object of the simulation. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtale_1_1_random}{Random}} \& \mbox{\hyperlink{classtale_1_1_school_ab6b2f5dd4516d9319e2f8034c83d1a68}{Get\+Random}} ()
-\begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \& \mbox{\hyperlink{classtale_1_1_school_a38c5ecb908dc965a6631c578c0f5cf45}{Get\+Chronicle}} ()
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -73,6 +75,9 @@ const \mbox{\hyperlink{structtale_1_1_setting}{Setting}} \& {\bfseries setting\+
 \mbox{\Hypertarget{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}\label{classtale_1_1_school_a511e471fc76d154b55195d275451b70c}} 
 \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} {\bfseries interaction\+\_\+store\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object for the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_school_ace6eba846dbe8f5000c9c1adaf73874c}\label{classtale_1_1_school_ace6eba846dbe8f5000c9c1adaf73874c}} 
+\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} {\bfseries chronicle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object for the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}\label{classtale_1_1_school_aa34373e9b88989aa1c10fd42dbefc2e5}} 
 size\+\_\+t {\bfseries current\+\_\+tick\+\_\+} = 0
 \begin{DoxyCompactList}\small\item\em The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next. \end{DoxyCompactList}\item 
@@ -170,6 +175,19 @@ Getter for an \mbox{\hyperlink{classtale_1_1_actor}{Actor}}.
 \begin{DoxyReturn}{Returns}
 The \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_school_a38c5ecb908dc965a6631c578c0f5cf45}\label{classtale_1_1_school_a38c5ecb908dc965a6631c578c0f5cf45}} 
+\index{tale::School@{tale::School}!GetChronicle@{GetChronicle}}
+\index{GetChronicle@{GetChronicle}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{GetChronicle()}{GetChronicle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \& tale\+::\+School\+::\+Get\+Chronicle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object of the simulation. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_school_ace7a55761403a0e0ee728a4e4b9ff777}\label{classtale_1_1_school_ace7a55761403a0e0ee728a4e4b9ff777}} 
 \index{tale::School@{tale::School}!GetCourse@{GetCourse}}
 \index{GetCourse@{GetCourse}!tale::School@{tale::School}}
@@ -222,7 +240,7 @@ The current Weekday.
 
 
 
-Getter for the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object of the simulation. 
+Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object of the simulation. 
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+Store}} object. 
@@ -235,7 +253,7 @@ Reference to the \mbox{\hyperlink{classtale_1_1_interaction_store}{Interaction\+
 
 
 
-Getter for the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. 
+Getter for a Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. 
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object. 
@@ -310,7 +328,7 @@ he vector of surnames.
 
 
 
-Getter for the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation. 
+Getter for a Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object of the simulation. 
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object. 

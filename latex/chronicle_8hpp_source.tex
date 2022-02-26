@@ -1,0 +1,44 @@
+\hypertarget{chronicle_8hpp_source}{}\doxysection{chronicle.\+hpp}
+\label{chronicle_8hpp_source}\index{tale/globals/chronicle.hpp@{tale/globals/chronicle.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_GLOBALS\_CHRONICLE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_GLOBALS\_CHRONICLE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interaction.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/kernels/trait.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{20         std::weak\_ptr<Interaction> CreateInteraction(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
+\DoxyCodeLine{21         std::weak\_ptr<Emotion> CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{22         std::weak\_ptr<Relationship> CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{23         std::weak\_ptr<Resource> CreateResource(std::string name, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{24         std::weak\_ptr<Goal> CreateGoal(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{25         std::weak\_ptr<Trait> CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{keywordtype}{size\_t} GetKernelAmount();}
+\DoxyCodeLine{28         std::string GetRandomCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{private}:}
+\DoxyCodeLine{31         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{32         std::vector<std::shared\_ptr<Kernel>>}
+\DoxyCodeLine{33             kernels\_;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         std::string GetRecursiveKernelDescription(std::weak\_ptr<Kernel> kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth);}
+\DoxyCodeLine{36     \};}
+\DoxyCodeLine{37 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
+
+\end{DoxyCode}

@@ -18,7 +18,7 @@ Inheritance diagram for tale\+::Actor\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{classtale_1_1_actor_adced7f601f68a004a0e2b047c5954cad}{Is\+Enrolled\+In\+Course}} (size\+\_\+t course\+\_\+id) const
+void \mbox{\hyperlink{classtale_1_1_actor_aab1865ab7cc4f2512b84ef8a04969e1d}{Setup\+Random\+Values}} (size\+\_\+t tick)
 \begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is enrolled in the passed \mbox{\hyperlink{classtale_1_1_course}{Course}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_actor_abaf48912c1386a3f1c3feef0cb5554b1}{Enroll\+In\+Course}} (size\+\_\+t course\+\_\+id, uint32\+\_\+t slot)
 \begin{DoxyCompactList}\small\item\em Enrolls the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} in the passed course during the passed slot. \end{DoxyCompactList}\item 
@@ -30,13 +30,13 @@ bool \mbox{\hyperlink{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}{Slo
 \begin{DoxyCompactList}\small\item\em Checks wether the passed slots are empty. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classtale_1_1_actor_ac27fdc4a07ed2f1f1870c754517f2774}{Choose\+Interaction}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&actor\+\_\+group, \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} context, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&out\+\_\+reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&out\+\_\+participants)
 \begin{DoxyCompactList}\small\item\em Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classtale_1_1_actor_a0849ba394e879a908664ccd261090ed2}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&context, const float \&group\+\_\+size\+\_\+ratio, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&out\+\_\+reason)
+float \mbox{\hyperlink{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&context, const float \&group\+\_\+size\+\_\+ratio, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&out\+\_\+reason)
 \begin{DoxyCompactList}\small\item\em Calculates the chance of an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} based on its \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} and the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} current state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a1591d410e677de016a55445e3538b371}{Apply\+Wealth\+Change}} (std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t tick, float value)
+void \mbox{\hyperlink{classtale_1_1_actor_a6b9a636a41cd0ff4643f06d320de991d}{Apply\+Wealth\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}{Apply\+Emotion\+Change}} (std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t tick, Emotion\+Type type, float value)
+void \mbox{\hyperlink{classtale_1_1_actor_a1e01ae3cb1b7e8cebf9f2b02edf60e8d}{Apply\+Emotion\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, Emotion\+Type type, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_emotion}{Emotional }} state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}{Apply\+Relationship\+Change}} (std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, size\+\_\+t tick, size\+\_\+t actor\+\_\+id, Relationship\+Type type, float value)
+void \mbox{\hyperlink{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}{Apply\+Relationship\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, size\+\_\+t actor\+\_\+id, Relationship\+Type type, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_actor_a3cff1f8b6b3f68e6af8c327f5e7d8d85}{Get\+Wealth\+Description\+String}} ()
 \begin{DoxyCompactList}\small\item\em Creates a string describing the current wealth status of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
@@ -57,35 +57,35 @@ const size\+\_\+t {\bfseries id\+\_\+}
 \mbox{\Hypertarget{classtale_1_1_actor_a86d006fe2e3d80ea674d1edd0324eb48}\label{classtale_1_1_actor_a86d006fe2e3d80ea674d1edd0324eb48}} 
 std\+::string {\bfseries name\+\_\+}
 \begin{DoxyCompactList}\small\item\em The name of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_adb7d3f51f3c833e226809c6afd85aea0}\label{classtale_1_1_actor_adb7d3f51f3c833e226809c6afd85aea0}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_resource}{Resource}} $>$ {\bfseries wealth\+\_\+}
+\mbox{\Hypertarget{classtale_1_1_actor_a63120828ec30882a6d52de004cf30afd}\label{classtale_1_1_actor_a63120828ec30882a6d52de004cf30afd}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_resource}{Resource}} $>$ {\bfseries wealth\+\_\+}
 \begin{DoxyCompactList}\small\item\em The abstract state of the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_a043f3b48b195c7c31a014caf1d076c16}\label{classtale_1_1_actor_a043f3b48b195c7c31a014caf1d076c16}} 
-std\+::map$<$ Emotion\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} $>$ $>$ {\bfseries emotions\+\_\+}
+\mbox{\Hypertarget{classtale_1_1_actor_af23bc6c5c6ba6490570b330e73967b2b}\label{classtale_1_1_actor_af23bc6c5c6ba6490570b330e73967b2b}} 
+std\+::map$<$ Emotion\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} $>$ $>$ {\bfseries emotions\+\_\+}
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} current \mbox{\hyperlink{classtale_1_1_emotion}{Emotional }} state is. Maps one \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} to each Emotion\+Type. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_aa02d343332bfc895391e6729facb899b}\label{classtale_1_1_actor_aa02d343332bfc895391e6729facb899b}} 
-std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ {\bfseries relationships\+\_\+}
+\mbox{\Hypertarget{classtale_1_1_actor_a4e8a3892c01d9e11fc35437405bfd5e9}\label{classtale_1_1_actor_a4e8a3892c01d9e11fc35437405bfd5e9}} 
+std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ {\bfseries relationships\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} with other \mbox{\hyperlink{classtale_1_1_actor}{Actors }}. Maps the other \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} id to another map of Relationship\+Type to \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_a599c708b1b01f2c97765cc8da0ad5da1}\label{classtale_1_1_actor_a599c708b1b01f2c97765cc8da0ad5da1}} 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_trait}{Trait}} $>$ $>$ {\bfseries traits\+\_\+}
+\mbox{\Hypertarget{classtale_1_1_actor_ac955da0036f4080f1244984513cf4dc3}\label{classtale_1_1_actor_ac955da0036f4080f1244984513cf4dc3}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_trait}{Trait}} $>$ $>$ {\bfseries traits\+\_\+}
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classtale_1_1_trait}{Traits }} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} posses. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_a13b3a7cd1451c7994aa61b6fe58f14f6}\label{classtale_1_1_actor_a13b3a7cd1451c7994aa61b6fe58f14f6}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_goal}{Goal}} $>$ {\bfseries goal\+\_\+}
+\mbox{\Hypertarget{classtale_1_1_actor_af89d11036063da76c3e79d5a967baf7a}\label{classtale_1_1_actor_af89d11036063da76c3e79d5a967baf7a}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_goal}{Goal}} $>$ {\bfseries goal\+\_\+}
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classtale_1_1_goal}{Goal}} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is trying to reach during the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classtale_1_1_actor_a950865b299533fdd99b14e11a52f5530}{Initialize\+Random\+Wealth}} (size\+\_\+t tick, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_resource}{Resource}} $>$ \&out\+\_\+wealth)
-\begin{DoxyCompactList}\small\item\em Initializes the passed wealth \mbox{\hyperlink{classtale_1_1_resource}{Resource}} with a random value. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a51e57fd64e7b6bd02102d26fe0913442}{Initialize\+Random\+Emotions}} (size\+\_\+t tick, std\+::map$<$ Emotion\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} $>$ $>$ \&out\+\_\+emotions)
-\begin{DoxyCompactList}\small\item\em Initializes the passed \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} map with random values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a1668b314da1d8fb62d26cc4ebbdfe4e3}{Initialize\+Random\+Relationships}} (size\+\_\+t tick, std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&out\+\_\+relationships)
-\begin{DoxyCompactList}\small\item\em Initializes the passed \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} map with random values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a6274d0ac937dc5f74c42ddc0cab140ef}{Initialize\+Random\+Goal}} (size\+\_\+t tick, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_goal}{Goal}} $>$ \&out\+\_\+goals)
-\begin{DoxyCompactList}\small\item\em Initializes the passed \mbox{\hyperlink{classtale_1_1_goal}{Goal}} with a random value. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_aad65ddf7d935e35bb31e49b7edd14003}{Initialize\+Random\+Traits}} (size\+\_\+t tick, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_trait}{Trait}} $>$ $>$ \&out\+\_\+traits)
-\begin{DoxyCompactList}\small\item\em Initializes the passed \mbox{\hyperlink{classtale_1_1_trait}{Trait}} vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}{Actor\+In\+Relationship\+Map}} (size\+\_\+t actor, const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&relationships) const
+void \mbox{\hyperlink{classtale_1_1_actor_abb4aa68fa8e36a8a92b09c80c4f331a1}{Initialize\+Random\+Wealth}} (size\+\_\+t tick)
+\begin{DoxyCompactList}\small\item\em Initializes the Wealth member with a random value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtale_1_1_actor_a387082f460376d3e7a3853f5377f7b04}{Initialize\+Random\+Emotions}} (size\+\_\+t tick)
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} member map with random values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtale_1_1_actor_a7ac154b98d1cbadcd80421ae15122dec}{Initialize\+Random\+Relationships}} (size\+\_\+t tick)
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} member map with random values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtale_1_1_actor_afb56061a1a70a15fbd80ffaa03f46dca}{Initialize\+Random\+Goal}} (size\+\_\+t tick)
+\begin{DoxyCompactList}\small\item\em Initializes the the \mbox{\hyperlink{classtale_1_1_goal}{Goal}} member with a random value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtale_1_1_actor_a35502b65911d71bcb0a3b2e8ced3e25a}{Initialize\+Random\+Traits}} (size\+\_\+t tick)
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classtale_1_1_trait}{Trait}} member vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}{Actor\+In\+Relationship\+Map}} (size\+\_\+t actor, const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&relationships) const
 \begin{DoxyCompactList}\small\item\em Checks wether an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is already included in a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} map. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -93,6 +93,9 @@ bool \mbox{\hyperlink{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}{Act
 \mbox{\Hypertarget{classtale_1_1_actor_a589ad88bd32aa87029fdd4f30d059bb6}\label{classtale_1_1_actor_a589ad88bd32aa87029fdd4f30d059bb6}} 
 \mbox{\hyperlink{classtale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds a Reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_actor_adedf2f03ce2e0634a6cfa4afdd800875}\label{classtale_1_1_actor_adedf2f03ce2e0634a6cfa4afdd800875}} 
+\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \& {\bfseries chronicle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds a Reference to the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_actor_a822a5c5e0484b21932d4faf42d44a15d}\label{classtale_1_1_actor_a822a5c5e0484b21932d4faf42d44a15d}} 
 \mbox{\hyperlink{classtale_1_1_school}{School}} \& {\bfseries school\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds a Reference to the \mbox{\hyperlink{classtale_1_1_school}{School}} object of the simulation. \end{DoxyCompactList}\item 
@@ -114,11 +117,11 @@ std\+::vector$<$ int $>$ {\bfseries enrolled\+\_\+courses\+\_\+id\+\_\+}
 Represents one person in the simulation. An \mbox{\hyperlink{classtale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}\label{classtale_1_1_actor_a3a398cae0950efe85eae6434fb4fa273}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}\label{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}} 
 \index{tale::Actor@{tale::Actor}!ActorInRelationshipMap@{ActorInRelationshipMap}}
 \index{ActorInRelationshipMap@{ActorInRelationshipMap}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{ActorInRelationshipMap()}{ActorInRelationshipMap()}}
-{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Actor\+In\+Relationship\+Map (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor,  }\item[{const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&}]{relationships }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Actor\+In\+Relationship\+Map (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor,  }\item[{const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&}]{relationships }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -147,11 +150,11 @@ Checks wether all slots are already filled.
 \begin{DoxyReturn}{Returns}
 The result of the check. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}\label{classtale_1_1_actor_a22215c0773b0cd90117b40aeda17f8ee}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a1e01ae3cb1b7e8cebf9f2b02edf60e8d}\label{classtale_1_1_actor_a1e01ae3cb1b7e8cebf9f2b02edf60e8d}} 
 \index{tale::Actor@{tale::Actor}!ApplyEmotionChange@{ApplyEmotionChange}}
 \index{ApplyEmotionChange@{ApplyEmotionChange}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{ApplyEmotionChange()}{ApplyEmotionChange()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Emotion\+Change (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{Emotion\+Type}]{type,  }\item[{float}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Emotion\+Change (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{Emotion\+Type}]{type,  }\item[{float}]{value }\end{DoxyParamCaption})}
 
 
 
@@ -168,11 +171,11 @@ Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesin
 {\em value} & By how much the \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}\label{classtale_1_1_actor_a1d1c070e6fe6324f2d55713f8e859765}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}\label{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}} 
 \index{tale::Actor@{tale::Actor}!ApplyRelationshipChange@{ApplyRelationshipChange}}
 \index{ApplyRelationshipChange@{ApplyRelationshipChange}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{ApplyRelationshipChange()}{ApplyRelationshipChange()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Relationship\+Change (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{size\+\_\+t}]{actor\+\_\+id,  }\item[{Relationship\+Type}]{type,  }\item[{float}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Relationship\+Change (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{size\+\_\+t}]{actor\+\_\+id,  }\item[{Relationship\+Type}]{type,  }\item[{float}]{value }\end{DoxyParamCaption})}
 
 
 
@@ -191,11 +194,11 @@ Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesin
 {\em value} & By how much the \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a1591d410e677de016a55445e3538b371}\label{classtale_1_1_actor_a1591d410e677de016a55445e3538b371}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a6b9a636a41cd0ff4643f06d320de991d}\label{classtale_1_1_actor_a6b9a636a41cd0ff4643f06d320de991d}} 
 \index{tale::Actor@{tale::Actor}!ApplyWealthChange@{ApplyWealthChange}}
 \index{ApplyWealthChange@{ApplyWealthChange}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{ApplyWealthChange()}{ApplyWealthChange()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Wealth\+Change (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{float}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Wealth\+Change (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{float}]{value }\end{DoxyParamCaption})}
 
 
 
@@ -210,11 +213,11 @@ Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesin
 {\em value} & By how much the wealth gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a0849ba394e879a908664ccd261090ed2}\label{classtale_1_1_actor_a0849ba394e879a908664ccd261090ed2}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}\label{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}} 
 \index{tale::Actor@{tale::Actor}!CalculateTendencyChance@{CalculateTendencyChance}}
 \index{CalculateTendencyChance@{CalculateTendencyChance}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{CalculateTendencyChance()}{CalculateTendencyChance()}}
-{\footnotesize\ttfamily float tale\+::\+Actor\+::\+Calculate\+Tendency\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&}]{context,  }\item[{const float \&}]{group\+\_\+size\+\_\+ratio,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&}]{out\+\_\+reason }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float tale\+::\+Actor\+::\+Calculate\+Tendency\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&}]{context,  }\item[{const float \&}]{group\+\_\+size\+\_\+ratio,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&}]{out\+\_\+reason }\end{DoxyParamCaption})}
 
 
 
@@ -357,102 +360,92 @@ Creates a string describing the current wealth status of the \mbox{\hyperlink{cl
 \begin{DoxyReturn}{Returns}
 The description string. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtale_1_1_actor_a51e57fd64e7b6bd02102d26fe0913442}\label{classtale_1_1_actor_a51e57fd64e7b6bd02102d26fe0913442}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a387082f460376d3e7a3853f5377f7b04}\label{classtale_1_1_actor_a387082f460376d3e7a3853f5377f7b04}} 
 \index{tale::Actor@{tale::Actor}!InitializeRandomEmotions@{InitializeRandomEmotions}}
 \index{InitializeRandomEmotions@{InitializeRandomEmotions}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{InitializeRandomEmotions()}{InitializeRandomEmotions()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Emotions (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick,  }\item[{std\+::map$<$ Emotion\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} $>$ $>$ \&}]{out\+\_\+emotions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Emotions (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Initializes the passed \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} map with random values. 
+Initializes the \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} member map with random values. 
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tick} & The tick during which this happens. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+emotions} & The map that shoud be initialized. \\
+\begin{DoxyParams}{Parameters}
+{\em tick} & The tick during which this happens. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a6274d0ac937dc5f74c42ddc0cab140ef}\label{classtale_1_1_actor_a6274d0ac937dc5f74c42ddc0cab140ef}} 
+\mbox{\Hypertarget{classtale_1_1_actor_afb56061a1a70a15fbd80ffaa03f46dca}\label{classtale_1_1_actor_afb56061a1a70a15fbd80ffaa03f46dca}} 
 \index{tale::Actor@{tale::Actor}!InitializeRandomGoal@{InitializeRandomGoal}}
 \index{InitializeRandomGoal@{InitializeRandomGoal}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{InitializeRandomGoal()}{InitializeRandomGoal()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Goal (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_goal}{Goal}} $>$ \&}]{out\+\_\+goals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Goal (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Initializes the passed \mbox{\hyperlink{classtale_1_1_goal}{Goal}} with a random value. 
+Initializes the the \mbox{\hyperlink{classtale_1_1_goal}{Goal}} member with a random value. 
 
 WIP\+: this does not to anything yet
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tick} & The tick during which this happens. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+goals} & The \mbox{\hyperlink{classtale_1_1_goal}{Goal}} that shoud be initialized. \\
+\begin{DoxyParams}{Parameters}
+{\em tick} & The tick during which this happens. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a1668b314da1d8fb62d26cc4ebbdfe4e3}\label{classtale_1_1_actor_a1668b314da1d8fb62d26cc4ebbdfe4e3}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a7ac154b98d1cbadcd80421ae15122dec}\label{classtale_1_1_actor_a7ac154b98d1cbadcd80421ae15122dec}} 
 \index{tale::Actor@{tale::Actor}!InitializeRandomRelationships@{InitializeRandomRelationships}}
 \index{InitializeRandomRelationships@{InitializeRandomRelationships}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{InitializeRandomRelationships()}{InitializeRandomRelationships()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Relationships (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick,  }\item[{std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&}]{out\+\_\+relationships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Relationships (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Initializes the passed \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} map with random values. 
+Initializes the \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} member map with random values. 
 
 WIP\+: this does not to anything yet
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tick} & The tick during which this happens. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+relationships} & The map that shoud be initialized. \\
+\begin{DoxyParams}{Parameters}
+{\em tick} & The tick during which this happens. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_aad65ddf7d935e35bb31e49b7edd14003}\label{classtale_1_1_actor_aad65ddf7d935e35bb31e49b7edd14003}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a35502b65911d71bcb0a3b2e8ced3e25a}\label{classtale_1_1_actor_a35502b65911d71bcb0a3b2e8ced3e25a}} 
 \index{tale::Actor@{tale::Actor}!InitializeRandomTraits@{InitializeRandomTraits}}
 \index{InitializeRandomTraits@{InitializeRandomTraits}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{InitializeRandomTraits()}{InitializeRandomTraits()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Traits (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_trait}{Trait}} $>$ $>$ \&}]{out\+\_\+traits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Traits (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Initializes the passed \mbox{\hyperlink{classtale_1_1_trait}{Trait}} vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. 
+Initializes the \mbox{\hyperlink{classtale_1_1_trait}{Trait}} member vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. 
 
 WIP\+: this does not to anything yet
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tick} & The tick during which this happens. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+traits} & The \mbox{\hyperlink{classtale_1_1_trait}{Trait}} vector that shoud be initialized. \\
+\begin{DoxyParams}{Parameters}
+{\em tick} & The tick during which this happens. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a950865b299533fdd99b14e11a52f5530}\label{classtale_1_1_actor_a950865b299533fdd99b14e11a52f5530}} 
+\mbox{\Hypertarget{classtale_1_1_actor_abb4aa68fa8e36a8a92b09c80c4f331a1}\label{classtale_1_1_actor_abb4aa68fa8e36a8a92b09c80c4f331a1}} 
 \index{tale::Actor@{tale::Actor}!InitializeRandomWealth@{InitializeRandomWealth}}
 \index{InitializeRandomWealth@{InitializeRandomWealth}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{InitializeRandomWealth()}{InitializeRandomWealth()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Wealth (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_resource}{Resource}} $>$ \&}]{out\+\_\+wealth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Initialize\+Random\+Wealth (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Initializes the passed wealth \mbox{\hyperlink{classtale_1_1_resource}{Resource}} with a random value. 
+Initializes the Wealth member with a random value. 
 
 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em tick} & The tick during which this happens. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+wealth} & The wealth \mbox{\hyperlink{classtale_1_1_resource}{Resource}} that shoud be initialized. \\
+\begin{DoxyParams}{Parameters}
+{\em tick} & The tick during which this happens. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_adced7f601f68a004a0e2b047c5954cad}\label{classtale_1_1_actor_adced7f601f68a004a0e2b047c5954cad}} 
-\index{tale::Actor@{tale::Actor}!IsEnrolledInCourse@{IsEnrolledInCourse}}
-\index{IsEnrolledInCourse@{IsEnrolledInCourse}!tale::Actor@{tale::Actor}}
-\doxysubsubsection{\texorpdfstring{IsEnrolledInCourse()}{IsEnrolledInCourse()}}
-{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Is\+Enrolled\+In\+Course (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{course\+\_\+id }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classtale_1_1_actor_aab1865ab7cc4f2512b84ef8a04969e1d}\label{classtale_1_1_actor_aab1865ab7cc4f2512b84ef8a04969e1d}} 
+\index{tale::Actor@{tale::Actor}!SetupRandomValues@{SetupRandomValues}}
+\index{SetupRandomValues@{SetupRandomValues}!tale::Actor@{tale::Actor}}
+\doxysubsubsection{\texorpdfstring{SetupRandomValues()}{SetupRandomValues()}}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Setup\+Random\+Values (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{tick }\end{DoxyParamCaption})}
 
 
 

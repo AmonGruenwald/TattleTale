@@ -11,26 +11,23 @@
 \DoxyCodeLine{7 }
 \DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
 \DoxyCodeLine{9 \{}
-\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Kernel>}
 \DoxyCodeLine{19     \{}
 \DoxyCodeLine{20     \textcolor{keyword}{public}:}
-\DoxyCodeLine{21         \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} current\_number\_;}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23         std::string name\_;}
-\DoxyCodeLine{24         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
-\DoxyCodeLine{25         std::vector<std::weak\_ptr<Kernel>> consequences\_;}
-\DoxyCodeLine{26         \textcolor{keywordtype}{size\_t} number\_;}
-\DoxyCodeLine{27         \textcolor{keywordtype}{size\_t} tick\_;}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29         \mbox{\hyperlink{classtale_1_1_kernel_a7887405bbbc64ab91ecf82dbf01bdb34}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{30         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
-\DoxyCodeLine{31         \textcolor{keyword}{virtual} std::string ToString() = 0;}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{40         \mbox{\hyperlink{classtale_1_1_kernel_a7887405bbbc64ab91ecf82dbf01bdb34}{Kernel}}();}
-\DoxyCodeLine{41     \};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
+\DoxyCodeLine{21         std::string name\_;}
+\DoxyCodeLine{22         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
+\DoxyCodeLine{23         std::vector<std::weak\_ptr<Kernel>> consequences\_;}
+\DoxyCodeLine{24         \textcolor{keywordtype}{size\_t} id\_;}
+\DoxyCodeLine{25         \textcolor{keywordtype}{size\_t} tick\_;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
+\DoxyCodeLine{28         \textcolor{keyword}{virtual} std::string ToString() = 0;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{31         \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
 
 \end{DoxyCode}

@@ -12,7 +12,7 @@ Stores Prototypes for all possible interactions.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}{Interaction\+Store}} (\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random)
+\mbox{\hyperlink{classtale_1_1_interaction_store_a33786eeea407a0bebc37110c6bc87270}{Interaction\+Store}} (\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&chronicle)
 \begin{DoxyCompactList}\small\item\em Default constructor populates catalogue. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{classtale_1_1_interaction_store_a4e17ee34360fe2b8c7e3d2a157f79e3b}{Get\+Random\+Interaction\+Prototype\+Index}} () const
 \begin{DoxyCompactList}\small\item\em Returns a random interaction\+Prototype index from the catalogue. \end{DoxyCompactList}\item 
@@ -26,7 +26,7 @@ const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hype
 \begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a7805bf50e3e509c4047c304993617276}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_ac2128b942bb61d30d7f3f06dfab59ca1}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_aeba185508945c3ca34c6019880d56934}{Get\+Requirement\+Catalogue}} () const
 \begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\item 
@@ -38,6 +38,9 @@ const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} $>$ 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}\label{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}} 
 \mbox{\hyperlink{classtale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a015d0442fe626ba04d255ca3222a9399}\label{classtale_1_1_interaction_store_a015d0442fe626ba04d255ca3222a9399}} 
+\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \& {\bfseries chronicle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_interaction_store_a9b5e1bb13fd299d9a7c2cecdc7edcd9c}\label{classtale_1_1_interaction_store_a9b5e1bb13fd299d9a7c2cecdc7edcd9c}} 
 std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototypes }}. \end{DoxyCompactList}\item 
@@ -58,11 +61,11 @@ Stores Prototypes for all possible interactions.
 An \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} options for each situation 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}\label{classtale_1_1_interaction_store_ab989d4b7ecbcddff1091b42fdd4694c0}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a33786eeea407a0bebc37110c6bc87270}\label{classtale_1_1_interaction_store_a33786eeea407a0bebc37110c6bc87270}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!InteractionStore@{InteractionStore}}
 \index{InteractionStore@{InteractionStore}!tale::InteractionStore@{tale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{InteractionStore()}{InteractionStore()}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtale_1_1_random}{Random}} \&}]{random }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtale_1_1_random}{Random}} \&}]{random,  }\item[{\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&}]{chronicle }\end{DoxyParamCaption})}
 
 
 
@@ -78,11 +81,11 @@ Reads from tale/resources/interactioncatalogue.\+json to get the data to build u
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_store_ac2128b942bb61d30d7f3f06dfab59ca1}\label{classtale_1_1_interaction_store_ac2128b942bb61d30d7f3f06dfab59ca1}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}\label{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!CreateInteraction@{CreateInteraction}}
 \index{CreateInteraction@{CreateInteraction}!tale::InteractionStore@{tale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ tale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ tale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
 
 
 
