@@ -12,8 +12,11 @@ namespace tale
     class Goal : public Kernel
     {
     public:
-        Goal(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         std::string ToString();
+
+    private:
+        Goal(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
+        friend class Chronicle;
     };
 
 } // namespace tale

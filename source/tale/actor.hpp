@@ -35,24 +35,24 @@ namespace tale
         /**
          * @brief The abstract state of the  \link Actor Actor's \endlink wealth.
          */
-        std::shared_ptr<Resource> wealth_;
+        std::weak_ptr<Resource> wealth_;
         /**
          * @brief The \link Actor Actor's \endlink current \link Emotion Emotional \endlink state is. Maps one Emotion to each EmotionType.
          */
-        std::map<EmotionType, std::shared_ptr<Emotion>> emotions_;
+        std::map<EmotionType, std::weak_ptr<Emotion>> emotions_;
         /**
          * @brief Holds the  \link Actor Actor's \endlink \link Relationship Relationships \endlink with other \link Actor Actors \endlink.
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
          */
-        std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> relationships_;
+        std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> relationships_;
         /**
          * @brief The \link Trait Traits \endlink  the Actor posses.
          */
-        std::vector<std::shared_ptr<Trait>> traits_;
+        std::vector<std::weak_ptr<Trait>> traits_;
         /**
          * @brief The Goal the Actor is trying to reach during the simulation.
          */
-        std::shared_ptr<Goal> goal_;
+        std::weak_ptr<Goal> goal_;
 
         Actor(School &school, size_t id, std::string name, size_t tick);
         /**
@@ -116,7 +116,7 @@ namespace tale
          * @param[out] out_reason Which part of the state of the Actor increased the chance the most.
          * @return A chance value between 0.0 and 1.0.
          */
-        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::shared_ptr<Kernel> &out_reason);
+        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::weak_ptr<Kernel> &out_reason);
         bool CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
@@ -186,6 +186,10 @@ namespace tale
          */
         Random &random_;
         /**
+         * @brief Holds a Reference to the Chronicle object of the simulation.
+         */
+        Chronicle &chronicle_;
+        /**
          * @brief Holds a Reference to the School object of the simulation.
          */
         School &school_;
@@ -206,50 +210,45 @@ namespace tale
          */
         std::vector<int> enrolled_courses_id_;
         /**
-         * @brief Initializes the passed wealth Resource with a random value.
+         * @brief Initializes the Wealth member with a random value.
          *
          *
          *
-         * @param[in] tick The tick during which this happens.
-         * @param[out] out_wealth The wealth Resource that shoud be initialized.
+         * @param tick The tick during which this happens.
          */
-        void InitializeRandomWealth(size_t tick, std::shared_ptr<Resource> &out_wealth);
+        void InitializeRandomWealth(size_t tick);
         /**
-         * @brief Initializes the passed Emotion map with random values.
+         * @brief Initializes the Emotion member map with random values.
          *
          *
          *
-         * @param[in] tick The tick during which this happens.
-         * @param[out] out_emotions The map that shoud be initialized.
+         * @param tick The tick during which this happens.
          */
-        void InitializeRandomEmotions(size_t tick, std::map<EmotionType, std::shared_ptr<Emotion>> &out_emotions);
+        void InitializeRandomEmotions(size_t tick);
         /**
-         * @brief Initializes the passed Relationship map with random values.
+         * @brief Initializes the Relationship member map with random values.
          *
          * WIP: this does not to anything yet
          *
-         * @param[in] tick The tick during which this happens.
-         * @param[out] out_relationships The map that shoud be initialized.
+         * @param tick The tick during which this happens.
          */
-        void InitializeRandomRelationships(size_t tick, std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &out_relationships);
+        void InitializeRandomRelationships(size_t tick);
         /**
-         * @brief Initializes the passed Goal with a random value.
+         * @brief Initializes the the Goal member with a random value.
          *
          * WIP: this does not to anything yet
          *
-         * @param[in] tick The tick during which this happens.
-         * @param[out] out_goals The Goal that shoud be initialized.
+         * @param tick The tick during which this happens.
          */
-        void InitializeRandomGoal(size_t tick, std::shared_ptr<Goal> &out_goals);
+        void InitializeRandomGoal(size_t tick);
         /**
-         * @brief Initializes the passed Trait vector with a random \link Trait Traits \endlink.
+         * @brief Initializes the Trait member vector with a random \link Trait Traits \endlink.
          *
          * WIP: this does not to anything yet
          *
-         * @param[in] tick The tick during which this happens.
-         * @param[out] out_traits The Trait vector that shoud be initialized.
+         * @param tick The tick during which this happens.
          */
-        void InitializeRandomTraits(size_t tick, std::vector<std::shared_ptr<Trait>> &out_traits);
+        void InitializeRandomTraits(size_t tick);
         /**
          * @brief Checks wether an Actor is already included in a Relationship map.
          *
@@ -257,7 +256,7 @@ namespace tale
          * @param relationships The Relatinship map we want to look for the actor in.
          * @return The result of the check.
          */
-        bool ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::shared_ptr<Relationship>>> &relationships) const;
+        bool ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> &relationships) const;
     };
 
 } // namespace tale

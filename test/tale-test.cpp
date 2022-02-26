@@ -7,22 +7,22 @@
 #include <time.h>
 
 #define GTEST_INFO std::cout << "[   INFO   ] "
-TEST(TaleKernels, IncreasingKernelNumber)
+TEST(TaleKernels, IncreasingKernelId)
 {
-    tale::Kernel::current_number_ = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    tale::Chronicle chronicle;
+    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
     size_t tick = 0;
-    tale::Emotion emotion(tale::EmotionType::kHappy, tick, default_reasons, 1);
-    tale::Goal goal("goal", tick, default_reasons);
-    tale::Relationship relationship(tale::RelationshipType::kLove, tick, default_reasons, 1);
-    tale::Resource wealth("wealth", tick, default_reasons, 1);
-    tale::Trait trait("trait", tick, default_reasons);
+    std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, no_reasons, 1);
+    std::weak_ptr<tale::Goal> goal = chronicle.CreateGoal("goal", tick, no_reasons);
+    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, no_reasons, 1);
+    std::weak_ptr<tale::Resource> wealth = chronicle.CreateResource("wealth", tick, no_reasons, 1);
+    std::weak_ptr<tale::Trait> trait = chronicle.CreateTrait("trait", tick, no_reasons);
 
-    EXPECT_EQ(0, emotion.number_);
-    EXPECT_EQ(1, goal.number_);
-    EXPECT_EQ(2, relationship.number_);
-    EXPECT_EQ(3, wealth.number_);
-    EXPECT_EQ(4, trait.number_);
+    EXPECT_EQ(0, emotion.lock()->id_);
+    EXPECT_EQ(1, goal.lock()->id_);
+    EXPECT_EQ(2, relationship.lock()->id_);
+    EXPECT_EQ(3, wealth.lock()->id_);
+    EXPECT_EQ(4, trait.lock()->id_);
 }
 
 class TaleCreateAndRunSchool : public ::testing::Test
@@ -130,7 +130,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
     tale::Setting setting;
     setting.actor_count = random.GetUInt(0, 1000);
@@ -160,7 +160,8 @@ TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
     tale::Random random;
-    tale::InteractionStore interaction_store(random);
+    tale::Chronicle chronicle;
+    tale::InteractionStore interaction_store(random, chronicle);
     size_t interaction_index = interaction_store.GetRandomInteractionPrototypeIndex();
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
@@ -173,7 +174,7 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     {
         participants.push_back(school.GetActor(i));
     }
-    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants);
+    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants).lock();
     // EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     EXPECT_EQ(interaction->tick_, tick);
     EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
@@ -207,7 +208,8 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
 TEST(TaleInteractions, ApplyInteraction)
 {
     size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
+    tale::Chronicle chronicle;
     tale::Setting setting;
     size_t participant_count = 2;
     setting.actor_count = participant_count;
@@ -226,14 +228,14 @@ TEST(TaleInteractions, ApplyInteraction)
     {
         float sign = signs[participant_index];
         wealth_effects.push_back(0.5f * sign);
-        expected_wealth_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->wealth_->GetValue());
+        expected_wealth_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->wealth_.lock()->GetValue());
         std::map<tale::EmotionType, float> emotion_map;
         std::map<tale::EmotionType, float> expected_emotion_values_map;
         for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
         {
             tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
             emotion_map.insert({type, emotion_type_int * 0.1f * sign});
-            expected_emotion_values_map.insert({type, emotion_type_int * 0.1f * sign + school.GetActor(participant_index).lock()->emotions_[type]->GetValue()});
+            expected_emotion_values_map.insert({type, emotion_type_int * 0.1f * sign + school.GetActor(participant_index).lock()->emotions_[type].lock()->GetValue()});
         }
         emotion_effects.push_back(emotion_map);
         expected_emotion_values.push_back(expected_emotion_values_map);
@@ -250,10 +252,10 @@ TEST(TaleInteractions, ApplyInteraction)
             std::shared_ptr<tale::Actor> actor = school.GetActor(participant_index).lock();
             if (actor->relationships_.count(other_participant))
             {
-                std::map<tale::RelationshipType, std::shared_ptr<tale::Relationship>> existing_map = actor->relationships_.at(other_participant);
+                std::map<tale::RelationshipType, std::weak_ptr<tale::Relationship>> existing_map = actor->relationships_.at(other_participant);
                 if (existing_map.count(type))
                 {
-                    existing_value = existing_map.at(type)->GetValue();
+                    existing_value = existing_map.at(type).lock()->GetValue();
                 }
             }
 
@@ -270,22 +272,21 @@ TEST(TaleInteractions, ApplyInteraction)
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
 
-    std::shared_ptr<tale::Interaction>
-        interaction(new tale::Interaction(prototype, tick, default_reasons, participants));
+    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, tick, no_reasons, participants).lock();
     interaction->Apply();
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->GetValue(), expected_wealth_values[participant_index]);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->GetValue(), expected_wealth_values[participant_index]);
         for (auto &[type, value] : expected_emotion_values[participant_index])
         {
-            EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type]->GetValue(), value);
+            EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type].lock()->GetValue(), value);
         }
         for (auto &[other_participant_index, map] : expected_relationship_values[participant_index])
         {
             for (auto &[type, value] : map)
             {
-                EXPECT_EQ(school.GetActor(participant_index).lock()->relationships_[other_participant_index][type]->GetValue(), value);
+                EXPECT_EQ(school.GetActor(participant_index).lock()->relationships_[other_participant_index][type].lock()->GetValue(), value);
             }
         }
     }
@@ -294,7 +295,8 @@ TEST(TaleInteractions, ApplyInteraction)
 TEST(TaleInteractions, InteractionBecomesReason)
 {
     size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
+    tale::Chronicle chronicle;
     tale::Setting setting;
     size_t participant_count = 2;
     setting.actor_count = participant_count;
@@ -332,24 +334,24 @@ TEST(TaleInteractions, InteractionBecomesReason)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-    std::shared_ptr<tale::Interaction> interaction(new tale::Interaction(prototype, tick, default_reasons, participants));
+    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, tick, no_reasons, participants).lock();
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->name_, prototype.name);
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_->reasons_[0].lock()->number_, interaction->number_);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->name_, prototype.name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->id_, interaction->id_);
         for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
         {
-            EXPECT_EQ(emotion->reasons_[0].lock()->name_, prototype.name);
-            EXPECT_EQ(emotion->reasons_[0].lock()->number_, interaction->number_);
+            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->name_, prototype.name);
+            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->id_, interaction->id_);
         }
         for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
         {
             // TODO: this will break if actors get random relationships
             for (auto &[type, relationship] : map)
             {
-                EXPECT_EQ(relationship->reasons_[0].lock()->name_, prototype.name);
-                EXPECT_EQ(relationship->reasons_[0].lock()->number_, interaction->number_);
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->name_, prototype.name);
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->id_, interaction->id_);
             }
         }
     }
@@ -415,7 +417,7 @@ TEST(TaleCourse, AreAllSlotsFilled)
 TEST(TaleCourse, GetRandomCourseSlot)
 {
     tale::Setting setting;
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
     setting.actor_count = 300;
     setting.actors_per_course = 30;
@@ -430,7 +432,7 @@ TEST(TaleCourse, GetRandomCourseSlot)
 
     for (size_t i = 0; i < setting.slot_count_per_week() / 2; ++i)
     {
-        uint32_t random_slot = random.GetUInt(0, setting.slot_count_per_week() - 1);
+        uint32_t random_slot = random.GetUInt(0, static_cast<uint32_t>(setting.slot_count_per_week() - 1));
         while (std::count(random_filled_slots.begin(), random_filled_slots.end(), random_slot))
         {
             ++random_slot;
@@ -490,7 +492,7 @@ TEST_F(TaleActor, CreateActor)
 
 TEST_F(TaleActor, ActorHasInitializedStartingValues)
 {
-    EXPECT_TRUE(actor_->wealth_);
+    EXPECT_TRUE(actor_->wealth_.lock());
     EXPECT_NE(actor_->emotions_.size(), 0);
     GTEST_INFO << "Relationship Size: " << actor_->relationships_.size() << "\n";
     EXPECT_GE(actor_->relationships_.size(), desired_min_start_relationships_count_);
@@ -506,7 +508,7 @@ TEST_F(TaleActor, AddActorToCourse)
     course_group.push_back(actor_);
     EXPECT_FALSE(actor_->IsEnrolledInCourse(course_id));
     EXPECT_EQ(actor_->GetFilledSlotsCount(), 0);
-    for (size_t i = 0; i < setting_.slot_count_per_week(); ++i)
+    for (uint32_t i = 0; i < setting_.slot_count_per_week(); ++i)
     {
         slots_to_check.push_back(i);
         EXPECT_TRUE(actor_->SlotsEmpty(slots_to_check));
@@ -527,7 +529,7 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
     tale::Tendency tendency;
     tale::ContextType context = tale::ContextType::kNone;
     float group_size_ratio = 0.0f;
-    std::shared_ptr<tale::Kernel> reason(nullptr);
+    std::weak_ptr<tale::Kernel> reason;
     float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
@@ -543,26 +545,27 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     {
         tendency.emotions[type] = 1.0f;
     }
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-    actor_->wealth_ = std::shared_ptr<tale::Resource>(new tale::Resource("wealth", 0, default_reasons, 1.0f));
+    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
+    tale::Chronicle chronicle;
+    actor_->wealth_ = chronicle.CreateResource("wealth", 0, no_reasons, 1.0f);
     for (auto &[type, value] : tendency.emotions)
     {
-        actor_->emotions_[type] = std::shared_ptr<tale::Emotion>(new tale::Emotion(type, 0, default_reasons, 1.0f));
+        actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, no_reasons, 1.0f);
     }
     tale::ContextType context = tale::ContextType::kCourse;
     float group_size_ratio = 1.0f;
-    std::shared_ptr<tale::Kernel> reason(nullptr);
+    std::weak_ptr<tale::Kernel> reason;
     float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
 
 TEST_F(TaleActor, RandomTendencyChanceCalculation)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
     tale::Tendency tendency;
-    size_t tries = 1000;
-    for (size_t i = 0; i < tries; ++i)
+    uint32_t tries = 1000;
+    for (uint32_t i = 0; i < tries; ++i)
     {
         tendency.group_size = random.GetFloat(-1.0f, 1.0f);
         tendency.contexts[tale::ContextType::kCourse] = random.GetFloat(-1.0f, 1.0f);
@@ -572,15 +575,16 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
         {
             tendency.emotions[type] = random.GetFloat(-1.0f, 1.0f);
         }
-        std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
-        actor_->wealth_ = std::shared_ptr<tale::Resource>(new tale::Resource("wealth", 0, default_reasons, random.GetFloat(-1.0f, 1.0f)));
+        std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
+        tale::Chronicle chronicle;
+        actor_->wealth_ = chronicle.CreateResource("wealth", 0, no_reasons, random.GetFloat(-1.0f, 1.0f));
         for (auto &[type, value] : tendency.emotions)
         {
-            actor_->emotions_[type] = std::shared_ptr<tale::Emotion>(new tale::Emotion(type, 0, default_reasons, random.GetFloat(-1.0f, 1.0f)));
+            actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, no_reasons, random.GetFloat(-1.0f, 1.0f));
         }
         tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
         float group_size_ratio = random.GetFloat(-1.0f, 1.0f);
-        std::shared_ptr<tale::Kernel> reason(nullptr);
+        std::weak_ptr<tale::Kernel> reason;
         float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
         EXPECT_GE(chance, 0.0f);
         EXPECT_LE(chance, 1.0f);
@@ -588,10 +592,10 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
 }
 TEST(TaleRandom, PickIndexWithHundredPercentChance)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
-    size_t tries = 1000;
-    for (size_t i = 0; i < tries; ++i)
+    uint32_t tries = 1000;
+    for (uint32_t i = 0; i < tries; ++i)
     {
         uint32_t random_index = random.GetUInt(0, tries - 1);
         std::vector<float> distribution;
@@ -605,10 +609,10 @@ TEST(TaleRandom, PickIndexWithHundredPercentChance)
 }
 TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
-    size_t tries = 1000;
-    for (size_t i = 0; i < tries; ++i)
+    uint32_t tries = 1000;
+    for (uint32_t i = 0; i < tries; ++i)
     {
         uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
         uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
@@ -619,10 +623,10 @@ TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
 }
 TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
-    size_t tries = 1000;
-    for (size_t i = 0; i < tries; ++i)
+    uint32_t tries = 1000;
+    for (uint32_t i = 0; i < tries; ++i)
     {
         uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
         uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
@@ -633,16 +637,16 @@ TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
 }
 TEST(TaleRandom, PickBetweenRandomRange)
 {
-    time_t seconds = time(NULL);
+    uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
-    size_t tries = 1000;
-    for (size_t i = 0; i < tries; ++i)
+    uint32_t tries = 1000;
+    for (uint32_t i = 0; i < tries; ++i)
     {
         uint32_t random_index_bottom = random.GetUInt(0, (tries - 1) / 2);
         uint32_t random_index_top = random.GetUInt(random_index_bottom, tries - 1);
         std::vector<float> distribution;
         distribution.reserve(tries);
-        for (size_t j = 0; j < tries; ++j)
+        for (uint32_t j = 0; j < tries; ++j)
         {
             distribution.push_back(((j >= random_index_bottom && j <= random_index_top) ? 1.0f : 0.0f));
         }
@@ -650,4 +654,3 @@ TEST(TaleRandom, PickBetweenRandomRange)
         EXPECT_LE(random.PickIndex(distribution, true), random_index_top);
     }
 }
-// bool AllSlotsFilled() const;

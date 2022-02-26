@@ -8,7 +8,7 @@
 
 namespace tale
 {
-    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), interaction_store_(random_)
+    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(), interaction_store_(random_, chronicle_)
     {
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
@@ -102,6 +102,7 @@ namespace tale
             ++current_day_;
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
+        TALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -134,6 +135,10 @@ namespace tale
     {
         return random_;
     }
+    Chronicle &School::GetChronicle()
+    {
+        return chronicle_;
+    }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
         TALE_DEBUG_PRINT("SIMULATING DAY " + std::to_string(day) + " WHICH IS A " + weekday_string[static_cast<int>(weekday)]);
@@ -153,10 +158,9 @@ namespace tale
 
                         if (interaction_index != -1)
                         {
-                            // TODO: registers interaction to events
-                            std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
-                            interaction->Apply();
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction->ToString());
+                            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                            interaction.lock()->Apply();
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
                         }
                         else
                         {
@@ -189,9 +193,9 @@ namespace tale
             // TODO: registers interaction to events
             if (interaction_index != -1)
             {
-                std::shared_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
-                interaction->Apply();
-                TALE_VERBOSE_PRINT("During Freetime " + interaction->ToString());
+                std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                interaction.lock()->Apply();
+                TALE_VERBOSE_PRINT("During Freetime " + interaction.lock()->ToString());
             }
             else
             {

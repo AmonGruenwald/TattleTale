@@ -8,16 +8,17 @@ namespace tale
 {
     Interaction::Interaction(
         const InteractionPrototype &prototype,
+        size_t id,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
         std::vector<std::weak_ptr<Actor>> participants)
-        : Kernel(prototype.name, tick, reasons),
+        : Kernel(prototype.name, id, tick, reasons),
           prototype_(prototype),
           participants_(participants){};
 
     void Interaction::Apply()
     {
-        std::weak_ptr<Interaction> self = weak_from_this();
+        std::weak_ptr<Interaction> self = std::static_pointer_cast<Interaction>(shared_from_this());
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participants_.size(); ++i)
         {

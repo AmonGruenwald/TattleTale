@@ -9,6 +9,7 @@
 #include "tale/kernels/interactions/interactionrequirement.hpp"
 #include "tale/kernels/interactions/interactiontendency.hpp"
 #include "tale/globals/random.hpp"
+#include "tale/globals/chronicle.hpp"
 
 namespace tale
 {
@@ -29,7 +30,7 @@ namespace tale
          *
          * @param random Reference to the Random object used by the simulation.
          */
-        InteractionStore(Random &random);
+        InteractionStore(Random &random, Chronicle &chronicle);
         /**
          * @brief Returns a random interactionPrototype index from the catalogue.
          *
@@ -88,14 +89,13 @@ namespace tale
          * @param reasons Vectors holding every Kernel responsible for the creation.
          * @return A pointer to the created Interaction
          */
-        std::shared_ptr<Interaction> CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
+        std::weak_ptr<Interaction> CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         /**
          * @brief Gettter for a Reference to the  Requirement catalogue.
          *
          * @return A Reference to the catalogue for the \link Requirement Requirements \endlink.
          */
         const std::vector<Requirement> &GetRequirementCatalogue() const;
-
         /**
          * @brief Gettter for a Reference to the Tendency catalogue.
          *
@@ -108,6 +108,10 @@ namespace tale
          * @brief Holds a reference to the Random object of the simulation.
          */
         Random &random_;
+        /**
+         * @brief Holds a reference to the Chronicle object of the simulation.
+         */
+        Chronicle &chronicle_;
         /**
          * @brief Holds all available \link InteractionPrototype InteractionPrototypes \endlink.
          */

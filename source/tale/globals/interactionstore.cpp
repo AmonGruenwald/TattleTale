@@ -10,7 +10,7 @@
 
 namespace tale
 {
-    InteractionStore::InteractionStore(Random &random) : random_(random)
+    InteractionStore::InteractionStore(Random &random, Chronicle &chronicle) : random_(random), chronicle_(chronicle)
     {
         TALE_DEBUG_PRINT("READING FROM PROTOTYPE FILE");
         std::ifstream catalogue_json_file(prototype_json_path_);
@@ -138,12 +138,11 @@ namespace tale
         assert(prototype_catalogue_.size() > prototype_index); // faulty index
         return prototype_catalogue_.at(prototype_index).relationship_effects;
     }
-    std::shared_ptr<Interaction> InteractionStore::CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
+    std::weak_ptr<Interaction> InteractionStore::CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
         assert(prototype_catalogue_.size() > prototype_index); // faulty index
         InteractionPrototype &prototype = prototype_catalogue_.at(prototype_index);
-        std::shared_ptr<Interaction> interaction(new Interaction(prototype, tick, reasons, participants));
-        return interaction;
+        return chronicle_.CreateInteraction(prototype, tick, reasons, participants);
     }
     const std::vector<Requirement> &InteractionStore::GetRequirementCatalogue() const
     {

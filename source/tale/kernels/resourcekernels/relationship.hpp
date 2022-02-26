@@ -26,15 +26,6 @@ namespace tale
     {
     public:
         /**
-         * @brief Constructor initializing base Resource class and type_ member.
-         *
-         * @param type What RelationshipType this Relationship is of.
-         * @param tick In which tick this Relationship was created.
-         * @param reasons What other \link Kernel Kernels \endlink led to this Relationship and its value.
-         * @param value Value of the Relationship between -1.0 and 1.0.
-         */
-        Relationship(RelationshipType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
-        /**
          * @brief Converts a string to an RelationshipType.
          *
          * Uses the same string values RelationshipTypeToString returns.
@@ -57,9 +48,22 @@ namespace tale
 
     private:
         /**
+         * @brief Constructor initializing base Resource class and type_ member.
+         *
+         * This should only ever be called through the Chronicle.
+         *
+         * @param type What RelationshipType this Relationship is of.
+         * @param id The index this Kernel holds in the Chronicle.
+         * @param tick In which tick this Relationship was created.
+         * @param reasons What other \link Kernel Kernels \endlink led to this Relationship and its value.
+         * @param value Value of the Relationship between -1.0 and 1.0.
+         */
+        Relationship(RelationshipType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        /**
          * @brief The RelationshipType of this Relationship.
          */
         RelationshipType type_;
+        friend class Chronicle;
     };
 
 } // namespace tale

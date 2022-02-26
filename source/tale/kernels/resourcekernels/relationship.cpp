@@ -6,7 +6,8 @@
 
 namespace tale
 {
-    Relationship::Relationship(RelationshipType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Resource(RelationshipTypeToString(type), tick, reasons, value), type_(type){};
+    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+        : Resource(RelationshipTypeToString(type), id, tick, reasons, value), type_(type){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {

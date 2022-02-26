@@ -14,6 +14,7 @@
 #include "tale/kernels/trait.hpp"
 #include "tale/globals/interactionstore.hpp"
 #include "tale/globals/random.hpp"
+#include "tale/globals/chronicle.hpp"
 #include "tale/actor.hpp"
 #include "tale/school.hpp"
 #include "tale/course.hpp"

@@ -5,8 +5,8 @@
 
 namespace tale
 {
-    Emotion::Emotion(EmotionType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Resource(EmotionTypeToString(type), tick, reasons, value), type_(type){};
+    Emotion::Emotion(EmotionType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+        : Resource(EmotionTypeToString(type), id, tick, reasons, value), type_(type){};
 
     EmotionType Emotion::StringToEmotionType(std::string emotion_string)
     {

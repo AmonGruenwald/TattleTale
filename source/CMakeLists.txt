@@ -29,8 +29,10 @@ set(LIBRARY_SOURCES
     tale/kernels/trait.cpp
     tale/globals/interactionstore.hpp
     tale/globals/interactionstore.cpp
-    tale/globals/random.cpp
     tale/globals/random.hpp
+    tale/globals/random.cpp
+    tale/globals/chronicle.hpp
+    tale/globals/chronicle.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )
@@ -67,8 +69,8 @@ target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 # Uncomment/comment out for prints
-target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
-target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
 
 target_compile_definitions(${LIBRARY_NAME} PUBLIC NOMINMAX)
 

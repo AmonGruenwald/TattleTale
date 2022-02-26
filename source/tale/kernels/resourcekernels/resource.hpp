@@ -12,15 +12,6 @@ namespace tale
     {
     public:
         /**
-         * @brief Constructor initializing base Kernel class and value_ member.
-         *
-         * @param name The name of this Resource. Should describe what this Resource is tracking.
-         * @param tick In which tick this Resource was created.
-         * @param reasons What other \link Kernel Kernels \endlink  led to this Resource and its value.
-         * @param value Value of the Resource between -1.0 and 1.0.
-         */
-        Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
-        /**
          * @brief Getter for the value of the Resource.
          *
          * @return The value.
@@ -33,11 +24,26 @@ namespace tale
          */
         std::string ToString();
 
+    protected:
+        /**
+         * @brief Constructor initializing base Kernel class and value_ member.
+         *
+         * This should only ever be called through the Chronicle.
+         *
+         * @param name The name of this Resource. Should describe what this Resource is tracking.
+         * @param id The index this Kernel holds in the Chronicle.
+         * @param tick In which tick this Resource was created.
+         * @param reasons What other \link Kernel Kernels \endlink  led to this Resource and its value.
+         * @param value Value of the Resource between -1.0 and 1.0.
+         */
+        Resource(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+
     private:
         /**
          * @brief The value of this Resource.
          */
         float value_;
+        friend class Chronicle;
     };
 
 } // namespace tale

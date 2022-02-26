@@ -18,32 +18,9 @@ namespace tale
      * Extends the Kernel class, so it has to hold every information that is necessary to recreate the causal
      * chain leading to this Event.
      */
-    class Interaction : public Kernel, public std::enable_shared_from_this<Interaction>
+    class Interaction : public Kernel
     {
     public:
-        /**
-         * @brief Only publically available Constructor. Fills out every member variable.
-         *
-         * Even though it is publically available, this probably should only be called from InteractionStore. It is only publically available because it
-         * might be needed for testing purposes.
-         * @param name The name of this Interaction.
-         * @param tick The tick during which this Interaction happens.
-         * @param reasons Vector of \link Kernel Kernels \endlink that are responsible for this Interaction happening.
-         * @param participant_count How many \link Actor Actors \endlink are participating in this Interaction. Seperate from participants because
-         * protoypes of Interactions do not actually have participants
-         * @param participants Vector of \link Actor Actors \endlink that are participating in this Interaction.
-         * @param wealth_effects Vector holding the effects this Interaction will have on the wealth of the participating \link Actor Actors \endlink.
-         * @param emotion_effects Vector holding the effects this Interaction will have on the \link Emotion Emotions \endlink  of the participating \link Actor Actors \endlink.
-         * Maps Emotiontype to float value.
-         * @param relationship_effects Vector holding the effects this Interaction will have on the \link Relationship Relationships \endlink  of the
-         * participating \link Actor Actors \endlink. Maps index of Actor in participants_ vector to map of RelationshipType to float value.
-         */
-        Interaction(
-            const InteractionPrototype &prototype,
-            size_t tick,
-            std::vector<std::weak_ptr<Kernel>> reasons,
-            std::vector<std::weak_ptr<Actor>> participants);
-
         /**
          * @brief Applies the effects of the Interaction to all participating \link Actor Actors \endlink.
          */
@@ -70,6 +47,24 @@ namespace tale
 
     private:
         /**
+         * @brief Only publically available Constructor. Fills out every member variable.
+         *
+         * This should only ever be called through the Chronicle.
+         *
+         * @param prototype Reference to the InteractionPrototype this Interaction is based off.
+         * @param id The index this Kernel holds in the Chronicle.
+         * @param tick The tick during which this Interaction happens.
+         * @param reasons Vector of \link Kernel Kernels \endlink that are responsible for this Interaction happening.
+         * @param participants Vector of \link Actor Actors \endlink that are participating in this Interaction.
+         **/
+        Interaction(
+            const InteractionPrototype &prototype,
+            size_t id,
+            size_t tick,
+            std::vector<std::weak_ptr<Kernel>> reasons,
+            std::vector<std::weak_ptr<Actor>>
+                participants);
+        /**
          * @brief Stores a Reference to the corresponding InteractionPrototype.
          */
         const InteractionPrototype &prototype_;
@@ -77,6 +72,7 @@ namespace tale
          * @brief Stores Pointers to the involved \link Actor Actors \endlink.
          */
         std::vector<std::weak_ptr<Actor>> participants_;
+        friend class Chronicle;
     };
 
 } // namespace tale

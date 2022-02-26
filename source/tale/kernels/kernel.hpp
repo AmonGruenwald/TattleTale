@@ -15,29 +15,20 @@ namespace tale
      * tracking is supported though increasing numbers for each Kernel and storing on which tick the
      * Kernel was created.
      */
-    class Kernel
+    class Kernel : public std::enable_shared_from_this<Kernel>
     {
     public:
-        static size_t current_number_;
-
         std::string name_;
         std::vector<std::weak_ptr<Kernel>> reasons_;
         std::vector<std::weak_ptr<Kernel>> consequences_;
-        size_t number_;
+        size_t id_;
         size_t tick_;
 
-        Kernel(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         void AddConsequence(std::weak_ptr<Kernel> consequence);
         virtual std::string ToString() = 0;
 
     protected:
-        /**
-         * @brief Default constructor should generally not be callable.
-         *
-         * It only exists because some Prototypes shoule be able to create Kernels without increasing
-         * the number_ or giving reasons_.
-         */
-        Kernel();
+        Kernel(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
     };
 
 } // namespace tale

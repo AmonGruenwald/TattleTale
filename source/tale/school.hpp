@@ -6,6 +6,7 @@
 #include "tale/course.hpp"
 #include "tale/setting.hpp"
 #include "tale/globals/random.hpp"
+#include "tale/globals/chronicle.hpp"
 #include "tale/globals/interactionstore.hpp"
 #include "tale/actor.hpp"
 
@@ -81,23 +82,29 @@ namespace tale
          */
         size_t GetCurrentDay() const;
         /**
-         * @brief Getter for the Setting object of the simulation
+         * @brief Getter for a Reference to the Setting object of the simulation
          *
          * @return Reference to the Setting object.
          */
         const Setting &GetSetting() const;
         /**
-         * @brief Getter for the InteractionStore object of the simulation
+         * @brief Getter for a Reference to the InteractionStore object of the simulation
          *
          * @return Reference to the InteractionStore object.
          */
         InteractionStore &GetInteractionStore();
         /**
-         * @brief Getter for the Random object of the simulation
+         * @brief Getter for a Reference to the Random object of the simulation
          *
          * @return Reference to the Random object.
          */
         Random &GetRandom();
+        /**
+         * @brief Getter for a Reference to the Chronicle object of the simulation
+         *
+         * @return Reference to the Chronicle object.
+         */
+        Chronicle &GetChronicle();
 
     private:
         /**
@@ -124,6 +131,10 @@ namespace tale
          * @brief Holds the instance of the InteractionStore object for the simulation.
          */
         InteractionStore interaction_store_;
+        /**
+         * @brief Holds the instance of the Chronicle object for the simulation.
+         */
+        Chronicle chronicle_;
         /**
          * @brief The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next.
          */

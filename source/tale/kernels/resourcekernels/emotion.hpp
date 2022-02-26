@@ -27,15 +27,6 @@ namespace tale
     {
     public:
         /**
-         * @brief Constructor initializing base Resource class and type_ member.
-         *
-         * @param type What EmotionType this Emotion is of.
-         * @param tick In which tick this Emotion was created.
-         * @param reasons What other \link Kernel Kernels \endlink  led to this Emotion and its value.
-         * @param value Value of the Emotion between -1.0 and 1.0.
-         */
-        Emotion(EmotionType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
-        /**
          * @brief Converts a string to an EmotionType.
          *
          * Uses the same string values EmotionTypeToString returns.
@@ -58,9 +49,22 @@ namespace tale
 
     private:
         /**
+         * @brief Constructor initializing base Resource class and type_ member.
+         *
+         * This should only ever be called through the Chronicle.
+         *
+         * @param type What EmotionType this Emotion is of.
+         * @param id The index this Kernel holds in the Chronicle.
+         * @param tick In which tick this Emotion was created.
+         * @param reasons What other \link Kernel Kernels \endlink  led to this Emotion and its value.
+         * @param value Value of the Emotion between -1.0 and 1.0.
+         */
+        Emotion(EmotionType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        /**
          * @brief The EmotionType of this Emotion.
          */
         EmotionType type_;
+        friend class Chronicle;
     };
 
 } // namespace tale

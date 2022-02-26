@@ -5,7 +5,8 @@
 
 namespace tale
 {
-    Resource::Resource(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value) : Kernel(name, tick, reasons), value_(value){};
+    Resource::Resource(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+        : Kernel(name, id, tick, reasons), value_(value){};
     float Resource::GetValue() const
     {
         return value_;

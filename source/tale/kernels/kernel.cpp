@@ -5,21 +5,14 @@
 
 namespace tale
 {
-    size_t Kernel::current_number_ = 0;
     Kernel::Kernel(
-        std::string name,
+        std::string name, size_t id,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons)
         : name_(name),
+          id_(id),
           tick_(tick),
-          reasons_(reasons)
-    {
-        number_ = current_number_;
-        ++current_number_;
-    }
-    Kernel::Kernel()
-    {
-    }
+          reasons_(reasons) {}
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
     {
         consequences_.push_back(consequence);
