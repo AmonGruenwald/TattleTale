@@ -10,6 +10,7 @@
 #include "tale/kernels/interactions/interactiontendency.hpp"
 #include "tale/globals/random.hpp"
 #include "tale/globals/chronicle.hpp"
+#include "tale/talecore.hpp"
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
 

@@ -284,16 +284,16 @@ TEST(TaleInteractions, ApplyInteraction)
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->GetValue(), expected_wealth_values[participant_index]);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->GetValue(), std::clamp(expected_wealth_values[participant_index], -1.0f, 1.0f));
         for (auto &[type, value] : expected_emotion_values[participant_index])
         {
-            EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type].lock()->GetValue(), value);
+            EXPECT_EQ(school.GetActor(participant_index).lock()->emotions_[type].lock()->GetValue(), std::clamp(value, -1.0f, 1.0f));
         }
         for (auto &[other_participant_index, map] : expected_relationship_values[participant_index])
         {
             for (auto &[type, value] : map)
             {
-                EXPECT_EQ(school.GetActor(participant_index).lock()->relationships_[other_participant_index][type].lock()->GetValue(), value);
+                EXPECT_EQ(school.GetActor(participant_index).lock()->relationships_[other_participant_index][type].lock()->GetValue(), std::clamp(value, -1.0f, 1.0f));
             }
         }
     }
