@@ -75,6 +75,14 @@ namespace tale
             }
             return (name_string + "\n" + wealth_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string);
         }
+
+        void ClearValues()
+        {
+            name = "";
+            wealth_effects.clear();
+            emotion_effects.clear();
+            relationship_effects.clear();
+        }
     };
 
 } // namespace tale

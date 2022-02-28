@@ -10,6 +10,8 @@
 #include "tale/kernels/interactions/interactiontendency.hpp"
 #include "tale/globals/random.hpp"
 #include "tale/globals/chronicle.hpp"
+#include <nlohmann/json.hpp>
+#include <fmt/core.h>
 
 namespace tale
 {
@@ -128,7 +130,76 @@ namespace tale
          * @brief Path to the json file where Interaction prototypes are defined.
          */
         std::string prototype_json_path_ = "tale/resources/interactioncatalogue.json";
-    };
 
+        const std::string name_key_ = "name";
+        const std::string participant_count_key_ = "participant_count";
+        const std::string wealth_key_ = "wealth";
+        const std::string emotion_key_ = "emotions";
+        const std::vector<std::string> emotion_type_keys_ = {"happy", "calm", "satisfied", "brave", "extroverted"};
+        const std::vector<std::string> context_type_keys_ = {"course", "freetime"};
+        const std::string relationship_key_ = "relationships";
+        const std::string participant_key_ = "participant";
+        const std::string changes_key_ = "changes";
+        const std::vector<std::string> relationship_type_keys_ = {"love", "attraction", "friendship", "anger", "protective"};
+        const std::string context_key_ = "context";
+        const std::string group_size_key_ = "group_size";
+        bool ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionPrototype &out_prototype);
+        bool ReadRequirementJSON(nlohmann::json json, std::string error_preamble, Requirement &out_requirement);
+        bool ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, Tendency &out_tendency);
+
+        template <typename T1, nlohmann::detail::value_t T2>
+        bool ReadJsonValueFromDictionary(T1 &out_value, nlohmann::json json, std::string key, bool required, std::string error_preamble = "")
+        {
+            if (!json.contains(key))
+            {
+                if (required)
+                {
+                    TALE_ERROR_PRINT(fmt::format("{}JSON DID NOT CONTAIN KEY {}", error_preamble, key));
+                    return false;
+                }
+            }
+            else
+            {
+                if (json[key].type() == T2)
+                {
+                    out_value = json[key];
+                }
+                else
+                {
+                    TALE_ERROR_PRINT(fmt::format("{}VALUE FOR KEY {} WAS OF AN INCORRECT TYPE", error_preamble, key));
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        template <typename T1, nlohmann::detail::value_t T2>
+        bool ReadJsonValueFromArray(T1 &out_value, nlohmann::json json, size_t index, bool required, std::string error_preamble = "")
+        {
+            if (json.size() <= index)
+            {
+                if (required)
+                {
+                    TALE_ERROR_PRINT(fmt::format("{}JSON DID NOT CONTAIN INDEX {}", error_preamble, index));
+                    return false;
+                }
+            }
+            else
+            {
+                if (json[index].type() == T2)
+                {
+                    out_value = json[index];
+                }
+                else
+                {
+                    TALE_ERROR_PRINT(fmt::format("{}VALUE FOR INDEX {} WAS OF AN INCORRECT TYPE", error_preamble, index));
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        bool CheckCorrectValueRange(float value, std::string error_preamble = "");
+    };
 } // namespace tale
 #endif // TALE_GLOBALS_INTERACTIONSTORE_H

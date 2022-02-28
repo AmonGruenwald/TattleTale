@@ -62,7 +62,7 @@
         },
         "tendencies":
         {
-            "group_size": 0,
+            "group_size": 0.0,
             "contexts":
             { 
                 "course": 0.0,
@@ -153,7 +153,7 @@
         },
         "tendencies":
         {
-            "group_size": 0,
+            "group_size": 0.0,
             "contexts":
             { 
                 "course": 0.0,

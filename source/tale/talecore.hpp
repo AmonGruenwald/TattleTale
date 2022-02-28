@@ -16,3 +16,11 @@
 #else
 #define TALE_VERBOSE_PRINT(x)
 #endif
+
+#ifdef TALE_ERROR_PRINT_OUTPUT
+#define TALE_ERROR_PRINT(x) std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "[ ERROR ][" << __TIME__ << "][" << __FILE__ << "]" \
+                                      << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                                             \
+                                      << x << "\n\n"
+#else
+#define TALE_ERROR_PRINT(x)
+#endif

@@ -149,6 +149,8 @@ namespace tale
                             reason = relationship;
                         }
                     }
+                    chance += static_cast<float>(chance_parts);
+                    chance /= static_cast<float>(chance_parts * 2);
                     if (chance == 0.0f)
                     {
                         ++participant_zero_count;
@@ -232,7 +234,8 @@ namespace tale
     void Actor::ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
     {
         float previous_value = wealth_.lock()->GetValue();
-        float new_value = previous_value + value;
+        // TODO: think about handling this cleaner
+        float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(wealth_);
         wealth_ = chronicle_.CreateResource("wealth", tick, weak_from_this(), all_reasons, new_value);
@@ -240,7 +243,8 @@ namespace tale
     void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
         float previous_value = emotions_[type].lock()->GetValue();
-        float new_value = previous_value + value;
+        // TODO: think about handling this cleaner
+        float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(emotions_[type]);
         emotions_[type] = chronicle_.CreateEmotion(type, tick, weak_from_this(), all_reasons, new_value);
@@ -257,7 +261,8 @@ namespace tale
                 all_reasons.push_back(relationships_.at(actor_id).at(type));
             }
         }
-        float new_value = previous_value + value;
+        // TODO: think about handling this cleaner
+        float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), all_reasons, new_value);
     }
     std::string Actor::GetWealthDescriptionString()
