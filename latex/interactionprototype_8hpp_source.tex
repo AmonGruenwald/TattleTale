@@ -55,9 +55,17 @@
 \DoxyCodeLine{75             \}}
 \DoxyCodeLine{76             \textcolor{keywordflow}{return} (name\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + wealth\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + emotion\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + relationship\_effects\_string);}
 \DoxyCodeLine{77         \}}
-\DoxyCodeLine{78     \};}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{80         \{}
+\DoxyCodeLine{81             \mbox{\hyperlink{structtale_1_1_interaction_prototype_a3749f03872c07e6022669f8f4d7975e6}{name}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{82             \mbox{\hyperlink{structtale_1_1_interaction_prototype_ae6f7e4c7d6e85a7b4f2b1ec901f3b44b}{wealth\_effects}}.clear();}
+\DoxyCodeLine{83             \mbox{\hyperlink{structtale_1_1_interaction_prototype_a1eda68e594704f86057bb77177cce0a5}{emotion\_effects}}.clear();}
+\DoxyCodeLine{84             \mbox{\hyperlink{structtale_1_1_interaction_prototype_a37940758c97a670f387d855f3543bedb}{relationship\_effects}}.clear();}
+\DoxyCodeLine{85         \}}
+\DoxyCodeLine{86     \};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
 
 \end{DoxyCode}

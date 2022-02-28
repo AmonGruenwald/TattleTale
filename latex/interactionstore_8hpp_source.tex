@@ -14,34 +14,105 @@
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactiontendency.hpp"{}}}
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}tale/globals/chronicle.hpp"{}}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{15 \{}
-\DoxyCodeLine{16     \textcolor{keyword}{class }Actor;}
-\DoxyCodeLine{23     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}}
-\DoxyCodeLine{24     \{}
-\DoxyCodeLine{25     \textcolor{keyword}{public}:}
-\DoxyCodeLine{33         \mbox{\hyperlink{classtale_1_1_interaction_store_a33786eeea407a0bebc37110c6bc87270}{InteractionStore}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&chronicle);}
-\DoxyCodeLine{39         uint32\_t \mbox{\hyperlink{classtale_1_1_interaction_store_a4e17ee34360fe2b8c7e3d2a157f79e3b}{GetRandomInteractionPrototypeIndex}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{46         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ab0d0a7ace1561ea93fdd250171327c93}{GetInteractionName}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{56         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a35702f3bfc7af3856ef1c7b07aadba1e}{GetParticipantCount}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{64         \textcolor{keyword}{const} std::vector<float> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a4a531cb8ddffe4381108ca8c4b9af4aa}{GetWealthEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{72         \textcolor{keyword}{const} std::vector<std::map<EmotionType, float>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a639dde8e7d95fe883fd85be9491bea45}{GetEmotionEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{80         \textcolor{keyword}{const} std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a7805bf50e3e509c4047c304993617276}{GetRelationshipEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{92         std::weak\_ptr<Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}{CreateInteraction}}(\textcolor{keywordtype}{size\_t} prototype\_index, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
-\DoxyCodeLine{98         \textcolor{keyword}{const} std::vector<Requirement> \&\mbox{\hyperlink{classtale_1_1_interaction_store_aeba185508945c3ca34c6019880d56934}{GetRequirementCatalogue}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{104         \textcolor{keyword}{const} std::vector<Tendency> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a8aca354fe4fcadcaa4a82e95f1e4ed4b}{GetTendencyCatalogue}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{106     \textcolor{keyword}{private}:}
-\DoxyCodeLine{110         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}{random\_}};}
-\DoxyCodeLine{114         \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a015d0442fe626ba04d255ca3222a9399}{chronicle\_}};}
-\DoxyCodeLine{118         std::vector<InteractionPrototype> \mbox{\hyperlink{classtale_1_1_interaction_store_a9b5e1bb13fd299d9a7c2cecdc7edcd9c}{prototype\_catalogue\_}};}
-\DoxyCodeLine{122         std::vector<Requirement> \mbox{\hyperlink{classtale_1_1_interaction_store_ae7bff2929f7b0373e0f257f3860e0905}{requirements\_catalogue\_}};}
-\DoxyCodeLine{126         std::vector<Tendency> \mbox{\hyperlink{classtale_1_1_interaction_store_af67bce01f9f22a06a7e29e25a34a6ea4}{tendencies\_catalogue\_}};}
-\DoxyCodeLine{130         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}tale/resources/interactioncatalogue.json"{}};}
-\DoxyCodeLine{131     \};}
-\DoxyCodeLine{132 }
-\DoxyCodeLine{133 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <nlohmann/json.hpp>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{class }Actor;}
+\DoxyCodeLine{25     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_interaction_store}{InteractionStore}}}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35         \mbox{\hyperlink{classtale_1_1_interaction_store_a33786eeea407a0bebc37110c6bc87270}{InteractionStore}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&chronicle);}
+\DoxyCodeLine{41         uint32\_t \mbox{\hyperlink{classtale_1_1_interaction_store_a4e17ee34360fe2b8c7e3d2a157f79e3b}{GetRandomInteractionPrototypeIndex}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ab0d0a7ace1561ea93fdd250171327c93}{GetInteractionName}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{58         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a35702f3bfc7af3856ef1c7b07aadba1e}{GetParticipantCount}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{66         \textcolor{keyword}{const} std::vector<float> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a4a531cb8ddffe4381108ca8c4b9af4aa}{GetWealthEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{74         \textcolor{keyword}{const} std::vector<std::map<EmotionType, float>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a639dde8e7d95fe883fd85be9491bea45}{GetEmotionEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{82         \textcolor{keyword}{const} std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a7805bf50e3e509c4047c304993617276}{GetRelationshipEffects}}(\textcolor{keywordtype}{size\_t} prototype\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{94         std::weak\_ptr<Interaction> \mbox{\hyperlink{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}{CreateInteraction}}(\textcolor{keywordtype}{size\_t} prototype\_index, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
+\DoxyCodeLine{100         \textcolor{keyword}{const} std::vector<Requirement> \&\mbox{\hyperlink{classtale_1_1_interaction_store_aeba185508945c3ca34c6019880d56934}{GetRequirementCatalogue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{106         \textcolor{keyword}{const} std::vector<Tendency> \&\mbox{\hyperlink{classtale_1_1_interaction_store_a8aca354fe4fcadcaa4a82e95f1e4ed4b}{GetTendencyCatalogue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keyword}{private}:}
+\DoxyCodeLine{112         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&\mbox{\hyperlink{classtale_1_1_interaction_store_aa420288116fe072c6757dc7f46870723}{random\_}};}
+\DoxyCodeLine{116         \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtale_1_1_interaction_store_a015d0442fe626ba04d255ca3222a9399}{chronicle\_}};}
+\DoxyCodeLine{120         std::vector<InteractionPrototype> \mbox{\hyperlink{classtale_1_1_interaction_store_a9b5e1bb13fd299d9a7c2cecdc7edcd9c}{prototype\_catalogue\_}};}
+\DoxyCodeLine{124         std::vector<Requirement> \mbox{\hyperlink{classtale_1_1_interaction_store_ae7bff2929f7b0373e0f257f3860e0905}{requirements\_catalogue\_}};}
+\DoxyCodeLine{128         std::vector<Tendency> \mbox{\hyperlink{classtale_1_1_interaction_store_af67bce01f9f22a06a7e29e25a34a6ea4}{tendencies\_catalogue\_}};}
+\DoxyCodeLine{132         std::string \mbox{\hyperlink{classtale_1_1_interaction_store_ad6d0dd8803d84e0eddf5a0e5fd621075}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}tale/resources/interactioncatalogue.json"{}};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         \textcolor{keyword}{const} std::string name\_key\_ = \textcolor{stringliteral}{"{}name"{}};}
+\DoxyCodeLine{135         \textcolor{keyword}{const} std::string participant\_count\_key\_ = \textcolor{stringliteral}{"{}participant\_count"{}};}
+\DoxyCodeLine{136         \textcolor{keyword}{const} std::string wealth\_key\_ = \textcolor{stringliteral}{"{}wealth"{}};}
+\DoxyCodeLine{137         \textcolor{keyword}{const} std::string emotion\_key\_ = \textcolor{stringliteral}{"{}emotions"{}};}
+\DoxyCodeLine{138         \textcolor{keyword}{const} std::vector<std::string> emotion\_type\_keys\_ = \{\textcolor{stringliteral}{"{}happy"{}}, \textcolor{stringliteral}{"{}calm"{}}, \textcolor{stringliteral}{"{}satisfied"{}}, \textcolor{stringliteral}{"{}brave"{}}, \textcolor{stringliteral}{"{}extroverted"{}}\};}
+\DoxyCodeLine{139         \textcolor{keyword}{const} std::vector<std::string> context\_type\_keys\_ = \{\textcolor{stringliteral}{"{}course"{}}, \textcolor{stringliteral}{"{}freetime"{}}\};}
+\DoxyCodeLine{140         \textcolor{keyword}{const} std::string relationship\_key\_ = \textcolor{stringliteral}{"{}relationships"{}};}
+\DoxyCodeLine{141         \textcolor{keyword}{const} std::string participant\_key\_ = \textcolor{stringliteral}{"{}participant"{}};}
+\DoxyCodeLine{142         \textcolor{keyword}{const} std::string changes\_key\_ = \textcolor{stringliteral}{"{}changes"{}};}
+\DoxyCodeLine{143         \textcolor{keyword}{const} std::vector<std::string> relationship\_type\_keys\_ = \{\textcolor{stringliteral}{"{}love"{}}, \textcolor{stringliteral}{"{}attraction"{}}, \textcolor{stringliteral}{"{}friendship"{}}, \textcolor{stringliteral}{"{}anger"{}}, \textcolor{stringliteral}{"{}protective"{}}\};}
+\DoxyCodeLine{144         \textcolor{keyword}{const} std::string context\_key\_ = \textcolor{stringliteral}{"{}context"{}};}
+\DoxyCodeLine{145         \textcolor{keyword}{const} std::string group\_size\_key\_ = \textcolor{stringliteral}{"{}group\_size"{}};}
+\DoxyCodeLine{146         \textcolor{keywordtype}{bool} ReadPrototypeJSON(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, InteractionPrototype \&out\_prototype);}
+\DoxyCodeLine{147         \textcolor{keywordtype}{bool} ReadRequirementJSON(nlohmann::json json, std::string error\_preamble, Requirement \&out\_requirement);}
+\DoxyCodeLine{148         \textcolor{keywordtype}{bool} ReadTendencyJSON(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, Tendency \&out\_tendency);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
+\DoxyCodeLine{151         \textcolor{keywordtype}{bool} ReadJsonValueFromDictionary(T1 \&out\_value, nlohmann::json json, std::string key, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{152         \{}
+\DoxyCodeLine{153             \textcolor{keywordflow}{if} (!json.contains(key))}
+\DoxyCodeLine{154             \{}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{if} (required)}
+\DoxyCodeLine{156                 \{}
+\DoxyCodeLine{157                     TALE\_ERROR\_PRINT(fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN KEY \{\}"{}}, error\_preamble, key));}
+\DoxyCodeLine{158                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{159                 \}}
+\DoxyCodeLine{160             \}}
+\DoxyCodeLine{161             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{162             \{}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{if} (json[key].type() == T2)}
+\DoxyCodeLine{164                 \{}
+\DoxyCodeLine{165                     out\_value = json[key];}
+\DoxyCodeLine{166                 \}}
+\DoxyCodeLine{167                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{168                 \{}
+\DoxyCodeLine{169                     TALE\_ERROR\_PRINT(fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR KEY \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, key));}
+\DoxyCodeLine{170                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{171                 \}}
+\DoxyCodeLine{172             \}}
+\DoxyCodeLine{173             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
+\DoxyCodeLine{177         \textcolor{keywordtype}{bool} ReadJsonValueFromArray(T1 \&out\_value, nlohmann::json json, \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{178         \{}
+\DoxyCodeLine{179             \textcolor{keywordflow}{if} (json.size() <= index)}
+\DoxyCodeLine{180             \{}
+\DoxyCodeLine{181                 \textcolor{keywordflow}{if} (required)}
+\DoxyCodeLine{182                 \{}
+\DoxyCodeLine{183                     TALE\_ERROR\_PRINT(fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN INDEX \{\}"{}}, error\_preamble, index));}
+\DoxyCodeLine{184                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{185                 \}}
+\DoxyCodeLine{186             \}}
+\DoxyCodeLine{187             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{188             \{}
+\DoxyCodeLine{189                 \textcolor{keywordflow}{if} (json[index].type() == T2)}
+\DoxyCodeLine{190                 \{}
+\DoxyCodeLine{191                     out\_value = json[index];}
+\DoxyCodeLine{192                 \}}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{194                 \{}
+\DoxyCodeLine{195                     TALE\_ERROR\_PRINT(fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR INDEX \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, index));}
+\DoxyCodeLine{196                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{197                 \}}
+\DoxyCodeLine{198             \}}
+\DoxyCodeLine{199             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{200         \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202         \textcolor{keywordtype}{bool} CheckCorrectValueRange(\textcolor{keywordtype}{float} value, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{203     \};}
+\DoxyCodeLine{204 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
 
 \end{DoxyCode}

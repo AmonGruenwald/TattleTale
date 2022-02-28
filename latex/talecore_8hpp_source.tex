@@ -20,5 +20,13 @@
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#else}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#define TALE\_VERBOSE\_PRINT(x)}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef TALE\_ERROR\_PRINT\_OUTPUT}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TALE\_ERROR\_PRINT(x) std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "{}[ ERROR ]["{}} << \_\_TIME\_\_ << "{}]["{} << \_\_FILE\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{22                                       << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                                             \(\backslash\)}
+\DoxyCodeLine{23                                       << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define TALE\_ERROR\_PRINT(x)}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

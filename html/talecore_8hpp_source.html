@@ -88,6 +88,14 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define TALE_VERBOSE_PRINT(x)</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef TALE_ERROR_PRINT_OUTPUT</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define TALE_ERROR_PRINT(x) std::cout &lt;&lt; rang::bg::red &lt;&lt; rang::fg::reset &lt;&lt; rang::style::bold &lt;&lt; &quot;[ ERROR ][&quot;</span> &lt;&lt; __TIME__ &lt;&lt; &quot;][&quot; &lt;&lt; __FILE__ &lt;&lt; &quot;]&quot; \</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                                      &lt;&lt; rang::style::reset &lt;&lt; rang::bg::reset &lt;&lt; rang::fg::reset &lt;&lt; &quot;\n&quot;                                             \</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                                      &lt;&lt; x &lt;&lt; &quot;\n\n&quot;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define TALE_ERROR_PRINT(x)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

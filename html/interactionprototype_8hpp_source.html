@@ -123,10 +123,18 @@ $(function() {
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> (name_string + <span class="stringliteral">&quot;\n&quot;</span> + wealth_effects_string + <span class="stringliteral">&quot;\n&quot;</span> + emotion_effects_string + <span class="stringliteral">&quot;\n&quot;</span> + relationship_effects_string);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    };</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>} <span class="comment">// namespace tale</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif </span><span class="comment">// TALE_INTERACTIONS_INTERACTIONPROTOTYPE_H</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordtype">void</span> ClearValues()</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <a class="code hl_variable" href="structtale_1_1_interaction_prototype.html#a3749f03872c07e6022669f8f4d7975e6">name</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <a class="code hl_variable" href="structtale_1_1_interaction_prototype.html#ae6f7e4c7d6e85a7b4f2b1ec901f3b44b">wealth_effects</a>.clear();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_variable" href="structtale_1_1_interaction_prototype.html#a1eda68e594704f86057bb77177cce0a5">emotion_effects</a>.clear();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <a class="code hl_variable" href="structtale_1_1_interaction_prototype.html#a37940758c97a670f387d855f3543bedb">relationship_effects</a>.clear();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    };</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>} <span class="comment">// namespace tale</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif </span><span class="comment">// TALE_INTERACTIONS_INTERACTIONPROTOTYPE_H</span></div>
 <div class="ttc" id="aclasstale_1_1_emotion_html_af02a9111d0edce779fc77f336eaa6e42"><div class="ttname"><a href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">tale::Emotion::EmotionTypeToString</a></div><div class="ttdeci">static std::string EmotionTypeToString(EmotionType emotion_type)</div><div class="ttdoc">Converts an EmotionType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:26</div></div>
 <div class="ttc" id="aclasstale_1_1_relationship_html_af3c1111122993bce5b76b7b2a12a5e11"><div class="ttname"><a href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">tale::Relationship::RelationshipTypeToString</a></div><div class="ttdeci">static std::string RelationshipTypeToString(RelationshipType relationship_type)</div><div class="ttdoc">Converts an RelationshipType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:27</div></div>
 <div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:9</div></div>

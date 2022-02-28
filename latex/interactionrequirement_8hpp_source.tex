@@ -5,16 +5,30 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactioncontexttype.hpp"{}}}
-\DoxyCodeLine{5 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{10     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
-\DoxyCodeLine{11     \{}
-\DoxyCodeLine{15         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
-\DoxyCodeLine{19         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
-\DoxyCodeLine{20     \};}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactioncontexttype.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
+\DoxyCodeLine{12     \{}
+\DoxyCodeLine{16         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
+\DoxyCodeLine{20         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
 \DoxyCodeLine{21 }
-\DoxyCodeLine{22 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{22         std::string ToString()}
+\DoxyCodeLine{23         \{}
+\DoxyCodeLine{24             std::string context\_string = fmt::format(\textcolor{stringliteral}{"{}Context: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(\mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}}));}
+\DoxyCodeLine{25             std::string participant\_count\_string = fmt::format(\textcolor{stringliteral}{"{}Participant Count: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}});}
+\DoxyCodeLine{26             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}"{}}, context\_string, participant\_count\_string));}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
+\DoxyCodeLine{32             \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34     \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 
 \end{DoxyCode}
