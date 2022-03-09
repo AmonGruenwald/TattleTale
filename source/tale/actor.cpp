@@ -101,7 +101,12 @@ namespace tale
             group_size_ratio -= 1.0f;
             std::weak_ptr<Kernel> reason;
             float chance = CalculateTendencyChance(tendency, context, group_size_ratio, reason);
-            chance = ApplyGoalChanceModification(chance, i);
+            float modified_chance = ApplyGoalChanceModification(chance, i);
+            // TODO: this value is completely random
+            if (abs(modified_chance - chance) > 0.25f)
+            {
+                reason = goal_;
+            }
             if (chance == 0.0f)
             {
                 ++zero_count;
@@ -286,7 +291,6 @@ namespace tale
         }
         relevant_effect = std::clamp(relevant_effect, -1.0f, 1.0f);
 
-        // TODO: think this over, maybe use a different approach
         // seet https://www.desmos.com/calculator/ojqnu2ni4c
         return pow(original_chance, (1.0f - relevant_effect));
     }
