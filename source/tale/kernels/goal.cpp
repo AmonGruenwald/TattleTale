@@ -61,6 +61,6 @@ namespace tale
     }
     std::string Goal::ToString()
     {
-        return "Goals are not implented yet.";
+        return ("Has the goal of achieving " + name_ + ".");
     }
 } // namespace tale
