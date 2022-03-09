@@ -367,7 +367,7 @@ namespace tale
     void Actor::InitializeRandomGoal(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        goal_ = chronicle_.CreateGoal("goal", tick, no_reasons);
+        goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, no_reasons);
     }
     void Actor::InitializeRandomTraits(size_t tick)
     {

@@ -28,9 +28,9 @@ namespace tale
         kernels_.push_back(resource);
         return resource;
     }
-    std::weak_ptr<Goal> Chronicle::CreateGoal(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons)
+    std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons)
     {
-        std::shared_ptr<Goal> trait(new Goal(name, kernels_.size(), tick, reasons));
+        std::shared_ptr<Goal> trait(new Goal(type, kernels_.size(), tick, reasons));
         kernels_.push_back(trait);
         return trait;
     }
