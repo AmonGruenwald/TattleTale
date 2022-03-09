@@ -21,9 +21,14 @@ namespace tale
             std::string name = firstnames[i] + " " + surnames[i];
             actor_creation_description += ("\n" + std::to_string(i) + ": " + name);
             std::shared_ptr<Actor> actor(new Actor(*this, i, name));
-            actor->SetupRandomValues(tick);
+
             actors_.push_back(actor);
             freetime_group_.push_back(actor);
+        }
+        // needs to happen after every actor is created bc of relationships
+        for (auto &actor : actors_)
+        {
+            actor->SetupRandomValues(tick);
         }
         TALE_DEBUG_PRINT(actor_creation_description);
         std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";

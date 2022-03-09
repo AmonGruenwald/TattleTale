@@ -20,7 +20,7 @@ TEST(TaleKernels, IncreasingKernelId)
     std::shared_ptr<tale::Actor> actor(new tale::Actor(school, 0, "John Doe"));
     std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, actor, no_reasons, 1);
     std::weak_ptr<tale::Goal> goal = chronicle.CreateGoal(tale::Goal::GetRandomGoalType(random), tick, no_reasons);
-    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, actor, no_reasons, 1);
+    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
     std::weak_ptr<tale::Resource> wealth = chronicle.CreateResource("wealth", tick, actor, no_reasons, 1);
     std::weak_ptr<tale::Trait> trait = chronicle.CreateTrait("trait", tick, no_reasons);
 

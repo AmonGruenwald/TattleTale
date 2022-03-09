@@ -16,9 +16,9 @@ namespace tale
         kernels_.push_back(emotion);
         return emotion;
     }
-    std::weak_ptr<Relationship> Chronicle::CreateRelationship(RelationshipType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    std::weak_ptr<Relationship> Chronicle::CreateRelationship(RelationshipType type, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
-        std::shared_ptr<Relationship> relationship(new Relationship(type, kernels_.size(), tick, owner, reasons, value));
+        std::shared_ptr<Relationship> relationship(new Relationship(type, kernels_.size(), tick, owner, target, reasons, value));
         kernels_.push_back(relationship);
         return relationship;
     }

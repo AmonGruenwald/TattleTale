@@ -23,7 +23,7 @@ namespace tale
          *
          * @return The description string.
          */
-        std::string ToString();
+        virtual std::string ToString();
 
     protected:
         /**
@@ -39,8 +39,6 @@ namespace tale
          * @param value Value of the Resource between -1.0 and 1.0.
          */
         Resource(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
-
-    private:
         /**
          * @brief The value of this Resource.
          */

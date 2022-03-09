@@ -145,16 +145,36 @@ namespace tale
                     float current_chance_increase = 0.0f;
                     uint16_t chance_parts = 0;
 
+                    bool requirement_failed = false;
                     for (auto &[type, relationship] : relationship_map)
                     {
                         current_chance_increase = relationship.lock()->GetValue() * tendency.relationships[i - 1].at(type);
                         chance += current_chance_increase;
                         ++chance_parts;
+
                         if (current_chance_increase > highest_chance_increase)
                         {
                             highest_chance_increase = current_chance_increase;
                             reason = relationship;
                         }
+                        if (requirement.relationship.at(type) < 0)
+                        {
+                            if (relationship.lock()->GetValue() > requirement.relationship.at(type))
+                            {
+                                requirement_failed = true;
+                            }
+                        }
+                        else if (requirement.relationship.at(type) > 0)
+                        {
+                            if (relationship.lock()->GetValue() < requirement.relationship.at(type))
+                            {
+                                requirement_failed = true;
+                            }
+                        }
+                    }
+                    if (requirement_failed)
+                    {
+                        chance = 0.0f;
                     }
                     chance += static_cast<float>(chance_parts);
                     chance /= static_cast<float>(chance_parts * 2);
@@ -166,7 +186,14 @@ namespace tale
                 }
                 else
                 {
-                    participant_chances.push_back(0.5f);
+                    if (requirement.HasEmotionalRequirement())
+                    {
+                        participant_chances.push_back(0.0f);
+                    }
+                    else
+                    {
+                        participant_chances.push_back(0.5f);
+                    }
                 }
                 participant_reasons.push_back(reason);
             }
@@ -182,7 +209,7 @@ namespace tale
     bool Actor::CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
     {
         // TODO: check for other requirements eg. participant count
-        if (requirement.context != ContextType::kNone && requirement.context == context)
+        if (requirement.context != ContextType::kNone && requirement.context != context)
         {
             return false;
         }
@@ -190,8 +217,64 @@ namespace tale
         {
             return false;
         }
+        if (requirement.goal_type != GoalType::kNone && requirement.goal_type != goal_.lock()->type_)
+        {
+            return false;
+        }
+        if (requirement.day > school_.GetCurrentDay())
+        {
+            return false;
+        }
+        for (auto &[key, value] : requirement.emotions)
+        {
+            if (value < 0)
+            {
+                if (emotions_.at(key).lock()->GetValue() > value)
+                {
+                    return false;
+                }
+            }
+            else if (value > 0)
+            {
+                if (emotions_.at(key).lock()->GetValue() < value)
+                {
+                    return false;
+                }
+            }
+        }
+        bool match_found = true;
+        for (auto &[actor_id, relationship] : relationships_)
+        {
+            match_found = true;
+            for (auto &[key, value] : requirement.relationship)
+            {
+                if (value < 0)
+                {
+                    if (relationship.at(key).lock()->GetValue() > value)
+                    {
+                        match_found = false;
+                    }
+                }
+                else if (value > 0)
+                {
+                    if (relationship.at(key).lock()->GetValue() < value)
+                    {
+                        match_found = false;
+                    }
+                }
+            }
+            if (match_found)
+            {
+                break;
+            }
+        }
+        if (!match_found)
+        {
+            return false;
+        }
         return true;
     }
+
     float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::weak_ptr<Kernel> &out_reason)
     {
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
@@ -327,7 +410,8 @@ namespace tale
         }
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-        relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), all_reasons, new_value);
+        auto other_actor = school_.GetActor(actor_id);
+        relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), other_actor, all_reasons, new_value);
     }
     std::string Actor::GetWealthDescriptionString()
     {
@@ -414,18 +498,19 @@ namespace tale
                 ++other_actor_id;
                 other_actor_id %= setting_.actor_count;
             }
+            auto other_actor = school_.GetActor(other_actor_id);
             relationships_.insert(
                 {other_actor_id,
                  {{RelationshipType::kLove,
-                   chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kAttraction,
-                   chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kFriendship,
-                   chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kAnger,
-                   chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                   chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kProtective,
-                   chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
+                   chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
         }
     }
     void Actor::InitializeRandomGoal(size_t tick)

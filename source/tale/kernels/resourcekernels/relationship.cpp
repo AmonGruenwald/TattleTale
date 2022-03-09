@@ -3,11 +3,12 @@
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
+#include "tale/actor.hpp"
 
 namespace tale
 {
-    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Resource(RelationshipTypeToString(type), id, tick, owner, reasons, value), type_(type){};
+    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+        : Resource(RelationshipTypeToString(type), id, tick, owner, reasons, value), target_(target), type_(type){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {
@@ -53,5 +54,9 @@ namespace tale
             break;
         }
         return "none";
+    }
+    std::string Relationship::ToString()
+    {
+        return fmt::format("{} felt {} with a value of {} for {}", owner_.lock()->name_, name_, value_, target_.lock()->name_);
     }
 } // namespace tale

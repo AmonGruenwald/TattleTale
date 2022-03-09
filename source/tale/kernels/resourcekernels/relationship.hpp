@@ -46,6 +46,13 @@ namespace tale
          */
         static std::string RelationshipTypeToString(RelationshipType relationship_type);
 
+        /**
+         * @brief Creates a string describing the Relationship for easy printing.
+         *
+         * @return The description string.
+         */
+        std::string ToString() override;
+
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.
@@ -59,11 +66,12 @@ namespace tale
          * @param reasons What other \link Kernel Kernels \endlink led to this Relationship and its value.
          * @param value Value of the Relationship between -1.0 and 1.0.
          */
-        Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value);
         /**
          * @brief The RelationshipType of this Relationship.
          */
         RelationshipType type_;
+        std::weak_ptr<Actor> target_;
         friend class Chronicle;
     };
 
