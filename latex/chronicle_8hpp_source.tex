@@ -23,9 +23,9 @@
 \DoxyCodeLine{19         \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random);}
 \DoxyCodeLine{20         std::weak\_ptr<Interaction> CreateInteraction(\textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons, std::vector<std::weak\_ptr<Actor>> participants);}
 \DoxyCodeLine{21         std::weak\_ptr<Emotion> CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{22         std::weak\_ptr<Relationship> CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{22         std::weak\_ptr<Relationship> CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
 \DoxyCodeLine{23         std::weak\_ptr<Resource> CreateResource(std::string name, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{24         std::weak\_ptr<Goal> CreateGoal(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{24         std::weak\_ptr<Goal> CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
 \DoxyCodeLine{25         std::weak\_ptr<Trait> CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, std::vector<std::weak\_ptr<Kernel>> reasons);}
 \DoxyCodeLine{26 }
 \DoxyCodeLine{27         \textcolor{keywordtype}{size\_t} GetKernelAmount();}

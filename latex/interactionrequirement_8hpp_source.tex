@@ -7,28 +7,100 @@
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fmt/core.h>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactioncontexttype.hpp"{}}}
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{11     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
-\DoxyCodeLine{12     \{}
-\DoxyCodeLine{16         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
-\DoxyCodeLine{20         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22         std::string ToString()}
-\DoxyCodeLine{23         \{}
-\DoxyCodeLine{24             std::string context\_string = fmt::format(\textcolor{stringliteral}{"{}Context: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(\mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}}));}
-\DoxyCodeLine{25             std::string participant\_count\_string = fmt::format(\textcolor{stringliteral}{"{}Participant Count: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}});}
-\DoxyCodeLine{26             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}"{}}, context\_string, participant\_count\_string));}
-\DoxyCodeLine{27         \}}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29         \textcolor{keywordtype}{void} ClearValues()}
-\DoxyCodeLine{30         \{}
-\DoxyCodeLine{31             \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
-\DoxyCodeLine{32             \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
-\DoxyCodeLine{33         \}}
-\DoxyCodeLine{34     \};}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{17         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
+\DoxyCodeLine{21         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{22         GoalType goal\_type = GoalType::kNone;}
+\DoxyCodeLine{23         \textcolor{keywordtype}{size\_t} day = 0;}
+\DoxyCodeLine{24         std::map<EmotionType, float> emotions = \{}
+\DoxyCodeLine{25             \{EmotionType::kHappy, 0.0f\},}
+\DoxyCodeLine{26             \{EmotionType::kCalm, 0.0f\},}
+\DoxyCodeLine{27             \{EmotionType::kSatisfied, 0.0f\},}
+\DoxyCodeLine{28             \{EmotionType::kBrave, 0.0f\},}
+\DoxyCodeLine{29             \{EmotionType::kExtroverted, 0.0f\}\};}
+\DoxyCodeLine{30         std::map<RelationshipType, float> relationship = \{}
+\DoxyCodeLine{31             \{RelationshipType::kLove, 0.0f\},}
+\DoxyCodeLine{32             \{RelationshipType::kAttraction, 0.0f\},}
+\DoxyCodeLine{33             \{RelationshipType::kFriendship, 0.0f\},}
+\DoxyCodeLine{34             \{RelationshipType::kAnger, 0.0f\},}
+\DoxyCodeLine{35             \{RelationshipType::kProtective, 0.0f\}\};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         std::string ToString()}
+\DoxyCodeLine{38         \{}
+\DoxyCodeLine{39             std::string \textcolor{keywordtype}{string} = fmt::format(}
+\DoxyCodeLine{40                 \textcolor{stringliteral}{"{}Context: \{\} \(\backslash\)}}
+\DoxyCodeLine{41 \textcolor{stringliteral}{                \(\backslash\)nParticipant Count: \{\} \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{stringliteral}{                \(\backslash\)nGoal Type: \{\} \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{stringliteral}{                \(\backslash\)n Day: \{\} \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{stringliteral}{                \(\backslash\)nEmotions: \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tHappy: \{\} \(\backslash\)}}
+\DoxyCodeLine{46 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tCalme: \{\} \(\backslash\)}}
+\DoxyCodeLine{47 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tSatisfied: \{\} \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tBrave: \{\} \(\backslash\)}}
+\DoxyCodeLine{49 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tExtroverted: \{\} \(\backslash\)}}
+\DoxyCodeLine{50 \textcolor{stringliteral}{                \(\backslash\)nRelationship: \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tLove: \{\} \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAttraction: \{\} \(\backslash\)}}
+\DoxyCodeLine{53 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tFriendship: \{\} \(\backslash\)}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAnger: \{\} \(\backslash\)}}
+\DoxyCodeLine{55 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tProtective: \{\} "{}},}
+\DoxyCodeLine{56                 \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(\mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}}),}
+\DoxyCodeLine{57                 \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}},}
+\DoxyCodeLine{58                 Goal::GoalTypeToString(goal\_type),}
+\DoxyCodeLine{59                 day,}
+\DoxyCodeLine{60                 emotions.at(EmotionType::kHappy),}
+\DoxyCodeLine{61                 emotions.at(EmotionType::kCalm),}
+\DoxyCodeLine{62                 emotions.at(EmotionType::kSatisfied),}
+\DoxyCodeLine{63                 emotions.at(EmotionType::kBrave),}
+\DoxyCodeLine{64                 emotions.at(EmotionType::kExtroverted),}
+\DoxyCodeLine{65                 relationship.at(RelationshipType::kLove),}
+\DoxyCodeLine{66                 relationship.at(RelationshipType::kAttraction),}
+\DoxyCodeLine{67                 relationship.at(RelationshipType::kFriendship),}
+\DoxyCodeLine{68                 relationship.at(RelationshipType::kAnger),}
+\DoxyCodeLine{69                 relationship.at(RelationshipType::kProtective));}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} string;}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{74         \{}
+\DoxyCodeLine{75             \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
+\DoxyCodeLine{76             \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{77             goal\_type = GoalType::kNone;}
+\DoxyCodeLine{78             day = 0;}
+\DoxyCodeLine{79             emotions.clear();}
+\DoxyCodeLine{80             relationship.clear();}
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83         \textcolor{keywordtype}{bool} HasEmotionalRequirement()\textcolor{keyword}{ const}}
+\DoxyCodeLine{84 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{85             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&[key, value] : emotions)}
+\DoxyCodeLine{86             \{}
+\DoxyCodeLine{87                 \textcolor{keywordflow}{if} (value != 0)}
+\DoxyCodeLine{88                 \{}
+\DoxyCodeLine{89                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{90                 \}}
+\DoxyCodeLine{91             \}}
+\DoxyCodeLine{92             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \textcolor{keywordtype}{bool} HasRelationshipRequirement()\textcolor{keyword}{ const}}
+\DoxyCodeLine{96 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{97             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&[key, value] : relationship)}
+\DoxyCodeLine{98             \{}
+\DoxyCodeLine{99                 \textcolor{keywordflow}{if} (value != 0)}
+\DoxyCodeLine{100                 \{}
+\DoxyCodeLine{101                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{102                 \}}
+\DoxyCodeLine{103             \}}
+\DoxyCodeLine{104             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{105         \}}
+\DoxyCodeLine{106     \};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 
 \end{DoxyCode}

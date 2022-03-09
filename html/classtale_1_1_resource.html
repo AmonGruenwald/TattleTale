@@ -70,7 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classtale_1_1_resource-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tale::Resource Class Reference</div></div>
 </div><!--header-->
@@ -97,7 +97,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4de342e7674278b3666d361f89d478f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">GetValue</a> () const</td></tr>
 <tr class="memdesc:a4de342e7674278b3666d361f89d478f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the value of the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtale_1_1_resource.html#a4de342e7674278b3666d361f89d478f5">More...</a><br /></td></tr>
 <tr class="separator:a4de342e7674278b3666d361f89d478f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5056c415f16e2f4166a099f493ae5f65"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">ToString</a> ()</td></tr>
+<tr class="memitem:a5056c415f16e2f4166a099f493ae5f65"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">ToString</a> ()</td></tr>
 <tr class="memdesc:a5056c415f16e2f4166a099f493ae5f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> for easy printing.  <a href="classtale_1_1_resource.html#a5056c415f16e2f4166a099f493ae5f65">More...</a><br /></td></tr>
 <tr class="separator:a5056c415f16e2f4166a099f493ae5f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -107,8 +107,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:a1adca9805b51e035addfa27c5dcf97c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class and value_ member.  <a href="classtale_1_1_resource.html#a1adca9805b51e035addfa27c5dcf97c9">More...</a><br /></td></tr>
 <tr class="separator:a1adca9805b51e035addfa27c5dcf97c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:ab3fc76e013a10a813d39260042146952"><td class="memItemLeft" align="right" valign="top"><a id="ab3fc76e013a10a813d39260042146952" name="ab3fc76e013a10a813d39260042146952"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>value_</b></td></tr>
 <tr class="memdesc:ab3fc76e013a10a813d39260042146952"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value of this <a class="el" href="classtale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. <br /></td></tr>
@@ -243,6 +243,8 @@ std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt;&#
 <dl class="section return"><dt>Returns</dt><dd>The description string. </dd></dl>
 
 <p>Implements <a class="el" href="classtale_1_1_kernel.html">tale::Kernel</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classtale_1_1_relationship.html#a60d4bc5e76e6604c96c9bae7ee0d9936">tale::Relationship</a>.</p>
 
 </div>
 </div>

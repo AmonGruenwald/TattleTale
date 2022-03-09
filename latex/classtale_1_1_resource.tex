@@ -20,14 +20,14 @@ Inheritance diagram for tale\+::Resource\+:\begin{figure}[H]
 \item 
 float \mbox{\hyperlink{classtale_1_1_resource_a4de342e7674278b3666d361f89d478f5}{Get\+Value}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the value of the \mbox{\hyperlink{classtale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{To\+String}} ()
+virtual std\+::string \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{To\+String}} ()
 \begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtale_1_1_resource}{Resource}} for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classtale_1_1_resource_a1adca9805b51e035addfa27c5dcf97c9}{Resource}} (std\+::string name, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ owner, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
 \begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}\label{classtale_1_1_resource_ab3fc76e013a10a813d39260042146952}} 
@@ -101,6 +101,10 @@ The description string.
 
 
 Implements \mbox{\hyperlink{classtale_1_1_kernel}{tale\+::\+Kernel}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classtale_1_1_relationship_a60d4bc5e76e6604c96c9bae7ee0d9936}{tale\+::\+Relationship}}.
 
 
 

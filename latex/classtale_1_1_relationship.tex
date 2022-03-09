@@ -15,6 +15,11 @@ Inheritance diagram for tale\+::Relationship\+:\begin{figure}[H]
 \includegraphics[height=4.000000cm]{classtale_1_1_relationship}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classtale_1_1_relationship_a60d4bc5e76e6604c96c9bae7ee0d9936}{To\+String}} () override
+\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,7 +30,7 @@ static std\+::string \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993b
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_relationship_a33983bfa878b73aadbd07e6e49c0dc23}{Relationship}} (Relationship\+Type type, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ owner, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
+\mbox{\hyperlink{classtale_1_1_relationship_a704ed0c3df9dcf54db1ae62d2d46f2fa}{Relationship}} (Relationship\+Type type, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ owner, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ target, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
 \begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -42,11 +47,11 @@ Represents a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} an \mbo
 Will be instantiated inside a two dimensional map connecting different other \mbox{\hyperlink{classtale_1_1_actor}{Actors }} to \mbox{\hyperlink{}{Relationship\+Types }} and corresponding \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }} for each \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_relationship_a33983bfa878b73aadbd07e6e49c0dc23}\label{classtale_1_1_relationship_a33983bfa878b73aadbd07e6e49c0dc23}} 
+\mbox{\Hypertarget{classtale_1_1_relationship_a704ed0c3df9dcf54db1ae62d2d46f2fa}\label{classtale_1_1_relationship_a704ed0c3df9dcf54db1ae62d2d46f2fa}} 
 \index{tale::Relationship@{tale::Relationship}!Relationship@{Relationship}}
 \index{Relationship@{Relationship}!tale::Relationship@{tale::Relationship}}
 \doxysubsubsection{\texorpdfstring{Relationship()}{Relationship()}}
-{\footnotesize\ttfamily tale\+::\+Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{Relationship\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tale\+::\+Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{Relationship\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$}]{target,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -112,6 +117,23 @@ Uses the same string values Relationship\+Type\+To\+String returns. So valid str
 \begin{DoxyReturn}{Returns}
 The corresponding Relationship\+Type value. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_relationship_a60d4bc5e76e6604c96c9bae7ee0d9936}\label{classtale_1_1_relationship_a60d4bc5e76e6604c96c9bae7ee0d9936}} 
+\index{tale::Relationship@{tale::Relationship}!ToString@{ToString}}
+\index{ToString@{ToString}!tale::Relationship@{tale::Relationship}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string tale\+::\+Relationship\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a string describing the \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} for easy printing. 
+
+\begin{DoxyReturn}{Returns}
+The description string. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classtale_1_1_resource_a5056c415f16e2f4166a099f493ae5f65}{tale\+::\+Resource}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -7,5 +7,6 @@ var searchData=
   ['initializerandomwealth_4',['InitializeRandomWealth',['../classtale_1_1_actor.html#abb4aa68fa8e36a8a92b09c80c4f331a1',1,'tale::Actor']]],
   ['interaction_5',['Interaction',['../classtale_1_1_interaction.html#abf8173f7747821c4a6f728b67817b7a5',1,'tale::Interaction']]],
   ['interactionstore_6',['InteractionStore',['../classtale_1_1_interaction_store.html#a33786eeea407a0bebc37110c6bc87270',1,'tale::InteractionStore']]],
-  ['isworkday_7',['IsWorkday',['../classtale_1_1_school.html#accd65b68115bd75bae9efe7eb48589d1',1,'tale::School']]]
+  ['isenrolledincourse_7',['IsEnrolledInCourse',['../classtale_1_1_actor.html#adced7f601f68a004a0e2b047c5954cad',1,'tale::Actor']]],
+  ['isworkday_8',['IsWorkday',['../classtale_1_1_school.html#accd65b68115bd75bae9efe7eb48589d1',1,'tale::School']]]
 ];

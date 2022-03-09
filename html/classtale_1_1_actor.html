@@ -90,9 +90,9 @@ Inheritance diagram for tale::Actor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#aab1865ab7cc4f2512b84ef8a04969e1d">SetupRandomValues</a> (size_t tick)</td></tr>
-<tr class="memdesc:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is enrolled in the passed <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>.  <a href="classtale_1_1_actor.html#aab1865ab7cc4f2512b84ef8a04969e1d">More...</a><br /></td></tr>
-<tr class="separator:aab1865ab7cc4f2512b84ef8a04969e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adced7f601f68a004a0e2b047c5954cad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#adced7f601f68a004a0e2b047c5954cad">IsEnrolledInCourse</a> (size_t course_id) const</td></tr>
+<tr class="memdesc:adced7f601f68a004a0e2b047c5954cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is enrolled in the passed <a class="el" href="classtale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a>.  <a href="classtale_1_1_actor.html#adced7f601f68a004a0e2b047c5954cad">More...</a><br /></td></tr>
+<tr class="separator:adced7f601f68a004a0e2b047c5954cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaf48912c1386a3f1c3feef0cb5554b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1">EnrollInCourse</a> (size_t course_id, uint32_t slot)</td></tr>
 <tr class="memdesc:abaf48912c1386a3f1c3feef0cb5554b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enrolls the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> in the passed course during the passed slot.  <a href="classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1">More...</a><br /></td></tr>
 <tr class="separator:abaf48912c1386a3f1c3feef0cb5554b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -877,18 +877,18 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="aab1865ab7cc4f2512b84ef8a04969e1d" name="aab1865ab7cc4f2512b84ef8a04969e1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab1865ab7cc4f2512b84ef8a04969e1d">&#9670;&nbsp;</a></span>SetupRandomValues()</h2>
+<a id="adced7f601f68a004a0e2b047c5954cad" name="adced7f601f68a004a0e2b047c5954cad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adced7f601f68a004a0e2b047c5954cad">&#9670;&nbsp;</a></span>IsEnrolledInCourse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void tale::Actor::SetupRandomValues </td>
+          <td class="memname">bool tale::Actor::IsEnrolledInCourse </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>tick</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"><em>course_id</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
