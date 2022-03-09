@@ -26,7 +26,6 @@ namespace tale
             return GoalType::kHedonism;
         if (goal_string == "power")
             return GoalType::kPower;
-        assert(false); // invalid string was passed
         return GoalType::kNone;
     }
     std::string Goal::GoalTypeToString(GoalType goal_type)
@@ -34,7 +33,6 @@ namespace tale
         switch (goal_type)
         {
         case GoalType::kNone:
-            assert(false); // invalid enum was passed
             return "none";
             break;
         case GoalType::kLast:

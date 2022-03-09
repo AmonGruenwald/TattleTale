@@ -212,7 +212,7 @@ namespace tale
 
     bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, Requirement &out_requirement)
     {
-        TALE_VERBOSE_PRINT("CREATING REQUIREMENTS...");
+        TALE_DEBUG_PRINT("CREATING REQUIREMENTS...");
         out_requirement.ClearValues();
         if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.participant_count, json, participant_count_key_, true, error_preamble))
         {
@@ -225,7 +225,56 @@ namespace tale
         }
         out_requirement.context = StringToContextType(context_value);
 
-        TALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
+        std::string goal_type_value = "";
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(goal_type_value, json, goal_type_key_, false, error_preamble))
+        {
+            return false;
+        }
+        out_requirement.goal_type = Goal::StringToGoalType(goal_type_value);
+
+        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.day, json, day_key_, false, error_preamble))
+        {
+            return false;
+        }
+
+        nlohmann::json emotion_json;
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(emotion_json, json, emotion_key_, false, error_preamble))
+        {
+            return false;
+        }
+        for (auto &key : emotion_type_keys_)
+        {
+            float emotion_value = 0.0f;
+            if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(emotion_value, emotion_json, key, false, error_preamble))
+            {
+                return false;
+            }
+            if (!CheckCorrectValueRange(emotion_value))
+            {
+                return false;
+            }
+            out_requirement.emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
+        }
+        nlohmann::json relationship_map_json;
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationship_key_, false, error_preamble))
+        {
+            return false;
+        }
+        for (auto &key : relationship_type_keys_)
+        {
+            float relationship_value = 0.0f;
+            if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(relationship_value, relationship_map_json, key, false, error_preamble))
+            {
+                return false;
+            }
+            if (!CheckCorrectValueRange(relationship_value))
+            {
+                return false;
+            }
+            out_requirement.relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
+        }
+
+        TALE_DEBUG_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
         return true;
     }
 

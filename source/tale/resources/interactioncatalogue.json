@@ -58,7 +58,26 @@
         "requirements":
         {
             "context": "freetime",
-            "participant_count": 2
+            "participant_count": 2,
+            "goal_type":"none",
+            "day":0,
+            "emotions": 
+            { 
+                "happy": 0.0,
+                "calm": 0.0,
+                "satisfied": 0.0,
+                "brave": 0.0,
+                "extroverted": 0.0
+            },
+            "relationships":
+            {
+                "love": 0.0,
+                "attraction": 0.0,
+                "friendship": 0.0,
+                "anger": 0.0,
+                "protective": 0.0
+            }
+            
         },
         "tendencies":
         {
@@ -85,9 +104,9 @@
                     "friendship": 0.0,
                     "anger": 0.0,
                     "protective": 0.0
-            
                 }
             ]
+
         }
     },
     {

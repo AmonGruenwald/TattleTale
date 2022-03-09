@@ -134,6 +134,8 @@ namespace tale
 
         const std::string name_key_ = "name";
         const std::string participant_count_key_ = "participant_count";
+        const std::string goal_type_key_ = "goal_type";
+        const std::string day_key_ = "day";
         const std::string wealth_key_ = "wealth";
         const std::string emotion_key_ = "emotions";
         const std::vector<std::string> emotion_type_keys_ = {"happy", "calm", "satisfied", "brave", "extroverted"};
