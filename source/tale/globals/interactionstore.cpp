@@ -11,7 +11,7 @@ namespace tale
 {
     InteractionStore::InteractionStore(Random &random, Chronicle &chronicle) : random_(random), chronicle_(chronicle)
     {
-        TALE_DEBUG_PRINT("READING FROM PROTOTYPE FILE");
+        TALE_VERBOSE_PRINT("READING FROM PROTOTYPE FILE");
         std::ifstream catalogue_json_file(prototype_json_path_);
         nlohmann::json catalogue_json;
         catalogue_json_file >> catalogue_json;
@@ -205,7 +205,7 @@ namespace tale
             }
         }
 
-        TALE_ERROR_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype.ToString() + "\n");
+        TALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype.ToString() + "\n");
 
         return true;
     }
@@ -225,14 +225,14 @@ namespace tale
         }
         out_requirement.context = StringToContextType(context_value);
 
-        TALE_ERROR_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
+        TALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
         return true;
     }
 
     bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, Tendency &out_tendency)
     {
         out_tendency.ClearValues();
-        TALE_DEBUG_PRINT("CREATING TENDENCY");
+        TALE_VERBOSE_PRINT("CREATING TENDENCY...");
 
         float group_size_value = 0.0f;
         if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(group_size_value, json, group_size_key_, false, error_preamble))
@@ -320,7 +320,7 @@ namespace tale
             out_tendency.relationships.push_back(relationship_map);
         }
 
-        TALE_ERROR_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency.ToString() + "\n");
+        TALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency.ToString() + "\n");
         return true;
     }
 

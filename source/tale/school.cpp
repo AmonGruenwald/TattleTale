@@ -13,44 +13,42 @@ namespace tale
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
 
-        TALE_DEBUG_PRINT("CREATING NAMES");
         std::vector<std::string> firstnames = GetRandomFirstnames(actor_count);
         std::vector<std::string> surnames = GetRandomSurames(actor_count);
+        std::string actor_creation_description = "CREATED ALL ACTORS:";
         for (size_t i = 0; i < actor_count; ++i)
         {
             std::string name = firstnames[i] + " " + surnames[i];
-            TALE_DEBUG_PRINT("CREATING ACTOR #" + std::to_string(i) + ": " + name);
+            actor_creation_description += ("\n" + std::to_string(i) + ": " + name);
             std::shared_ptr<Actor> actor(new Actor(*this, i, name));
             actor->SetupRandomValues(tick);
             actors_.push_back(actor);
             freetime_group_.push_back(actor);
         }
-        std::string actors_created_descriptions = "ALL ACTORS CREATED:\n";
+        TALE_DEBUG_PRINT(actor_creation_description);
+        std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";
         for (size_t i = 0; i < actor_count; ++i)
         {
-            actors_created_descriptions += (actors_[i]->name_ + "\n");
-            actors_created_descriptions += (actors_[i]->GetWealthDescriptionString() + "\n");
-            actors_created_descriptions += (actors_[i]->GetEmotionsDescriptionString() + "\n");
-            actors_created_descriptions += (actors_[i]->GetRelationshipsDescriptionString() + "\n");
-            actors_created_descriptions += (actors_[i]->GetTraitsDescriptionString() + "\n");
-            actors_created_descriptions += (actors_[i]->GetGoalDescriptionString() + "\n");
+            detailed_actor_description += ("\n" + actors_[i]->name_);
+            detailed_actor_description += ("\n\t" + actors_[i]->GetWealthDescriptionString());
+            detailed_actor_description += ("\n\t" + actors_[i]->GetEmotionsDescriptionString());
+            detailed_actor_description += ("\n\t" + actors_[i]->GetRelationshipsDescriptionString());
+            detailed_actor_description += ("\n\t" + actors_[i]->GetTraitsDescriptionString());
+            detailed_actor_description += ("\n\t" + actors_[i]->GetGoalDescriptionString());
         }
-        TALE_VERBOSE_PRINT(actors_created_descriptions);
+        TALE_VERBOSE_PRINT(detailed_actor_description);
 
         size_t course_count = setting_.course_count();
+        size_t slot_count_per_week = setting_.slot_count_per_week();
+        std::vector<uint32_t> random_slot_order;
         for (size_t i = 0; i < course_count; ++i)
         {
-            TALE_DEBUG_PRINT("CREATING COURSE " + std::to_string(i));
             // TODO: create better names
             Course course(random_, setting_, i, "Course" + std::to_string(i));
             courses_.push_back(course);
-        }
 
-        size_t slot_count_per_week = setting_.slot_count_per_week();
-        std::vector<uint32_t> random_slot_order;
-        for (auto &course : courses_)
-        {
-            std::string course_filling_description = ("FILLING COURSE " + std::to_string(course.id_));
+            // Filling courses:
+            std::string course_creation_description = ("CREATED COURSE " + std::to_string(course.id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -66,7 +64,7 @@ namespace tale
             }
 
             size_t slot_index = 0;
-            // Go over everyslot
+            // Go over every slot
             while (slot_index < random_slot_order.size() && setting_.same_course_per_week > 0)
             {
                 std::vector<uint32_t> slots;
@@ -78,20 +76,21 @@ namespace tale
                 }
                 std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, slots);
 
-                course_filling_description += "\n\tSLOTS ";
+                course_creation_description += "\n\t";
                 for (size_t i = 0; i < slots.size(); ++i)
                 {
-                    course_filling_description += std::to_string(slots[i]);
-                    if (i != slots.size() - 1)
+                    course_creation_description += "[";
+                    if (slots[i] < 10)
                     {
-                        course_filling_description += ",";
+                        course_creation_description += "0";
                     }
-                    course_filling_description += " ";
+                    course_creation_description += std::to_string(slots[i]);
+                    course_creation_description += "]";
                     course.AddToSlot(course_group, slots[i]);
                 }
-                course_filling_description += ("FILLED WITH " + std::to_string(course_group.size()) + " ACTORS.");
+                course_creation_description += (" <- " + std::to_string(course_group.size()) + " ACTORS.");
             }
-            TALE_DEBUG_PRINT(course_filling_description);
+            TALE_VERBOSE_PRINT(course_creation_description);
         }
     }
 
@@ -162,11 +161,11 @@ namespace tale
                         {
                             std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
                             interaction.lock()->Apply();
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
+                            TALE_DEBUG_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
                         }
                         else
                         {
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
+                            TALE_DEBUG_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
                         }
                     }
                 }
@@ -197,11 +196,11 @@ namespace tale
             {
                 std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
                 interaction.lock()->Apply();
-                TALE_VERBOSE_PRINT("During Freetime " + interaction.lock()->ToString());
+                TALE_DEBUG_PRINT("During Freetime " + interaction.lock()->ToString());
             }
             else
             {
-                TALE_VERBOSE_PRINT("During Freetime " + actor->name_ + " does nothing.");
+                TALE_DEBUG_PRINT("During Freetime " + actor->name_ + " does nothing.");
             }
         }
     }
