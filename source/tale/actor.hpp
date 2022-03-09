@@ -55,13 +55,13 @@ namespace tale
         std::weak_ptr<Goal> goal_;
 
         Actor(School &school, size_t id, std::string name);
+        void SetupRandomValues(size_t tick);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
          *
          * @param course_id The id of the Course we want to check.
          * @return The result of the check.
          */
-        void SetupRandomValues(size_t tick);
         bool IsEnrolledInCourse(size_t course_id) const;
         /**
          * @brief Enrolls the Actor in the passed course during the passed slot.
@@ -118,6 +118,7 @@ namespace tale
          * @return A chance value between 0.0 and 1.0.
          */
         float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::weak_ptr<Kernel> &out_reason);
+        float ApplyGoalChanceModification(float original_chance, size_t interaction_index);
         bool CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.

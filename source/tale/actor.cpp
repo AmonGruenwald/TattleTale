@@ -4,6 +4,7 @@
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
+#include <math.h>
 
 namespace tale
 {
@@ -100,6 +101,7 @@ namespace tale
             group_size_ratio -= 1.0f;
             std::weak_ptr<Kernel> reason;
             float chance = CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+            chance = ApplyGoalChanceModification(chance, i);
             if (chance == 0.0f)
             {
                 ++zero_count;
@@ -229,6 +231,64 @@ namespace tale
         chance += static_cast<float>(chance_parts);
         chance /= static_cast<float>(chance_parts * 2);
         return chance;
+    }
+
+    float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index)
+    {
+        float relevant_effect = 0;
+        const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
+        switch (goal_.lock()->type_)
+        {
+        case GoalType::kNone:
+            assert(false); // invalid goal type was stored
+            break;
+        case GoalType::kLast:
+            assert(false); // invalid goal type was stored
+            break;
+        case GoalType::kWealth:
+            relevant_effect = interaction_store_.GetWealthEffects(interaction_index)[0];
+            break;
+        case GoalType::kAcceptance:
+            // skip first as we want the values of other people to this actor
+            for (size_t i = 1; i < effects.size(); ++i)
+            {
+                if (effects[i].count(0))
+                {
+                    relevant_effect += effects[i].at(0).at(RelationshipType::kFriendship);
+                }
+            }
+            break;
+        case GoalType::kRelationship:
+            // skip first as we want the values of other people to this actor
+            for (size_t i = 1; i < effects.size(); ++i)
+            {
+                // do both sides of the relationship change
+                if (effects[i].count(0) && effects[0].count(i))
+                {
+                    relevant_effect += effects[i].at(0).at(RelationshipType::kLove);
+                    relevant_effect += effects[0].at(1).at(RelationshipType::kLove);
+                }
+            }
+            break;
+        case GoalType::kHedonism:
+            relevant_effect = interaction_store_.GetEmotionEffects(interaction_index)[0].at(EmotionType::kSatisfied);
+            break;
+        case GoalType::kPower:
+            const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
+            // skip first as we want the values of other people to this actor
+            for (const auto &[other_actor, effect] : effects[0])
+            {
+
+                // using minus here because the actor wants a negative value
+                relevant_effect -= effect.at(RelationshipType::kProtective);
+            }
+            break;
+        }
+        relevant_effect = std::clamp(relevant_effect, -1.0f, 1.0f);
+
+        // TODO: think this over, maybe use a different approach
+        // seet https://www.desmos.com/calculator/ojqnu2ni4c
+        return pow(original_chance, (1.0f - relevant_effect));
     }
 
     void Actor::ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)

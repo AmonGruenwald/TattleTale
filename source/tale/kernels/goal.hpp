@@ -28,8 +28,9 @@ namespace tale
         static GoalType StringToGoalType(std::string goal_string);
         static std::string GoalTypeToString(GoalType goal_type);
 
+        const GoalType type_;
+
     private:
-        GoalType type_;
         Goal(GoalType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
         friend class Chronicle;
     };
