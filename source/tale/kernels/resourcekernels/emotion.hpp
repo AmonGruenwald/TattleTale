@@ -47,6 +47,13 @@ namespace tale
          */
         static std::string EmotionTypeToString(EmotionType emotion_type);
 
+        /**
+         * @brief Creates a string describing the Emotion for easy printing.
+         *
+         * @return The description string.
+         */
+        std::string ToString() override;
+
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.

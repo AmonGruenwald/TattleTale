@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
+#include "tale/actor.hpp"
 
 namespace tale
 {
@@ -52,5 +53,10 @@ namespace tale
             break;
         }
         return "none";
+    }
+
+    std::string Emotion::ToString()
+    {
+        return fmt::format("{} was {} with a value of {}", owner_.lock()->name_, name_, value_);
     }
 } // namespace tale
