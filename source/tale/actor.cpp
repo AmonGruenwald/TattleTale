@@ -380,6 +380,10 @@ namespace tale
 
     void Actor::ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
     {
+        if (value == 0)
+        {
+            return;
+        }
         float previous_value = wealth_.lock()->GetValue();
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
@@ -389,6 +393,10 @@ namespace tale
     }
     void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
+        if (value == 0)
+        {
+            return;
+        }
         float previous_value = emotions_[type].lock()->GetValue();
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
@@ -402,8 +410,13 @@ namespace tale
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         if (relationships_.count(actor_id))
         {
+
             if (relationships_.at(actor_id).count(type))
             {
+                if (value == 0)
+                {
+                    return;
+                }
                 previous_value = relationships_.at(actor_id).at(type).lock()->GetValue();
                 all_reasons.push_back(relationships_.at(actor_id).at(type));
             }
