@@ -2,27 +2,28 @@
     {
         "prototype": 
         {
-            "name": "Freetime Interaction",
+            "name": "Default Interaction",
+            "description":"{0} had a normal interaction with {1}",
             "wealth": 
             [
-                0.5,
-                -0.5
+                0.0,
+                -0.0
             ],
             "emotions": 
             [
                 { 
-                    "happy": 0.1,
-                    "calm": 0.2,
-                    "satisfied": 0.3,
-                    "brave": 0.4,
-                    "extroverted": 0.5
+                    "happy": 0.0,
+                    "calm": 0.0,
+                    "satisfied": 0.0,
+                    "brave": 0.0,
+                    "extroverted": 0.0
                 },
                 {
-                    "happy": -0.1,
-                    "calm": -0.2,
-                    "satisfied": -0.3,
-                    "brave": -0.4,
-                    "extroverted": -0.5
+                    "happy": -0.0,
+                    "calm": -0.0,
+                    "satisfied": -0.0,
+                    "brave": -0.0,
+                    "extroverted": -0.0
                 }
             ],
             "relationships": 
@@ -32,11 +33,11 @@
                         "participant": 1,
                         "changes":
                         {
-                            "love": 0.1,
-                            "attraction": 0.2,
-                            "friendship": 0.3,
-                            "anger": 0.4,
-                            "protective": 0.5
+                            "love": 0.0,
+                            "attraction": 0.0,
+                            "friendship": 0.0,
+                            "anger": 0.0,
+                            "protective": 0.0
                         }
                     }
                 ],
@@ -45,11 +46,11 @@
                         "participant": 0,
                         "changes":
                         {
-                            "love": -0.1,
-                            "attraction": -0.2,
-                            "friendship": -0.3,
-                            "anger": -0.4,
-                            "protective": -0.5
+                            "love": -0.0,
+                            "attraction": -0.0,
+                            "friendship": -0.0,
+                            "anger": -0.0,
+                            "protective": -0.0
                         }
                     }
                 ]
@@ -107,97 +108,6 @@
                 }
             ]
 
-        }
-    },
-    {
-        "prototype": 
-        {
-            "name": "Course Interaction",
-            "wealth": 
-            [
-                0.5,
-                -0.5
-            ],
-            "emotions": 
-            [
-                { 
-                    "happy": 0.1,
-                    "calm": 0.2,
-                    "satisfied": 0.3,
-                    "brave": 0.4,
-                    "extroverted": 0.5
-                },
-                {
-                    "happy": -0.1,
-                    "calm": -0.2,
-                    "satisfied": -0.3,
-                    "brave": -0.4,
-                    "extroverted": -0.5
-                }
-            ],
-            "relationships": 
-            [
-                [ 
-                    { 
-                        "participant": 1,
-                        "changes":
-                        {
-                            "love": 0.1,
-                            "attraction": 0.2,
-                            "friendship": 0.3,
-                            "anger": 0.4,
-                            "protective": 0.5
-                        }
-                    }
-                ],
-                [
-                    {
-                        "participant": 0,
-                        "changes":
-                        {
-                            "love": -0.1,
-                            "attraction": -0.2,
-                            "friendship": -0.3,
-                            "anger": -0.4,
-                            "protective": -0.5
-                        }
-                    }
-                ]
-            ]
-        },
-        "requirements":
-        {
-            "context": "course",
-            "participant_count": 2
-        },
-        "tendencies":
-        {
-            "group_size": 0.0,
-            "contexts":
-            { 
-                "course": 0.0,
-                "freetime": 0.0
-            },
-            "wealth": 0.0,
-            "emotions": 
-            { 
-                "happy": 0.0,
-                "calm": 0.0,
-                "satisfied": 0.0,
-                "brave": 0.0,
-                "extroverted": 0.0
-            }, 
-            "relationships":
-            [
-                {
-                    "love": 0.0,
-                    "attraction": 0.0,
-                    "friendship": 0.0,
-                    "anger": 0.0,
-                    "protective": 0.0
-            
-                }
-            ]
         }
     }
 ]

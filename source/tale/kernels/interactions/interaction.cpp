@@ -1,6 +1,7 @@
 #include "tale/talecore.hpp"
 #include "tale/kernels/interactions/interaction.hpp"
-#include <fmt/core.h>
+#include <fmt/format.h>
+#include <fmt/args.h>
 #include <iostream>
 #include "tale/actor.hpp"
 
@@ -39,20 +40,13 @@ namespace tale
 
     std::string Interaction::ToString()
     {
-        std::string description = "";
-        description += fmt::format("{} did {}", participants_[0].lock()->name_, name_);
-        for (size_t i = 1; i < participants_.size(); ++i)
+        fmt::format_args::format_arg args[12];
+        int count = 0;
+        for (auto &participant : participants_)
         {
-            if (i == 1)
-            {
-                description += " with ";
-            }
-            else
-            {
-                description += " and ";
-            }
-            description += fmt::format("{}", participants_[i].lock()->name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(participant.lock()->name_);
         }
+        auto description = fmt::vformat(prototype_.description, fmt::format_args(args, count));
         return description;
     }
 

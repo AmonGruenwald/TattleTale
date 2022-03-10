@@ -16,10 +16,15 @@ namespace tale
      * Used by the InteractionStore to hold basic information and effects of an Interaction.
      */
     struct InteractionPrototype
-    { /**
-       * @brief The name of the corresponding Interaction.
-       */
+    {
+        /**
+         * @brief The name of the corresponding Interaction.
+         */
         std::string name = "";
+        /**
+         * @brief The description template of the corresponding Interaction.
+         */
+        std::string description = "";
         /**
          * @brief Stores the effect the corresponding Interaction has on each participating \link Actor Actor's \endlink wealth.
          */

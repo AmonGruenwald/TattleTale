@@ -102,6 +102,11 @@ namespace tale
             return false;
         }
 
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype.description, json, description_key_, true, error_preamble))
+        {
+            return false;
+        }
+
         nlohmann::json wealth_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(wealth_json, json, wealth_key_, false, error_preamble))
         {
