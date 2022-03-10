@@ -5,7 +5,6 @@
 
 namespace tale
 {
-    class Actor;
     /**
      * @brief Represents an abstract Resource an Actor has.
      */
@@ -43,10 +42,6 @@ namespace tale
          * @brief The value of this Resource.
          */
         float value_;
-        /**
-         * @brief The Actor owning this Resource.
-         */
-        std::weak_ptr<Actor> owner_;
         friend class Chronicle;
     };
 

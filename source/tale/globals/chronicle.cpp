@@ -28,15 +28,15 @@ namespace tale
         kernels_.push_back(resource);
         return resource;
     }
-    std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons)
+    std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
-        std::shared_ptr<Goal> trait(new Goal(type, kernels_.size(), tick, reasons));
+        std::shared_ptr<Goal> trait(new Goal(type, kernels_.size(), tick, owner, reasons));
         kernels_.push_back(trait);
         return trait;
     }
-    std::weak_ptr<Trait> Chronicle::CreateTrait(std::string name, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons)
+    std::weak_ptr<Trait> Chronicle::CreateTrait(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
-        std::shared_ptr<Trait> trait(new Trait(name, kernels_.size(), tick, reasons));
+        std::shared_ptr<Trait> trait(new Trait(name, kernels_.size(), tick, owner, reasons));
         kernels_.push_back(trait);
         return trait;
     }
@@ -54,6 +54,54 @@ namespace tale
         }
         auto kernel = kernels_[random_.GetUInt(0, kernels_.size() - 1)];
         return GetRecursiveKernelDescription(kernel, 0, depth);
+    }
+
+    std::string Chronicle::GetKissingCausalityChain(size_t depth)
+    {
+        if (kernels_.size() <= 0)
+        {
+            return "";
+        }
+        std::vector<std::shared_ptr<Kernel>> possible_kernels;
+        for (auto kernel : kernels_)
+        {
+            if (kernel->name_ == "Kiss successfully")
+            {
+                possible_kernels.push_back(kernel);
+            }
+        }
+        if (possible_kernels.size() > 0)
+        {
+            auto kernel = possible_kernels[random_.GetUInt(0, possible_kernels.size() - 1)];
+            return GetRecursiveKernelDescription(kernel, 0, depth);
+        }
+        return "Did not find a kiss.";
+    }
+
+    std::string Chronicle::GetGoalCausalityChain(size_t depth)
+    {
+        if (kernels_.size() <= 0)
+        {
+            return "";
+        }
+        std::vector<std::shared_ptr<Kernel>> possible_kernels;
+        for (auto kernel : kernels_)
+        {
+            for (auto reason : kernel->reasons_)
+            {
+                if (std::dynamic_pointer_cast<Goal>(reason.lock()))
+                {
+                    possible_kernels.push_back(kernel);
+                    break;
+                }
+            }
+        }
+        if (possible_kernels.size() > 0)
+        {
+            auto kernel = possible_kernels[random_.GetUInt(0, possible_kernels.size() - 1)];
+            return GetRecursiveKernelDescription(kernel, 0, depth);
+        }
+        return "Did not find a kernel with a goal as reason.";
     }
 
     std::string Chronicle::GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth)

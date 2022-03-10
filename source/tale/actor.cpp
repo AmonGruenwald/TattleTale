@@ -101,9 +101,9 @@ namespace tale
             group_size_ratio -= 1.0f;
             std::weak_ptr<Kernel> reason;
             float chance = CalculateTendencyChance(tendency, context, group_size_ratio, reason);
-            float modified_chance = ApplyGoalChanceModification(chance, i);
-            // TODO: this value is completely random
-            if (abs(modified_chance - chance) > 0.25f)
+            bool goal_had_effect = false;
+            float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
+            if (goal_had_effect)
             {
                 reason = goal_;
             }
@@ -123,12 +123,12 @@ namespace tale
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
-        std::vector<float> participant_chances;
         uint32_t participant_zero_count = 0;
         const Requirement &requirement = requirements[interaction_index];
         const Tendency &tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement.participant_count; ++i)
         {
+            std::vector<float> participant_chances;
 
             std::vector<std::weak_ptr<Kernel>> participant_reasons;
             for (auto &actor : actor_group)
@@ -321,7 +321,7 @@ namespace tale
         return chance;
     }
 
-    float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index)
+    float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect)
     {
         float relevant_effect = 0;
         const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
@@ -373,7 +373,7 @@ namespace tale
             break;
         }
         relevant_effect = std::clamp(relevant_effect, -1.0f, 1.0f);
-
+        out_had_positive_effect = relevant_effect > 0;
         // seet https://www.desmos.com/calculator/ojqnu2ni4c
         return pow(original_chance, (1.0f - relevant_effect));
     }
@@ -529,12 +529,12 @@ namespace tale
     void Actor::InitializeRandomGoal(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, no_reasons);
+        goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, weak_from_this(), no_reasons);
     }
     void Actor::InitializeRandomTraits(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        traits_ = {chronicle_.CreateTrait("trait", tick, no_reasons)};
+        traits_ = {chronicle_.CreateTrait("trait", tick, weak_from_this(), no_reasons)};
     }
     bool Actor::ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> &relationships) const
     {

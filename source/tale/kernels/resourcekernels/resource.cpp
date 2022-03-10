@@ -7,7 +7,7 @@
 namespace tale
 {
     Resource::Resource(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Kernel(name, id, tick, reasons), owner_(owner), value_(value){};
+        : Kernel(name, id, tick, owner, reasons), value_(value){};
     float Resource::GetValue() const
     {
         return value_;

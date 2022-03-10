@@ -7,6 +7,7 @@
 
 namespace tale
 {
+    class Actor;
     /**
      * @brief Represents a part of the simulation, like an interaction, or an emotional goal.
      * To build up causality parts of the story have to reference each other. Because of that every
@@ -28,7 +29,11 @@ namespace tale
         virtual std::string ToString() = 0;
 
     protected:
-        Kernel(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
+        /**
+         * @brief The Actor owning this Kernel.
+         */
+        std::weak_ptr<Actor> owner_;
+        Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
     };
 
 } // namespace tale

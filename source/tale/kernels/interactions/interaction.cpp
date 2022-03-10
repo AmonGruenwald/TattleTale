@@ -13,7 +13,7 @@ namespace tale
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
         std::vector<std::weak_ptr<Actor>> participants)
-        : Kernel(prototype.name, id, tick, reasons),
+        : Kernel(prototype.name, id, tick, participants[0], reasons),
           prototype_(prototype),
           participants_(participants){};
 

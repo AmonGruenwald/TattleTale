@@ -15,7 +15,7 @@ namespace tale
         std::string ToString();
 
     private:
-        Trait(std::string name, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
+        Trait(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
         friend class Chronicle;
     };
 

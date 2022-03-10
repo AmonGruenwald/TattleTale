@@ -27,11 +27,12 @@ namespace tale
         static GoalType GetRandomGoalType(Random &random);
         static GoalType StringToGoalType(std::string goal_string);
         static std::string GoalTypeToString(GoalType goal_type);
+        std::string GoalTypeToDescription(GoalType goal_type);
 
         const GoalType type_;
 
     private:
-        Goal(GoalType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons);
+        Goal(GoalType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
         friend class Chronicle;
     };
 

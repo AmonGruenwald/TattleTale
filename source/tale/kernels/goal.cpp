@@ -1,12 +1,13 @@
 #include "tale/kernels/goal.hpp"
-
+#include "tale/actor.hpp"
+#include <fmt/core.h>
 #include <iostream>
 #include <assert.h>
 
 namespace tale
 {
-    Goal::Goal(GoalType type, size_t id, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons)
-        : type_(type), Kernel(GoalTypeToString(type), id, tick, reasons){};
+    Goal::Goal(GoalType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
+        : type_(type), Kernel(GoalTypeToString(type), id, tick, owner, reasons){};
 
     GoalType Goal::GetRandomGoalType(Random &random)
     {
@@ -57,8 +58,38 @@ namespace tale
         }
         return "none";
     }
+
+    std::string Goal::GoalTypeToDescription(GoalType goal_type)
+    {
+        switch (goal_type)
+        {
+        case GoalType::kNone:
+            return fmt::format("{} does not have a goal.", owner_.lock()->name_);
+            break;
+        case GoalType::kLast:
+            assert(false); // invalid enum was passed
+            return fmt::format("{} does not have a goal.", owner_.lock()->name_);
+            break;
+        case GoalType::kWealth:
+            return fmt::format("{} want to become incredibly rich.", owner_.lock()->name_);
+            break;
+        case GoalType::kAcceptance:
+            return fmt::format("{} wants to be fully accepted by his peers.", owner_.lock()->name_);
+            break;
+        case GoalType::kRelationship:
+            return fmt::format("{} wants to have a loving relationship.", owner_.lock()->name_);
+            break;
+        case GoalType::kHedonism:
+            return fmt::format("{} only lives for pleasure.", owner_.lock()->name_);
+            break;
+        case GoalType::kPower:
+            return fmt::format("{} wants to be the most powerful person in school.", owner_.lock()->name_);
+            break;
+        }
+        return "none";
+    }
     std::string Goal::ToString()
     {
-        return ("Has the goal of achieving " + name_ + ".");
+        return GoalTypeToDescription(type_);
     }
 } // namespace tale
