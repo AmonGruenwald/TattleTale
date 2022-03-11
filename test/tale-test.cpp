@@ -556,7 +556,7 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     }
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
     tale::Random random;
-    tale::Chronicle chronicle(random,1;
+    tale::Chronicle chronicle(random, setting_.actor_count);
     actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, 1.0f);
     for (auto &[type, value] : tendency.emotions)
     {
@@ -586,7 +586,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
             tendency.emotions[type] = random.GetFloat(-1.0f, 1.0f);
         }
         std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-        tale::Chronicle chronicle(random, 1);
+        tale::Chronicle chronicle(random, setting_.actor_count);
         actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         for (auto &[type, value] : tendency.emotions)
         {
