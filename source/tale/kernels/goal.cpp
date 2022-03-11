@@ -74,7 +74,7 @@ namespace tale
             return fmt::format("{} want to become incredibly rich.", owner_.lock()->name_);
             break;
         case GoalType::kAcceptance:
-            return fmt::format("{} wants to be fully accepted by his peers.", owner_.lock()->name_);
+            return fmt::format("{} wants to be fully accepted by their peers.", owner_.lock()->name_);
             break;
         case GoalType::kRelationship:
             return fmt::format("{} wants to have a loving relationship.", owner_.lock()->name_);
