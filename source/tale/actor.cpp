@@ -92,10 +92,7 @@ namespace tale
         {
             const Tendency &tendency = tendencies[i];
             // TODO: rethink if this makes sense
-            float group_size_ratio = (context == ContextType::kCourse
-                                          ? static_cast<float>(actor_group.size())
-                                          : static_cast<float>(requirements.at(i).participant_count)) /
-                                     static_cast<float>(setting_.actors_per_course);
+            float group_size_ratio = static_cast<float>(actor_group.size()) / static_cast<float>(setting_.actors_per_course);
             group_size_ratio = std::clamp(group_size_ratio, 0.0f, 1.0f);
             group_size_ratio *= 2;
             group_size_ratio -= 1.0f;
@@ -123,11 +120,11 @@ namespace tale
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
-        uint32_t participant_zero_count = 0;
         const Requirement &requirement = requirements[interaction_index];
         const Tendency &tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement.participant_count; ++i)
         {
+            uint32_t participant_zero_count = 0;
             std::vector<float> participant_chances;
 
             std::vector<std::weak_ptr<Kernel>> participant_reasons;
@@ -189,6 +186,7 @@ namespace tale
                     if (requirement.HasEmotionalRequirement())
                     {
                         participant_chances.push_back(0.0f);
+                        ++participant_zero_count;
                     }
                     else
                     {
@@ -425,6 +423,7 @@ namespace tale
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         auto other_actor = school_.GetActor(actor_id);
         relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), other_actor, all_reasons, new_value);
+        known_actors_.push_back(school_.GetActor(actor_id));
     }
     std::string Actor::GetWealthDescriptionString()
     {
@@ -465,6 +464,11 @@ namespace tale
             trait_string += "\n\t" + trait.lock()->ToString();
         }
         return trait_string;
+    }
+
+    const std::vector<std::weak_ptr<Actor>> &Actor::GetAllKnownActors() const
+    {
+        return known_actors_;
     }
     void Actor::InitializeRandomWealth(size_t tick)
     {
@@ -524,6 +528,7 @@ namespace tale
                    chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                   {RelationshipType::kProtective,
                    chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
+            known_actors_.push_back(other_actor);
         }
     }
     void Actor::InitializeRandomGoal(size_t tick)

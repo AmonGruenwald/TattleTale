@@ -181,6 +181,7 @@ namespace tale
          * @return The description string.
          */
         std::string GetTraitsDescriptionString();
+        const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
 
     private:
         /**
@@ -211,6 +212,7 @@ namespace tale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
+        std::vector<std::weak_ptr<Actor>> known_actors_;
         /**
          * @brief Initializes the Wealth member with a random value.
          *
@@ -218,7 +220,8 @@ namespace tale
          *
          * @param tick The tick during which this happens.
          */
-        void InitializeRandomWealth(size_t tick);
+        void
+        InitializeRandomWealth(size_t tick);
         /**
          * @brief Initializes the Emotion member map with random values.
          *

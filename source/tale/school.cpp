@@ -51,11 +51,10 @@ namespace tale
         for (size_t i = 0; i < course_count; ++i)
         {
             // TODO: create better names
-            Course course(random_, setting_, i, "Course" + std::to_string(i));
-            courses_.push_back(course);
+            courses_.push_back(Course(random_, setting_, i, "Course " + std::to_string(i)));
 
             // Filling courses:
-            std::string course_creation_description = ("CREATED COURSE " + std::to_string(course.id_));
+            std::string course_creation_description = ("CREATED COURSE " + std::to_string(courses_[i].id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -76,28 +75,28 @@ namespace tale
             {
                 std::vector<uint32_t> slots;
                 // Because Actor have the same course a few times per week use the same group a few times
-                for (size_t i = 0; i < setting_.same_course_per_week && slot_index < random_slot_order.size(); ++i)
+                for (size_t j = 0; j < setting_.same_course_per_week && slot_index < random_slot_order.size(); ++j)
                 {
                     slots.push_back(random_slot_order[slot_index]);
                     ++slot_index;
                 }
-                std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(course.id_, slots);
+                std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
 
                 course_creation_description += "\n\t";
-                for (size_t i = 0; i < slots.size(); ++i)
+                for (size_t j = 0; j < slots.size(); ++j)
                 {
                     course_creation_description += "[";
-                    if (slots[i] < 10)
+                    if (slots[j] < 10)
                     {
                         course_creation_description += "0";
                     }
-                    course_creation_description += std::to_string(slots[i]);
+                    course_creation_description += std::to_string(slots[j]);
                     course_creation_description += "]";
-                    course.AddToSlot(course_group, slots[i]);
+                    courses_[i].AddToSlot(course_group, slots[j]);
                 }
                 course_creation_description += (" <- " + std::to_string(course_group.size()) + " ACTORS.");
             }
-            TALE_VERBOSE_PRINT(course_creation_description);
+            TALE_DEBUG_PRINT(course_creation_description);
         }
     }
 
@@ -174,11 +173,11 @@ namespace tale
                         {
                             std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
                             interaction.lock()->Apply();
-                            TALE_DEBUG_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
                         }
                         else
                         {
-                            TALE_DEBUG_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
+                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
                         }
                     }
                 }
@@ -203,7 +202,7 @@ namespace tale
         {
             std::vector<std::weak_ptr<Kernel>> reasons;
             std::vector<std::weak_ptr<Actor>> participants;
-            int interaction_index = actor->ChooseInteraction(freetime_group_, ContextType::kFreetime, reasons, participants);
+            int interaction_index = actor->ChooseInteraction(actor->GetAllKnownActors(), ContextType::kFreetime, reasons, participants);
             // TODO: registers interaction to events
             if (interaction_index != -1)
             {
