@@ -2,28 +2,39 @@
     {
         "prototype": 
         {
-            "name": "Default Interaction",
-            "description":"{0} had a normal interaction with {1}",
-            "wealth": 
-            [
-                0.0,
-                -0.0
-            ],
+            "name": "Start a rumor",
+            "description":"{0} started a rumor about {1}.",
             "emotions": 
             [
                 { 
-                    "happy": 0.0,
-                    "calm": 0.0,
-                    "satisfied": 0.0,
-                    "brave": 0.0,
-                    "extroverted": 0.0
+                    "happy": 0.02,
+                    "extroverted": 0.04
                 },
                 {
-                    "happy": -0.0,
-                    "calm": -0.0,
-                    "satisfied": -0.0,
-                    "brave": -0.0,
-                    "extroverted": -0.0
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
+                },
+                { 
+                    "calm": -0.01
                 }
             ],
             "relationships": 
@@ -33,11 +44,248 @@
                         "participant": 1,
                         "changes":
                         {
-                            "love": 0.0,
-                            "attraction": 0.0,
-                            "friendship": 0.0,
-                            "anger": 0.0,
-                            "protective": 0.0
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 10,
+            "day":5,
+            "emotions": 
+            { 
+                "extroverted": 0.1
+            }
+        },
+        "tendencies":
+        {
+            "group_size": 1.0,
+            "emotions": 
+            { 
+                "extroverted": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "friendship": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Happy Jig",
+            "description":"{0} did a happy jig",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.03,
+                    "brave": 0.02
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "happy": 0.9
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": 1.0,
+                "calm": -0.25
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Stare at wall",
+            "description":"{0} apathetically stared at a wall",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.04,
+                    "calm": 0.04,
+                    "extroverted": -0.03
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "happy": -0.9
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -1.0,
+                "calm": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Throw a tantrum",
+            "description":"{0} threw a tantrum",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.01,
+                    "calm": -0.03
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "calm": -0.5
+            }
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.25,
+                "calm": -1.0,
+                "satisfied": -0.25
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Lash out in anger",
+            "description":"{0} lashed out against {1} in anger",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.02,
+                    "calm": -0.02
+                },
+                {
+                    "happy": -0.02,
+                    "calm": -0.02
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": -0.02,
+                            "anger": -0.02
                         }
                     }
                 ],
@@ -46,11 +294,491 @@
                         "participant": 0,
                         "changes":
                         {
-                            "love": -0.0,
-                            "attraction": -0.0,
-                            "friendship": -0.0,
-                            "anger": -0.0,
-                            "protective": -0.0
+                            "attraction": -0.02,
+                            "friendship": -0.02,
+                            "anger": 0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "happy": -0.25
+            },
+            "relationships":
+            {
+                "anger": 0.75
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.5,
+                "calm": -0.5,
+                "extroverted": 0.25
+            }, 
+            "relationships":
+            [
+                {
+                    "anger": 1.0,
+                    "protective": -0.2
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Commiserate with someone",
+            "description":"{0} commiserated with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": 0.02
+                },
+                {
+                    "happy": -0.01,
+                    "calm": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "happy": -0.25
+            },
+            "relationships":
+            {
+                "friendship": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "emotions": 
+            { 
+                "happy": -1.0,
+                "calm": -0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.5,
+                    "friendship": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Cry",
+            "description":"{0} started crying",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.01,
+                    "calm": -0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "happy": -0.5
+            }
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": -1.0,
+                "calm": -0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Talk about someone",
+            "description":"{0} talked with {1} about {2}",
+            "emotions": 
+            [
+                { 
+                    "extroverted": 0.02
+                },
+                {
+                    "extroverted": 0.02
+                },
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": -0.01
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": -0.01
+                        }
+                    }
+                ],
+                []
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 3,
+            "day":3,
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "extroverted": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "friendship": 0.1
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Confess love",
+            "description":"{0} confessed their love to {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.02,
+                    "satisfied": 0.01,
+                    "brave": 0.04,
+                    "extroverted": 0.03
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.03
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.03,
+                            "attraction": 0.01,
+                            "protective": 0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.02,
+                            "attraction": 0.01,
+                            "protective": 0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.3
+            },
+            "relationships":
+            {
+                "love": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "emotions": 
+            { 
+                "happy": -0.1,
+                "calm": 0.3,
+                "brave": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.25
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Embarrass oneself",
+            "description":"{0} embarrassed themselves",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.03,
+                    "calm": -0.03,
+                    "brave": -0.03,
+                    "extroverted": -0.03
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "extroverted": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": 1.0,
+            "emotions": 
+            { 
+                "calm": -1.0,
+                "extroverted": 1.0
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Protect someone",
+            "description":"{0} protected {1} from {2}",
+            "emotions": 
+            [
+                { 
+                    "calm": 0.02,
+                    "brave": 0.03
+                },
+                {
+                    "happy": 0.03,
+                    "calm": 0.03,
+                    "brave": 0.02,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": -0.02,
+                    "calm": -0.03,
+                    "brave": -0.02,
+                    "extroverted": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "protective": 0.03
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": -0.03,
+                            "anger": 0.03,
+                            "protective": -0.03
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "attraction": 0.03
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": -0.03,
+                            "anger": 0.03,
+                            "protective": -0.03
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "anger": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": -0.03,
+                            "anger": 0.03,
+                            "protective": -0.03
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 3,
+            "emotions": 
+            { 
+                "brave": 0.5
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": 0.0,
+                "calm": 0.0,
+                "satisfied": 0.0,
+                "brave": 1.0,
+                "extroverted": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Extort someone",
+            "description":"{0} extorted {1} for some money",
+            "wealth": 
+            [
+                0.05,
+                -0.05
+            ],
+            "emotions": 
+            [
+                { 
+                    "calm": -0.02,
+                    "satisfied": 0.03,
+                    "brave": 0.02,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": -0.02,
+                    "calm": -0.03,
+                    "satisfied": -0.03,
+                    "brave": -0.05,
+                    "extroverted": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "protective": -0.05
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.03,
+                            "attraction": -0.03,
+                            "friendship": -0.5,
+                            "anger": 0.05
                         }
                     }
                 ]
@@ -60,51 +788,3490 @@
         {
             "context": "freetime",
             "participant_count": 2,
-            "goal_type":"none",
-            "day":0,
             "emotions": 
             { 
-                "happy": 0.0,
-                "calm": 0.0,
-                "satisfied": 0.0,
-                "brave": 0.0,
-                "extroverted": 0.0
+                "brave": 0.5
             },
             "relationships":
             {
-                "love": 0.0,
-                "attraction": 0.0,
-                "friendship": 0.0,
-                "anger": 0.0,
-                "protective": 0.0
+                "protective": -0.5
             }
             
         },
         "tendencies":
         {
-            "group_size": 0.0,
-            "contexts":
-            { 
-                "course": 0.0,
-                "freetime": 0.0
-            },
-            "wealth": 0.0,
+            "group_size": -0.5,
+            "wealth": -1.0,
             "emotions": 
             { 
-                "happy": 0.0,
-                "calm": 0.0,
-                "satisfied": 0.0,
-                "brave": 0.0,
-                "extroverted": 0.0
+                "satisfied": -0.5,
+                "brave": 0.5
             }, 
             "relationships":
             [
                 {
-                    "love": 0.0,
-                    "attraction": 0.0,
-                    "friendship": 0.0,
-                    "anger": 0.0,
-                    "protective": 0.0
+                    "love": -0.5,
+                    "attraction": -0.3,
+                    "friendship": -0.3,
+                    "anger": 0.3,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Blackmail someone",
+            "description":"{0} blackmailed {1} for some money",
+            "wealth": 
+            [
+                0.05,
+                -0.05
+            ],
+            "emotions": 
+            [
+                { 
+                    "satisfied": 0.01,
+                    "brave": 0.01
+                },
+                {
+                    "happy": -0.02,
+                    "calm": -0.05,
+                    "satisfied": -0.01,
+                    "brave": -0.02
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "protective": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.02,
+                            "attraction": -0.02,
+                            "friendship": -0.02,
+                            "anger": 0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "day":10,
+            "relationships":
+            {
+                "protective": -0.5
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -0.5,
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "satisfied": -1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.5,
+                    "attraction": -0.5,
+                    "friendship": -0.5,
+                    "anger": 0.5,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Casual sex",
+            "description":"{0} and {1} had casual sex",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "satisfied": 0.05
+                },
+                {
+                    "happy": 0.05,
+                    "satisfied": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.01,
+                            "friendship": -0.03,
+                            "attraction": 0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.01,
+                            "friendship": -0.03,
+                            "attraction": 0.03
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "satisfied": -0.5,
+                "extroverted": 0.1
+            },
+            "relationships":
+            {
+                "love": -0.01,
+                "attraction": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "satisfied": -1.0,
+                "brave": 0.25,
+                "extroverted": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.25,
+                    "attraction": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Make love",
+            "description":"{0} and {1} made love",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "satisfied": 0.05
+                },
+                {
+                    "happy": 0.05,
+                    "satisfied": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.05,
+                            "attraction": 0.02
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.05,
+                            "attraction": 0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "relationships":
+            {
+                "love": 0.5,
+                "attraction": 0.1
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "satisfied": -1.0,
+                "brave": 0.25,
+                "extroverted": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.25
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Break up",
+            "description":"{0} broke up with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.05,
+                    "brave": -0.03,
+                    "extroverted": -0.03
+                },
+                {
+                    "happy": -0.05,
+                    "brave": -0.03,
+                    "extroverted": -0.03
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.1,
+                            "friendship": -0.03,
+                            "attraction": -0.03,
+                            "protective": -0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": -0.03,
+                            "attraction": -0.03,
+                            "protective": -0.03,
+                            "anger": 0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.5,
+                "extroverted": 0.5
+            },
+            "relationships":
+            {
+                "love": -0.5,
+                "attraction": 0.5
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": -0.5,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": -1.0,
+                "calm": -0.5,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -1.0,
+                    "attraction": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Asked out unsuccessfully",
+            "description":"{0} asked {1} out. {1} said they don't feel the same way.",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.03,
+                    "brave": -0.03,
+                    "extroverted": -0.01
+                },
+                {
+                    "brave": 0.03,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "anger": 0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.05,
+                            "attraction": -0.03,
+                            "protective": -0.03
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.5,
+                "extroverted": 0.5
+            },
+            "relationships":
+            {
+                "love": 0.5,
+                "attraction": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": -0.5,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": 0.2,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Asked out successfully",
+            "description":"{0} asked {1} out. {1} said yes.",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.03,
+                    "brave": 0.03,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": 0.03,
+                    "brave": 0.03,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.05,
+                            "attraction": 0.03,
+                            "protective": 0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.05,
+                            "attraction": 0.03,
+                            "protective": 0.03
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.5,
+                "extroverted": 0.5
+            },
+            "relationships":
+            {
+                "love": 0.5,
+                "attraction": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": -0.5,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": 0.2,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Fight verbally",
+            "description":"{0} verbally fought with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.03,
+                    "calm": -0.05,
+                    "brave": 0.03
+                },
+                {
+                    "happy": -0.03,
+                    "calm": -0.05,
+                    "brave": 0.03
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05,
+                            "protective": -0.05
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05,
+                            "protective": -0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "calm": -0.3,
+                "brave": 0.3
+            },
+            "relationships":
+            {
+                "anger": 0.3
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.25,
+                "calm": -1.0,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.25,
+                    "attraction": -0.25,
+                    "friendship": -0.25,
+                    "anger": 1.0,
+                    "protective": -0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Fight physically",
+            "description":"{0} threw fists with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.03,
+                    "calm": -0.05,
+                    "brave": 0.03
+                },
+                {
+                    "happy": -0.03,
+                    "calm": -0.05,
+                    "brave": 0.03
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05,
+                            "protective": -0.05
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05,
+                            "protective": -0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "calm": -0.3,
+                "brave": 0.3
+            },
+            "relationships":
+            {
+                "anger": 0.3
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.25,
+                "calm": -1.0,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.25,
+                    "attraction": -0.25,
+                    "friendship": -0.25,
+                    "anger": 1.0,
+                    "protective": -0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Form Clique",
+            "description":"{0} formed a clique with {1}, {2} and {3}",
+            "emotions": 
+            [
+                { 
+                    "calm": 0.01,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                },
+                { 
+                    "calm": 0.01,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                },
+                { 
+                    "calm": 0.01,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                },
+                { 
+                    "calm": 0.01,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 3,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 3,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 3,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    }
+                ],
+                [ 
+                    { 
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 4,
+            "emotions": 
+            { 
+                "extroverted": 0.5
+            },
+            "relationships":
+            {
+                "friendship": 0.25
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": 1.0,
+            "contexts":
+            { 
+                "course": 0.5,
+                "freetime": 0.0
+            },
+            "emotions": 
+            { 
+                "calm": 0.03,
+                "extroverted": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 1.0,
+                    "protective": 0.5
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Saw cute interaction",
+            "description":"{0} saw {1} do something cute",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "satisfied": -0.01
+                },
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.02,
+                            "anger": -0.01
+                        }
+                    }
+                ],
+                []
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2
+        },
+        "tendencies":{}
+    },
+    {
+        "prototype": 
+        {
+            "name": "Do up",
+            "description":"{0} did themself up",
+            "wealth": 
+            [
+                -0.01
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.01,
+                    "extroverted": 0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": 0.5,
+            "emotions": 
+            { 
+                "happy": -0.1,
+                "satisfied": -0.1
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Notice Beauty",
+            "description":"{0} noticed how beautiful {1} is",
+            "emotions": 
+            [
+                { 
+                    "calm": 0.02,
+                    "satisfied": -0.02,
+                    "brave": 0.01
+                },
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.05
+                        }
+                    }
+                ],
+                []
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "satisfied": -0.25
+            }, 
+            "relationships":
+            [
+                {
+                    "attraction": 0.5,
+                    "friendship": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Tease each other",
+            "description":"{0} and {1} teased each other",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": -0.01,
+                    "brave": 0.01,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01,
+                    "brave": 0.01,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.01,
+                            "friendship": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.01,
+                            "friendship": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": 0.25,
+                "calm": -0.1,
+                "brave": 0.1,
+                "extroverted": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.2,
+                    "attraction": 0.5,
+                    "friendship": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Call someone names",
+            "description":"{0} called {1} names",
+            "emotions": 
+            [
+                {
+                    "calm": -0.01,
+                    "satisfied": 0.01,
+                    "brave": 0.01
+                },
+                {
+                    "happy": -0.1,
+                    "calm": -0.01,
+                    "brave": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "anger": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.01,
+                            "anger": -0.01,
+                            "protective": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "relationships":
+            {
+                "anger": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.25,
+                "calm": -0.5,
+                "satisfied": -0.25,
+                "brave": 0.25
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.5,
+                    "attraction": -0.25,
+                    "friendship": -0.5,
+                    "anger": 1.0,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Shoot the shit",
+            "description":"{0} shot the shit with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "happy": 0.01
+            },
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": 0.2,
+                "satisfied": 0.1
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Stop bullying",
+            "description":"{0} stepped in when {1} tried to bully {2}",
+            "emotions": 
+            [
+                { 
+                    "brave": 0.05
+                },
+                {
+                    "happy": -0.01,
+                    "calm": -0.03,
+                    "satisfied": -0.04,
+                    "brave": -0.05,
+                    "extroverted": -0.02
+                },
+                {
+                    "happy": 0.01,
+                    "calm": 0.03,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.01,
+                            "friendship": -0.05,
+                            "anger": 0.03,
+                            "protective": -0.05
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.05
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05
+                        }
+                    },
+                    {
+                        "participant": 2,
+                        "changes":
+                        {
+                            "anger": -0.02
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.01,
+                            "attraction": 0.05,
+                            "friendship": 0.05,
+                            "anger": -0.05,
+                            "protective": 0.05
+                        }
+                    },
+                    {
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": -0.01,
+                            "attraction": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 3,
+            "emotions": 
+            { 
+                "calm": 0.2,
+                "brave": 0.5
+            },
+            "relationships":
+            {
+                "friendship": 0.01,
+                "protective": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "brave": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 0.25,
+                    "protective": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Bully someone",
+            "description":"{0} bullied {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "satisfied": 0.01,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": -0.05,
+                    "calm": -0.05,
+                    "brave": -0.05,
+                    "extroverted": -0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "protective": -0.05
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.02,
+                            "attraction": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "satisfied": -0.1,
+                "brave": 0.1
+            },
+            "relationships":
+            {
+                "anger": 0.1,
+                "protective": -0.1
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.1,
+                "calm": -0.3,
+                "satisfied": -0.3
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.1,
+                    "attraction": 0.1,
+                    "friendship": -0.3,
+                    "anger": 1.0,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Messaged someon",
+            "description":"{0} sent a message to {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01
+                },
+                {
+                    "happy": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+        },
+        "tendencies":
+        { 
+            "relationships":
+            [
+                {
+                    "love": 0.5,
+                    "attraction": 1.0,
+                    "friendship": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Satisfy themself",
+            "description":"{0} satisfied themselv.",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.01,
+                    "satisfied": 0.02,
+                    "brave": -0.01,
+                    "extroverted": -0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "satisfied": -0.5
+            }
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.5,
+                "calm": -0.5,
+                "satisfied": -1.0
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Action Movie",
+            "description":"{0} watched an action movie",
+            "emotions": 
+            [
+                { 
+                    "calm": -0.01,
+                    "satisfied": 0.01,
+                    "brave": 0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": -0.05,
+            "emotions": 
+            { 
+                "calm": -0.5,
+                "brave": 0.1
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Erotic Movie",
+            "description":"{0} watched an erotic movie",
+            "emotions": 
+            [
+                { 
+                    "calm": -0.01,
+                    "satisfied": -0.05,
+                    "brave": 0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": -0.05,
+            "emotions": 
+            { 
+                "satisfied": -0.5,
+                "brave": 0.1
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Horror Movie",
+            "description":"{0} watched a horror movie",
+            "emotions": 
+            [
+                { 
+                    "calm": -0.01,
+                    "brave": -0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": -0.05,
+            "emotions": 
+            { 
+                "brave": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Cinema Date",
+            "description":"{0} went to the cinema as a date with {1}",
+            "wealth": 
+            [
+                -0.06,
+                0.0
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": 0.01,
+                    "satisfied": 0.01
+                },
+                {
+                    "happy": 0.02,
+                    "calm": 0.01,
+                    "satisfied": 0.01 
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.03,
+                            "attraction": 0.01,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "relationships":
+            {
+                "love": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "wealth": 1.0,
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "satisfied": -0.1
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.25,
+                    "anger": -0.5
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Got to the Cinema as Friend",
+            "description":"{0} went to the cinema with their friend {1}",
+            "wealth": 
+            [
+                -0.03,
+                -0.03
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": 0.01,
+                    "satisfied": 0.01
+                },
+                {
+                    "happy": 0.02,
+                    "calm": 0.01,
+                    "satisfied": 0.01 
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "wealth": 1.0,
+            "emotions": 
+            { 
+                "happy": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 1.0,
+                    "anger": -0.5
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Coffee Date",
+            "description":"{0} went to a coffee date with {1}",
+            "wealth": 
+            [
+                -0.04,
+                0.0
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": -0.01,
+                    "satisfied": 0.01
+                },
+                {
+                    "happy": 0.02,
+                    "calm": -0.01,
+                    "satisfied": 0.01 
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.03,
+                            "attraction": 0.01,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "relationships":
+            {
+                "love": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "wealth": 1.0,
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm":0.1,
+                "satisfied": -0.1
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.25,
+                    "anger": -0.5
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Got for a Coffee with a Friend",
+            "description":"{0} went for a coffee with their friend {1}",
+            "wealth": 
+            [
+                -0.02,
+                -0.02
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": -0.01,
+                    "satisfied": 0.01
+                },
+                {
+                    "happy": 0.02,
+                    "calm": -0.01,
+                    "satisfied": 0.01 
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.03,
+                            "anger": -0.02,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "wealth": 1.0,
+            "emotions": 
+            { 
+                "calm":0.1,
+                "happy": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 1.0,
+                    "anger": -0.5
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Take Drugs",
+            "description":"{0} took some drugs",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "calm": -0.05,
+                    "satisfied": 0.05,
+                    "extroverted": -0.5
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1,
+            "goal_type":"hedonism"
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": -0.5,
+                "calm": -0.5,
+                "satisfied":-1.0
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Sell Drugs",
+            "description":"{0} sold some drugs to {1}",
+            "wealth": 
+            [
+                0.05,
+                -0.05
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": -0.01,
+                    "satisfied": 0.02,
+                    "brave": 0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01,
+                    "satisfied": 0.02,
+                    "brave": 0.1
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.5
+            },
+            "relationships":
+            {
+                "friendship": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 0.5
+            },
+            "wealth": -0.1,
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "brave": 1.0
+            },
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25,
+                    "friendship": 0.5,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Sell stuff",
+            "description":"{0} sold some of their old stuff.",
+            "wealth": 
+            [
+                0.2
+            ],
+            "emotions": 
+            [
+                { 
+                    "satisfied": -0.01
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": -1.0
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Dare",
+            "description":"{0} faced a dare because {1} pushed them to",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.03,
+                    "calm": -0.05,
+                    "brave": 0.05
+                },
+                {
+                    "happy": 0.01,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.05,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.01,
+                            "friendship": 0.05,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.01
+            },
+            "relationships":
+            {
+                "friendship": 0.2
+            }
+            
+        },
+        "tendencies":
+        {
+            "contexts":
+            { 
+                "course": -0.5,
+                "freetime": 0.5
+            },
+            "emotions": 
+            { 
+                "happy": 0.1,
+                "calm": -0.1,
+                "satisfied": -0.2,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 1.0,
+                    "friendship": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Shopping",
+            "description":"{0} bought themselves some nice things",
+            "wealth": 
+            [
+                -0.05
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "satisfied": 0.05
+                }
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "wealth": 1.0,
+            "emotions": 
+            { 
+                "happy": -0.5,
+                "satisfied": -0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Read",
+            "description":"{0} read a book",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "calm": 0.03
+                }
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "group_size": -0.5,
+            "contexts":
+            { 
+                "course": -0.2,
+                "freetime": 0.5
+            },
+            "wealth": -0.2,
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "brave": -0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Pay Attention",
+            "description":"{0} diligently payed attention to the class.",
+            "emotions": 
+            [
+                { 
+                    "calm": 0.02,
+                    "brave": -0.01
+                }
+            ],
+            "relationships": 
+            [[]]
+        },
+        "requirements":
+        {
+            "context": "course",
+            "participant_count": 1
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "calm": 1.0,
+                "satisfied": 0.2,
+                "extroverted": -0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Distract",
+            "description":"{0} distracted {1} during class",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "satisfied": 0.01,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": -0.01,
+                    "calm": -0.02,
+                    "extroverted": -0.02
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "protective": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "anger": -0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "course",
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "extroverted": 0.01
+            }
+            
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": 0.1,
+                "calm": -0.5,
+                "satisfied": -0.1,
+                "extroverted": 0.4
+            }, 
+            "relationships":
+            [
+                {
+                    "attraction": 0.1,
+                    "friendship": 0.1,
+                    "anger": 0.1,
+                    "protective": -0.1
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Class Clown",
+            "description":"{0} played class clown for a big group, including {1},{2} and {3}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "calm": -0.05,
+                    "satisfied": 0.03,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 3,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 4,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 5,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 6,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 7,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 8,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 9,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    },
+                    { 
+                        "participant": 10,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    },
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "protective": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "course",
+            "participant_count": 11,
+            "emotions": 
+            { 
+                "calm": -0.5,
+                "brave": 0.2,
+                "extroverted": 0.5
+            }
+        },
+        "tendencies":
+        {
+            "group_size": 1.0,
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": -1.0,
+                "satisfied": -0.2,
+                "brave": 0.5,
+                "extroverted": 1.0
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Greet one",
+            "description":"{0} said hello to {1}",
+            "emotions": 
+            [
+                { 
+                    "extroverted": 0.01
+                },
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2
+        },
+        "tendencies":
+        {}
+    },
+    {
+        "prototype": 
+        {
+            "name": "Greet two",
+            "description":"{0} greeted {1} and {2}",
+            "emotions": 
+            [
+                { 
+                    "extroverted": 0.01
+                },
+                {},
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 3
+        },
+        "tendencies":
+        {}
+    },
+    {
+        "prototype": 
+        {
+            "name": "Greet group",
+            "description":"{0} hollered at the group of {1}, {2} and {3}",
+            "emotions": 
+            [
+                { 
+                    "extroverted": 0.01
+                },
+                {},
+                {},
+                {}
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    },
+                    { 
+                        "participant": 2,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    },
+                    { 
+                        "participant": 3,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "attraction": 0.001,
+                            "friendship": 0.001
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 4
+        },
+        "tendencies":
+        {}
+    },
+    {
+        "prototype": 
+        {
+            "name": "Wait tables",
+            "description":"{0} worked as waiter",
+            "wealth": 
+            [
+                0.01
+            ],
+            "emotions": 
+            [
+                { 
+                    "satisfied": -0.01,
+                    "extroverted": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "extroverted": 0.2
+            }
+        },
+        "tendencies":
+        {
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "brave": 0.5,
+                "extroverted": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Wash dishes",
+            "description":"{0} worked as a dishwasher",
+            "wealth": 
+            [
+                0.01
+            ],
+            "emotions": 
+            [
+                { 
+                    "satisfied": -0.01,
+                    "calm": 0.01,
+                    "extroverted": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "extroverted": -0.1
+            }
+        },
+        "tendencies":
+        {
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "extroverted": -0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Construction work",
+            "description":"{0} worked at a construction site",
+            "wealth": 
+            [
+                0.02
+            ],
+            "emotions": 
+            [
+                { 
+                    "satisfied": -0.01,
+                    "calm": -0.01,
+                    "brave": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "brave": 0.2
+            }
+        },
+        "tendencies":
+        {
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "brave": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Freelance artist",
+            "description":"{0} worked as a freelance artist",
+            "wealth": 
+            [
+                0.02
+            ],
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "satisfied": 0.01,
+                    "calm": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 1,
+            "emotions": 
+            { 
+                "calm": 0.5
+            }
+        },
+        "tendencies":
+        {
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "calm": 0.5
+            }
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Steal Money successfully",
+            "description":"{0} stole some money from {1}",
+            "wealth": 
+            [
+                0.01,
+                -0.01
+            ],
+            "emotions": 
+            [
+                { 
+                    "calm": -0.01,
+                    "satisfied": 0.01,
+                    "brave": 0.01
+                },
+                {
+                    "happy": -0.01,
+                    "calm": -0.01,
+                    "satisfied": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": -0.01,
+                            "protective": -0.02
+                        }
+                    }
+                ],
+                [
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "calm": 0.01,
+                "satisfied": -0.05,
+                "brave": 0.02
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": 0.5,
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "satisfied": -0.5,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.5,
+                    "friendship": -0.5,
+                    "anger": 1.0,
+                    "protective": -1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Caught Steling",
+            "description":"{0} was caught trying to steal from {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.05,
+                    "calm": -0.05,
+                    "brave": -0.05
+                },
+                {
+                    "happy": -0.01,
+                    "brave": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": -0.03,
+                            "anger": -0.03,
+                            "protective": 0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.02,
+                            "attraction": -0.02,
+                            "friendship": -0.02,
+                            "anger": 0.05,
+                            "protective": -0.05
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "calm": 0.01,
+                "satisfied": -0.05,
+                "brave": 0.02
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": 0.5,
+            "wealth": -0.5,
+            "emotions": 
+            { 
+                "calm": 0.5,
+                "satisfied": -0.5,
+                "brave": 0.5
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.5,
+                    "friendship": -0.5,
+                    "anger": 1.0,
+                    "protective": -1.0
+                }
+            ]
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Kiss successfully",
+            "description":"{0} kissed {1}. They both enjoyed it.",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.05,
+                    "calm": 0.01,
+                    "satisfied": 0.02,
+                    "brave": 0.01
+                },
+                {
+                    "happy": 0.05,
+                    "calm": 0.01,
+                    "satisfied": 0.02,
+                    "brave": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.02,
+                            "attraction": 0.01,
+                            "anger": -0.01,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.02,
+                            "attraction": 0.01,
+                            "anger": -0.01,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "satisfied": -0.4
+            },
+            "relationships":
+            {
+                "attraction": 0.7
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": -1.0,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": -0.1,
+                "satisfied": -1.0,
+                "extroverted": 0.25
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.5
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Kiss unsuccessfully",
+            "description":"{0} tried to kiss {1} but {1} dodged it.",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.05,
+                    "calm": -0.05,
+                    "satisfied": -0.05,
+                    "brave": -0.05,
+                    "extroverted": -0.05
+                },
+                {
+                    "happy": -0.01,
+                    "calm": -0.01,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.02,
+                            "attraction": 0.01,
+                            "friendship": -0.02,
+                            "anger": 0.02,
+                            "protective": -0.03
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.02,
+                            "attraction": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.02,
+                            "protective": -0.03
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "context": "freetime",
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "satisfied": -0.4
+            },
+            "relationships":
+            {
+                "attraction": 0.7
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -1.0,
+            "contexts":
+            { 
+                "course": -1.0,
+                "freetime": 1.0
+            },
+            "emotions": 
+            { 
+                "happy": 0.5,
+                "calm": -0.1,
+                "satisfied": -1.0,
+                "extroverted": 0.25
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 1.0,
+                    "attraction": 0.5
+                }
+            ]
+
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Flirt successfully",
+            "description":"{0} flirted with {1} and {1} liked it.",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.02,
+                    "calm": -0.02,
+                    "satisfied": -0.01,
+                    "brave": 0.01,
+                    "extroverted": 0.01
+                },
+                {
+                    "happy": 0.02,
+                    "calm": -0.02,
+                    "satisfied": -0.01,
+                    "extroverted": -0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "love": 0.01,
+                            "attraction": 0.01,
+                            "friendship": -0.01,
+                            "protective": 0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": 0.01,
+                            "attraction": 0.02,
+                            "friendship": -0.01,
+                            "protective": 0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.01,
+                "extroverted": 0.01
+            },
+            "relationships":
+            {
+                "attraction": 0.1
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -0.1,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 0.5
+            },
+            "emotions": 
+            { 
+                "satisfied": -0.2,
+                "brave": 0.5,
+                "extroverted": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.25,
+                    "attraction": 1.0
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Flirt unsuccessfully",
+            "description":"{0} tried to flirt with {1} but {1} shot that down immediately.",
+            "emotions": 
+            [
+                { 
+                    "happy": -0.02,
+                    "calm": -0.05,
+                    "satisfied": -0.05,
+                    "brave": -0.05,
+                    "extroverted": -0.01
+                },
+                {
+                    "happy": -0.02,
+                    "calm": -0.02,
+                    "brave": 0.05,
+                    "extroverted": 0.05
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "attraction": 0.01,
+                            "friendship": -0.04,
+                            "anger": 0.02,
+                            "protective": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "love": -0.02,
+                            "attraction": -0.05,
+                            "friendship": -0.05,
+                            "anger": 0.01,
+                            "protective": -0.02
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2,
+            "emotions": 
+            { 
+                "brave": 0.01,
+                "extroverted": 0.01
+            },
+            "relationships":
+            {
+                "attraction": 0.1
+            }
+            
+        },
+        "tendencies":
+        {
+            "group_size": -0.1,
+            "contexts":
+            { 
+                "course": 0.0,
+                "freetime": 0.5
+            },
+            "emotions": 
+            { 
+                "satisfied": -0.2,
+                "brave": 0.5,
+                "extroverted": 1.0
+            }, 
+            "relationships":
+            [
+                {
+                    "love": -0.1,
+                    "attraction": -0.1,
+                    "friendship": -0.1,
+                    "anger": -0.1,
+                    "protective": -0.1
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Smalltalk",
+            "description":"{0} made some smalltalk with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.1,
+                "calm": -0.1,
+                "extroverted": 0.1
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.2,
+                    "attraction": 0.1,
+                    "friendship": -0.1,
+                    "anger": -0.2
+                }
+            ]
+
+        }
+    },
+    {
+        "prototype": 
+        {
+            "name": "Talk about the Weather",
+            "description":"{0} talked about the weather with {1}",
+            "emotions": 
+            [
+                { 
+                    "happy": 0.01,
+                    "calm": 0.01
+                },
+                {
+                    "happy": 0.01,
+                    "calm": 0.01
+                }
+            ],
+            "relationships": 
+            [
+                [ 
+                    { 
+                        "participant": 1,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ],
+                [
+                    {
+                        "participant": 0,
+                        "changes":
+                        {
+                            "friendship": 0.01,
+                            "anger": -0.01
+                        }
+                    }
+                ]
+            ]
+        },
+        "requirements":
+        {
+            "participant_count": 2
+        },
+        "tendencies":
+        {
+            "emotions": 
+            { 
+                "happy": -0.1,
+                "calm": -0.1,
+                "extroverted": 0.1
+            }, 
+            "relationships":
+            [
+                {
+                    "love": 0.2,
+                    "attraction": 0.1,
+                    "friendship": -0.1,
+                    "anger": -0.2
                 }
             ]
 
