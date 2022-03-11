@@ -16,7 +16,12 @@ namespace tale
     class Chronicle
     {
     public:
-        Chronicle(Random &random);
+        /**
+         * @brief Holds all instanced \link Actor Actors \endlink.
+         */
+        std::vector<std::shared_ptr<Actor>> actors_;
+
+        Chronicle(Random &random, size_t actor_count);
         std::weak_ptr<Interaction> CreateInteraction(const InteractionPrototype &prototype, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         std::weak_ptr<Emotion> CreateEmotion(EmotionType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
         std::weak_ptr<Relationship> CreateRelationship(RelationshipType type, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value);
@@ -26,13 +31,16 @@ namespace tale
 
         size_t GetKernelAmount();
         std::string GetRandomCausalityChainDescription(size_t depth);
-        std::string GetKissingCausalityChain(size_t depth);
-        std::string GetGoalCausalityChain(size_t depth);
+        std::string GetKissingCausalityChainDescription(size_t depth);
+        std::string GetGoalCausalityChainDescription(size_t depth);
+        std::string GetActorInteractionsDescription(size_t id);
 
     private:
         Random &random_;
         std::vector<std::shared_ptr<Kernel>>
-            kernels_;
+            all_kernels_;
+        std::vector<std::vector<std::shared_ptr<Kernel>>>
+            kernels_by_actor_;
 
         std::string GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth);
     };

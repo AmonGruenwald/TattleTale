@@ -1,69 +1,85 @@
 #include "tale/globals/chronicle.hpp"
 #include "tale/talecore.hpp"
+#include "tale/actor.hpp"
 
 namespace tale
 {
-    Chronicle::Chronicle(Random &random) : random_(random) {}
+    Chronicle::Chronicle(Random &random, size_t actor_count) : random_(random)
+    {
+        for (size_t i = 0; i < actor_count; ++i)
+        {
+            kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
+        }
+    }
     std::weak_ptr<Interaction> Chronicle::CreateInteraction(const InteractionPrototype &prototype, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
-        std::shared_ptr<Interaction> interaction(new Interaction(prototype, kernels_.size(), tick, reasons, participants));
-        kernels_.push_back(interaction);
+        std::shared_ptr<Interaction> interaction(new Interaction(prototype, all_kernels_.size(), tick, reasons, participants));
+        all_kernels_.push_back(interaction);
+        for (auto &owner : participants)
+        {
+            kernels_by_actor_[owner.lock()->id_].push_back(interaction);
+        }
         return interaction;
     }
     std::weak_ptr<Emotion> Chronicle::CreateEmotion(EmotionType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
-        std::shared_ptr<Emotion> emotion(new Emotion(type, kernels_.size(), tick, owner, reasons, value));
-        kernels_.push_back(emotion);
+        std::shared_ptr<Emotion> emotion(new Emotion(type, all_kernels_.size(), tick, owner, reasons, value));
+        all_kernels_.push_back(emotion);
+        kernels_by_actor_[owner.lock()->id_].push_back(emotion);
         return emotion;
     }
     std::weak_ptr<Relationship> Chronicle::CreateRelationship(RelationshipType type, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
-        std::shared_ptr<Relationship> relationship(new Relationship(type, kernels_.size(), tick, owner, target, reasons, value));
-        kernels_.push_back(relationship);
+        std::shared_ptr<Relationship> relationship(new Relationship(type, all_kernels_.size(), tick, owner, target, reasons, value));
+        all_kernels_.push_back(relationship);
+        kernels_by_actor_[owner.lock()->id_].push_back(relationship);
         return relationship;
     }
     std::weak_ptr<Resource> Chronicle::CreateResource(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
-        std::shared_ptr<Resource> resource(new Resource(name, kernels_.size(), tick, owner, reasons, value));
-        kernels_.push_back(resource);
+        std::shared_ptr<Resource> resource(new Resource(name, all_kernels_.size(), tick, owner, reasons, value));
+        all_kernels_.push_back(resource);
+        kernels_by_actor_[owner.lock()->id_].push_back(resource);
         return resource;
     }
     std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
-        std::shared_ptr<Goal> trait(new Goal(type, kernels_.size(), tick, owner, reasons));
-        kernels_.push_back(trait);
-        return trait;
+        std::shared_ptr<Goal> goal(new Goal(type, all_kernels_.size(), tick, owner, reasons));
+        all_kernels_.push_back(goal);
+        kernels_by_actor_[owner.lock()->id_].push_back(goal);
+        return goal;
     }
     std::weak_ptr<Trait> Chronicle::CreateTrait(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
-        std::shared_ptr<Trait> trait(new Trait(name, kernels_.size(), tick, owner, reasons));
-        kernels_.push_back(trait);
+        std::shared_ptr<Trait> trait(new Trait(name, all_kernels_.size(), tick, owner, reasons));
+        all_kernels_.push_back(trait);
+        kernels_by_actor_[owner.lock()->id_].push_back(trait);
         return trait;
     }
 
     size_t Chronicle::GetKernelAmount()
     {
-        return kernels_.size();
+        return all_kernels_.size();
     }
 
     std::string Chronicle::GetRandomCausalityChainDescription(size_t depth)
     {
-        if (kernels_.size() <= 0)
+        if (all_kernels_.size() <= 0)
         {
             return "";
         }
-        auto kernel = kernels_[random_.GetUInt(0, kernels_.size() - 1)];
+        auto kernel = all_kernels_[random_.GetUInt(0, all_kernels_.size() - 1)];
         return GetRecursiveKernelDescription(kernel, 0, depth);
     }
 
-    std::string Chronicle::GetKissingCausalityChain(size_t depth)
+    std::string Chronicle::GetKissingCausalityChainDescription(size_t depth)
     {
-        if (kernels_.size() <= 0)
+        if (all_kernels_.size() <= 0)
         {
             return "";
         }
         std::vector<std::shared_ptr<Kernel>> possible_kernels;
-        for (auto kernel : kernels_)
+        for (auto kernel : all_kernels_)
         {
             if (kernel->name_ == "Kiss successfully")
             {
@@ -78,14 +94,37 @@ namespace tale
         return "Did not find a kiss.";
     }
 
-    std::string Chronicle::GetGoalCausalityChain(size_t depth)
+    std::string Chronicle::GetActorInteractionsDescription(size_t id)
     {
-        if (kernels_.size() <= 0)
+        if (actors_.size() < id)
+        {
+            return "No Actor of this ID exists.";
+        }
+        auto &kernels = kernels_by_actor_[id];
+        if (kernels.size() <= 0)
+        {
+            return "No Kernels were created for this ID.";
+        }
+        std::string description = "Interactions for " + actors_[id]->name_;
+        for (size_t i = 0; i < kernels.size(); ++i)
+        {
+            if (std::dynamic_pointer_cast<Interaction>(kernels[i]))
+            {
+                description += "\n";
+                description += kernels[i]->ToString();
+            }
+        }
+        return description;
+    }
+
+    std::string Chronicle::GetGoalCausalityChainDescription(size_t depth)
+    {
+        if (all_kernels_.size() <= 0)
         {
             return "";
         }
         std::vector<std::shared_ptr<Kernel>> possible_kernels;
-        for (auto kernel : kernels_)
+        for (auto kernel : all_kernels_)
         {
             for (auto reason : kernel->reasons_)
             {
@@ -112,17 +151,25 @@ namespace tale
         {
             description += "-";
         }
-        description += ":" + locked_kernel->ToString() + "\n";
-        if (current_depth < max_depth && kernel.lock()->reasons_.size() > 0)
+        description += ":" + locked_kernel->ToString() + " (T" + std::to_string(kernel.lock()->tick_) + ")\n";
+        if (current_depth < max_depth)
         {
             for (size_t i = 0; i < current_depth; ++i)
             {
                 description += " ";
             }
-            description += "   Because: \n";
-            for (auto &reason : kernel.lock()->reasons_)
+
+            if (kernel.lock()->reasons_.size() > 0)
             {
-                description += GetRecursiveKernelDescription(reason, current_depth + 1, max_depth);
+                description += "   Because: \n";
+                for (auto &reason : kernel.lock()->reasons_)
+                {
+                    description += GetRecursiveKernelDescription(reason, current_depth + 1, max_depth);
+                }
+            }
+            else
+            {
+                description += "   For no reason.\n";
             }
         }
         return description;

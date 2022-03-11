@@ -8,7 +8,7 @@
 
 namespace tale
 {
-    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(random_), interaction_store_(random_, chronicle_)
+    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(random_, setting.actor_count), interaction_store_(random_, chronicle_)
     {
         size_t actor_count = setting_.actor_count;
         size_t tick = 0;
@@ -23,6 +23,8 @@ namespace tale
             std::shared_ptr<Actor> actor(new Actor(*this, i, name));
 
             actors_.push_back(actor);
+            // TODO: creating actors should probably be handled by the Chronicle class, similar to Kernels
+            chronicle_.actors_.push_back(actor);
             freetime_group_.push_back(actor);
         }
         // needs to happen after every actor is created bc of relationships
@@ -108,7 +110,13 @@ namespace tale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
         TALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_.GetRandomCausalityChainDescription(5));
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 1:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 2:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 3:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 4:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
+        TALE_DEBUG_PRINT("ACTOR INTERACTIONS:\n" + chronicle_.GetActorInteractionsDescription(random_.GetUInt(0, setting_.actor_count - 1)));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -147,7 +155,7 @@ namespace tale
     }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        TALE_DEBUG_PRINT("SIMULATING DAY " + std::to_string(day) + " WHICH IS A " + weekday_string[static_cast<int>(weekday)]);
+        TALE_DEBUG_PRINT(std::to_string(day) + ". " + weekday_string[static_cast<int>(weekday)]);
         if (IsWorkday(weekday))
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)
@@ -201,11 +209,11 @@ namespace tale
             {
                 std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
                 interaction.lock()->Apply();
-                TALE_DEBUG_PRINT("During Freetime " + interaction.lock()->ToString());
+                TALE_VERBOSE_PRINT("During Freetime " + interaction.lock()->ToString());
             }
             else
             {
-                TALE_DEBUG_PRINT("During Freetime " + actor->name_ + " does nothing.");
+                TALE_VERBOSE_PRINT("During Freetime " + actor->name_ + " does nothing.");
             }
         }
     }
