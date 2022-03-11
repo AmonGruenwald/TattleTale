@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['owner_5f_0',['owner_',['../classtale_1_1_resource.html#a64a4020428e0c16606821628cc0a617a',1,'tale::Resource']]]
+  ['owner_5f_0',['owner_',['../classtale_1_1_kernel.html#a94da8a612b57f934176b115445f11300',1,'tale::Kernel']]]
 ];
