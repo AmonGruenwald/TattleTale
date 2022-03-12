@@ -18,44 +18,44 @@
 \DoxyCodeLine{31         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a03e9cc8b73e56ff6611f779577dd4989}{courses\_per\_day}} = 6;}
 \DoxyCodeLine{35         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}{actors\_per\_course}} = 30;}
 \DoxyCodeLine{39         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}{same\_course\_per\_week}} = 4;}
-\DoxyCodeLine{43         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} = 1;}
-\DoxyCodeLine{47         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}} = 10;}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{56         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}{slot\_count\_per\_week}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{57 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{58             \textcolor{comment}{// 5 day workweek}}
-\DoxyCodeLine{59             \textcolor{keywordflow}{return} \mbox{\hyperlink{structtale_1_1_setting_a03e9cc8b73e56ff6611f779577dd4989}{courses\_per\_day}} * 5;}
-\DoxyCodeLine{60         \}}
-\DoxyCodeLine{66         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{67 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{68             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}{same\_course\_per\_week}} == 0)}
-\DoxyCodeLine{69             \{}
-\DoxyCodeLine{70                 \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{71             \}}
-\DoxyCodeLine{72             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}{slot\_count\_per\_week}}() / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}{same\_course\_per\_week}});}
-\DoxyCodeLine{73         \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{82         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{83 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{84             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}{actors\_per\_course}} == 0)}
-\DoxyCodeLine{85             \{}
-\DoxyCodeLine{86                 \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{87             \}}
-\DoxyCodeLine{88             \textcolor{keywordflow}{return} std::max((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}(), (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}{actors\_per\_course}}));}
-\DoxyCodeLine{89         \}}
-\DoxyCodeLine{98         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a90f958c2745456208c84727cb6884ff4}{min\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{99 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{100             assert(\mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}}); \textcolor{comment}{// min must be less than max}}
-\DoxyCodeLine{101             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}});}
-\DoxyCodeLine{102         \}}
-\DoxyCodeLine{111         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}{max\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{112 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{113             assert(\mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}}); \textcolor{comment}{// min must be less than max}}
-\DoxyCodeLine{114             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}});}
-\DoxyCodeLine{115         \}}
-\DoxyCodeLine{116     \};}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{118 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SETTING\_H}}
+\DoxyCodeLine{43         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} = 0;}
+\DoxyCodeLine{47         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}} = 4;}
+\DoxyCodeLine{51         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a760e585a14b212cf087b4f34e47d3eb5}{freetime\_actor\_count}} = 6;}
+\DoxyCodeLine{59         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}{slot\_count\_per\_week}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{60 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{61             \textcolor{comment}{// 5 day workweek}}
+\DoxyCodeLine{62             \textcolor{keywordflow}{return} \mbox{\hyperlink{structtale_1_1_setting_a03e9cc8b73e56ff6611f779577dd4989}{courses\_per\_day}} * 5;}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{69         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{70 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{71             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}{same\_course\_per\_week}} == 0)}
+\DoxyCodeLine{72             \{}
+\DoxyCodeLine{73                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{74             \}}
+\DoxyCodeLine{75             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a8f68e5b07e5552d37fcd99e7137407a8}{slot\_count\_per\_week}}() / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a1ae4fcace71e7262eea1d52c78144eac}{same\_course\_per\_week}});}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{85         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_setting_ae5364c51aa0cc630c9708cfdf7ab72b7}{course\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{86 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}{actors\_per\_course}} == 0)}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{90             \}}
+\DoxyCodeLine{91             \textcolor{keywordflow}{return} std::max((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{structtale_1_1_setting_a60e67e920a23742b4c7f2e15025d3c81}{minimum\_necessary\_course\_count}}(), (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtale_1_1_setting_a88c462a4413b50ab2b3855a1095ce2f6}{actors\_per\_course}}));}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{101         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a90f958c2745456208c84727cb6884ff4}{min\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{102 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{103             assert(\mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}}); \textcolor{comment}{// min must be less than max}}
+\DoxyCodeLine{104             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}});}
+\DoxyCodeLine{105         \}}
+\DoxyCodeLine{114         uint32\_t \mbox{\hyperlink{structtale_1_1_setting_a717f90e13292976d5332fa443ddcd8df}{max\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{115 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{116             assert(\mbox{\hyperlink{structtale_1_1_setting_a5505f1f77141b2fb7e96273e52fbc077}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}}); \textcolor{comment}{// min must be less than max}}
+\DoxyCodeLine{117             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtale_1_1_setting_a9adcc2da645c5e5239bd8f86be022554}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtale_1_1_setting_a40c4feaeb81b635b1c8f22c54561ccba}{desired\_max\_start\_relationships\_count}});}
+\DoxyCodeLine{118         \}}
+\DoxyCodeLine{119     \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SETTING\_H}}
 
 \end{DoxyCode}

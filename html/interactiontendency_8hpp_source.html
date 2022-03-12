@@ -83,57 +83,54 @@ $(function() {
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structtale_1_1_tendency.html">   15</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtale_1_1_tendency.html">Tendency</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">float</span> group_size = 0;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        std::map&lt;ContextType, float&gt; contexts = {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            {ContextType::kCourse, 0.0f},</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            {ContextType::kFreetime, 0.0f}};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">float</span> wealth = 0;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::map&lt;EmotionType, float&gt; emotions = {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {EmotionType::kHappy, 0.0f},</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            {EmotionType::kCalm, 0.0f},</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            {EmotionType::kSatisfied, 0.0f},</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            {EmotionType::kBrave, 0.0f},</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            {EmotionType::kExtroverted, 0.0f}};</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        std::vector&lt;std::map&lt;RelationshipType, float&gt;&gt; relationships = {};</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        std::string ToString()</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            std::string grout_size_string = fmt::format(<span class="stringliteral">&quot;Group Size: {}\n&quot;</span>, group_size);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            std::string contexts_string = <span class="stringliteral">&quot;Contexts:\n&quot;</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : contexts)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                contexts_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">ContextTypeToString</a>(key), value);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            std::string wealth_string = fmt::format(<span class="stringliteral">&quot;Wealth: {}\n&quot;</span>, wealth);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            std::string emotions_string = <span class="stringliteral">&quot;Emotions:\n&quot;</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : emotions)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                emotions_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">Emotion::EmotionTypeToString</a>(key), value);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            std::string relationship_string = <span class="stringliteral">&quot;Relationships:\n&quot;</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; relationships.size(); ++i)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                relationship_string += fmt::format(<span class="stringliteral">&quot;\tFor Participant{}:\n&quot;</span>, i + 1);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : relationships[i])</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    relationship_string += fmt::format(<span class="stringliteral">&quot;\t\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">Relationship::RelationshipTypeToString</a>(key), value);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">return</span> (fmt::format(<span class="stringliteral">&quot;{}\n{}\n{}\n{}\n{}&quot;</span>, grout_size_string, contexts_string, wealth_string, emotions_string, relationship_string));</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">void</span> ClearValues()</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            group_size = 0;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            contexts.clear();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            wealth = 0;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            emotions.clear();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            relationships.clear();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace tale</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">// TALE_INTERACTIONS_INTERACTIONTENDENCY_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        std::map&lt;ContextType, float&gt; contexts = {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            {ContextType::kCourse, 0.0f},</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            {ContextType::kFreetime, 0.0f}};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">float</span> wealth = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        std::map&lt;EmotionType, float&gt; emotions = {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            {EmotionType::kHappy, 0.0f},</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {EmotionType::kCalm, 0.0f},</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            {EmotionType::kSatisfied, 0.0f},</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            {EmotionType::kBrave, 0.0f},</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            {EmotionType::kExtroverted, 0.0f}};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        std::vector&lt;std::map&lt;RelationshipType, float&gt;&gt; relationships = {};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        std::string ToString()</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            std::string contexts_string = <span class="stringliteral">&quot;Contexts:\n&quot;</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : contexts)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                contexts_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">ContextTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::string wealth_string = fmt::format(<span class="stringliteral">&quot;Wealth: {}\n&quot;</span>, wealth);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::string emotions_string = <span class="stringliteral">&quot;Emotions:\n&quot;</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : emotions)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                emotions_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">Emotion::EmotionTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            std::string relationship_string = <span class="stringliteral">&quot;Relationships:\n&quot;</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; relationships.size(); ++i)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                relationship_string += fmt::format(<span class="stringliteral">&quot;\tFor Participant{}:\n&quot;</span>, i + 1);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : relationships[i])</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    relationship_string += fmt::format(<span class="stringliteral">&quot;\t\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">Relationship::RelationshipTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span> (fmt::format(<span class="stringliteral">&quot;{}\n{}\n{}\n{}&quot;</span>, contexts_string, wealth_string, emotions_string, relationship_string));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">void</span> ClearValues()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            contexts.clear();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            wealth = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            emotions.clear();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            relationships.clear();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace tale</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// TALE_INTERACTIONS_INTERACTIONTENDENCY_H</span></div>
 <div class="ttc" id="aclasstale_1_1_emotion_html_af02a9111d0edce779fc77f336eaa6e42"><div class="ttname"><a href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">tale::Emotion::EmotionTypeToString</a></div><div class="ttdeci">static std::string EmotionTypeToString(EmotionType emotion_type)</div><div class="ttdoc">Converts an EmotionType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:27</div></div>
 <div class="ttc" id="aclasstale_1_1_relationship_html_af3c1111122993bce5b76b7b2a12a5e11"><div class="ttname"><a href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">tale::Relationship::RelationshipTypeToString</a></div><div class="ttdeci">static std::string RelationshipTypeToString(RelationshipType relationship_type)</div><div class="ttdoc">Converts an RelationshipType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:28</div></div>
 <div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:10</div></div>

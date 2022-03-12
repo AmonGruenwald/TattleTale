@@ -103,9 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7805bf50e3e509c4047c304993617276"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::map&lt; size_t, std::map&lt; RelationshipType, float &gt; &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction_store.html#a7805bf50e3e509c4047c304993617276">GetRelationshipEffects</a> (size_t prototype_index) const</td></tr>
 <tr class="memdesc:a7805bf50e3e509c4047c304993617276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the relationship effects for a catalogued <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>.  <a href="classtale_1_1_interaction_store.html#a7805bf50e3e509c4047c304993617276">More...</a><br /></td></tr>
 <tr class="separator:a7805bf50e3e509c4047c304993617276"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2da545e863f778986ed1dbb219bbb433"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtale_1_1_interaction.html">Interaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction_store.html#a2da545e863f778986ed1dbb219bbb433">CreateInteraction</a> (size_t prototype_index, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; participants)</td></tr>
-<tr class="memdesc:a2da545e863f778986ed1dbb219bbb433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interaction from a catalogued <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>.  <a href="classtale_1_1_interaction_store.html#a2da545e863f778986ed1dbb219bbb433">More...</a><br /></td></tr>
-<tr class="separator:a2da545e863f778986ed1dbb219bbb433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4148bd09d376d0817d50cd465e2e942"><td class="memItemLeft" align="right" valign="top">std::weak_ptr&lt; <a class="el" href="classtale_1_1_interaction.html">Interaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction_store.html#ae4148bd09d376d0817d50cd465e2e942">CreateInteraction</a> (size_t prototype_index, float chance, size_t tick, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; participants)</td></tr>
+<tr class="memdesc:ae4148bd09d376d0817d50cd465e2e942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interaction from a catalogued <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>.  <a href="classtale_1_1_interaction_store.html#ae4148bd09d376d0817d50cd465e2e942">More...</a><br /></td></tr>
+<tr class="separator:ae4148bd09d376d0817d50cd465e2e942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeba185508945c3ca34c6019880d56934"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structtale_1_1_requirement.html">Requirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_interaction_store.html#aeba185508945c3ca34c6019880d56934">GetRequirementCatalogue</a> () const</td></tr>
 <tr class="memdesc:aeba185508945c3ca34c6019880d56934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gettter for a Reference to the <a class="el" href="structtale_1_1_requirement.html" title="Stores all necessary Requirements  for an Interaction to happen.">Requirement</a> catalogue.  <a href="classtale_1_1_interaction_store.html#aeba185508945c3ca34c6019880d56934">More...</a><br /></td></tr>
 <tr class="separator:aeba185508945c3ca34c6019880d56934"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,8 +182,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2da545e863f778986ed1dbb219bbb433" name="a2da545e863f778986ed1dbb219bbb433"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2da545e863f778986ed1dbb219bbb433">&#9670;&nbsp;</a></span>CreateInteraction()</h2>
+<a id="ae4148bd09d376d0817d50cd465e2e942" name="ae4148bd09d376d0817d50cd465e2e942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4148bd09d376d0817d50cd465e2e942">&#9670;&nbsp;</a></span>CreateInteraction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,6 +193,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>prototype_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>chance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

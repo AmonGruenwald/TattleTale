@@ -30,7 +30,7 @@ const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_ac
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtale_1_1_interaction_abf8173f7747821c4a6f728b67817b7a5}{Interaction}} (const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&prototype, size\+\_\+t id, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
+\mbox{\hyperlink{classtale_1_1_interaction_a70fce6d168faacfe2f0d98e775a97403}{Interaction}} (const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&prototype, const \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} \&requirement, const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, float chance, size\+\_\+t id, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -50,11 +50,11 @@ Represents an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} an \mbox
 Extends the \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_abf8173f7747821c4a6f728b67817b7a5}\label{classtale_1_1_interaction_abf8173f7747821c4a6f728b67817b7a5}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_a70fce6d168faacfe2f0d98e775a97403}\label{classtale_1_1_interaction_a70fce6d168faacfe2f0d98e775a97403}} 
 \index{tale::Interaction@{tale::Interaction}!Interaction@{Interaction}}
 \index{Interaction@{Interaction}!tale::Interaction@{tale::Interaction}}
 \doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}}
-{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&}]{prototype,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} \&}]{prototype,  }\item[{const \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} \&}]{requirement,  }\item[{const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&}]{tendency,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -64,7 +64,11 @@ This should only ever be called through the \mbox{\hyperlink{classtale_1_1_chron
 
 
 \begin{DoxyParams}{Parameters}
-{\em prototype} & Reference to the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} is based off. \\
+{\em prototype} & Reference to the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} is based upon. \\
+\hline
+{\em requirement} & Reference to the \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \\
+\hline
+{\em tendency} & Reference to the \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} this \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} uses. \\
 \hline
 {\em id} & The index this \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}. \\
 \hline

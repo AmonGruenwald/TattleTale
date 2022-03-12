@@ -26,7 +26,7 @@ const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hype
 \begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_a7805bf50e3e509c4047c304993617276}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtale_1_1_interaction_store_ae4148bd09d376d0817d50cd465e2e942}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} $>$ \& \mbox{\hyperlink{classtale_1_1_interaction_store_aeba185508945c3ca34c6019880d56934}{Get\+Requirement\+Catalogue}} () const
 \begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} catalogue. \end{DoxyCompactList}\item 
@@ -81,11 +81,11 @@ Reads from tale/resources/interactioncatalogue.\+json to get the data to build u
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}\label{classtale_1_1_interaction_store_a2da545e863f778986ed1dbb219bbb433}} 
+\mbox{\Hypertarget{classtale_1_1_interaction_store_ae4148bd09d376d0817d50cd465e2e942}\label{classtale_1_1_interaction_store_ae4148bd09d376d0817d50cd465e2e942}} 
 \index{tale::InteractionStore@{tale::InteractionStore}!CreateInteraction@{CreateInteraction}}
 \index{CreateInteraction@{CreateInteraction}!tale::InteractionStore@{tale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
-{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ tale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} $>$ tale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
 
 
 

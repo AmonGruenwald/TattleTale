@@ -28,15 +28,15 @@ bool \mbox{\hyperlink{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}{All
 \begin{DoxyCompactList}\small\item\em Checks wether all slots are already filled. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}{Slots\+Empty}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&slots) const
 \begin{DoxyCompactList}\small\item\em Checks wether the passed slots are empty. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classtale_1_1_actor_ac27fdc4a07ed2f1f1870c754517f2774}{Choose\+Interaction}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&actor\+\_\+group, \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} context, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&out\+\_\+reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&out\+\_\+participants)
+bool \mbox{\hyperlink{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}{Actor\+::\+Slot\+Empty}} (size\+\_\+t slot) const
 \begin{DoxyCompactList}\small\item\em Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&context, const float \&group\+\_\+size\+\_\+ratio, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&out\+\_\+reason)
+float \mbox{\hyperlink{classtale_1_1_actor_a390b47372efd8d654d6a45aa8727771c}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&context, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&out\+\_\+reason)
 \begin{DoxyCompactList}\small\item\em Calculates the chance of an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} based on its \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} and the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} current state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_actor_a6b9a636a41cd0ff4643f06d320de991d}{Apply\+Wealth\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_actor_a1e01ae3cb1b7e8cebf9f2b02edf60e8d}{Apply\+Emotion\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, Emotion\+Type type, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_emotion}{Emotional }} state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}{Apply\+Relationship\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, size\+\_\+t actor\+\_\+id, Relationship\+Type type, float value)
+void \mbox{\hyperlink{classtale_1_1_actor_a643972cf19d8bab00fc7de28a350e773}{Apply\+Relationship\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, size\+\_\+t actor\+\_\+id, std\+::map$<$ Relationship\+Type, float $>$ change)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtale_1_1_actor_a3cff1f8b6b3f68e6af8c327f5e7d8d85}{Get\+Wealth\+Description\+String}} ()
 \begin{DoxyCompactList}\small\item\em Creates a string describing the current wealth status of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
@@ -54,9 +54,15 @@ std\+::string \mbox{\hyperlink{classtale_1_1_actor_a4855909ea2480144e63d4764d5a5
 \mbox{\Hypertarget{classtale_1_1_actor_af7e52683a15674295c1cc009c9ee8827}\label{classtale_1_1_actor_af7e52683a15674295c1cc009c9ee8827}} 
 const size\+\_\+t {\bfseries id\+\_\+}
 \begin{DoxyCompactList}\small\item\em The id of the actor. Corresponds to its index in the actors\+\_\+ vector in \mbox{\hyperlink{classtale_1_1_school}{School}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtale_1_1_actor_a86d006fe2e3d80ea674d1edd0324eb48}\label{classtale_1_1_actor_a86d006fe2e3d80ea674d1edd0324eb48}} 
-std\+::string {\bfseries name\+\_\+}
-\begin{DoxyCompactList}\small\item\em The name of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_actor_ae7a2a11193045c25787a87bc3821f909}\label{classtale_1_1_actor_ae7a2a11193045c25787a87bc3821f909}} 
+const std\+::string {\bfseries name\+\_\+}
+\begin{DoxyCompactList}\small\item\em The full name of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_actor_adfc3264d342124e767b4439e6c598949}\label{classtale_1_1_actor_adfc3264d342124e767b4439e6c598949}} 
+const std\+::string {\bfseries first\+\_\+name\+\_\+}
+\begin{DoxyCompactList}\small\item\em The first name of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtale_1_1_actor_aee22f633e5268b7dbe5a87af9219d77f}\label{classtale_1_1_actor_aee22f633e5268b7dbe5a87af9219d77f}} 
+const std\+::string {\bfseries last\+\_\+name\+\_\+}
+\begin{DoxyCompactList}\small\item\em The last name of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtale_1_1_actor_a63120828ec30882a6d52de004cf30afd}\label{classtale_1_1_actor_a63120828ec30882a6d52de004cf30afd}} 
 std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_resource}{Resource}} $>$ {\bfseries wealth\+\_\+}
 \begin{DoxyCompactList}\small\item\em The abstract state of the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
@@ -84,9 +90,7 @@ void \mbox{\hyperlink{classtale_1_1_actor_a7ac154b98d1cbadcd80421ae15122dec}{Ini
 void \mbox{\hyperlink{classtale_1_1_actor_afb56061a1a70a15fbd80ffaa03f46dca}{Initialize\+Random\+Goal}} (size\+\_\+t tick)
 \begin{DoxyCompactList}\small\item\em Initializes the the \mbox{\hyperlink{classtale_1_1_goal}{Goal}} member with a random value. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtale_1_1_actor_a35502b65911d71bcb0a3b2e8ced3e25a}{Initialize\+Random\+Traits}} (size\+\_\+t tick)
-\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classtale_1_1_trait}{Trait}} member vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}{Actor\+In\+Relationship\+Map}} (size\+\_\+t actor, const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&relationships) const
-\begin{DoxyCompactList}\small\item\em Checks wether an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is already included in a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classtale_1_1_trait}{Trait}} member vector with a random \mbox{\hyperlink{classtale_1_1_trait}{Traits }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -117,25 +121,31 @@ std\+::vector$<$ int $>$ {\bfseries enrolled\+\_\+courses\+\_\+id\+\_\+}
 Represents one person in the simulation. An \mbox{\hyperlink{classtale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}\label{classtale_1_1_actor_a53b2f545fa3a833a6ea4df57100a1819}} 
-\index{tale::Actor@{tale::Actor}!ActorInRelationshipMap@{ActorInRelationshipMap}}
-\index{ActorInRelationshipMap@{ActorInRelationshipMap}!tale::Actor@{tale::Actor}}
-\doxysubsubsection{\texorpdfstring{ActorInRelationshipMap()}{ActorInRelationshipMap()}}
-{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Actor\+In\+Relationship\+Map (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor,  }\item[{const std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} $>$ $>$ $>$ \&}]{relationships }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}\label{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}} 
+\index{tale::Actor@{tale::Actor}!Actor::SlotEmpty@{Actor::SlotEmpty}}
+\index{Actor::SlotEmpty@{Actor::SlotEmpty}!tale::Actor@{tale::Actor}}
+\doxysubsubsection{\texorpdfstring{Actor::SlotEmpty()}{Actor::SlotEmpty()}}
+{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Actor\+::\+Slot\+Empty (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption}) const}
 
 
 
-Checks wether an \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is already included in a \mbox{\hyperlink{classtale_1_1_relationship}{Relationship}} map. 
+Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. 
+
+WIP\+: Currently just chooses an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} at random.
 
 
-\begin{DoxyParams}{Parameters}
-{\em actor} & The inex of the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} we want to check. \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em course\+\_\+group} & The course group the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is currently interacting in. \\
 \hline
-{\em relationships} & The Relatinship map we want to look for the actor in. \\
+\mbox{\texttt{ out}}  & {\em out\+\_\+reasons} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will write it\textquotesingle{}s reason for the decision to. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+\_\+participants} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will to with which other \mbox{\hyperlink{classtale_1_1_actor}{Actors }} he wants to do the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+\_\+chance} & How likely it was that this interaction was chosen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The result of the check. 
+The index of the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} chose. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}\label{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}} 
 \index{tale::Actor@{tale::Actor}!AllSlotsFilled@{AllSlotsFilled}}
@@ -171,11 +181,11 @@ Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesin
 {\em value} & By how much the \mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}\label{classtale_1_1_actor_a588d52e5006f014cd84e06a30d7bc614}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a643972cf19d8bab00fc7de28a350e773}\label{classtale_1_1_actor_a643972cf19d8bab00fc7de28a350e773}} 
 \index{tale::Actor@{tale::Actor}!ApplyRelationshipChange@{ApplyRelationshipChange}}
 \index{ApplyRelationshipChange@{ApplyRelationshipChange}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{ApplyRelationshipChange()}{ApplyRelationshipChange()}}
-{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Relationship\+Change (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{size\+\_\+t}]{actor\+\_\+id,  }\item[{Relationship\+Type}]{type,  }\item[{float}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tale\+::\+Actor\+::\+Apply\+Relationship\+Change (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{reasons,  }\item[{size\+\_\+t}]{tick,  }\item[{size\+\_\+t}]{actor\+\_\+id,  }\item[{std\+::map$<$ Relationship\+Type, float $>$}]{change }\end{DoxyParamCaption})}
 
 
 
@@ -213,11 +223,11 @@ Applies a change to the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesin
 {\em value} & By how much the wealth gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}\label{classtale_1_1_actor_a5e32405d42406bf6af27088e2d2e21b3}} 
+\mbox{\Hypertarget{classtale_1_1_actor_a390b47372efd8d654d6a45aa8727771c}\label{classtale_1_1_actor_a390b47372efd8d654d6a45aa8727771c}} 
 \index{tale::Actor@{tale::Actor}!CalculateTendencyChance@{CalculateTendencyChance}}
 \index{CalculateTendencyChance@{CalculateTendencyChance}!tale::Actor@{tale::Actor}}
 \doxysubsubsection{\texorpdfstring{CalculateTendencyChance()}{CalculateTendencyChance()}}
-{\footnotesize\ttfamily float tale\+::\+Actor\+::\+Calculate\+Tendency\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&}]{context,  }\item[{const float \&}]{group\+\_\+size\+\_\+ratio,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&}]{out\+\_\+reason }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float tale\+::\+Actor\+::\+Calculate\+Tendency\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&}]{context,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&}]{out\+\_\+reason }\end{DoxyParamCaption})}
 
 
 
@@ -238,30 +248,6 @@ Every value used is based between -\/1.\+0 and 1.\+0 except the return value whi
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A chance value between 0.\+0 and 1.\+0. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtale_1_1_actor_ac27fdc4a07ed2f1f1870c754517f2774}\label{classtale_1_1_actor_ac27fdc4a07ed2f1f1870c754517f2774}} 
-\index{tale::Actor@{tale::Actor}!ChooseInteraction@{ChooseInteraction}}
-\index{ChooseInteraction@{ChooseInteraction}!tale::Actor@{tale::Actor}}
-\doxysubsubsection{\texorpdfstring{ChooseInteraction()}{ChooseInteraction()}}
-{\footnotesize\ttfamily int tale\+::\+Actor\+::\+Choose\+Interaction (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&}]{actor\+\_\+group,  }\item[{\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}}}]{context,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ $>$ \&}]{out\+\_\+reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&}]{out\+\_\+participants }\end{DoxyParamCaption})}
-
-
-
-Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. 
-
-WIP\+: Currently just chooses an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} at random.
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em course\+\_\+group} & The course group the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is currently interacting in. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+reasons} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will write it\textquotesingle{}s reason for the decision to. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+participants} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will to with which other \mbox{\hyperlink{classtale_1_1_actor}{Actors }} he wants to do the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The index of the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} chose. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_actor_abaf48912c1386a3f1c3feef0cb5554b1}\label{classtale_1_1_actor_abaf48912c1386a3f1c3feef0cb5554b1}} 
 \index{tale::Actor@{tale::Actor}!EnrollInCourse@{EnrollInCourse}}

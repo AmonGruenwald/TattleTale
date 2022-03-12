@@ -15,56 +15,53 @@
 \DoxyCodeLine{11 \{}
 \DoxyCodeLine{15     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_tendency}{Tendency}}}
 \DoxyCodeLine{16     \{}
-\DoxyCodeLine{17         \textcolor{keywordtype}{float} group\_size = 0;}
-\DoxyCodeLine{18         std::map<ContextType, float> contexts = \{}
-\DoxyCodeLine{19             \{ContextType::kCourse, 0.0f\},}
-\DoxyCodeLine{20             \{ContextType::kFreetime, 0.0f\}\};}
-\DoxyCodeLine{21         \textcolor{keywordtype}{float} wealth = 0;}
-\DoxyCodeLine{22         std::map<EmotionType, float> emotions = \{}
-\DoxyCodeLine{23             \{EmotionType::kHappy, 0.0f\},}
-\DoxyCodeLine{24             \{EmotionType::kCalm, 0.0f\},}
-\DoxyCodeLine{25             \{EmotionType::kSatisfied, 0.0f\},}
-\DoxyCodeLine{26             \{EmotionType::kBrave, 0.0f\},}
-\DoxyCodeLine{27             \{EmotionType::kExtroverted, 0.0f\}\};}
-\DoxyCodeLine{28         std::vector<std::map<RelationshipType, float>> relationships = \{\};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30         std::string ToString()}
-\DoxyCodeLine{31         \{}
-\DoxyCodeLine{32             std::string grout\_size\_string = fmt::format(\textcolor{stringliteral}{"{}Group Size: \{\}\(\backslash\)n"{}}, group\_size);}
-\DoxyCodeLine{33             std::string contexts\_string = \textcolor{stringliteral}{"{}Contexts:\(\backslash\)n"{}};}
-\DoxyCodeLine{34             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : contexts)}
-\DoxyCodeLine{35             \{}
-\DoxyCodeLine{36                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(key), value);}
-\DoxyCodeLine{37             \}}
-\DoxyCodeLine{38             std::string wealth\_string = fmt::format(\textcolor{stringliteral}{"{}Wealth: \{\}\(\backslash\)n"{}}, wealth);}
-\DoxyCodeLine{39             std::string emotions\_string = \textcolor{stringliteral}{"{}Emotions:\(\backslash\)n"{}};}
-\DoxyCodeLine{40             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : emotions)}
-\DoxyCodeLine{41             \{}
-\DoxyCodeLine{42                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{Emotion::EmotionTypeToString}}(key), value);}
-\DoxyCodeLine{43             \}}
-\DoxyCodeLine{44             std::string relationship\_string = \textcolor{stringliteral}{"{}Relationships:\(\backslash\)n"{}};}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < relationships.size(); ++i)}
-\DoxyCodeLine{47             \{}
-\DoxyCodeLine{48                 relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tFor Participant\{\}:\(\backslash\)n"{}}, i + 1);}
-\DoxyCodeLine{49                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : relationships[i])}
-\DoxyCodeLine{50                 \{}
-\DoxyCodeLine{51                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{Relationship::RelationshipTypeToString}}(key), value);}
-\DoxyCodeLine{52                 \}}
-\DoxyCodeLine{53             \}}
-\DoxyCodeLine{54             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}"{}}, grout\_size\_string, contexts\_string, wealth\_string, emotions\_string, relationship\_string));}
-\DoxyCodeLine{55         \}}
-\DoxyCodeLine{56         \textcolor{keywordtype}{void} ClearValues()}
-\DoxyCodeLine{57         \{}
-\DoxyCodeLine{58             group\_size = 0;}
-\DoxyCodeLine{59             contexts.clear();}
-\DoxyCodeLine{60             wealth = 0;}
-\DoxyCodeLine{61             emotions.clear();}
-\DoxyCodeLine{62             relationships.clear();}
-\DoxyCodeLine{63         \}}
-\DoxyCodeLine{64     \};}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66 \} \textcolor{comment}{// namespace tale}}
-\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
+\DoxyCodeLine{17         std::map<ContextType, float> contexts = \{}
+\DoxyCodeLine{18             \{ContextType::kCourse, 0.0f\},}
+\DoxyCodeLine{19             \{ContextType::kFreetime, 0.0f\}\};}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} wealth = 0;}
+\DoxyCodeLine{21         std::map<EmotionType, float> emotions = \{}
+\DoxyCodeLine{22             \{EmotionType::kHappy, 0.0f\},}
+\DoxyCodeLine{23             \{EmotionType::kCalm, 0.0f\},}
+\DoxyCodeLine{24             \{EmotionType::kSatisfied, 0.0f\},}
+\DoxyCodeLine{25             \{EmotionType::kBrave, 0.0f\},}
+\DoxyCodeLine{26             \{EmotionType::kExtroverted, 0.0f\}\};}
+\DoxyCodeLine{27         std::vector<std::map<RelationshipType, float>> relationships = \{\};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         std::string ToString()}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             std::string contexts\_string = \textcolor{stringliteral}{"{}Contexts:\(\backslash\)n"{}};}
+\DoxyCodeLine{32             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : contexts)}
+\DoxyCodeLine{33             \{}
+\DoxyCodeLine{34                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(key), value);}
+\DoxyCodeLine{35             \}}
+\DoxyCodeLine{36             std::string wealth\_string = fmt::format(\textcolor{stringliteral}{"{}Wealth: \{\}\(\backslash\)n"{}}, wealth);}
+\DoxyCodeLine{37             std::string emotions\_string = \textcolor{stringliteral}{"{}Emotions:\(\backslash\)n"{}};}
+\DoxyCodeLine{38             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : emotions)}
+\DoxyCodeLine{39             \{}
+\DoxyCodeLine{40                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{Emotion::EmotionTypeToString}}(key), value);}
+\DoxyCodeLine{41             \}}
+\DoxyCodeLine{42             std::string relationship\_string = \textcolor{stringliteral}{"{}Relationships:\(\backslash\)n"{}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < relationships.size(); ++i)}
+\DoxyCodeLine{45             \{}
+\DoxyCodeLine{46                 relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tFor Participant\{\}:\(\backslash\)n"{}}, i + 1);}
+\DoxyCodeLine{47                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : relationships[i])}
+\DoxyCodeLine{48                 \{}
+\DoxyCodeLine{49                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{Relationship::RelationshipTypeToString}}(key), value);}
+\DoxyCodeLine{50                 \}}
+\DoxyCodeLine{51             \}}
+\DoxyCodeLine{52             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}"{}}, contexts\_string, wealth\_string, emotions\_string, relationship\_string));}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{55         \{}
+\DoxyCodeLine{56             contexts.clear();}
+\DoxyCodeLine{57             wealth = 0;}
+\DoxyCodeLine{58             emotions.clear();}
+\DoxyCodeLine{59             relationships.clear();}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61     \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
 
 \end{DoxyCode}

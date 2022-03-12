@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['random_5f_0',['random_',['../classtale_1_1_actor.html#a589ad88bd32aa87029fdd4f30d059bb6',1,'tale::Actor::random_()'],['../classtale_1_1_course.html#aaa065ab0238a481b94a3b14664ba9b9c',1,'tale::Course::random_()'],['../classtale_1_1_interaction_store.html#aa420288116fe072c6757dc7f46870723',1,'tale::InteractionStore::random_()'],['../classtale_1_1_school.html#a9faeedcae3a7c6297d36c4a315d2d9ac',1,'tale::School::random_()']]],
-  ['relationship_5feffects_1',['relationship_effects',['../structtale_1_1_interaction_prototype.html#a37940758c97a670f387d855f3543bedb',1,'tale::InteractionPrototype']]],
-  ['relationships_5f_2',['relationships_',['../classtale_1_1_actor.html#a4e8a3892c01d9e11fc35437405bfd5e9',1,'tale::Actor']]],
-  ['requirements_5fcatalogue_5f_3',['requirements_catalogue_',['../classtale_1_1_interaction_store.html#ae7bff2929f7b0373e0f257f3860e0905',1,'tale::InteractionStore']]]
+  ['participant_5fcount_0',['participant_count',['../structtale_1_1_requirement.html#a12b5fd04a0d1044b45bf1253990cf40f',1,'tale::Requirement']]],
+  ['participants_5f_1',['participants_',['../classtale_1_1_interaction.html#a95ed099c8cdb1b77ec5e25bfbcbe0f6a',1,'tale::Interaction']]],
+  ['prototype_5f_2',['prototype_',['../classtale_1_1_interaction.html#ac6dd450a4a73e3013c7d2d24b79ff7e7',1,'tale::Interaction']]],
+  ['prototype_5fcatalogue_5f_3',['prototype_catalogue_',['../classtale_1_1_interaction_store.html#a9b5e1bb13fd299d9a7c2cecdc7edcd9c',1,'tale::InteractionStore']]],
+  ['prototype_5fjson_5fpath_5f_4',['prototype_json_path_',['../classtale_1_1_interaction_store.html#ad6d0dd8803d84e0eddf5a0e5fd621075',1,'tale::InteractionStore']]]
 ];

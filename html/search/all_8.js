@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['max_5fstart_5frelationships_5fcount_0',['max_start_relationships_count',['../structtale_1_1_setting.html#a717f90e13292976d5332fa443ddcd8df',1,'tale::Setting']]],
-  ['min_5fstart_5frelationships_5fcount_1',['min_start_relationships_count',['../structtale_1_1_setting.html#a90f958c2745456208c84727cb6884ff4',1,'tale::Setting']]],
-  ['minimum_5fnecessary_5fcourse_5fcount_2',['minimum_necessary_course_count',['../structtale_1_1_setting.html#a60e67e920a23742b4c7f2e15025d3c81',1,'tale::Setting']]]
+  ['last_5fname_5f_0',['last_name_',['../classtale_1_1_actor.html#aee22f633e5268b7dbe5a87af9219d77f',1,'tale::Actor']]],
+  ['letactorinteract_1',['LetActorInteract',['../classtale_1_1_school.html#aad35af5465a0b02c7613616337868d8e',1,'tale::School']]]
 ];

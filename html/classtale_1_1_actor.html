@@ -105,21 +105,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa74a2d4bebd404b57147f1a382934fab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab">SlotsEmpty</a> (const std::vector&lt; uint32_t &gt; &amp;slots) const</td></tr>
 <tr class="memdesc:aa74a2d4bebd404b57147f1a382934fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether the passed slots are empty.  <a href="classtale_1_1_actor.html#aa74a2d4bebd404b57147f1a382934fab">More...</a><br /></td></tr>
 <tr class="separator:aa74a2d4bebd404b57147f1a382934fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">ChooseInteraction</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;actor_group, <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> context, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;out_reasons, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;out_participants)</td></tr>
-<tr class="memdesc:ac27fdc4a07ed2f1f1870c754517f2774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#ac27fdc4a07ed2f1f1870c754517f2774">More...</a><br /></td></tr>
-<tr class="separator:ac27fdc4a07ed2f1f1870c754517f2774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e32405d42406bf6af27088e2d2e21b3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a5e32405d42406bf6af27088e2d2e21b3">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, const float &amp;group_size_ratio, std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
-<tr class="memdesc:a5e32405d42406bf6af27088e2d2e21b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a5e32405d42406bf6af27088e2d2e21b3">More...</a><br /></td></tr>
-<tr class="separator:a5e32405d42406bf6af27088e2d2e21b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93cfa345c9e50d33484df2e1efebf683"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a93cfa345c9e50d33484df2e1efebf683">Actor::SlotEmpty</a> (size_t slot) const</td></tr>
+<tr class="memdesc:a93cfa345c9e50d33484df2e1efebf683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtale_1_1_actor.html#a93cfa345c9e50d33484df2e1efebf683">More...</a><br /></td></tr>
+<tr class="separator:a93cfa345c9e50d33484df2e1efebf683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390b47372efd8d654d6a45aa8727771c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a390b47372efd8d654d6a45aa8727771c">CalculateTendencyChance</a> (const <a class="el" href="structtale_1_1_tendency.html">Tendency</a> &amp;tendency, const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;context, std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
+<tr class="memdesc:a390b47372efd8d654d6a45aa8727771c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtale_1_1_tendency.html" title="TODO.">Tendency</a> and the <a class="el" href="classtale_1_1_actor.html">Actor's </a> current state.  <a href="classtale_1_1_actor.html#a390b47372efd8d654d6a45aa8727771c">More...</a><br /></td></tr>
+<tr class="separator:a390b47372efd8d654d6a45aa8727771c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b9a636a41cd0ff4643f06d320de991d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d">ApplyWealthChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, float value)</td></tr>
 <tr class="memdesc:a6b9a636a41cd0ff4643f06d320de991d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth.  <a href="classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d">More...</a><br /></td></tr>
 <tr class="separator:a6b9a636a41cd0ff4643f06d320de991d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a1e01ae3cb1b7e8cebf9f2b02edf60e8d">ApplyEmotionChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, EmotionType type, float value)</td></tr>
 <tr class="memdesc:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_emotion.html">Emotional </a> state.  <a href="classtale_1_1_actor.html#a1e01ae3cb1b7e8cebf9f2b02edf60e8d">More...</a><br /></td></tr>
 <tr class="separator:a1e01ae3cb1b7e8cebf9f2b02edf60e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a588d52e5006f014cd84e06a30d7bc614"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a588d52e5006f014cd84e06a30d7bc614">ApplyRelationshipChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, size_t actor_id, RelationshipType type, float value)</td></tr>
-<tr class="memdesc:a588d52e5006f014cd84e06a30d7bc614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>.  <a href="classtale_1_1_actor.html#a588d52e5006f014cd84e06a30d7bc614">More...</a><br /></td></tr>
-<tr class="separator:a588d52e5006f014cd84e06a30d7bc614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643972cf19d8bab00fc7de28a350e773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a643972cf19d8bab00fc7de28a350e773">ApplyRelationshipChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, size_t actor_id, std::map&lt; RelationshipType, float &gt; change)</td></tr>
+<tr class="memdesc:a643972cf19d8bab00fc7de28a350e773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtale_1_1_actor.html">Actor's </a> <a class="el" href="classtale_1_1_relationship.html">Relationships </a>.  <a href="classtale_1_1_actor.html#a643972cf19d8bab00fc7de28a350e773">More...</a><br /></td></tr>
+<tr class="separator:a643972cf19d8bab00fc7de28a350e773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85">GetWealthDescriptionString</a> ()</td></tr>
 <tr class="memdesc:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the current wealth status of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtale_1_1_actor.html#a3cff1f8b6b3f68e6af8c327f5e7d8d85">More...</a><br /></td></tr>
 <tr class="separator:a3cff1f8b6b3f68e6af8c327f5e7d8d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,10 +142,18 @@ Public Attributes</h2></td></tr>
 const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>id_</b></td></tr>
 <tr class="memdesc:af7e52683a15674295c1cc009c9ee8827"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of the actor. Corresponds to its index in the actors_ vector in <a class="el" href="classtale_1_1_school.html" title="School class that is responsible for managing actors and courses during the simulation.">School</a>. <br /></td></tr>
 <tr class="separator:af7e52683a15674295c1cc009c9ee8827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86d006fe2e3d80ea674d1edd0324eb48"><td class="memItemLeft" align="right" valign="top"><a id="a86d006fe2e3d80ea674d1edd0324eb48" name="a86d006fe2e3d80ea674d1edd0324eb48"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
-<tr class="memdesc:a86d006fe2e3d80ea674d1edd0324eb48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
-<tr class="separator:a86d006fe2e3d80ea674d1edd0324eb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a2a11193045c25787a87bc3821f909"><td class="memItemLeft" align="right" valign="top"><a id="ae7a2a11193045c25787a87bc3821f909" name="ae7a2a11193045c25787a87bc3821f909"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_</b></td></tr>
+<tr class="memdesc:ae7a2a11193045c25787a87bc3821f909"><td class="mdescLeft">&#160;</td><td class="mdescRight">The full name of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
+<tr class="separator:ae7a2a11193045c25787a87bc3821f909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc3264d342124e767b4439e6c598949"><td class="memItemLeft" align="right" valign="top"><a id="adfc3264d342124e767b4439e6c598949" name="adfc3264d342124e767b4439e6c598949"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>first_name_</b></td></tr>
+<tr class="memdesc:adfc3264d342124e767b4439e6c598949"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first name of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
+<tr class="separator:adfc3264d342124e767b4439e6c598949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee22f633e5268b7dbe5a87af9219d77f"><td class="memItemLeft" align="right" valign="top"><a id="aee22f633e5268b7dbe5a87af9219d77f" name="aee22f633e5268b7dbe5a87af9219d77f"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>last_name_</b></td></tr>
+<tr class="memdesc:aee22f633e5268b7dbe5a87af9219d77f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last name of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
+<tr class="separator:aee22f633e5268b7dbe5a87af9219d77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63120828ec30882a6d52de004cf30afd"><td class="memItemLeft" align="right" valign="top"><a id="a63120828ec30882a6d52de004cf30afd" name="a63120828ec30882a6d52de004cf30afd"></a>
 std::weak_ptr&lt; <a class="el" href="classtale_1_1_resource.html">Resource</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_</b></td></tr>
 <tr class="memdesc:a63120828ec30882a6d52de004cf30afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The abstract state of the <a class="el" href="classtale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
@@ -184,9 +192,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a35502b65911d71bcb0a3b2e8ced3e25a">InitializeRandomTraits</a> (size_t tick)</td></tr>
 <tr class="memdesc:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classtale_1_1_trait.html" title="Represents the Traits an Actor has.">Trait</a> member vector with a random <a class="el" href="classtale_1_1_trait.html">Traits </a>.  <a href="classtale_1_1_actor.html#a35502b65911d71bcb0a3b2e8ced3e25a">More...</a><br /></td></tr>
 <tr class="separator:a35502b65911d71bcb0a3b2e8ced3e25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b2f545fa3a833a6ea4df57100a1819"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtale_1_1_actor.html#a53b2f545fa3a833a6ea4df57100a1819">ActorInRelationshipMap</a> (size_t actor, const std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;relationships) const</td></tr>
-<tr class="memdesc:a53b2f545fa3a833a6ea4df57100a1819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is already included in a <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map.  <a href="classtale_1_1_actor.html#a53b2f545fa3a833a6ea4df57100a1819">More...</a><br /></td></tr>
-<tr class="separator:a53b2f545fa3a833a6ea4df57100a1819"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -222,49 +227,34 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents one person in the simulation. An <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a53b2f545fa3a833a6ea4df57100a1819" name="a53b2f545fa3a833a6ea4df57100a1819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53b2f545fa3a833a6ea4df57100a1819">&#9670;&nbsp;</a></span>ActorInRelationshipMap()</h2>
+<a id="a93cfa345c9e50d33484df2e1efebf683" name="a93cfa345c9e50d33484df2e1efebf683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93cfa345c9e50d33484df2e1efebf683">&#9670;&nbsp;</a></span>Actor::SlotEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool tale::Actor::ActorInRelationshipMap </td>
+          <td class="memname">bool tale::Actor::Actor::SlotEmpty </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>actor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>relationships</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramname"><em>slot</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Checks wether an <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is already included in a <a class="el" href="classtale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> map. </p>
+<p>Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation. </p>
+<p >WIP: Currently just chooses an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> at random.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">actor</td><td>The inex of the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> we want to check. </td></tr>
-    <tr><td class="paramname">relationships</td><td>The Relatinship map we want to look for the actor in. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">course_group</td><td>The course group the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is currently interacting in. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_reasons</td><td>Vector the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> will write it's reason for the decision to. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_participants</td><td>Vector the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> will to with which other <a class="el" href="classtale_1_1_actor.html">Actors </a> he wants to do the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_chance</td><td>How likely it was that this interaction was chosen. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The result of the check. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> chose. </dd></dl>
 
 </div>
 </div>
@@ -339,8 +329,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a588d52e5006f014cd84e06a30d7bc614" name="a588d52e5006f014cd84e06a30d7bc614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a588d52e5006f014cd84e06a30d7bc614">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
+<a id="a643972cf19d8bab00fc7de28a350e773" name="a643972cf19d8bab00fc7de28a350e773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a643972cf19d8bab00fc7de28a350e773">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,14 +356,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RelationshipType&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramtype">std::map&lt; RelationshipType, float &gt;&#160;</td>
+          <td class="paramname"><em>change</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -441,8 +425,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a5e32405d42406bf6af27088e2d2e21b3" name="a5e32405d42406bf6af27088e2d2e21b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e32405d42406bf6af27088e2d2e21b3">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
+<a id="a390b47372efd8d654d6a45aa8727771c" name="a390b47372efd8d654d6a45aa8727771c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390b47372efd8d654d6a45aa8727771c">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,12 +442,6 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a> &amp;&#160;</td>
           <td class="paramname"><em>context</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float &amp;&#160;</td>
-          <td class="paramname"><em>group_size_ratio</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -491,58 +469,6 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A chance value between 0.0 and 1.0. </dd></dl>
-
-</div>
-</div>
-<a id="ac27fdc4a07ed2f1f1870c754517f2774" name="ac27fdc4a07ed2f1f1870c754517f2774"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac27fdc4a07ed2f1f1870c754517f2774">&#9670;&nbsp;</a></span>ChooseInteraction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int tale::Actor::ChooseInteraction </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>actor_group</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetale.html#a225d06d073badd478104ae2aafce1839">ContextType</a>&#160;</td>
-          <td class="paramname"><em>context</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_reasons</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtale_1_1_actor.html">Actor</a> &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out_participants</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let's the actor decide on an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation. </p>
-<p >WIP: Currently just chooses an <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> at random.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">course_group</td><td>The course group the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is currently interacting in. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_reasons</td><td>Vector the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> will write it's reason for the decision to. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">out_participants</td><td>Vector the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> will to with which other <a class="el" href="classtale_1_1_actor.html">Actors </a> he wants to do the <a class="el" href="classtale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the <a class="el" href="structtale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> the <a class="el" href="classtale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> chose. </dd></dl>
 
 </div>
 </div>

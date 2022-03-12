@@ -40,7 +40,7 @@ void \mbox{\hyperlink{classtale_1_1_school_ad164e018ad618dc4859448c0a11addbe}{Si
 \mbox{\Hypertarget{classtale_1_1_school_af2e20378b185dd70f581d759896d5c50}\label{classtale_1_1_school_af2e20378b185dd70f581d759896d5c50}} 
 void {\bfseries Free\+Time\+Tick} ()
 \begin{DoxyCompactList}\small\item\em Simulates a tick where the \mbox{\hyperlink{classtale_1_1_actor}{Actors }} have free time. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}{Is\+Workday}} (\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}} weekday) const
+void \mbox{\hyperlink{classtale_1_1_school_aad35af5465a0b02c7613616337868d8e}{Let\+Actor\+Interact}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ \&actor, const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&group, \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} type, std\+::string context\+\_\+description=\char`\"{}an unknown time\char`\"{})
 \begin{DoxyCompactList}\small\item\em Checks wheter the passed Weeekday is a workday or not. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtale_1_1_school_a65fdd724d413035d79148a7764ee52e3}{Actor\+Is\+In\+Course\+Group}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ \&actor, const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&course\+\_\+group) const
 \begin{DoxyCompactList}\small\item\em Checks wheter the passed \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is in the passed course group. \end{DoxyCompactList}\item 
@@ -333,11 +333,11 @@ Getter for a Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}}
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{structtale_1_1_setting}{Setting}} object. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}\label{classtale_1_1_school_accd65b68115bd75bae9efe7eb48589d1}} 
-\index{tale::School@{tale::School}!IsWorkday@{IsWorkday}}
-\index{IsWorkday@{IsWorkday}!tale::School@{tale::School}}
-\doxysubsubsection{\texorpdfstring{IsWorkday()}{IsWorkday()}}
-{\footnotesize\ttfamily bool tale\+::\+School\+::\+Is\+Workday (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetale_ad595b201ea86d7ebf4b21df67f60e76d}{Weekday}}}]{weekday }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classtale_1_1_school_aad35af5465a0b02c7613616337868d8e}\label{classtale_1_1_school_aad35af5465a0b02c7613616337868d8e}} 
+\index{tale::School@{tale::School}!LetActorInteract@{LetActorInteract}}
+\index{LetActorInteract@{LetActorInteract}!tale::School@{tale::School}}
+\doxysubsubsection{\texorpdfstring{LetActorInteract()}{LetActorInteract()}}
+{\footnotesize\ttfamily void tale\+::\+School\+::\+Let\+Actor\+Interact (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ \&}]{actor,  }\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_actor}{Actor}} $>$ $>$ \&}]{group,  }\item[{\mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}}}]{type,  }\item[{std\+::string}]{context\+\_\+description = {\ttfamily \char`\"{}an~unknown~time\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
