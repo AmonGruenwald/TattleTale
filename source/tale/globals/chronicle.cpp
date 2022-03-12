@@ -13,8 +13,8 @@ namespace tale
     }
     std::weak_ptr<Interaction> Chronicle::CreateInteraction(
         const InteractionPrototype &prototype,
-        const Requirement &requirement,
-        const Tendency &tendency,
+        const InteractionRequirement &requirement,
+        const InteractionTendency &tendency,
         float chance,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,

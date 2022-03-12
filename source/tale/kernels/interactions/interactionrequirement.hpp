@@ -7,9 +7,9 @@
 namespace tale
 {
     /**
-     * @brief Stores all necessary \link Requirement Requirements \endlink for an Interaction to happen.
+     * @brief Stores all necessary \link InteractionRequirement Requirements \endlink for an Interaction to happen.
      */
-    struct Requirement
+    struct InteractionRequirement
     {
         /**
          * @brief ContextType the corresponding Interaction needs.

@@ -9,8 +9,8 @@ namespace tale
 {
     Interaction::Interaction(
         const InteractionPrototype &prototype,
-        const Requirement &requirement,
-        const Tendency &tendency,
+        const InteractionRequirement &requirement,
+        const InteractionTendency &tendency,
         float chance,
         size_t id,
         size_t tick,

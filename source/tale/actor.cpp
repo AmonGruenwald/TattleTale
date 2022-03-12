@@ -82,7 +82,7 @@ namespace tale
 
     int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance)
     {
-        const std::vector<Requirement> &requirements = interaction_store_.GetRequirementCatalogue();
+        const std::vector<InteractionRequirement> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
         for (size_t i = 0; i < requirements.size(); ++i)
         {
@@ -96,7 +96,7 @@ namespace tale
             return -1;
         }
 
-        const std::vector<Tendency> &tendencies = interaction_store_.GetTendencyCatalogue();
+        const std::vector<InteractionTendency> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
         chances.reserve(possible_interaction_indices.size());
         std::vector<std::weak_ptr<Kernel>> reasons;
@@ -104,7 +104,7 @@ namespace tale
         uint32_t zero_count = 0;
         for (auto &i : possible_interaction_indices)
         {
-            const Tendency &tendency = tendencies[i];
+            const InteractionTendency &tendency = tendencies[i];
             std::weak_ptr<Kernel> reason;
             float chance = CalculateTendencyChance(tendency, context, reason);
             bool goal_had_effect = false;
@@ -130,8 +130,8 @@ namespace tale
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
-        const Requirement &requirement = requirements[interaction_index];
-        const Tendency &tendency = tendencies[interaction_index];
+        const InteractionRequirement &requirement = requirements[interaction_index];
+        const InteractionTendency &tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement.participant_count; ++i)
         {
             uint32_t participant_zero_count = 0;
@@ -214,7 +214,7 @@ namespace tale
         }
         return interaction_index;
     }
-    bool Actor::CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
+    bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
     {
         // TODO: check for other requirements eg. participant count
         if (requirement.context != ContextType::kNone && requirement.context != context)
@@ -283,7 +283,7 @@ namespace tale
         return true;
     }
 
-    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason)
+    float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason)
     {
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
         // TODO: reasons also will never include groupsize or context

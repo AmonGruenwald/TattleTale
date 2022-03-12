@@ -94,17 +94,17 @@ namespace tale
          */
         std::weak_ptr<Interaction> CreateInteraction(size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         /**
-         * @brief Gettter for a Reference to the  Requirement catalogue.
+         * @brief Gettter for a Reference to the  InteractionRequirement catalogue.
          *
-         * @return A Reference to the catalogue for the \link Requirement Requirements \endlink.
+         * @return A Reference to the catalogue for the \link InteractionRequirement Requirements \endlink.
          */
-        const std::vector<Requirement> &GetRequirementCatalogue() const;
+        const std::vector<InteractionRequirement> &GetRequirementCatalogue() const;
         /**
-         * @brief Gettter for a Reference to the Tendency catalogue.
+         * @brief Gettter for a Reference to the InteractionTendency catalogue.
          *
-         * @return A Reference to the catalogue for the \link Tendency Tendencies \endlink.
+         * @return A Reference to the catalogue for the \link InteractionTendency Tendencies \endlink.
          */
-        const std::vector<Tendency> &GetTendencyCatalogue() const;
+        const std::vector<InteractionTendency> &GetTendencyCatalogue() const;
 
     private:
         /**
@@ -120,13 +120,13 @@ namespace tale
          */
         std::vector<InteractionPrototype> prototype_catalogue_;
         /**
-         * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
+         * @brief Holds the hard \link InteractionRequirement Requirements \endlink for all available Interaction prototypes.
          */
-        std::vector<Requirement> requirements_catalogue_;
+        std::vector<InteractionRequirement> requirements_catalogue_;
         /**
-         * @brief Holds the hard \link Requirement Requirements \endlink for all available Interaction prototypes.
+         * @brief Holds the hard \link InteractionRequirement Requirements \endlink for all available Interaction prototypes.
          */
-        std::vector<Tendency> tendencies_catalogue_;
+        std::vector<InteractionTendency> tendencies_catalogue_;
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */
@@ -148,8 +148,8 @@ namespace tale
         const std::string context_key_ = "context";
         const std::string group_size_key_ = "group_size";
         bool ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionPrototype &out_prototype);
-        bool ReadRequirementJSON(nlohmann::json json, std::string error_preamble, Requirement &out_requirement);
-        bool ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, Tendency &out_tendency);
+        bool ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement);
+        bool ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionTendency &out_tendency);
 
         template <typename T1, nlohmann::detail::value_t T2>
         bool ReadJsonValueFromDictionary(T1 &out_value, nlohmann::json json, std::string key, bool required, std::string error_preamble = "")

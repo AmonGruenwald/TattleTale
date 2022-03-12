@@ -312,8 +312,8 @@ TEST(TaleInteractions, ApplyInteraction)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-    tale::Requirement requirement;
-    tale::Tendency tendency;
+    tale::InteractionRequirement requirement;
+    tale::InteractionTendency tendency;
     std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
 
@@ -377,8 +377,8 @@ TEST(TaleInteractions, InteractionBecomesReason)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-    tale::Requirement requirement;
-    tale::Tendency tendency;
+    tale::InteractionRequirement requirement;
+    tale::InteractionTendency tendency;
     std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
@@ -579,7 +579,7 @@ TEST_F(TaleActor, AddActorToCourse)
 
 TEST_F(TaleActor, DefaultTendencyChanceCalculation)
 {
-    tale::Tendency tendency;
+    tale::InteractionTendency tendency;
     tale::ContextType context = tale::ContextType::kNone;
     std::weak_ptr<tale::Kernel> reason;
     float chance = actor_->CalculateTendencyChance(tendency, context, reason);
@@ -588,7 +588,7 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
 
 TEST_F(TaleActor, MaxTendencyChanceCalculation)
 {
-    tale::Tendency tendency;
+    tale::InteractionTendency tendency;
     tendency.contexts[tale::ContextType::kCourse] = 1.0f;
     tendency.contexts[tale::ContextType::kFreetime] = -1.0f;
     tendency.wealth = 1.0f;
@@ -614,7 +614,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
-    tale::Tendency tendency;
+    tale::InteractionTendency tendency;
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {

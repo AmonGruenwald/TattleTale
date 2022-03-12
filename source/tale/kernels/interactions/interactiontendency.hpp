@@ -12,7 +12,7 @@ namespace tale
     /**
      * @brief TODO
      */
-    struct Tendency
+    struct InteractionTendency
     {
         std::map<ContextType, float> contexts = {
             {ContextType::kCourse, 0.0f},

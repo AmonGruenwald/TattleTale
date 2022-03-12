@@ -24,8 +24,8 @@ namespace tale
         Chronicle(Random &random, size_t actor_count);
         std::weak_ptr<Interaction> CreateInteraction(
             const InteractionPrototype &prototype,
-            const Requirement &requirement,
-            const Tendency &tendency,
+            const InteractionRequirement &requirement,
+            const InteractionTendency &tendency,
             float chance,
             size_t tick,
             std::vector<std::weak_ptr<Kernel>> reasons,

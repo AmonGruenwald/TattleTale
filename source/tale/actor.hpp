@@ -114,7 +114,7 @@ namespace tale
         bool SlotEmpty(size_t slot) const;
         int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance);
         /**
-         * @brief Calculates the chance of an Interaction based on its Tendency and the \link Actor Actor's \endlink current state.
+         * @brief Calculates the chance of an Interaction based on its InteractionTendency and the \link Actor Actor's \endlink current state.
          *
          * Every value used is based between -1.0 and 1.0 except the return value which is between 0.0 and 1.0.
          * Because the Actor uses this value for a distribution to pick the Interaction it wants to do, 1.0 does not
@@ -128,9 +128,9 @@ namespace tale
          * @param[out] out_reason Which part of the state of the Actor increased the chance the most.
          * @return A chance value between 0.0 and 1.0.
          */
-        float CalculateTendencyChance(const Tendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason);
+        float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason);
         float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
-        bool CheckRequirements(const Requirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
+        bool CheckRequirements(const InteractionRequirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *

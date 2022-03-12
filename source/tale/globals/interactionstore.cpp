@@ -24,7 +24,7 @@ namespace tale
         {
             TALE_DEBUG_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
 
-            Requirement requirement;
+            InteractionRequirement requirement;
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_number);
             if (ReadRequirementJSON(interaction["requirements"], requirement_error_preamble, requirement))
             {
@@ -32,7 +32,7 @@ namespace tale
                 std::string prototype_error_preamble = fmt::format("REQUIREMENT #{}: ", interaction_number);
                 if (ReadPrototypeJSON(interaction["prototype"], requirement.participant_count, prototype_error_preamble, prototype))
                 {
-                    Tendency tendency;
+                    InteractionTendency tendency;
                     std::string tendency_error_preamble = fmt::format("TENDENCY {}: ", interaction_number);
                     if (ReadTendencyJSON(interaction["tendencies"], requirement.participant_count, tendency_error_preamble, tendency))
                     {
@@ -81,15 +81,15 @@ namespace tale
     {
         assert(prototype_catalogue_.size() > prototype_index); // faulty index
         InteractionPrototype &prototype = prototype_catalogue_.at(prototype_index);
-        Requirement &requirement = requirements_catalogue_.at(prototype_index);
-        Tendency &tendency = tendencies_catalogue_.at(prototype_index);
+        InteractionRequirement &requirement = requirements_catalogue_.at(prototype_index);
+        InteractionTendency &tendency = tendencies_catalogue_.at(prototype_index);
         return chronicle_.CreateInteraction(prototype, requirement, tendency, chance, tick, reasons, participants);
     }
-    const std::vector<Requirement> &InteractionStore::GetRequirementCatalogue() const
+    const std::vector<InteractionRequirement> &InteractionStore::GetRequirementCatalogue() const
     {
         return requirements_catalogue_;
     }
-    const std::vector<Tendency> &InteractionStore::GetTendencyCatalogue() const
+    const std::vector<InteractionTendency> &InteractionStore::GetTendencyCatalogue() const
     {
         return tendencies_catalogue_;
     }
@@ -217,7 +217,7 @@ namespace tale
         return true;
     }
 
-    bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, Requirement &out_requirement)
+    bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement)
     {
         TALE_DEBUG_PRINT("CREATING REQUIREMENTS...");
         out_requirement.ClearValues();
@@ -285,7 +285,7 @@ namespace tale
         return true;
     }
 
-    bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, Tendency &out_tendency)
+    bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionTendency &out_tendency)
     {
         out_tendency.ClearValues();
         TALE_VERBOSE_PRINT("CREATING TENDENCY...");
