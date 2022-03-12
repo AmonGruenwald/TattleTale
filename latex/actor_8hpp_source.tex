@@ -56,7 +56,7 @@
 \DoxyCodeLine{188         std::string \mbox{\hyperlink{classtale_1_1_actor_a45f596aedccf92eb464a11374eb8eaae}{GetGoalDescriptionString}}();}
 \DoxyCodeLine{194         std::string \mbox{\hyperlink{classtale_1_1_actor_a4855909ea2480144e63d4764d5a5784e}{GetTraitsDescriptionString}}();}
 \DoxyCodeLine{195         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&GetAllKnownActors() \textcolor{keyword}{const};}
-\DoxyCodeLine{196         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&GetFreetimeActorGroup() \textcolor{keyword}{const};}
+\DoxyCodeLine{196         std::vector<std::weak\_ptr<Actor>> GetFreetimeActorGroup() \textcolor{keyword}{const};}
 \DoxyCodeLine{197         \textcolor{keywordtype}{float} CalculateRelationshipValue(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
 \DoxyCodeLine{198         \textcolor{keywordtype}{bool} HasRelationshipWith(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
 \DoxyCodeLine{199         \textcolor{keywordtype}{void} InsertNewRelationship(std::weak\_ptr<Actor> other\_actor, std::map<RelationshipType, std::weak\_ptr<Relationship>> relationship);}
