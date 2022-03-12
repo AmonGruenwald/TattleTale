@@ -166,6 +166,7 @@ namespace tale
          * @param weekday Which Weekday we want to check.
          * @return The result of the check.
          */
+        void LetActorInteract(std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &group, ContextType type, std::string context_description = "an unknown time");
         bool IsWorkday(Weekday weekday) const;
         /**
          * @brief Checks wheter the passed Actor is in the passed course group.

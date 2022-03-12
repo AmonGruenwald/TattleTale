@@ -64,26 +64,26 @@ namespace tale
         switch (goal_type)
         {
         case GoalType::kNone:
-            return fmt::format("{} does not have a goal.", owner_.lock()->name_);
+            return fmt::format("{} does not have a goal.", owner_.lock()->GetFullName());
             break;
         case GoalType::kLast:
             assert(false); // invalid enum was passed
-            return fmt::format("{} does not have a goal.", owner_.lock()->name_);
+            return fmt::format("{} does not have a goal.", owner_.lock()->GetFullName());
             break;
         case GoalType::kWealth:
-            return fmt::format("{} want to become incredibly rich.", owner_.lock()->name_);
+            return fmt::format("{} want to become incredibly rich.", owner_.lock()->GetFullName());
             break;
         case GoalType::kAcceptance:
-            return fmt::format("{} wants to be fully accepted by their peers.", owner_.lock()->name_);
+            return fmt::format("{} wants to be fully accepted by their peers.", owner_.lock()->GetFullName());
             break;
         case GoalType::kRelationship:
-            return fmt::format("{} wants to have a loving relationship.", owner_.lock()->name_);
+            return fmt::format("{} wants to have a loving relationship.", owner_.lock()->GetFullName());
             break;
         case GoalType::kHedonism:
-            return fmt::format("{} only lives for pleasure.", owner_.lock()->name_);
+            return fmt::format("{} only lives for pleasure.", owner_.lock()->GetFullName());
             break;
         case GoalType::kPower:
-            return fmt::format("{} wants to be the most powerful person in school.", owner_.lock()->name_);
+            return fmt::format("{} wants to be the most powerful person in school.", owner_.lock()->GetFullName());
             break;
         }
         return "none";

@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <algorithm>
 #include <fstream>
+#include <fmt/core.h>
 
 namespace tale
 {
@@ -18,9 +19,8 @@ namespace tale
         std::string actor_creation_description = "CREATED ALL ACTORS:";
         for (size_t i = 0; i < actor_count; ++i)
         {
-            std::string name = firstnames[i] + " " + surnames[i];
-            actor_creation_description += ("\n" + std::to_string(i) + ": " + name);
-            std::shared_ptr<Actor> actor(new Actor(*this, i, name));
+            std::shared_ptr<Actor> actor(new Actor(*this, i, firstnames[i], surnames[i]));
+            actor_creation_description += ("\n" + std::to_string(i) + ": " + actor->GetFullName());
 
             actors_.push_back(actor);
             // TODO: creating actors should probably be handled by the Chronicle class, similar to Kernels
@@ -36,7 +36,7 @@ namespace tale
         std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";
         for (size_t i = 0; i < actor_count; ++i)
         {
-            detailed_actor_description += ("\n" + actors_[i]->name_);
+            detailed_actor_description += ("\n" + actors_[i]->GetFullName());
             detailed_actor_description += ("\n\t" + actors_[i]->GetWealthDescriptionString());
             detailed_actor_description += ("\n\t" + actors_[i]->GetEmotionsDescriptionString());
             detailed_actor_description += ("\n\t" + actors_[i]->GetRelationshipsDescriptionString());
@@ -117,7 +117,7 @@ namespace tale
         TALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
         TALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
         std::shared_ptr<Actor> random_actor = actors_[random_.GetUInt(0, actors_.size() - 1)];
-        TALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->name_ + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
+        TALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->GetFullName() + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -167,21 +167,7 @@ namespace tale
                     std::vector<std::weak_ptr<Actor>> course_group = course.GetCourseGroupForSlot(slot);
                     for (auto &actor : course_group)
                     {
-                        std::vector<std::weak_ptr<Kernel>> reasons;
-                        std::vector<std::weak_ptr<Actor>> participants;
-                        float chance;
-                        int interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants, chance);
-
-                        if (interaction_index != -1)
-                        {
-                            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
-                            interaction.lock()->Apply();
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
-                        }
-                        else
-                        {
-                            TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + actor.lock()->name_ + " did nothing.");
-                        }
+                        LetActorInteract(actor.lock(), course_group, ContextType::kCourse, ("During Slot " + std::to_string(i) + " in " + course.name_));
                     }
                 }
                 ++current_tick_;
@@ -203,24 +189,26 @@ namespace tale
     {
         for (auto &actor : actors_)
         {
-            std::vector<std::weak_ptr<Kernel>> reasons;
-            std::vector<std::weak_ptr<Actor>> participants;
-            float chance;
-            int interaction_index = actor->ChooseInteraction(actor->GetFreetimeActorGroup(), ContextType::kFreetime, reasons, participants, chance);
-            // TODO: registers interaction to events
-            if (interaction_index != -1)
-            {
-                std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
-                interaction.lock()->Apply();
-                TALE_VERBOSE_PRINT("During Freetime " + interaction.lock()->ToString());
-            }
-            else
-            {
-                TALE_VERBOSE_PRINT("During Freetime " + actor->name_ + " does nothing.");
-            }
+            LetActorInteract(actor, actor->GetFreetimeActorGroup(), ContextType::kFreetime, "Freetime");
         }
     }
 
+    void School::LetActorInteract(std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &group, ContextType type, std::string context_description)
+    {
+        std::vector<std::weak_ptr<Kernel>> reasons;
+        std::vector<std::weak_ptr<Actor>> participants;
+        float chance;
+        int interaction_index = actor->ChooseInteraction(group, type, reasons, participants, chance);
+
+        std::string interaction_description = "did nothing.";
+        if (interaction_index != -1)
+        {
+            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
+            interaction.lock()->Apply();
+            interaction_description = interaction.lock()->ToString();
+        }
+        TALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
+    }
     bool School::IsWorkday(Weekday weekday) const
     {
         if (weekday == Weekday::Saturday || weekday == Weekday::Sunday)

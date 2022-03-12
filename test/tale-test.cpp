@@ -17,7 +17,7 @@ TEST(TaleKernels, IncreasingKernelId)
     setting.actor_count = 0;
     setting.days_to_simulate = 0;
     tale::School school(setting);
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, 0, "John Doe"));
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, 0, "John", "Doe"));
     std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, actor, no_reasons, 1);
     std::weak_ptr<tale::Goal> goal = chronicle.CreateGoal(tale::Goal::GetRandomGoalType(random), tick, actor, no_reasons);
     std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
@@ -421,7 +421,7 @@ TEST(TaleCourse, AddGroupsToSlot)
     for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe"));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
@@ -445,14 +445,14 @@ TEST(TaleCourse, AreAllSlotsFilled)
     for (size_t slot = 0; slot < course.GetSlotCount() - 1; ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John Doe"));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
         EXPECT_FALSE(course.AllSlotsFilled());
     }
     std::vector<std::weak_ptr<tale::Actor>> course_group;
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John Doe"));
+    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John", "Doe"));
     actors.push_back(actor);
     course_group.push_back(actor);
     course.AddToSlot(course_group, course.GetSlotCount() - 1);
@@ -489,7 +489,7 @@ TEST(TaleCourse, GetRandomCourseSlot)
     {
 
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John Doe"));
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, random_filled_slots[i]);
@@ -509,9 +509,10 @@ TEST(TaleCourse, GetRandomCourseSlot)
 class TaleActor : public ::testing::Test
 {
 protected:
-    std::string actor_name_ = "John Doe";
-    uint32_t desired_min_start_relationships_count_ = 3;
-    uint32_t desired_max_start_relationships_count_ = 5;
+    std::string actor_first_name_ = "John";
+    std::string actor_last_name_ = "Doe";
+    uint32_t desired_min_start_relationships_count_ = 1;
+    uint32_t desired_max_start_relationships_count_ = 8;
     size_t actor_id_ = 9;
     std::shared_ptr<tale::Actor> actor_;
     tale::Setting setting_;
@@ -522,7 +523,7 @@ protected:
         setting_.desired_min_start_relationships_count = desired_min_start_relationships_count_;
         setting_.desired_max_start_relationships_count = desired_max_start_relationships_count_;
         school_ = std::shared_ptr<tale::School>(new tale::School(setting_));
-        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_name_));
+        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_first_name_, actor_last_name_));
         actor_->SetupRandomValues(0);
     }
     virtual ~TaleActor() {}
@@ -532,7 +533,8 @@ protected:
 
 TEST_F(TaleActor, CreateActor)
 {
-    EXPECT_EQ(actor_->name_, actor_name_);
+    EXPECT_EQ(actor_->first_name_, actor_first_name_);
+    EXPECT_EQ(actor_->last_name_, actor_last_name_);
     EXPECT_EQ(actor_->id_, actor_id_);
 }
 
@@ -541,8 +543,7 @@ TEST_F(TaleActor, ActorHasInitializedStartingValues)
     EXPECT_TRUE(actor_->wealth_.lock());
     EXPECT_NE(actor_->emotions_.size(), 0);
     GTEST_INFO << "Relationship Size: " << actor_->relationships_.size() << "\n";
-    EXPECT_GE(actor_->relationships_.size(), desired_min_start_relationships_count_);
-    EXPECT_LE(actor_->relationships_.size(), desired_max_start_relationships_count_);
+    EXPECT_LE(actor_->relationships_.size(), setting_.max_start_relationships_count());
 }
 
 TEST_F(TaleActor, AddActorToCourse)

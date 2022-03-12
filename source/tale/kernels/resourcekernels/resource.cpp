@@ -14,6 +14,6 @@ namespace tale
     }
     std::string Resource::ToString()
     {
-        return fmt::format("{} has {} of {}", owner_.lock()->name_, name_, value_);
+        return fmt::format("{} has {} of {}", owner_.lock()->GetFullName(), name_, value_);
     }
 } // namespace tale
