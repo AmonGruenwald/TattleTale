@@ -26,7 +26,7 @@ namespace tale
     {
         for (auto &slot : slots_)
         {
-            if (slot.size() <= setting_.actors_per_course)
+            if (slot.size() < setting_.actors_per_course)
             {
                 return false;
             }
@@ -35,6 +35,7 @@ namespace tale
     }
     uint32_t Course::GetRandomEmptySlot() const
     {
+        // TOOD as AllSlotsFilled is also false if slots are only partially filled this assert does not stop every misuse
         assert(!AllSlotsFilled()); // no more empty slots
         uint32_t random_slot = random_.GetUInt(0, slots_.size() - 1);
         while (slots_[random_slot].size() != 0)
