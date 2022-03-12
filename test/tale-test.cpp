@@ -342,6 +342,8 @@ TEST(TaleInteractions, InteractionBecomesReason)
     size_t participant_count = 2;
     tale::Chronicle chronicle(random, participant_count);
     tale::Setting setting;
+    setting.min_start_relationships_count = 0;
+    setting.max_start_relationships_count = 0;
     setting.actor_count = participant_count;
     tale::School school(setting);
     std::vector<std::weak_ptr<tale::Actor>> participants;
