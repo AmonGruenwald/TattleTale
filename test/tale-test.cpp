@@ -442,20 +442,26 @@ TEST(TaleCourse, AreAllSlotsFilled)
     tale::School school(setting);
     std::vector<std::shared_ptr<tale::Actor>> actors;
     EXPECT_FALSE(course.AllSlotsFilled());
-    for (size_t slot = 0; slot < course.GetSlotCount() - 1; ++slot)
+    for (size_t slot = 0; slot < setting.slot_count_per_week() - 1; ++slot)
     {
         std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John", "Doe"));
-        actors.push_back(actor);
-        course_group.push_back(actor);
+        for (size_t actor_index = 0; actor_index < setting.actors_per_course; ++actor_index)
+        {
+            std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot * setting.actors_per_course + actor_index, "John", "Doe"));
+            actors.push_back(actor);
+            course_group.push_back(actor);
+        }
         course.AddToSlot(course_group, slot);
         EXPECT_FALSE(course.AllSlotsFilled());
     }
     std::vector<std::weak_ptr<tale::Actor>> course_group;
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, course.GetSlotCount() - 1, "John", "Doe"));
-    actors.push_back(actor);
-    course_group.push_back(actor);
-    course.AddToSlot(course_group, course.GetSlotCount() - 1);
+    for (size_t actor_index = 0; actor_index < setting.actors_per_course; ++actor_index)
+    {
+        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, setting.slot_count_per_week() - 1 * setting.actors_per_course + actor_index, "John", "Doe"));
+        actors.push_back(actor);
+        course_group.push_back(actor);
+    }
+    course.AddToSlot(course_group, setting.slot_count_per_week() - 1);
     EXPECT_TRUE(course.AllSlotsFilled());
 }
 
