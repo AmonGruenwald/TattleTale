@@ -99,9 +99,10 @@ namespace tale
          * @param[in] course_group The course group the Actor is currently interacting in.
          * @param[out] out_reasons Vector the Actor will write it's reason for the decision to.
          * @param[out] out_participants Vector the Actor will to with which other \link Actor Actors \endlink he wants to do the Interaction.
+         * @param[out] out_chance How likely it was that this interaction was chosen.
          * @return The index of the InteractionPrototype the Actor chose.
          */
-        int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants);
+        int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance);
         /**
          * @brief Calculates the chance of an Interaction based on its Tendency and the \link Actor Actor's \endlink current state.
          *

@@ -180,7 +180,7 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     {
         participants.push_back(school.GetActor(i));
     }
-    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, tick, default_reasons, participants).lock();
+    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, 1.0f, tick, default_reasons, participants).lock();
     // EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     EXPECT_EQ(interaction->tick_, tick);
     EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
@@ -278,8 +278,9 @@ TEST(TaleInteractions, ApplyInteraction)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-
-    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, tick, no_reasons, participants).lock();
+    tale::Requirement requirement;
+    tale::Tendency tendency;
+    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
@@ -342,7 +343,9 @@ TEST(TaleInteractions, InteractionBecomesReason)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, tick, no_reasons, participants).lock();
+    tale::Requirement requirement;
+    tale::Tendency tendency;
+    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {

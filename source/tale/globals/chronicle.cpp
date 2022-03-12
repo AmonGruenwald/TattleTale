@@ -11,14 +11,22 @@ namespace tale
             kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
         }
     }
-    std::weak_ptr<Interaction> Chronicle::CreateInteraction(const InteractionPrototype &prototype, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
+    std::weak_ptr<Interaction> Chronicle::CreateInteraction(
+        const InteractionPrototype &prototype,
+        const Requirement &requirement,
+        const Tendency &tendency,
+        float chance,
+        size_t tick,
+        std::vector<std::weak_ptr<Kernel>> reasons,
+        std::vector<std::weak_ptr<Actor>> participants)
     {
-        std::shared_ptr<Interaction> interaction(new Interaction(prototype, all_kernels_.size(), tick, reasons, participants));
+        std::shared_ptr<Interaction> interaction(new Interaction(prototype, requirement, tendency, chance, all_kernels_.size(), tick, reasons, participants));
         all_kernels_.push_back(interaction);
         for (auto &owner : participants)
         {
             kernels_by_actor_[owner.lock()->id_].push_back(interaction);
         }
+        all_interactions_.push_back(interaction);
         return interaction;
     }
     std::weak_ptr<Emotion> Chronicle::CreateEmotion(EmotionType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
@@ -57,12 +65,21 @@ namespace tale
         return trait;
     }
 
-    size_t Chronicle::GetKernelAmount()
+    float Chronicle::GetAverageInteractionChance() const
+    {
+        float sum = 0;
+        for (auto interaction : all_interactions_)
+        {
+            sum += interaction->chance_;
+        }
+        return (sum / all_interactions_.size());
+    }
+    size_t Chronicle::GetKernelAmount() const
     {
         return all_kernels_.size();
     }
 
-    std::string Chronicle::GetRandomCausalityChainDescription(size_t depth)
+    std::string Chronicle::GetRandomCausalityChainDescription(size_t depth) const
     {
         if (all_kernels_.size() <= 0)
         {
@@ -72,7 +89,7 @@ namespace tale
         return GetRecursiveKernelDescription(kernel, 0, depth);
     }
 
-    std::string Chronicle::GetKissingCausalityChainDescription(size_t depth)
+    std::string Chronicle::GetKissingCausalityChainDescription(size_t depth) const
     {
         if (all_kernels_.size() <= 0)
         {
@@ -94,7 +111,7 @@ namespace tale
         return "Did not find a kiss.";
     }
 
-    std::string Chronicle::GetActorInteractionsDescription(size_t id)
+    std::string Chronicle::GetActorInteractionsDescription(size_t id) const
     {
         if (actors_.size() < id)
         {
@@ -117,7 +134,7 @@ namespace tale
         return description;
     }
 
-    std::string Chronicle::GetGoalCausalityChainDescription(size_t depth)
+    std::string Chronicle::GetGoalCausalityChainDescription(size_t depth) const
     {
         if (all_kernels_.size() <= 0)
         {
@@ -143,7 +160,7 @@ namespace tale
         return "Did not find a kernel with a goal as reason.";
     }
 
-    std::string Chronicle::GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth)
+    std::string Chronicle::GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth) const
     {
         std::shared_ptr<Kernel> locked_kernel = kernel.lock();
         std::string description = "D" + std::to_string(current_depth);

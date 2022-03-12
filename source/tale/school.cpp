@@ -115,7 +115,7 @@ namespace tale
         TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 4:\n" + chronicle_.GetRandomCausalityChainDescription(3));
         TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
         TALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("ACTOR INTERACTIONS:\n" + chronicle_.GetActorInteractionsDescription(random_.GetUInt(0, setting_.actor_count - 1)));
+        TALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -167,11 +167,12 @@ namespace tale
                     {
                         std::vector<std::weak_ptr<Kernel>> reasons;
                         std::vector<std::weak_ptr<Actor>> participants;
-                        int interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants);
+                        float chance;
+                        int interaction_index = actor.lock()->ChooseInteraction(course_group, ContextType::kCourse, reasons, participants, chance);
 
                         if (interaction_index != -1)
                         {
-                            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
                             interaction.lock()->Apply();
                             TALE_VERBOSE_PRINT("During Slot " + std::to_string(i) + " in " + course.name_ + " " + interaction.lock()->ToString());
                         }
@@ -202,11 +203,12 @@ namespace tale
         {
             std::vector<std::weak_ptr<Kernel>> reasons;
             std::vector<std::weak_ptr<Actor>> participants;
-            int interaction_index = actor->ChooseInteraction(actor->GetAllKnownActors(), ContextType::kFreetime, reasons, participants);
+            float chance;
+            int interaction_index = actor->ChooseInteraction(actor->GetAllKnownActors(), ContextType::kFreetime, reasons, participants, chance);
             // TODO: registers interaction to events
             if (interaction_index != -1)
             {
-                std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, current_tick_, reasons, participants);
+                std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
                 interaction.lock()->Apply();
                 TALE_VERBOSE_PRINT("During Freetime " + interaction.lock()->ToString());
             }

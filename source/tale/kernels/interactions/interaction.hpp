@@ -5,6 +5,8 @@
 #include "tale/kernels/resourcekernels/emotion.hpp"
 #include "tale/kernels/resourcekernels/relationship.hpp"
 #include "tale/kernels/interactions/interactionprototype.hpp"
+#include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "tale/kernels/interactions/interactiontendency.hpp"
 #include <map>
 #include <memory>
 
@@ -51,7 +53,9 @@ namespace tale
          *
          * This should only ever be called through the Chronicle.
          *
-         * @param prototype Reference to the InteractionPrototype this Interaction is based off.
+         * @param prototype Reference to the InteractionPrototype this Interaction is based upon.
+         * @param requirement Reference to the Requirement this Interaction uses.
+         * @param tendency Reference to the Tendency this Interaction uses.
          * @param id The index this Kernel holds in the Chronicle.
          * @param tick The tick during which this Interaction happens.
          * @param reasons Vector of \link Kernel Kernels \endlink that are responsible for this Interaction happening.
@@ -59,6 +63,9 @@ namespace tale
          **/
         Interaction(
             const InteractionPrototype &prototype,
+            const Requirement &requirement,
+            const Tendency &tendency,
+            float chance,
             size_t id,
             size_t tick,
             std::vector<std::weak_ptr<Kernel>> reasons,
@@ -68,10 +75,14 @@ namespace tale
          * @brief Stores a Reference to the corresponding InteractionPrototype.
          */
         const InteractionPrototype &prototype_;
+        const Requirement &requirement_;
+        const Tendency &tendency;
+        float chance_;
         /**
          * @brief Stores Pointers to the involved \link Actor Actors \endlink.
          */
-        std::vector<std::weak_ptr<Actor>> participants_;
+        std::vector<std::weak_ptr<Actor>>
+            participants_;
         friend class Chronicle;
     };
 

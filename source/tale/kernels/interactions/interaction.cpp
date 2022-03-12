@@ -9,12 +9,18 @@ namespace tale
 {
     Interaction::Interaction(
         const InteractionPrototype &prototype,
+        const Requirement &requirement,
+        const Tendency &tendency,
+        float chance,
         size_t id,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
         std::vector<std::weak_ptr<Actor>> participants)
         : Kernel(prototype.name, id, tick, participants[0], reasons),
           prototype_(prototype),
+          requirement_(requirement),
+          tendency(tendency),
+          chance_(chance),
           participants_(participants){};
 
     void Interaction::Apply()

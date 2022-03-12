@@ -92,7 +92,7 @@ namespace tale
          * @param reasons Vectors holding every Kernel responsible for the creation.
          * @return A pointer to the created Interaction
          */
-        std::weak_ptr<Interaction> CreateInteraction(size_t prototype_index, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
+        std::weak_ptr<Interaction> CreateInteraction(size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         /**
          * @brief Gettter for a Reference to the  Requirement catalogue.
          *

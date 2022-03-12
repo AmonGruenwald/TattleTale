@@ -66,7 +66,7 @@ namespace tale
         return true;
     }
 
-    int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants)
+    int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance)
     {
         const std::vector<Requirement> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
@@ -117,6 +117,7 @@ namespace tale
         {
             out_reasons.push_back(reasons[index]);
         }
+        out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
