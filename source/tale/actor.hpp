@@ -193,7 +193,7 @@ namespace tale
          */
         std::string GetTraitsDescriptionString();
         const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
-        const std::vector<std::weak_ptr<Actor>> &GetFreetimeActorGroup() const;
+        std::vector<std::weak_ptr<Actor>> GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
         void InsertNewRelationship(std::weak_ptr<Actor> other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship);

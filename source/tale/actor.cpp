@@ -496,7 +496,7 @@ namespace tale
     {
         return known_actors_;
     }
-    const std::vector<std::weak_ptr<Actor>> &Actor::GetFreetimeActorGroup() const
+    std::vector<std::weak_ptr<Actor>> Actor::GetFreetimeActorGroup() const
     {
         if (setting_.freetime_actor_count >= known_actors_.size())
         {
