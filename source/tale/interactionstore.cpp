@@ -1,4 +1,4 @@
-#include "tale/talecore.hpp"
+#include "shared/tattletalecore.hpp"
 #include "tale/interactionstore.hpp"
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"

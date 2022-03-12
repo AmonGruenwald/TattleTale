@@ -10,7 +10,7 @@
 #include "shared/kernels/interactions/interactiontendency.hpp"
 #include "shared/random.hpp"
 #include "shared/chronicle.hpp"
-#include "tale/talecore.hpp"
+#include "shared/tattletalecore.hpp"
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
 
@@ -158,7 +158,7 @@ namespace tattletale
             {
                 if (required)
                 {
-                    TATTLETALE_ERROR_PRINT(true,fmt::format("{}JSON DID NOT CONTAIN KEY {}", error_preamble, key));
+                    TATTLETALE_ERROR_PRINT(true, fmt::format("{}JSON DID NOT CONTAIN KEY {}", error_preamble, key));
                     return false;
                 }
             }
@@ -170,7 +170,7 @@ namespace tattletale
                 }
                 else
                 {
-                    TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE FOR KEY {} WAS OF AN INCORRECT TYPE", error_preamble, key));
+                    TATTLETALE_ERROR_PRINT(true, fmt::format("{}VALUE FOR KEY {} WAS OF AN INCORRECT TYPE", error_preamble, key));
                     return false;
                 }
             }
@@ -184,7 +184,7 @@ namespace tattletale
             {
                 if (required)
                 {
-                    TATTLETALE_ERROR_PRINT(true,fmt::format("{}JSON DID NOT CONTAIN INDEX {}", error_preamble, index));
+                    TATTLETALE_ERROR_PRINT(true, fmt::format("{}JSON DID NOT CONTAIN INDEX {}", error_preamble, index));
                     return false;
                 }
             }
@@ -196,7 +196,7 @@ namespace tattletale
                 }
                 else
                 {
-                    TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE FOR INDEX {} WAS OF AN INCORRECT TYPE", error_preamble, index));
+                    TATTLETALE_ERROR_PRINT(true, fmt::format("{}VALUE FOR INDEX {} WAS OF AN INCORRECT TYPE", error_preamble, index));
                     return false;
                 }
             }

@@ -4,7 +4,7 @@
 #include <math.h>
 #include <assert.h>
 #include <algorithm>
-#include <tale/talecore.hpp>
+#include <shared/tattletalecore.hpp>
 namespace tattletale
 {
     /**

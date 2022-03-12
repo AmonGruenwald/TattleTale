@@ -1,5 +1,4 @@
 set(LIBRARY_SOURCES 
-    tale/talecore.hpp
     tale/tale.hpp 
     tale/tale.cpp 
     tale/school.hpp
@@ -11,6 +10,7 @@ set(LIBRARY_SOURCES
     tale/interactionstore.cpp
     shared/actor.hpp
     shared/actor.cpp
+    shared/tattletalecore.hpp
     shared/kernels/kernel.hpp
     shared/kernels/kernel.cpp
     shared/kernels/resourcekernels/resource.hpp

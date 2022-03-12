@@ -1,4 +1,4 @@
-#include "tale/talecore.hpp"
+#include "shared/tattletalecore.hpp"
 #include "shared/kernels/kernel.hpp"
 
 #include <iostream>

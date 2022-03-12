@@ -1,5 +1,5 @@
 #include "shared/chronicle.hpp"
-#include "tale/talecore.hpp"
+#include "shared/tattletalecore.hpp"
 #include "shared/actor.hpp"
 
 namespace tattletale

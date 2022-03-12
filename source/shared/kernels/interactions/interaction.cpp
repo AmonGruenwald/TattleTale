@@ -1,4 +1,4 @@
-#include "tale/talecore.hpp"
+#include "shared/tattletalecore.hpp"
 #include "shared/kernels/interactions/interaction.hpp"
 #include <fmt/format.h>
 #include <fmt/args.h>
