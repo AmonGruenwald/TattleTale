@@ -48,7 +48,7 @@ namespace tale
         int count = 0;
         for (auto &participant : participants_)
         {
-            args[count++] = fmt::detail::make_arg<fmt::format_context>(" " + participant.lock()->first_name_ + " " + participant.lock()->last_name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(participant.lock()->name_);
         }
         auto description = fmt::vformat(prototype_.description, fmt::format_args(args, count));
         return description;

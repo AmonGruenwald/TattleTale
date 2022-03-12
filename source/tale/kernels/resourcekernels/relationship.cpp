@@ -57,6 +57,6 @@ namespace tale
     }
     std::string Relationship::ToString()
     {
-        return fmt::format("{} felt {} with a value of {} for {}", owner_.lock()->GetFullName(), name_, value_, target_.lock()->GetFullName());
+        return fmt::format("{} felt {} with a value of {} for {}", owner_.lock()->name_, name_, value_, target_.lock()->name_);
     }
 } // namespace tale

@@ -57,6 +57,6 @@ namespace tale
 
     std::string Emotion::ToString()
     {
-        return fmt::format("{} was {} with a value of {}", owner_.lock()->GetFullName(), name_, value_);
+        return fmt::format("{} was {} with a value of {}", owner_.lock()->name_, name_, value_);
     }
 } // namespace tale

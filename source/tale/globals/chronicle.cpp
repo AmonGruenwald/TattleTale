@@ -82,7 +82,7 @@ namespace tale
         std::vector<std::weak_ptr<tale::Actor>> known_actors = actor->GetAllKnownActors();
         for (auto &other_actor : known_actors)
         {
-            description += (other_actor.lock()->GetFullName() + " known with value " + std::to_string(actor->CalculateRelationshipValue(other_actor.lock()->id_)) + "\n");
+            description += (other_actor.lock()->name_ + " known with value " + std::to_string(actor->CalculateRelationshipValue(other_actor.lock()->id_)) + "\n");
         }
         return description;
     }
@@ -134,7 +134,7 @@ namespace tale
         {
             return "No Kernels were created for this ID.";
         }
-        std::string description = "Interactions for " + actors_[id]->GetFullName();
+        std::string description = "Interactions for " + actors_[id]->name_;
         for (size_t i = 0; i < kernels.size(); ++i)
         {
             if (std::dynamic_pointer_cast<Interaction>(kernels[i]))

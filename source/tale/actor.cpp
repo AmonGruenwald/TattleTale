@@ -16,14 +16,10 @@ namespace tale
           interaction_store_(school.GetInteractionStore()),
           id_(id),
           first_name_(first_name),
-          last_name_(last_name)
+          last_name_(last_name),
+          name_(first_name + " " + last_name)
     {
         enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
-    }
-
-    std::string Actor::GetFullName() const
-    {
-        return (first_name_ + " " + last_name_);
     }
     void Actor::SetupRandomValues(size_t tick)
     {
@@ -474,7 +470,7 @@ namespace tale
         for (auto &[actor_index, map] : relationships_)
         {
             // TODO: this will only work after all actors have been created, which is wonky
-            relationship_string += ("\n\tWith " + school_.GetActor(actor_index).lock()->GetFullName() + " (ID: " + std::to_string(school_.GetActor(actor_index).lock()->id_) + "):");
+            relationship_string += ("\n\tWith " + school_.GetActor(actor_index).lock()->name_ + " (ID: " + std::to_string(school_.GetActor(actor_index).lock()->id_) + "):");
             for (auto &[type, relationship] : map)
             {
                 relationship_string += "\n\t\t" + relationship.lock()->ToString();

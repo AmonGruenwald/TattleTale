@@ -29,6 +29,10 @@ namespace tale
          */
         const size_t id_;
         /**
+         * @brief The full name of the Actor
+         */
+        const std::string name_;
+        /**
          * @brief The first name of the Actor
          */
         const std::string first_name_;
@@ -59,7 +63,6 @@ namespace tale
         std::weak_ptr<Goal> goal_;
 
         Actor(School &school, size_t id, std::string first_name, std::string last_name);
-        std::string GetFullName() const;
         void SetupRandomValues(size_t tick);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
