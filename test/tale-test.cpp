@@ -342,6 +342,8 @@ TEST(TaleInteractions, InteractionBecomesReason)
     size_t participant_count = 2;
     tale::Chronicle chronicle(random, participant_count);
     tale::Setting setting;
+    setting.desired_min_start_relationships_count = 0;
+    setting.desired_max_start_relationships_count = 0;
     setting.actor_count = participant_count;
     tale::School school(setting);
     std::vector<std::weak_ptr<tale::Actor>> participants;
@@ -350,7 +352,7 @@ TEST(TaleInteractions, InteractionBecomesReason)
     std::vector<float> wealth_effects;
     std::vector<std::map<tale::EmotionType, float>> emotion_effects;
     std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
-    for (size_t participant_index = 0; participant_index < 2; ++participant_index)
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
         wealth_effects.push_back(0.1f);
         std::map<tale::EmotionType, float> emotion_map;
@@ -377,7 +379,9 @@ TEST(TaleInteractions, InteractionBecomesReason)
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
+    prototype.description = "{} did test interaction with {}";
     tale::Requirement requirement;
+    requirement.participant_count = participant_count;
     tale::Tendency tendency;
     std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
@@ -392,7 +396,6 @@ TEST(TaleInteractions, InteractionBecomesReason)
         }
         for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
         {
-            // TODO: this will break if actors get random relationships
             for (auto &[type, relationship] : map)
             {
                 EXPECT_EQ(relationship.lock()->reasons_[0].lock()->name_, prototype.name);
