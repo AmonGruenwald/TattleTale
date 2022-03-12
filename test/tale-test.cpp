@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define GTEST_INFO std::cout << "[   INFO   ] "
-TEST(TaleKernels, IncreasingKernelId)
+TEST(TaleKernels, DISABLED_IncreasingKernelId)
 {
     tale::Random random;
     tale::Chronicle chronicle(random, 1);
@@ -31,11 +31,11 @@ TEST(TaleKernels, IncreasingKernelId)
     EXPECT_EQ(4, trait.lock()->id_);
 }
 
-class TaleCreateAndRunSchool : public ::testing::Test
+class DISABLED_TaleCreateAndRunSchool : public ::testing::Test
 {
 protected:
-    TaleCreateAndRunSchool() {}
-    virtual ~TaleCreateAndRunSchool() {}
+    DISABLED_TaleCreateAndRunSchool() {}
+    virtual ~DISABLED_TaleCreateAndRunSchool() {}
     void SetUp(const tale::Setting &setting)
     {
         tale::School school(setting);
@@ -52,48 +52,48 @@ protected:
     virtual void TearDown() {}
 };
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunDefaultSchool)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunDefaultSchool)
 {
     tale::Setting setting;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActors)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActors)
 {
     tale::Setting setting;
     setting.actor_count = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActorsPerCourse)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActorsPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroCoursesPerDay)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroCoursesPerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroFreetimeActorCount)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroFreetimeActorCount)
 {
     tale::Setting setting;
     setting.freetime_actor_count = 0;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 0;
@@ -104,42 +104,42 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActor)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActor)
 {
     tale::Setting setting;
     setting.actor_count = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
 {
     tale::Setting setting;
     setting.actors_per_course = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
 {
     tale::Setting setting;
     setting.courses_per_day = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneFreetimeActorCount)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneFreetimeActorCount)
 {
     tale::Setting setting;
     setting.freetime_actor_count = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
     tale::Setting setting;
     setting.same_course_per_week = 1;
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 {
     tale::Setting setting;
     setting.actor_count = 1;
@@ -150,7 +150,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
+TEST_F(DISABLED_TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
@@ -169,7 +169,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
     SetUp(setting);
 }
 
-TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
+TEST(TaleExtraSchoolTests, DISABLED_CorrectCurrentDayAfterSimulation)
 {
     tale::Setting setting;
     setting.actor_count = 10;
@@ -180,7 +180,7 @@ TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
     EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
 }
 
-TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
+TEST(TaleExtraSchoolTests, DISABLED_MirroredInitializedRelationships)
 {
     tale::Setting setting;
     setting.actor_count = 100;
@@ -197,7 +197,7 @@ TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
     }
 }
 
-TEST(TaleInteractions, CreateRandomInteractionFromStore)
+TEST(TaleInteractions, DISABLED_CreateRandomInteractionFromStore)
 {
     tale::Random random;
     tale::Chronicle chronicle(random, 100);
@@ -245,7 +245,7 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     }
 }
 
-TEST(TaleInteractions, ApplyInteraction)
+TEST(TaleInteractions, DISABLED_ApplyInteraction)
 {
     size_t tick = 0;
     std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
@@ -402,7 +402,7 @@ TEST(TaleInteractions, InteractionBecomesReason)
     }
 }
 
-TEST(TaleCourse, CreateCourse)
+TEST(TaleCourse, DISABLED_CreateCourse)
 {
     tale::Setting setting;
     tale::Random random;
@@ -410,7 +410,7 @@ TEST(TaleCourse, CreateCourse)
     EXPECT_EQ(course.GetSlotCount(), setting.slot_count_per_week());
 }
 
-TEST(TaleCourse, AddGroupsToSlot)
+TEST(TaleCourse, DISABLED_AddGroupsToSlot)
 {
     tale::Setting setting;
     tale::Random random;
@@ -433,7 +433,7 @@ TEST(TaleCourse, AddGroupsToSlot)
     }
 }
 
-TEST(TaleCourse, AreAllSlotsFilled)
+TEST(TaleCourse, DISABLED_AreAllSlotsFilled)
 {
     tale::Setting setting;
     tale::Random random;
@@ -465,7 +465,7 @@ TEST(TaleCourse, AreAllSlotsFilled)
     EXPECT_TRUE(course.AllSlotsFilled());
 }
 
-TEST(TaleCourse, GetRandomCourseSlot)
+TEST(TaleCourse, DISABLED_GetRandomCourseSlot)
 {
     tale::Setting setting;
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
@@ -512,7 +512,7 @@ TEST(TaleCourse, GetRandomCourseSlot)
     }
 }
 
-class TaleActor : public ::testing::Test
+class DISABLED_TaleActor : public ::testing::Test
 {
 protected:
     std::string actor_first_name_ = "John";
@@ -523,7 +523,7 @@ protected:
     std::shared_ptr<tale::Actor> actor_;
     tale::Setting setting_;
     std::shared_ptr<tale::School> school_;
-    TaleActor()
+    DISABLED_TaleActor()
     {
         setting_.actor_count = 10;
         setting_.desired_min_start_relationships_count = desired_min_start_relationships_count_;
@@ -532,19 +532,19 @@ protected:
         actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_first_name_, actor_last_name_));
         actor_->SetupRandomValues(0);
     }
-    virtual ~TaleActor() {}
+    virtual ~DISABLED_TaleActor() {}
     void SetUp() {}
     virtual void TearDown() {}
 };
 
-TEST_F(TaleActor, CreateActor)
+TEST_F(DISABLED_TaleActor, CreateActor)
 {
     EXPECT_EQ(actor_->first_name_, actor_first_name_);
     EXPECT_EQ(actor_->last_name_, actor_last_name_);
     EXPECT_EQ(actor_->id_, actor_id_);
 }
 
-TEST_F(TaleActor, ActorHasInitializedStartingValues)
+TEST_F(DISABLED_TaleActor, ActorHasInitializedStartingValues)
 {
     EXPECT_TRUE(actor_->wealth_.lock());
     EXPECT_NE(actor_->emotions_.size(), 0);
@@ -552,7 +552,7 @@ TEST_F(TaleActor, ActorHasInitializedStartingValues)
     EXPECT_LE(actor_->relationships_.size(), setting_.max_start_relationships_count());
 }
 
-TEST_F(TaleActor, AddActorToCourse)
+TEST_F(DISABLED_TaleActor, AddActorToCourse)
 {
     size_t course_id = 5;
     tale::Course course(school_->GetRandom(), setting_, course_id, "Test");
@@ -577,7 +577,7 @@ TEST_F(TaleActor, AddActorToCourse)
     EXPECT_TRUE(actor_->AllSlotsFilled());
 }
 
-TEST_F(TaleActor, DefaultTendencyChanceCalculation)
+TEST_F(DISABLED_TaleActor, DefaultTendencyChanceCalculation)
 {
     tale::Tendency tendency;
     tale::ContextType context = tale::ContextType::kNone;
@@ -586,7 +586,7 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
 
-TEST_F(TaleActor, MaxTendencyChanceCalculation)
+TEST_F(DISABLED_TaleActor, MaxTendencyChanceCalculation)
 {
     tale::Tendency tendency;
     tendency.contexts[tale::ContextType::kCourse] = 1.0f;
@@ -610,7 +610,7 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
 
-TEST_F(TaleActor, RandomTendencyChanceCalculation)
+TEST_F(DISABLED_TaleActor, RandomTendencyChanceCalculation)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
@@ -639,7 +639,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
         EXPECT_LE(chance, 1.0f);
     }
 }
-TEST(TaleRandom, PickIndexWithHundredPercentChance)
+TEST(TaleRandom, DISABLED_PickIndexWithHundredPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
@@ -656,7 +656,7 @@ TEST(TaleRandom, PickIndexWithHundredPercentChance)
         EXPECT_EQ(random.PickIndex(distribution), random_index);
     }
 }
-TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
+TEST(TaleRandom, DISABLED_PickBetweenFullRangeWithHundredPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
@@ -670,7 +670,7 @@ TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
         EXPECT_LT(random.PickIndex(distribution), tries);
     }
 }
-TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
+TEST(TaleRandom, DISABLED_PickBetweenFullRangeWithZeroPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
@@ -684,7 +684,7 @@ TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
         EXPECT_LT(random.PickIndex(distribution, true), tries);
     }
 }
-TEST(TaleRandom, PickBetweenRandomRange)
+TEST(TaleRandom, DISABLED_PickBetweenRandomRange)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
     tale::Random random(seconds);
