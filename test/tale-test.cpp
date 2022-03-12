@@ -392,6 +392,14 @@ TEST(TaleInteractions, InteractionBecomesReason)
             EXPECT_EQ(emotion.lock()->reasons_[0].lock()->name_, prototype.name);
             EXPECT_EQ(emotion.lock()->reasons_[0].lock()->id_, interaction->id_);
         }
+        for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
+        {
+            for (auto &[type, relationship] : map)
+            {
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->name_, prototype.name);
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->id_, interaction->id_);
+            }
+        }
     }
 }
 
