@@ -53,7 +53,7 @@ namespace tattletale
     }
     std::string InteractionStore::GetInteractionName(size_t prototype_index) const
     {
-        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Requirement with id {} does not exist", prototype_index));
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index).name;
     }
     const size_t &InteractionStore::GetParticipantCount(size_t prototype_index) const
@@ -183,7 +183,7 @@ namespace tattletale
                     }
                     if (participant >= participant_count)
                     {
-                        TATTLETALE_ERROR_PRINT(true,fmt::format("{} PARTICIPANT INDEX FOR PROTOTYPE {} WAS TO BIG", error_preamble, out_prototype.name));
+                        TATTLETALE_ERROR_PRINT(true, fmt::format("{} participant index of {} was to big", error_preamble, out_prototype.name));
                         return false;
                     }
                     nlohmann::json changes_json;
@@ -376,12 +376,12 @@ namespace tattletale
         float max = 1.0f;
         if (value > max)
         {
-            TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE OF {} IS BIGGER THAN {}", error_preamble, value, max));
+            TATTLETALE_ERROR_PRINT(true, fmt::format("{}value of {} is bigger than {}", error_preamble, value, max));
             return false;
         }
         if (value < min)
         {
-            TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE OF {} IS SMALLER THAN {}", error_preamble, value, min));
+            TATTLETALE_ERROR_PRINT(true, fmt::format("{}value of {} is smaller than {}", error_preamble, value, min));
             return false;
         }
         return true;
