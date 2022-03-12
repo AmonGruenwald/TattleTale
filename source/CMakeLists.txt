@@ -69,9 +69,9 @@ target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 # Uncomment/comment out for prints
-target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_DEBUG_PRINT_OUTPUT)
-target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_ERROR_PRINT_OUTPUT)
-#target_compile_definitions(${LIBRARY_NAME} PUBLIC TALE_VERBOSE_PRINT_OUTPUT)
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_DEBUG_PRINT_OUTPUT)
+target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_ERROR_PRINT_OUTPUT)
+#target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_VERBOSE_PRINT_OUTPUT)
 
 target_compile_definitions(${LIBRARY_NAME} PUBLIC NOMINMAX)
 

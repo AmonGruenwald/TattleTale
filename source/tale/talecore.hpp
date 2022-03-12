@@ -1,26 +1,26 @@
 #include "rang.hpp"
 
-#ifdef TALE_DEBUG_PRINT_OUTPUT
-#define TALE_DEBUG_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "[ DEBUG ][" << __TIME__ << "]" \
-                                      << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                         \
-                                      << x << "\n\n"
+#ifdef TATTLETALE_DEBUG_PRINT_OUTPUT
+#define TATTLETALE_DEBUG_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "[ DEBUG ][" << __TIME__ << "]" \
+                                            << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                         \
+                                            << x << "\n\n"
 
 #else
-#define TALE_DEBUG_PRINT(x)
+#define TATTLETALE_DEBUG_PRINT(x)
 #endif
 
-#ifdef TALE_VERBOSE_PRINT_OUTPUT
-#define TALE_VERBOSE_PRINT(x) std::cout << rang::bg::yellow << rang::fg::reset << rang::style::bold << "[VERBOSE][" << __TIME__ << "]" \
-                                        << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                            \
-                                        << x << "\n\n"
+#ifdef TATTLETALE_VERBOSE_PRINT_OUTPUT
+#define TATTLETALE_VERBOSE_PRINT(x) std::cout << rang::bg::yellow << rang::fg::reset << rang::style::bold << "[VERBOSE][" << __TIME__ << "]" \
+                                              << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                            \
+                                              << x << "\n\n"
 #else
-#define TALE_VERBOSE_PRINT(x)
+#define TATTLETALE_VERBOSE_PRINT(x)
 #endif
 
-#ifdef TALE_ERROR_PRINT_OUTPUT
-#define TALE_ERROR_PRINT(x) std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "[ ERROR ][" << __TIME__ << "][" << __FILE__ << "]" \
-                                      << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                                             \
-                                      << x << "\n\n"
+#ifdef TATTLETALE_ERROR_PRINT_OUTPUT
+#define TATTLETALE_ERROR_PRINT(x) std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "[ ERROR ][" << __TIME__ << "][" << __FILE__ << "]" \
+                                            << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                                             \
+                                            << x << "\n\n"
 #else
-#define TALE_ERROR_PRINT(x)
+#define TATTLETALE_ERROR_PRINT(x)
 #endif

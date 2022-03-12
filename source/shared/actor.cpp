@@ -38,6 +38,14 @@ namespace tattletale
     void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
+        if (enrolled_courses_id_[slot] == -1)
+        {
+            assert(false);
+        }
+        if (enrolled_courses_id_[slot] == -1)
+        {
+            assert(false);
+        }
         assert(enrolled_courses_id_[slot] == -1);
         assert(filled_slots_count_ < setting_.slot_count_per_week()); // enrolled in too many courses
         ++filled_slots_count_;

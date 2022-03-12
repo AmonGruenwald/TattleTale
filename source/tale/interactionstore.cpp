@@ -11,18 +11,18 @@ namespace tattletale
 {
     InteractionStore::InteractionStore(Random &random, Chronicle &chronicle) : random_(random), chronicle_(chronicle)
     {
-        TALE_VERBOSE_PRINT("READING FROM PROTOTYPE FILE");
+        TATTLETALE_VERBOSE_PRINT("READING FROM PROTOTYPE FILE");
         std::ifstream catalogue_json_file(prototype_json_path_);
         nlohmann::json catalogue_json;
         catalogue_json_file >> catalogue_json;
         catalogue_json_file.close();
-        TALE_VERBOSE_PRINT(catalogue_json.dump(4) + "\n\n");
-        TALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
+        TATTLETALE_VERBOSE_PRINT(catalogue_json.dump(4) + "\n\n");
+        TATTLETALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
 
         size_t interaction_number = 0;
         for (auto &interaction : catalogue_json)
         {
-            TALE_DEBUG_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
+            TATTLETALE_DEBUG_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
 
             InteractionRequirement requirement;
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_number);
@@ -96,7 +96,7 @@ namespace tattletale
 
     bool InteractionStore::ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionPrototype &out_prototype)
     {
-        TALE_VERBOSE_PRINT("CREATING PROTOTYPE...");
+        TATTLETALE_VERBOSE_PRINT("CREATING PROTOTYPE...");
         out_prototype.ClearValues();
 
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype.name, json, name_key_, true, error_preamble))
@@ -183,7 +183,7 @@ namespace tattletale
                     }
                     if (participant >= participant_count)
                     {
-                        TALE_ERROR_PRINT(fmt::format("{} PARTICIPANT INDEX FOR PROTOTYPE {} WAS TO BIG", error_preamble, out_prototype.name));
+                        TATTLETALE_ERROR_PRINT(fmt::format("{} PARTICIPANT INDEX FOR PROTOTYPE {} WAS TO BIG", error_preamble, out_prototype.name));
                         return false;
                     }
                     nlohmann::json changes_json;
@@ -212,14 +212,14 @@ namespace tattletale
             }
         }
 
-        TALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype.ToString() + "\n");
 
         return true;
     }
 
     bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement)
     {
-        TALE_DEBUG_PRINT("CREATING REQUIREMENTS...");
+        TATTLETALE_DEBUG_PRINT("CREATING REQUIREMENTS...");
         out_requirement.ClearValues();
         if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.participant_count, json, participant_count_key_, true, error_preamble))
         {
@@ -281,14 +281,14 @@ namespace tattletale
             out_requirement.relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
         }
 
-        TALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
         return true;
     }
 
     bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionTendency &out_tendency)
     {
         out_tendency.ClearValues();
-        TALE_VERBOSE_PRINT("CREATING TENDENCY...");
+        TATTLETALE_VERBOSE_PRINT("CREATING TENDENCY...");
 
         nlohmann::json context_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(context_json, json, context_key_, false, error_preamble))
@@ -366,7 +366,7 @@ namespace tattletale
             out_tendency.relationships.push_back(relationship_map);
         }
 
-        TALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency.ToString() + "\n");
         return true;
     }
 
@@ -376,12 +376,12 @@ namespace tattletale
         float max = 1.0f;
         if (value > max)
         {
-            TALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS BIGGER THAN {}", error_preamble, value, max));
+            TATTLETALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS BIGGER THAN {}", error_preamble, value, max));
             return false;
         }
         if (value < min)
         {
-            TALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS SMALLER THAN {}", error_preamble, value, min));
+            TATTLETALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS SMALLER THAN {}", error_preamble, value, min));
             return false;
         }
         return true;

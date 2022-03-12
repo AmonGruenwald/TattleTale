@@ -32,7 +32,7 @@ namespace tattletale
         {
             actor->SetupRandomValues(tick);
         }
-        TALE_DEBUG_PRINT(actor_creation_description);
+        TATTLETALE_DEBUG_PRINT(actor_creation_description);
         std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";
         for (size_t i = 0; i < actor_count; ++i)
         {
@@ -43,7 +43,7 @@ namespace tattletale
             detailed_actor_description += ("\n\t" + actors_[i]->GetTraitsDescriptionString());
             detailed_actor_description += ("\n\t" + actors_[i]->GetGoalDescriptionString());
         }
-        TALE_VERBOSE_PRINT(detailed_actor_description);
+        TATTLETALE_VERBOSE_PRINT(detailed_actor_description);
 
         size_t course_count = setting_.course_count();
         size_t slot_count_per_week = setting_.slot_count_per_week();
@@ -54,7 +54,7 @@ namespace tattletale
             courses_.push_back(Course(random_, setting_, i, "Course " + std::to_string(i)));
 
             // Filling courses:
-            TALE_DEBUG_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
+            TATTLETALE_DEBUG_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -141,18 +141,18 @@ namespace tattletale
             ++current_day_;
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
-        TALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 1:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 2:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 3:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 4:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
-        TALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
+        TATTLETALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
+        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 1:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 2:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 3:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 4:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
+        TATTLETALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
         if (actors_.size() > 0)
         {
             std::shared_ptr<Actor> random_actor = actors_[random_.GetUInt(0, actors_.size() - 1)];
-            TALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->name_ + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
+            TATTLETALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->name_ + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
         }
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
@@ -192,7 +192,7 @@ namespace tattletale
     }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        TALE_DEBUG_PRINT(std::to_string(day) + ". " + weekday_string[static_cast<int>(weekday)]);
+        TATTLETALE_DEBUG_PRINT(std::to_string(day) + ". " + weekday_string[static_cast<int>(weekday)]);
         if (IsWorkday(weekday))
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)
@@ -244,7 +244,7 @@ namespace tattletale
             interaction.lock()->Apply();
             interaction_description = interaction.lock()->ToString();
         }
-        TALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
     }
     bool School::IsWorkday(Weekday weekday) const
     {

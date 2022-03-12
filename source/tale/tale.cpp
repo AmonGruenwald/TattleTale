@@ -7,11 +7,11 @@ namespace tattletale
 
     void Run(const Setting &setting)
     {
-        TALE_DEBUG_PRINT("TALE STARTED");
-        TALE_DEBUG_PRINT("SETTING UP SCHOOL");
+        TATTLETALE_DEBUG_PRINT("TALE STARTED");
+        TATTLETALE_DEBUG_PRINT("SETTING UP SCHOOL");
         School school(setting);
 
-        TALE_DEBUG_PRINT("STARTING SIMULATION");
+        TATTLETALE_DEBUG_PRINT("STARTING SIMULATION");
         school.SimulateDays(setting.days_to_simulate);
     }
 } // namespace tattletale
