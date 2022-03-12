@@ -281,7 +281,7 @@ namespace tale
             out_requirement.relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
         }
 
-        TALE_DEBUG_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
+        TALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
         return true;
     }
 
