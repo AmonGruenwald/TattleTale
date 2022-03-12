@@ -185,6 +185,8 @@ namespace tale
         const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
         const std::vector<std::weak_ptr<Actor>> &GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
+        bool HasRelationshipWith(size_t actor_id) const;
+        void InsertNewRelationship(std::weak_ptr<Actor> other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship);
 
     private:
         /**
@@ -257,14 +259,6 @@ namespace tale
          * @param tick The tick during which this happens.
          */
         void InitializeRandomTraits(size_t tick);
-        /**
-         * @brief Checks wether an Actor is already included in a Relationship map.
-         *
-         * @param actor The inex of the Actor we want to check.
-         * @param relationships The Relatinship map we want to look for the actor in.
-         * @return The result of the check.
-         */
-        bool ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> &relationships) const;
 
         void UpdateKnownActors();
     };

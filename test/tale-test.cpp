@@ -180,6 +180,23 @@ TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
     EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
 }
 
+TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
+{
+    tale::Setting setting;
+    setting.actor_count = 100;
+    setting.desired_min_start_relationships_count = 4;
+    setting.desired_max_start_relationships_count = 12;
+    tale::School school(setting);
+    for (size_t i = 0; i < setting.actor_count; ++i)
+    {
+        auto a = school.GetActor(i).lock();
+        for (auto &b : a->GetAllKnownActors())
+        {
+            EXPECT_EQ(a->CalculateRelationshipValue(b.lock()->id_), b.lock()->CalculateRelationshipValue(a->id_));
+        }
+    }
+}
+
 TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
     tale::Random random;
@@ -565,7 +582,6 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
 TEST_F(TaleActor, MaxTendencyChanceCalculation)
 {
     tale::Tendency tendency;
-    tendency.group_size = 1.0f;
     tendency.contexts[tale::ContextType::kCourse] = 1.0f;
     tendency.contexts[tale::ContextType::kFreetime] = -1.0f;
     tendency.wealth = 1.0f;
@@ -595,7 +611,6 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
-        tendency.group_size = random.GetFloat(-1.0f, 1.0f);
         tendency.contexts[tale::ContextType::kCourse] = random.GetFloat(-1.0f, 1.0f);
         tendency.contexts[tale::ContextType::kFreetime] = random.GetFloat(-1.0f, 1.0f);
         tendency.wealth = random.GetFloat(-1.0f, 1.0f);

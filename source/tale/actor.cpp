@@ -488,7 +488,8 @@ namespace tale
         {
             return known_actors_;
         }
-        return {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
+        std::vector<std::weak_ptr<Actor>> freetime_actors = {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
+        return freetime_actors;
     }
     void Actor::InitializeRandomWealth(size_t tick)
     {
@@ -524,33 +525,48 @@ namespace tale
     }
     void Actor::InitializeRandomRelationships(size_t tick)
     {
-        relationships_.clear();
         std::vector<std::weak_ptr<Kernel>> no_reasons;
         uint32_t relationship_count = random_.GetUInt(setting_.min_start_relationships_count(), setting_.max_start_relationships_count());
-        for (size_t i = 0; i < relationship_count; ++i)
+        for (size_t i = relationships_.size(); i < relationship_count; ++i)
         {
             uint32_t other_actor_id = random_.GetUInt(0, setting_.actor_count - 1);
-            while (other_actor_id == id_ || ActorInRelationshipMap(other_actor_id, relationships_))
+            auto other_actor = school_.GetActor(other_actor_id);
+            size_t tries = 0;
+            while ((other_actor_id == id_ || HasRelationshipWith(other_actor_id) || other_actor.lock()->GetAllKnownActors().size() > setting_.desired_max_start_relationships_count) &&
+                   tries < setting_.actor_count)
             {
+                ++tries;
                 ++other_actor_id;
                 other_actor_id %= setting_.actor_count;
             }
-            auto other_actor = school_.GetActor(other_actor_id);
-            relationships_.insert(
-                {other_actor_id,
-                 {{RelationshipType::kLove,
-                   chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                  {RelationshipType::kAttraction,
-                   chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                  {RelationshipType::kFriendship,
-                   chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                  {RelationshipType::kAnger,
-                   chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                  {RelationshipType::kProtective,
-                   chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
-            known_actors_.push_back(other_actor);
-            UpdateKnownActors();
+            if (tries == setting_.actor_count)
+            {
+                return;
+            }
+            std::map<RelationshipType, std::weak_ptr<Relationship>> relationship =
+                {
+                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
+            InsertNewRelationship(other_actor, relationship);
+            std::map<RelationshipType, std::weak_ptr<Relationship>> other_relationship =
+                {
+                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
+            other_actor.lock()->InsertNewRelationship(weak_from_this(), relationship);
         }
+    }
+
+    void Actor::InsertNewRelationship(std::weak_ptr<Actor> other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship)
+    {
+        relationships_.insert({other_actor.lock()->id_, relationship});
+        known_actors_.push_back(other_actor);
+        UpdateKnownActors();
     }
     void Actor::InitializeRandomGoal(size_t tick)
     {
@@ -561,17 +577,6 @@ namespace tale
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
         traits_ = {chronicle_.CreateTrait("trait", tick, weak_from_this(), no_reasons)};
-    }
-    bool Actor::ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> &relationships) const
-    {
-        for (auto &[key, value] : relationships)
-        {
-            if (key == actor)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     void Actor::UpdateKnownActors()
@@ -591,5 +596,17 @@ namespace tale
             value += abs(relationship.lock()->GetValue());
         }
         return value;
+    }
+
+    bool Actor::HasRelationshipWith(size_t actor_id) const
+    {
+        for (auto &[key, value] : relationships_)
+        {
+            if (key == actor_id)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 } // namespace tale
