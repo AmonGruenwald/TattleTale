@@ -1,4 +1,4 @@
-#include "tale/globals/random.hpp"
+#include "shared/random.hpp"
 namespace tale
 {
     Random::Random()

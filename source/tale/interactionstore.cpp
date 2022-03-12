@@ -1,8 +1,8 @@
 #include "tale/talecore.hpp"
-#include "tale/globals/interactionstore.hpp"
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
-#include "tale/actor.hpp"
+#include "tale/interactionstore.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
+#include "shared/actor.hpp"
 #include <iostream>
 #include <assert.h>
 #include <fstream>

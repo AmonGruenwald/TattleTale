@@ -1,5 +1,5 @@
-#include "tale/kernels/goal.hpp"
-#include "tale/actor.hpp"
+#include "shared/kernels/goal.hpp"
+#include "shared/actor.hpp"
 #include <fmt/core.h>
 #include <iostream>
 #include <assert.h>

@@ -1,8 +1,8 @@
-#include "tale/kernels/resourcekernels/resource.hpp"
+#include "shared/kernels/resourcekernels/resource.hpp"
 
 #include <iostream>
 #include <fmt/core.h>
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

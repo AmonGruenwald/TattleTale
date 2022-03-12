@@ -1,6 +1,6 @@
-#include "tale/globals/chronicle.hpp"
+#include "shared/chronicle.hpp"
 #include "tale/talecore.hpp"
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

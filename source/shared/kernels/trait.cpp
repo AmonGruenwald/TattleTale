@@ -1,4 +1,4 @@
-#include "tale/kernels/trait.hpp"
+#include "shared/kernels/trait.hpp"
 
 #include <iostream>
 

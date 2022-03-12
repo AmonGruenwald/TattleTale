@@ -1,4 +1,4 @@
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 #include "tale/school.hpp"
 #include "tale/school.hpp"
 #include <iostream>

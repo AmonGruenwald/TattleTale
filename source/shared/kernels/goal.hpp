@@ -1,8 +1,8 @@
 #ifndef TALE_GOAL_H
 #define TALE_GOAL_H
 
-#include "tale/kernels/kernel.hpp"
-#include "tale/globals/random.hpp"
+#include "shared/kernels/kernel.hpp"
+#include "shared/random.hpp"
 
 namespace tale
 {

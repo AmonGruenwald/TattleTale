@@ -16,8 +16,8 @@ add_executable(${TEST_EXECUTABLE_NAME} ${SOURCES})
 add_custom_command(
         TARGET ${TEST_EXECUTABLE_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-                ${CMAKE_CURRENT_SOURCE_DIR}/../source/tale/resources
-                $<TARGET_FILE_DIR:${TEST_EXECUTABLE_NAME}>/tale/resources)
+                ${CMAKE_CURRENT_SOURCE_DIR}/../source/resources
+                $<TARGET_FILE_DIR:${TEST_EXECUTABLE_NAME}>/resources)
 
 target_link_libraries(${TEST_EXECUTABLE_NAME} ${LIBRARY_NAME} gtest_main)
 

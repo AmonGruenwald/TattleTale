@@ -1,10 +1,10 @@
 #ifndef TALE_INTERACTIONS_INTERACTIONTENDENCY_H
 #define TALE_INTERACTIONS_INTERACTIONTENDENCY_H
 
-#include "tale/kernels/interactions/interactioncontexttype.hpp"
-#include "tale/kernels/resourcekernels/resource.hpp"
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/interactions/interactioncontexttype.hpp"
+#include "shared/kernels/resourcekernels/resource.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
 #include <map>
 #include <fmt/core.h>
 namespace tale

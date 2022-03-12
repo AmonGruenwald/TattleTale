@@ -4,12 +4,12 @@
 #include <string>
 #include <map>
 #include <memory>
-#include "tale/kernels/interactions/interaction.hpp"
-#include "tale/kernels/interactions/interactionprototype.hpp"
-#include "tale/kernels/interactions/interactionrequirement.hpp"
-#include "tale/kernels/interactions/interactiontendency.hpp"
-#include "tale/globals/random.hpp"
-#include "tale/globals/chronicle.hpp"
+#include "shared/kernels/interactions/interaction.hpp"
+#include "shared/kernels/interactions/interactionprototype.hpp"
+#include "shared/kernels/interactions/interactionrequirement.hpp"
+#include "shared/kernels/interactions/interactiontendency.hpp"
+#include "shared/random.hpp"
+#include "shared/chronicle.hpp"
 #include "tale/talecore.hpp"
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
@@ -130,7 +130,7 @@ namespace tale
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */
-        std::string prototype_json_path_ = "tale/resources/interactioncatalogue.json";
+        std::string prototype_json_path_ = "resources/interactioncatalogue.json";
 
         const std::string name_key_ = "name";
         const std::string description_key_ = "description";

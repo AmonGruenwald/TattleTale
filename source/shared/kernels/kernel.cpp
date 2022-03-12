@@ -1,5 +1,5 @@
 #include "tale/talecore.hpp"
-#include "tale/kernels/kernel.hpp"
+#include "shared/kernels/kernel.hpp"
 
 #include <iostream>
 

@@ -5,10 +5,10 @@
 #include <vector>
 #include "tale/course.hpp"
 #include "tale/setting.hpp"
-#include "tale/globals/random.hpp"
-#include "tale/globals/chronicle.hpp"
-#include "tale/globals/interactionstore.hpp"
-#include "tale/actor.hpp"
+#include "shared/random.hpp"
+#include "shared/chronicle.hpp"
+#include "tale/interactionstore.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

@@ -1,6 +1,6 @@
 #include "tale/talecore.hpp"
 #include "tale/school.hpp"
-#include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "shared/kernels/interactions/interactionrequirement.hpp"
 #include <iostream>
 #include <assert.h>
 #include <algorithm>
@@ -299,11 +299,11 @@ namespace tale
     }
     std::vector<std::string> School::GetRandomFirstnames(size_t count)
     {
-        return GetRandomNames(count, "tale/resources/firstname.txt");
+        return GetRandomNames(count, "resources/firstname.txt");
     }
     std::vector<std::string> School::GetRandomSurames(size_t count)
     {
-        return GetRandomNames(count, "tale/resources/surname.txt");
+        return GetRandomNames(count, "resources/surname.txt");
     }
 
     std::vector<std::string> School::GetRandomNames(size_t count, std::string path)

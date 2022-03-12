@@ -2,7 +2,7 @@
 #define TALE_KERNELS_RESOURCEKERNELS_EMOTION_H
 
 #include <string>
-#include "tale/kernels/resourcekernels/resource.hpp"
+#include "shared/kernels/resourcekernels/resource.hpp"
 
 namespace tale
 {

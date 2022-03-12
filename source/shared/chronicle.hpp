@@ -4,12 +4,12 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include "tale/kernels/interactions/interaction.hpp"
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
-#include "tale/kernels/goal.hpp"
-#include "tale/kernels/trait.hpp"
-#include "tale/globals/random.hpp"
+#include "shared/kernels/interactions/interaction.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/goal.hpp"
+#include "shared/kernels/trait.hpp"
+#include "shared/random.hpp"
 
 namespace tale
 {

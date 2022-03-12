@@ -1,7 +1,7 @@
 #ifndef TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H
 #define TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H
 
-#include "tale/kernels/kernel.hpp"
+#include "shared/kernels/kernel.hpp"
 
 namespace tale
 {

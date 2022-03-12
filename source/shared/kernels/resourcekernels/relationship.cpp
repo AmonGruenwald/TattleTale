@@ -1,9 +1,9 @@
-#include "tale/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
 
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

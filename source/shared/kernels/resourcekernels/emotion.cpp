@@ -1,8 +1,8 @@
-#include "tale/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
 #include <fmt/core.h>
 
 namespace tale

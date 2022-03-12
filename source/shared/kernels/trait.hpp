@@ -1,7 +1,7 @@
 #ifndef TALE_TRAIT_H
 #define TALE_TRAIT_H
 
-#include "tale/kernels/kernel.hpp"
+#include "shared/kernels/kernel.hpp"
 
 namespace tale
 {

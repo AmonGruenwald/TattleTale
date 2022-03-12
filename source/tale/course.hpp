@@ -1,8 +1,8 @@
 #ifndef TALE_COURSE_H
 #define TALE_COURSE_H
 
-#include "tale/globals/random.hpp"
-#include "tale/actor.hpp"
+#include "shared/random.hpp"
+#include "shared/actor.hpp"
 #include "tale/setting.hpp"
 #include <string>
 #include <memory>

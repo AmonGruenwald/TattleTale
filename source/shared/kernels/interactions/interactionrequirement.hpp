@@ -2,8 +2,8 @@
 #define TALE_INTERACTIONS_INTERACTIONREQUIREMENT_H
 
 #include <fmt/core.h>
-#include "tale/kernels/interactions/interactioncontexttype.hpp"
-#include "tale/kernels/goal.hpp"
+#include "shared/kernels/interactions/interactioncontexttype.hpp"
+#include "shared/kernels/goal.hpp"
 namespace tale
 {
     /**

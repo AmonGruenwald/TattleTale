@@ -2,37 +2,37 @@ set(LIBRARY_SOURCES
     tale/talecore.hpp
     tale/tale.hpp 
     tale/tale.cpp 
-    tale/actor.hpp
-    tale/actor.cpp
     tale/school.hpp
     tale/school.cpp
     tale/course.hpp
     tale/course.cpp
     tale/setting.hpp
-    tale/kernels/kernel.hpp
-    tale/kernels/kernel.cpp
-    tale/kernels/resourcekernels/resource.hpp
-    tale/kernels/resourcekernels/resource.cpp
-    tale/kernels/resourcekernels/emotion.hpp
-    tale/kernels/resourcekernels/emotion.cpp
-    tale/kernels/resourcekernels/relationship.hpp
-    tale/kernels/resourcekernels/relationship.cpp
-    tale/kernels/goal.hpp
-    tale/kernels/goal.cpp
-    tale/kernels/interactions/interaction.hpp
-    tale/kernels/interactions/interaction.cpp
-    tale/kernels/interactions/interactionprototype.hpp
-    tale/kernels/interactions/interactionrequirement.hpp
-    tale/kernels/interactions/interactioncontexttype.hpp
-    tale/kernels/interactions/interactiontendency.hpp
-    tale/kernels/trait.hpp
-    tale/kernels/trait.cpp
-    tale/globals/interactionstore.hpp
-    tale/globals/interactionstore.cpp
-    tale/globals/random.hpp
-    tale/globals/random.cpp
-    tale/globals/chronicle.hpp
-    tale/globals/chronicle.cpp
+    tale/interactionstore.hpp
+    tale/interactionstore.cpp
+    shared/actor.hpp
+    shared/actor.cpp
+    shared/kernels/kernel.hpp
+    shared/kernels/kernel.cpp
+    shared/kernels/resourcekernels/resource.hpp
+    shared/kernels/resourcekernels/resource.cpp
+    shared/kernels/resourcekernels/emotion.hpp
+    shared/kernels/resourcekernels/emotion.cpp
+    shared/kernels/resourcekernels/relationship.hpp
+    shared/kernels/resourcekernels/relationship.cpp
+    shared/kernels/goal.hpp
+    shared/kernels/goal.cpp
+    shared/kernels/interactions/interaction.hpp
+    shared/kernels/interactions/interaction.cpp
+    shared/kernels/interactions/interactionprototype.hpp
+    shared/kernels/interactions/interactionrequirement.hpp
+    shared/kernels/interactions/interactioncontexttype.hpp
+    shared/kernels/interactions/interactiontendency.hpp
+    shared/kernels/trait.hpp
+    shared/kernels/trait.cpp
+    shared/random.hpp
+    shared/random.cpp
+    shared/chronicle.hpp
+    shared/chronicle.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
 )
@@ -79,7 +79,7 @@ target_compile_definitions(${LIBRARY_NAME} PUBLIC NOMINMAX)
 add_custom_command(
         TARGET ${EXECUTABLE_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-                ${CMAKE_CURRENT_SOURCE_DIR}/tale/resources
-                $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/tale/resources)
+                ${CMAKE_CURRENT_SOURCE_DIR}/resources
+                $<TARGET_FILE_DIR:${EXECUTABLE_NAME}>/resources)
 
 target_link_libraries(${EXECUTABLE_NAME} ${LIBRARY_NAME})

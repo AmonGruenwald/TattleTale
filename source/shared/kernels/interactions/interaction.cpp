@@ -1,9 +1,9 @@
 #include "tale/talecore.hpp"
-#include "tale/kernels/interactions/interaction.hpp"
+#include "shared/kernels/interactions/interaction.hpp"
 #include <fmt/format.h>
 #include <fmt/args.h>
 #include <iostream>
-#include "tale/actor.hpp"
+#include "shared/actor.hpp"
 
 namespace tale
 {

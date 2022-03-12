@@ -1,12 +1,12 @@
 #ifndef TALE_KERNELS_INTERACTIONS_INTERACTION_H
 #define TALE_KERNELS_INTERACTIONS_INTERACTION_H
 
-#include "tale/kernels/kernel.hpp"
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
-#include "tale/kernels/interactions/interactionprototype.hpp"
-#include "tale/kernels/interactions/interactionrequirement.hpp"
-#include "tale/kernels/interactions/interactiontendency.hpp"
+#include "shared/kernels/kernel.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/interactions/interactionprototype.hpp"
+#include "shared/kernels/interactions/interactionrequirement.hpp"
+#include "shared/kernels/interactions/interactiontendency.hpp"
 #include <map>
 #include <memory>
 

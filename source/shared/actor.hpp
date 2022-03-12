@@ -5,14 +5,14 @@
 #include <map>
 #include <memory>
 #include "tale/setting.hpp"
-#include "tale/globals/random.hpp"
-#include "tale/globals/interactionstore.hpp"
-#include "tale/kernels/goal.hpp"
-#include "tale/kernels/resourcekernels/resource.hpp"
-#include "tale/kernels/resourcekernels/emotion.hpp"
-#include "tale/kernels/resourcekernels/relationship.hpp"
-#include "tale/kernels/trait.hpp"
-#include "tale/kernels/interactions/interactionrequirement.hpp"
+#include "shared/random.hpp"
+#include "tale/interactionstore.hpp"
+#include "shared/kernels/goal.hpp"
+#include "shared/kernels/resourcekernels/resource.hpp"
+#include "shared/kernels/resourcekernels/emotion.hpp"
+#include "shared/kernels/resourcekernels/relationship.hpp"
+#include "shared/kernels/trait.hpp"
+#include "shared/kernels/interactions/interactionrequirement.hpp"
 
 namespace tale
 {
