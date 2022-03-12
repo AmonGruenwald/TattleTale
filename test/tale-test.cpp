@@ -9,20 +9,20 @@
 #define GTEST_INFO std::cout << "[   INFO   ] "
 TEST(TaleKernels, IncreasingKernelId)
 {
-    tale::Random random;
-    tale::Chronicle chronicle(random, 1);
-    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
+    tattletale::Random random;
+    tattletale::Chronicle chronicle(random, 1);
+    std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
     size_t tick = 0;
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 0;
     setting.days_to_simulate = 0;
-    tale::School school(setting);
-    std::shared_ptr<tale::Actor> actor(new tale::Actor(school, 0, "John", "Doe"));
-    std::weak_ptr<tale::Emotion> emotion = chronicle.CreateEmotion(tale::EmotionType::kHappy, tick, actor, no_reasons, 1);
-    std::weak_ptr<tale::Goal> goal = chronicle.CreateGoal(tale::Goal::GetRandomGoalType(random), tick, actor, no_reasons);
-    std::weak_ptr<tale::Relationship> relationship = chronicle.CreateRelationship(tale::RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
-    std::weak_ptr<tale::Resource> wealth = chronicle.CreateResource("wealth", tick, actor, no_reasons, 1);
-    std::weak_ptr<tale::Trait> trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
+    tattletale::School school(setting);
+    std::shared_ptr<tattletale::Actor> actor(new tattletale::Actor(school, 0, "John", "Doe"));
+    std::weak_ptr<tattletale::Emotion> emotion = chronicle.CreateEmotion(tattletale::EmotionType::kHappy, tick, actor, no_reasons, 1);
+    std::weak_ptr<tattletale::Goal> goal = chronicle.CreateGoal(tattletale::Goal::GetRandomGoalType(random), tick, actor, no_reasons);
+    std::weak_ptr<tattletale::Relationship> relationship = chronicle.CreateRelationship(tattletale::RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
+    std::weak_ptr<tattletale::Resource> wealth = chronicle.CreateResource("wealth", tick, actor, no_reasons, 1);
+    std::weak_ptr<tattletale::Trait> trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
 
     EXPECT_EQ(0, emotion.lock()->id_);
     EXPECT_EQ(1, goal.lock()->id_);
@@ -36,9 +36,9 @@ class TaleCreateAndRunSchool : public ::testing::Test
 protected:
     TaleCreateAndRunSchool() {}
     virtual ~TaleCreateAndRunSchool() {}
-    void SetUp(const tale::Setting &setting)
+    void SetUp(const tattletale::Setting &setting)
     {
-        tale::School school(setting);
+        tattletale::School school(setting);
         for (size_t i = 0; i < setting.actor_count; ++i)
         {
             EXPECT_EQ(school.GetActor(i).lock()->id_, i);
@@ -54,48 +54,48 @@ protected:
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunDefaultSchool)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActors)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 0;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroActorsPerCourse)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actors_per_course = 0;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroCoursesPerDay)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.courses_per_day = 0;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.same_course_per_week = 0;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroFreetimeActorCount)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.freetime_actor_count = 0;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 0;
     setting.actors_per_course = 0;
     setting.courses_per_day = 0;
@@ -106,42 +106,42 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActor)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 1;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actors_per_course = 1;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.courses_per_day = 1;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneFreetimeActorCount)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.freetime_actor_count = 1;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.same_course_per_week = 1;
     SetUp(setting);
 }
 
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 1;
     setting.actors_per_course = 1;
     setting.courses_per_day = 1;
@@ -153,8 +153,8 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
-    tale::Setting setting;
+    tattletale::Random random(seconds);
+    tattletale::Setting setting;
     setting.actor_count = random.GetUInt(0, 1000);
     setting.actors_per_course = random.GetUInt(0, 50);
     setting.courses_per_day = random.GetUInt(0, 10);
@@ -171,22 +171,22 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
 
 TEST(TaleExtraSchoolTests, CorrectCurrentDayAfterSimulation)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 10;
     setting.days_to_simulate = 5;
-    tale::School school(setting);
+    tattletale::School school(setting);
     school.SimulateDays(setting.days_to_simulate);
     EXPECT_EQ(school.GetCurrentDay(), 5);
-    EXPECT_EQ(school.GetCurrentWeekday(), tale::Weekday::Saturday);
+    EXPECT_EQ(school.GetCurrentWeekday(), tattletale::Weekday::Saturday);
 }
 
 TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = 100;
     setting.desired_min_start_relationships_count = 4;
     setting.desired_max_start_relationships_count = 12;
-    tale::School school(setting);
+    tattletale::School school(setting);
     for (size_t i = 0; i < setting.actor_count; ++i)
     {
         auto a = school.GetActor(i).lock();
@@ -199,22 +199,22 @@ TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
 
 TEST(TaleInteractions, CreateRandomInteractionFromStore)
 {
-    tale::Random random;
-    tale::Chronicle chronicle(random, 100);
-    tale::InteractionStore interaction_store(random, chronicle);
+    tattletale::Random random;
+    tattletale::Chronicle chronicle(random, 100);
+    tattletale::InteractionStore interaction_store(random, chronicle);
     size_t interaction_index = interaction_store.GetRandomInteractionPrototypeIndex();
     size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> default_reasons;
+    std::vector<std::weak_ptr<tattletale::Kernel>> default_reasons;
     size_t participant_count = interaction_store.GetParticipantCount(interaction_index);
-    tale::Setting setting;
+    tattletale::Setting setting;
     setting.actor_count = participant_count;
-    tale::School school(setting);
-    std::vector<std::weak_ptr<tale::Actor>> participants;
+    tattletale::School school(setting);
+    std::vector<std::weak_ptr<tattletale::Actor>> participants;
     for (size_t i = 0; i < participant_count; ++i)
     {
         participants.push_back(school.GetActor(i));
     }
-    std::shared_ptr<tale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, 1.0f, tick, default_reasons, participants).lock();
+    std::shared_ptr<tattletale::Interaction> interaction = interaction_store.CreateInteraction(interaction_index, 1.0f, tick, default_reasons, participants).lock();
     // EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     EXPECT_EQ(interaction->tick_, tick);
     EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
@@ -248,52 +248,52 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
 TEST(TaleInteractions, ApplyInteraction)
 {
     size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Random random;
+    std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
+    tattletale::Random random;
     size_t participant_count = 2;
-    tale::Chronicle chronicle(random, participant_count);
-    tale::Setting setting;
+    tattletale::Chronicle chronicle(random, participant_count);
+    tattletale::Setting setting;
     setting.actor_count = participant_count;
-    tale::School school(setting);
-    std::vector<std::weak_ptr<tale::Actor>> participants;
+    tattletale::School school(setting);
+    std::vector<std::weak_ptr<tattletale::Actor>> participants;
     participants.push_back(school.GetActor(0));
     participants.push_back(school.GetActor(1));
     std::vector<float> wealth_effects;
-    std::vector<std::map<tale::EmotionType, float>> emotion_effects;
-    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
+    std::vector<std::map<tattletale::EmotionType, float>> emotion_effects;
+    std::vector<std::map<size_t, std::map<tattletale::RelationshipType, float>>> relationship_effects;
     std::vector<float> expected_wealth_values;
-    std::vector<std::map<tale::EmotionType, float>> expected_emotion_values;
-    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> expected_relationship_values;
+    std::vector<std::map<tattletale::EmotionType, float>> expected_emotion_values;
+    std::vector<std::map<size_t, std::map<tattletale::RelationshipType, float>>> expected_relationship_values;
     std::vector<float> signs = {1.0f, -1.0f};
     for (size_t participant_index = 0; participant_index < 2; ++participant_index)
     {
         float sign = signs[participant_index];
         wealth_effects.push_back(0.5f * sign);
         expected_wealth_values.push_back(0.5f * sign + school.GetActor(participant_index).lock()->wealth_.lock()->GetValue());
-        std::map<tale::EmotionType, float> emotion_map;
-        std::map<tale::EmotionType, float> expected_emotion_values_map;
-        for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
+        std::map<tattletale::EmotionType, float> emotion_map;
+        std::map<tattletale::EmotionType, float> expected_emotion_values_map;
+        for (int emotion_type_int = (int)tattletale::EmotionType::kNone + 1; emotion_type_int != (int)tattletale::EmotionType::kLast; ++emotion_type_int)
         {
-            tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
+            tattletale::EmotionType type = static_cast<tattletale::EmotionType>(emotion_type_int);
             emotion_map.insert({type, emotion_type_int * 0.1f * sign});
             expected_emotion_values_map.insert({type, emotion_type_int * 0.1f * sign + school.GetActor(participant_index).lock()->emotions_[type].lock()->GetValue()});
         }
         emotion_effects.push_back(emotion_map);
         expected_emotion_values.push_back(expected_emotion_values_map);
 
-        std::map<tale::RelationshipType, float> relationship_map;
-        std::map<tale::RelationshipType, float> expected_relationship_values_map;
+        std::map<tattletale::RelationshipType, float> relationship_map;
+        std::map<tattletale::RelationshipType, float> expected_relationship_values_map;
         size_t other_participant = (participant_index == 0 ? 1 : 0);
-        for (int relationship_type_int = (int)tale::RelationshipType::kNone + 1; relationship_type_int != (int)tale::RelationshipType::kLast; ++relationship_type_int)
+        for (int relationship_type_int = (int)tattletale::RelationshipType::kNone + 1; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
         {
-            tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
+            tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(relationship_type_int);
             relationship_map.insert({type, relationship_type_int * 0.1f * sign});
 
             float existing_value = 0;
-            std::shared_ptr<tale::Actor> actor = school.GetActor(participant_index).lock();
+            std::shared_ptr<tattletale::Actor> actor = school.GetActor(participant_index).lock();
             if (actor->relationships_.count(other_participant))
             {
-                std::map<tale::RelationshipType, std::weak_ptr<tale::Relationship>> existing_map = actor->relationships_.at(other_participant);
+                std::map<tattletale::RelationshipType, std::weak_ptr<tattletale::Relationship>> existing_map = actor->relationships_.at(other_participant);
                 if (existing_map.count(type))
                 {
                     existing_value = existing_map.at(type).lock()->GetValue();
@@ -302,19 +302,19 @@ TEST(TaleInteractions, ApplyInteraction)
 
             expected_relationship_values_map.insert({type, existing_value + relationship_type_int * 0.1f * sign});
         }
-        std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
-        std::map<size_t, std::map<tale::RelationshipType, float>> expected_participant_relationship_map = {{other_participant, expected_relationship_values_map}};
+        std::map<size_t, std::map<tattletale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
+        std::map<size_t, std::map<tattletale::RelationshipType, float>> expected_participant_relationship_map = {{other_participant, expected_relationship_values_map}};
         relationship_effects.push_back(participant_relationship_map);
         expected_relationship_values.push_back(expected_participant_relationship_map);
     }
-    tale::InteractionPrototype prototype;
+    tattletale::InteractionPrototype prototype;
     prototype.name = "Test";
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
-    tale::Requirement requirement;
-    tale::Tendency tendency;
-    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
+    tattletale::InteractionRequirement requirement;
+    tattletale::InteractionTendency tendency;
+    std::shared_ptr<tattletale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
 
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
@@ -337,53 +337,53 @@ TEST(TaleInteractions, ApplyInteraction)
 TEST(TaleInteractions, InteractionBecomesReason)
 {
     size_t tick = 0;
-    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Random random;
+    std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
+    tattletale::Random random;
     size_t participant_count = 2;
-    tale::Chronicle chronicle(random, participant_count);
-    tale::Setting setting;
+    tattletale::Chronicle chronicle(random, participant_count);
+    tattletale::Setting setting;
     setting.desired_min_start_relationships_count = 0;
     setting.desired_max_start_relationships_count = 0;
     setting.actor_count = participant_count;
-    tale::School school(setting);
-    std::vector<std::weak_ptr<tale::Actor>> participants;
+    tattletale::School school(setting);
+    std::vector<std::weak_ptr<tattletale::Actor>> participants;
     participants.push_back(school.GetActor(0));
     participants.push_back(school.GetActor(1));
     std::vector<float> wealth_effects;
-    std::vector<std::map<tale::EmotionType, float>> emotion_effects;
-    std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
+    std::vector<std::map<tattletale::EmotionType, float>> emotion_effects;
+    std::vector<std::map<size_t, std::map<tattletale::RelationshipType, float>>> relationship_effects;
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
         wealth_effects.push_back(0.1f);
-        std::map<tale::EmotionType, float> emotion_map;
-        for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
+        std::map<tattletale::EmotionType, float> emotion_map;
+        for (int emotion_type_int = (int)tattletale::EmotionType::kNone + 1; emotion_type_int != (int)tattletale::EmotionType::kLast; ++emotion_type_int)
         {
-            tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
+            tattletale::EmotionType type = static_cast<tattletale::EmotionType>(emotion_type_int);
             emotion_map.insert({type, 0.1f});
         }
         emotion_effects.push_back(emotion_map);
 
-        std::map<tale::RelationshipType, float> relationship_map;
+        std::map<tattletale::RelationshipType, float> relationship_map;
         size_t other_participant = (participant_index == 0 ? 1 : 0);
-        for (int relationship_type_int = (int)tale::RelationshipType::kNone + 1; relationship_type_int != (int)tale::RelationshipType::kLast; ++relationship_type_int)
+        for (int relationship_type_int = (int)tattletale::RelationshipType::kNone + 1; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
         {
-            tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
+            tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(relationship_type_int);
             relationship_map.insert({type, 0.1f});
         }
-        std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
+        std::map<size_t, std::map<tattletale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
         relationship_effects.push_back(participant_relationship_map);
     }
 
-    tale::InteractionPrototype prototype;
+    tattletale::InteractionPrototype prototype;
     prototype.name = "InteractionBecomesReason";
     prototype.wealth_effects = wealth_effects;
     prototype.emotion_effects = emotion_effects;
     prototype.relationship_effects = relationship_effects;
     prototype.description = "{} did test interaction with {}";
-    tale::Requirement requirement;
+    tattletale::InteractionRequirement requirement;
     requirement.participant_count = participant_count;
-    tale::Tendency tendency;
-    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
+    tattletale::InteractionTendency tendency;
+    std::shared_ptr<tattletale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
@@ -407,24 +407,24 @@ TEST(TaleInteractions, InteractionBecomesReason)
 
 TEST(TaleCourse, CreateCourse)
 {
-    tale::Setting setting;
-    tale::Random random;
-    tale::Course course(random, setting, 0, "Test");
+    tattletale::Setting setting;
+    tattletale::Random random;
+    tattletale::Course course(random, setting, 0, "Test");
     EXPECT_EQ(course.GetSlotCount(), setting.slot_count_per_week());
 }
 
 TEST(TaleCourse, AddGroupsToSlot)
 {
-    tale::Setting setting;
-    tale::Random random;
-    tale::Course course(random, setting, 0, "Test");
+    tattletale::Setting setting;
+    tattletale::Random random;
+    tattletale::Course course(random, setting, 0, "Test");
     setting.actor_count = 0;
-    tale::School school(setting);
-    std::vector<std::shared_ptr<tale::Actor>> actors;
+    tattletale::School school(setting);
+    std::vector<std::shared_ptr<tattletale::Actor>> actors;
     for (size_t slot = 0; slot < course.GetSlotCount(); ++slot)
     {
-        std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot, "John", "Doe"));
+        std::vector<std::weak_ptr<tattletale::Actor>> course_group;
+        std::shared_ptr<tattletale::Actor> actor(new tattletale::Actor(school, slot, "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, slot);
@@ -438,29 +438,29 @@ TEST(TaleCourse, AddGroupsToSlot)
 
 TEST(TaleCourse, AreAllSlotsFilled)
 {
-    tale::Setting setting;
-    tale::Random random;
-    tale::Course course(random, setting, 0, "Test");
+    tattletale::Setting setting;
+    tattletale::Random random;
+    tattletale::Course course(random, setting, 0, "Test");
     setting.actor_count = 0;
-    tale::School school(setting);
-    std::vector<std::shared_ptr<tale::Actor>> actors;
+    tattletale::School school(setting);
+    std::vector<std::shared_ptr<tattletale::Actor>> actors;
     EXPECT_FALSE(course.AllSlotsFilled());
     for (size_t slot = 0; slot < setting.slot_count_per_week() - 1; ++slot)
     {
-        std::vector<std::weak_ptr<tale::Actor>> course_group;
+        std::vector<std::weak_ptr<tattletale::Actor>> course_group;
         for (size_t actor_index = 0; actor_index < setting.actors_per_course; ++actor_index)
         {
-            std::shared_ptr<tale::Actor> actor(new tale::Actor(school, slot * setting.actors_per_course + actor_index, "John", "Doe"));
+            std::shared_ptr<tattletale::Actor> actor(new tattletale::Actor(school, slot * setting.actors_per_course + actor_index, "John", "Doe"));
             actors.push_back(actor);
             course_group.push_back(actor);
         }
         course.AddToSlot(course_group, slot);
         EXPECT_FALSE(course.AllSlotsFilled());
     }
-    std::vector<std::weak_ptr<tale::Actor>> course_group;
+    std::vector<std::weak_ptr<tattletale::Actor>> course_group;
     for (size_t actor_index = 0; actor_index < setting.actors_per_course; ++actor_index)
     {
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, setting.slot_count_per_week() - 1 * setting.actors_per_course + actor_index, "John", "Doe"));
+        std::shared_ptr<tattletale::Actor> actor(new tattletale::Actor(school, setting.slot_count_per_week() - 1 * setting.actors_per_course + actor_index, "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
     }
@@ -470,17 +470,17 @@ TEST(TaleCourse, AreAllSlotsFilled)
 
 TEST(TaleCourse, GetRandomCourseSlot)
 {
-    tale::Setting setting;
+    tattletale::Setting setting;
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
+    tattletale::Random random(seconds);
     setting.actor_count = 300;
     setting.actors_per_course = 30;
     setting.courses_per_day = 6;
     setting.same_course_per_week = 4;
-    tale::Course course(random, setting, 0, "Test");
+    tattletale::Course course(random, setting, 0, "Test");
     setting.actor_count = 0;
-    tale::School school(setting);
-    std::vector<std::shared_ptr<tale::Actor>> actors;
+    tattletale::School school(setting);
+    std::vector<std::shared_ptr<tattletale::Actor>> actors;
 
     std::vector<uint32_t> random_filled_slots;
 
@@ -497,8 +497,8 @@ TEST(TaleCourse, GetRandomCourseSlot)
     for (size_t i = 0; i < random_filled_slots.size(); ++i)
     {
 
-        std::vector<std::weak_ptr<tale::Actor>> course_group;
-        std::shared_ptr<tale::Actor> actor(new tale::Actor(school, random_filled_slots[i], "John", "Doe"));
+        std::vector<std::weak_ptr<tattletale::Actor>> course_group;
+        std::shared_ptr<tattletale::Actor> actor(new tattletale::Actor(school, random_filled_slots[i], "John", "Doe"));
         actors.push_back(actor);
         course_group.push_back(actor);
         course.AddToSlot(course_group, random_filled_slots[i]);
@@ -523,16 +523,16 @@ protected:
     uint32_t desired_min_start_relationships_count_ = 1;
     uint32_t desired_max_start_relationships_count_ = 8;
     size_t actor_id_ = 9;
-    std::shared_ptr<tale::Actor> actor_;
-    tale::Setting setting_;
-    std::shared_ptr<tale::School> school_;
+    std::shared_ptr<tattletale::Actor> actor_;
+    tattletale::Setting setting_;
+    std::shared_ptr<tattletale::School> school_;
     TaleActor()
     {
         setting_.actor_count = 10;
         setting_.desired_min_start_relationships_count = desired_min_start_relationships_count_;
         setting_.desired_max_start_relationships_count = desired_max_start_relationships_count_;
-        school_ = std::shared_ptr<tale::School>(new tale::School(setting_));
-        actor_ = std::shared_ptr<tale::Actor>(new tale::Actor(*school_, actor_id_, actor_first_name_, actor_last_name_));
+        school_ = std::shared_ptr<tattletale::School>(new tattletale::School(setting_));
+        actor_ = std::shared_ptr<tattletale::Actor>(new tattletale::Actor(*school_, actor_id_, actor_first_name_, actor_last_name_));
         actor_->SetupRandomValues(0);
     }
     virtual ~TaleActor() {}
@@ -558,8 +558,8 @@ TEST_F(TaleActor, ActorHasInitializedStartingValues)
 TEST_F(TaleActor, AddActorToCourse)
 {
     size_t course_id = 5;
-    tale::Course course(school_->GetRandom(), setting_, course_id, "Test");
-    std::vector<std::weak_ptr<tale::Actor>> course_group;
+    tattletale::Course course(school_->GetRandom(), setting_, course_id, "Test");
+    std::vector<std::weak_ptr<tattletale::Actor>> course_group;
     std::vector<uint32_t> slots_to_check;
     course_group.push_back(actor_);
     EXPECT_FALSE(actor_->IsEnrolledInCourse(course_id));
@@ -582,33 +582,33 @@ TEST_F(TaleActor, AddActorToCourse)
 
 TEST_F(TaleActor, DefaultTendencyChanceCalculation)
 {
-    tale::Tendency tendency;
-    tale::ContextType context = tale::ContextType::kNone;
-    std::weak_ptr<tale::Kernel> reason;
+    tattletale::InteractionTendency tendency;
+    tattletale::ContextType context = tattletale::ContextType::kNone;
+    std::weak_ptr<tattletale::Kernel> reason;
     float chance = actor_->CalculateTendencyChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
 
 TEST_F(TaleActor, MaxTendencyChanceCalculation)
 {
-    tale::Tendency tendency;
-    tendency.contexts[tale::ContextType::kCourse] = 1.0f;
-    tendency.contexts[tale::ContextType::kFreetime] = -1.0f;
+    tattletale::InteractionTendency tendency;
+    tendency.contexts[tattletale::ContextType::kCourse] = 1.0f;
+    tendency.contexts[tattletale::ContextType::kFreetime] = -1.0f;
     tendency.wealth = 1.0f;
     for (auto &[type, value] : tendency.emotions)
     {
         tendency.emotions[type] = 1.0f;
     }
-    std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-    tale::Random random;
-    tale::Chronicle chronicle(random, setting_.actor_count);
+    std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
+    tattletale::Random random;
+    tattletale::Chronicle chronicle(random, setting_.actor_count);
     actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, 1.0f);
     for (auto &[type, value] : tendency.emotions)
     {
         actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, 1.0f);
     }
-    tale::ContextType context = tale::ContextType::kCourse;
-    std::weak_ptr<tale::Kernel> reason;
+    tattletale::ContextType context = tattletale::ContextType::kCourse;
+    std::weak_ptr<tattletale::Kernel> reason;
     float chance = actor_->CalculateTendencyChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
@@ -616,27 +616,27 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
 TEST_F(TaleActor, RandomTendencyChanceCalculation)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
-    tale::Tendency tendency;
+    tattletale::Random random(seconds);
+    tattletale::InteractionTendency tendency;
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
-        tendency.contexts[tale::ContextType::kCourse] = random.GetFloat(-1.0f, 1.0f);
-        tendency.contexts[tale::ContextType::kFreetime] = random.GetFloat(-1.0f, 1.0f);
+        tendency.contexts[tattletale::ContextType::kCourse] = random.GetFloat(-1.0f, 1.0f);
+        tendency.contexts[tattletale::ContextType::kFreetime] = random.GetFloat(-1.0f, 1.0f);
         tendency.wealth = random.GetFloat(-1.0f, 1.0f);
         for (auto &[type, value] : tendency.emotions)
         {
             tendency.emotions[type] = random.GetFloat(-1.0f, 1.0f);
         }
-        std::vector<std::weak_ptr<tale::Kernel>> no_reasons;
-        tale::Chronicle chronicle(random, setting_.actor_count);
+        std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
+        tattletale::Chronicle chronicle(random, setting_.actor_count);
         actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         for (auto &[type, value] : tendency.emotions)
         {
             actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         }
-        tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
-        std::weak_ptr<tale::Kernel> reason;
+        tattletale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tattletale::ContextType::kCourse : tattletale::ContextType::kFreetime);
+        std::weak_ptr<tattletale::Kernel> reason;
         float chance = actor_->CalculateTendencyChance(tendency, context, reason);
         EXPECT_GE(chance, 0.0f);
         EXPECT_LE(chance, 1.0f);
@@ -645,7 +645,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
 TEST(TaleRandom, PickIndexWithHundredPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
+    tattletale::Random random(seconds);
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
@@ -662,7 +662,7 @@ TEST(TaleRandom, PickIndexWithHundredPercentChance)
 TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
+    tattletale::Random random(seconds);
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
@@ -676,7 +676,7 @@ TEST(TaleRandom, PickBetweenFullRangeWithHundredPercentChance)
 TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
+    tattletale::Random random(seconds);
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
@@ -690,7 +690,7 @@ TEST(TaleRandom, PickBetweenFullRangeWithZeroPercentChance)
 TEST(TaleRandom, PickBetweenRandomRange)
 {
     uint32_t seconds = static_cast<uint32_t>(time(NULL));
-    tale::Random random(seconds);
+    tattletale::Random random(seconds);
     uint32_t tries = 1000;
     for (uint32_t i = 0; i < tries; ++i)
     {
