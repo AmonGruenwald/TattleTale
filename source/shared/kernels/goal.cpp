@@ -37,7 +37,7 @@ namespace tattletale
             return "none";
             break;
         case GoalType::kLast:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Goal type was passed");
             return "last";
             break;
         case GoalType::kWealth:
@@ -67,7 +67,7 @@ namespace tattletale
             return fmt::format("{} does not have a goal.", owner_.lock()->name_);
             break;
         case GoalType::kLast:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Goal type was passed");
             return fmt::format("{} does not have a goal.", owner_.lock()->name_);
             break;
         case GoalType::kWealth:

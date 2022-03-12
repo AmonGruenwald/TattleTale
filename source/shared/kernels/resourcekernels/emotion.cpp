@@ -21,7 +21,7 @@ namespace tattletale
             return EmotionType::kBrave;
         if (emotion_string == "extroverted")
             return EmotionType::kExtroverted;
-        assert(false); // invalid string was passed
+        TATTLETALE_ERROR_PRINT(true, "Invalid Emotion string was passed");
         return EmotionType::kNone;
     }
     std::string Emotion::EmotionTypeToString(EmotionType emotion_type)
@@ -29,11 +29,11 @@ namespace tattletale
         switch (emotion_type)
         {
         case EmotionType::kNone:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
             return "none";
             break;
         case EmotionType::kLast:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
             return "last";
             break;
         case EmotionType::kHappy:

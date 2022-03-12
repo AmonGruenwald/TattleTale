@@ -4,6 +4,7 @@
 #include <math.h>
 #include <assert.h>
 #include <algorithm>
+#include <tale/talecore.hpp>
 namespace tattletale
 {
     /**
@@ -100,7 +101,7 @@ namespace tattletale
          */
         uint32_t min_start_relationships_count() const
         {
-            assert(desired_min_start_relationships_count <= desired_max_start_relationships_count); // min must be less than max
+            TATTLETALE_ERROR_PRINT(desired_min_start_relationships_count <= desired_max_start_relationships_count, "desired_min_start_relationships_count must be smaller or equal to desired_max_start_relationships_count");
             return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_min_start_relationships_count);
         }
         /**
@@ -113,7 +114,7 @@ namespace tattletale
          */
         uint32_t max_start_relationships_count() const
         {
-            assert(desired_min_start_relationships_count <= desired_max_start_relationships_count); // min must be less than max
+            TATTLETALE_ERROR_PRINT((desired_min_start_relationships_count <= desired_max_start_relationships_count), "desired_min_start_relationships_count must be smaller or equal to desired_max_start_relationships_count");
             return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_max_start_relationships_count);
         }
     };

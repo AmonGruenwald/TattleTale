@@ -22,7 +22,8 @@ namespace tattletale
             return RelationshipType::kAnger;
         if (relationship_string == "protective")
             return RelationshipType::kProtective;
-        assert(false); // invalid string was passed
+
+        TATTLETALE_ERROR_PRINT(true, "Invalid Relationship string was passed");
         return RelationshipType::kNone;
     }
     std::string Relationship::RelationshipTypeToString(RelationshipType relationship_type)
@@ -30,11 +31,11 @@ namespace tattletale
         switch (relationship_type)
         {
         case RelationshipType::kNone:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
             return "none";
             break;
         case RelationshipType::kLast:
-            assert(false); // invalid enum was passed
+            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
             return "last";
             break;
         case RelationshipType::kLove:

@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <algorithm>
 #include <math.h>
+#include <fmt/core.h>
 
 namespace tattletale
 {
@@ -38,16 +39,8 @@ namespace tattletale
     void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
-        if (enrolled_courses_id_[slot] == -1)
-        {
-            assert(false);
-        }
-        if (enrolled_courses_id_[slot] == -1)
-        {
-            assert(false);
-        }
-        assert(enrolled_courses_id_[slot] == -1);
-        assert(filled_slots_count_ < setting_.slot_count_per_week()); // enrolled in too many courses
+        TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == -1, fmt::format("Actor already enrolled in a course during slot {}", slot));
+        TATTLETALE_ERROR_PRINT(filled_slots_count_ < setting_.slot_count_per_week(), fmt::format("Actor already filled the whole schedule", slot))
         ++filled_slots_count_;
         enrolled_courses_id_[slot] = course_id;
     }
@@ -55,7 +48,7 @@ namespace tattletale
     void Actor::EjectFromCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
-        assert(enrolled_courses_id_[slot] == course_id);
+        TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == course_id, fmt::format("Actor is not enrolled in course with id {} during slot {}", course_id, slot));
         --filled_slots_count_;
         enrolled_courses_id_[slot] = -1;
     }
@@ -67,7 +60,7 @@ namespace tattletale
 
     bool Actor::AllSlotsFilled() const
     {
-        assert(filled_slots_count_ <= setting_.slot_count_per_week()); // enrolled in too many courses
+        TATTLETALE_ERROR_PRINT(filled_slots_count_ <= setting_.slot_count_per_week(), "Actor is enrolled in too may courses");
         return filled_slots_count_ == setting_.slot_count_per_week();
     }
 
@@ -341,10 +334,10 @@ namespace tattletale
         switch (goal_.lock()->type_)
         {
         case GoalType::kNone:
-            assert(false); // invalid goal type was stored
+            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
             break;
         case GoalType::kLast:
-            assert(false); // invalid goal type was stored
+            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
             break;
         case GoalType::kWealth:
             relevant_effect = interaction_store_.GetWealthEffects(interaction_index)[0];

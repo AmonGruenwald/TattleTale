@@ -48,38 +48,38 @@ namespace tattletale
     }
     uint32_t InteractionStore::GetRandomInteractionPrototypeIndex() const
     {
-        assert(prototype_catalogue_.size() > 0); // No interaction prototype created
+        TATTLETALE_ERROR_PRINT(prototype_catalogue_.size() != 0, "Interaction Catalogue is empty");
         return random_.GetUInt(0, prototype_catalogue_.size() - 1);
     }
     std::string InteractionStore::GetInteractionName(size_t prototype_index) const
     {
-        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Requirement with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index).name;
     }
     const size_t &InteractionStore::GetParticipantCount(size_t prototype_index) const
     {
-        assert(requirements_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < requirements_catalogue_.size(), fmt::format("Requirement with id {} does not exist", prototype_index));
         return requirements_catalogue_.at(prototype_index).participant_count;
     }
     const std::vector<float> &InteractionStore::GetWealthEffects(size_t prototype_index) const
     {
-        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index).wealth_effects;
     }
 
     const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(size_t prototype_index) const
     {
-        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index).emotion_effects;
     }
     const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
     {
-        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index).relationship_effects;
     }
     std::weak_ptr<Interaction> InteractionStore::CreateInteraction(size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
-        assert(prototype_catalogue_.size() > prototype_index); // faulty index
+        TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         InteractionPrototype &prototype = prototype_catalogue_.at(prototype_index);
         InteractionRequirement &requirement = requirements_catalogue_.at(prototype_index);
         InteractionTendency &tendency = tendencies_catalogue_.at(prototype_index);
@@ -183,7 +183,7 @@ namespace tattletale
                     }
                     if (participant >= participant_count)
                     {
-                        TATTLETALE_ERROR_PRINT(fmt::format("{} PARTICIPANT INDEX FOR PROTOTYPE {} WAS TO BIG", error_preamble, out_prototype.name));
+                        TATTLETALE_ERROR_PRINT(true,fmt::format("{} PARTICIPANT INDEX FOR PROTOTYPE {} WAS TO BIG", error_preamble, out_prototype.name));
                         return false;
                     }
                     nlohmann::json changes_json;
@@ -376,12 +376,12 @@ namespace tattletale
         float max = 1.0f;
         if (value > max)
         {
-            TATTLETALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS BIGGER THAN {}", error_preamble, value, max));
+            TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE OF {} IS BIGGER THAN {}", error_preamble, value, max));
             return false;
         }
         if (value < min)
         {
-            TATTLETALE_ERROR_PRINT(fmt::format("{}VALUE OF {} IS SMALLER THAN {}", error_preamble, value, min));
+            TATTLETALE_ERROR_PRINT(true,fmt::format("{}VALUE OF {} IS SMALLER THAN {}", error_preamble, value, min));
             return false;
         }
         return true;

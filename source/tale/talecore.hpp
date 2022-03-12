@@ -18,9 +18,7 @@
 #endif
 
 #ifdef TATTLETALE_ERROR_PRINT_OUTPUT
-#define TATTLETALE_ERROR_PRINT(x) std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "[ ERROR ][" << __TIME__ << "][" << __FILE__ << "]" \
-                                            << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                                             \
-                                            << x << "\n\n"
+#define TATTLETALE_ERROR_PRINT(value, message)if (!(value)){std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "[ ERROR ][" << __TIME__ << "][" << __FILE__ << "]" << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"<< (message) << "\n\n";assert(false);}else{}
 #else
-#define TATTLETALE_ERROR_PRINT(x)
+#define TATTLETALE_ERROR_PRINT(value, message)
 #endif

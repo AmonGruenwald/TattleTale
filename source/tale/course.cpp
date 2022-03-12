@@ -36,7 +36,8 @@ namespace tattletale
     uint32_t Course::GetRandomEmptySlot() const
     {
         // TOOD as AllSlotsFilled is also false if slots are only partially filled this assert does not stop every misuse
-        assert(!AllSlotsFilled()); // no more empty slots
+
+        TATTLETALE_ERROR_PRINT(!AllSlotsFilled(), "All slots are filled.");
         uint32_t random_slot = random_.GetUInt(0, slots_.size() - 1);
         while (slots_[random_slot].size() != 0)
         {
@@ -47,7 +48,8 @@ namespace tattletale
     }
     void Course::AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot)
     {
-        assert(slots_[slot].size() + actors.size() <= setting_.actors_per_course); // slot has not enough space
+        TATTLETALE_ERROR_PRINT(slots_[slot].size() + actors.size() <= setting_.actors_per_course, fmt::format("Slot with id {} does not have enoug space", slot));
+
         for (auto &actor : actors)
         {
             slots_[slot].push_back(actor);
@@ -56,14 +58,14 @@ namespace tattletale
     }
     void Course::AddToSlot(std::weak_ptr<Actor> actor, size_t slot)
     {
-        assert(slots_[slot].size() < setting_.actors_per_course); // slot has not enough space
+        TATTLETALE_ERROR_PRINT(slots_[slot].size() < setting_.actors_per_course, fmt::format("Slot with id {} does not have enoug space", slot));
         slots_[slot].push_back(actor);
         actor.lock()->EnrollInCourse(id_, slot);
     }
 
     std::vector<std::weak_ptr<Actor>> Course::ClearSlot(size_t slot)
     {
-        assert(slots_[slot].size() > 0); // nothing in slot
+        TATTLETALE_ERROR_PRINT(slots_[slot].size() != 0, fmt::format("Slot with id {} is already empty", slot));
         std::vector<std::weak_ptr<Actor>> group = slots_[slot];
         slots_[slot].clear();
         for (auto &actor : group)

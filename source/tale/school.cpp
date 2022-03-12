@@ -157,12 +157,12 @@ namespace tattletale
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
-        assert(actor_id < actors_.size());
+        TATTLETALE_ERROR_PRINT(actor_id < actors_.size(), fmt::format("Actor with id {} does not exist", actor_id));
         return actors_[actor_id];
     }
     Course &School::GetCourse(size_t course_id)
     {
-        assert(course_id < courses_.size());
+        TATTLETALE_ERROR_PRINT(course_id < courses_.size(), fmt::format("Course with id {} does not exist", course_id));
         return courses_[course_id];
     }
 
@@ -311,7 +311,7 @@ namespace tattletale
         std::vector<std::string> all_names;
         std::string firstname;
         std::ifstream firstname_file(path);
-        assert(firstname_file.is_open()); // Couldn't open the file
+        TATTLETALE_ERROR_PRINT(firstname_file.is_open(), fmt::format("Could not open {}", path));
         while (getline(firstname_file, firstname))
         {
             all_names.push_back(firstname);
