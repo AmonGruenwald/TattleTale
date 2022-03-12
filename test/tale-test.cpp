@@ -383,6 +383,11 @@ TEST(TaleInteractions, InteractionBecomesReason)
     tale::Tendency tendency;
     std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
     interaction->Apply();
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
+    {
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->name_, prototype.name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->id_, interaction->id_);
+    }
 }
 
 TEST(TaleCourse, DISABLED_CreateCourse)
