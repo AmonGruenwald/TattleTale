@@ -74,6 +74,18 @@ namespace tale
         }
         return (sum / all_interactions_.size());
     }
+
+    std::string Chronicle::GetKnownActorsDescription(size_t actor_id) const
+    {
+        std::string description;
+        std::shared_ptr<Actor> actor = actors_[actor_id];
+        std::vector<std::weak_ptr<tale::Actor>> known_actors = actor->GetAllKnownActors();
+        for (auto &other_actor : known_actors)
+        {
+            description += (other_actor.lock()->name_ + " known with value " + std::to_string(actor->CalculateRelationshipValue(other_actor.lock()->id_)) + "\n");
+        }
+        return description;
+    }
     size_t Chronicle::GetKernelAmount() const
     {
         return all_kernels_.size();

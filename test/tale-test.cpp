@@ -86,6 +86,13 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroSameCoursesPerWeek)
     SetUp(setting);
 }
 
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroFreetimeActorCount)
+{
+    tale::Setting setting;
+    setting.freetime_actor_count = 0;
+    SetUp(setting);
+}
+
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
 {
     tale::Setting setting;
@@ -93,6 +100,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithZeroInAllSettings)
     setting.actors_per_course = 0;
     setting.courses_per_day = 0;
     setting.same_course_per_week = 0;
+    setting.freetime_actor_count = 0;
     SetUp(setting);
 }
 
@@ -117,6 +125,13 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneCoursePerDay)
     SetUp(setting);
 }
 
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneFreetimeActorCount)
+{
+    tale::Setting setting;
+    setting.freetime_actor_count = 1;
+    SetUp(setting);
+}
+
 TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneSameCoursePerWeek)
 {
     tale::Setting setting;
@@ -131,6 +146,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneInAllSettings)
     setting.actors_per_course = 1;
     setting.courses_per_day = 1;
     setting.same_course_per_week = 1;
+    setting.freetime_actor_count = 1;
     SetUp(setting);
 }
 
@@ -144,6 +160,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithRandomValuesInAllSettings)
     setting.courses_per_day = random.GetUInt(0, 10);
     setting.same_course_per_week = random.GetUInt(0, 10);
     setting.days_to_simulate = random.GetUInt(0, 50);
+    setting.freetime_actor_count = random.GetUInt(0, 30);
     GTEST_INFO << "Actor Count = " << setting.actor_count << std::endl;
     GTEST_INFO << "Actors per Course = " << setting.actors_per_course << std::endl;
     GTEST_INFO << "Courses per Day = " << setting.courses_per_day << std::endl;

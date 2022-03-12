@@ -36,10 +36,8 @@ namespace tale
             }
             for (auto &[other, change] : prototype_.relationship_effects[i])
             {
-                for (auto &[type, value] : change)
-                {
-                    participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick_, participants_[other].lock()->id_, type, value);
-                }
+
+                participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick_, participants_[other].lock()->id_, change);
             }
         }
     }

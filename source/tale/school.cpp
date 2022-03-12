@@ -116,6 +116,8 @@ namespace tale
         TALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
         TALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
         TALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
+        std::shared_ptr<Actor> random_actor = actors_[random_.GetUInt(0, actors_.size() - 1)];
+        TALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->name_ + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -204,7 +206,7 @@ namespace tale
             std::vector<std::weak_ptr<Kernel>> reasons;
             std::vector<std::weak_ptr<Actor>> participants;
             float chance;
-            int interaction_index = actor->ChooseInteraction(actor->GetAllKnownActors(), ContextType::kFreetime, reasons, participants, chance);
+            int interaction_index = actor->ChooseInteraction(actor->GetFreetimeActorGroup(), ContextType::kFreetime, reasons, participants, chance);
             // TODO: registers interaction to events
             if (interaction_index != -1)
             {

@@ -395,29 +395,48 @@ namespace tale
         all_reasons.push_back(emotions_[type]);
         emotions_[type] = chronicle_.CreateEmotion(type, tick, weak_from_this(), all_reasons, new_value);
     }
-    void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, RelationshipType type, float value)
+    void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change)
     {
-        float previous_value = 0;
-        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
-        if (relationships_.count(actor_id))
+        bool all_zero = true;
+        for (auto &[type, value] : change)
         {
-
-            if (relationships_.at(actor_id).count(type))
+            if (value != 0)
+            {
+                all_zero = false;
+            }
+        }
+        if (all_zero)
+        {
+            return;
+        }
+        bool already_known = relationships_.count(actor_id);
+        auto other_actor = school_.GetActor(actor_id);
+        if (!already_known)
+        {
+            known_actors_.push_back(school_.GetActor(actor_id));
+        }
+        std::vector<std::weak_ptr<Kernel>> all_reasons;
+        for (auto &[type, value] : change)
+        {
+            all_reasons.clear();
+            all_reasons.insert(all_reasons.end(), reasons.begin(), reasons.end());
+            float previous_value = 0;
+            if (already_known)
             {
                 if (value == 0)
                 {
-                    return;
+                    continue;
                 }
                 previous_value = relationships_.at(actor_id).at(type).lock()->GetValue();
                 all_reasons.push_back(relationships_.at(actor_id).at(type));
             }
+            // TODO: think about handling this cleaner
+            float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
+            relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), other_actor, all_reasons, new_value);
         }
-        // TODO: think about handling this cleaner
-        float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-        auto other_actor = school_.GetActor(actor_id);
-        relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), other_actor, all_reasons, new_value);
-        known_actors_.push_back(school_.GetActor(actor_id));
+        UpdateKnownActors();
     }
+
     std::string Actor::GetWealthDescriptionString()
     {
         return "WEALTH:\n\t" + wealth_.lock()->ToString();
@@ -462,6 +481,14 @@ namespace tale
     const std::vector<std::weak_ptr<Actor>> &Actor::GetAllKnownActors() const
     {
         return known_actors_;
+    }
+    const std::vector<std::weak_ptr<Actor>> &Actor::GetFreetimeActorGroup() const
+    {
+        if (setting_.freetime_actor_count >= known_actors_.size())
+        {
+            return known_actors_;
+        }
+        return {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
     }
     void Actor::InitializeRandomWealth(size_t tick)
     {
@@ -522,6 +549,7 @@ namespace tale
                   {RelationshipType::kProtective,
                    chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}}});
             known_actors_.push_back(other_actor);
+            UpdateKnownActors();
         }
     }
     void Actor::InitializeRandomGoal(size_t tick)
@@ -544,5 +572,24 @@ namespace tale
             }
         }
         return false;
+    }
+
+    void Actor::UpdateKnownActors()
+    {
+        std::sort(known_actors_.begin(), known_actors_.end(), [this](const std::weak_ptr<Actor> &lhs, const std::weak_ptr<Actor> &rhs)
+                  {
+                      float lhs_value = CalculateRelationshipValue(lhs.lock()->id_);
+                      float rhs_value = CalculateRelationshipValue(rhs.lock()->id_);
+                      return lhs_value > rhs_value; });
+    }
+
+    float Actor::CalculateRelationshipValue(size_t actor_id) const
+    {
+        float value = 0;
+        for (const auto &[type, relationship] : relationships_.at(actor_id))
+        {
+            value += abs(relationship.lock()->GetValue());
+        }
+        return value;
     }
 } // namespace tale

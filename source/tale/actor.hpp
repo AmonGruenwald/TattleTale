@@ -151,7 +151,7 @@ namespace tale
          * @param type The type of Relationship that gets changed.
          * @param value By how much the Relationship gets changed.
          */
-        void ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, RelationshipType type, float value);
+        void ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change);
         /**
          * @brief Creates a string describing the current wealth status of the Actor.
          *
@@ -183,6 +183,8 @@ namespace tale
          */
         std::string GetTraitsDescriptionString();
         const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
+        const std::vector<std::weak_ptr<Actor>> &GetFreetimeActorGroup() const;
+        float CalculateRelationshipValue(size_t actor_id) const;
 
     private:
         /**
@@ -263,6 +265,8 @@ namespace tale
          * @return The result of the check.
          */
         bool ActorInRelationshipMap(size_t actor, const std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> &relationships) const;
+
+        void UpdateKnownActors();
     };
 
 } // namespace tale

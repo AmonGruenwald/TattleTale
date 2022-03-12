@@ -37,6 +37,7 @@ namespace tale
         std::weak_ptr<Trait> CreateTrait(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
 
         float GetAverageInteractionChance() const;
+        std::string Chronicle::GetKnownActorsDescription(size_t actor_id) const;
         size_t GetKernelAmount() const;
         std::string GetRandomCausalityChainDescription(size_t depth) const;
         std::string GetKissingCausalityChainDescription(size_t depth) const;

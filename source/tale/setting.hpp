@@ -40,12 +40,15 @@ namespace tale
         /**
          * @brief How many \link Relationship Relationships \endlink an Actor should at least have when he gets initialized
          */
-        uint32_t desired_min_start_relationships_count = 1;
+        uint32_t desired_min_start_relationships_count = 0;
         /**
          * @brief How many \link Relationship Relationships \endlink an Actor can have when he gets initialized
          */
-        uint32_t desired_max_start_relationships_count = 10;
-
+        uint32_t desired_max_start_relationships_count = 4;
+        /**
+         * @brief To how many \link Actor Actors \endlink another Actor would reach out to during freetime.
+         */
+        size_t freetime_actor_count = 6;
         /**
          * @brief Calculates how many slots are there in total in a week.
          *
