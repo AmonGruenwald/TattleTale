@@ -46,6 +46,7 @@ namespace tale
          * @return The found group.
          */
         const std::vector<std::weak_ptr<Actor>> &GetCourseGroupForSlot(size_t slot);
+        bool SpaceInSlot(size_t slot) const;
         /**
          * @brief Checks if the course has all slots filled.
          *
@@ -70,12 +71,16 @@ namespace tale
          * @param slot The slot the \link Actor Actors \endlink will be added to.
          */
         void AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot);
+        void AddToSlot(std::weak_ptr<Actor> actor, size_t slot);
+        std::vector<std::weak_ptr<Actor>> ClearSlot(size_t slot);
         /**
          * @brief Getter for the amount of slots the Course currenty holds.
          *
          * @return The amount of slots.
          */
         size_t GetSlotCount() const;
+        size_t GetActorCount(size_t slot_index) const;
+        std::string ToString() const;
 
     private:
         /**
@@ -86,6 +91,7 @@ namespace tale
          * @brief Holds a reference to the Randmo objec that was passed during construction.
          */
         Random &random_;
+        const Setting &setting_;
     };
 
 } // namespace tale

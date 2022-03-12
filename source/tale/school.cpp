@@ -54,7 +54,7 @@ namespace tale
             courses_.push_back(Course(random_, setting_, i, "Course " + std::to_string(i)));
 
             // Filling courses:
-            std::string course_creation_description = ("CREATED COURSE " + std::to_string(courses_[i].id_));
+            TALE_DEBUG_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -82,21 +82,54 @@ namespace tale
                 }
                 std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
 
-                course_creation_description += "\n\t";
                 for (size_t j = 0; j < slots.size(); ++j)
                 {
-                    course_creation_description += "[";
-                    if (slots[j] < 10)
-                    {
-                        course_creation_description += "0";
-                    }
-                    course_creation_description += std::to_string(slots[j]);
-                    course_creation_description += "]";
                     courses_[i].AddToSlot(course_group, slots[j]);
                 }
-                course_creation_description += (" <- " + std::to_string(course_group.size()) + " ACTORS.");
             }
-            TALE_DEBUG_PRINT(course_creation_description);
+        }
+        for (auto &actor : actors_)
+        {
+            if (actor->AllSlotsFilled())
+            {
+                continue;
+            }
+            for (size_t slot = 0; slot < slot_count_per_week; ++slot)
+            {
+                if (actor->SlotEmpty(slot))
+                {
+                    for (auto &course : courses_)
+                    {
+                        if (course.SpaceInSlot(slot))
+                        {
+                            course.AddToSlot(actor, slot);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (size_t course_index = 0; course_index < course_count; ++course_index)
+        {
+            for (size_t slot_index = 0; slot_index < slot_count_per_week; ++slot_index)
+            {
+                for (size_t other_course_index = course_index + 1; other_course_index < course_count; ++other_course_index)
+                {
+                    size_t actors_count_in_slot = courses_[course_index].GetActorCount(slot_index);
+                    if (actors_count_in_slot > setting_.actors_per_course || actors_count_in_slot == 0)
+                    {
+                        break;
+                    }
+                    size_t other_actors_count_in_slot = courses_[other_course_index].GetActorCount(slot_index);
+                    size_t summarized_actor_count = actors_count_in_slot + other_actors_count_in_slot;
+                    if (summarized_actor_count < setting_.actors_per_course && other_actors_count_in_slot > 0)
+                    {
+                        std::vector<std::weak_ptr<Actor>> course_group = courses_[other_course_index].ClearSlot(slot_index);
+                        courses_[course_index].AddToSlot(course_group, slot_index);
+                    }
+                }
+            }
         }
     }
 

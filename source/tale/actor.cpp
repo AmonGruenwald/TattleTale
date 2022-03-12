@@ -48,6 +48,14 @@ namespace tale
         enrolled_courses_id_[slot] = course_id;
     }
 
+    void Actor::EjectFromCourse(size_t course_id, uint32_t slot)
+    {
+        // TODO: actual error handling
+        assert(enrolled_courses_id_[slot] == course_id);
+        --filled_slots_count_;
+        enrolled_courses_id_[slot] = -1;
+    }
+
     size_t Actor::GetFilledSlotsCount() const
     {
         return filled_slots_count_;
@@ -69,6 +77,11 @@ namespace tale
             }
         }
         return true;
+    }
+
+    bool Actor::SlotEmpty(size_t slot) const
+    {
+        return (enrolled_courses_id_[slot] == -1);
     }
 
     int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance)

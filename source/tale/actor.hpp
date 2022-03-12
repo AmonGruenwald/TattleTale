@@ -77,6 +77,7 @@ namespace tale
          * @param slot The slot during which we want the Actor to enroll in the course.
          */
         void EnrollInCourse(size_t course_id, uint32_t slot);
+        void EjectFromCourse(size_t course_id, uint32_t slot);
         /**
          * @brief Getter for the amount of filled slots.
          *
@@ -107,6 +108,7 @@ namespace tale
          * @param[out] out_chance How likely it was that this interaction was chosen.
          * @return The index of the InteractionPrototype the Actor chose.
          */
+        bool Actor::SlotEmpty(size_t slot) const;
         int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance);
         /**
          * @brief Calculates the chance of an Interaction based on its Tendency and the \link Actor Actor's \endlink current state.
