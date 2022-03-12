@@ -203,7 +203,8 @@ namespace tale
                     std::vector<std::weak_ptr<Actor>> course_group = course.GetCourseGroupForSlot(slot);
                     for (auto &actor : course_group)
                     {
-                        LetActorInteract(actor.lock(), course_group, ContextType::kCourse, ("During Slot " + std::to_string(i) + " in " + course.name_));
+                        std::shared_ptr locked_actor = actor.lock();
+                        LetActorInteract(locked_actor, course_group, ContextType::kCourse, ("During Slot " + std::to_string(i) + " in " + course.name_));
                     }
                 }
                 ++current_tick_;
