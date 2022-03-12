@@ -7,7 +7,7 @@
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include <map>
 #include <fmt/core.h>
-namespace tale
+namespace tattletale
 {
     /**
      * @brief TODO
@@ -60,5 +60,5 @@ namespace tale
         }
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_INTERACTIONS_INTERACTIONTENDENCY_H

@@ -1,7 +1,7 @@
 #ifndef TALE_INTERACTIONS_INTERACTIONCONTEXTTYPE_H
 #define TALE_INTERACTIONS_INTERACTIONCONTEXTTYPE_H
 #include <string>
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Types of Context an Interaction can happen in.
@@ -57,5 +57,5 @@ namespace tale
         }
         return "none";
     }
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_INTERACTIONS_INTERACTIONCONTEXTTYPE_H

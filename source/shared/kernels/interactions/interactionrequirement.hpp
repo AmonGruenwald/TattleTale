@@ -4,7 +4,7 @@
 #include <fmt/core.h>
 #include "shared/kernels/interactions/interactioncontexttype.hpp"
 #include "shared/kernels/goal.hpp"
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Stores all necessary \link InteractionRequirement Requirements \endlink for an Interaction to happen.
@@ -105,5 +105,5 @@ namespace tale
         }
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_INTERACTIONS_INTERACTIONREQUIREMENT_H

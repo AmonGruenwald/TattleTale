@@ -3,7 +3,7 @@
 #include "tale/course.hpp"
 #include <fmt/core.h>
 
-namespace tale
+namespace tattletale
 {
     Course::Course(Random &random, const Setting &setting, size_t id, std::string name) : id_(id), name_(name), random_(random), setting_(setting)
     {
@@ -99,4 +99,4 @@ namespace tale
         }
         return description;
     }
-} // namespace tale
+} // namespace tattletale

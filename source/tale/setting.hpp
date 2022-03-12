@@ -4,7 +4,7 @@
 #include <math.h>
 #include <assert.h>
 #include <algorithm>
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Stores all settings necessary for the simulation
@@ -118,5 +118,5 @@ namespace tale
         }
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_SETTING_H

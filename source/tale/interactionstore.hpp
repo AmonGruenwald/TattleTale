@@ -14,7 +14,7 @@
 #include <nlohmann/json.hpp>
 #include <fmt/core.h>
 
-namespace tale
+namespace tattletale
 {
     class Actor;
     /**
@@ -205,5 +205,5 @@ namespace tale
 
         bool CheckCorrectValueRange(float value, std::string error_preamble = "");
     };
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_GLOBALS_INTERACTIONSTORE_H

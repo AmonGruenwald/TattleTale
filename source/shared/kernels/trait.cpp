@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace tale
+namespace tattletale
 {
     Trait::Trait(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
         : Kernel(name, id, tick, owner, reasons){};
@@ -10,4 +10,4 @@ namespace tale
     {
         return "Traits are not implemented yet.";
     }
-} // namespace tale
+} // namespace tattletale

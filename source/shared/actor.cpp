@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <math.h>
 
-namespace tale
+namespace tattletale
 {
     Actor::Actor(School &school, size_t id, std::string first_name, std::string last_name)
         : random_(school.GetRandom()),
@@ -623,4 +623,4 @@ namespace tale
         }
         return false;
     }
-} // namespace tale
+} // namespace tattletale

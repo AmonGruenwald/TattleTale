@@ -10,7 +10,7 @@
 #include <map>
 #include <memory>
 
-namespace tale
+namespace tattletale
 {
 
     class Actor;
@@ -86,5 +86,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_KERNELS_INTERACTIONS_INTERACTION_H

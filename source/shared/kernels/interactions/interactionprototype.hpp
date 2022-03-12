@@ -8,7 +8,7 @@
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include <fmt/core.h>
 
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Prototype of an Interaction.
@@ -90,5 +90,5 @@ namespace tale
         }
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_INTERACTIONS_INTERACTIONPROTOTYPE_H

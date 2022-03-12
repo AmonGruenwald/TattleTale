@@ -7,7 +7,7 @@
 #include <string>
 #include <memory>
 
-namespace tale
+namespace tattletale
 {
     /**
      * @brief A Course grouping \link Actor Actors \endlink together during different slots of the day.
@@ -94,5 +94,5 @@ namespace tale
         const Setting &setting_;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_COURSE_H

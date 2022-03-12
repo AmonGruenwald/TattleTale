@@ -10,7 +10,7 @@
 #include "tale/interactionstore.hpp"
 #include "shared/actor.hpp"
 
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Enum specifying the days of the week.
@@ -229,5 +229,5 @@ namespace tale
         std::vector<std::string> GetRandomNames(size_t count, std::string path);
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_SCHOOL_H

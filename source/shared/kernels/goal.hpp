@@ -4,7 +4,7 @@
 #include "shared/kernels/kernel.hpp"
 #include "shared/random.hpp"
 
-namespace tale
+namespace tattletale
 {
     enum class GoalType
     {
@@ -36,5 +36,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_GOAL_H

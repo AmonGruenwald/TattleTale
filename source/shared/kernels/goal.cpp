@@ -4,7 +4,7 @@
 #include <iostream>
 #include <assert.h>
 
-namespace tale
+namespace tattletale
 {
     Goal::Goal(GoalType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
         : type_(type), Kernel(GoalTypeToString(type), id, tick, owner, reasons){};
@@ -92,4 +92,4 @@ namespace tale
     {
         return GoalTypeToDescription(type_);
     }
-} // namespace tale
+} // namespace tattletale

@@ -3,7 +3,7 @@
 
 #include <random>
 #include <vector>
-namespace tale
+namespace tattletale
 {
     class Random
     {
@@ -19,5 +19,5 @@ namespace tale
     private:
         std::mt19937 rng_;
     };
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_GLOBALS_RANDOM_H

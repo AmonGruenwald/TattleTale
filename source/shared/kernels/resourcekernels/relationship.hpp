@@ -3,7 +3,7 @@
 
 #include "shared/kernels/resourcekernels/resource.hpp"
 
-namespace tale
+namespace tattletale
 {
     enum class RelationshipType
     {
@@ -75,5 +75,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H

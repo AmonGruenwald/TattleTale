@@ -14,7 +14,7 @@
 #include "shared/kernels/trait.hpp"
 #include "shared/kernels/interactions/interactionrequirement.hpp"
 
-namespace tale
+namespace tattletale
 {
     class School;
     /**
@@ -273,5 +273,5 @@ namespace tale
         void UpdateKnownActors();
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_ACTOR_H

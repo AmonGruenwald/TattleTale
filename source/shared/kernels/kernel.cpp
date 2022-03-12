@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace tale
+namespace tattletale
 {
     Kernel::Kernel(
         std::string name, size_t id,
@@ -20,4 +20,4 @@ namespace tale
         consequences_.push_back(consequence);
     }
 
-} // namespace tale
+} // namespace tattletale

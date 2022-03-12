@@ -5,7 +5,7 @@
 #include <iostream>
 #include "shared/actor.hpp"
 
-namespace tale
+namespace tattletale
 {
     Interaction::Interaction(
         const InteractionPrototype &prototype,
@@ -62,4 +62,4 @@ namespace tale
     {
         return participants_;
     }
-} // namespace tale
+} // namespace tattletale

@@ -22,9 +22,9 @@
 /**
  * @brief Responsible for the event generation of the TattleTale project.
  */
-namespace tale
+namespace tattletale
 {
     // TODO: should return events and needs to be parameterizable
     void Run(const Setting &setting);
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_TALE_H

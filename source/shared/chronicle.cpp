@@ -2,7 +2,7 @@
 #include "tale/talecore.hpp"
 #include "shared/actor.hpp"
 
-namespace tale
+namespace tattletale
 {
     Chronicle::Chronicle(Random &random, size_t actor_count) : random_(random)
     {
@@ -79,7 +79,7 @@ namespace tale
     {
         std::string description;
         std::shared_ptr<Actor> actor = actors_[actor_id];
-        std::vector<std::weak_ptr<tale::Actor>> known_actors = actor->GetAllKnownActors();
+        std::vector<std::weak_ptr<tattletale::Actor>> known_actors = actor->GetAllKnownActors();
         for (auto &other_actor : known_actors)
         {
             description += (other_actor.lock()->name_ + " known with value " + std::to_string(actor->CalculateRelationshipValue(other_actor.lock()->id_)) + "\n");
@@ -203,4 +203,4 @@ namespace tale
         }
         return description;
     }
-} // namespace tale
+} // namespace tattletale

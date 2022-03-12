@@ -3,7 +3,7 @@
 
 #include "shared/kernels/kernel.hpp"
 
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Represents the Traits an Actor has.
@@ -19,5 +19,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_TRAIT_H

@@ -1,5 +1,5 @@
 #include "shared/random.hpp"
-namespace tale
+namespace tattletale
 {
     Random::Random()
     {
@@ -51,4 +51,4 @@ namespace tale
         std::discrete_distribution<size_t> distribution(probability_distribution.begin(), probability_distribution.end());
         return distribution(rng_);
     }
-} // namespace tale
+} // namespace tattletale

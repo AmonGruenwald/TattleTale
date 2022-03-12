@@ -3,7 +3,7 @@
 
 #include "shared/kernels/kernel.hpp"
 
-namespace tale
+namespace tattletale
 {
     /**
      * @brief Represents an abstract Resource an Actor has.
@@ -45,5 +45,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_KERNELS_RESOURCEKERNELS_RESOURCE_H

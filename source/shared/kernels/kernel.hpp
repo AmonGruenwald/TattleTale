@@ -5,7 +5,7 @@
 #include <vector>
 #include <memory>
 
-namespace tale
+namespace tattletale
 {
     class Actor;
     /**
@@ -36,5 +36,5 @@ namespace tale
         Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_KERNEL_H

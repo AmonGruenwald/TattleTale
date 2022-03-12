@@ -4,7 +4,7 @@
 #include <fmt/core.h>
 #include "shared/actor.hpp"
 
-namespace tale
+namespace tattletale
 {
     Emotion::Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
         : Resource(EmotionTypeToString(type), id, tick, owner, reasons, value), type_(type){};
@@ -59,4 +59,4 @@ namespace tale
     {
         return fmt::format("{} was {} with a value of {}", owner_.lock()->name_, name_, value_);
     }
-} // namespace tale
+} // namespace tattletale

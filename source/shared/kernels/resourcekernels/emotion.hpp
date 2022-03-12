@@ -4,7 +4,7 @@
 #include <string>
 #include "shared/kernels/resourcekernels/resource.hpp"
 
-namespace tale
+namespace tattletale
 {
     enum class EmotionType
     {
@@ -75,5 +75,5 @@ namespace tale
         friend class Chronicle;
     };
 
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_KERNELS_RESOURCEKERNELS_EMOTION_H

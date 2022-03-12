@@ -2,7 +2,7 @@
 #include "tale/tale.hpp"
 
 #include <iostream>
-namespace tale
+namespace tattletale
 {
 
     void Run(const Setting &setting)
@@ -14,4 +14,4 @@ namespace tale
         TALE_DEBUG_PRINT("STARTING SIMULATION");
         school.SimulateDays(setting.days_to_simulate);
     }
-} // namespace tale
+} // namespace tattletale

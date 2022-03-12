@@ -7,7 +7,7 @@
 #include <assert.h>
 #include <fstream>
 
-namespace tale
+namespace tattletale
 {
     InteractionStore::InteractionStore(Random &random, Chronicle &chronicle) : random_(random), chronicle_(chronicle)
     {
@@ -387,4 +387,4 @@ namespace tale
         return true;
     }
 
-} // namespace tale
+} // namespace tattletale

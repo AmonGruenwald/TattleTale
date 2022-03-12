@@ -4,7 +4,7 @@
 #include <fmt/core.h>
 #include "shared/actor.hpp"
 
-namespace tale
+namespace tattletale
 {
     Resource::Resource(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
         : Kernel(name, id, tick, owner, reasons), value_(value){};
@@ -16,4 +16,4 @@ namespace tale
     {
         return fmt::format("{} has {} of {}", owner_.lock()->name_, name_, value_);
     }
-} // namespace tale
+} // namespace tattletale

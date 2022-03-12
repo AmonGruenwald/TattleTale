@@ -11,7 +11,7 @@
 #include "shared/kernels/trait.hpp"
 #include "shared/random.hpp"
 
-namespace tale
+namespace tattletale
 {
     class Chronicle
     {
@@ -55,5 +55,5 @@ namespace tale
 
         std::string GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth) const;
     };
-} // namespace tale
+} // namespace tattletale
 #endif // TALE_GLOBALS_CHRONICLE_H

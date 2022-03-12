@@ -7,7 +7,7 @@
 #include <fstream>
 #include <fmt/core.h>
 
-namespace tale
+namespace tattletale
 {
     School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(random_, setting.actor_count), interaction_store_(random_, chronicle_)
     {
@@ -324,4 +324,4 @@ namespace tale
         return random_names;
     }
 
-} // namespace tale
+} // namespace tattletale
