@@ -350,6 +350,58 @@ TEST(TaleInteractions, InteractionBecomesReason)
     std::vector<float> wealth_effects;
     std::vector<std::map<tale::EmotionType, float>> emotion_effects;
     std::vector<std::map<size_t, std::map<tale::RelationshipType, float>>> relationship_effects;
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
+    {
+        wealth_effects.push_back(0.1f);
+        std::map<tale::EmotionType, float> emotion_map;
+        for (int emotion_type_int = (int)tale::EmotionType::kNone + 1; emotion_type_int != (int)tale::EmotionType::kLast; ++emotion_type_int)
+        {
+            tale::EmotionType type = static_cast<tale::EmotionType>(emotion_type_int);
+            emotion_map.insert({type, 0.1f});
+        }
+        emotion_effects.push_back(emotion_map);
+
+        std::map<tale::RelationshipType, float> relationship_map;
+        size_t other_participant = (participant_index == 0 ? 1 : 0);
+        for (int relationship_type_int = (int)tale::RelationshipType::kNone + 1; relationship_type_int != (int)tale::RelationshipType::kLast; ++relationship_type_int)
+        {
+            tale::RelationshipType type = static_cast<tale::RelationshipType>(relationship_type_int);
+            relationship_map.insert({type, 0.1f});
+        }
+        std::map<size_t, std::map<tale::RelationshipType, float>> participant_relationship_map = {{other_participant, relationship_map}};
+        relationship_effects.push_back(participant_relationship_map);
+    }
+
+    tale::InteractionPrototype prototype;
+    prototype.name = "InteractionBecomesReason";
+    prototype.wealth_effects = wealth_effects;
+    prototype.emotion_effects = emotion_effects;
+    prototype.relationship_effects = relationship_effects;
+    prototype.description = "{} did test interaction with {}";
+    tale::Requirement requirement;
+    requirement.participant_count = participant_count;
+    tale::Tendency tendency;
+    std::shared_ptr<tale::Interaction> interaction = chronicle.CreateInteraction(prototype, requirement, tendency, 1.0f, tick, no_reasons, participants).lock();
+    interaction->Apply();
+    for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
+    {
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->name_, prototype.name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->id_, interaction->id_);
+        for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
+        {
+            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->name_, prototype.name);
+            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->id_, interaction->id_);
+        }
+        for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
+        {
+            // TODO: this will break if actors get random relationships
+            for (auto &[type, relationship] : map)
+            {
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->name_, prototype.name);
+                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->id_, interaction->id_);
+            }
+        }
+    }
 }
 
 TEST(TaleCourse, DISABLED_CreateCourse)
