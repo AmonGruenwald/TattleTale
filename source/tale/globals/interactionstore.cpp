@@ -290,16 +290,6 @@ namespace tale
         out_tendency.ClearValues();
         TALE_VERBOSE_PRINT("CREATING TENDENCY...");
 
-        float group_size_value = 0.0f;
-        if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(group_size_value, json, group_size_key_, false, error_preamble))
-        {
-            return false;
-        }
-        if (!CheckCorrectValueRange(group_size_value))
-        {
-            return false;
-        }
-        out_tendency.group_size = group_size_value;
         nlohmann::json context_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(context_json, json, context_key_, false, error_preamble))
         {

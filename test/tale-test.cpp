@@ -540,9 +540,8 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
 {
     tale::Tendency tendency;
     tale::ContextType context = tale::ContextType::kNone;
-    float group_size_ratio = 0.0f;
     std::weak_ptr<tale::Kernel> reason;
-    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+    float chance = actor_->CalculateTendencyChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
 
@@ -566,9 +565,8 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
         actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, 1.0f);
     }
     tale::ContextType context = tale::ContextType::kCourse;
-    float group_size_ratio = 1.0f;
     std::weak_ptr<tale::Kernel> reason;
-    float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+    float chance = actor_->CalculateTendencyChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
 
@@ -596,9 +594,8 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
             actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         }
         tale::ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? tale::ContextType::kCourse : tale::ContextType::kFreetime);
-        float group_size_ratio = random.GetFloat(-1.0f, 1.0f);
         std::weak_ptr<tale::Kernel> reason;
-        float chance = actor_->CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+        float chance = actor_->CalculateTendencyChance(tendency, context, reason);
         EXPECT_GE(chance, 0.0f);
         EXPECT_LE(chance, 1.0f);
     }

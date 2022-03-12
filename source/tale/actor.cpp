@@ -91,13 +91,8 @@ namespace tale
         for (auto &i : possible_interaction_indices)
         {
             const Tendency &tendency = tendencies[i];
-            // TODO: rethink if this makes sense
-            float group_size_ratio = static_cast<float>(actor_group.size()) / static_cast<float>(setting_.actors_per_course);
-            group_size_ratio = std::clamp(group_size_ratio, 0.0f, 1.0f);
-            group_size_ratio *= 2;
-            group_size_ratio -= 1.0f;
             std::weak_ptr<Kernel> reason;
-            float chance = CalculateTendencyChance(tendency, context, group_size_ratio, reason);
+            float chance = CalculateTendencyChance(tendency, context, reason);
             bool goal_had_effect = false;
             float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
             if (goal_had_effect)
@@ -274,7 +269,7 @@ namespace tale
         return true;
     }
 
-    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, const float &group_size_ratio, std::weak_ptr<Kernel> &out_reason)
+    float Actor::CalculateTendencyChance(const Tendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason)
     {
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
         // TODO: reasons also will never include groupsize or context
@@ -283,9 +278,6 @@ namespace tale
         float current_chance_increase = 0.0f;
         uint16_t chance_parts = 0;
 
-        current_chance_increase = tendency.group_size * group_size_ratio;
-        chance += current_chance_increase;
-        ++chance_parts;
         for (auto &[type, value] : tendency.contexts)
         {
             // TODO: rethink wether this makes sense

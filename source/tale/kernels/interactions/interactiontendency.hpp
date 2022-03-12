@@ -14,7 +14,6 @@ namespace tale
      */
     struct Tendency
     {
-        float group_size = 0;
         std::map<ContextType, float> contexts = {
             {ContextType::kCourse, 0.0f},
             {ContextType::kFreetime, 0.0f}};
@@ -29,7 +28,6 @@ namespace tale
 
         std::string ToString()
         {
-            std::string grout_size_string = fmt::format("Group Size: {}\n", group_size);
             std::string contexts_string = "Contexts:\n";
             for (auto &[key, value] : contexts)
             {
@@ -51,11 +49,10 @@ namespace tale
                     relationship_string += fmt::format("\t\t{}: {}\n", Relationship::RelationshipTypeToString(key), value);
                 }
             }
-            return (fmt::format("{}\n{}\n{}\n{}\n{}", grout_size_string, contexts_string, wealth_string, emotions_string, relationship_string));
+            return (fmt::format("{}\n{}\n{}\n{}", contexts_string, wealth_string, emotions_string, relationship_string));
         }
         void ClearValues()
         {
-            group_size = 0;
             contexts.clear();
             wealth = 0;
             emotions.clear();

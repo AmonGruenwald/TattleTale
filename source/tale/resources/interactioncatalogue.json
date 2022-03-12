@@ -153,7 +153,6 @@
         },
         "tendencies":
         {
-            "group_size": 1.0,
             "emotions": 
             { 
                 "extroverted": 1.0
@@ -387,7 +386,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "emotions": 
             { 
                 "happy": -1.0,
@@ -426,7 +424,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": 0.0,
@@ -576,7 +573,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "emotions": 
             { 
                 "happy": -0.1,
@@ -619,7 +615,6 @@
         },
         "tendencies":
         {
-            "group_size": 1.0,
             "emotions": 
             { 
                 "calm": -1.0,
@@ -800,7 +795,6 @@
         },
         "tendencies":
         {
-            "group_size": -0.5,
             "wealth": -1.0,
             "emotions": 
             { 
@@ -880,7 +874,6 @@
         },
         "tendencies":
         {
-            "group_size": -0.5,
             "wealth": -0.5,
             "emotions": 
             { 
@@ -1107,7 +1100,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": -0.5,
@@ -1187,7 +1179,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": -0.5,
@@ -1270,7 +1261,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": -0.5,
@@ -1605,7 +1595,6 @@
         },
         "tendencies":
         {
-            "group_size": 1.0,
             "contexts":
             { 
                 "course": 0.5,
@@ -2678,7 +2667,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": 0.0,
@@ -2754,7 +2742,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": 0.0,
@@ -2935,7 +2922,6 @@
         },
         "tendencies":
         {
-            "group_size": -0.5,
             "contexts":
             { 
                 "course": -0.2,
@@ -3286,7 +3272,6 @@
         },
         "tendencies":
         {
-            "group_size": 1.0,
             "emotions": 
             { 
                 "happy": 0.5,
@@ -3696,7 +3681,6 @@
         },
         "tendencies":
         {
-            "group_size": 0.5,
             "wealth": -0.5,
             "emotions": 
             { 
@@ -3774,7 +3758,6 @@
         },
         "tendencies":
         {
-            "group_size": 0.5,
             "wealth": -0.5,
             "emotions": 
             { 
@@ -3857,7 +3840,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": -1.0,
@@ -3947,7 +3929,6 @@
         },
         "tendencies":
         {
-            "group_size": -1.0,
             "contexts":
             { 
                 "course": -1.0,
@@ -4036,7 +4017,6 @@
         },
         "tendencies":
         {
-            "group_size": -0.1,
             "contexts":
             { 
                 "course": 0.0,
@@ -4124,7 +4104,6 @@
         },
         "tendencies":
         {
-            "group_size": -0.1,
             "contexts":
             { 
                 "course": 0.0,
