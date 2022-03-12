@@ -28,7 +28,7 @@ bool \mbox{\hyperlink{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}{All
 \begin{DoxyCompactList}\small\item\em Checks wether all slots are already filled. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}{Slots\+Empty}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&slots) const
 \begin{DoxyCompactList}\small\item\em Checks wether the passed slots are empty. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}{Actor\+::\+Slot\+Empty}} (size\+\_\+t slot) const
+bool \mbox{\hyperlink{classtale_1_1_actor_ad86b2df25e8ee27046355d9eb938b353}{Slot\+Empty}} (size\+\_\+t slot) const
 \begin{DoxyCompactList}\small\item\em Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classtale_1_1_actor_a390b47372efd8d654d6a45aa8727771c}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency, const \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{Context\+Type}} \&context, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtale_1_1_kernel}{Kernel}} $>$ \&out\+\_\+reason)
 \begin{DoxyCompactList}\small\item\em Calculates the chance of an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} based on its \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} and the \mbox{\hyperlink{classtale_1_1_actor}{Actor\textquotesingle{}s }} current state. \end{DoxyCompactList}\item 
@@ -121,32 +121,6 @@ std\+::vector$<$ int $>$ {\bfseries enrolled\+\_\+courses\+\_\+id\+\_\+}
 Represents one person in the simulation. An \mbox{\hyperlink{classtale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}\label{classtale_1_1_actor_a93cfa345c9e50d33484df2e1efebf683}} 
-\index{tale::Actor@{tale::Actor}!Actor::SlotEmpty@{Actor::SlotEmpty}}
-\index{Actor::SlotEmpty@{Actor::SlotEmpty}!tale::Actor@{tale::Actor}}
-\doxysubsubsection{\texorpdfstring{Actor::SlotEmpty()}{Actor::SlotEmpty()}}
-{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Actor\+::\+Slot\+Empty (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption}) const}
-
-
-
-Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. 
-
-WIP\+: Currently just chooses an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} at random.
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em course\+\_\+group} & The course group the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is currently interacting in. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+reasons} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will write it\textquotesingle{}s reason for the decision to. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+participants} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will to with which other \mbox{\hyperlink{classtale_1_1_actor}{Actors }} he wants to do the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
-\hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+chance} & How likely it was that this interaction was chosen. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The index of the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} chose. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}\label{classtale_1_1_actor_af5ef5bc94b8fcf02a63fc5a361b0909e}} 
 \index{tale::Actor@{tale::Actor}!AllSlotsFilled@{AllSlotsFilled}}
 \index{AllSlotsFilled@{AllSlotsFilled}!tale::Actor@{tale::Actor}}
@@ -444,6 +418,32 @@ Checks if the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is enrolled in the p
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The result of the check. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtale_1_1_actor_ad86b2df25e8ee27046355d9eb938b353}\label{classtale_1_1_actor_ad86b2df25e8ee27046355d9eb938b353}} 
+\index{tale::Actor@{tale::Actor}!SlotEmpty@{SlotEmpty}}
+\index{SlotEmpty@{SlotEmpty}!tale::Actor@{tale::Actor}}
+\doxysubsubsection{\texorpdfstring{SlotEmpty()}{SlotEmpty()}}
+{\footnotesize\ttfamily bool tale\+::\+Actor\+::\+Slot\+Empty (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption}) const}
+
+
+
+Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} for the currrent situation. 
+
+WIP\+: Currently just chooses an \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}} at random.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em course\+\_\+group} & The course group the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} is currently interacting in. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+\_\+reasons} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will write it\textquotesingle{}s reason for the decision to. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+\_\+participants} & Vector the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} will to with which other \mbox{\hyperlink{classtale_1_1_actor}{Actors }} he wants to do the \mbox{\hyperlink{classtale_1_1_interaction}{Interaction}}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+\_\+chance} & How likely it was that this interaction was chosen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the \mbox{\hyperlink{structtale_1_1_interaction_prototype}{Interaction\+Prototype}} the \mbox{\hyperlink{classtale_1_1_actor}{Actor}} chose. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}\label{classtale_1_1_actor_aa74a2d4bebd404b57147f1a382934fab}} 
 \index{tale::Actor@{tale::Actor}!SlotsEmpty@{SlotsEmpty}}

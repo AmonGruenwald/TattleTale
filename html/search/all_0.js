@@ -10,6 +10,5 @@ var searchData=
   ['apply_7',['Apply',['../classtale_1_1_interaction.html#aaeae12102f802d68e0504e19bb413960',1,'tale::Interaction']]],
   ['applyemotionchange_8',['ApplyEmotionChange',['../classtale_1_1_actor.html#a1e01ae3cb1b7e8cebf9f2b02edf60e8d',1,'tale::Actor']]],
   ['applyrelationshipchange_9',['ApplyRelationshipChange',['../classtale_1_1_actor.html#a643972cf19d8bab00fc7de28a350e773',1,'tale::Actor']]],
-  ['applywealthchange_10',['ApplyWealthChange',['../classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d',1,'tale::Actor']]],
-  ['slotempty_11',['SlotEmpty',['../classtale_1_1_actor.html#a93cfa345c9e50d33484df2e1efebf683',1,'tale::Actor']]]
+  ['applywealthchange_10',['ApplyWealthChange',['../classtale_1_1_actor.html#a6b9a636a41cd0ff4643f06d320de991d',1,'tale::Actor']]]
 ];
