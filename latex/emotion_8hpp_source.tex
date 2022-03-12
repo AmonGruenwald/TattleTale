@@ -1,14 +1,14 @@
 \hypertarget{emotion_8hpp_source}{}\doxysection{emotion.\+hpp}
-\label{emotion_8hpp_source}\index{tale/kernels/resourcekernels/emotion.hpp@{tale/kernels/resourcekernels/emotion.hpp}}
+\label{emotion_8hpp_source}\index{shared/kernels/resourcekernels/emotion.hpp@{shared/kernels/resourcekernels/emotion.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/resource.hpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{8 \{}
 \DoxyCodeLine{9     \textcolor{keyword}{enum class} EmotionType}
 \DoxyCodeLine{10     \{}
@@ -21,21 +21,21 @@
 \DoxyCodeLine{17         kLast}
 \DoxyCodeLine{18     \};}
 \DoxyCodeLine{19 }
-\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtale_1_1_resource}{Resource}}}
+\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
 \DoxyCodeLine{27     \{}
 \DoxyCodeLine{28     \textcolor{keyword}{public}:}
-\DoxyCodeLine{39         \textcolor{keyword}{static} EmotionType \mbox{\hyperlink{classtale_1_1_emotion_a8092b3fc401bf81231773382145a867b}{StringToEmotionType}}(std::string emotion\_string);}
-\DoxyCodeLine{48         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{EmotionTypeToString}}(EmotionType emotion\_type);}
+\DoxyCodeLine{39         \textcolor{keyword}{static} EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{StringToEmotionType}}(std::string emotion\_string);}
+\DoxyCodeLine{48         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{EmotionTypeToString}}(EmotionType emotion\_type);}
 \DoxyCodeLine{49 }
-\DoxyCodeLine{55         std::string \mbox{\hyperlink{classtale_1_1_emotion_a5c78d2831143abf947eae93cfafa3eb2}{ToString}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{55         std::string \mbox{\hyperlink{classtattletale_1_1_emotion_a5f5f3b89454e3c61d50c41da9a76133e}{ToString}}() \textcolor{keyword}{override};}
 \DoxyCodeLine{56 }
 \DoxyCodeLine{57     \textcolor{keyword}{private}:}
-\DoxyCodeLine{70         \mbox{\hyperlink{classtale_1_1_emotion_acdc6e24c51f8368ac19450e897c93971}{Emotion}}(EmotionType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{74         EmotionType \mbox{\hyperlink{classtale_1_1_emotion_a03ad40cac9c3eef3c4135696006cd207}{type\_}};}
-\DoxyCodeLine{75         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{70         \mbox{\hyperlink{classtattletale_1_1_emotion_a622523c76b47e41983a28ac2efd744bd}{Emotion}}(EmotionType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{74         EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}{type\_}};}
+\DoxyCodeLine{75         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
 \DoxyCodeLine{76     \};}
 \DoxyCodeLine{77 }
-\DoxyCodeLine{78 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{78 \} \textcolor{comment}{// namespace tattletale}}
 \DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
 
 \end{DoxyCode}

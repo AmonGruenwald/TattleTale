@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['emotion_0',['Emotion',['../classtale_1_1_emotion.html#acdc6e24c51f8368ac19450e897c93971',1,'tale::Emotion::Emotion()'],['../classtale_1_1_emotion.html',1,'tale::Emotion']]],
-  ['emotion_5feffects_1',['emotion_effects',['../structtale_1_1_interaction_prototype.html#a1eda68e594704f86057bb77177cce0a5',1,'tale::InteractionPrototype']]],
-  ['emotions_5f_2',['emotions_',['../classtale_1_1_actor.html#af23bc6c5c6ba6490570b330e73967b2b',1,'tale::Actor']]],
-  ['emotiontypetostring_3',['EmotionTypeToString',['../classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42',1,'tale::Emotion']]],
-  ['enrolled_5fcourses_5fid_5f_4',['enrolled_courses_id_',['../classtale_1_1_actor.html#a8523f3a44c93d312293f809c933eef96',1,'tale::Actor']]],
-  ['enrollincourse_5',['EnrollInCourse',['../classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1',1,'tale::Actor']]]
+  ['emotion_0',['Emotion',['../classtattletale_1_1_emotion.html#a622523c76b47e41983a28ac2efd744bd',1,'tattletale::Emotion::Emotion()'],['../classtattletale_1_1_emotion.html',1,'tattletale::Emotion']]],
+  ['emotion_5feffects_1',['emotion_effects',['../structtattletale_1_1_interaction_prototype.html#a2a6b75c80839ea27e7b1ba223d84b99f',1,'tattletale::InteractionPrototype']]],
+  ['emotions_5f_2',['emotions_',['../classtattletale_1_1_actor.html#af12fdab21c815f0980b3b01ebd723639',1,'tattletale::Actor']]],
+  ['emotiontypetostring_3',['EmotionTypeToString',['../classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61',1,'tattletale::Emotion']]],
+  ['enrolled_5fcourses_5fid_5f_4',['enrolled_courses_id_',['../classtattletale_1_1_actor.html#aee41d6b505068b3f85ac8b1bab3d89da',1,'tattletale::Actor']]],
+  ['enrollincourse_5',['EnrollInCourse',['../classtattletale_1_1_actor.html#a7c43a5f41fe96a2c4a4cddc4b0d0355a',1,'tattletale::Actor']]]
 ];

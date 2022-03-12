@@ -1,0 +1,32 @@
+\hypertarget{classtattletale_1_1_kernel}{}\doxysection{tattletale\+::Kernel Class Reference}
+\label{classtattletale_1_1_kernel}\index{tattletale::Kernel@{tattletale::Kernel}}
+
+
+Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} was created.  
+
+
+
+
+{\ttfamily \#include $<$shared/kernels/kernel.\+hpp$>$}
+
+Inheritance diagram for tattletale\+::Kernel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.285714cm]{classtattletale_1_1_kernel}
+\end{center}
+\end{figure}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_kernel_ab3ba966523e7cd9a45811b2214d42030}\label{classtattletale_1_1_kernel_ab3ba966523e7cd9a45811b2214d42030}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ {\bfseries owner\+\_\+}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} owning this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} was created. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+shared/kernels/kernel.\+hpp\item 
+shared/kernels/kernel.\+cpp\end{DoxyCompactItemize}

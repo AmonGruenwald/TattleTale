@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TattleTale: tale/kernels/interactions/interactiontendency.hpp Source File</title>
+<title>TattleTale: shared/kernels/interactions/interactiontendency.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c885feba15e1f1e66d0fde18d4ff9c2f.html">tale</a></li><li class="navelem"><a class="el" href="dir_1b4e0d327c72eca5a1af64697a747364.html">kernels</a></li><li class="navelem"><a class="el" href="dir_ef9a3a9fc982032a1323bd6b4ad11f2e.html">interactions</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_9982052f7ce695d12571567315b2fafa.html">shared</a></li><li class="navelem"><a class="el" href="dir_28a368edbf78793efb8eb80a7876ed47.html">kernels</a></li><li class="navelem"><a class="el" href="dir_239381ae8f615495006a63eeac226f1e.html">interactions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,15 +73,15 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TALE_INTERACTIONS_INTERACTIONTENDENCY_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TALE_INTERACTIONS_INTERACTIONTENDENCY_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;tale/kernels/interactions/interactioncontexttype.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;tale/kernels/resourcekernels/resource.hpp&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;tale/kernels/resourcekernels/emotion.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;tale/kernels/resourcekernels/relationship.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;shared/kernels/interactions/interactioncontexttype.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;shared/kernels/resourcekernels/resource.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;shared/kernels/resourcekernels/emotion.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;shared/kernels/resourcekernels/relationship.hpp&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fmt/core.h&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetale.html">tale</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetattletale.html">tattletale</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structtale_1_1_tendency.html">   15</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtale_1_1_tendency.html">Tendency</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structtattletale_1_1_interaction_tendency.html">   15</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        std::map&lt;ContextType, float&gt; contexts = {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            {ContextType::kCourse, 0.0f},</div>
@@ -100,13 +100,13 @@ $(function() {
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            std::string contexts_string = <span class="stringliteral">&quot;Contexts:\n&quot;</span>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : contexts)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                contexts_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">ContextTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                contexts_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="namespacetattletale.html#a0ee066ca95cd32d89fb2d8c785ba6a6c">ContextTypeToString</a>(key), value);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            }</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::string wealth_string = fmt::format(<span class="stringliteral">&quot;Wealth: {}\n&quot;</span>, wealth);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::string emotions_string = <span class="stringliteral">&quot;Emotions:\n&quot;</span>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : emotions)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                emotions_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">Emotion::EmotionTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                emotions_string += fmt::format(<span class="stringliteral">&quot;\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">Emotion::EmotionTypeToString</a>(key), value);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            std::string relationship_string = <span class="stringliteral">&quot;Relationships:\n&quot;</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
@@ -115,7 +115,7 @@ $(function() {
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                relationship_string += fmt::format(<span class="stringliteral">&quot;\tFor Participant{}:\n&quot;</span>, i + 1);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;[key, value] : relationships[i])</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    relationship_string += fmt::format(<span class="stringliteral">&quot;\t\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">Relationship::RelationshipTypeToString</a>(key), value);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    relationship_string += fmt::format(<span class="stringliteral">&quot;\t\t{}: {}\n&quot;</span>, <a class="code hl_function" href="classtattletale_1_1_relationship.html#a6dd75b4f276e28cee1deaf7f10ca326a">Relationship::RelationshipTypeToString</a>(key), value);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                }</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span> (fmt::format(<span class="stringliteral">&quot;{}\n{}\n{}\n{}&quot;</span>, contexts_string, wealth_string, emotions_string, relationship_string));</div>
@@ -129,13 +129,13 @@ $(function() {
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace tale</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace tattletale</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">// TALE_INTERACTIONS_INTERACTIONTENDENCY_H</span></div>
-<div class="ttc" id="aclasstale_1_1_emotion_html_af02a9111d0edce779fc77f336eaa6e42"><div class="ttname"><a href="classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42">tale::Emotion::EmotionTypeToString</a></div><div class="ttdeci">static std::string EmotionTypeToString(EmotionType emotion_type)</div><div class="ttdoc">Converts an EmotionType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:27</div></div>
-<div class="ttc" id="aclasstale_1_1_relationship_html_af3c1111122993bce5b76b7b2a12a5e11"><div class="ttname"><a href="classtale_1_1_relationship.html#af3c1111122993bce5b76b7b2a12a5e11">tale::Relationship::RelationshipTypeToString</a></div><div class="ttdeci">static std::string RelationshipTypeToString(RelationshipType relationship_type)</div><div class="ttdoc">Converts an RelationshipType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:28</div></div>
-<div class="ttc" id="anamespacetale_html"><div class="ttname"><a href="namespacetale.html">tale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:10</div></div>
-<div class="ttc" id="anamespacetale_html_a2f024f99510d373736fae7eb2001519e"><div class="ttname"><a href="namespacetale.html#a2f024f99510d373736fae7eb2001519e">tale::ContextTypeToString</a></div><div class="ttdeci">std::string ContextTypeToString(ContextType context_type)</div><div class="ttdoc">Converts an ContextType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> interactioncontexttype.hpp:41</div></div>
-<div class="ttc" id="astructtale_1_1_tendency_html"><div class="ttname"><a href="structtale_1_1_tendency.html">tale::Tendency</a></div><div class="ttdoc">TODO.</div><div class="ttdef"><b>Definition:</b> interactiontendency.hpp:16</div></div>
+<div class="ttc" id="aclasstattletale_1_1_emotion_html_a44d7f53587557c604dc74b87b54c6b61"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">tattletale::Emotion::EmotionTypeToString</a></div><div class="ttdeci">static std::string EmotionTypeToString(EmotionType emotion_type)</div><div class="ttdoc">Converts an EmotionType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:27</div></div>
+<div class="ttc" id="aclasstattletale_1_1_relationship_html_a6dd75b4f276e28cee1deaf7f10ca326a"><div class="ttname"><a href="classtattletale_1_1_relationship.html#a6dd75b4f276e28cee1deaf7f10ca326a">tattletale::Relationship::RelationshipTypeToString</a></div><div class="ttdeci">static std::string RelationshipTypeToString(RelationshipType relationship_type)</div><div class="ttdoc">Converts an RelationshipType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> relationship.cpp:29</div></div>
+<div class="ttc" id="anamespacetattletale_html"><div class="ttname"><a href="namespacetattletale.html">tattletale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:11</div></div>
+<div class="ttc" id="anamespacetattletale_html_a0ee066ca95cd32d89fb2d8c785ba6a6c"><div class="ttname"><a href="namespacetattletale.html#a0ee066ca95cd32d89fb2d8c785ba6a6c">tattletale::ContextTypeToString</a></div><div class="ttdeci">std::string ContextTypeToString(ContextType context_type)</div><div class="ttdoc">Converts an ContextType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> interactioncontexttype.hpp:41</div></div>
+<div class="ttc" id="astructtattletale_1_1_interaction_tendency_html"><div class="ttname"><a href="structtattletale_1_1_interaction_tendency.html">tattletale::InteractionTendency</a></div><div class="ttdoc">TODO.</div><div class="ttdef"><b>Definition:</b> interactiontendency.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

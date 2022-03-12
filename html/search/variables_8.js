@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['name_0',['name',['../structtale_1_1_interaction_prototype.html#a3749f03872c07e6022669f8f4d7975e6',1,'tale::InteractionPrototype']]],
-  ['name_5f_1',['name_',['../classtale_1_1_actor.html#ae7a2a11193045c25787a87bc3821f909',1,'tale::Actor::name_()'],['../classtale_1_1_course.html#aaf9e48900055416682f901d148802f56',1,'tale::Course::name_()']]]
+  ['name_0',['name',['../structtattletale_1_1_interaction_prototype.html#a5fc7034fbf25273a4b681859aba321fc',1,'tattletale::InteractionPrototype']]],
+  ['name_5f_1',['name_',['../classtattletale_1_1_actor.html#a40cdd9c99742aa5500e03aa55ec5adbc',1,'tattletale::Actor::name_()'],['../classtattletale_1_1_course.html#a983ae043e1abf78561f387ac5d47c994',1,'tattletale::Course::name_()']]]
 ];

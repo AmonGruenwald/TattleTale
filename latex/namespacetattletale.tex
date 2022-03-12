@@ -1,0 +1,104 @@
+\hypertarget{namespacetattletale}{}\doxysection{tattletale Namespace Reference}
+\label{namespacetattletale}\index{tattletale@{tattletale}}
+
+
+Responsible for the event generation of the Tattle\+Tale project.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}
+\begin{DoxyCompactList}\small\item\em Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}
+\item 
+class \mbox{\hyperlink{classtattletale_1_1_course}{Course}}
+\begin{DoxyCompactList}\small\item\em A \mbox{\hyperlink{classtattletale_1_1_course}{Course}} grouping \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} together during different slots of the day. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}
+\begin{DoxyCompactList}\small\item\em Represents an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}
+\begin{DoxyCompactList}\small\item\em Represents the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} strives to fulfill. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}
+\begin{DoxyCompactList}\small\item\em Represents an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} had with other \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}
+\begin{DoxyCompactList}\small\item\em Prototype of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}}
+\begin{DoxyCompactList}\small\item\em Stores all necessary \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}}
+\begin{DoxyCompactList}\small\item\em Stores Prototypes for all possible interactions. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}}
+\begin{DoxyCompactList}\small\item\em TODO. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}
+\begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} was created. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_random}{Random}}
+\item 
+class \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}
+\begin{DoxyCompactList}\small\item\em Represents a \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has with another \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}
+\begin{DoxyCompactList}\small\item\em Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_school}{School}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_school}{School}} class that is responsible for managing actors and courses during the simulation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}}
+\begin{DoxyCompactList}\small\item\em Stores all settings necessary for the simulation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}}
+\begin{DoxyCompactList}\small\item\em Represents the Traits an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}\label{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}} 
+enum class \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} 
+\begin{DoxyCompactList}\small\item\em Types of Context an Interaction can happen in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacetattletale_a9052282506778d27986cfa871dd49611}\label{namespacetattletale_a9052282506778d27986cfa871dd49611}} 
+enum class \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} 
+\begin{DoxyCompactList}\small\item\em Enum specifying the days of the week. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \mbox{\hyperlink{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}{String\+To\+Context\+Type}} (std\+::string context\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{Context\+Type\+To\+String}} (\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} context\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Converts an Context\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsible for the event generation of the Tattle\+Tale project. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}\label{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}} 
+\index{tattletale@{tattletale}!ContextTypeToString@{ContextTypeToString}}
+\index{ContextTypeToString@{ContextTypeToString}!tattletale@{tattletale}}
+\doxysubsubsection{\texorpdfstring{ContextTypeToString()}{ContextTypeToString()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Context\+Type\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}}}]{context\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts an Context\+Type to a string for easy printing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context\+\_\+type} & The Context\+Type we want to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}\label{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}} 
+\index{tattletale@{tattletale}!StringToContextType@{StringToContextType}}
+\index{StringToContextType@{StringToContextType}!tattletale@{tattletale}}
+\doxysubsubsection{\texorpdfstring{StringToContextType()}{StringToContextType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} tattletale\+::\+String\+To\+Context\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{context\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts a string to an Context\+Type. 
+
+Uses the same string values Context\+Type\+To\+String returns. So valid strings are\+: \char`\"{}course\char`\"{} and\char`\"{}freetime\char`\"{}. Everything else just return Context\+Type\+::k\+None.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context\+\_\+string} & The string we want to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding Context\+Type value. 
+\end{DoxyReturn}

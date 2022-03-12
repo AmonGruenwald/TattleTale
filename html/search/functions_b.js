@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weekdayanddailyticktoslot_0',['WeekdayAndDailyTickToSlot',['../classtale_1_1_school.html#a557cf91eee5ba6d30072ab98adfc0565',1,'tale::School']]]
+  ['weekdayanddailyticktoslot_0',['WeekdayAndDailyTickToSlot',['../classtattletale_1_1_school.html#a751132eb1540b577681d9bc26a5b8a52',1,'tattletale::School']]]
 ];

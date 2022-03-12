@@ -1,0 +1,111 @@
+\hypertarget{classtattletale_1_1_resource}{}\doxysection{tattletale\+::Resource Class Reference}
+\label{classtattletale_1_1_resource}\index{tattletale::Resource@{tattletale::Resource}}
+
+
+Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has.  
+
+
+
+
+{\ttfamily \#include $<$shared/kernels/resourcekernels/resource.\+hpp$>$}
+
+Inheritance diagram for tattletale\+::Resource\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classtattletale_1_1_resource}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{Get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a2e94d6e04fbefbceb601ce298aa6ffe3}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_resource_aa5913901bd569380242cc5af167283cc}{Resource}} (std\+::string name, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ owner, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}\label{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}} 
+float {\bfseries value\+\_\+}
+\begin{DoxyCompactList}\small\item\em The value of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_resource_aa5913901bd569380242cc5af167283cc}\label{classtattletale_1_1_resource_aa5913901bd569380242cc5af167283cc}} 
+\index{tattletale::Resource@{tattletale::Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!tattletale::Resource@{tattletale::Resource}}
+\doxysubsubsection{\texorpdfstring{Resource()}{Resource()}}
+{\footnotesize\ttfamily tattletale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. 
+
+This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. Should describe what this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} is tracking. \\
+\hline
+{\em id} & The index this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \\
+\hline
+{\em tick} & In which tick this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} was created. \\
+\hline
+{\em owner} & The \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} which owns this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \\
+\hline
+{\em reasons} & What other \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} and its value. \\
+\hline
+{\em value} & Value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} between -\/1.\+0 and 1.\+0. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}\label{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}} 
+\index{tattletale::Resource@{tattletale::Resource}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!tattletale::Resource@{tattletale::Resource}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily float tattletale\+::\+Resource\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+
+\begin{DoxyReturn}{Returns}
+The value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_resource_a2e94d6e04fbefbceb601ce298aa6ffe3}\label{classtattletale_1_1_resource_a2e94d6e04fbefbceb601ce298aa6ffe3}} 
+\index{tattletale::Resource@{tattletale::Resource}!ToString@{ToString}}
+\index{ToString@{ToString}!tattletale::Resource@{tattletale::Resource}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Resource\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} for easy printing. 
+
+\begin{DoxyReturn}{Returns}
+The description string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classtattletale_1_1_emotion_a5f5f3b89454e3c61d50c41da9a76133e}{tattletale\+::\+Emotion}}, and \mbox{\hyperlink{classtattletale_1_1_relationship_ad24e13c28d2aec80901ba977a5670fb5}{tattletale\+::\+Relationship}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+shared/kernels/resourcekernels/resource.\+hpp\item 
+shared/kernels/resourcekernels/resource.\+cpp\end{DoxyCompactItemize}

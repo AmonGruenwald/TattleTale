@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['emotion_0',['Emotion',['../classtale_1_1_emotion.html#acdc6e24c51f8368ac19450e897c93971',1,'tale::Emotion']]],
-  ['emotiontypetostring_1',['EmotionTypeToString',['../classtale_1_1_emotion.html#af02a9111d0edce779fc77f336eaa6e42',1,'tale::Emotion']]],
-  ['enrollincourse_2',['EnrollInCourse',['../classtale_1_1_actor.html#abaf48912c1386a3f1c3feef0cb5554b1',1,'tale::Actor']]]
+  ['emotion_0',['Emotion',['../classtattletale_1_1_emotion.html#a622523c76b47e41983a28ac2efd744bd',1,'tattletale::Emotion']]],
+  ['emotiontypetostring_1',['EmotionTypeToString',['../classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61',1,'tattletale::Emotion']]],
+  ['enrollincourse_2',['EnrollInCourse',['../classtattletale_1_1_actor.html#a7c43a5f41fe96a2c4a4cddc4b0d0355a',1,'tattletale::Actor']]]
 ];

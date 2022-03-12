@@ -1,0 +1,133 @@
+\hypertarget{classtattletale_1_1_interaction}{}\doxysection{tattletale\+::Interaction Class Reference}
+\label{classtattletale_1_1_interaction}\index{tattletale::Interaction@{tattletale::Interaction}}
+
+
+Represents an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} had with other \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}.  
+
+
+
+
+{\ttfamily \#include $<$shared/kernels/interactions/interaction.\+hpp$>$}
+
+Inheritance diagram for tattletale\+::Interaction\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classtattletale_1_1_interaction}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_a92061c4e14ce7278d611442df521b5bd}\label{classtattletale_1_1_interaction_a92061c4e14ce7278d611442df521b5bd}} 
+void {\bfseries Apply} ()
+\begin{DoxyCompactList}\small\item\em Applies the effects of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to all participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_interaction_aa58c1774a22895bfe9681f5c0ad25f55}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& \mbox{\hyperlink{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}{Get\+Prototype}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_adfa6d7b23d7e207130f0cb45eb7d6fcb}{Get\+Participants}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}{Interaction}} (const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \&prototype, const \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} \&requirement, const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&tendency, float chance, size\+\_\+t id, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
+\begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_ab29326d7e23f3adcca3f45dbcc8da781}\label{classtattletale_1_1_interaction_ab29326d7e23f3adcca3f45dbcc8da781}} 
+const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& {\bfseries prototype\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores a Reference to the corresponding \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_abf46f8cdb860ad493aa4d91eb9559c6c}\label{classtattletale_1_1_interaction_abf46f8cdb860ad493aa4d91eb9559c6c}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ {\bfseries participants\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores Pointers to the involved \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} had with other \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. 
+
+Extends the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}\label{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}} 
+\index{tattletale::Interaction@{tattletale::Interaction}!Interaction@{Interaction}}
+\index{Interaction@{Interaction}!tattletale::Interaction@{tattletale::Interaction}}
+\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}}
+{\footnotesize\ttfamily tattletale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \&}]{prototype,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} \&}]{requirement,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&}]{tendency,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Only publically available Constructor. Fills out every member variable. 
+
+This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prototype} & Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is based upon. \\
+\hline
+{\em requirement} & Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \\
+\hline
+{\em tendency} & Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \\
+\hline
+{\em id} & The index this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \\
+\hline
+{\em tick} & The tick during which this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} happens. \\
+\hline
+{\em reasons} & Vector of \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} that are responsible for this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} happening. \\
+\hline
+{\em participants} & Vector of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} that are participating in this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_adfa6d7b23d7e207130f0cb45eb7d6fcb}\label{classtattletale_1_1_interaction_adfa6d7b23d7e207130f0cb45eb7d6fcb}} 
+\index{tattletale::Interaction@{tattletale::Interaction}!GetParticipants@{GetParticipants}}
+\index{GetParticipants@{GetParticipants}!tattletale::Interaction@{tattletale::Interaction}}
+\doxysubsubsection{\texorpdfstring{GetParticipants()}{GetParticipants()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \& tattletale\+::\+Interaction\+::\+Get\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. 
+
+\begin{DoxyReturn}{Returns}
+The participants. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}\label{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}} 
+\index{tattletale::Interaction@{tattletale::Interaction}!GetPrototype@{GetPrototype}}
+\index{GetPrototype@{GetPrototype}!tattletale::Interaction@{tattletale::Interaction}}
+\doxysubsubsection{\texorpdfstring{GetPrototype()}{GetPrototype()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& tattletale\+::\+Interaction\+::\+Get\+Prototype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_aa58c1774a22895bfe9681f5c0ad25f55}\label{classtattletale_1_1_interaction_aa58c1774a22895bfe9681f5c0ad25f55}} 
+\index{tattletale::Interaction@{tattletale::Interaction}!ToString@{ToString}}
+\index{ToString@{ToString}!tattletale::Interaction@{tattletale::Interaction}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Interaction\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets a string description of what would happen during the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. 
+
+\begin{DoxyReturn}{Returns}
+String describing the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+shared/kernels/interactions/interaction.\+hpp\item 
+shared/kernels/interactions/interaction.\+cpp\end{DoxyCompactItemize}

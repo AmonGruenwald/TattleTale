@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tale_0',['tale',['../namespacetale.html',1,'']]],
-  ['tattle_1',['tattle',['../namespacetattle.html',1,'']]]
+  ['tattle_0',['tattle',['../namespacetattle.html',1,'']]],
+  ['tattletale_1',['tattletale',['../namespacetattletale.html',1,'']]]
 ];

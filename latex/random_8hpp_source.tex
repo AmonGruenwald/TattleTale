@@ -1,5 +1,5 @@
 \hypertarget{random_8hpp_source}{}\doxysection{random.\+hpp}
-\label{random_8hpp_source}\index{tale/globals/random.hpp@{tale/globals/random.hpp}}
+\label{random_8hpp_source}\index{shared/random.hpp@{shared/random.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_GLOBALS\_RANDOM\_H}}
@@ -7,13 +7,13 @@
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <random>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{7 \{}
-\DoxyCodeLine{8     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_random}{Random}}}
+\DoxyCodeLine{8     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_random}{Random}}}
 \DoxyCodeLine{9     \{}
 \DoxyCodeLine{10     \textcolor{keyword}{public}:}
-\DoxyCodeLine{11         \mbox{\hyperlink{classtale_1_1_random}{Random}}();}
-\DoxyCodeLine{12         \mbox{\hyperlink{classtale_1_1_random}{Random}}(uint32\_t seed);}
+\DoxyCodeLine{11         \mbox{\hyperlink{classtattletale_1_1_random}{Random}}();}
+\DoxyCodeLine{12         \mbox{\hyperlink{classtattletale_1_1_random}{Random}}(uint32\_t seed);}
 \DoxyCodeLine{13         \textcolor{keywordtype}{void} Seed(uint32\_t seed);}
 \DoxyCodeLine{14         \textcolor{keywordtype}{int} GetInt(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} max);}
 \DoxyCodeLine{15         uint32\_t GetUInt(uint32\_t min, uint32\_t max);}
@@ -23,7 +23,7 @@
 \DoxyCodeLine{19     \textcolor{keyword}{private}:}
 \DoxyCodeLine{20         std::mt19937 rng\_;}
 \DoxyCodeLine{21     \};}
-\DoxyCodeLine{22 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{22 \} \textcolor{comment}{// namespace tattletale}}
 \DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_RANDOM\_H}}
 
 \end{DoxyCode}

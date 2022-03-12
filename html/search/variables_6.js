@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['id_5f_0',['id_',['../classtale_1_1_actor.html#af7e52683a15674295c1cc009c9ee8827',1,'tale::Actor::id_()'],['../classtale_1_1_course.html#ae05cecff9054949024885c6ddc72b1fe',1,'tale::Course::id_()']]],
-  ['interaction_5fstore_5f_1',['interaction_store_',['../classtale_1_1_actor.html#a1ca3019978ddeca9e26d86cedc9b0b75',1,'tale::Actor::interaction_store_()'],['../classtale_1_1_school.html#a511e471fc76d154b55195d275451b70c',1,'tale::School::interaction_store_()']]]
+  ['id_5f_0',['id_',['../classtattletale_1_1_actor.html#a243ef389ec0fe8b3b5664c6d70ff21fe',1,'tattletale::Actor::id_()'],['../classtattletale_1_1_course.html#a2ed3c9e775121d4a7cfeaa6185659004',1,'tattletale::Course::id_()']]],
+  ['interaction_5fstore_5f_1',['interaction_store_',['../classtattletale_1_1_actor.html#a6b4a5e2ac5aaaa5de40863ab24ca2705',1,'tattletale::Actor::interaction_store_()'],['../classtattletale_1_1_school.html#ac5d525165f8f5304698ca1aeb20b18e4',1,'tattletale::School::interaction_store_()']]]
 ];

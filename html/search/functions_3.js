@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['findrandomcoursegroup_0',['FindRandomCourseGroup',['../classtale_1_1_school.html#a981efdafe40ea393d59fb91e241c1bef',1,'tale::School']]],
-  ['freetimetick_1',['FreeTimeTick',['../classtale_1_1_school.html#af2e20378b185dd70f581d759896d5c50',1,'tale::School']]]
+  ['findrandomcoursegroup_0',['FindRandomCourseGroup',['../classtattletale_1_1_school.html#aa53a63585bd143fababcc01443d22c58',1,'tattletale::School']]],
+  ['freetimetick_1',['FreeTimeTick',['../classtattletale_1_1_school.html#a84730f21ae16254873268ac9081d74f4',1,'tattletale::School']]]
 ];

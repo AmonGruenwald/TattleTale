@@ -1,0 +1,72 @@
+\hypertarget{structtattletale_1_1_interaction_prototype}{}\doxysection{tattletale\+::Interaction\+Prototype Struct Reference}
+\label{structtattletale_1_1_interaction_prototype}\index{tattletale::InteractionPrototype@{tattletale::InteractionPrototype}}
+
+
+Prototype of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}.  
+
+
+
+
+{\ttfamily \#include $<$shared/kernels/interactions/interactionprototype.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a55117b8bc2b1f8618dd94b69c35cba9a}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}\label{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}} 
+std\+::string {\bfseries name} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The name of the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a8fc8b99a68fbefb9d02e4e97d52715f2}\label{structtattletale_1_1_interaction_prototype_a8fc8b99a68fbefb9d02e4e97d52715f2}} 
+std\+::string {\bfseries description} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em The description template of the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}\label{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}} 
+std\+::vector$<$ float $>$ {\bfseries wealth\+\_\+effects}
+\begin{DoxyCompactList}\small\item\em Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}\label{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}} 
+std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ {\bfseries emotion\+\_\+effects}
+\begin{DoxyCompactList}\small\item\em Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotions }}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\+\_\+effects}}
+\begin{DoxyCompactList}\small\item\em TODO Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Prototype of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. 
+
+Used by the \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}} to hold basic information and effects of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a55117b8bc2b1f8618dd94b69c35cba9a}\label{structtattletale_1_1_interaction_prototype_a55117b8bc2b1f8618dd94b69c35cba9a}} 
+\index{tattletale::InteractionPrototype@{tattletale::InteractionPrototype}!ToString@{ToString}}
+\index{ToString@{ToString}!tattletale::InteractionPrototype@{tattletale::InteractionPrototype}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Interaction\+Prototype\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a string describing the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+
+\begin{DoxyReturn}{Returns}
+The descriptive string. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}\label{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}} 
+\index{tattletale::InteractionPrototype@{tattletale::InteractionPrototype}!relationship\_effects@{relationship\_effects}}
+\index{relationship\_effects@{relationship\_effects}!tattletale::InteractionPrototype@{tattletale::InteractionPrototype}}
+\doxysubsubsection{\texorpdfstring{relationship\_effects}{relationship\_effects}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::map$<$size\+\_\+t, std\+::map$<$Relationship\+Type, float$>$ $>$ $>$ tattletale\+::\+Interaction\+Prototype\+::relationship\+\_\+effects}
+
+
+
+TODO Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }}. 
+
+For each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} a map is created that maps to participants index in the participants\+\_\+ vector another map of Relationship\+Type float pairs. Those pairs signal how much each \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} axis would be changed. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+shared/kernels/interactions/interactionprototype.\+hpp\end{DoxyCompactItemize}

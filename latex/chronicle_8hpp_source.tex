@@ -1,5 +1,5 @@
 \hypertarget{chronicle_8hpp_source}{}\doxysection{chronicle.\+hpp}
-\label{chronicle_8hpp_source}\index{tale/globals/chronicle.hpp@{tale/globals/chronicle.hpp}}
+\label{chronicle_8hpp_source}\index{shared/chronicle.hpp@{shared/chronicle.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_GLOBALS\_CHRONICLE\_H}}
@@ -8,25 +8,25 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interaction.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/emotion.hpp"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/relationship.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}tale/kernels/trait.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}tale/globals/random.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interaction.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}shared/kernels/trait.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{15 \{}
-\DoxyCodeLine{16     \textcolor{keyword}{class }\mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}}
+\DoxyCodeLine{16     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}}
 \DoxyCodeLine{17     \{}
 \DoxyCodeLine{18     \textcolor{keyword}{public}:}
-\DoxyCodeLine{22         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtale_1_1_chronicle_a09d81214474580021281e4c828034565}{actors\_}};}
+\DoxyCodeLine{22         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtattletale_1_1_chronicle_abf8f38315d10d6e8ef261cb6b281e5bb}{actors\_}};}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24         \mbox{\hyperlink{classtale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtale_1_1_random}{Random}} \&random, \textcolor{keywordtype}{size\_t} actor\_count);}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keywordtype}{size\_t} actor\_count);}
 \DoxyCodeLine{25         std::weak\_ptr<Interaction> CreateInteraction(}
-\DoxyCodeLine{26             \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype,}
-\DoxyCodeLine{27             \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_requirement}{Requirement}} \&requirement,}
-\DoxyCodeLine{28             \textcolor{keyword}{const} \mbox{\hyperlink{structtale_1_1_tendency}{Tendency}} \&tendency,}
+\DoxyCodeLine{26             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype,}
+\DoxyCodeLine{27             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}} \&requirement,}
+\DoxyCodeLine{28             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}} \&tendency,}
 \DoxyCodeLine{29             \textcolor{keywordtype}{float} chance,}
 \DoxyCodeLine{30             \textcolor{keywordtype}{size\_t} tick,}
 \DoxyCodeLine{31             std::vector<std::weak\_ptr<Kernel>> reasons,}
@@ -46,7 +46,7 @@
 \DoxyCodeLine{45         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
 \DoxyCodeLine{46 }
 \DoxyCodeLine{47     \textcolor{keyword}{private}:}
-\DoxyCodeLine{48         \mbox{\hyperlink{classtale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{48         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
 \DoxyCodeLine{49         std::vector<std::shared\_ptr<Kernel>>}
 \DoxyCodeLine{50             all\_kernels\_;}
 \DoxyCodeLine{51         std::vector<std::shared\_ptr<Interaction>>}
@@ -56,7 +56,7 @@
 \DoxyCodeLine{55 }
 \DoxyCodeLine{56         std::string GetRecursiveKernelDescription(std::weak\_ptr<Kernel> kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
 \DoxyCodeLine{57     \};}
-\DoxyCodeLine{58 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{58 \} \textcolor{comment}{// namespace tattletale}}
 \DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
 
 \end{DoxyCode}

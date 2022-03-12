@@ -1,19 +1,19 @@
 \hypertarget{interactionrequirement_8hpp_source}{}\doxysection{interactionrequirement.\+hpp}
-\label{interactionrequirement_8hpp_source}\index{tale/kernels/interactions/interactionrequirement.hpp@{tale/kernels/interactions/interactionrequirement.hpp}}
+\label{interactionrequirement_8hpp_source}\index{shared/kernels/interactions/interactionrequirement.hpp@{shared/kernels/interactions/interactionrequirement.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fmt/core.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactioncontexttype.hpp"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/kernels/goal.hpp"{}}}
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interactioncontexttype.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{8 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_requirement}{Requirement}}}
+\DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}}}
 \DoxyCodeLine{13     \{}
-\DoxyCodeLine{17         \mbox{\hyperlink{namespacetale_a225d06d073badd478104ae2aafce1839}{ContextType}} \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
-\DoxyCodeLine{21         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{17         \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kNone;}
+\DoxyCodeLine{21         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
 \DoxyCodeLine{22         GoalType goal\_type = GoalType::kNone;}
 \DoxyCodeLine{23         \textcolor{keywordtype}{size\_t} day = 0;}
 \DoxyCodeLine{24         std::map<EmotionType, float> emotions = \{}
@@ -48,8 +48,8 @@
 \DoxyCodeLine{53 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tFriendship: \{\} \(\backslash\)}}
 \DoxyCodeLine{54 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAnger: \{\} \(\backslash\)}}
 \DoxyCodeLine{55 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tProtective: \{\} "{}},}
-\DoxyCodeLine{56                 \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(\mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}}),}
-\DoxyCodeLine{57                 \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}},}
+\DoxyCodeLine{56                 \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}}),}
+\DoxyCodeLine{57                 \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}},}
 \DoxyCodeLine{58                 Goal::GoalTypeToString(goal\_type),}
 \DoxyCodeLine{59                 day,}
 \DoxyCodeLine{60                 emotions.at(EmotionType::kHappy),}
@@ -67,8 +67,8 @@
 \DoxyCodeLine{72 }
 \DoxyCodeLine{73         \textcolor{keywordtype}{void} ClearValues()}
 \DoxyCodeLine{74         \{}
-\DoxyCodeLine{75             \mbox{\hyperlink{structtale_1_1_requirement_ab7ead86ba585b33b101e57835cf1351b}{context}} = ContextType::kNone;}
-\DoxyCodeLine{76             \mbox{\hyperlink{structtale_1_1_requirement_a12b5fd04a0d1044b45bf1253990cf40f}{participant\_count}} = 1;}
+\DoxyCodeLine{75             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kNone;}
+\DoxyCodeLine{76             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
 \DoxyCodeLine{77             goal\_type = GoalType::kNone;}
 \DoxyCodeLine{78             day = 0;}
 \DoxyCodeLine{79             emotions.clear();}
@@ -100,7 +100,7 @@
 \DoxyCodeLine{105         \}}
 \DoxyCodeLine{106     \};}
 \DoxyCodeLine{107 }
-\DoxyCodeLine{108 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{108 \} \textcolor{comment}{// namespace tattletale}}
 \DoxyCodeLine{109 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 
 \end{DoxyCode}

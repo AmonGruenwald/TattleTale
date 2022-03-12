@@ -1,19 +1,19 @@
 \hypertarget{interactiontendency_8hpp_source}{}\doxysection{interactiontendency.\+hpp}
-\label{interactiontendency_8hpp_source}\index{tale/kernels/interactions/interactiontendency.hpp@{tale/kernels/interactions/interactiontendency.hpp}}
+\label{interactiontendency_8hpp_source}\index{shared/kernels/interactions/interactiontendency.hpp@{shared/kernels/interactions/interactiontendency.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tale/kernels/interactions/interactioncontexttype.hpp"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/emotion.hpp"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interactioncontexttype.hpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#include <fmt/core.h>}}
-\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetale}{tale}}}
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{11 \{}
-\DoxyCodeLine{15     \textcolor{keyword}{struct }\mbox{\hyperlink{structtale_1_1_tendency}{Tendency}}}
+\DoxyCodeLine{15     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}}}
 \DoxyCodeLine{16     \{}
 \DoxyCodeLine{17         std::map<ContextType, float> contexts = \{}
 \DoxyCodeLine{18             \{ContextType::kCourse, 0.0f\},}
@@ -32,13 +32,13 @@
 \DoxyCodeLine{31             std::string contexts\_string = \textcolor{stringliteral}{"{}Contexts:\(\backslash\)n"{}};}
 \DoxyCodeLine{32             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : contexts)}
 \DoxyCodeLine{33             \{}
-\DoxyCodeLine{34                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetale_a2f024f99510d373736fae7eb2001519e}{ContextTypeToString}}(key), value);}
+\DoxyCodeLine{34                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(key), value);}
 \DoxyCodeLine{35             \}}
 \DoxyCodeLine{36             std::string wealth\_string = fmt::format(\textcolor{stringliteral}{"{}Wealth: \{\}\(\backslash\)n"{}}, wealth);}
 \DoxyCodeLine{37             std::string emotions\_string = \textcolor{stringliteral}{"{}Emotions:\(\backslash\)n"{}};}
 \DoxyCodeLine{38             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : emotions)}
 \DoxyCodeLine{39             \{}
-\DoxyCodeLine{40                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_emotion_af02a9111d0edce779fc77f336eaa6e42}{Emotion::EmotionTypeToString}}(key), value);}
+\DoxyCodeLine{40                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion::EmotionTypeToString}}(key), value);}
 \DoxyCodeLine{41             \}}
 \DoxyCodeLine{42             std::string relationship\_string = \textcolor{stringliteral}{"{}Relationships:\(\backslash\)n"{}};}
 \DoxyCodeLine{43 }
@@ -47,7 +47,7 @@
 \DoxyCodeLine{46                 relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tFor Participant\{\}:\(\backslash\)n"{}}, i + 1);}
 \DoxyCodeLine{47                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[key, value] : relationships[i])}
 \DoxyCodeLine{48                 \{}
-\DoxyCodeLine{49                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtale_1_1_relationship_af3c1111122993bce5b76b7b2a12a5e11}{Relationship::RelationshipTypeToString}}(key), value);}
+\DoxyCodeLine{49                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship::RelationshipTypeToString}}(key), value);}
 \DoxyCodeLine{50                 \}}
 \DoxyCodeLine{51             \}}
 \DoxyCodeLine{52             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}"{}}, contexts\_string, wealth\_string, emotions\_string, relationship\_string));}
@@ -61,7 +61,7 @@
 \DoxyCodeLine{60         \}}
 \DoxyCodeLine{61     \};}
 \DoxyCodeLine{62 }
-\DoxyCodeLine{63 \} \textcolor{comment}{// namespace tale}}
+\DoxyCodeLine{63 \} \textcolor{comment}{// namespace tattletale}}
 \DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
 
 \end{DoxyCode}
