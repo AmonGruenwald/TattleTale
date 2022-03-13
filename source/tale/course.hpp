@@ -3,7 +3,7 @@
 
 #include "shared/random.hpp"
 #include "shared/actor.hpp"
-#include "tale/setting.hpp"
+#include "shared/setting.hpp"
 #include <string>
 #include <memory>
 

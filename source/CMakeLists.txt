@@ -5,7 +5,7 @@ set(LIBRARY_SOURCES
     tale/school.cpp
     tale/course.hpp
     tale/course.cpp
-    tale/setting.hpp
+    shared/setting.hpp
     tale/interactionstore.hpp
     tale/interactionstore.cpp
     shared/actor.hpp

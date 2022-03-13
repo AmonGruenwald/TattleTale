@@ -17,12 +17,12 @@ namespace tattletale
         catalogue_json_file >> catalogue_json;
         catalogue_json_file.close();
         TATTLETALE_VERBOSE_PRINT(catalogue_json.dump(4) + "\n\n");
-        TATTLETALE_DEBUG_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
+        TATTLETALE_VERBOSE_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
 
         size_t interaction_number = 0;
         for (auto &interaction : catalogue_json)
         {
-            TATTLETALE_DEBUG_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
+            TATTLETALE_VERBOSE_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
 
             InteractionRequirement requirement;
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_number);
@@ -219,7 +219,7 @@ namespace tattletale
 
     bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement)
     {
-        TATTLETALE_DEBUG_PRINT("CREATING REQUIREMENTS...");
+        TATTLETALE_VERBOSE_PRINT("CREATING REQUIREMENTS...");
         out_requirement.ClearValues();
         if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.participant_count, json, participant_count_key_, true, error_preamble))
         {

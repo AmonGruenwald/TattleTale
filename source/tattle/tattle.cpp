@@ -1,15 +1,12 @@
 #include "tattle/tattle.hpp"
 
 #include <iostream>
+#include "shared/tattletalecore.hpp"
 
-namespace tattle
+namespace tattletale
 {
-    void TattlePrintExample()
+    void Curate(Chronicle &chronicle, const Setting &setting)
     {
-        std::cout << "Tattle";
+        TATTLETALE_DEBUG_PRINT("TATTLE STARTED");
     }
-    int TattleIntExample()
-    {
-        return 0;
-    }
-} //namespace tattle
+} // namespace tattletale

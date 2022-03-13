@@ -4,7 +4,8 @@
 int main(int argc, char *argv[])
 {
     tattletale::Setting setting;
-    tattletale::Run(setting);
-    tattle::TattlePrintExample();
+    setting.days_to_simulate = 5;
+    auto &chronicle = tattletale::Run(setting);
+    tattletale::Curate(chronicle, setting);
     return 0; // optional return value
 }

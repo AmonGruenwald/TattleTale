@@ -12,19 +12,19 @@
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include "shared/kernels/trait.hpp"
-#include "tale/interactionstore.hpp"
 #include "shared/random.hpp"
 #include "shared/chronicle.hpp"
+#include "shared/setting.hpp"
+#include "tale/interactionstore.hpp"
 #include "shared/actor.hpp"
 #include "tale/school.hpp"
 #include "tale/course.hpp"
-#include "tale/setting.hpp"
 /**
  * @brief Responsible for the event generation of the TattleTale project.
  */
 namespace tattletale
 {
     // TODO: should return events and needs to be parameterizable
-    void Run(const Setting &setting);
+    Chronicle &Run(const Setting &setting);
 } // namespace tattletale
 #endif // TALE_TALE_H

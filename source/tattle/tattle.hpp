@@ -1,24 +1,16 @@
 /// @file tattle.hpp For now just provides two basic functions for testing purposes.
 #ifndef TATTLE_TATTLE_H
 #define TATTLE_TATTLE_H
+#include "shared/chronicle.hpp"
+#include "shared/setting.hpp"
 /**
+#include "shared/chronicle.hpp"
+#include "shared/setting.hpp"
  * @brief Responsible for the curation of the TattleTale project.
  * For now it just contains two basic functions for testing purposes.
  */
-namespace tattle
+namespace tattletale
 {
-    /**
-     * @brief Prints "Tattle".
-     * 
-     * Literally just prints "Tattle".
-     */
-    void TattlePrintExample();
-    /**
-     * @brief Returns 0.
-     * 
-     * Literally always just returns 0.
-     * @return The integer 0. 
-     */
-    int TattleIntExample();
-} //namespace tattle
+    void Curate(Chronicle &chronicle, const Setting &setting);
+} // namespace tattletale
 #endif // TATTLE_TATTLE_H

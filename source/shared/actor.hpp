@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 #include <memory>
-#include "tale/setting.hpp"
+#include "shared/setting.hpp"
 #include "shared/random.hpp"
 #include "tale/interactionstore.hpp"
 #include "shared/kernels/goal.hpp"

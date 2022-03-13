@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 #include "tale/course.hpp"
-#include "tale/setting.hpp"
+#include "shared/setting.hpp"
 #include "shared/random.hpp"
 #include "shared/chronicle.hpp"
 #include "tale/interactionstore.hpp"

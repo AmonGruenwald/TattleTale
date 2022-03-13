@@ -32,7 +32,7 @@ namespace tattletale
         {
             actor->SetupRandomValues(tick);
         }
-        TATTLETALE_DEBUG_PRINT(actor_creation_description);
+        TATTLETALE_VERBOSE_PRINT(actor_creation_description);
         std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";
         for (size_t i = 0; i < actor_count; ++i)
         {
@@ -54,7 +54,7 @@ namespace tattletale
             courses_.push_back(Course(random_, setting_, i, "Course " + std::to_string(i)));
 
             // Filling courses:
-            TATTLETALE_DEBUG_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
+            TATTLETALE_VERBOSE_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -141,19 +141,9 @@ namespace tattletale
             ++current_day_;
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
-        TATTLETALE_DEBUG_PRINT(std::to_string(chronicle_.GetKernelAmount()) + " KERNELS CREATED.");
-        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 1:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 2:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 3:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 4:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("RANDOM KERNEL CHAIN 5:\n" + chronicle_.GetRandomCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("GOAl KERNEL CHAIN:\n" + chronicle_.GetGoalCausalityChainDescription(3));
-        TATTLETALE_DEBUG_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
-        if (actors_.size() > 0)
-        {
-            std::shared_ptr<Actor> random_actor = actors_[random_.GetUInt(0, actors_.size() - 1)];
-            TATTLETALE_DEBUG_PRINT("KNOWN ACTORS FOR:" + random_actor->name_ + "\n" + chronicle_.GetKnownActorsDescription(random_actor->id_));
-        }
+        TATTLETALE_DEBUG_PRINT(fmt::format("TALE KREATED {} KERNELS", chronicle_.GetKernelAmount()));
+        TATTLETALE_VERBOSE_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_VERBOSE_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
