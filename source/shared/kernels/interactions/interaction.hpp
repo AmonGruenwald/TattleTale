@@ -39,13 +39,15 @@ namespace tattletale
          *
          * @return The InteractionPrototype.
          */
-        const InteractionPrototype &GetPrototype() const;
+        const std::shared_ptr<InteractionPrototype> GetPrototype() const;
         /**
          * @brief Getter for the participants this Interaction uses.
          *
          * @return The participants.
          */
         const std::vector<std::weak_ptr<Actor>> &GetParticipants() const;
+
+        const float GetChance() const;
 
     private:
         /**
@@ -62,9 +64,9 @@ namespace tattletale
          * @param participants Vector of \link Actor Actors \endlink that are participating in this Interaction.
          **/
         Interaction(
-            const InteractionPrototype &prototype,
-            const InteractionRequirement &requirement,
-            const InteractionTendency &tendency,
+            const std::shared_ptr<InteractionPrototype> Prototype,
+            const std::shared_ptr<InteractionRequirement> requirement,
+            const std::shared_ptr<InteractionTendency> tendency,
             float chance,
             size_t id,
             size_t tick,
@@ -74,9 +76,9 @@ namespace tattletale
         /**
          * @brief Stores a Reference to the corresponding InteractionPrototype.
          */
-        const InteractionPrototype &prototype_;
-        const InteractionRequirement &requirement_;
-        const InteractionTendency &tendency;
+        const std::shared_ptr<InteractionPrototype> prototype_;
+        const std::shared_ptr<InteractionRequirement> requirement_;
+        const std::shared_ptr<InteractionTendency> tendency_;
         float chance_;
         /**
          * @brief Stores Pointers to the involved \link Actor Actors \endlink.

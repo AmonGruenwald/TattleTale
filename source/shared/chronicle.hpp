@@ -21,11 +21,12 @@ namespace tattletale
          */
         std::vector<std::shared_ptr<Actor>> actors_;
 
-        Chronicle(Random &random, size_t actor_count);
+        Chronicle(Random &random);
+        void Reset(size_t actor_count);
         std::weak_ptr<Interaction> CreateInteraction(
-            const InteractionPrototype &prototype,
-            const InteractionRequirement &requirement,
-            const InteractionTendency &tendency,
+            const std::shared_ptr<InteractionPrototype> prototype,
+            const std::shared_ptr<InteractionRequirement> requirement,
+            const std::shared_ptr<InteractionTendency> tendency,
             float chance,
             size_t tick,
             std::vector<std::weak_ptr<Kernel>> reasons,
@@ -43,6 +44,7 @@ namespace tattletale
         std::string GetKissingCausalityChainDescription(size_t depth) const;
         std::string GetGoalCausalityChainDescription(size_t depth) const;
         std::string GetActorInteractionsDescription(size_t id) const;
+        std::weak_ptr<Interaction> FindUnlikeliestInteraction() const;
 
     private:
         Random &random_;

@@ -9,7 +9,7 @@
 
 namespace tattletale
 {
-    InteractionStore::InteractionStore(Random &random, Chronicle &chronicle) : random_(random), chronicle_(chronicle)
+    InteractionStore::InteractionStore(Random &random) : random_(random)
     {
         TATTLETALE_VERBOSE_PRINT("READING FROM PROTOTYPE FILE");
         std::ifstream catalogue_json_file(prototype_json_path_);
@@ -24,17 +24,17 @@ namespace tattletale
         {
             TATTLETALE_VERBOSE_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
 
-            InteractionRequirement requirement;
+            std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_number);
             if (ReadRequirementJSON(interaction["requirements"], requirement_error_preamble, requirement))
             {
-                InteractionPrototype prototype;
+                std::shared_ptr<InteractionPrototype> prototype(new InteractionPrototype());
                 std::string prototype_error_preamble = fmt::format("REQUIREMENT #{}: ", interaction_number);
-                if (ReadPrototypeJSON(interaction["prototype"], requirement.participant_count, prototype_error_preamble, prototype))
+                if (ReadPrototypeJSON(interaction["prototype"], requirement->participant_count, prototype_error_preamble, prototype))
                 {
-                    InteractionTendency tendency;
+                    std::shared_ptr<InteractionTendency> tendency(new InteractionTendency());
                     std::string tendency_error_preamble = fmt::format("TENDENCY {}: ", interaction_number);
-                    if (ReadTendencyJSON(interaction["tendencies"], requirement.participant_count, tendency_error_preamble, tendency))
+                    if (ReadTendencyJSON(interaction["tendencies"], requirement->participant_count, tendency_error_preamble, tendency))
                     {
                         prototype_catalogue_.push_back(prototype);
                         requirements_catalogue_.push_back(requirement);
@@ -54,57 +54,57 @@ namespace tattletale
     std::string InteractionStore::GetInteractionName(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
-        return prototype_catalogue_.at(prototype_index).name;
+        return prototype_catalogue_.at(prototype_index)->name;
     }
     const size_t &InteractionStore::GetParticipantCount(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < requirements_catalogue_.size(), fmt::format("Requirement with id {} does not exist", prototype_index));
-        return requirements_catalogue_.at(prototype_index).participant_count;
+        return requirements_catalogue_.at(prototype_index)->participant_count;
     }
     const std::vector<float> &InteractionStore::GetWealthEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
-        return prototype_catalogue_.at(prototype_index).wealth_effects;
+        return prototype_catalogue_.at(prototype_index)->wealth_effects;
     }
 
     const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
-        return prototype_catalogue_.at(prototype_index).emotion_effects;
+        return prototype_catalogue_.at(prototype_index)->emotion_effects;
     }
     const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
-        return prototype_catalogue_.at(prototype_index).relationship_effects;
+        return prototype_catalogue_.at(prototype_index)->relationship_effects;
     }
-    std::weak_ptr<Interaction> InteractionStore::CreateInteraction(size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
+    std::weak_ptr<Interaction> InteractionStore::CreateInteraction(Chronicle &chronicle, size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
-        InteractionPrototype &prototype = prototype_catalogue_.at(prototype_index);
-        InteractionRequirement &requirement = requirements_catalogue_.at(prototype_index);
-        InteractionTendency &tendency = tendencies_catalogue_.at(prototype_index);
-        return chronicle_.CreateInteraction(prototype, requirement, tendency, chance, tick, reasons, participants);
+        std::shared_ptr<InteractionPrototype> prototype = prototype_catalogue_.at(prototype_index);
+        std::shared_ptr<InteractionRequirement> &requirement = requirements_catalogue_.at(prototype_index);
+        std::shared_ptr<InteractionTendency> &tendency = tendencies_catalogue_.at(prototype_index);
+        return chronicle.CreateInteraction(prototype, requirement, tendency, chance, tick, reasons, participants);
     }
-    const std::vector<InteractionRequirement> &InteractionStore::GetRequirementCatalogue() const
+    const std::vector<std::shared_ptr<InteractionRequirement>> &InteractionStore::GetRequirementCatalogue() const
     {
         return requirements_catalogue_;
     }
-    const std::vector<InteractionTendency> &InteractionStore::GetTendencyCatalogue() const
+    const std::vector<std::shared_ptr<InteractionTendency>> &InteractionStore::GetTendencyCatalogue() const
     {
         return tendencies_catalogue_;
     }
 
-    bool InteractionStore::ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionPrototype &out_prototype)
+    bool InteractionStore::ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr<InteractionPrototype> &out_prototype)
     {
         TATTLETALE_VERBOSE_PRINT("CREATING PROTOTYPE...");
-        out_prototype.ClearValues();
+        out_prototype->ClearValues();
 
-        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype.name, json, name_key_, true, error_preamble))
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->name, json, name_key_, true, error_preamble))
         {
             return false;
         }
 
-        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype.description, json, description_key_, true, error_preamble))
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->description, json, description_key_, true, error_preamble))
         {
             return false;
         }
@@ -138,14 +138,14 @@ namespace tattletale
             {
                 return false;
             }
-            out_prototype.wealth_effects.push_back(wealth_value);
+            out_prototype->wealth_effects.push_back(wealth_value);
 
             nlohmann::json emotion_map;
             if (!ReadJsonValueFromArray<nlohmann::json, nlohmann::detail::value_t::object>(emotion_map, emotion_json, i, false, error_preamble))
             {
                 return false;
             }
-            out_prototype.emotion_effects.push_back({});
+            out_prototype->emotion_effects.push_back({});
             for (auto &key : emotion_type_keys_)
             {
                 float emotion_value = 0.0f;
@@ -157,7 +157,7 @@ namespace tattletale
                 {
                     return false;
                 }
-                out_prototype.emotion_effects[i].insert({Emotion::StringToEmotionType(key), emotion_value});
+                out_prototype->emotion_effects[i].insert({Emotion::StringToEmotionType(key), emotion_value});
             }
 
             nlohmann::json relationship_changes_array;
@@ -166,7 +166,7 @@ namespace tattletale
                 return false;
             }
             size_t index = 0;
-            out_prototype.relationship_effects.push_back({});
+            out_prototype->relationship_effects.push_back({});
             for (size_t other_participant = 0; other_participant < participant_count; ++other_participant)
             {
                 if (other_participant != i)
@@ -183,7 +183,7 @@ namespace tattletale
                     }
                     if (participant >= participant_count)
                     {
-                        TATTLETALE_ERROR_PRINT(true, fmt::format("{} participant index of {} was to big", error_preamble, out_prototype.name));
+                        TATTLETALE_ERROR_PRINT(true, fmt::format("{} participant index of {} was to big", error_preamble, out_prototype->name));
                         return false;
                     }
                     nlohmann::json changes_json;
@@ -206,22 +206,22 @@ namespace tattletale
                         map.insert({Relationship::StringToRelationshipType(key), value});
                     }
 
-                    out_prototype.relationship_effects[i].insert({participant, map});
+                    out_prototype->relationship_effects[i].insert({participant, map});
                     ++index;
                 }
             }
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype->ToString() + "\n");
 
         return true;
     }
 
-    bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement)
+    bool InteractionStore::ReadRequirementJSON(nlohmann::json json, std::string error_preamble, std::shared_ptr<InteractionRequirement> &out_requirement)
     {
         TATTLETALE_VERBOSE_PRINT("CREATING REQUIREMENTS...");
-        out_requirement.ClearValues();
-        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.participant_count, json, participant_count_key_, true, error_preamble))
+        out_requirement->ClearValues();
+        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement->participant_count, json, participant_count_key_, true, error_preamble))
         {
             return false;
         }
@@ -230,16 +230,16 @@ namespace tattletale
         {
             return false;
         }
-        out_requirement.context = StringToContextType(context_value);
+        out_requirement->context = StringToContextType(context_value);
 
         std::string goal_type_value = "";
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(goal_type_value, json, goal_type_key_, false, error_preamble))
         {
             return false;
         }
-        out_requirement.goal_type = Goal::StringToGoalType(goal_type_value);
+        out_requirement->goal_type = Goal::StringToGoalType(goal_type_value);
 
-        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement.day, json, day_key_, false, error_preamble))
+        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement->day, json, day_key_, false, error_preamble))
         {
             return false;
         }
@@ -260,7 +260,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_requirement.emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
+            out_requirement->emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
         }
         nlohmann::json relationship_map_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationship_key_, false, error_preamble))
@@ -278,16 +278,16 @@ namespace tattletale
             {
                 return false;
             }
-            out_requirement.relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
+            out_requirement->relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement->ToString() + "\n");
         return true;
     }
 
-    bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionTendency &out_tendency)
+    bool InteractionStore::ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr<InteractionTendency> &out_tendency)
     {
-        out_tendency.ClearValues();
+        out_tendency->ClearValues();
         TATTLETALE_VERBOSE_PRINT("CREATING TENDENCY...");
 
         nlohmann::json context_json;
@@ -306,7 +306,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_tendency.contexts.insert({StringToContextType(key), context_value});
+            out_tendency->contexts.insert({StringToContextType(key), context_value});
         }
         float wealth_value = 0.0f;
         if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(wealth_value, json, wealth_key_, false, error_preamble))
@@ -317,7 +317,7 @@ namespace tattletale
         {
             return false;
         }
-        out_tendency.wealth = wealth_value;
+        out_tendency->wealth = wealth_value;
 
         nlohmann::json emotion_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(emotion_json, json, emotion_key_, false, error_preamble))
@@ -335,7 +335,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_tendency.emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
+            out_tendency->emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
         }
         nlohmann::json relationship_array;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_array, json, relationship_key_, false, error_preamble))
@@ -363,10 +363,10 @@ namespace tattletale
                 }
                 relationship_map.insert({Relationship::StringToRelationshipType(key), relationship_value});
             }
-            out_tendency.relationships.push_back(relationship_map);
+            out_tendency->relationships.push_back(relationship_map);
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency.ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency->ToString() + "\n");
         return true;
     }
 

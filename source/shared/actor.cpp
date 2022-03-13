@@ -83,11 +83,11 @@ namespace tattletale
 
     int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance)
     {
-        const std::vector<InteractionRequirement> &requirements = interaction_store_.GetRequirementCatalogue();
+        const std::vector<std::shared_ptr<InteractionRequirement>> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
         for (size_t i = 0; i < requirements.size(); ++i)
         {
-            if (CheckRequirements(requirements[i], actor_group, context))
+            if (CheckRequirements(*requirements[i], actor_group, context))
             {
                 possible_interaction_indices.push_back(i);
             }
@@ -97,7 +97,7 @@ namespace tattletale
             return -1;
         }
 
-        const std::vector<InteractionTendency> &tendencies = interaction_store_.GetTendencyCatalogue();
+        const std::vector<std::shared_ptr<InteractionTendency>> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
         chances.reserve(possible_interaction_indices.size());
         std::vector<std::weak_ptr<Kernel>> reasons;
@@ -105,9 +105,9 @@ namespace tattletale
         uint32_t zero_count = 0;
         for (auto &i : possible_interaction_indices)
         {
-            const InteractionTendency &tendency = tendencies[i];
+            std::shared_ptr<InteractionTendency> tendency = tendencies[i];
             std::weak_ptr<Kernel> reason;
-            float chance = CalculateTendencyChance(tendency, context, reason);
+            float chance = CalculateTendencyChance(*tendency, context, reason);
             bool goal_had_effect = false;
             float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
             if (goal_had_effect)
@@ -131,9 +131,9 @@ namespace tattletale
         size_t interaction_index = possible_interaction_indices[index];
 
         out_participants.push_back(weak_from_this());
-        const InteractionRequirement &requirement = requirements[interaction_index];
-        const InteractionTendency &tendency = tendencies[interaction_index];
-        for (size_t i = 1; i < requirement.participant_count; ++i)
+        const std::shared_ptr<InteractionRequirement> &requirement = requirements[interaction_index];
+        const std::shared_ptr<InteractionTendency> &tendency = tendencies[interaction_index];
+        for (size_t i = 1; i < requirement->participant_count; ++i)
         {
             uint32_t participant_zero_count = 0;
             std::vector<float> participant_chances;
@@ -156,7 +156,7 @@ namespace tattletale
                     bool requirement_failed = false;
                     for (auto &[type, relationship] : relationship_map)
                     {
-                        current_chance_increase = relationship.lock()->GetValue() * tendency.relationships[i - 1].at(type);
+                        current_chance_increase = relationship.lock()->GetValue() * tendency->relationships[i - 1].at(type);
                         chance += current_chance_increase;
                         ++chance_parts;
 
@@ -165,16 +165,16 @@ namespace tattletale
                             highest_chance_increase = current_chance_increase;
                             reason = relationship;
                         }
-                        if (requirement.relationship.at(type) < 0)
+                        if (requirement->relationship.at(type) < 0)
                         {
-                            if (relationship.lock()->GetValue() > requirement.relationship.at(type))
+                            if (relationship.lock()->GetValue() > requirement->relationship.at(type))
                             {
                                 requirement_failed = true;
                             }
                         }
-                        else if (requirement.relationship.at(type) > 0)
+                        else if (requirement->relationship.at(type) > 0)
                         {
-                            if (relationship.lock()->GetValue() < requirement.relationship.at(type))
+                            if (relationship.lock()->GetValue() < requirement->relationship.at(type))
                             {
                                 requirement_failed = true;
                             }
@@ -194,7 +194,7 @@ namespace tattletale
                 }
                 else
                 {
-                    if (requirement.HasEmotionalRequirement())
+                    if (requirement->HasEmotionalRequirement())
                     {
                         participant_chances.push_back(0.0f);
                         ++participant_zero_count;

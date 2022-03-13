@@ -5,11 +5,11 @@ set(LIBRARY_SOURCES
     tale/school.cpp
     tale/course.hpp
     tale/course.cpp
-    shared/setting.hpp
     tale/interactionstore.hpp
     tale/interactionstore.cpp
     shared/actor.hpp
     shared/actor.cpp
+    shared/setting.hpp
     shared/tattletalecore.hpp
     shared/kernels/kernel.hpp
     shared/kernels/kernel.cpp
@@ -35,6 +35,8 @@ set(LIBRARY_SOURCES
     shared/chronicle.cpp
     tattle/tattle.hpp 
     tattle/tattle.cpp
+    tattle/curator.hpp
+    tattle/curator.cpp
 )
 
 set(ADDITIONAL_EXECTUABLE_SOURCES 
@@ -69,7 +71,7 @@ target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 # Uncomment/comment out for prints
-#target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_DEBUG_PRINT_OUTPUT)
+target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_DEBUG_PRINT_OUTPUT)
 target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_ERROR_PRINT_OUTPUT)
 #target_compile_definitions(${LIBRARY_NAME} PUBLIC TATTLETALE_VERBOSE_PRINT_OUTPUT)
 

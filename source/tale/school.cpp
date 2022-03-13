@@ -9,9 +9,10 @@
 
 namespace tattletale
 {
-    School::School(const Setting &setting) : setting_(setting), random_(setting.seed), chronicle_(random_, setting.actor_count), interaction_store_(random_, chronicle_)
+    School::School(Chronicle &chronicle, Random &random, const Setting &setting) : setting_(setting), random_(random), chronicle_(chronicle), interaction_store_(random_)
     {
         size_t actor_count = setting_.actor_count;
+        chronicle_.Reset(actor_count);
         size_t tick = 0;
 
         std::vector<std::string> firstnames = GetRandomFirstnames(actor_count);
@@ -142,7 +143,7 @@ namespace tattletale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
         TATTLETALE_DEBUG_PRINT(fmt::format("TALE KREATED {} KERNELS", chronicle_.GetKernelAmount()));
-        TATTLETALE_VERBOSE_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_.GetRandomCausalityChainDescription(3));
+        TATTLETALE_VERBOSE_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_GetRandomCausalityChainDescription(3));
         TATTLETALE_VERBOSE_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
@@ -230,7 +231,7 @@ namespace tattletale
         std::string interaction_description = "did nothing.";
         if (interaction_index != -1)
         {
-            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(interaction_index, chance, current_tick_, reasons, participants);
+            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
             interaction.lock()->Apply();
             interaction_description = interaction.lock()->ToString();
         }

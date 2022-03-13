@@ -2,17 +2,17 @@
 #include "tale/tale.hpp"
 
 #include <iostream>
+#include <memory>
 namespace tattletale
 {
 
-    Chronicle &Run(const Setting &setting)
+    void Tale(Chronicle &chronicle, Random &random, const Setting &setting)
     {
         TATTLETALE_DEBUG_PRINT("TALE STARTED");
         TATTLETALE_DEBUG_PRINT("SETTING UP SCHOOL");
-        School school(setting);
+        School school(chronicle, random, setting);
 
         TATTLETALE_DEBUG_PRINT("STARTING SIMULATION");
         school.SimulateDays(setting.days_to_simulate);
-        return school.GetChronicle();
     }
 } // namespace tattletale

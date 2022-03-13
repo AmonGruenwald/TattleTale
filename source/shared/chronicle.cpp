@@ -4,17 +4,21 @@
 
 namespace tattletale
 {
-    Chronicle::Chronicle(Random &random, size_t actor_count) : random_(random)
+    Chronicle::Chronicle(Random &random) : random_(random){};
+    void Chronicle::Reset(size_t actor_count)
     {
+        kernels_by_actor_.clear();
+        all_kernels_.clear();
+        all_interactions_.clear();
         for (size_t i = 0; i < actor_count; ++i)
         {
             kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
         }
     }
     std::weak_ptr<Interaction> Chronicle::CreateInteraction(
-        const InteractionPrototype &prototype,
-        const InteractionRequirement &requirement,
-        const InteractionTendency &tendency,
+        const std::shared_ptr<InteractionPrototype> prototype,
+        const std::shared_ptr<InteractionRequirement> requirement,
+        const std::shared_ptr<InteractionTendency> tendency,
         float chance,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
@@ -146,6 +150,19 @@ namespace tattletale
         return description;
     }
 
+    std::weak_ptr<Interaction> Chronicle::FindUnlikeliestInteraction() const
+    {
+        std::shared_ptr<Interaction> unlikeliest_interaction = all_interactions_[0];
+        for (size_t i = 1; i < all_interactions_.size(); ++i)
+        {
+            std::shared_ptr<Interaction> current_interaction = all_interactions_[i];
+            if (current_interaction->chance_ < unlikeliest_interaction->chance_)
+            {
+                unlikeliest_interaction = current_interaction;
+            }
+        }
+        return unlikeliest_interaction;
+    }
     std::string Chronicle::GetGoalCausalityChainDescription(size_t depth) const
     {
         if (all_kernels_.size() <= 0)

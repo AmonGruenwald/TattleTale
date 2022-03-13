@@ -25,6 +25,6 @@
 namespace tattletale
 {
     // TODO: should return events and needs to be parameterizable
-    Chronicle &Run(const Setting &setting);
+    void Tale(Chronicle &chronicle, Random &random, const Setting &setting);
 } // namespace tattletale
 #endif // TALE_TALE_H

@@ -33,7 +33,7 @@ namespace tattletale
          *
          * @param random Reference to the Random object used by the simulation.
          */
-        InteractionStore(Random &random, Chronicle &chronicle);
+        InteractionStore(Random &random);
         /**
          * @brief Returns a random interactionPrototype index from the catalogue.
          *
@@ -92,19 +92,19 @@ namespace tattletale
          * @param reasons Vectors holding every Kernel responsible for the creation.
          * @return A pointer to the created Interaction
          */
-        std::weak_ptr<Interaction> CreateInteraction(size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
+        std::weak_ptr<Interaction> CreateInteraction(Chronicle &chronicle, size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants);
         /**
          * @brief Gettter for a Reference to the  InteractionRequirement catalogue.
          *
          * @return A Reference to the catalogue for the \link InteractionRequirement Requirements \endlink.
          */
-        const std::vector<InteractionRequirement> &GetRequirementCatalogue() const;
+        const std::vector<std::shared_ptr<InteractionRequirement>> &GetRequirementCatalogue() const;
         /**
          * @brief Gettter for a Reference to the InteractionTendency catalogue.
          *
          * @return A Reference to the catalogue for the \link InteractionTendency Tendencies \endlink.
          */
-        const std::vector<InteractionTendency> &GetTendencyCatalogue() const;
+        const std::vector<std::shared_ptr<InteractionTendency>> &GetTendencyCatalogue() const;
 
     private:
         /**
@@ -112,21 +112,17 @@ namespace tattletale
          */
         Random &random_;
         /**
-         * @brief Holds a reference to the Chronicle object of the simulation.
-         */
-        Chronicle &chronicle_;
-        /**
          * @brief Holds all available \link InteractionPrototype InteractionPrototypes \endlink.
          */
-        std::vector<InteractionPrototype> prototype_catalogue_;
+        std::vector<std::shared_ptr<InteractionPrototype>> prototype_catalogue_;
         /**
          * @brief Holds the hard \link InteractionRequirement Requirements \endlink for all available Interaction prototypes.
          */
-        std::vector<InteractionRequirement> requirements_catalogue_;
+        std::vector<std::shared_ptr<InteractionRequirement>> requirements_catalogue_;
         /**
          * @brief Holds the hard \link InteractionRequirement Requirements \endlink for all available Interaction prototypes.
          */
-        std::vector<InteractionTendency> tendencies_catalogue_;
+        std::vector<std::shared_ptr<InteractionTendency>> tendencies_catalogue_;
         /**
          * @brief Path to the json file where Interaction prototypes are defined.
          */
@@ -147,9 +143,9 @@ namespace tattletale
         const std::vector<std::string> relationship_type_keys_ = {"love", "attraction", "friendship", "anger", "protective"};
         const std::string context_key_ = "context";
         const std::string group_size_key_ = "group_size";
-        bool ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionPrototype &out_prototype);
-        bool ReadRequirementJSON(nlohmann::json json, std::string error_preamble, InteractionRequirement &out_requirement);
-        bool ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, InteractionTendency &out_tendency);
+        bool ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr<InteractionPrototype> &out_prototype);
+        bool ReadRequirementJSON(nlohmann::json json, std::string error_preamble, std::shared_ptr<InteractionRequirement> &out_requirement);
+        bool ReadTendencyJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr<InteractionTendency> &out_tendency);
 
         template <typename T1, nlohmann::detail::value_t T2>
         bool ReadJsonValueFromDictionary(T1 &out_value, nlohmann::json json, std::string key, bool required, std::string error_preamble = "")

@@ -8,18 +8,18 @@
 namespace tattletale
 {
     Interaction::Interaction(
-        const InteractionPrototype &prototype,
-        const InteractionRequirement &requirement,
-        const InteractionTendency &tendency,
+        const std::shared_ptr<InteractionPrototype> prototype,
+        const std::shared_ptr<InteractionRequirement> requirement,
+        const std::shared_ptr<InteractionTendency> tendency,
         float chance,
         size_t id,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
         std::vector<std::weak_ptr<Actor>> participants)
-        : Kernel(prototype.name, id, tick, participants[0], reasons),
+        : Kernel(prototype->name, id, tick, participants[0], reasons),
           prototype_(prototype),
           requirement_(requirement),
-          tendency(tendency),
+          tendency_(tendency),
           chance_(chance),
           participants_(participants){};
 
@@ -29,12 +29,12 @@ namespace tattletale
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participants_.size(); ++i)
         {
-            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, prototype_.wealth_effects[i]);
-            for (auto &[type, value] : prototype_.emotion_effects[i])
+            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, prototype_->wealth_effects[i]);
+            for (auto &[type, value] : prototype_->emotion_effects[i])
             {
                 participants_.at(i).lock()->ApplyEmotionChange(reasons, tick_, type, value);
             }
-            for (auto &[other, change] : prototype_.relationship_effects[i])
+            for (auto &[other, change] : prototype_->relationship_effects[i])
             {
 
                 participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick_, participants_[other].lock()->id_, change);
@@ -50,16 +50,21 @@ namespace tattletale
         {
             args[count++] = fmt::detail::make_arg<fmt::format_context>(participant.lock()->name_);
         }
-        auto description = fmt::vformat(prototype_.description, fmt::format_args(args, count));
+        auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
         return description;
     }
 
-    const InteractionPrototype &Interaction::GetPrototype() const
+    const std::shared_ptr<InteractionPrototype> Interaction::GetPrototype() const
     {
         return prototype_;
     }
     const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const
     {
         return participants_;
+    }
+
+    const float Interaction::GetChance() const
+    {
+        return chance_;
     }
 } // namespace tattletale

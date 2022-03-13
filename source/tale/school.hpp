@@ -46,7 +46,7 @@ namespace tattletale
          *
          * @param setting Reference to the Setting object for the Simulation
          */
-        School(const Setting &setting);
+        School(Chronicle &chronicle, Random &random, const Setting &setting);
         /**
          * @brief Runs the simulation for the passed amount of days.
          *
@@ -126,7 +126,7 @@ namespace tattletale
         /**
          * @brief Holds the instance of the Random object of the simulation.
          */
-        Random random_;
+        Random &random_;
         /**
          * @brief Holds the instance of the InteractionStore object for the simulation.
          */
@@ -134,7 +134,7 @@ namespace tattletale
         /**
          * @brief Holds the instance of the Chronicle object for the simulation.
          */
-        Chronicle chronicle_;
+        Chronicle &chronicle_;
         /**
          * @brief The current tick of the simulation (increases after each slot or freetime activity has commenced for every actor). This is always the tick that will be simulated next.
          */
