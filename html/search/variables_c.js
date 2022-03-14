@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['same_5fcourse_5fper_5fweek_0',['same_course_per_week',['../structtattletale_1_1_setting.html#a84626f0674f9c22dbf5734ca3f555ee0',1,'tattletale::Setting']]],
-  ['school_5f_1',['school_',['../classtattletale_1_1_actor.html#a4c015a851a6a1ece3f161d1893e8cc82',1,'tattletale::Actor']]],
-  ['seed_2',['seed',['../structtattletale_1_1_setting.html#af92c1c655488268a2995b70487d5757f',1,'tattletale::Setting']]],
-  ['setting_5f_3',['setting_',['../classtattletale_1_1_actor.html#a1a14643ea8b821727089ae0d290f4e09',1,'tattletale::Actor::setting_()'],['../classtattletale_1_1_school.html#af7d70c9766b24eb1ecc538aee34f0259',1,'tattletale::School::setting_()']]],
-  ['slots_5f_4',['slots_',['../classtattletale_1_1_course.html#a9d9e2f57b2f3ab3be679953375d6cf19',1,'tattletale::Course']]]
+  ['tendencies_5fcatalogue_5f_0',['tendencies_catalogue_',['../classtattletale_1_1_interaction_store.html#a4652da789f7c702d0216817549aed1e1',1,'tattletale::InteractionStore']]],
+  ['traits_5f_1',['traits_',['../classtattletale_1_1_actor.html#aa94018cf665d9cbc3151d63d31c1cb13',1,'tattletale::Actor']]],
+  ['type_5f_2',['type_',['../classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30',1,'tattletale::Emotion::type_()'],['../classtattletale_1_1_relationship.html#a50cfd022d18694f68a770b4dce4c21b7',1,'tattletale::Relationship::type_()']]]
 ];

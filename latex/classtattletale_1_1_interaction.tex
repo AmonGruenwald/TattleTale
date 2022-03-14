@@ -23,20 +23,20 @@ void {\bfseries Apply} ()
 \begin{DoxyCompactList}\small\item\em Applies the effects of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to all participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_interaction_aa58c1774a22895bfe9681f5c0ad25f55}{To\+String}} ()
 \begin{DoxyCompactList}\small\item\em Gets a string description of what would happen during the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& \mbox{\hyperlink{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}{Get\+Prototype}} () const
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ \mbox{\hyperlink{classtattletale_1_1_interaction_aac4d4e30ce3d7c4c725b4f3d3e643262}{Get\+Prototype}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_adfa6d7b23d7e207130f0cb45eb7d6fcb}{Get\+Participants}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}{Interaction}} (const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \&prototype, const \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} \&requirement, const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&tendency, float chance, size\+\_\+t id, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
+\mbox{\hyperlink{classtattletale_1_1_interaction_ade21f9822e44638ad78a42218d928113}{Interaction}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ Prototype, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ requirement, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ tendency, float chance, size\+\_\+t id, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Only publically available Constructor. Fills out every member variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_ab29326d7e23f3adcca3f45dbcc8da781}\label{classtattletale_1_1_interaction_ab29326d7e23f3adcca3f45dbcc8da781}} 
-const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& {\bfseries prototype\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_a1af62f8b2d92940afecd310c150fbe38}\label{classtattletale_1_1_interaction_a1af62f8b2d92940afecd310c150fbe38}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ {\bfseries prototype\+\_\+}
 \begin{DoxyCompactList}\small\item\em Stores a Reference to the corresponding \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtattletale_1_1_interaction_abf46f8cdb860ad493aa4d91eb9559c6c}\label{classtattletale_1_1_interaction_abf46f8cdb860ad493aa4d91eb9559c6c}} 
 std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ {\bfseries participants\+\_\+}
@@ -50,11 +50,11 @@ Represents an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} an
 Extends the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class, so it has to hold every information that is necessary to recreate the causal chain leading to this Event. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}\label{classtattletale_1_1_interaction_ac9ca8b9a10bc59fb6b318392064dfcc1}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_ade21f9822e44638ad78a42218d928113}\label{classtattletale_1_1_interaction_ade21f9822e44638ad78a42218d928113}} 
 \index{tattletale::Interaction@{tattletale::Interaction}!Interaction@{Interaction}}
 \index{Interaction@{Interaction}!tattletale::Interaction@{tattletale::Interaction}}
 \doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}}
-{\footnotesize\ttfamily tattletale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \&}]{prototype,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} \&}]{requirement,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&}]{tendency,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tattletale\+::\+Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$}]{Prototype,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$}]{requirement,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$}]{tendency,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -95,11 +95,11 @@ Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_interactio
 \begin{DoxyReturn}{Returns}
 The participants. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}\label{classtattletale_1_1_interaction_af74658c256bf68d3c1a8ff6dfaaa8f84}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_aac4d4e30ce3d7c4c725b4f3d3e643262}\label{classtattletale_1_1_interaction_aac4d4e30ce3d7c4c725b4f3d3e643262}} 
 \index{tattletale::Interaction@{tattletale::Interaction}!GetPrototype@{GetPrototype}}
 \index{GetPrototype@{GetPrototype}!tattletale::Interaction@{tattletale::Interaction}}
 \doxysubsubsection{\texorpdfstring{GetPrototype()}{GetPrototype()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} \& tattletale\+::\+Interaction\+::\+Get\+Prototype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ tattletale\+::\+Interaction\+::\+Get\+Prototype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

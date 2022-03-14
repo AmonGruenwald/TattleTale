@@ -1,11 +1,18 @@
 var searchData=
 [
-  ['random_0',['Random',['../classtattletale_1_1_random.html',1,'tattletale']]],
-  ['random_5f_1',['random_',['../classtattletale_1_1_actor.html#aa8ffdd94bc08c53aaa4f1acc304e6307',1,'tattletale::Actor::random_()'],['../classtattletale_1_1_course.html#aa49122a85ab09e9f212a3377dd0b35e5',1,'tattletale::Course::random_()'],['../classtattletale_1_1_interaction_store.html#afaf80047ea82c970efd77483dc8332cd',1,'tattletale::InteractionStore::random_()'],['../classtattletale_1_1_school.html#af7c07d71ed2d3cf6d15eacd469b748a5',1,'tattletale::School::random_()']]],
-  ['relationship_2',['Relationship',['../classtattletale_1_1_relationship.html#af664510e42eba2d5252eb49990f18dd0',1,'tattletale::Relationship::Relationship()'],['../classtattletale_1_1_relationship.html',1,'tattletale::Relationship']]],
-  ['relationship_5feffects_3',['relationship_effects',['../structtattletale_1_1_interaction_prototype.html#ac0b95e4cb38d8e8095bf89a4a5c5a259',1,'tattletale::InteractionPrototype']]],
-  ['relationships_5f_4',['relationships_',['../classtattletale_1_1_actor.html#a346fdbab0d27028cdd89730268d682db',1,'tattletale::Actor']]],
-  ['relationshiptypetostring_5',['RelationshipTypeToString',['../classtattletale_1_1_relationship.html#a6dd75b4f276e28cee1deaf7f10ca326a',1,'tattletale::Relationship']]],
-  ['requirements_5fcatalogue_5f_6',['requirements_catalogue_',['../classtattletale_1_1_interaction_store.html#a03001ee956e8a1bc4d13c5119cec8429',1,'tattletale::InteractionStore']]],
-  ['resource_7',['Resource',['../classtattletale_1_1_resource.html#aa5913901bd569380242cc5af167283cc',1,'tattletale::Resource::Resource()'],['../classtattletale_1_1_resource.html',1,'tattletale::Resource']]]
+  ['same_5fcourse_5fper_5fweek_0',['same_course_per_week',['../structtattletale_1_1_setting.html#a84626f0674f9c22dbf5734ca3f555ee0',1,'tattletale::Setting']]],
+  ['school_1',['School',['../classtattletale_1_1_school.html#a8771b2399b724fd43cdcc3d7cbfe3ea0',1,'tattletale::School::School()'],['../classtattletale_1_1_school.html',1,'tattletale::School']]],
+  ['school_5f_2',['school_',['../classtattletale_1_1_actor.html#a4c015a851a6a1ece3f161d1893e8cc82',1,'tattletale::Actor']]],
+  ['seed_3',['seed',['../structtattletale_1_1_setting.html#af92c1c655488268a2995b70487d5757f',1,'tattletale::Setting']]],
+  ['setting_4',['Setting',['../structtattletale_1_1_setting.html',1,'tattletale']]],
+  ['setting_5f_5',['setting_',['../classtattletale_1_1_actor.html#a1a14643ea8b821727089ae0d290f4e09',1,'tattletale::Actor::setting_()'],['../classtattletale_1_1_school.html#af7d70c9766b24eb1ecc538aee34f0259',1,'tattletale::School::setting_()']]],
+  ['simulateday_6',['SimulateDay',['../classtattletale_1_1_school.html#a72c757a06043a0bd7784812edb71a714',1,'tattletale::School']]],
+  ['simulatedays_7',['SimulateDays',['../classtattletale_1_1_school.html#a1b580a346c799e98a6d850ab2e6ee7b8',1,'tattletale::School']]],
+  ['slot_5fcount_5fper_5fweek_8',['slot_count_per_week',['../structtattletale_1_1_setting.html#a9b6d83b5f2c06e84c841cf86c1624cad',1,'tattletale::Setting']]],
+  ['slotempty_9',['SlotEmpty',['../classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300',1,'tattletale::Actor']]],
+  ['slots_5f_10',['slots_',['../classtattletale_1_1_course.html#a9d9e2f57b2f3ab3be679953375d6cf19',1,'tattletale::Course']]],
+  ['slotsempty_11',['SlotsEmpty',['../classtattletale_1_1_actor.html#a2c51618ee6e2cfe18fccbaa6a380656f',1,'tattletale::Actor']]],
+  ['stringtocontexttype_12',['StringToContextType',['../namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585',1,'tattletale']]],
+  ['stringtoemotiontype_13',['StringToEmotionType',['../classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7',1,'tattletale::Emotion']]],
+  ['stringtorelationshiptype_14',['StringToRelationshipType',['../classtattletale_1_1_relationship.html#a1403eddade0dfbf76b0a6fcdbe780572',1,'tattletale::Relationship']]]
 ];

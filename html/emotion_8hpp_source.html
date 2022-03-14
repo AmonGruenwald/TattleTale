@@ -75,43 +75,55 @@ $(function() {
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;shared/kernels/resourcekernels/resource.hpp&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetattletale.html">tattletale</a></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">enum class</span> EmotionType</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        kNone,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        kHappy,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        kCalm,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        kSatisfied,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        kBrave,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        kExtroverted,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        kLast</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    };</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classtattletale_1_1_emotion.html">   26</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtattletale_1_1_emotion.html">Emotion</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtattletale_1_1_resource.html">Resource</a></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">static</span> EmotionType <a class="code hl_function" href="classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7">StringToEmotionType</a>(std::string emotion_string);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">static</span> std::string <a class="code hl_function" href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">EmotionTypeToString</a>(EmotionType emotion_type);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        std::string <a class="code hl_function" href="classtattletale_1_1_emotion.html#a5f5f3b89454e3c61d50c41da9a76133e">ToString</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_function" href="classtattletale_1_1_emotion.html#a622523c76b47e41983a28ac2efd744bd">Emotion</a>(EmotionType type, <span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, <span class="keywordtype">size_t</span> tick, std::weak_ptr&lt;Actor&gt; owner, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">   74</a></span>        EmotionType <a class="code hl_variable" href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">type_</a>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtattletale_1_1_chronicle.html">Chronicle</a>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <span class="comment">// namespace tattletale</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">// TALE_KERNELS_RESOURCEKERNELS_EMOTION_H</span></div>
-<div class="ttc" id="aclasstattletale_1_1_chronicle_html"><div class="ttname"><a href="classtattletale_1_1_chronicle.html">tattletale::Chronicle</a></div><div class="ttdef"><b>Definition:</b> chronicle.hpp:17</div></div>
-<div class="ttc" id="aclasstattletale_1_1_emotion_html"><div class="ttname"><a href="classtattletale_1_1_emotion.html">tattletale::Emotion</a></div><div class="ttdoc">Represents an Emotion an Actor has.</div><div class="ttdef"><b>Definition:</b> emotion.hpp:27</div></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetattletale.html">tattletale</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">enum class</span> EmotionType</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        kNone,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        kHappy,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        kCalm,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        kSatisfied,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        kBrave,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        kExtroverted,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        kLast</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classtattletale_1_1_emotion.html">   27</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtattletale_1_1_emotion.html">Emotion</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtattletale_1_1_resource.html">Resource</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">static</span> EmotionType <a class="code hl_function" href="classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7">StringToEmotionType</a>(std::string emotion_string);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">static</span> std::string <a class="code hl_function" href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">EmotionTypeToString</a>(EmotionType emotion_type);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        EmotionType <a class="code hl_function" href="classtattletale_1_1_emotion.html#a49a32f0102687f47c22c0d70ab39105f">GetType</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_function" href="classtattletale_1_1_emotion.html#a622523c76b47e41983a28ac2efd744bd">Emotion</a>(EmotionType type, <span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, <span class="keywordtype">size_t</span> tick, std::weak_ptr&lt;Actor&gt; owner, std::vector&lt;std::weak_ptr&lt;Kernel&gt;&gt; reasons, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">   75</a></span>        EmotionType <a class="code hl_variable" href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">type_</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">inline</span> std::map&lt;EmotionType, std::string&gt; positive_name_variants_ = {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            {EmotionType::kHappy, <span class="stringliteral">&quot;happy&quot;</span>},</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            {EmotionType::kBrave, <span class="stringliteral">&quot;brave&quot;</span>},</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            {EmotionType::kCalm, <span class="stringliteral">&quot;calm&quot;</span>},</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            {EmotionType::kExtroverted, <span class="stringliteral">&quot;extroverted&quot;</span>},</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            {EmotionType::kSatisfied, <span class="stringliteral">&quot;satisfied&quot;</span>}};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">inline</span> std::map&lt;EmotionType, std::string&gt; negative_name_variants_ = {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            {EmotionType::kHappy, <span class="stringliteral">&quot;sad&quot;</span>},</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            {EmotionType::kBrave, <span class="stringliteral">&quot;fearful&quot;</span>},</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            {EmotionType::kCalm, <span class="stringliteral">&quot;stressed&quot;</span>},</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            {EmotionType::kExtroverted, <span class="stringliteral">&quot;shy&quot;</span>},</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            {EmotionType::kSatisfied, <span class="stringliteral">&quot;unfullfilled&quot;</span>}};</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">friend</span> <span class="keyword">class </span>Chronicle;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    };</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} <span class="comment">// namespace tattletale</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif </span><span class="comment">// TALE_KERNELS_RESOURCEKERNELS_EMOTION_H</span></div>
+<div class="ttc" id="aclasstattletale_1_1_emotion_html"><div class="ttname"><a href="classtattletale_1_1_emotion.html">tattletale::Emotion</a></div><div class="ttdoc">Represents an Emotion an Actor has.</div><div class="ttdef"><b>Definition:</b> emotion.hpp:28</div></div>
 <div class="ttc" id="aclasstattletale_1_1_emotion_html_a3228b2c1eb7bc40408a1cbb67f428eb7"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7">tattletale::Emotion::StringToEmotionType</a></div><div class="ttdeci">static EmotionType StringToEmotionType(std::string emotion_string)</div><div class="ttdoc">Converts a string to an EmotionType.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:12</div></div>
 <div class="ttc" id="aclasstattletale_1_1_emotion_html_a44d7f53587557c604dc74b87b54c6b61"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">tattletale::Emotion::EmotionTypeToString</a></div><div class="ttdeci">static std::string EmotionTypeToString(EmotionType emotion_type)</div><div class="ttdoc">Converts an EmotionType to a string for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:27</div></div>
-<div class="ttc" id="aclasstattletale_1_1_emotion_html_a5f5f3b89454e3c61d50c41da9a76133e"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a5f5f3b89454e3c61d50c41da9a76133e">tattletale::Emotion::ToString</a></div><div class="ttdeci">std::string ToString() override</div><div class="ttdoc">Creates a string describing the Emotion for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:58</div></div>
+<div class="ttc" id="aclasstattletale_1_1_emotion_html_a49a32f0102687f47c22c0d70ab39105f"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a49a32f0102687f47c22c0d70ab39105f">tattletale::Emotion::GetType</a></div><div class="ttdeci">EmotionType GetType()</div><div class="ttdoc">Creates a string describing the Emotion for easy printing.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:58</div></div>
 <div class="ttc" id="aclasstattletale_1_1_emotion_html_a622523c76b47e41983a28ac2efd744bd"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a622523c76b47e41983a28ac2efd744bd">tattletale::Emotion::Emotion</a></div><div class="ttdeci">Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr&lt; Actor &gt; owner, std::vector&lt; std::weak_ptr&lt; Kernel &gt; &gt; reasons, float value)</div><div class="ttdoc">Constructor initializing base Resource class and type_ member.</div><div class="ttdef"><b>Definition:</b> emotion.cpp:9</div></div>
-<div class="ttc" id="aclasstattletale_1_1_emotion_html_a6f59f7ce4b4897bf949f5032033a2c30"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">tattletale::Emotion::type_</a></div><div class="ttdeci">EmotionType type_</div><div class="ttdoc">The EmotionType of this Emotion.</div><div class="ttdef"><b>Definition:</b> emotion.hpp:74</div></div>
+<div class="ttc" id="aclasstattletale_1_1_emotion_html_a6f59f7ce4b4897bf949f5032033a2c30"><div class="ttname"><a href="classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30">tattletale::Emotion::type_</a></div><div class="ttdeci">EmotionType type_</div><div class="ttdoc">The EmotionType of this Emotion.</div><div class="ttdef"><b>Definition:</b> emotion.hpp:75</div></div>
 <div class="ttc" id="aclasstattletale_1_1_resource_html"><div class="ttname"><a href="classtattletale_1_1_resource.html">tattletale::Resource</a></div><div class="ttdoc">Represents an abstract Resource an Actor has.</div><div class="ttdef"><b>Definition:</b> resource.hpp:12</div></div>
 <div class="ttc" id="anamespacetattletale_html"><div class="ttname"><a href="namespacetattletale.html">tattletale</a></div><div class="ttdoc">Responsible for the event generation of the TattleTale project.</div><div class="ttdef"><b>Definition:</b> actor.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->

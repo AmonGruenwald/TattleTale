@@ -14,14 +14,18 @@
 \DoxyCodeLine{13     \textcolor{keyword}{public}:}
 \DoxyCodeLine{19         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{GetValue}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{25         \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classtattletale_1_1_resource_a2e94d6e04fbefbceb601ce298aa6ffe3}{ToString}}();}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{40         \mbox{\hyperlink{classtattletale_1_1_resource_aa5913901bd569380242cc5af167283cc}{Resource}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{44         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}{value\_}};}
-\DoxyCodeLine{45         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{46     \};}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
+\DoxyCodeLine{26         std::string GetNameVariant();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41         \mbox{\hyperlink{classtattletale_1_1_resource_a19292a34df0b9b5a8edb45bafb70368e}{Resource}}(std::string name, std::string positive\_name\_variant, std::string negative\_name\_variant, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value, KernelType type = KernelType::kResource);}
+\DoxyCodeLine{45         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}{value\_}};}
+\DoxyCodeLine{46         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *adjectives\_[4] = \{\textcolor{stringliteral}{"{}slightly"{}}, \textcolor{stringliteral}{"{}quite"{}}, \textcolor{stringliteral}{"{}very"{}}, \textcolor{stringliteral}{"{}completely"{}}\};}
+\DoxyCodeLine{47         \textcolor{keyword}{const} std::string positive\_name\_variant\_;}
+\DoxyCodeLine{48         \textcolor{keyword}{const} std::string negative\_name\_variant\_;}
+\DoxyCodeLine{49         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{50     \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
 
 \end{DoxyCode}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['value_5f_0',['value_',['../classtattletale_1_1_resource.html#a2a8a5d772bb2ede4637b5c6eb2f0c560',1,'tattletale::Resource']]]
+  ['wealth_5f_0',['wealth_',['../classtattletale_1_1_actor.html#a2e6114e4da62fd39f95de4850e8bac98',1,'tattletale::Actor']]],
+  ['wealth_5feffects_1',['wealth_effects',['../structtattletale_1_1_interaction_prototype.html#ad24c7d52f13e9a89ef441009deff7b63',1,'tattletale::InteractionPrototype']]]
 ];

@@ -22,41 +22,54 @@
 \DoxyCodeLine{18     \textcolor{keyword}{public}:}
 \DoxyCodeLine{22         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtattletale_1_1_chronicle_abf8f38315d10d6e8ef261cb6b281e5bb}{actors\_}};}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keywordtype}{size\_t} actor\_count);}
-\DoxyCodeLine{25         std::weak\_ptr<Interaction> CreateInteraction(}
-\DoxyCodeLine{26             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{InteractionPrototype}} \&prototype,}
-\DoxyCodeLine{27             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}} \&requirement,}
-\DoxyCodeLine{28             \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}} \&tendency,}
-\DoxyCodeLine{29             \textcolor{keywordtype}{float} chance,}
-\DoxyCodeLine{30             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{31             std::vector<std::weak\_ptr<Kernel>> reasons,}
-\DoxyCodeLine{32             std::vector<std::weak\_ptr<Actor>> participants);}
-\DoxyCodeLine{33         std::weak\_ptr<Emotion> CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{34         std::weak\_ptr<Relationship> CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{35         std::weak\_ptr<Resource> CreateResource(std::string name, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{36         std::weak\_ptr<Goal> CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{37         std::weak\_ptr<Trait> CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keywordtype}{float} GetAverageInteractionChance() \textcolor{keyword}{const};}
-\DoxyCodeLine{40         std::string GetKnownActorsDescription(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{41         \textcolor{keywordtype}{size\_t} GetKernelAmount() \textcolor{keyword}{const};}
-\DoxyCodeLine{42         std::string GetRandomCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{43         std::string GetKissingCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{44         std::string GetGoalCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{45         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{keyword}{private}:}
-\DoxyCodeLine{48         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{49         std::vector<std::shared\_ptr<Kernel>>}
-\DoxyCodeLine{50             all\_kernels\_;}
-\DoxyCodeLine{51         std::vector<std::shared\_ptr<Interaction>>}
-\DoxyCodeLine{52             all\_interactions\_;}
-\DoxyCodeLine{53         std::vector<std::vector<std::shared\_ptr<Kernel>>>}
-\DoxyCodeLine{54             kernels\_by\_actor\_;}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56         std::string GetRecursiveKernelDescription(std::weak\_ptr<Kernel> kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{57     \};}
-\DoxyCodeLine{58 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} Reset(\textcolor{keywordtype}{size\_t} actor\_count);}
+\DoxyCodeLine{26         std::weak\_ptr<Interaction> CreateInteraction(}
+\DoxyCodeLine{27             \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> prototype,}
+\DoxyCodeLine{28             \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement,}
+\DoxyCodeLine{29             \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency,}
+\DoxyCodeLine{30             \textcolor{keywordtype}{float} chance,}
+\DoxyCodeLine{31             \textcolor{keywordtype}{size\_t} tick,}
+\DoxyCodeLine{32             std::vector<std::weak\_ptr<Kernel>> reasons,}
+\DoxyCodeLine{33             std::vector<std::weak\_ptr<Actor>> participants);}
+\DoxyCodeLine{34         std::weak\_ptr<Emotion> CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{35         std::weak\_ptr<Relationship> CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{36         std::weak\_ptr<Resource> CreateResource(std::string name, std::string positive\_name\_variant, std::string negative\_name\_variant, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{37         std::weak\_ptr<Goal> CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{38         std::weak\_ptr<Trait> CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordtype}{float} GetAverageInteractionChance() \textcolor{keyword}{const};}
+\DoxyCodeLine{41         \textcolor{keywordtype}{float} GetAverageInteractionReasonCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{42         std::string GetKnownActorsDescription(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{43         \textcolor{keywordtype}{size\_t} GetKernelAmount() \textcolor{keyword}{const};}
+\DoxyCodeLine{44         std::string GetRandomCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{45         std::string GetKissingCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{46         std::string GetGoalCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{47         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{48         std::weak\_ptr<Interaction> FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
+\DoxyCodeLine{49         std::shared\_ptr<InteractionPrototype> FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{50         std::weak\_ptr<Emotion> GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, EmotionType type) \textcolor{keyword}{const};}
+\DoxyCodeLine{51         std::weak\_ptr<Resource> GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{52         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{private}:}
+\DoxyCodeLine{55         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{56         std::vector<std::shared\_ptr<Kernel>>}
+\DoxyCodeLine{57             all\_kernels\_;}
+\DoxyCodeLine{58         std::vector<std::shared\_ptr<Interaction>>}
+\DoxyCodeLine{59             all\_interactions\_;}
+\DoxyCodeLine{60         std::vector<std::vector<std::shared\_ptr<Interaction>>>}
+\DoxyCodeLine{61             interactions\_by\_actor\_;}
+\DoxyCodeLine{62         std::vector<std::vector<std::shared\_ptr<Kernel>>>}
+\DoxyCodeLine{63             kernels\_by\_actor\_;}
+\DoxyCodeLine{64         std::vector<std::vector<std::shared\_ptr<Emotion>>>}
+\DoxyCodeLine{65             emotions\_by\_actor\_;}
+\DoxyCodeLine{66         std::vector<std::vector<std::shared\_ptr<Resource>>>}
+\DoxyCodeLine{67             wealth\_by\_actor\_;}
+\DoxyCodeLine{68         \textcolor{keywordtype}{size\_t} highest\_interaction\_id = 0;}
+\DoxyCodeLine{69         std::string GetRecursiveKernelDescription(std::weak\_ptr<Kernel> kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{70     \};}
+\DoxyCodeLine{71 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
 
 \end{DoxyCode}

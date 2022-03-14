@@ -12,7 +12,7 @@ Stores Prototypes for all possible interactions.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_interaction_store_aa82b30bab618aea4c2e96b48f98ba3b1}{Interaction\+Store}} (\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle)
+\mbox{\hyperlink{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}{Interaction\+Store}} (\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random)
 \begin{DoxyCompactList}\small\item\em Default constructor populates catalogue. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b}{Get\+Random\+Interaction\+Prototype\+Index}} () const
 \begin{DoxyCompactList}\small\item\em Returns a random interaction\+Prototype index from the catalogue. \end{DoxyCompactList}\item 
@@ -26,11 +26,11 @@ const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hype
 \begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a5c47d77e323a3993d7824225e41e96ea}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtattletale_1_1_interaction_store_ababc5cdf30b62d2b3164349f57b81028}{Create\+Interaction}} (size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}{Create\+Interaction}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-const std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_ac6e55e79de30beb95e1379980f245278}{Get\+Requirement\+Catalogue}} () const
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}{Get\+Requirement\+Catalogue}} () const
 \begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} catalogue. \end{DoxyCompactList}\item 
-const std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_af7e02f7718a7c3859cace25ec449bdc1}{Get\+Tendency\+Catalogue}} () const
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}{Get\+Tendency\+Catalogue}} () const
 \begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -38,17 +38,14 @@ const std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendenc
 \mbox{\Hypertarget{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}\label{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}} 
 \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a7044149edef4c620f51463be34b5d5cf}\label{classtattletale_1_1_interaction_store_a7044149edef4c620f51463be34b5d5cf}} 
-\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \& {\bfseries chronicle\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} object of the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_abad867643251d5eaaca504a83ec4424d}\label{classtattletale_1_1_interaction_store_abad867643251d5eaaca504a83ec4424d}} 
-std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}\label{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototypes }}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a03001ee956e8a1bc4d13c5119cec8429}\label{classtattletale_1_1_interaction_store_a03001ee956e8a1bc4d13c5119cec8429}} 
-std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ {\bfseries requirements\+\_\+catalogue\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}\label{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ {\bfseries requirements\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for all available \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ab8d692065f6f9c811f4ba41d8eee07c4}\label{classtattletale_1_1_interaction_store_ab8d692065f6f9c811f4ba41d8eee07c4}} 
-std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ {\bfseries tendencies\+\_\+catalogue\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}\label{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ $>$ {\bfseries tendencies\+\_\+catalogue\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for all available \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}\label{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}} 
 std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = \char`\"{}resources/interactioncatalogue.\+json\char`\"{}
@@ -61,11 +58,11 @@ Stores Prototypes for all possible interactions.
 An \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} options for each situation 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aa82b30bab618aea4c2e96b48f98ba3b1}\label{classtattletale_1_1_interaction_store_aa82b30bab618aea4c2e96b48f98ba3b1}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}\label{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!InteractionStore@{InteractionStore}}
 \index{InteractionStore@{InteractionStore}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{InteractionStore()}{InteractionStore()}}
-{\footnotesize\ttfamily tattletale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&}]{random,  }\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tattletale\+::\+Interaction\+Store\+::\+Interaction\+Store (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&}]{random }\end{DoxyParamCaption})}
 
 
 
@@ -81,11 +78,11 @@ Reads from tale/resources/interactioncatalogue.\+json to get the data to build u
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ababc5cdf30b62d2b3164349f57b81028}\label{classtattletale_1_1_interaction_store_ababc5cdf30b62d2b3164349f57b81028}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}\label{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!CreateInteraction@{CreateInteraction}}
 \index{CreateInteraction@{CreateInteraction}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
-{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
 
 
 
@@ -190,11 +187,11 @@ Should only really be needed for testing purposes
 \begin{DoxyReturn}{Returns}
 The relationship effects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ac6e55e79de30beb95e1379980f245278}\label{classtattletale_1_1_interaction_store_ac6e55e79de30beb95e1379980f245278}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}\label{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetRequirementCatalogue@{GetRequirementCatalogue}}
 \index{GetRequirementCatalogue@{GetRequirementCatalogue}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetRequirementCatalogue()}{GetRequirementCatalogue()}}
-{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Requirement\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Requirement\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -203,11 +200,11 @@ Gettter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction
 \begin{DoxyReturn}{Returns}
 A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }}. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_af7e02f7718a7c3859cace25ec449bdc1}\label{classtattletale_1_1_interaction_store_af7e02f7718a7c3859cace25ec449bdc1}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}\label{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetTendencyCatalogue@{GetTendencyCatalogue}}
 \index{GetTendencyCatalogue@{GetTendencyCatalogue}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetTendencyCatalogue()}{GetTendencyCatalogue()}}
-{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Tendency\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Tendency\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

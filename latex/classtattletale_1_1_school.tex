@@ -12,7 +12,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_school_ade128031315b92662d6f1b2a7e3fe6a3}{School}} (const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting)
+\mbox{\hyperlink{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}{School}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting)
 \begin{DoxyCompactList}\small\item\em Constructor that sets up everything necessayr for the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_school_a1b580a346c799e98a6d850ab2e6ee7b8}{Simulate\+Days}} (size\+\_\+t days)
 \begin{DoxyCompactList}\small\item\em Runs the simulation for the passed amount of days. \end{DoxyCompactList}\item 
@@ -69,14 +69,14 @@ std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_ac
 \mbox{\Hypertarget{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}\label{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}} 
 const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \& {\bfseries setting\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds a reference to an instance of the \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} object that was passed during construction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_school_af7c07d71ed2d3cf6d15eacd469b748a5}\label{classtattletale_1_1_school_af7c07d71ed2d3cf6d15eacd469b748a5}} 
-\mbox{\hyperlink{classtattletale_1_1_random}{Random}} {\bfseries random\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_school_a49de0172b24e71b4ee267e12586b26db}\label{classtattletale_1_1_school_a49de0172b24e71b4ee267e12586b26db}} 
+\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtattletale_1_1_school_ac5d525165f8f5304698ca1aeb20b18e4}\label{classtattletale_1_1_school_ac5d525165f8f5304698ca1aeb20b18e4}} 
 \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}} {\bfseries interaction\+\_\+store\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}} object for the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_school_aebeddbef0cea13f9e7ea03226dabc38c}\label{classtattletale_1_1_school_aebeddbef0cea13f9e7ea03226dabc38c}} 
-\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} {\bfseries chronicle\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_school_a9ad54709657abb6d62c11b00a8174883}\label{classtattletale_1_1_school_a9ad54709657abb6d62c11b00a8174883}} 
+\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \& {\bfseries chronicle\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds the instance of the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} object for the simulation. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtattletale_1_1_school_a5f08cec9ce27de2d15d00113413a6a5d}\label{classtattletale_1_1_school_a5f08cec9ce27de2d15d00113413a6a5d}} 
 size\+\_\+t {\bfseries current\+\_\+tick\+\_\+} = 0
@@ -95,11 +95,11 @@ size\+\_\+t {\bfseries current\+\_\+day\+\_\+} = 0
 The \mbox{\hyperlink{classtattletale_1_1_school}{School}} class uses a \mbox{\hyperlink{structtattletale_1_1_setting}{Settings }} object in its constructor to setup the simulation, instancing the appropriate amount of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} and \mbox{\hyperlink{classtattletale_1_1_course}{Courses }} and then filling said \mbox{\hyperlink{classtattletale_1_1_course}{Courses }} with \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }}. Afterwards it can be used to run the simulation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_school_ade128031315b92662d6f1b2a7e3fe6a3}\label{classtattletale_1_1_school_ade128031315b92662d6f1b2a7e3fe6a3}} 
+\mbox{\Hypertarget{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}\label{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}} 
 \index{tattletale::School@{tattletale::School}!School@{School}}
 \index{School@{School}!tattletale::School@{tattletale::School}}
 \doxysubsubsection{\texorpdfstring{School()}{School()}}
-{\footnotesize\ttfamily tattletale\+::\+School\+::\+School (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&}]{setting }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tattletale\+::\+School\+::\+School (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&}]{random,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&}]{setting }\end{DoxyParamCaption})}
 
 
 

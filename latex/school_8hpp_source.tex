@@ -8,7 +8,7 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}tale/course.hpp"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}tale/setting.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/setting.hpp"{}}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}shared/chronicle.hpp"{}}}
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/interactionstore.hpp"{}}}
@@ -31,7 +31,7 @@
 \DoxyCodeLine{39     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_school}{School}}}
 \DoxyCodeLine{40     \{}
 \DoxyCodeLine{41     \textcolor{keyword}{public}:}
-\DoxyCodeLine{49         \mbox{\hyperlink{classtattletale_1_1_school_ade128031315b92662d6f1b2a7e3fe6a3}{School}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting);}
+\DoxyCodeLine{49         \mbox{\hyperlink{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}{School}}(\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting);}
 \DoxyCodeLine{57         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a1b580a346c799e98a6d850ab2e6ee7b8}{SimulateDays}}(\textcolor{keywordtype}{size\_t} days);}
 \DoxyCodeLine{64         std::weak\_ptr<Actor> \mbox{\hyperlink{classtattletale_1_1_school_a4b5d60470586b993efbd4d9811ccaa31}{GetActor}}(\textcolor{keywordtype}{size\_t} actor\_id);}
 \DoxyCodeLine{71         \mbox{\hyperlink{classtattletale_1_1_course}{Course}} \&\mbox{\hyperlink{classtattletale_1_1_school_af972e5b216dcd749a9e65ce135dcfd4f}{GetCourse}}(\textcolor{keywordtype}{size\_t} course\_id);}
@@ -47,9 +47,9 @@
 \DoxyCodeLine{117         std::vector<std::shared\_ptr<Actor>> \mbox{\hyperlink{classtattletale_1_1_school_af4adb6bed8ddc47ff09de95e0cb49e1a}{actors\_}};}
 \DoxyCodeLine{121         std::vector<std::weak\_ptr<Actor>> \mbox{\hyperlink{classtattletale_1_1_school_a914bd0d2d992b909647e49e64b02a3ae}{freetime\_group\_}};}
 \DoxyCodeLine{125         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}{setting\_}};}
-\DoxyCodeLine{129         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \mbox{\hyperlink{classtattletale_1_1_school_af7c07d71ed2d3cf6d15eacd469b748a5}{random\_}};}
+\DoxyCodeLine{129         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_school_a49de0172b24e71b4ee267e12586b26db}{random\_}};}
 \DoxyCodeLine{133         \mbox{\hyperlink{classtattletale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtattletale_1_1_school_ac5d525165f8f5304698ca1aeb20b18e4}{interaction\_store\_}};}
-\DoxyCodeLine{137         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \mbox{\hyperlink{classtattletale_1_1_school_aebeddbef0cea13f9e7ea03226dabc38c}{chronicle\_}};}
+\DoxyCodeLine{137         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtattletale_1_1_school_a9ad54709657abb6d62c11b00a8174883}{chronicle\_}};}
 \DoxyCodeLine{141         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a5f08cec9ce27de2d15d00113413a6a5d}{current\_tick\_}} = 0;}
 \DoxyCodeLine{145         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a1bfae7b6d581435b975ded10eb2b9d91}{current\_day\_}} = 0;}
 \DoxyCodeLine{149         \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} \mbox{\hyperlink{classtattletale_1_1_school_a4b057b40424661a1e14e8b166aa3f451}{current\_weekday\_}} = Weekday::Monday;}

@@ -17,56 +17,59 @@
 \DoxyCodeLine{18     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{InteractionPrototype}}}
 \DoxyCodeLine{19     \{}
 \DoxyCodeLine{23         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}{name}} = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{27         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a8fc8b99a68fbefb9d02e4e97d52715f2}{description}} = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{31         std::vector<float> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}};}
-\DoxyCodeLine{35         std::vector<std::map<EmotionType, float>> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}};}
-\DoxyCodeLine{42         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{49         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a55117b8bc2b1f8618dd94b69c35cba9a}{ToString}}()}
-\DoxyCodeLine{50         \{}
-\DoxyCodeLine{51             std::string name\_string = fmt::format(\textcolor{stringliteral}{"{}Name: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}{name}});}
-\DoxyCodeLine{52             std::string wealth\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{53             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}.size(); ++i)}
-\DoxyCodeLine{54             \{}
-\DoxyCodeLine{55                 wealth\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Wealth Effect: \{\}\(\backslash\)n"{}}, i, \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}[i]);}
-\DoxyCodeLine{56             \}}
-\DoxyCodeLine{57             std::string emotion\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{58             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}.size(); ++i)}
-\DoxyCodeLine{59             \{}
-\DoxyCodeLine{60                 emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Emotion Effect:"{}}, i);}
-\DoxyCodeLine{61                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[emotion\_type, emotion\_value] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}[i])}
-\DoxyCodeLine{62                 \{}
-\DoxyCodeLine{63                     emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion::EmotionTypeToString}}(emotion\_type), emotion\_value);}
-\DoxyCodeLine{64                 \}}
-\DoxyCodeLine{65                 emotion\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{66             \}}
-\DoxyCodeLine{67             std::string relationship\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{68             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}.size(); ++i)}
-\DoxyCodeLine{69             \{}
-\DoxyCodeLine{70                 relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tRelationship Effects for Participant \{\}:"{}}, i);}
-\DoxyCodeLine{71                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[other\_participant, relationship\_map] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}[i])}
-\DoxyCodeLine{72                 \{}
-\DoxyCodeLine{73                     relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)tWith Participant \{\}:"{}}, other\_participant);}
-\DoxyCodeLine{74                     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[relationship\_type, relationship\_value] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}[i][other\_participant])}
-\DoxyCodeLine{75                     \{}
-\DoxyCodeLine{76                         relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship::RelationshipTypeToString}}(relationship\_type), relationship\_value);}
-\DoxyCodeLine{77                     \}}
-\DoxyCodeLine{78                 \}}
-\DoxyCodeLine{79                 relationship\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{80             \}}
-\DoxyCodeLine{81             \textcolor{keywordflow}{return} (name\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + wealth\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + emotion\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + relationship\_effects\_string);}
-\DoxyCodeLine{82         \}}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{84         \textcolor{keywordtype}{void} ClearValues()}
-\DoxyCodeLine{85         \{}
-\DoxyCodeLine{86             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}{name}} = \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{87             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}.clear();}
-\DoxyCodeLine{88             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}.clear();}
-\DoxyCodeLine{89             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}.clear();}
-\DoxyCodeLine{90         \}}
-\DoxyCodeLine{91     \};}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
+\DoxyCodeLine{27         \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id} = 0;}
+\DoxyCodeLine{31         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a8fc8b99a68fbefb9d02e4e97d52715f2}{description}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{35         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a6796a7fad88342016be81a691daebdc4}{passive\_description}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{39         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_aecb399bccc5f1eace4e147b5393f86d9}{active\_description}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{43         std::vector<float> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}};}
+\DoxyCodeLine{47         std::vector<std::map<EmotionType, float>> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}};}
+\DoxyCodeLine{54         std::vector<std::map<size\_t, std::map<RelationshipType, float>>> \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61         std::string \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a55117b8bc2b1f8618dd94b69c35cba9a}{ToString}}()}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63             std::string name\_string = fmt::format(\textcolor{stringliteral}{"{}Name: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}{name}});}
+\DoxyCodeLine{64             std::string wealth\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{65             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}.size(); ++i)}
+\DoxyCodeLine{66             \{}
+\DoxyCodeLine{67                 wealth\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Wealth Effect: \{\}\(\backslash\)n"{}}, i, \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}[i]);}
+\DoxyCodeLine{68             \}}
+\DoxyCodeLine{69             std::string emotion\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{70             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}.size(); ++i)}
+\DoxyCodeLine{71             \{}
+\DoxyCodeLine{72                 emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}. Emotion Effect:"{}}, i);}
+\DoxyCodeLine{73                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[emotion\_type, emotion\_value] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}[i])}
+\DoxyCodeLine{74                 \{}
+\DoxyCodeLine{75                     emotion\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion::EmotionTypeToString}}(emotion\_type), emotion\_value);}
+\DoxyCodeLine{76                 \}}
+\DoxyCodeLine{77                 emotion\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{78             \}}
+\DoxyCodeLine{79             std::string relationship\_effects\_string = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{80             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}.size(); ++i)}
+\DoxyCodeLine{81             \{}
+\DoxyCodeLine{82                 relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tRelationship Effects for Participant \{\}:"{}}, i);}
+\DoxyCodeLine{83                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[other\_participant, relationship\_map] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}[i])}
+\DoxyCodeLine{84                 \{}
+\DoxyCodeLine{85                     relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)tWith Participant \{\}:"{}}, other\_participant);}
+\DoxyCodeLine{86                     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&[relationship\_type, relationship\_value] : \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}[i][other\_participant])}
+\DoxyCodeLine{87                     \{}
+\DoxyCodeLine{88                         relationship\_effects\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)t\{\}: \{\}"{}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship::RelationshipTypeToString}}(relationship\_type), relationship\_value);}
+\DoxyCodeLine{89                     \}}
+\DoxyCodeLine{90                 \}}
+\DoxyCodeLine{91                 relationship\_effects\_string += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{92             \}}
+\DoxyCodeLine{93             \textcolor{keywordflow}{return} (name\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + wealth\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + emotion\_effects\_string + \textcolor{stringliteral}{"{}\(\backslash\)n"{}} + relationship\_effects\_string);}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{97         \{}
+\DoxyCodeLine{98             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a5fc7034fbf25273a4b681859aba321fc}{name}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{99             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}{wealth\_effects}}.clear();}
+\DoxyCodeLine{100             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}{emotion\_effects}}.clear();}
+\DoxyCodeLine{101             \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\_effects}}.clear();}
+\DoxyCodeLine{102         \}}
+\DoxyCodeLine{103     \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONPROTOTYPE\_H}}
 
 \end{DoxyCode}

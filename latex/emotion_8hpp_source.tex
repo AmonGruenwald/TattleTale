@@ -7,35 +7,48 @@
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{9     \textcolor{keyword}{enum class} EmotionType}
-\DoxyCodeLine{10     \{}
-\DoxyCodeLine{11         kNone,}
-\DoxyCodeLine{12         kHappy,}
-\DoxyCodeLine{13         kCalm,}
-\DoxyCodeLine{14         kSatisfied,}
-\DoxyCodeLine{15         kBrave,}
-\DoxyCodeLine{16         kExtroverted,}
-\DoxyCodeLine{17         kLast}
-\DoxyCodeLine{18     \};}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
-\DoxyCodeLine{27     \{}
-\DoxyCodeLine{28     \textcolor{keyword}{public}:}
-\DoxyCodeLine{39         \textcolor{keyword}{static} EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{StringToEmotionType}}(std::string emotion\_string);}
-\DoxyCodeLine{48         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{EmotionTypeToString}}(EmotionType emotion\_type);}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{55         std::string \mbox{\hyperlink{classtattletale_1_1_emotion_a5f5f3b89454e3c61d50c41da9a76133e}{ToString}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{keyword}{private}:}
-\DoxyCodeLine{70         \mbox{\hyperlink{classtattletale_1_1_emotion_a622523c76b47e41983a28ac2efd744bd}{Emotion}}(EmotionType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{74         EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}{type\_}};}
-\DoxyCodeLine{75         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{76     \};}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keyword}{enum class} EmotionType}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         kNone,}
+\DoxyCodeLine{13         kHappy,}
+\DoxyCodeLine{14         kCalm,}
+\DoxyCodeLine{15         kSatisfied,}
+\DoxyCodeLine{16         kBrave,}
+\DoxyCodeLine{17         kExtroverted,}
+\DoxyCodeLine{18         kLast}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{27     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29     \textcolor{keyword}{public}:}
+\DoxyCodeLine{40         \textcolor{keyword}{static} EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{StringToEmotionType}}(std::string emotion\_string);}
+\DoxyCodeLine{49         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{EmotionTypeToString}}(EmotionType emotion\_type);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56         EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{GetType}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{private}:}
+\DoxyCodeLine{71         \mbox{\hyperlink{classtattletale_1_1_emotion_a622523c76b47e41983a28ac2efd744bd}{Emotion}}(EmotionType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{75         EmotionType \mbox{\hyperlink{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}{type\_}};}
+\DoxyCodeLine{76         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<EmotionType, std::string> positive\_name\_variants\_ = \{}
+\DoxyCodeLine{77             \{EmotionType::kHappy, \textcolor{stringliteral}{"{}happy"{}}\},}
+\DoxyCodeLine{78             \{EmotionType::kBrave, \textcolor{stringliteral}{"{}brave"{}}\},}
+\DoxyCodeLine{79             \{EmotionType::kCalm, \textcolor{stringliteral}{"{}calm"{}}\},}
+\DoxyCodeLine{80             \{EmotionType::kExtroverted, \textcolor{stringliteral}{"{}extroverted"{}}\},}
+\DoxyCodeLine{81             \{EmotionType::kSatisfied, \textcolor{stringliteral}{"{}satisfied"{}}\}\};}
+\DoxyCodeLine{82         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<EmotionType, std::string> negative\_name\_variants\_ = \{}
+\DoxyCodeLine{83             \{EmotionType::kHappy, \textcolor{stringliteral}{"{}sad"{}}\},}
+\DoxyCodeLine{84             \{EmotionType::kBrave, \textcolor{stringliteral}{"{}fearful"{}}\},}
+\DoxyCodeLine{85             \{EmotionType::kCalm, \textcolor{stringliteral}{"{}stressed"{}}\},}
+\DoxyCodeLine{86             \{EmotionType::kExtroverted, \textcolor{stringliteral}{"{}shy"{}}\},}
+\DoxyCodeLine{87             \{EmotionType::kSatisfied, \textcolor{stringliteral}{"{}unfullfilled"{}}\}\};}
+\DoxyCodeLine{88         \textcolor{keyword}{friend} \textcolor{keyword}{class }Chronicle;}
+\DoxyCodeLine{89     \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
 
 \end{DoxyCode}

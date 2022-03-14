@@ -6,35 +6,46 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{8     \textcolor{keyword}{enum class} RelationshipType}
-\DoxyCodeLine{9     \{}
-\DoxyCodeLine{10         kNone,}
-\DoxyCodeLine{11         kLove,}
-\DoxyCodeLine{12         kAttraction,}
-\DoxyCodeLine{13         kFriendship,}
-\DoxyCodeLine{14         kAnger,}
-\DoxyCodeLine{15         kProtective,}
-\DoxyCodeLine{16         kLast}
-\DoxyCodeLine{17     \};}
-\DoxyCodeLine{25     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
-\DoxyCodeLine{26     \{}
-\DoxyCodeLine{27     \textcolor{keyword}{public}:}
-\DoxyCodeLine{38         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string relationship\_string);}
-\DoxyCodeLine{47         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{54         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_ad24e13c28d2aec80901ba977a5670fb5}{ToString}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keyword}{private}:}
-\DoxyCodeLine{69         \mbox{\hyperlink{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{73         RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
-\DoxyCodeLine{74         std::weak\_ptr<Actor> target\_;}
-\DoxyCodeLine{75         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{76     \};}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{enum class} RelationshipType}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11         kNone,}
+\DoxyCodeLine{12         kLove,}
+\DoxyCodeLine{13         kAttraction,}
+\DoxyCodeLine{14         kFriendship,}
+\DoxyCodeLine{15         kAnger,}
+\DoxyCodeLine{16         kProtective,}
+\DoxyCodeLine{17         kLast}
+\DoxyCodeLine{18     \};}
+\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
+\DoxyCodeLine{39         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string relationship\_string);}
+\DoxyCodeLine{48         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{private}:}
+\DoxyCodeLine{63         \mbox{\hyperlink{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{67         RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
+\DoxyCodeLine{68         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<RelationshipType, std::string> positive\_name\_variants\_ = \{}
+\DoxyCodeLine{69             \{RelationshipType::kAnger, \textcolor{stringliteral}{"{}anger for"{}}\},}
+\DoxyCodeLine{70             \{RelationshipType::kAttraction, \textcolor{stringliteral}{"{}attraction for"{}}\},}
+\DoxyCodeLine{71             \{RelationshipType::kFriendship, \textcolor{stringliteral}{"{}friendship for"{}}\},}
+\DoxyCodeLine{72             \{RelationshipType::kLove, \textcolor{stringliteral}{"{}love for"{}}\},}
+\DoxyCodeLine{73             \{RelationshipType::kProtective, \textcolor{stringliteral}{"{}protective of"{}}\}\};}
+\DoxyCodeLine{74         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<RelationshipType, std::string> negative\_name\_variants\_ = \{}
+\DoxyCodeLine{75             \{RelationshipType::kAnger, \textcolor{stringliteral}{"{}comfortable with"{}}\},}
+\DoxyCodeLine{76             \{RelationshipType::kAttraction, \textcolor{stringliteral}{"{}disgust for"{}}\},}
+\DoxyCodeLine{77             \{RelationshipType::kFriendship, \textcolor{stringliteral}{"{}animosity"{}}\},}
+\DoxyCodeLine{78             \{RelationshipType::kLove, \textcolor{stringliteral}{"{}hate"{}}\},}
+\DoxyCodeLine{79             \{RelationshipType::kProtective, \textcolor{stringliteral}{"{}power over"{}}\}\};}
+\DoxyCodeLine{80         std::weak\_ptr<Actor> target\_;}
+\DoxyCodeLine{81         \textcolor{keyword}{friend} \textcolor{keyword}{class }Chronicle;}
+\DoxyCodeLine{82     \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
 
 \end{DoxyCode}
