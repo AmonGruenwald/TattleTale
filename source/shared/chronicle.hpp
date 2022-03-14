@@ -38,13 +38,16 @@ namespace tattletale
         std::weak_ptr<Trait> CreateTrait(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
 
         float GetAverageInteractionChance() const;
+        float GetAverageInteractionReasonCount() const;
         std::string GetKnownActorsDescription(size_t actor_id) const;
         size_t GetKernelAmount() const;
         std::string GetRandomCausalityChainDescription(size_t depth) const;
         std::string GetKissingCausalityChainDescription(size_t depth) const;
         std::string GetGoalCausalityChainDescription(size_t depth) const;
         std::string GetActorInteractionsDescription(size_t id) const;
-        std::weak_ptr<Interaction> FindUnlikeliestInteraction() const;
+        std::weak_ptr<Interaction> FindUnlikeliestInteraction(size_t tick_cutoff) const;
+        std::weak_ptr<Emotion> GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const;
+        size_t GetLastTick() const;
 
     private:
         Random &random_;
@@ -54,6 +57,8 @@ namespace tattletale
             all_interactions_;
         std::vector<std::vector<std::shared_ptr<Kernel>>>
             kernels_by_actor_;
+        std::vector<std::vector<std::shared_ptr<Emotion>>>
+            emotions_by_actor;
 
         std::string GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth) const;
     };

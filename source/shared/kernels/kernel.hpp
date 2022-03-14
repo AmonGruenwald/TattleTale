@@ -20,18 +20,22 @@ namespace tattletale
     {
     public:
         std::string name_;
-        std::vector<std::weak_ptr<Kernel>> reasons_;
-        std::vector<std::weak_ptr<Kernel>> consequences_;
         size_t id_;
         size_t tick_;
 
         void AddConsequence(std::weak_ptr<Kernel> consequence);
+        const std::vector<std::weak_ptr<Kernel>> &GetConsequences() const;
+        virtual const std::vector<std::weak_ptr<Kernel>> &GetReasons() const;
         virtual std::string ToString() = 0;
+        virtual float GetChance() const;
+        std::weak_ptr<Actor> GetOwner() const;
 
     protected:
         /**
          * @brief The Actor owning this Kernel.
          */
+        std::vector<std::weak_ptr<Kernel>> consequences_;
+        std::vector<std::weak_ptr<Kernel>> reasons_;
         std::weak_ptr<Actor> owner_;
         Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
     };

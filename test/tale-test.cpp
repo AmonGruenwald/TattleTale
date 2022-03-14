@@ -400,19 +400,19 @@ TEST(TaleInteractions, InteractionBecomesReason)
     interaction->Apply();
     for (size_t participant_index = 0; participant_index < participant_count; ++participant_index)
     {
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->name_, prototype->name);
-        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->reasons_[0].lock()->id_, interaction->id_);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->GetReasons()[0].lock()->name_, prototype->name);
+        EXPECT_EQ(school.GetActor(participant_index).lock()->wealth_.lock()->GetReasons()[0].lock()->id_, interaction->id_);
         for (auto &[type, emotion] : school.GetActor(participant_index).lock()->emotions_)
         {
-            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->name_, prototype->name);
-            EXPECT_EQ(emotion.lock()->reasons_[0].lock()->id_, interaction->id_);
+            EXPECT_EQ(emotion.lock()->GetReasons()[0].lock()->name_, prototype->name);
+            EXPECT_EQ(emotion.lock()->GetReasons()[0].lock()->id_, interaction->id_);
         }
         for (auto &[other_participant, map] : school.GetActor(participant_index).lock()->relationships_)
         {
             for (auto &[type, relationship] : map)
             {
-                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->name_, prototype->name);
-                EXPECT_EQ(relationship.lock()->reasons_[0].lock()->id_, interaction->id_);
+                EXPECT_EQ(relationship.lock()->GetReasons()[0].lock()->name_, prototype->name);
+                EXPECT_EQ(relationship.lock()->GetReasons()[0].lock()->id_, interaction->id_);
             }
         }
     }

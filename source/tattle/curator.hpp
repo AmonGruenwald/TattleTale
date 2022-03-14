@@ -11,6 +11,10 @@ namespace tattletale
     public:
         Curator(const Chronicle &chronicle, const Setting &setting);
         std::string Curate();
+        std::shared_ptr<Kernel> RecursivelyFindUnlikeliestReason(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best);
+        std::shared_ptr<Kernel> RecursivelyFindUnlikeliestConsequence(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best, size_t depth);
+        std::vector<std::shared_ptr<Kernel>> FindCausalConnection(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const;
+        bool RecursivelyFindCausalConnectionBackwards(std::shared_ptr<Kernel> root, std::shared_ptr<Kernel> start, std::vector<std::shared_ptr<Kernel>> &out_causal_chain) const;
 
     private:
         const Chronicle &chronicle_;

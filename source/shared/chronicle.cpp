@@ -8,11 +8,13 @@ namespace tattletale
     void Chronicle::Reset(size_t actor_count)
     {
         kernels_by_actor_.clear();
+        emotions_by_actor.clear();
         all_kernels_.clear();
         all_interactions_.clear();
         for (size_t i = 0; i < actor_count; ++i)
         {
             kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
+            emotions_by_actor.push_back(std::vector<std::shared_ptr<Emotion>>());
         }
     }
     std::weak_ptr<Interaction> Chronicle::CreateInteraction(
@@ -25,6 +27,10 @@ namespace tattletale
         std::vector<std::weak_ptr<Actor>> participants)
     {
         std::shared_ptr<Interaction> interaction(new Interaction(prototype, requirement, tendency, chance, all_kernels_.size(), tick, reasons, participants));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(interaction);
+        }
         all_kernels_.push_back(interaction);
         for (auto &owner : participants)
         {
@@ -36,6 +42,11 @@ namespace tattletale
     std::weak_ptr<Emotion> Chronicle::CreateEmotion(EmotionType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
         std::shared_ptr<Emotion> emotion(new Emotion(type, all_kernels_.size(), tick, owner, reasons, value));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(emotion);
+        }
+        emotions_by_actor[owner.lock()->id_].push_back(emotion);
         all_kernels_.push_back(emotion);
         kernels_by_actor_[owner.lock()->id_].push_back(emotion);
         return emotion;
@@ -43,6 +54,10 @@ namespace tattletale
     std::weak_ptr<Relationship> Chronicle::CreateRelationship(RelationshipType type, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
         std::shared_ptr<Relationship> relationship(new Relationship(type, all_kernels_.size(), tick, owner, target, reasons, value));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(relationship);
+        }
         all_kernels_.push_back(relationship);
         kernels_by_actor_[owner.lock()->id_].push_back(relationship);
         return relationship;
@@ -50,6 +65,10 @@ namespace tattletale
     std::weak_ptr<Resource> Chronicle::CreateResource(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
         std::shared_ptr<Resource> resource(new Resource(name, all_kernels_.size(), tick, owner, reasons, value));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(resource);
+        }
         all_kernels_.push_back(resource);
         kernels_by_actor_[owner.lock()->id_].push_back(resource);
         return resource;
@@ -57,6 +76,10 @@ namespace tattletale
     std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
         std::shared_ptr<Goal> goal(new Goal(type, all_kernels_.size(), tick, owner, reasons));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(goal);
+        }
         all_kernels_.push_back(goal);
         kernels_by_actor_[owner.lock()->id_].push_back(goal);
         return goal;
@@ -64,6 +87,10 @@ namespace tattletale
     std::weak_ptr<Trait> Chronicle::CreateTrait(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
     {
         std::shared_ptr<Trait> trait(new Trait(name, all_kernels_.size(), tick, owner, reasons));
+        for (auto &reason : reasons)
+        {
+            reason.lock()->AddConsequence(trait);
+        }
         all_kernels_.push_back(trait);
         kernels_by_actor_[owner.lock()->id_].push_back(trait);
         return trait;
@@ -75,6 +102,20 @@ namespace tattletale
         for (auto interaction : all_interactions_)
         {
             sum += interaction->chance_;
+        }
+        return (sum / all_interactions_.size());
+    }
+    float Chronicle::GetAverageInteractionReasonCount() const
+    {
+        float sum = 0;
+        int count = 0;
+        for (auto interaction : all_interactions_)
+        {
+            if (interaction->GetReasons().size() == 0)
+            {
+                count++;
+            }
+            sum += interaction->GetReasons().size();
         }
         return (sum / all_interactions_.size());
     }
@@ -150,18 +191,56 @@ namespace tattletale
         return description;
     }
 
-    std::weak_ptr<Interaction> Chronicle::FindUnlikeliestInteraction() const
+    std::weak_ptr<Interaction> Chronicle::FindUnlikeliestInteraction(size_t tick_cutoff) const
     {
-        std::shared_ptr<Interaction> unlikeliest_interaction = all_interactions_[0];
-        for (size_t i = 1; i < all_interactions_.size(); ++i)
+        std::shared_ptr<Interaction> unlikeliest_interaction(nullptr);
+        for (auto &interaction : all_interactions_)
         {
-            std::shared_ptr<Interaction> current_interaction = all_interactions_[i];
-            if (current_interaction->chance_ < unlikeliest_interaction->chance_)
+            if (interaction->tick_ > tick_cutoff)
             {
-                unlikeliest_interaction = current_interaction;
+                break;
+            }
+            if (interaction->GetReasons().size() > 0)
+            {
+                if (!unlikeliest_interaction)
+                {
+                    unlikeliest_interaction = interaction;
+                }
+                else
+                {
+                    if (interaction->chance_ < unlikeliest_interaction->chance_)
+                    {
+                        unlikeliest_interaction = interaction;
+                    }
+                }
             }
         }
         return unlikeliest_interaction;
+    }
+    std::weak_ptr<Interaction> Chronicle::FindMostOccuringInteraction(size_t actor_id) const
+    {
+    }
+
+    size_t Chronicle::GetLastTick() const
+    {
+        return all_kernels_.back()->tick_;
+    }
+    std::weak_ptr<Emotion> Chronicle::GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const
+    {
+        std::shared_ptr<Emotion> last_emotion(nullptr);
+        for (auto &emotion : emotions_by_actor[actor_id])
+        {
+            if (emotion->type_ != type)
+            {
+                continue;
+            }
+            if (emotion->tick_ >= tick)
+            {
+                break;
+            }
+            last_emotion = emotion;
+        }
+        return last_emotion;
     }
     std::string Chronicle::GetGoalCausalityChainDescription(size_t depth) const
     {
@@ -172,7 +251,7 @@ namespace tattletale
         std::vector<std::shared_ptr<Kernel>> possible_kernels;
         for (auto kernel : all_kernels_)
         {
-            for (auto reason : kernel->reasons_)
+            for (auto reason : kernel->GetReasons())
             {
                 if (std::dynamic_pointer_cast<Goal>(reason.lock()))
                 {
@@ -205,10 +284,10 @@ namespace tattletale
                 description += " ";
             }
 
-            if (kernel.lock()->reasons_.size() > 0)
+            if (kernel.lock()->GetReasons().size() > 0)
             {
                 description += "   Because: \n";
-                for (auto &reason : kernel.lock()->reasons_)
+                for (auto &reason : kernel.lock()->GetReasons())
                 {
                     description += GetRecursiveKernelDescription(reason, current_depth + 1, max_depth);
                 }

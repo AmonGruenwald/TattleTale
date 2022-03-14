@@ -1619,7 +1619,7 @@
     {
         "prototype": 
         {
-            "name": "Saw cute interaction",
+            "name": "Saw cute action",
             "description":"{0} saw {1} do something cute",
             "emotions": 
             [
@@ -2156,7 +2156,7 @@
     {
         "prototype": 
         {
-            "name": "Messaged someon",
+            "name": "Messaged someone",
             "description":"{0} sent a message to {1}",
             "emotions": 
             [

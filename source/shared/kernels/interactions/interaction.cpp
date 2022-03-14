@@ -58,12 +58,16 @@ namespace tattletale
     {
         return prototype_;
     }
+    const std::shared_ptr<InteractionTendency> Interaction::GetTendency() const
+    {
+        return tendency_;
+    }
     const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const
     {
         return participants_;
     }
 
-    const float Interaction::GetChance() const
+    float Interaction::GetChance() const
     {
         return chance_;
     }

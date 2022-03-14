@@ -14,10 +14,26 @@ namespace tattletale
           id_(id),
           tick_(tick),
           owner_(owner),
-          reasons_(reasons) {}
+          reasons_(reasons)
+    {
+    }
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
     {
         consequences_.push_back(consequence);
     }
+    const std::vector<std::weak_ptr<Kernel>> &Kernel::GetConsequences() const
+    {
+        return consequences_;
+    }
 
+    float Kernel::GetChance() const { return 1.0f; }
+
+    const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
+    {
+        return reasons_;
+    }
+    std::weak_ptr<Actor> Kernel::GetOwner() const
+    {
+        return owner_;
+    }
 } // namespace tattletale

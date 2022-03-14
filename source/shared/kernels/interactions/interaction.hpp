@@ -40,6 +40,7 @@ namespace tattletale
          * @return The InteractionPrototype.
          */
         const std::shared_ptr<InteractionPrototype> GetPrototype() const;
+        const std::shared_ptr<InteractionTendency> GetTendency() const;
         /**
          * @brief Getter for the participants this Interaction uses.
          *
@@ -47,7 +48,7 @@ namespace tattletale
          */
         const std::vector<std::weak_ptr<Actor>> &GetParticipants() const;
 
-        const float GetChance() const;
+        float GetChance() const override;
 
     private:
         /**

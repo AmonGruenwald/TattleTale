@@ -100,32 +100,42 @@ namespace tattletale
         const std::vector<std::shared_ptr<InteractionTendency>> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
         chances.reserve(possible_interaction_indices.size());
-        std::vector<std::weak_ptr<Kernel>> reasons;
-        reasons.reserve(possible_interaction_indices.size());
+        std::vector<std::weak_ptr<Kernel>> tendency_reasons;
+        std::vector<std::shared_ptr<Kernel>> goal_reasons;
+        tendency_reasons.reserve(possible_interaction_indices.size());
+        goal_reasons.reserve(possible_interaction_indices.size());
         uint32_t zero_count = 0;
         for (auto &i : possible_interaction_indices)
         {
             std::shared_ptr<InteractionTendency> tendency = tendencies[i];
-            std::weak_ptr<Kernel> reason;
-            float chance = CalculateTendencyChance(*tendency, context, reason);
+            std::weak_ptr<Kernel> tendency_reason;
+            float chance = CalculateTendencyChance(*tendency, context, tendency_reason);
             bool goal_had_effect = false;
             float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
             if (goal_had_effect)
             {
-                reason = goal_;
+                goal_reasons.push_back(goal_.lock());
+            }
+            else
+            {
+                goal_reasons.push_back(std::shared_ptr<Kernel>(nullptr));
             }
             if (chance == 0.0f)
             {
                 ++zero_count;
             }
             chances.push_back(chance);
-            reasons.push_back(reason);
+            tendency_reasons.push_back(tendency_reason);
         }
 
         size_t index = random_.PickIndex(chances, (zero_count == chances.size()));
-        if (reasons[index].lock())
+        if (tendency_reasons[index].lock())
         {
-            out_reasons.push_back(reasons[index]);
+            out_reasons.push_back(tendency_reasons[index]);
+        }
+        if (goal_reasons[index])
+        {
+            out_reasons.push_back(goal_reasons[index]);
         }
         out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
@@ -289,7 +299,7 @@ namespace tattletale
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
         // TODO: reasons also will never include groupsize or context
         float chance = 0.0f;
-        float highest_chance_increase = 0.0f;
+        float highest_chance_influence = 0.0f;
         float current_chance_increase = 0.0f;
         uint16_t chance_parts = 0;
 
@@ -304,9 +314,9 @@ namespace tattletale
         current_chance_increase = tendency.wealth * wealth_.lock()->GetValue();
         chance += current_chance_increase;
         ++chance_parts;
-        if (current_chance_increase > highest_chance_increase)
+        if (current_chance_increase > highest_chance_influence)
         {
-            highest_chance_increase = current_chance_increase;
+            highest_chance_influence = current_chance_increase;
             out_reason = wealth_;
         }
 
@@ -315,9 +325,9 @@ namespace tattletale
             current_chance_increase = (value * emotions_[type].lock()->GetValue());
             chance += current_chance_increase;
             ++chance_parts;
-            if (current_chance_increase > highest_chance_increase)
+            if (current_chance_increase > highest_chance_influence)
             {
-                highest_chance_increase = current_chance_increase;
+                highest_chance_influence = current_chance_increase;
                 out_reason = emotions_[type];
             }
         }

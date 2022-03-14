@@ -142,7 +142,7 @@ namespace tattletale
             ++current_day_;
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
-        TATTLETALE_DEBUG_PRINT(fmt::format("TALE KREATED {} KERNELS", chronicle_.GetKernelAmount()));
+        TATTLETALE_DEBUG_PRINT(fmt::format("TALE CREATED {} KERNELS", chronicle_.GetKernelAmount()));
         TATTLETALE_VERBOSE_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_GetRandomCausalityChainDescription(3));
         TATTLETALE_VERBOSE_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
     }
@@ -227,7 +227,6 @@ namespace tattletale
         std::vector<std::weak_ptr<Actor>> participants;
         float chance;
         int interaction_index = actor->ChooseInteraction(group, type, reasons, participants, chance);
-
         std::string interaction_description = "did nothing.";
         if (interaction_index != -1)
         {
