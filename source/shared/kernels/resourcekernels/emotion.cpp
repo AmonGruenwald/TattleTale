@@ -7,7 +7,7 @@
 namespace tattletale
 {
     Emotion::Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Resource(EmotionTypeToString(type), id, tick, owner, reasons, value), type_(type){};
+        : Resource(EmotionTypeToString(type), Emotion::positive_name_variants_.at(type), Emotion::negative_name_variants_.at(type), id, tick, owner, reasons, value, KernelType::kEmotion), type_(type){};
 
     EmotionType Emotion::StringToEmotionType(std::string emotion_string)
     {
@@ -55,8 +55,8 @@ namespace tattletale
         return "none";
     }
 
-    std::string Emotion::ToString()
+    EmotionType Emotion::GetType()
     {
-        return fmt::format("{} was {} with a value of {}", owner_.lock()->name_, name_, value_);
+        return type_;
     }
 } // namespace tattletale

@@ -19,21 +19,22 @@ namespace tattletale
         TATTLETALE_VERBOSE_PRINT(catalogue_json.dump(4) + "\n\n");
         TATTLETALE_VERBOSE_PRINT("CREATING INTERACTION PROTOTYPE CATALOGUE");
 
-        size_t interaction_number = 0;
+        size_t interaction_id = 0;
         for (auto &interaction : catalogue_json)
         {
-            TATTLETALE_VERBOSE_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_number));
+            TATTLETALE_VERBOSE_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_id));
 
             std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
-            std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_number);
+            std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_id);
             if (ReadRequirementJSON(interaction["requirements"], requirement_error_preamble, requirement))
             {
                 std::shared_ptr<InteractionPrototype> prototype(new InteractionPrototype());
-                std::string prototype_error_preamble = fmt::format("REQUIREMENT #{}: ", interaction_number);
+                prototype->id = interaction_id;
+                std::string prototype_error_preamble = fmt::format("REQUIREMENT #{}: ", interaction_id);
                 if (ReadPrototypeJSON(interaction["prototype"], requirement->participant_count, prototype_error_preamble, prototype))
                 {
                     std::shared_ptr<InteractionTendency> tendency(new InteractionTendency());
-                    std::string tendency_error_preamble = fmt::format("TENDENCY {}: ", interaction_number);
+                    std::string tendency_error_preamble = fmt::format("TENDENCY {}: ", interaction_id);
                     if (ReadTendencyJSON(interaction["tendencies"], requirement->participant_count, tendency_error_preamble, tendency))
                     {
                         prototype_catalogue_.push_back(prototype);
@@ -43,7 +44,7 @@ namespace tattletale
                 }
             }
 
-            ++interaction_number;
+            ++interaction_id;
         }
     }
     uint32_t InteractionStore::GetRandomInteractionPrototypeIndex() const
@@ -105,6 +106,15 @@ namespace tattletale
         }
 
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->description, json, description_key_, true, error_preamble))
+        {
+            return false;
+        }
+
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->passive_description, json, passive_description_key_, true, error_preamble))
+        {
+            return false;
+        }
+        if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->active_description, json, active_description_key_, true, error_preamble))
         {
             return false;
         }

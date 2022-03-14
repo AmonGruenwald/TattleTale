@@ -7,10 +7,10 @@
 
 namespace tattletale
 {
-    void Tattle(const Chronicle &chronicle, const Setting &setting)
+    std::string Tattle(const Chronicle &chronicle, const Setting &setting)
     {
         TATTLETALE_DEBUG_PRINT("TATTLE STARTED");
         Curator curator(chronicle, setting);
-        TATTLETALE_DEBUG_PRINT(fmt::format("CURATION RESULT:\n{}", curator.Curate()));
+        return curator.Curate();
     }
 } // namespace tattletale

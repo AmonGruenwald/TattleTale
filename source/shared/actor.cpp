@@ -405,7 +405,7 @@ namespace tattletale
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(wealth_);
-        wealth_ = chronicle_.CreateResource("wealth", tick, weak_from_this(), all_reasons, new_value);
+        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, weak_from_this(), all_reasons, new_value);
     }
     void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
@@ -519,7 +519,7 @@ namespace tattletale
     void Actor::InitializeRandomWealth(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        wealth_ = chronicle_.CreateResource("wealth", tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f));
+        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f));
     }
     void Actor::InitializeRandomEmotions(size_t tick)
     {

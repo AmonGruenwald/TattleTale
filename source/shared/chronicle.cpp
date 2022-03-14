@@ -8,13 +8,17 @@ namespace tattletale
     void Chronicle::Reset(size_t actor_count)
     {
         kernels_by_actor_.clear();
-        emotions_by_actor.clear();
+        interactions_by_actor_.clear();
+        wealth_by_actor_.clear();
+        emotions_by_actor_.clear();
         all_kernels_.clear();
         all_interactions_.clear();
         for (size_t i = 0; i < actor_count; ++i)
         {
             kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
-            emotions_by_actor.push_back(std::vector<std::shared_ptr<Emotion>>());
+            emotions_by_actor_.push_back(std::vector<std::shared_ptr<Emotion>>());
+            wealth_by_actor_.push_back(std::vector<std::shared_ptr<Resource>>());
+            interactions_by_actor_.push_back(std::vector<std::shared_ptr<Interaction>>());
         }
     }
     std::weak_ptr<Interaction> Chronicle::CreateInteraction(
@@ -35,8 +39,13 @@ namespace tattletale
         for (auto &owner : participants)
         {
             kernels_by_actor_[owner.lock()->id_].push_back(interaction);
+            interactions_by_actor_[owner.lock()->id_].push_back(interaction);
         }
         all_interactions_.push_back(interaction);
+        if (prototype->id > highest_interaction_id)
+        {
+            highest_interaction_id = prototype->id;
+        }
         return interaction;
     }
     std::weak_ptr<Emotion> Chronicle::CreateEmotion(EmotionType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
@@ -46,7 +55,7 @@ namespace tattletale
         {
             reason.lock()->AddConsequence(emotion);
         }
-        emotions_by_actor[owner.lock()->id_].push_back(emotion);
+        emotions_by_actor_[owner.lock()->id_].push_back(emotion);
         all_kernels_.push_back(emotion);
         kernels_by_actor_[owner.lock()->id_].push_back(emotion);
         return emotion;
@@ -62,15 +71,16 @@ namespace tattletale
         kernels_by_actor_[owner.lock()->id_].push_back(relationship);
         return relationship;
     }
-    std::weak_ptr<Resource> Chronicle::CreateResource(std::string name, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    std::weak_ptr<Resource> Chronicle::CreateResource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
     {
-        std::shared_ptr<Resource> resource(new Resource(name, all_kernels_.size(), tick, owner, reasons, value));
+        std::shared_ptr<Resource> resource(new Resource(name, positive_name_variant, negative_name_variant, all_kernels_.size(), tick, owner, reasons, value));
         for (auto &reason : reasons)
         {
             reason.lock()->AddConsequence(resource);
         }
         all_kernels_.push_back(resource);
         kernels_by_actor_[owner.lock()->id_].push_back(resource);
+        wealth_by_actor_[owner.lock()->id_].push_back(resource);
         return resource;
     }
     std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons)
@@ -217,8 +227,30 @@ namespace tattletale
         }
         return unlikeliest_interaction;
     }
-    std::weak_ptr<Interaction> Chronicle::FindMostOccuringInteraction(size_t actor_id) const
+    std::shared_ptr<InteractionPrototype> Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
     {
+        std::vector<size_t> occurences(highest_interaction_id + 1);
+        for (auto &interaction : interactions_by_actor_[actor_id])
+        {
+            occurences[interaction->GetPrototype()->id] += 1;
+        }
+        size_t highest = 0;
+        for (size_t i = 1; i < occurences.size(); ++i)
+        {
+            if (occurences[i] > highest)
+            {
+                highest = i;
+            }
+        }
+        for (auto &interaction : interactions_by_actor_[actor_id])
+        {
+            auto prototype = interaction->GetPrototype();
+            if (prototype->id == highest)
+            {
+                return prototype;
+            };
+        }
+        return std::shared_ptr<InteractionPrototype>(nullptr);
     }
 
     size_t Chronicle::GetLastTick() const
@@ -228,7 +260,7 @@ namespace tattletale
     std::weak_ptr<Emotion> Chronicle::GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const
     {
         std::shared_ptr<Emotion> last_emotion(nullptr);
-        for (auto &emotion : emotions_by_actor[actor_id])
+        for (auto &emotion : emotions_by_actor_[actor_id])
         {
             if (emotion->type_ != type)
             {
@@ -242,6 +274,21 @@ namespace tattletale
         }
         return last_emotion;
     }
+
+    std::weak_ptr<Resource> Chronicle::GetLastWealth(size_t tick, size_t actor_id) const
+    {
+        std::shared_ptr<Resource> last_wealth(nullptr);
+        for (auto &wealth : wealth_by_actor_[actor_id])
+        {
+            if (wealth->tick_ >= tick)
+            {
+                break;
+            }
+            last_wealth = wealth;
+        }
+        return last_wealth;
+    }
+
     std::string Chronicle::GetGoalCausalityChainDescription(size_t depth) const
     {
         if (all_kernels_.size() <= 0)

@@ -7,6 +7,17 @@
 
 namespace tattletale
 {
+    enum class KernelType
+    {
+        kNone,
+        kResource,
+        kEmotion,
+        kRelationship,
+        kInteraction,
+        kTrait,
+        kGoal,
+        kLast
+    };
     class Actor;
     /**
      * @brief Represents a part of the simulation, like an interaction, or an emotional goal.
@@ -22,11 +33,13 @@ namespace tattletale
         std::string name_;
         size_t id_;
         size_t tick_;
+        KernelType type_;
 
         void AddConsequence(std::weak_ptr<Kernel> consequence);
         const std::vector<std::weak_ptr<Kernel>> &GetConsequences() const;
         virtual const std::vector<std::weak_ptr<Kernel>> &GetReasons() const;
         virtual std::string ToString() = 0;
+        virtual std::string GetActiveDescription();
         virtual float GetChance() const;
         std::weak_ptr<Actor> GetOwner() const;
 
@@ -37,7 +50,7 @@ namespace tattletale
         std::vector<std::weak_ptr<Kernel>> consequences_;
         std::vector<std::weak_ptr<Kernel>> reasons_;
         std::weak_ptr<Actor> owner_;
-        Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);
+        Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, KernelType type);
     };
 
 } // namespace tattletale

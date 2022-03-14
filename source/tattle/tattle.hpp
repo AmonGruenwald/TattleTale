@@ -11,6 +11,6 @@
  */
 namespace tattletale
 {
-    void Tattle(const Chronicle &chronicle, const Setting &setting);
+    std::string Tattle(const Chronicle &chronicle, const Setting &setting);
 } // namespace tattletale
 #endif // TATTLE_TATTLE_H

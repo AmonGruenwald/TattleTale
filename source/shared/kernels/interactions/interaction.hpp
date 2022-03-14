@@ -33,6 +33,7 @@ namespace tattletale
          * @return String describing the Interaction
          */
         std::string ToString();
+        std::string GetActiveDescription() override;
 
         /**
          * @brief Getter for the InteractionPrototype this Interaction uses.

@@ -16,7 +16,7 @@ namespace tattletale
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
         std::vector<std::weak_ptr<Actor>> participants)
-        : Kernel(prototype->name, id, tick, participants[0], reasons),
+        : Kernel(prototype->name, id, tick, participants[0], reasons, KernelType::kInteraction),
           prototype_(prototype),
           requirement_(requirement),
           tendency_(tendency),
@@ -51,6 +51,17 @@ namespace tattletale
             args[count++] = fmt::detail::make_arg<fmt::format_context>(participant.lock()->name_);
         }
         auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
+        return description;
+    }
+    std::string Interaction::GetActiveDescription()
+    {
+        fmt::format_args::format_arg args[12];
+        int count = 0;
+        for (size_t i = 1; i < participants_.size(); ++i)
+        {
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(participants_[i].lock()->name_);
+        }
+        auto description = fmt::vformat(prototype_->active_description, fmt::format_args(args, count));
         return description;
     }
 

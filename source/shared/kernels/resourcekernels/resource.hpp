@@ -23,6 +23,7 @@ namespace tattletale
          * @return The description string.
          */
         virtual std::string ToString();
+        std::string GetNameVariant();
 
     protected:
         /**
@@ -37,11 +38,14 @@ namespace tattletale
          * @param reasons What other \link Kernel Kernels \endlink  led to this Resource and its value.
          * @param value Value of the Resource between -1.0 and 1.0.
          */
-        Resource(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Resource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value, KernelType type = KernelType::kResource);
         /**
          * @brief The value of this Resource.
          */
         float value_;
+        const char *adjectives_[4] = {"slightly", "quite", "very", "completely"};
+        const std::string positive_name_variant_;
+        const std::string negative_name_variant_;
         friend class Chronicle;
     };
 

@@ -22,7 +22,7 @@ TEST(TaleKernels, IncreasingKernelId)
     std::weak_ptr<tattletale::Emotion> emotion = chronicle.CreateEmotion(tattletale::EmotionType::kHappy, tick, actor, no_reasons, 1);
     std::weak_ptr<tattletale::Goal> goal = chronicle.CreateGoal(tattletale::Goal::GetRandomGoalType(random), tick, actor, no_reasons);
     std::weak_ptr<tattletale::Relationship> relationship = chronicle.CreateRelationship(tattletale::RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
-    std::weak_ptr<tattletale::Resource> wealth = chronicle.CreateResource("wealth", tick, actor, no_reasons, 1);
+    std::weak_ptr<tattletale::Resource> wealth = chronicle.CreateResource("wealth", "wealthy", "poor", tick, actor, no_reasons, 1);
     std::weak_ptr<tattletale::Trait> trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
 
     EXPECT_EQ(0, emotion.lock()->id_);
@@ -625,7 +625,7 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     tattletale::Random random;
     tattletale::Chronicle chronicle(random);
     chronicle.Reset(setting_.actor_count);
-    actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, 1.0f);
+    actor_->wealth_ = chronicle.CreateResource("wealth", "wealthy", "poor", 0, actor_, no_reasons, 1.0f);
     for (auto &[type, value] : tendency.emotions)
     {
         actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, 1.0f);
@@ -654,7 +654,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
         std::vector<std::weak_ptr<tattletale::Kernel>> no_reasons;
         tattletale::Chronicle chronicle(random);
         chronicle.Reset(setting_.actor_count);
-        actor_->wealth_ = chronicle.CreateResource("wealth", 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
+        actor_->wealth_ = chronicle.CreateResource("wealth", "wealthy", "poor", 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));
         for (auto &[type, value] : tendency.emotions)
         {
             actor_->emotions_[type] = chronicle.CreateEmotion(type, 0, actor_, no_reasons, random.GetFloat(-1.0f, 1.0f));

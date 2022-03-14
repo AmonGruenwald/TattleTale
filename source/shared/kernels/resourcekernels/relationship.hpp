@@ -2,6 +2,7 @@
 #define TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H
 
 #include "shared/kernels/resourcekernels/resource.hpp"
+#include <map>
 
 namespace tattletale
 {
@@ -46,13 +47,6 @@ namespace tattletale
          */
         static std::string RelationshipTypeToString(RelationshipType relationship_type);
 
-        /**
-         * @brief Creates a string describing the Relationship for easy printing.
-         *
-         * @return The description string.
-         */
-        std::string ToString() override;
-
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.
@@ -71,6 +65,18 @@ namespace tattletale
          * @brief The RelationshipType of this Relationship.
          */
         RelationshipType type_;
+        const static inline std::map<RelationshipType, std::string> positive_name_variants_ = {
+            {RelationshipType::kAnger, "anger for"},
+            {RelationshipType::kAttraction, "attraction for"},
+            {RelationshipType::kFriendship, "friendship for"},
+            {RelationshipType::kLove, "love for"},
+            {RelationshipType::kProtective, "protective of"}};
+        const static inline std::map<RelationshipType, std::string> negative_name_variants_ = {
+            {RelationshipType::kAnger, "comfortable with"},
+            {RelationshipType::kAttraction, "disgust for"},
+            {RelationshipType::kFriendship, "animosity"},
+            {RelationshipType::kLove, "hate"},
+            {RelationshipType::kProtective, "power over"}};
         std::weak_ptr<Actor> target_;
         friend class Chronicle;
     };

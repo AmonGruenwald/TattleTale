@@ -22,9 +22,21 @@ namespace tattletale
          */
         std::string name = "";
         /**
+         * @brief The id of the InteractionPrototype.
+         */
+        size_t id = 0;
+        /**
          * @brief The description template of the corresponding Interaction.
          */
         std::string description = "";
+        /**
+         * @brief The passive description of this protoype.
+         */
+        std::string passive_description = "";
+        /**
+         * @brief The active description of this protoype.
+         */
+        std::string active_description = "";
         /**
          * @brief Stores the effect the corresponding Interaction has on each participating \link Actor Actor's \endlink wealth.
          */

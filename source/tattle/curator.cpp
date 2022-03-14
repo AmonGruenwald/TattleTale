@@ -1,6 +1,7 @@
 #include "tattle/curator.hpp"
 #include "shared/actor.hpp"
 #include <fmt/core.h>
+#include <math.h>
 #include "shared/tattletalecore.hpp"
 
 namespace tattletale
@@ -37,6 +38,38 @@ namespace tattletale
         }
         return current_best;
     }
+
+    std::shared_ptr<Resource> Curator::FindBlockingResource(std::shared_ptr<Interaction> interaction) const
+    {
+        auto tendency = interaction->GetTendency();
+        float lowest_influence = 1.0f;
+        std::shared_ptr<Resource> blocking_resource(nullptr);
+        for (auto &[type, value] : tendency->emotions)
+        {
+            if (value == 0)
+            {
+                continue;
+            }
+            auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner().lock()->id_, type).lock();
+            float current_influence = last_emotion->GetValue() * value;
+            if (current_influence < lowest_influence)
+            {
+                blocking_resource = last_emotion;
+                lowest_influence = current_influence;
+            }
+        }
+        if (tendency->wealth != 0)
+        {
+            auto last_wealth = chronicle_.GetLastWealth(interaction->tick_, interaction->GetOwner().lock()->id_).lock();
+            float current_influence = last_wealth->GetValue() * tendency->wealth;
+            if (current_influence < lowest_influence)
+            {
+                blocking_resource = last_wealth;
+                lowest_influence = current_influence;
+            }
+        }
+        return blocking_resource;
+    }
     std::vector<std::shared_ptr<Kernel>> Curator::FindCausalConnection(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const
     {
         std::vector<std::shared_ptr<Kernel>> causal_chain;
@@ -65,56 +98,218 @@ namespace tattletale
         }
         return false;
     }
+    std::string Curator::GetTimeDescription(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const
+    {
+        size_t tick_distance = end->tick_ - start->tick_;
+        if (tick_distance == 0)
+        {
+            return "At the same time";
+        }
+        if (tick_distance < (setting_.courses_per_day + 1) / 2)
+        {
+            return "Shortly after";
+        }
+        if (tick_distance < setting_.courses_per_day + 1)
+        {
+            return "Later that day";
+        }
+        size_t days = tick_distance / (setting_.courses_per_day + 1);
+        if (days <= 1)
+        {
+            return "The following day";
+        }
+        if (days <= 7)
+        {
+            return "During the same week";
+        }
+        if (days <= 14)
+        {
+            return "About two week later";
+        }
+        if (days <= 31)
+        {
+            return "During the same month";
+        }
+        return "Quite a lot of time later";
+    }
+
+    std::string Curator::GetChanceDescription(float chance) const
+    {
+        if (chance < 0.1)
+        {
+            return "impossibly rare";
+        }
+        if (chance < 0.2)
+        {
+            return "rare";
+        }
+        if (chance < 0.3)
+        {
+            return "highly unlikely";
+        }
+        if (chance < 0.4)
+        {
+            return "unlikely";
+        }
+        if (chance < 0.5)
+        {
+            return "slightly unlikely";
+        }
+        if (chance < 0.6)
+        {
+            return "normal";
+        }
+        if (chance < 0.7)
+        {
+            return "somewhat common";
+        }
+        if (chance < 0.8)
+        {
+            return "common";
+        }
+        if (chance < 0.9)
+        {
+            return "very common";
+        }
+        return "completely banal";
+    }
+
+    std::string Curator::GetResourceReasonDescription(std::shared_ptr<Resource> resource) const
+    {
+        float value = abs(resource->GetValue());
+        if (value > 0.9f)
+        {
+            return fmt::format("resigning to their fate of being {}, they just had to", resource->ToString());
+        }
+        if (value > 0.7f)
+        {
+            return fmt::format("being this {} compelled them to", resource->ToString());
+        }
+        if (value > 0.5f)
+        {
+            return fmt::format("them being {} led them to", resource->ToString());
+        }
+        if (value > 0.4f)
+        {
+            return fmt::format("because they were {} they had a feeling that they needed to", resource->ToString());
+        }
+        if (value > 0.2f)
+        {
+            return fmt::format("being {} gave them a slight excuse to", resource->ToString());
+        }
+        return fmt::format("feeling {} gave them a tiny nudge to", resource->ToString());
+    }
     std::string Curator::Curate()
     {
-        size_t depth = 20;
+        TATTLETALE_DEBUG_PRINT("START CURATION");
+        return RarityCuration();
+    }
+    std::string Curator::RarityCuration()
+    {
+        size_t depth = 5;
         size_t base_interaction_tick_distance_to_end = 10;
         size_t tick_cutoff = chronicle_.GetLastTick();
         tick_cutoff = tick_cutoff > depth ? tick_cutoff - base_interaction_tick_distance_to_end : tick_cutoff;
         auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff).lock();
-        std::shared_ptr<Kernel> goal_kernel(nullptr);
-        auto tendency = base_interaction->GetTendency();
-        float lowest_influence = 1.0f;
-        std::shared_ptr<Emotion> blocking_emotion(nullptr);
-        for (auto &[type, value] : tendency->emotions)
-        {
-            if (value == 0)
-            {
-                continue;
-            }
-            auto emotion = chronicle_.GetLastEmotionOfType(base_interaction->tick_, base_interaction->GetOwner().lock()->id_, type).lock();
-            float current_influence = emotion->GetValue() * value;
-            if (current_influence < lowest_influence)
-            {
-                blocking_emotion = emotion;
-                lowest_influence = current_influence;
-            }
-        }
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner().lock()->id_);
+        auto blocking_resource = FindBlockingResource(base_interaction);
+
+        std::shared_ptr<Kernel> end_kernel(nullptr);
         for (auto &consequence : base_interaction->GetConsequences())
         {
-            goal_kernel = RecursivelyFindUnlikeliestConsequence(consequence.lock(), goal_kernel, depth);
+            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence.lock(), end_kernel, depth);
         }
-        const auto &connection = FindCausalConnection(base_interaction, goal_kernel);
+
+        const auto &connection = FindCausalConnection(base_interaction, end_kernel);
 
         // x did this despite thing influenced negatively the most which she was because of this interaction. this lead to another unlikely event with this chain.
-        std::string description = fmt::format("Something rare ({}) happened: {}", base_interaction->GetChance(), base_interaction->ToString());
-        if (blocking_emotion)
+        std::string description = fmt::format("Something *{}* happened with *{}*!\n", GetChanceDescription(base_interaction->GetChance()), base_interaction->GetOwner().lock()->name_);
+
+        if (normal_interaction)
         {
-            description += fmt::format("\n\tThis happened despite this thing: {}", blocking_emotion->ToString());
+            description += fmt::format("Normally one would find *{}* *{}*", base_interaction->GetOwner().lock()->first_name_, normal_interaction->passive_description);
+            if (blocking_resource)
+            {
+                description += fmt::format(", but despite being actually *{}*, this time *{}*.", blocking_resource->ToString(), base_interaction->ToString());
+            }
+            else
+            {
+                description += fmt::format(", but this time *{}*.", base_interaction->ToString());
+            }
         }
-        if (goal_kernel)
+        else if (blocking_resource)
         {
-            description += fmt::format("\n\t\tThis somehow led to this unlikely ({}) thing: {} (during tick {})", goal_kernel->GetChance(), goal_kernel->ToString(), goal_kernel->tick_);
+            description += fmt::format("Despite *{}* being actually *{}* *{}*", blocking_resource->GetOwner().lock()->first_name_, blocking_resource->ToString(), base_interaction->ToString());
+        }
+        else
+        {
+            description += fmt::format("*{}*.", base_interaction->ToString());
+        }
+
+        if (end_kernel)
+        {
+            description += fmt::format("\nThis somehow led to another event that was *{}*. *{}*", GetChanceDescription(end_kernel->GetChance()), end_kernel->ToString());
         }
         if (connection.size() > 2)
         {
-            description += "\n\t\t\tHow did this happen? Well:";
-            description += fmt::format("\n\t\t\tWe started with {}", connection.front()->ToString());
-            for (size_t i = 1; i < connection.size() - 1; ++i)
+            description += "\n\nHow did it get to this?";
+            std::string time_description = "Well, as already stated the story starts when ";
+            std::map<size_t, std::vector<std::shared_ptr<Resource>>> last_resource_values;
+            for (size_t i = 0; i < connection.size() - 1; ++i)
             {
-                description += fmt::format("\n\t\t\tThen {}", connection[i]->ToString());
+                auto owner = connection[i]->GetOwner().lock();
+                if (!last_resource_values.count(owner->id_))
+                {
+                    last_resource_values.insert({owner->id_, std::vector<std::shared_ptr<Resource>>(static_cast<size_t>(EmotionType::kLast), std::shared_ptr<Resource>(nullptr))});
+                }
+                if (connection[i]->type_ == KernelType::kEmotion || connection[i]->type_ == KernelType::kResource)
+                {
+                    size_t type_index = last_resource_values[owner->id_].size() - 1;
+                    if (connection[i]->type_ == KernelType::kEmotion)
+                    {
+                        auto emotion = std::dynamic_pointer_cast<Emotion>(connection[i]);
+                        size_t type_index = static_cast<size_t>(emotion->GetType());
+                    }
+                    auto resource = std::dynamic_pointer_cast<Resource>(connection[i]);
+                    if (last_resource_values[owner->id_][type_index])
+                    {
+                        float last_value = last_resource_values[owner->id_][type_index]->GetValue();
+                        if (signbit(last_value) == signbit(resource->GetValue()))
+                        {
+                            continue;
+                        }
+                    }
+                    last_resource_values[owner->id_][type_index] = resource;
+                }
+                if (connection[i]->type_ == KernelType::kEmotion)
+                {
+                    description += fmt::format(" which made *{}* feel *{}*", owner->first_name_, connection[i]->ToString());
+                }
+                else if (connection[i]->type_ == KernelType::kResource)
+                {
+                    description += fmt::format(" which made *{}* *{}*", owner->first_name_, connection[i]->ToString());
+                }
+                else
+                {
+                    std::string reason_description = "";
+                    std::string event_description = connection[i]->ToString();
+                    if (i > 0)
+                    {
+                        event_description = connection[i]->GetActiveDescription();
+                        time_description = fmt::format("*{}*", GetTimeDescription(connection[i - 1], connection[i]));
+                        if (connection[i - 1]->type_ == KernelType::kResource || connection[i - 1]->type_ == KernelType::kEmotion)
+                        {
+                            auto reason = std::dynamic_pointer_cast<Resource>(connection[i - 1]);
+                            reason_description = fmt::format(", *{}*", GetResourceReasonDescription(reason));
+                        }
+                        description += ".";
+                    }
+                    description += fmt::format("\n{}{} *{}*", time_description, reason_description, event_description);
+                }
             }
-            description += fmt::format("\n\t\t\tAfter all that we ended with {}", connection.back()->ToString());
+            description += fmt::format("\nAnd after all that this unlikely chain of events ends when *{}*", connection.back()->ToString());
+            // TODO: Add reasn for last inteaction
+            // TODO: deal with relationships
         }
         return description;
     }

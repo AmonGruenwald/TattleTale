@@ -130,6 +130,8 @@ namespace tattletale
 
         const std::string name_key_ = "name";
         const std::string description_key_ = "description";
+        const std::string passive_description_key_ = "passive_description";
+        const std::string active_description_key_ = "active_description";
         const std::string participant_count_key_ = "participant_count";
         const std::string goal_type_key_ = "goal_type";
         const std::string day_key_ = "day";

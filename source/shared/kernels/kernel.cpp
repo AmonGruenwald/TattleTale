@@ -9,12 +9,14 @@ namespace tattletale
         std::string name, size_t id,
         size_t tick,
         std::weak_ptr<Actor> owner,
-        std::vector<std::weak_ptr<Kernel>> reasons)
+        std::vector<std::weak_ptr<Kernel>> reasons,
+        KernelType type)
         : name_(name),
           id_(id),
           tick_(tick),
           owner_(owner),
-          reasons_(reasons)
+          reasons_(reasons),
+          type_(type)
     {
     }
     void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
@@ -27,7 +29,7 @@ namespace tattletale
     }
 
     float Kernel::GetChance() const { return 1.0f; }
-
+    std::string Kernel::GetActiveDescription() { return ToString(); }
     const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
     {
         return reasons_;
