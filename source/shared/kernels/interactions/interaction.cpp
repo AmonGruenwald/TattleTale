@@ -42,7 +42,7 @@ namespace tattletale
         }
     }
 
-    std::string Interaction::ToString()
+    std::string Interaction::GetDefaultDescription() const
     {
         fmt::format_args::format_arg args[12];
         int count = 0;
@@ -53,7 +53,13 @@ namespace tattletale
         auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
         return description;
     }
-    std::string Interaction::GetActiveDescription()
+
+    std::string Interaction::GetPassiveDescription() const
+    {
+        return prototype_->passive_description;
+    }
+
+    std::string Interaction::GetActiveDescription() const
     {
         fmt::format_args::format_arg args[12];
         int count = 0;

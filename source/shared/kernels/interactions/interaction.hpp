@@ -27,13 +27,10 @@ namespace tattletale
          * @brief Applies the effects of the Interaction to all participating \link Actor Actors \endlink.
          */
         void Apply();
-        /**
-         * @brief Gets a string description of what would happen during the Interaction.
-         *
-         * @return String describing the Interaction
-         */
-        std::string ToString();
-        std::string GetActiveDescription() override;
+
+        std::string GetDefaultDescription() const override;
+        std::string GetPassiveDescription() const override;
+        std::string GetActiveDescription() const override;
 
         /**
          * @brief Getter for the InteractionPrototype this Interaction uses.
@@ -89,6 +86,6 @@ namespace tattletale
             participants_;
         friend class Chronicle;
     };
-
 } // namespace tattletale
+
 #endif // TALE_KERNELS_INTERACTIONS_INTERACTION_H

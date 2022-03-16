@@ -7,7 +7,18 @@
 namespace tattletale
 {
     Emotion::Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Resource(EmotionTypeToString(type), Emotion::positive_name_variants_.at(type), Emotion::negative_name_variants_.at(type), id, tick, owner, reasons, value, KernelType::kEmotion), type_(type){};
+        : Resource(
+              EmotionTypeToString(type),
+              Emotion::positive_name_variants_.at(type),
+              Emotion::negative_name_variants_.at(type),
+              id,
+              tick,
+              owner,
+              reasons,
+              value,
+              KernelType::kEmotion,
+              Verb("felt", "feeling", "feel")),
+          type_(type){};
 
     EmotionType Emotion::StringToEmotionType(std::string emotion_string)
     {

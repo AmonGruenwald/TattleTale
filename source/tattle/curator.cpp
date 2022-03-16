@@ -179,25 +179,25 @@ namespace tattletale
         float value = abs(resource->GetValue());
         if (value > 0.9f)
         {
-            return fmt::format("resigning to their fate of being {}, they just had to", resource->ToString());
+            return fmt::format("resigning to their fate of {:p}, they just had to", *resource);
         }
         if (value > 0.7f)
         {
-            return fmt::format("being this {} compelled them to", resource->ToString());
+            return fmt::format("{:p} compelled them to", *resource);
         }
         if (value > 0.5f)
         {
-            return fmt::format("them being {} led them to", resource->ToString());
+            return fmt::format("them {:p} led them to", *resource);
         }
         if (value > 0.4f)
         {
-            return fmt::format("because they were {} they had a feeling that they needed to", resource->ToString());
+            return fmt::format("because they were {:p} they had a feeling that they needed to", *resource);
         }
         if (value > 0.2f)
         {
-            return fmt::format("being {} gave them a slight excuse to", resource->ToString());
+            return fmt::format("{:p} gave them a slight excuse to", *resource);
         }
-        return fmt::format("feeling {} gave them a tiny nudge to", resource->ToString());
+        return fmt::format("{:p} gave them a tiny nudge to", *resource);
     }
     std::string Curator::Curate()
     {
@@ -222,33 +222,32 @@ namespace tattletale
 
         const auto &connection = FindCausalConnection(base_interaction, end_kernel);
 
-        // x did this despite thing influenced negatively the most which she was because of this interaction. this lead to another unlikely event with this chain.
-        std::string description = fmt::format("Something *{}* happened with *{}*!\n", GetChanceDescription(base_interaction->GetChance()), base_interaction->GetOwner().lock()->name_);
+        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), base_interaction->GetOwner().lock()->name_);
 
         if (normal_interaction)
         {
-            description += fmt::format("Normally one would find *{}* *{}*", base_interaction->GetOwner().lock()->first_name_, normal_interaction->passive_description);
+            description += fmt::format("Normally one would find *{}* *{:p}*", base_interaction->GetOwner().lock()->first_name_, *normal_interaction);
             if (blocking_resource)
             {
-                description += fmt::format(", but despite being actually *{}*, this time *{}*.", blocking_resource->ToString(), base_interaction->ToString());
+                description += fmt::format(", but despite *{:p}*, this time *{}*.", *blocking_resource, *base_interaction);
             }
             else
             {
-                description += fmt::format(", but this time *{}*.", base_interaction->ToString());
+                description += fmt::format(", but this time *{}*.", *base_interaction);
             }
         }
         else if (blocking_resource)
         {
-            description += fmt::format("Despite *{}* being actually *{}* *{}*", blocking_resource->GetOwner().lock()->first_name_, blocking_resource->ToString(), base_interaction->ToString());
+            description += fmt::format("Despite *{}* *{:p}* *{}*", blocking_resource->GetOwner().lock()->first_name_, *blocking_resource, *base_interaction);
         }
         else
         {
-            description += fmt::format("*{}*.", base_interaction->ToString());
+            description += fmt::format("*{}*.", *base_interaction);
         }
 
         if (end_kernel)
         {
-            description += fmt::format("\nThis somehow led to another event that was *{}*. *{}*", GetChanceDescription(end_kernel->GetChance()), end_kernel->ToString());
+            description += fmt::format("\nThis somehow led to another event that was *{}*. *{}*.", GetChanceDescription(end_kernel->GetChance()), *end_kernel);
         }
         if (connection.size() > 2)
         {
@@ -283,19 +282,18 @@ namespace tattletale
                 }
                 if (connection[i]->type_ == KernelType::kEmotion)
                 {
-                    description += fmt::format(" which made *{}* feel *{}*", owner->first_name_, connection[i]->ToString());
+                    description += fmt::format(" which made *{}* *{:a}*", owner->first_name_, *connection[i]);
                 }
                 else if (connection[i]->type_ == KernelType::kResource)
                 {
-                    description += fmt::format(" which made *{}* *{}*", owner->first_name_, connection[i]->ToString());
+                    description += fmt::format(" which made *{}* *{:a}*", owner->first_name_, *connection[i]);
                 }
                 else
                 {
                     std::string reason_description = "";
-                    std::string event_description = connection[i]->ToString();
+                    std::string event_description = fmt::format("{}", *connection[i]);
                     if (i > 0)
                     {
-                        event_description = connection[i]->GetActiveDescription();
                         time_description = fmt::format("*{}*", GetTimeDescription(connection[i - 1], connection[i]));
                         if (connection[i - 1]->type_ == KernelType::kResource || connection[i - 1]->type_ == KernelType::kEmotion)
                         {
@@ -303,11 +301,12 @@ namespace tattletale
                             reason_description = fmt::format(", *{}*", GetResourceReasonDescription(reason));
                         }
                         description += ".";
+                        event_description = reason_description == "" ? fmt::format("*{}*", *connection[i]) : fmt::format("*{:a}*", *connection[i]);
                     }
-                    description += fmt::format("\n{}{} *{}*", time_description, reason_description, event_description);
+                    description += fmt::format("\n{}{} {}", time_description, reason_description, event_description);
                 }
             }
-            description += fmt::format("\nAnd after all that this unlikely chain of events ends when *{}*", connection.back()->ToString());
+            description += fmt::format("\nAnd after all that this unlikely chain of events ended when *{}*", *connection.back());
             // TODO: Add reasn for last inteaction
             // TODO: deal with relationships
         }

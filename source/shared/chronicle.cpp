@@ -195,7 +195,7 @@ namespace tattletale
             if (std::dynamic_pointer_cast<Interaction>(kernels[i]))
             {
                 description += "\n";
-                description += kernels[i]->ToString();
+                description += kernels[i]->GetDefaultDescription();
             }
         }
         return description;
@@ -227,7 +227,7 @@ namespace tattletale
         }
         return unlikeliest_interaction;
     }
-    std::shared_ptr<InteractionPrototype> Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
+    std::shared_ptr<Interaction> Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
     {
         std::vector<size_t> occurences(highest_interaction_id + 1);
         for (auto &interaction : interactions_by_actor_[actor_id])
@@ -247,10 +247,10 @@ namespace tattletale
             auto prototype = interaction->GetPrototype();
             if (prototype->id == highest)
             {
-                return prototype;
+                return interaction;
             };
         }
-        return std::shared_ptr<InteractionPrototype>(nullptr);
+        return std::shared_ptr<Interaction>(nullptr);
     }
 
     size_t Chronicle::GetLastTick() const
@@ -323,7 +323,7 @@ namespace tattletale
         {
             description += "-";
         }
-        description += ":" + locked_kernel->ToString() + " (T" + std::to_string(kernel.lock()->tick_) + ")\n";
+        description += ":" + locked_kernel->GetDefaultDescription() + " (T" + std::to_string(kernel.lock()->tick_) + ")\n";
         if (current_depth < max_depth)
         {
             for (size_t i = 0; i < current_depth; ++i)

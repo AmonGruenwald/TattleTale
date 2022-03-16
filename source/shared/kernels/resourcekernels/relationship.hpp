@@ -47,6 +47,10 @@ namespace tattletale
          */
         static std::string RelationshipTypeToString(RelationshipType relationship_type);
 
+        std::string GetDefaultDescription() const override;
+        std::string GetPassiveDescription() const override;
+        std::string GetActiveDescription() const override;
+
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.
@@ -61,6 +65,7 @@ namespace tattletale
          * @param value Value of the Relationship between -1.0 and 1.0.
          */
         Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        std::string GetAdjective() const override;
         /**
          * @brief The RelationshipType of this Relationship.
          */
@@ -74,9 +79,9 @@ namespace tattletale
         const static inline std::map<RelationshipType, std::string> negative_name_variants_ = {
             {RelationshipType::kAnger, "comfortable with"},
             {RelationshipType::kAttraction, "disgust for"},
-            {RelationshipType::kFriendship, "animosity"},
-            {RelationshipType::kLove, "hate"},
-            {RelationshipType::kProtective, "power over"}};
+            {RelationshipType::kFriendship, "animosity for"},
+            {RelationshipType::kLove, "hate for"},
+            {RelationshipType::kProtective, "power over for"}};
         std::weak_ptr<Actor> target_;
         friend class Chronicle;
     };

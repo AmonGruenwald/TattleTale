@@ -29,7 +29,6 @@ namespace tattletale
     }
 
     float Kernel::GetChance() const { return 1.0f; }
-    std::string Kernel::GetActiveDescription() { return ToString(); }
     const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
     {
         return reasons_;

@@ -59,7 +59,7 @@ namespace tattletale
         return "none";
     }
 
-    std::string Goal::GoalTypeToDescription(GoalType goal_type)
+    std::string Goal::GoalTypeToDescription(GoalType goal_type) const
     {
         switch (goal_type)
         {
@@ -88,8 +88,16 @@ namespace tattletale
         }
         return "none";
     }
-    std::string Goal::ToString()
+    std::string Goal::GetDefaultDescription() const
     {
         return GoalTypeToDescription(type_);
+    }
+    std::string Goal::GetPassiveDescription() const
+    {
+        return name_;
+    }
+    std::string Goal::GetActiveDescription() const
+    {
+        return GetDefaultDescription();
     }
 } // namespace tattletale

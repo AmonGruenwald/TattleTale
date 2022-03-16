@@ -232,7 +232,7 @@ namespace tattletale
         {
             std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
             interaction.lock()->Apply();
-            interaction_description = interaction.lock()->ToString();
+            interaction_description = interaction.lock()->GetDefaultDescription();
         }
         TATTLETALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
     }

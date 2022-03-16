@@ -8,7 +8,19 @@
 namespace tattletale
 {
     Relationship::Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
-        : Resource(RelationshipTypeToString(type), Relationship::positive_name_variants_.at(type), Relationship::negative_name_variants_.at(type), id, tick, owner, reasons, value, KernelType::kRelationship), target_(target), type_(type){};
+        : Resource(
+              RelationshipTypeToString(type),
+              Relationship::positive_name_variants_.at(type),
+              Relationship::negative_name_variants_.at(type),
+              id,
+              tick,
+              owner,
+              reasons,
+              value,
+              KernelType::kRelationship,
+              Verb("felt", "feeling", "feel")),
+          target_(target),
+          type_(type){};
 
     RelationshipType Relationship::StringToRelationshipType(std::string relationship_string)
     {
@@ -55,5 +67,44 @@ namespace tattletale
             break;
         }
         return "none";
+    }
+
+    std::string Relationship::GetAdjective() const
+    {
+        if ((type_ == RelationshipType::kProtective && value_ >= 0) || (type_ == RelationshipType::kAnger && value_ < 0))
+        {
+            return Resource::GetAdjective();
+        }
+        else
+        {
+            if (abs(value_) < 0.3f)
+            {
+                return "slight";
+            }
+            else if (abs(value_) < 0.6f)
+            {
+                return "";
+            }
+            else if (abs(value_) < 1.0f)
+            {
+                return "a lot of";
+            }
+            return "all encompassing";
+        }
+    }
+
+    //  "passive_description" : "talking about the weather",
+    //                         "active_description" : "talk about the weather with {0}",
+    std::string Relationship::GetDefaultDescription() const
+    {
+        return fmt::format("{} {}", Resource::GetDefaultDescription(), target_.lock()->name_);
+    }
+    std::string Relationship::GetPassiveDescription() const
+    {
+        return fmt::format("{} {}", Resource::GetPassiveDescription(), target_.lock()->name_);
+    }
+    std::string Relationship::GetActiveDescription() const
+    {
+        return fmt::format("{} {}", Resource::GetActiveDescription(), target_.lock()->name_);
     }
 } // namespace tattletale

@@ -46,7 +46,7 @@ namespace tattletale
         std::string GetGoalCausalityChainDescription(size_t depth) const;
         std::string GetActorInteractionsDescription(size_t id) const;
         std::weak_ptr<Interaction> FindUnlikeliestInteraction(size_t tick_cutoff) const;
-        std::shared_ptr<InteractionPrototype> FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const;
+        std::shared_ptr<Interaction> FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const;
         std::weak_ptr<Emotion> GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const;
         std::weak_ptr<Resource> GetLastWealth(size_t tick, size_t actor_id) const;
         size_t GetLastTick() const;

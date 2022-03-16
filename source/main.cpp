@@ -11,14 +11,14 @@ void AppendStringToFile(const std::string &string, const std::string &path)
 int main(int argc, char *argv[])
 {
     tattletale::Setting setting;
-    setting.days_to_simulate = 20;
-    setting.actor_count = 50;
+    setting.days_to_simulate = 5;
+    setting.actor_count = 30;
     setting.actors_per_course = 15;
     tattletale::Random random(setting.seed);
     tattletale::Chronicle chronicle(random);
 
     std::string path = "results.txt";
-    for (size_t i = 0; i < 10; ++i)
+    for (size_t i = 0; i < 1; ++i)
     {
         random.Seed(i);
         tattletale::Tale(chronicle, random, setting);
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
         result += "===============================================\n";
         result += tattletale::Tattle(chronicle, setting);
         result += "\n";
+        std::cout << result;
         AppendStringToFile(result, path);
     }
     return 0; // optional return value

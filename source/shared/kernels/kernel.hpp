@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <fmt/core.h>
+#include <fmt/format.h>
 
 namespace tattletale
 {
@@ -38,8 +40,9 @@ namespace tattletale
         void AddConsequence(std::weak_ptr<Kernel> consequence);
         const std::vector<std::weak_ptr<Kernel>> &GetConsequences() const;
         virtual const std::vector<std::weak_ptr<Kernel>> &GetReasons() const;
-        virtual std::string ToString() = 0;
-        virtual std::string GetActiveDescription();
+        virtual std::string GetDefaultDescription() const = 0;
+        virtual std::string GetPassiveDescription() const = 0;
+        virtual std::string GetActiveDescription() const = 0;
         virtual float GetChance() const;
         std::weak_ptr<Actor> GetOwner() const;
 
@@ -54,4 +57,40 @@ namespace tattletale
     };
 
 } // namespace tattletale
+template <typename T>
+struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Kernel, T>::value, char>> : fmt::formatter<std::string>
+{
+    // d - default, a - active, p - passive, n - name
+    char presentation = 'd';
+
+    constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
+    {
+        auto it = ctx.begin(), end = ctx.end();
+        if (it != end && (*it == 'a' || *it == 'p' || *it == 'n' || *it == 'd'))
+            presentation = *it++;
+
+        if (it != end && *it != '}')
+            throw format_error("invalid format");
+
+        return it;
+    }
+
+    template <typename FormatContext>
+    auto format(tattletale::Kernel &kernel, FormatContext &ctx) -> decltype(ctx.out())
+    {
+        if (presentation == 'a')
+        {
+            return fmt::formatter<std::string>::format(kernel.GetActiveDescription(), ctx);
+        }
+        else if (presentation == 'p')
+        {
+            return fmt::formatter<std::string>::format(kernel.GetPassiveDescription(), ctx);
+        }
+        else if (presentation == 'n')
+        {
+            return fmt::formatter<std::string>::format(kernel.name_, ctx);
+        }
+        return fmt::formatter<std::string>::format(kernel.GetDefaultDescription(), ctx);
+    }
+};
 #endif // TALE_KERNEL_H

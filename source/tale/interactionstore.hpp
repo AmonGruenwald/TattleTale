@@ -203,5 +203,6 @@ namespace tattletale
 
         bool CheckCorrectValueRange(float value, std::string error_preamble = "");
     };
+
 } // namespace tattletale
 #endif // TALE_GLOBALS_INTERACTIONSTORE_H

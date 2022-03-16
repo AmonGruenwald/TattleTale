@@ -23,11 +23,13 @@ namespace tattletale
     class Goal : public Kernel
     {
     public:
-        std::string ToString();
+        std::string GetDefaultDescription() const override;
+        std::string GetPassiveDescription() const override;
+        std::string GetActiveDescription() const override;
         static GoalType GetRandomGoalType(Random &random);
         static GoalType StringToGoalType(std::string goal_string);
         static std::string GoalTypeToString(GoalType goal_type);
-        std::string GoalTypeToDescription(GoalType goal_type);
+        std::string GoalTypeToDescription(GoalType goal_type) const;
 
         const GoalType type_;
 

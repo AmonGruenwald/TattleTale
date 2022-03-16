@@ -12,7 +12,9 @@ namespace tattletale
     class Trait : public Kernel
     {
     public:
-        std::string ToString();
+        std::string GetDefaultDescription() const override;
+        std::string GetPassiveDescription() const override;
+        std::string GetActiveDescription() const override;
 
     private:
         Trait(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons);

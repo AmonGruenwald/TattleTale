@@ -151,7 +151,6 @@ namespace tattletale
             std::vector<std::weak_ptr<Kernel>> participant_reasons;
             for (auto &actor : actor_group)
             {
-                // TODO: check if actor is even allowed per requirement
                 std::weak_ptr<Kernel> reason;
                 size_t id = actor.lock()->id_;
                 if (relationships_.count(id))
@@ -464,14 +463,14 @@ namespace tattletale
 
     std::string Actor::GetWealthDescriptionString()
     {
-        return "WEALTH:\n\t" + wealth_.lock()->ToString();
+        return "WEALTH:\n\t" + wealth_.lock()->GetDefaultDescription();
     }
     std::string Actor::GetEmotionsDescriptionString()
     {
         std::string emotion_string = "EMOTIONS:";
         for (auto &[type, emotion] : emotions_)
         {
-            emotion_string += "\n\t" + emotion.lock()->ToString();
+            emotion_string += "\n\t" + emotion.lock()->GetDefaultDescription();
         }
         return emotion_string;
     }
@@ -484,21 +483,21 @@ namespace tattletale
             relationship_string += ("\n\tWith " + school_.GetActor(actor_index).lock()->name_ + " (ID: " + std::to_string(school_.GetActor(actor_index).lock()->id_) + "):");
             for (auto &[type, relationship] : map)
             {
-                relationship_string += "\n\t\t" + relationship.lock()->ToString();
+                relationship_string += "\n\t\t" + relationship.lock()->GetDefaultDescription();
             }
         }
         return relationship_string;
     }
     std::string Actor::GetGoalDescriptionString()
     {
-        return "GOALS:\n\t" + goal_.lock()->ToString();
+        return "GOALS:\n\t" + goal_.lock()->GetDefaultDescription();
     }
     std::string Actor::GetTraitsDescriptionString()
     {
         std::string trait_string = "TRAITS:";
         for (auto &trait : traits_)
         {
-            trait_string += "\n\t" + trait.lock()->ToString();
+            trait_string += "\n\t" + trait.lock()->GetDefaultDescription();
         }
         return trait_string;
     }
