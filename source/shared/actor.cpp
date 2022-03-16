@@ -216,6 +216,12 @@ namespace tattletale
                 participant_reasons.push_back(reason);
             }
             size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
+            // TODO: I think it is possible for actors to be assigned multiple times as targets for an interaction
+            while (actor_group[participant_index].lock()->id_ == id_)
+            {
+                participant_index += 1;
+                participant_index %= actor_group.size();
+            }
             out_participants.push_back(actor_group[participant_index]);
             if (participant_reasons[participant_index].lock())
             {
