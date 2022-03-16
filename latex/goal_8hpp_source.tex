@@ -23,20 +23,22 @@
 \DoxyCodeLine{23     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
 \DoxyCodeLine{24     \{}
 \DoxyCodeLine{25     \textcolor{keyword}{public}:}
-\DoxyCodeLine{26         std::string ToString();}
-\DoxyCodeLine{27         \textcolor{keyword}{static} GoalType GetRandomGoalType(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
-\DoxyCodeLine{28         \textcolor{keyword}{static} GoalType StringToGoalType(std::string goal\_string);}
-\DoxyCodeLine{29         \textcolor{keyword}{static} std::string GoalTypeToString(GoalType goal\_type);}
-\DoxyCodeLine{30         std::string GoalTypeToDescription(GoalType goal\_type);}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32         \textcolor{keyword}{const} GoalType type\_;}
+\DoxyCodeLine{26         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{27         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{28         std::string GetActiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{29         \textcolor{keyword}{static} GoalType GetRandomGoalType(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{30         \textcolor{keyword}{static} GoalType StringToGoalType(std::string goal\_string);}
+\DoxyCodeLine{31         \textcolor{keyword}{static} std::string GoalTypeToString(GoalType goal\_type);}
+\DoxyCodeLine{32         std::string GoalTypeToDescription(GoalType goal\_type) \textcolor{keyword}{const};}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keyword}{private}:}
-\DoxyCodeLine{35         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}(GoalType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{36         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{37     \};}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GOAL\_H}}
+\DoxyCodeLine{34         \textcolor{keyword}{const} GoalType type\_;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{private}:}
+\DoxyCodeLine{37         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}(GoalType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{38         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{39     \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GOAL\_H}}
 
 \end{DoxyCode}

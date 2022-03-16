@@ -12,14 +12,16 @@
 \DoxyCodeLine{12     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_trait}{Trait}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
 \DoxyCodeLine{13     \{}
 \DoxyCodeLine{14     \textcolor{keyword}{public}:}
-\DoxyCodeLine{15         std::string ToString();}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keyword}{private}:}
-\DoxyCodeLine{18         \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
-\DoxyCodeLine{19         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{20     \};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_TRAIT\_H}}
+\DoxyCodeLine{15         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{16         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{17         std::string GetActiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{private}:}
+\DoxyCodeLine{20         \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons);}
+\DoxyCodeLine{21         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_TRAIT\_H}}
 
 \end{DoxyCode}

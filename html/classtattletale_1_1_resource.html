@@ -97,15 +97,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa629baf20a6c1fa48c40db9d09a733c1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#aa629baf20a6c1fa48c40db9d09a733c1">GetValue</a> () const</td></tr>
 <tr class="memdesc:aa629baf20a6c1fa48c40db9d09a733c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the value of the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtattletale_1_1_resource.html#aa629baf20a6c1fa48c40db9d09a733c1">More...</a><br /></td></tr>
 <tr class="separator:aa629baf20a6c1fa48c40db9d09a733c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e94d6e04fbefbceb601ce298aa6ffe3"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a2e94d6e04fbefbceb601ce298aa6ffe3">ToString</a> ()</td></tr>
-<tr class="memdesc:a2e94d6e04fbefbceb601ce298aa6ffe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> for easy printing.  <a href="classtattletale_1_1_resource.html#a2e94d6e04fbefbceb601ce298aa6ffe3">More...</a><br /></td></tr>
-<tr class="separator:a2e94d6e04fbefbceb601ce298aa6ffe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a19292a34df0b9b5a8edb45bafb70368e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a19292a34df0b9b5a8edb45bafb70368e">Resource</a> (std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t id, size_t tick, std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_actor.html">Actor</a> &gt; owner, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value, KernelType type=KernelType::kResource)</td></tr>
-<tr class="memdesc:a19292a34df0b9b5a8edb45bafb70368e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class and value_ member.  <a href="classtattletale_1_1_resource.html#a19292a34df0b9b5a8edb45bafb70368e">More...</a><br /></td></tr>
-<tr class="separator:a19292a34df0b9b5a8edb45bafb70368e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390b8eaa912b84fcfc8b85989edb63e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a390b8eaa912b84fcfc8b85989edb63e3">Resource</a> (std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t id, size_t tick, std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_actor.html">Actor</a> &gt; owner, std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; reasons, float value, KernelType type=KernelType::kResource, <a class="el" href="structtattletale_1_1_verb.html">Verb</a> verb=<a class="el" href="structtattletale_1_1_verb.html">Verb</a>(&quot;was&quot;, &quot;beeing&quot;, &quot;are&quot;))</td></tr>
+<tr class="memdesc:a390b8eaa912b84fcfc8b85989edb63e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> class and value_ member.  <a href="classtattletale_1_1_resource.html#a390b8eaa912b84fcfc8b85989edb63e3">More...</a><br /></td></tr>
+<tr class="separator:a390b8eaa912b84fcfc8b85989edb63e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -122,8 +119,8 @@ std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents an abstract <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> an <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a19292a34df0b9b5a8edb45bafb70368e" name="a19292a34df0b9b5a8edb45bafb70368e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19292a34df0b9b5a8edb45bafb70368e">&#9670;&nbsp;</a></span>Resource()</h2>
+<a id="a390b8eaa912b84fcfc8b85989edb63e3" name="a390b8eaa912b84fcfc8b85989edb63e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390b8eaa912b84fcfc8b85989edb63e3">&#9670;&nbsp;</a></span>Resource()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +180,13 @@ std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">KernelType&#160;</td>
-          <td class="paramname"><em>type</em> = <code>KernelType::kResource</code>&#160;</td>
+          <td class="paramname"><em>type</em> = <code>KernelType::kResource</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtattletale_1_1_verb.html">Verb</a>&#160;</td>
+          <td class="paramname"><em>verb</em> = <code><a class="el" href="structtattletale_1_1_verb.html">Verb</a>(&quot;was&quot;,&#160;&quot;beeing&quot;,&#160;&quot;are&quot;)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -232,36 +235,6 @@ std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel
 
 <p>Getter for the value of the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The value. </dd></dl>
-
-</div>
-</div>
-<a id="a2e94d6e04fbefbceb601ce298aa6ffe3" name="a2e94d6e04fbefbceb601ce298aa6ffe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e94d6e04fbefbceb601ce298aa6ffe3">&#9670;&nbsp;</a></span>ToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string tattletale::Resource::ToString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a string describing the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a> for easy printing. </p>
-<dl class="section return"><dt>Returns</dt><dd>The description string. </dd></dl>
-
-<p>Implements <a class="el" href="classtattletale_1_1_kernel.html">tattletale::Kernel</a>.</p>
 
 </div>
 </div>

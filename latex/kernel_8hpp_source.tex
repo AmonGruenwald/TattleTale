@@ -8,45 +8,84 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10     \textcolor{keyword}{enum class} KernelType}
-\DoxyCodeLine{11     \{}
-\DoxyCodeLine{12         kNone,}
-\DoxyCodeLine{13         kResource,}
-\DoxyCodeLine{14         kEmotion,}
-\DoxyCodeLine{15         kRelationship,}
-\DoxyCodeLine{16         kInteraction,}
-\DoxyCodeLine{17         kTrait,}
-\DoxyCodeLine{18         kGoal,}
-\DoxyCodeLine{19         kLast}
-\DoxyCodeLine{20     \};}
-\DoxyCodeLine{21     \textcolor{keyword}{class }Actor;}
-\DoxyCodeLine{30     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Kernel>}
-\DoxyCodeLine{31     \{}
-\DoxyCodeLine{32     \textcolor{keyword}{public}:}
-\DoxyCodeLine{33         std::string name\_;}
-\DoxyCodeLine{34         \textcolor{keywordtype}{size\_t} id\_;}
-\DoxyCodeLine{35         \textcolor{keywordtype}{size\_t} tick\_;}
-\DoxyCodeLine{36         KernelType type\_;}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
-\DoxyCodeLine{39         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetConsequences() \textcolor{keyword}{const};}
-\DoxyCodeLine{40         \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetReasons() \textcolor{keyword}{const};}
-\DoxyCodeLine{41         \textcolor{keyword}{virtual} std::string ToString() = 0;}
-\DoxyCodeLine{42         \textcolor{keyword}{virtual} std::string GetActiveDescription();}
-\DoxyCodeLine{43         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} GetChance() \textcolor{keyword}{const};}
-\DoxyCodeLine{44         std::weak\_ptr<Actor> GetOwner() \textcolor{keyword}{const};}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{50         std::vector<std::weak\_ptr<Kernel>> \mbox{\hyperlink{classtattletale_1_1_kernel_a2ec855cec232883f9f26eeb8c8d0ad8e}{consequences\_}};}
-\DoxyCodeLine{51         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
-\DoxyCodeLine{52         std::weak\_ptr<Actor> owner\_;}
-\DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, KernelType type);}
-\DoxyCodeLine{54     \};}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fmt/format.h>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{keyword}{enum class} KernelType}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         kNone,}
+\DoxyCodeLine{15         kResource,}
+\DoxyCodeLine{16         kEmotion,}
+\DoxyCodeLine{17         kRelationship,}
+\DoxyCodeLine{18         kInteraction,}
+\DoxyCodeLine{19         kTrait,}
+\DoxyCodeLine{20         kGoal,}
+\DoxyCodeLine{21         kLast}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23     \textcolor{keyword}{class }Actor;}
+\DoxyCodeLine{32     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Kernel>}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35         std::string name\_;}
+\DoxyCodeLine{36         \textcolor{keywordtype}{size\_t} id\_;}
+\DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} tick\_;}
+\DoxyCodeLine{38         KernelType type\_;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
+\DoxyCodeLine{41         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetConsequences() \textcolor{keyword}{const};}
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetReasons() \textcolor{keyword}{const};}
+\DoxyCodeLine{43         \textcolor{keyword}{virtual} std::string GetDefaultDescription() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{44         \textcolor{keyword}{virtual} std::string GetPassiveDescription() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{45         \textcolor{keyword}{virtual} std::string GetActiveDescription() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} GetChance() \textcolor{keyword}{const};}
+\DoxyCodeLine{47         std::weak\_ptr<Actor> GetOwner() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{53         std::vector<std::weak\_ptr<Kernel>> \mbox{\hyperlink{classtattletale_1_1_kernel_a2ec855cec232883f9f26eeb8c8d0ad8e}{consequences\_}};}
+\DoxyCodeLine{54         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
+\DoxyCodeLine{55         std::weak\_ptr<Actor> owner\_;}
+\DoxyCodeLine{56         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, KernelType type);}
+\DoxyCodeLine{57     \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{60 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{61 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Kernel, T>::value, char>> : fmt::formatter<std::string>}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     \textcolor{comment}{// d -\/ default, a -\/ active, p -\/ passive, n -\/ name}}
+\DoxyCodeLine{64     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
+\DoxyCodeLine{69         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'a'} || *it == \textcolor{charliteral}{'p'} || *it == \textcolor{charliteral}{'n'} || *it == \textcolor{charliteral}{'d'}))}
+\DoxyCodeLine{70             presentation = *it++;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{73             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{79     \textcolor{keyword}{auto} format(\mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale::Kernel}} \&kernel, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'a'})}
+\DoxyCodeLine{82         \{}
+\DoxyCodeLine{83             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.GetActiveDescription(), ctx);}
+\DoxyCodeLine{84         \}}
+\DoxyCodeLine{85         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'p'})}
+\DoxyCodeLine{86         \{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.GetPassiveDescription(), ctx);}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'n'})}
+\DoxyCodeLine{90         \{}
+\DoxyCodeLine{91             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.name\_, ctx);}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.GetDefaultDescription(), ctx);}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
 
 \end{DoxyCode}
