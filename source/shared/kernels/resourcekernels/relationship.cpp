@@ -1,5 +1,4 @@
 #include "shared/kernels/resourcekernels/relationship.hpp"
-
 #include <assert.h>
 #include <iostream>
 #include <fmt/core.h>
@@ -97,14 +96,18 @@ namespace tattletale
     //                         "active_description" : "talk about the weather with {0}",
     std::string Relationship::GetDefaultDescription() const
     {
-        return fmt::format("{} {}", Resource::GetDefaultDescription(), target_.lock()->name_);
+        return fmt::format("{} {}", Resource::GetDefaultDescription(), *target_.lock());
+    }
+    std::string Relationship::GetDetailedDescription() const
+    {
+        return fmt::format("{} targeting {}", Resource::GetDetailedDescription(), *target_.lock());
     }
     std::string Relationship::GetPassiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetPassiveDescription(), target_.lock()->name_);
+        return fmt::format("{} {}", Resource::GetPassiveDescription(), *target_.lock());
     }
     std::string Relationship::GetActiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetActiveDescription(), target_.lock()->name_);
+        return fmt::format("{} {}", Resource::GetActiveDescription(), *target_.lock());
     }
 } // namespace tattletale

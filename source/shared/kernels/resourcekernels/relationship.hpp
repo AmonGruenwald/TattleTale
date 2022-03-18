@@ -48,6 +48,7 @@ namespace tattletale
         static std::string RelationshipTypeToString(RelationshipType relationship_type);
 
         std::string GetDefaultDescription() const override;
+        std::string GetDetailedDescription() const override;
         std::string GetPassiveDescription() const override;
         std::string GetActiveDescription() const override;
 
