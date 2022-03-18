@@ -1,6 +1,7 @@
 #include "shared/tattletalecore.hpp"
 #include "shared/kernels/interactions/interaction.hpp"
 #include <fmt/format.h>
+#include <fmt/core.h>
 #include <fmt/args.h>
 #include <iostream>
 #include "shared/actor.hpp"
@@ -53,12 +54,29 @@ namespace tattletale
         auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
         return description;
     }
+    std::string Interaction::GetDetailedDescription() const
+    {
+        std::string description = fmt::format("{}", Kernel::GetDetailedDescription());
 
+        if (participants_.size() == 2)
+        {
+            return fmt::format("{} with participant {}", description, *participants_[1].lock());
+        }
+        else if (participants_.size() >= 3)
+        {
+            description = fmt::format("{} with participants {}", description, *participants_[1].lock());
+
+            for (size_t i = 2; i < participants_.size(); ++i)
+            {
+                description = fmt::format("{}, {}", description, *participants_[i].lock());
+            }
+        }
+        return description;
+    }
     std::string Interaction::GetPassiveDescription() const
     {
         return prototype_->passive_description;
     }
-
     std::string Interaction::GetActiveDescription() const
     {
         fmt::format_args::format_arg args[12];

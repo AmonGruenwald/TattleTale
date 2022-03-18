@@ -29,6 +29,7 @@ namespace tattletale
         void Apply();
 
         std::string GetDefaultDescription() const override;
+        std::string GetDetailedDescription() const override;
         std::string GetPassiveDescription() const override;
         std::string GetActiveDescription() const override;
 
