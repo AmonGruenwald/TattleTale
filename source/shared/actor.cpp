@@ -462,7 +462,7 @@ namespace tattletale
 
     std::string Actor::GetDetailedDescriptionString() const
     {
-        std::string detailed_actor_description = fmt::format("{}:", *this);
+        std::string detailed_actor_description = fmt::format("{}:", name_);
         detailed_actor_description += fmt::format("\n\t{:o}", *wealth_.lock());
         for (auto &[type, emotion] : emotions_)
         {
