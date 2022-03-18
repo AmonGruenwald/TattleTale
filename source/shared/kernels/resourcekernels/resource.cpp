@@ -51,6 +51,10 @@ namespace tattletale
         return "completely";
     }
 
+    std::string Resource::GetDetailedDescription() const
+    {
+        return fmt::format("{} with value of {}", Kernel::GetDetailedDescription(), value_);
+    }
     std::string Resource::GetDefaultDescription() const
     {
         return fmt::format("{:d} {} {} {}", verb_, owner_.lock()->name_, GetAdjective(), GetNameVariant());
