@@ -222,11 +222,11 @@ namespace tattletale
 
         const auto &connection = FindCausalConnection(base_interaction, end_kernel);
 
-        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), base_interaction->GetOwner().lock()->name_);
+        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), *base_interaction->GetOwner().lock());
 
         if (normal_interaction)
         {
-            description += fmt::format("Normally one would find *{}* *{:p}*", base_interaction->GetOwner().lock()->first_name_, *normal_interaction);
+            description += fmt::format("Normally one would find *{:f}* *{:p}*", *base_interaction->GetOwner().lock(), *normal_interaction);
             if (blocking_resource)
             {
                 description += fmt::format(", but despite *{:p}*, this time *{}*.", *blocking_resource, *base_interaction);
@@ -238,7 +238,7 @@ namespace tattletale
         }
         else if (blocking_resource)
         {
-            description += fmt::format("Despite *{}* *{:p}* *{}*", blocking_resource->GetOwner().lock()->first_name_, *blocking_resource, *base_interaction);
+            description += fmt::format("Despite *{:f}* *{:p}* *{}*", *blocking_resource->GetOwner().lock(), *blocking_resource, *base_interaction);
         }
         else
         {
@@ -282,11 +282,11 @@ namespace tattletale
                 }
                 if (connection[i]->type_ == KernelType::kEmotion)
                 {
-                    description += fmt::format(" which made *{}* *{:a}*", owner->first_name_, *connection[i]);
+                    description += fmt::format(" which made *{:f}* *{:a}*", *owner, *connection[i]);
                 }
                 else if (connection[i]->type_ == KernelType::kResource)
                 {
-                    description += fmt::format(" which made *{}* *{:a}*", owner->first_name_, *connection[i]);
+                    description += fmt::format(" which made *{:f}* *{:a}*", *owner, *connection[i]);
                 }
                 else
                 {

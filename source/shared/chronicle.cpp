@@ -137,7 +137,7 @@ namespace tattletale
         std::vector<std::weak_ptr<tattletale::Actor>> known_actors = actor->GetAllKnownActors();
         for (auto &other_actor : known_actors)
         {
-            description += (other_actor.lock()->name_ + " known with value " + std::to_string(actor->CalculateRelationshipValue(other_actor.lock()->id_)) + "\n");
+            description += fmt::format("{} known with value {}\n", *other_actor.lock(), actor->CalculateRelationshipValue(other_actor.lock()->id_));
         }
         return description;
     }
@@ -189,13 +189,12 @@ namespace tattletale
         {
             return "No Kernels were created for this ID.";
         }
-        std::string description = "Interactions for " + actors_[id]->name_;
+        std::string description = fmt::format("Interactions for {}", *actors_[id]);
         for (size_t i = 0; i < kernels.size(); ++i)
         {
             if (std::dynamic_pointer_cast<Interaction>(kernels[i]))
             {
-                description += "\n";
-                description += kernels[i]->GetDefaultDescription();
+                description += fmt::format("\n{}", *kernels[i]);
             }
         }
         return description;
