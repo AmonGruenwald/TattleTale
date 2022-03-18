@@ -163,35 +163,11 @@ namespace tattletale
          */
         void ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change);
         /**
-         * @brief Creates a string describing the current wealth status of the Actor.
+         * @brief Creates a string describing the current status of the Actor.
          *
          * @return The description string.
          */
-        std::string GetWealthDescriptionString();
-        /**
-         * @brief Creates a string describing the current Emotion status of the Actor.
-         *
-         * @return The description string.
-         */
-        std::string GetEmotionsDescriptionString();
-        /**
-         * @brief Creates a string describing the current \link Relationship Relationships \endlink  status of the Actor.
-         *
-         * @return The description string.
-         */
-        std::string GetRelationshipsDescriptionString();
-        /**
-         * @brief Creates a string describing the Goal of the Actor.
-         *
-         * @return The description string.
-         */
-        std::string GetGoalDescriptionString();
-        /**
-         * @brief Creates a string describing the \link Trait Traits \endlink  of the Actor.
-         *
-         * @return The description string.
-         */
-        std::string GetTraitsDescriptionString();
+        std::string GetDetailedDescriptionString() const;
         const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
         std::vector<std::weak_ptr<Actor>> GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
@@ -274,4 +250,41 @@ namespace tattletale
     };
 
 } // namespace tattletale
+
+template <typename T>
+struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Actor, T>::value, char>> : fmt::formatter<std::string>
+{
+    // d - default = fullname, l - last name, s - second name, o - detail
+    char presentation = 'd';
+
+    constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
+    {
+        auto it = ctx.begin(), end = ctx.end();
+        if (it != end && (*it == 'f' || *it == 'l' || *it == 'd' || *it == 'o'))
+            presentation = *it++;
+
+        if (it != end && *it != '}')
+            throw format_error("invalid format");
+
+        return it;
+    }
+
+    template <typename FormatContext>
+    auto format(tattletale::Actor &actor, FormatContext &ctx) -> decltype(ctx.out())
+    {
+        if (presentation == 'f')
+        {
+            return fmt::formatter<std::string>::format(actor.first_name_, ctx);
+        }
+        else if (presentation == 'l')
+        {
+            return fmt::formatter<std::string>::format(actor.last_name_, ctx);
+        }
+        else if (presentation == 'o')
+        {
+            return fmt::formatter<std::string>::format(actor.GetDetailedDescriptionString(), ctx);
+        }
+        return fmt::formatter<std::string>::format(actor.name_, ctx);
+    }
+};
 #endif // TALE_ACTOR_H

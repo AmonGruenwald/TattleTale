@@ -21,7 +21,7 @@ namespace tattletale
         for (size_t i = 0; i < actor_count; ++i)
         {
             std::shared_ptr<Actor> actor(new Actor(*this, i, firstnames[i], surnames[i]));
-            actor_creation_description += ("\n" + std::to_string(i) + ": " + actor->name_);
+            actor_creation_description += fmt::format("\n{}: {}", i, *actor);
 
             actors_.push_back(actor);
             // TODO: creating actors should probably be handled by the Chronicle class, similar to Kernels
@@ -34,17 +34,12 @@ namespace tattletale
             actor->SetupRandomValues(tick);
         }
         TATTLETALE_VERBOSE_PRINT(actor_creation_description);
-        std::string detailed_actor_description = "DETAILED ACTOR DESCRIPTION:";
+        std::string detailed_actor_descriptions = "DETAILED ACTOR DESCRIPTIONS:";
         for (size_t i = 0; i < actor_count; ++i)
         {
-            detailed_actor_description += ("\n" + actors_[i]->name_);
-            detailed_actor_description += ("\n\t" + actors_[i]->GetWealthDescriptionString());
-            detailed_actor_description += ("\n\t" + actors_[i]->GetEmotionsDescriptionString());
-            detailed_actor_description += ("\n\t" + actors_[i]->GetRelationshipsDescriptionString());
-            detailed_actor_description += ("\n\t" + actors_[i]->GetTraitsDescriptionString());
-            detailed_actor_description += ("\n\t" + actors_[i]->GetGoalDescriptionString());
+            detailed_actor_descriptions += fmt::format("\n{:o}", *actors_[i]);
         }
-        TATTLETALE_VERBOSE_PRINT(detailed_actor_description);
+        TATTLETALE_DEBUG_PRINT(detailed_actor_descriptions);
 
         size_t course_count = setting_.course_count();
         size_t slot_count_per_week = setting_.slot_count_per_week();

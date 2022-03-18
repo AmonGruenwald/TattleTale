@@ -22,6 +22,7 @@ namespace tattletale
     {
         enrolled_courses_id_ = std::vector<int>(setting_.slot_count_per_week(), -1);
     }
+
     void Actor::SetupRandomValues(size_t tick)
     {
         InitializeRandomWealth(tick);
@@ -35,7 +36,6 @@ namespace tattletale
     {
         return std::count(enrolled_courses_id_.begin(), enrolled_courses_id_.end(), course_id);
     }
-
     void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
@@ -44,7 +44,6 @@ namespace tattletale
         ++filled_slots_count_;
         enrolled_courses_id_[slot] = course_id;
     }
-
     void Actor::EjectFromCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
@@ -52,18 +51,15 @@ namespace tattletale
         --filled_slots_count_;
         enrolled_courses_id_[slot] = -1;
     }
-
     size_t Actor::GetFilledSlotsCount() const
     {
         return filled_slots_count_;
     }
-
     bool Actor::AllSlotsFilled() const
     {
         TATTLETALE_ERROR_PRINT(filled_slots_count_ <= setting_.slot_count_per_week(), "Actor is enrolled in too may courses");
         return filled_slots_count_ == setting_.slot_count_per_week();
     }
-
     bool Actor::SlotsEmpty(const std::vector<uint32_t> &slots) const
     {
         for (auto &slot : slots)
@@ -75,7 +71,6 @@ namespace tattletale
         }
         return true;
     }
-
     bool Actor::SlotEmpty(size_t slot) const
     {
         return (enrolled_courses_id_[slot] == -1);
@@ -298,7 +293,6 @@ namespace tattletale
         }
         return true;
     }
-
     float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason)
     {
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
@@ -341,7 +335,6 @@ namespace tattletale
         chance /= static_cast<float>(chance_parts * 2);
         return chance;
     }
-
     float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect)
     {
         float relevant_effect = 0;
@@ -467,45 +460,30 @@ namespace tattletale
         UpdateKnownActors();
     }
 
-    std::string Actor::GetWealthDescriptionString()
+    std::string Actor::GetDetailedDescriptionString() const
     {
-        return "WEALTH:\n\t" + wealth_.lock()->GetDefaultDescription();
-    }
-    std::string Actor::GetEmotionsDescriptionString()
-    {
-        std::string emotion_string = "EMOTIONS:";
+        std::string detailed_actor_description = fmt::format("{}:", *this);
+        detailed_actor_description += fmt::format("\n\t{:o}", *wealth_.lock());
         for (auto &[type, emotion] : emotions_)
         {
-            emotion_string += "\n\t" + emotion.lock()->GetDefaultDescription();
+            detailed_actor_description += fmt::format("\n\t{:o}", *emotion.lock());
         }
-        return emotion_string;
-    }
-    std::string Actor::GetRelationshipsDescriptionString()
-    {
-        std::string relationship_string = "RELATIONSHIPS:";
         for (auto &[actor_index, map] : relationships_)
         {
             // TODO: this will only work after all actors have been created, which is wonky
-            relationship_string += ("\n\tWith " + school_.GetActor(actor_index).lock()->name_ + " (ID: " + std::to_string(school_.GetActor(actor_index).lock()->id_) + "):");
+            auto other_actor = school_.GetActor(actor_index).lock();
+            detailed_actor_description += fmt::format("\n\tWith #{} {}:", other_actor->id_, *other_actor);
             for (auto &[type, relationship] : map)
             {
-                relationship_string += "\n\t\t" + relationship.lock()->GetDefaultDescription();
+                detailed_actor_description += fmt::format("\n\t\t{:o}", *relationship.lock());
             }
         }
-        return relationship_string;
-    }
-    std::string Actor::GetGoalDescriptionString()
-    {
-        return "GOALS:\n\t" + goal_.lock()->GetDefaultDescription();
-    }
-    std::string Actor::GetTraitsDescriptionString()
-    {
-        std::string trait_string = "TRAITS:";
+        detailed_actor_description += fmt::format("\n\t{:o}", *goal_.lock());
         for (auto &trait : traits_)
         {
-            trait_string += "\n\t" + trait.lock()->GetDefaultDescription();
+            detailed_actor_description += fmt::format("\n\t{:o}", *trait.lock());
         }
-        return trait_string;
+        return detailed_actor_description;
     }
 
     const std::vector<std::weak_ptr<Actor>> &Actor::GetAllKnownActors() const
