@@ -1,4 +1,5 @@
 #include "shared/tattletalecore.hpp"
+#include "shared/actor.hpp"
 #include "shared/kernels/kernel.hpp"
 
 #include <iostream>
@@ -29,6 +30,11 @@ namespace tattletale
     }
 
     float Kernel::GetChance() const { return 1.0f; }
+
+    std::string Kernel::GetDetailedDescription() const
+    {
+        return fmt::format("#{} {} ({}) owned by {}", id_, name_, type_, *owner_.lock());
+    }
     const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
     {
         return reasons_;

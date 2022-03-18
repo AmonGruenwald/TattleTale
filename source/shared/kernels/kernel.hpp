@@ -41,6 +41,7 @@ namespace tattletale
         const std::vector<std::weak_ptr<Kernel>> &GetConsequences() const;
         virtual const std::vector<std::weak_ptr<Kernel>> &GetReasons() const;
         virtual std::string GetDefaultDescription() const = 0;
+        virtual std::string GetDetailedDescription() const;
         virtual std::string GetPassiveDescription() const = 0;
         virtual std::string GetActiveDescription() const = 0;
         virtual float GetChance() const;
@@ -60,13 +61,13 @@ namespace tattletale
 template <typename T>
 struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Kernel, T>::value, char>> : fmt::formatter<std::string>
 {
-    // d - default, a - active, p - passive, n - name
+    // d - default, a - active, p - passive, n - name, o - detailed
     char presentation = 'd';
 
     constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
     {
         auto it = ctx.begin(), end = ctx.end();
-        if (it != end && (*it == 'a' || *it == 'p' || *it == 'n' || *it == 'd'))
+        if (it != end && (*it == 'a' || *it == 'p' || *it == 'n' || *it == 'd' || *it == 'o'))
             presentation = *it++;
 
         if (it != end && *it != '}')
@@ -90,7 +91,34 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Kernel, T>
         {
             return fmt::formatter<std::string>::format(kernel.name_, ctx);
         }
+        else if (presentation == 'o')
+        {
+            return fmt::formatter<std::string>::format(kernel.GetDetailedDescription(), ctx);
+        }
         return fmt::formatter<std::string>::format(kernel.GetDefaultDescription(), ctx);
     }
 };
+template <>
+struct fmt::formatter<tattletale::KernelType> : formatter<string_view>
+{
+    std::string kernel_type_names[8] = {
+        "none",
+        "resource",
+        "emotion",
+        "relationship",
+        "interaction",
+        "trait",
+        "goal",
+        "last",
+    };
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::KernelType type, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(type);
+        string_view name = kernel_type_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
+
 #endif // TALE_KERNEL_H
