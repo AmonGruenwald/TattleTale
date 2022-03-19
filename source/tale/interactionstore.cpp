@@ -3,6 +3,7 @@
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include "shared/actor.hpp"
+#include <fmt/core.h>
 #include <iostream>
 #include <assert.h>
 #include <fstream>
@@ -22,7 +23,7 @@ namespace tattletale
         size_t interaction_id = 0;
         for (auto &interaction : catalogue_json)
         {
-            TATTLETALE_VERBOSE_PRINT("DESERIALIZING CATALOGUE INFO #" + std::to_string(interaction_id));
+            TATTLETALE_VERBOSE_PRINT(fmt::format("DESERIALIZING CATALOGUE INFO #{}", interaction_id));
 
             std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_id);
@@ -222,7 +223,7 @@ namespace tattletale
             }
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION PROTOTYPE:\n" + out_prototype->ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION PROTOTYPE:\n{}\n", out_prototype->ToString()));
 
         return true;
     }
@@ -291,7 +292,7 @@ namespace tattletale
             out_requirement->relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION REQUIREMENT:\n" + out_requirement->ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", out_requirement->ToString()));
         return true;
     }
 
@@ -376,7 +377,7 @@ namespace tattletale
             out_tendency->relationships.push_back(relationship_map);
         }
 
-        TATTLETALE_VERBOSE_PRINT("CREATED INTERACTION TENDENCY:\n" + out_tendency->ToString() + "\n");
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION TENDENCY:\n{}\n", out_tendency->ToString()));
         return true;
     }
 

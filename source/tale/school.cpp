@@ -39,7 +39,7 @@ namespace tattletale
         {
             detailed_actor_descriptions += fmt::format("\n{:o}", *actors_[i]);
         }
-        TATTLETALE_DEBUG_PRINT(detailed_actor_descriptions);
+        TATTLETALE_VERBOSE_PRINT(detailed_actor_descriptions);
 
         size_t course_count = setting_.course_count();
         size_t slot_count_per_week = setting_.slot_count_per_week();
@@ -47,10 +47,10 @@ namespace tattletale
         for (size_t i = 0; i < course_count; ++i)
         {
             // TODO: create better names
-            courses_.push_back(Course(random_, setting_, i, "Course " + std::to_string(i)));
+            courses_.push_back(Course(random_, setting_, i, fmt::format("Course {}", i)));
 
             // Filling courses:
-            TATTLETALE_VERBOSE_PRINT("CREATED COURSE " + std::to_string(courses_[i].id_));
+            TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED COURSE {}", courses_[i].id_));
             random_slot_order.clear();
             // randomly order all slots of the course
             // TODO: optimize this by shuffling an already filled vector everytime instead of this
@@ -138,8 +138,8 @@ namespace tattletale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
         TATTLETALE_DEBUG_PRINT(fmt::format("TALE CREATED {} KERNELS", chronicle_.GetKernelAmount()));
-        TATTLETALE_VERBOSE_PRINT("RANDOM KERNEL CHAIN:\n" + chronicle_GetRandomCausalityChainDescription(3));
-        TATTLETALE_VERBOSE_PRINT("AVERAGE INTERACTION CHANCE:" + std::to_string(chronicle_.GetAverageInteractionChance()));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("RANDOM KERNEL CHAIN:\n{}", chronicle_GetRandomCausalityChainDescription(3)));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("AVERAGE INTERACTION CHANCE: {}", chronicle_.GetAverageInteractionChance()));
     }
     std::weak_ptr<Actor> School::GetActor(size_t actor_id)
     {
@@ -190,7 +190,7 @@ namespace tattletale
                     for (auto &actor : course_group)
                     {
                         std::shared_ptr locked_actor = actor.lock();
-                        LetActorInteract(locked_actor, course_group, ContextType::kCourse, ("During Slot " + std::to_string(i) + " in " + course.name_));
+                        LetActorInteract(locked_actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in {}", i, course.name_));
                     }
                 }
                 ++current_tick_;
@@ -227,7 +227,7 @@ namespace tattletale
         {
             std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
             interaction.lock()->Apply();
-            interaction_description = interaction.lock()->GetDefaultDescription();
+            interaction_description = fmt::format("{}", *interaction.lock());
         }
         TATTLETALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
     }

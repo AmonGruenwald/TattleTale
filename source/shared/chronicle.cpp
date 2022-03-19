@@ -317,12 +317,12 @@ namespace tattletale
     std::string Chronicle::GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth) const
     {
         std::shared_ptr<Kernel> locked_kernel = kernel.lock();
-        std::string description = "D" + std::to_string(current_depth);
+        std::string description = fmt::format("D{}", current_depth);
         for (size_t i = 0; i < current_depth; ++i)
         {
             description += "-";
         }
-        description += ":" + locked_kernel->GetDefaultDescription() + " (T" + std::to_string(kernel.lock()->tick_) + ")\n";
+        description += fmt::format(":{} (T{})\n", *locked_kernel, locked_kernel->tick_);
         if (current_depth < max_depth)
         {
             for (size_t i = 0; i < current_depth; ++i)

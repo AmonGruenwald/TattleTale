@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 {
     tattletale::Setting setting;
     setting.days_to_simulate = 5;
-    setting.actor_count = 30;
-    setting.actors_per_course = 15;
+    setting.actor_count = 50;
+    setting.actors_per_course = 30;
     tattletale::Random random(setting.seed);
     tattletale::Chronicle chronicle(random);
 

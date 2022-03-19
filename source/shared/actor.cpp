@@ -39,8 +39,8 @@ namespace tattletale
     void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
         // TODO: actual error handling
-        TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == -1, fmt::format("Actor already enrolled in a course during slot {}", slot));
-        TATTLETALE_ERROR_PRINT(filled_slots_count_ < setting_.slot_count_per_week(), fmt::format("Actor already filled the whole schedule", slot))
+        TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == -1, fmt::format("{} already enrolled in a course during slot {}", name_, slot));
+        TATTLETALE_ERROR_PRINT(filled_slots_count_ < setting_.slot_count_per_week(), fmt::format("{} already filled their whole schedule", name_))
         ++filled_slots_count_;
         enrolled_courses_id_[slot] = course_id;
     }
@@ -57,7 +57,7 @@ namespace tattletale
     }
     bool Actor::AllSlotsFilled() const
     {
-        TATTLETALE_ERROR_PRINT(filled_slots_count_ <= setting_.slot_count_per_week(), "Actor is enrolled in too may courses");
+        TATTLETALE_ERROR_PRINT(filled_slots_count_ <= setting_.slot_count_per_week(), fmt::format("{} is enrolled in too may courses", name_));
         return filled_slots_count_ == setting_.slot_count_per_week();
     }
     bool Actor::SlotsEmpty(const std::vector<uint32_t> &slots) const
