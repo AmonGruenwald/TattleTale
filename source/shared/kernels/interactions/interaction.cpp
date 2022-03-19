@@ -15,7 +15,7 @@ namespace tattletale
         float chance,
         size_t id,
         size_t tick,
-        std::vector<std::weak_ptr<Kernel>> reasons,
+        std::vector<Kernel *> reasons,
         std::vector<Actor *> participants)
         : Kernel(prototype->name, id, tick, participants[0], reasons, KernelType::kInteraction),
           prototype_(prototype),
@@ -26,8 +26,7 @@ namespace tattletale
 
     void Interaction::Apply()
     {
-        std::weak_ptr<Interaction> self = std::static_pointer_cast<Interaction>(shared_from_this());
-        std::vector<std::weak_ptr<Kernel>> reasons{self};
+        std::vector<Kernel *> reasons{this};
         for (size_t i = 0; i < participants_.size(); ++i)
         {
             participants_.at(i)->ApplyWealthChange(reasons, tick_, prototype_->wealth_effects[i]);

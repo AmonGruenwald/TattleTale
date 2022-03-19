@@ -43,24 +43,24 @@ namespace tattletale
         /**
          * @brief The abstract state of the  \link Actor Actor's \endlink wealth.
          */
-        std::weak_ptr<Resource> wealth_;
+        Resource *wealth_;
         /**
          * @brief The \link Actor Actor's \endlink current \link Emotion Emotional \endlink state is. Maps one Emotion to each EmotionType.
          */
-        std::map<EmotionType, std::weak_ptr<Emotion>> emotions_;
+        std::map<EmotionType, Emotion *> emotions_;
         /**
          * @brief Holds the  \link Actor Actor's \endlink \link Relationship Relationships \endlink with other \link Actor Actors \endlink.
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
          */
-        std::map<size_t, std::map<RelationshipType, std::weak_ptr<Relationship>>> relationships_;
+        std::map<size_t, std::map<RelationshipType, Relationship *>> relationships_;
         /**
          * @brief The \link Trait Traits \endlink  the Actor posses.
          */
-        std::vector<std::weak_ptr<Trait>> traits_;
+        std::vector<Trait *> traits_;
         /**
          * @brief The Goal the Actor is trying to reach during the simulation.
          */
-        std::weak_ptr<Goal> goal_;
+        Goal *goal_;
 
         Actor(School &school, size_t id, std::string first_name, std::string last_name);
         void SetupRandomValues(size_t tick);
@@ -112,7 +112,7 @@ namespace tattletale
          * @return The index of the InteractionPrototype the Actor chose.
          */
         bool SlotEmpty(size_t slot) const;
-        int ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
+        int ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
         /**
          * @brief Calculates the chance of an Interaction based on its InteractionTendency and the \link Actor Actor's \endlink current state.
          *
@@ -128,7 +128,7 @@ namespace tattletale
          * @param[out] out_reason Which part of the state of the Actor increased the chance the most.
          * @return A chance value between 0.0 and 1.0.
          */
-        float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason);
+        float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason);
         float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
         bool CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const;
         /**
@@ -138,7 +138,7 @@ namespace tattletale
          * @param tick The tick during which this change happened.
          * @param value By how much the wealth gets changed.
          */
-        void ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value);
+        void ApplyWealthChange(const std::vector<Kernel *> &reasons, size_t tick, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Emotion Emotional \endlink state.
          *
@@ -149,7 +149,7 @@ namespace tattletale
          * @param type The type of Emotion that gets changed.
          * @param value By how much the Emotion gets changed.
          */
-        void ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value);
+        void ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, EmotionType type, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *
@@ -161,7 +161,7 @@ namespace tattletale
          * @param type The type of Relationship that gets changed.
          * @param value By how much the Relationship gets changed.
          */
-        void ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change);
+        void ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change);
         /**
          * @brief Creates a string describing the current status of the Actor.
          *
@@ -172,7 +172,7 @@ namespace tattletale
         std::vector<Actor *> GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
-        void InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship);
+        void InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship);
 
     private:
         /**

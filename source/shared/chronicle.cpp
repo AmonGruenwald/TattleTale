@@ -14,6 +14,10 @@ namespace tattletale
         {
             delete actors_[i];
         }
+        for (size_t i = 0; i < all_kernels_.size(); ++i)
+        {
+            delete all_kernels_[i];
+        }
         actors_.clear();
         kernels_by_actor_.clear();
         interactions_by_actor_.clear();
@@ -27,25 +31,25 @@ namespace tattletale
     {
         Actor *actor = new Actor(school, actors_.size(), first_name, last_name);
         actors_.push_back(actor);
-        kernels_by_actor_.push_back(std::vector<std::shared_ptr<Kernel>>());
-        emotions_by_actor_.push_back(std::vector<std::shared_ptr<Emotion>>());
-        wealth_by_actor_.push_back(std::vector<std::shared_ptr<Resource>>());
-        interactions_by_actor_.push_back(std::vector<std::shared_ptr<Interaction>>());
+        kernels_by_actor_.push_back(std::vector<Kernel *>());
+        emotions_by_actor_.push_back(std::vector<Emotion *>());
+        wealth_by_actor_.push_back(std::vector<Resource *>());
+        interactions_by_actor_.push_back(std::vector<Interaction *>());
         return actor;
     }
-    std::weak_ptr<Interaction> Chronicle::CreateInteraction(
+    Interaction *Chronicle::CreateInteraction(
         const std::shared_ptr<InteractionPrototype> prototype,
         const std::shared_ptr<InteractionRequirement> requirement,
         const std::shared_ptr<InteractionTendency> tendency,
         float chance,
         size_t tick,
-        std::vector<std::weak_ptr<Kernel>> reasons,
+        std::vector<Kernel *> reasons,
         std::vector<Actor *> participants)
     {
-        std::shared_ptr<Interaction> interaction(new Interaction(prototype, requirement, tendency, chance, all_kernels_.size(), tick, reasons, participants));
+        Interaction *interaction = new Interaction(prototype, requirement, tendency, chance, all_kernels_.size(), tick, reasons, participants);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(interaction);
+            reason->AddConsequence(interaction);
         }
         all_kernels_.push_back(interaction);
         for (auto &owner : participants)
@@ -60,58 +64,58 @@ namespace tattletale
         }
         return interaction;
     }
-    std::weak_ptr<Emotion> Chronicle::CreateEmotion(EmotionType type, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Emotion *Chronicle::CreateEmotion(EmotionType type, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value)
     {
-        std::shared_ptr<Emotion> emotion(new Emotion(type, all_kernels_.size(), tick, owner, reasons, value));
+        Emotion *emotion = new Emotion(type, all_kernels_.size(), tick, owner, reasons, value);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(emotion);
+            reason->AddConsequence(emotion);
         }
         emotions_by_actor_[owner->id_].push_back(emotion);
         all_kernels_.push_back(emotion);
         kernels_by_actor_[owner->id_].push_back(emotion);
         return emotion;
     }
-    std::weak_ptr<Relationship> Chronicle::CreateRelationship(RelationshipType type, size_t tick, Actor *owner, Actor *target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Relationship *Chronicle::CreateRelationship(RelationshipType type, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value)
     {
-        std::shared_ptr<Relationship> relationship(new Relationship(type, all_kernels_.size(), tick, owner, target, reasons, value));
+        Relationship *relationship = new Relationship(type, all_kernels_.size(), tick, owner, target, reasons, value);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(relationship);
+            reason->AddConsequence(relationship);
         }
         all_kernels_.push_back(relationship);
         kernels_by_actor_[owner->id_].push_back(relationship);
         return relationship;
     }
-    std::weak_ptr<Resource> Chronicle::CreateResource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Resource *Chronicle::CreateResource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value)
     {
-        std::shared_ptr<Resource> resource(new Resource(name, positive_name_variant, negative_name_variant, all_kernels_.size(), tick, owner, reasons, value));
+        Resource *resource = new Resource(name, positive_name_variant, negative_name_variant, all_kernels_.size(), tick, owner, reasons, value);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(resource);
+            reason->AddConsequence(resource);
         }
         all_kernels_.push_back(resource);
         kernels_by_actor_[owner->id_].push_back(resource);
         wealth_by_actor_[owner->id_].push_back(resource);
         return resource;
     }
-    std::weak_ptr<Goal> Chronicle::CreateGoal(GoalType type, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons)
+    Goal *Chronicle::CreateGoal(GoalType type, size_t tick, Actor *owner, std::vector<Kernel *> reasons)
     {
-        std::shared_ptr<Goal> goal(new Goal(type, all_kernels_.size(), tick, owner, reasons));
+        Goal *goal = new Goal(type, all_kernels_.size(), tick, owner, reasons);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(goal);
+            reason->AddConsequence(goal);
         }
         all_kernels_.push_back(goal);
         kernels_by_actor_[owner->id_].push_back(goal);
         return goal;
     }
-    std::weak_ptr<Trait> Chronicle::CreateTrait(std::string name, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons)
+    Trait *Chronicle::CreateTrait(std::string name, size_t tick, Actor *owner, std::vector<Kernel *> reasons)
     {
-        std::shared_ptr<Trait> trait(new Trait(name, all_kernels_.size(), tick, owner, reasons));
+        Trait *trait = new Trait(name, all_kernels_.size(), tick, owner, reasons);
         for (auto &reason : reasons)
         {
-            reason.lock()->AddConsequence(trait);
+            reason->AddConsequence(trait);
         }
         all_kernels_.push_back(trait);
         kernels_by_actor_[owner->id_].push_back(trait);
@@ -174,7 +178,7 @@ namespace tattletale
         {
             return "";
         }
-        std::vector<std::shared_ptr<Kernel>> possible_kernels;
+        std::vector<Kernel *> possible_kernels;
         for (auto kernel : all_kernels_)
         {
             if (kernel->name_ == "Kiss successfully")
@@ -204,7 +208,7 @@ namespace tattletale
         std::string description = fmt::format("Interactions for {}", *actors_[id]);
         for (size_t i = 0; i < kernels.size(); ++i)
         {
-            if (std::dynamic_pointer_cast<Interaction>(kernels[i]))
+            if (dynamic_cast<Interaction *>(kernels[i]))
             {
                 description += fmt::format("\n{}", *kernels[i]);
             }
@@ -212,9 +216,9 @@ namespace tattletale
         return description;
     }
 
-    std::weak_ptr<Interaction> Chronicle::FindUnlikeliestInteraction(size_t tick_cutoff) const
+    Interaction *Chronicle::FindUnlikeliestInteraction(size_t tick_cutoff) const
     {
-        std::shared_ptr<Interaction> unlikeliest_interaction(nullptr);
+        Interaction *unlikeliest_interaction(nullptr);
         for (auto &interaction : all_interactions_)
         {
             if (interaction->tick_ > tick_cutoff)
@@ -238,7 +242,7 @@ namespace tattletale
         }
         return unlikeliest_interaction;
     }
-    std::shared_ptr<Interaction> Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
+    Interaction *Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
     {
         std::vector<size_t> occurences(highest_interaction_id + 1);
         for (auto &interaction : interactions_by_actor_[actor_id])
@@ -261,16 +265,16 @@ namespace tattletale
                 return interaction;
             };
         }
-        return std::shared_ptr<Interaction>(nullptr);
+        return nullptr;
     }
 
     size_t Chronicle::GetLastTick() const
     {
         return all_kernels_.back()->tick_;
     }
-    std::weak_ptr<Emotion> Chronicle::GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const
+    Emotion *Chronicle::GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const
     {
-        std::shared_ptr<Emotion> last_emotion(nullptr);
+        Emotion *last_emotion = nullptr;
         for (auto &emotion : emotions_by_actor_[actor_id])
         {
             if (emotion->type_ != type)
@@ -286,9 +290,9 @@ namespace tattletale
         return last_emotion;
     }
 
-    std::weak_ptr<Resource> Chronicle::GetLastWealth(size_t tick, size_t actor_id) const
+    Resource *Chronicle::GetLastWealth(size_t tick, size_t actor_id) const
     {
-        std::shared_ptr<Resource> last_wealth(nullptr);
+        Resource *last_wealth = nullptr;
         for (auto &wealth : wealth_by_actor_[actor_id])
         {
             if (wealth->tick_ >= tick)
@@ -306,12 +310,12 @@ namespace tattletale
         {
             return "";
         }
-        std::vector<std::shared_ptr<Kernel>> possible_kernels;
+        std::vector<Kernel *> possible_kernels;
         for (auto kernel : all_kernels_)
         {
             for (auto reason : kernel->GetReasons())
             {
-                if (std::dynamic_pointer_cast<Goal>(reason.lock()))
+                if (dynamic_cast<Goal *>(reason))
                 {
                     possible_kernels.push_back(kernel);
                     break;
@@ -326,15 +330,14 @@ namespace tattletale
         return "Did not find a kernel with a goal as reason.";
     }
 
-    std::string Chronicle::GetRecursiveKernelDescription(std::weak_ptr<Kernel> kernel, size_t current_depth, size_t max_depth) const
+    std::string Chronicle::GetRecursiveKernelDescription(Kernel *kernel, size_t current_depth, size_t max_depth) const
     {
-        std::shared_ptr<Kernel> locked_kernel = kernel.lock();
         std::string description = fmt::format("D{}", current_depth);
         for (size_t i = 0; i < current_depth; ++i)
         {
             description += "-";
         }
-        description += fmt::format(":{} (T{})\n", *locked_kernel, locked_kernel->tick_);
+        description += fmt::format(":{} (T{})\n", *kernel, kernel->tick_);
         if (current_depth < max_depth)
         {
             for (size_t i = 0; i < current_depth; ++i)
@@ -342,10 +345,10 @@ namespace tattletale
                 description += " ";
             }
 
-            if (kernel.lock()->GetReasons().size() > 0)
+            if (kernel->GetReasons().size() > 0)
             {
                 description += "   Because: \n";
-                for (auto &reason : kernel.lock()->GetReasons())
+                for (auto &reason : kernel->GetReasons())
                 {
                     description += GetRecursiveKernelDescription(reason, current_depth + 1, max_depth);
                 }

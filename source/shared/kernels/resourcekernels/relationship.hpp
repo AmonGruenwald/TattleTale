@@ -65,7 +65,7 @@ namespace tattletale
          * @param reasons What other \link Kernel Kernels \endlink led to this Relationship and its value.
          * @param value Value of the Relationship between -1.0 and 1.0.
          */
-        Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value);
         std::string GetAdjective() const override;
         /**
          * @brief The RelationshipType of this Relationship.

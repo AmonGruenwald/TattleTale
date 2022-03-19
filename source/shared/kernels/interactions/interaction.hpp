@@ -70,7 +70,7 @@ namespace tattletale
             float chance,
             size_t id,
             size_t tick,
-            std::vector<std::weak_ptr<Kernel>> reasons,
+            std::vector<Kernel *> reasons,
             std::vector<Actor *>
                 participants);
         /**

@@ -29,7 +29,7 @@ namespace tattletale
      * tracking is supported though increasing numbers for each Kernel and storing on which tick the
      * Kernel was created.
      */
-    class Kernel : public std::enable_shared_from_this<Kernel>
+    class Kernel
     {
     public:
         std::string name_;
@@ -37,9 +37,9 @@ namespace tattletale
         size_t tick_;
         KernelType type_;
 
-        void AddConsequence(std::weak_ptr<Kernel> consequence);
-        const std::vector<std::weak_ptr<Kernel>> &GetConsequences() const;
-        virtual const std::vector<std::weak_ptr<Kernel>> &GetReasons() const;
+        void AddConsequence(Kernel *consequence);
+        const std::vector<Kernel *> &GetConsequences() const;
+        virtual const std::vector<Kernel *> &GetReasons() const;
         virtual std::string GetDefaultDescription() const = 0;
         virtual std::string GetDetailedDescription() const;
         virtual std::string GetPassiveDescription() const = 0;
@@ -51,10 +51,10 @@ namespace tattletale
         /**
          * @brief The Actor owning this Kernel.
          */
-        std::vector<std::weak_ptr<Kernel>> consequences_;
-        std::vector<std::weak_ptr<Kernel>> reasons_;
+        std::vector<Kernel *> consequences_;
+        std::vector<Kernel *> reasons_;
         Actor *owner_;
-        Kernel(std::string name, size_t id, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, KernelType type);
+        Kernel(std::string name, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons, KernelType type);
     };
 
 } // namespace tattletale

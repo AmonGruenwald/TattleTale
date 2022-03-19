@@ -214,16 +214,16 @@ namespace tattletale
 
     void School::LetActorInteract(Actor *&actor, const std::vector<Actor *> &group, ContextType type, std::string context_description)
     {
-        std::vector<std::weak_ptr<Kernel>> reasons;
+        std::vector<Kernel *> reasons;
         std::vector<Actor *> participants;
         float chance;
         int interaction_index = actor->ChooseInteraction(group, type, reasons, participants, chance);
         std::string interaction_description = "did nothing.";
         if (interaction_index != -1)
         {
-            std::weak_ptr<Interaction> interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
-            interaction.lock()->Apply();
-            interaction_description = fmt::format("{}", *interaction.lock());
+            Interaction *interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
+            interaction->Apply();
+            interaction_description = fmt::format("{}", *interaction);
         }
         TATTLETALE_VERBOSE_PRINT(fmt::format("During {} {}", context_description, interaction_description));
     }

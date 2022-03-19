@@ -10,7 +10,7 @@ namespace tattletale
         std::string name, size_t id,
         size_t tick,
         Actor *owner,
-        std::vector<std::weak_ptr<Kernel>> reasons,
+        std::vector<Kernel *> reasons,
         KernelType type)
         : name_(name),
           id_(id),
@@ -20,11 +20,11 @@ namespace tattletale
           type_(type)
     {
     }
-    void Kernel::AddConsequence(std::weak_ptr<Kernel> consequence)
+    void Kernel::AddConsequence(Kernel *consequence)
     {
         consequences_.push_back(consequence);
     }
-    const std::vector<std::weak_ptr<Kernel>> &Kernel::GetConsequences() const
+    const std::vector<Kernel *> &Kernel::GetConsequences() const
     {
         return consequences_;
     }
@@ -35,7 +35,7 @@ namespace tattletale
     {
         return fmt::format("#{} {} ({}) owned by {}", id_, name_, type_, *owner_);
     }
-    const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
+    const std::vector<Kernel *> &Kernel::GetReasons() const
     {
         return reasons_;
     }

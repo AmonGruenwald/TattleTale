@@ -13,7 +13,7 @@ namespace tattletale
         size_t id,
         size_t tick,
         Actor *owner,
-        std::vector<std::weak_ptr<Kernel>> reasons,
+        std::vector<Kernel *> reasons,
         float value,
         KernelType type,
         Verb verb)

@@ -17,7 +17,7 @@ namespace tattletale
         std::string GetActiveDescription() const override;
 
     private:
-        Trait(std::string name, size_t id, size_t tick, Actor* owner, std::vector<std::weak_ptr<Kernel>> reasons);
+        Trait(std::string name, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons);
         friend class Chronicle;
     };
 

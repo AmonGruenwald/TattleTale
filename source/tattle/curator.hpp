@@ -11,14 +11,14 @@ namespace tattletale
     public:
         Curator(const Chronicle &chronicle, const Setting &setting);
         std::string Curate();
-        std::shared_ptr<Kernel> RecursivelyFindUnlikeliestReason(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best);
-        std::shared_ptr<Kernel> RecursivelyFindUnlikeliestConsequence(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best, size_t depth);
-        std::vector<std::shared_ptr<Kernel>> FindCausalConnection(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const;
-        std::shared_ptr<Resource> FindBlockingResource(std::shared_ptr<Interaction> interaction) const;
-        bool RecursivelyFindCausalConnectionBackwards(std::shared_ptr<Kernel> root, std::shared_ptr<Kernel> start, std::vector<std::shared_ptr<Kernel>> &out_causal_chain) const;
-        std::string GetTimeDescription(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const;
+        Kernel *RecursivelyFindUnlikeliestReason(Kernel *to_check, Kernel *current_best);
+        Kernel *RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth);
+        std::vector<Kernel *> FindCausalConnection(Kernel *start, Kernel *end) const;
+        Resource *FindBlockingResource(Interaction *interaction) const;
+        bool RecursivelyFindCausalConnectionBackwards(Kernel *root, Kernel *start, std::vector<Kernel *> &out_causal_chain) const;
+        std::string GetTimeDescription(Kernel *start, Kernel *end) const;
         std::string GetChanceDescription(float chance) const;
-        std::string GetResourceReasonDescription(std::shared_ptr<Resource> resource) const;
+        std::string GetResourceReasonDescription(Resource *resource) const;
 
     private:
         std::string RarityCuration();

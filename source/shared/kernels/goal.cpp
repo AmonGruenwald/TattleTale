@@ -6,7 +6,7 @@
 
 namespace tattletale
 {
-    Goal::Goal(GoalType type, size_t id, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons)
+    Goal::Goal(GoalType type, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons)
         : type_(type), Kernel(GoalTypeToString(type), id, tick, owner, reasons, KernelType::kGoal){};
 
     GoalType Goal::GetRandomGoalType(Random &random)

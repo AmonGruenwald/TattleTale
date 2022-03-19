@@ -8,7 +8,7 @@ namespace tattletale
 {
     Curator::Curator(const Chronicle &chronicle, const Setting &setting) : chronicle_(chronicle), setting_(setting) {}
 
-    std::shared_ptr<Kernel> Curator::RecursivelyFindUnlikeliestReason(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best)
+    Kernel *Curator::RecursivelyFindUnlikeliestReason(Kernel *to_check, Kernel *current_best)
     {
         if (to_check->GetChance() < current_best->GetChance())
         {
@@ -17,12 +17,11 @@ namespace tattletale
         auto &reasons = to_check->GetReasons();
         for (auto &reason : reasons)
         {
-            auto locked_reason = reason.lock();
-            current_best = RecursivelyFindUnlikeliestReason(locked_reason, current_best);
+            current_best = RecursivelyFindUnlikeliestReason(reason, current_best);
         }
         return current_best;
     }
-    std::shared_ptr<Kernel> Curator::RecursivelyFindUnlikeliestConsequence(std::shared_ptr<Kernel> to_check, std::shared_ptr<Kernel> current_best, size_t depth)
+    Kernel *Curator::RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth)
     {
         if (!current_best || to_check->GetChance() < current_best->GetChance())
         {
@@ -33,24 +32,24 @@ namespace tattletale
             auto &consequences = to_check->GetConsequences();
             for (auto &consequence : consequences)
             {
-                current_best = RecursivelyFindUnlikeliestConsequence(consequence.lock(), current_best, depth - 1);
+                current_best = RecursivelyFindUnlikeliestConsequence(consequence, current_best, depth - 1);
             }
         }
         return current_best;
     }
 
-    std::shared_ptr<Resource> Curator::FindBlockingResource(std::shared_ptr<Interaction> interaction) const
+    Resource *Curator::FindBlockingResource(Interaction *interaction) const
     {
         auto tendency = interaction->GetTendency();
         float lowest_influence = 1.0f;
-        std::shared_ptr<Resource> blocking_resource(nullptr);
+        Resource *blocking_resource = nullptr;
         for (auto &[type, value] : tendency->emotions)
         {
             if (value == 0)
             {
                 continue;
             }
-            auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner()->id_, type).lock();
+            auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner()->id_, type);
             float current_influence = last_emotion->GetValue() * value;
             if (current_influence < lowest_influence)
             {
@@ -60,7 +59,7 @@ namespace tattletale
         }
         if (tendency->wealth != 0)
         {
-            auto last_wealth = chronicle_.GetLastWealth(interaction->tick_, interaction->GetOwner()->id_).lock();
+            auto last_wealth = chronicle_.GetLastWealth(interaction->tick_, interaction->GetOwner()->id_);
             float current_influence = last_wealth->GetValue() * tendency->wealth;
             if (current_influence < lowest_influence)
             {
@@ -70,14 +69,14 @@ namespace tattletale
         }
         return blocking_resource;
     }
-    std::vector<std::shared_ptr<Kernel>> Curator::FindCausalConnection(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const
+    std::vector<Kernel *> Curator::FindCausalConnection(Kernel *start, Kernel *end) const
     {
-        std::vector<std::shared_ptr<Kernel>> causal_chain;
+        std::vector<Kernel *> causal_chain;
         RecursivelyFindCausalConnectionBackwards(end, start, causal_chain);
         return causal_chain;
     }
 
-    bool Curator::RecursivelyFindCausalConnectionBackwards(std::shared_ptr<Kernel> root, std::shared_ptr<Kernel> start, std::vector<std::shared_ptr<Kernel>> &out_causal_chain) const
+    bool Curator::RecursivelyFindCausalConnectionBackwards(Kernel *root, Kernel *start, std::vector<Kernel *> &out_causal_chain) const
     {
         if (root->id_ == start->id_)
         {
@@ -90,7 +89,7 @@ namespace tattletale
         }
         for (auto &reason : root->GetReasons())
         {
-            if (RecursivelyFindCausalConnectionBackwards(reason.lock(), start, out_causal_chain))
+            if (RecursivelyFindCausalConnectionBackwards(reason, start, out_causal_chain))
             {
                 out_causal_chain.push_back(root);
                 return true;
@@ -98,7 +97,7 @@ namespace tattletale
         }
         return false;
     }
-    std::string Curator::GetTimeDescription(std::shared_ptr<Kernel> start, std::shared_ptr<Kernel> end) const
+    std::string Curator::GetTimeDescription(Kernel *start, Kernel *end) const
     {
         size_t tick_distance = end->tick_ - start->tick_;
         if (tick_distance == 0)
@@ -174,7 +173,7 @@ namespace tattletale
         return "completely banal";
     }
 
-    std::string Curator::GetResourceReasonDescription(std::shared_ptr<Resource> resource) const
+    std::string Curator::GetResourceReasonDescription(Resource *resource) const
     {
         float value = abs(resource->GetValue());
         if (value > 0.9f)
@@ -210,14 +209,14 @@ namespace tattletale
         size_t base_interaction_tick_distance_to_end = 10;
         size_t tick_cutoff = chronicle_.GetLastTick();
         tick_cutoff = tick_cutoff > depth ? tick_cutoff - base_interaction_tick_distance_to_end : tick_cutoff;
-        auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff).lock();
+        auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff);
         auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner()->id_);
         auto blocking_resource = FindBlockingResource(base_interaction);
 
-        std::shared_ptr<Kernel> end_kernel(nullptr);
+        Kernel *end_kernel = nullptr;
         for (auto &consequence : base_interaction->GetConsequences())
         {
-            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence.lock(), end_kernel, depth);
+            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence, end_kernel, depth);
         }
 
         const auto &connection = FindCausalConnection(base_interaction, end_kernel);
@@ -253,23 +252,23 @@ namespace tattletale
         {
             description += "\n\nHow did it get to this?";
             std::string time_description = "Well, as already stated the story starts when ";
-            std::map<size_t, std::vector<std::shared_ptr<Resource>>> last_resource_values;
+            std::map<size_t, std::vector<Resource *>> last_resource_values;
             for (size_t i = 0; i < connection.size() - 1; ++i)
             {
                 auto owner = connection[i]->GetOwner();
                 if (!last_resource_values.count(owner->id_))
                 {
-                    last_resource_values.insert({owner->id_, std::vector<std::shared_ptr<Resource>>(static_cast<size_t>(EmotionType::kLast), std::shared_ptr<Resource>(nullptr))});
+                    last_resource_values.insert({owner->id_, std::vector<Resource *>(static_cast<size_t>(EmotionType::kLast), nullptr)});
                 }
                 if (connection[i]->type_ == KernelType::kEmotion || connection[i]->type_ == KernelType::kResource)
                 {
                     size_t type_index = last_resource_values[owner->id_].size() - 1;
                     if (connection[i]->type_ == KernelType::kEmotion)
                     {
-                        auto emotion = std::dynamic_pointer_cast<Emotion>(connection[i]);
+                        auto emotion = dynamic_cast<Emotion *>(connection[i]);
                         size_t type_index = static_cast<size_t>(emotion->GetType());
                     }
-                    auto resource = std::dynamic_pointer_cast<Resource>(connection[i]);
+                    auto resource = dynamic_cast<Resource *>(connection[i]);
                     if (last_resource_values[owner->id_][type_index])
                     {
                         float last_value = last_resource_values[owner->id_][type_index]->GetValue();
@@ -297,7 +296,7 @@ namespace tattletale
                         time_description = fmt::format("*{}*", GetTimeDescription(connection[i - 1], connection[i]));
                         if (connection[i - 1]->type_ == KernelType::kResource || connection[i - 1]->type_ == KernelType::kEmotion)
                         {
-                            auto reason = std::dynamic_pointer_cast<Resource>(connection[i - 1]);
+                            auto reason = dynamic_cast<Resource *>(connection[i - 1]);
                             reason_description = fmt::format(", *{}*", GetResourceReasonDescription(reason));
                         }
                         description += ".";

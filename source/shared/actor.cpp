@@ -76,7 +76,7 @@ namespace tattletale
         return (enrolled_courses_id_[slot] == -1);
     }
 
-    int Actor::ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
+    int Actor::ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
     {
         const std::vector<std::shared_ptr<InteractionRequirement>> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
@@ -95,25 +95,25 @@ namespace tattletale
         const std::vector<std::shared_ptr<InteractionTendency>> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
         chances.reserve(possible_interaction_indices.size());
-        std::vector<std::weak_ptr<Kernel>> tendency_reasons;
-        std::vector<std::shared_ptr<Kernel>> goal_reasons;
+        std::vector<Kernel *> tendency_reasons;
+        std::vector<Kernel *> goal_reasons;
         tendency_reasons.reserve(possible_interaction_indices.size());
         goal_reasons.reserve(possible_interaction_indices.size());
         uint32_t zero_count = 0;
         for (auto &i : possible_interaction_indices)
         {
             std::shared_ptr<InteractionTendency> tendency = tendencies[i];
-            std::weak_ptr<Kernel> tendency_reason;
+            Kernel *tendency_reason = nullptr;
             float chance = CalculateTendencyChance(*tendency, context, tendency_reason);
             bool goal_had_effect = false;
             float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
             if (goal_had_effect)
             {
-                goal_reasons.push_back(goal_.lock());
+                goal_reasons.push_back(goal_);
             }
             else
             {
-                goal_reasons.push_back(std::shared_ptr<Kernel>(nullptr));
+                goal_reasons.push_back(nullptr);
             }
             if (chance == 0.0f)
             {
@@ -124,7 +124,7 @@ namespace tattletale
         }
 
         size_t index = random_.PickIndex(chances, (zero_count == chances.size()));
-        if (tendency_reasons[index].lock())
+        if (tendency_reasons[index])
         {
             out_reasons.push_back(tendency_reasons[index]);
         }
@@ -134,7 +134,10 @@ namespace tattletale
         }
         out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
-
+        if (interaction_index = 1 && first_name_ == "Robin")
+        {
+            int aasdlf = 0;
+        }
         out_participants.push_back(this);
         const std::shared_ptr<InteractionRequirement> &requirement = requirements[interaction_index];
         const std::shared_ptr<InteractionTendency> &tendency = tendencies[interaction_index];
@@ -143,14 +146,14 @@ namespace tattletale
             uint32_t participant_zero_count = 0;
             std::vector<float> participant_chances;
 
-            std::vector<std::weak_ptr<Kernel>> participant_reasons;
+            std::vector<Kernel *> participant_reasons;
             for (auto &actor : actor_group)
             {
-                std::weak_ptr<Kernel> reason;
+                Kernel *reason = nullptr;
                 size_t id = actor->id_;
                 if (relationships_.count(id))
                 {
-                    std::map<RelationshipType, std::weak_ptr<Relationship>> relationship_map = relationships_[id];
+                    std::map<RelationshipType, Relationship *> relationship_map = relationships_[id];
 
                     float chance = 0.0f;
                     float highest_chance_increase = 0.0f;
@@ -160,7 +163,7 @@ namespace tattletale
                     bool requirement_failed = false;
                     for (auto &[type, relationship] : relationship_map)
                     {
-                        current_chance_increase = relationship.lock()->GetValue() * tendency->relationships[i - 1].at(type);
+                        current_chance_increase = relationship->GetValue() * tendency->relationships[i - 1].at(type);
                         chance += current_chance_increase;
                         ++chance_parts;
 
@@ -171,14 +174,14 @@ namespace tattletale
                         }
                         if (requirement->relationship.at(type) < 0)
                         {
-                            if (relationship.lock()->GetValue() > requirement->relationship.at(type))
+                            if (relationship->GetValue() > requirement->relationship.at(type))
                             {
                                 requirement_failed = true;
                             }
                         }
                         else if (requirement->relationship.at(type) > 0)
                         {
-                            if (relationship.lock()->GetValue() < requirement->relationship.at(type))
+                            if (relationship->GetValue() < requirement->relationship.at(type))
                             {
                                 requirement_failed = true;
                             }
@@ -218,7 +221,7 @@ namespace tattletale
                 participant_index %= actor_group.size();
             }
             out_participants.push_back(actor_group[participant_index]);
-            if (participant_reasons[participant_index].lock())
+            if (participant_reasons[participant_index])
             {
                 out_reasons.push_back(participant_reasons[participant_index]);
             }
@@ -236,7 +239,7 @@ namespace tattletale
         {
             return false;
         }
-        if (requirement.goal_type != GoalType::kNone && requirement.goal_type != goal_.lock()->type_)
+        if (requirement.goal_type != GoalType::kNone && requirement.goal_type != goal_->type_)
         {
             return false;
         }
@@ -248,14 +251,14 @@ namespace tattletale
         {
             if (value < 0)
             {
-                if (emotions_.at(key).lock()->GetValue() > value)
+                if (emotions_.at(key)->GetValue() > value)
                 {
                     return false;
                 }
             }
             else if (value > 0)
             {
-                if (emotions_.at(key).lock()->GetValue() < value)
+                if (emotions_.at(key)->GetValue() < value)
                 {
                     return false;
                 }
@@ -269,14 +272,14 @@ namespace tattletale
             {
                 if (value < 0)
                 {
-                    if (relationship.at(key).lock()->GetValue() > value)
+                    if (relationship.at(key)->GetValue() > value)
                     {
                         match_found = false;
                     }
                 }
                 else if (value > 0)
                 {
-                    if (relationship.at(key).lock()->GetValue() < value)
+                    if (relationship.at(key)->GetValue() < value)
                     {
                         match_found = false;
                     }
@@ -293,7 +296,7 @@ namespace tattletale
         }
         return true;
     }
-    float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason)
+    float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason)
     {
         // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
         // TODO: reasons also will never include groupsize or context
@@ -310,7 +313,7 @@ namespace tattletale
             ++chance_parts;
         }
 
-        current_chance_increase = tendency.wealth * wealth_.lock()->GetValue();
+        current_chance_increase = tendency.wealth * wealth_->GetValue();
         chance += current_chance_increase;
         ++chance_parts;
         if (current_chance_increase > highest_chance_influence)
@@ -321,7 +324,7 @@ namespace tattletale
 
         for (auto &[type, value] : tendency.emotions)
         {
-            current_chance_increase = (value * emotions_[type].lock()->GetValue());
+            current_chance_increase = (value * emotions_[type]->GetValue());
             chance += current_chance_increase;
             ++chance_parts;
             if (current_chance_increase > highest_chance_influence)
@@ -339,7 +342,7 @@ namespace tattletale
     {
         float relevant_effect = 0;
         const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
-        switch (goal_.lock()->type_)
+        switch (goal_->type_)
         {
         case GoalType::kNone:
             TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
@@ -392,33 +395,33 @@ namespace tattletale
         return pow(original_chance, (1.0f - relevant_effect));
     }
 
-    void Actor::ApplyWealthChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, float value)
+    void Actor::ApplyWealthChange(const std::vector<Kernel *> &reasons, size_t tick, float value)
     {
         if (value == 0)
         {
             return;
         }
-        float previous_value = wealth_.lock()->GetValue();
+        float previous_value = wealth_->GetValue();
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
+        std::vector<Kernel *> all_reasons(reasons);
         all_reasons.push_back(wealth_);
         wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, this, all_reasons, new_value);
     }
-    void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
+    void Actor::ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, EmotionType type, float value)
     {
         if (value == 0)
         {
             return;
         }
-        float previous_value = emotions_[type].lock()->GetValue();
+        float previous_value = emotions_[type]->GetValue();
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-        std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
+        std::vector<Kernel *> all_reasons(reasons);
         all_reasons.push_back(emotions_[type]);
         emotions_[type] = chronicle_.CreateEmotion(type, tick, this, all_reasons, new_value);
     }
-    void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change)
+    void Actor::ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change)
     {
         bool all_zero = true;
         for (auto &[type, value] : change)
@@ -438,7 +441,7 @@ namespace tattletale
         {
             known_actors_.push_back(school_.GetActor(actor_id));
         }
-        std::vector<std::weak_ptr<Kernel>> all_reasons;
+        std::vector<Kernel *> all_reasons;
         for (auto &[type, value] : change)
         {
             all_reasons.clear();
@@ -450,7 +453,7 @@ namespace tattletale
                 {
                     continue;
                 }
-                previous_value = relationships_.at(actor_id).at(type).lock()->GetValue();
+                previous_value = relationships_.at(actor_id).at(type)->GetValue();
                 all_reasons.push_back(relationships_.at(actor_id).at(type));
             }
             // TODO: think about handling this cleaner
@@ -463,10 +466,10 @@ namespace tattletale
     std::string Actor::GetDetailedDescriptionString() const
     {
         std::string detailed_actor_description = fmt::format("{}:", name_);
-        detailed_actor_description += fmt::format("\n\t{:o}", *wealth_.lock());
+        detailed_actor_description += fmt::format("\n\t{:o}", *wealth_);
         for (auto &[type, emotion] : emotions_)
         {
-            detailed_actor_description += fmt::format("\n\t{:o}", *emotion.lock());
+            detailed_actor_description += fmt::format("\n\t{:o}", *emotion);
         }
         for (auto &[actor_index, map] : relationships_)
         {
@@ -475,13 +478,13 @@ namespace tattletale
             detailed_actor_description += fmt::format("\n\tWith #{} {}:", other_actor->id_, *other_actor);
             for (auto &[type, relationship] : map)
             {
-                detailed_actor_description += fmt::format("\n\t\t{:o}", *relationship.lock());
+                detailed_actor_description += fmt::format("\n\t\t{:o}", *relationship);
             }
         }
-        detailed_actor_description += fmt::format("\n\t{:o}", *goal_.lock());
+        detailed_actor_description += fmt::format("\n\t{:o}", *goal_);
         for (auto &trait : traits_)
         {
-            detailed_actor_description += fmt::format("\n\t{:o}", *trait.lock());
+            detailed_actor_description += fmt::format("\n\t{:o}", *trait);
         }
         return detailed_actor_description;
     }
@@ -501,12 +504,12 @@ namespace tattletale
     }
     void Actor::InitializeRandomWealth(size_t tick)
     {
-        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        std::vector<Kernel *> no_reasons;
         wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f));
     }
     void Actor::InitializeRandomEmotions(size_t tick)
     {
-        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        std::vector<Kernel *> no_reasons;
         emotions_ =
             {
                 {
@@ -533,7 +536,7 @@ namespace tattletale
     }
     void Actor::InitializeRandomRelationships(size_t tick)
     {
-        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        std::vector<Kernel *> no_reasons;
         uint32_t relationship_count = random_.GetUInt(setting_.min_start_relationships_count(), setting_.max_start_relationships_count());
         for (size_t i = relationships_.size(); i < relationship_count; ++i)
         {
@@ -551,7 +554,7 @@ namespace tattletale
             {
                 return;
             }
-            std::map<RelationshipType, std::weak_ptr<Relationship>> relationship =
+            std::map<RelationshipType, Relationship *> relationship =
                 {
                     {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
@@ -559,7 +562,7 @@ namespace tattletale
                     {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
             InsertNewRelationship(other_actor, relationship);
-            std::map<RelationshipType, std::weak_ptr<Relationship>> other_relationship =
+            std::map<RelationshipType, Relationship *> other_relationship =
                 {
                     {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
@@ -570,7 +573,7 @@ namespace tattletale
         }
     }
 
-    void Actor::InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship)
+    void Actor::InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship)
     {
         relationships_.insert({other_actor->id_, relationship});
         known_actors_.push_back(other_actor);
@@ -578,12 +581,12 @@ namespace tattletale
     }
     void Actor::InitializeRandomGoal(size_t tick)
     {
-        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        std::vector<Kernel *> no_reasons;
         goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, this, no_reasons);
     }
     void Actor::InitializeRandomTraits(size_t tick)
     {
-        std::vector<std::weak_ptr<Kernel>> no_reasons;
+        std::vector<Kernel *> no_reasons;
         traits_ = {chronicle_.CreateTrait("trait", tick, this, no_reasons)};
     }
 
@@ -601,7 +604,7 @@ namespace tattletale
         float value = 0;
         for (const auto &[type, relationship] : relationships_.at(actor_id))
         {
-            value += abs(relationship.lock()->GetValue());
+            value += abs(relationship->GetValue());
         }
         return value;
     }

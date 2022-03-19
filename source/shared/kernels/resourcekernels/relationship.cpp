@@ -6,7 +6,7 @@
 
 namespace tattletale
 {
-    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value)
         : Resource(
               RelationshipTypeToString(type),
               Relationship::positive_name_variants_.at(type),

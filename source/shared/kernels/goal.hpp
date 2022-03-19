@@ -34,7 +34,7 @@ namespace tattletale
         const GoalType type_;
 
     private:
-        Goal(GoalType type, size_t id, size_t tick, Actor *, std::vector<std::weak_ptr<Kernel>> reasons);
+        Goal(GoalType type, size_t id, size_t tick, Actor *, std::vector<Kernel *> reasons);
         friend class Chronicle;
     };
 
