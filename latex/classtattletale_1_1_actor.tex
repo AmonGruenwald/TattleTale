@@ -38,16 +38,8 @@ void \mbox{\hyperlink{classtattletale_1_1_actor_af822c7c21074cf8343d876b8b0173af
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotional }} state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_actor_a638cb61a98bd34fe072a025b5a7a2179}{Apply\+Relationship\+Change}} (const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ \&reasons, size\+\_\+t tick, size\+\_\+t actor\+\_\+id, std\+::map$<$ Relationship\+Type, float $>$ change)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_ac72baaf5193c4b23962c6487bd0fca24}{Get\+Wealth\+Description\+String}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the current wealth status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_a1b8ce871fcd82120e064f5532e701f8c}{Get\+Emotions\+Description\+String}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the current \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_a082a8eecf13d1677401c87f30823cf02}{Get\+Relationships\+Description\+String}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the current \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }} status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_a38fe3ca1e51350a69d3915aa51a987b9}{Get\+Goal\+Description\+String}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_a598f05c46d64fd2aa64a1479ac4525c0}{Get\+Traits\+Description\+String}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_trait}{Traits }} of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+std\+::string \mbox{\hyperlink{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}{Get\+Detailed\+Description\+String}} () const
+\begin{DoxyCompactList}\small\item\em Creates a string describing the current status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -242,15 +234,15 @@ This can crash if the slot is already filled.
 {\em slot} & The slot during which we want the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} to enroll in the course. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_actor_a1b8ce871fcd82120e064f5532e701f8c}\label{classtattletale_1_1_actor_a1b8ce871fcd82120e064f5532e701f8c}} 
-\index{tattletale::Actor@{tattletale::Actor}!GetEmotionsDescriptionString@{GetEmotionsDescriptionString}}
-\index{GetEmotionsDescriptionString@{GetEmotionsDescriptionString}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{GetEmotionsDescriptionString()}{GetEmotionsDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Emotions\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}\label{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}} 
+\index{tattletale::Actor@{tattletale::Actor}!GetDetailedDescriptionString@{GetDetailedDescriptionString}}
+\index{GetDetailedDescriptionString@{GetDetailedDescriptionString}!tattletale::Actor@{tattletale::Actor}}
+\doxysubsubsection{\texorpdfstring{GetDetailedDescriptionString()}{GetDetailedDescriptionString()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Detailed\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
-Creates a string describing the current \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
+Creates a string describing the current status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
 
 \begin{DoxyReturn}{Returns}
 The description string. 
@@ -267,58 +259,6 @@ Getter for the amount of filled slots.
 
 \begin{DoxyReturn}{Returns}
 The amount of filled slots. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_actor_a38fe3ca1e51350a69d3915aa51a987b9}\label{classtattletale_1_1_actor_a38fe3ca1e51350a69d3915aa51a987b9}} 
-\index{tattletale::Actor@{tattletale::Actor}!GetGoalDescriptionString@{GetGoalDescriptionString}}
-\index{GetGoalDescriptionString@{GetGoalDescriptionString}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{GetGoalDescriptionString()}{GetGoalDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Goal\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
-
-\begin{DoxyReturn}{Returns}
-The description string. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_actor_a082a8eecf13d1677401c87f30823cf02}\label{classtattletale_1_1_actor_a082a8eecf13d1677401c87f30823cf02}} 
-\index{tattletale::Actor@{tattletale::Actor}!GetRelationshipsDescriptionString@{GetRelationshipsDescriptionString}}
-\index{GetRelationshipsDescriptionString@{GetRelationshipsDescriptionString}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{GetRelationshipsDescriptionString()}{GetRelationshipsDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Relationships\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Creates a string describing the current \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }} status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
-
-\begin{DoxyReturn}{Returns}
-The description string. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_actor_a598f05c46d64fd2aa64a1479ac4525c0}\label{classtattletale_1_1_actor_a598f05c46d64fd2aa64a1479ac4525c0}} 
-\index{tattletale::Actor@{tattletale::Actor}!GetTraitsDescriptionString@{GetTraitsDescriptionString}}
-\index{GetTraitsDescriptionString@{GetTraitsDescriptionString}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{GetTraitsDescriptionString()}{GetTraitsDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Traits\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_trait}{Traits }} of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
-
-\begin{DoxyReturn}{Returns}
-The description string. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_actor_ac72baaf5193c4b23962c6487bd0fca24}\label{classtattletale_1_1_actor_ac72baaf5193c4b23962c6487bd0fca24}} 
-\index{tattletale::Actor@{tattletale::Actor}!GetWealthDescriptionString@{GetWealthDescriptionString}}
-\index{GetWealthDescriptionString@{GetWealthDescriptionString}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{GetWealthDescriptionString()}{GetWealthDescriptionString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Actor\+::\+Get\+Wealth\+Description\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Creates a string describing the current wealth status of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
-
-\begin{DoxyReturn}{Returns}
-The description string. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_actor_a62897b8a69bfefa43d73a5fd47047627}\label{classtattletale_1_1_actor_a62897b8a69bfefa43d73a5fd47047627}} 
 \index{tattletale::Actor@{tattletale::Actor}!InitializeRandomEmotions@{InitializeRandomEmotions}}
