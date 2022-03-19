@@ -45,7 +45,7 @@ namespace tattletale
         virtual std::string GetPassiveDescription() const = 0;
         virtual std::string GetActiveDescription() const = 0;
         virtual float GetChance() const;
-        std::weak_ptr<Actor> GetOwner() const;
+        Actor *GetOwner() const;
 
     protected:
         /**
@@ -53,8 +53,8 @@ namespace tattletale
          */
         std::vector<std::weak_ptr<Kernel>> consequences_;
         std::vector<std::weak_ptr<Kernel>> reasons_;
-        std::weak_ptr<Actor> owner_;
-        Kernel(std::string name, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, KernelType type);
+        Actor *owner_;
+        Kernel(std::string name, size_t id, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, KernelType type);
     };
 
 } // namespace tattletale

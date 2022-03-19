@@ -45,7 +45,7 @@ namespace tattletale
          *
          * @return The participants.
          */
-        const std::vector<std::weak_ptr<Actor>> &GetParticipants() const;
+        const std::vector<Actor *> &GetParticipants() const;
 
         float GetChance() const override;
 
@@ -71,7 +71,7 @@ namespace tattletale
             size_t id,
             size_t tick,
             std::vector<std::weak_ptr<Kernel>> reasons,
-            std::vector<std::weak_ptr<Actor>>
+            std::vector<Actor *>
                 participants);
         /**
          * @brief Stores a Reference to the corresponding InteractionPrototype.
@@ -83,7 +83,7 @@ namespace tattletale
         /**
          * @brief Stores Pointers to the involved \link Actor Actors \endlink.
          */
-        std::vector<std::weak_ptr<Actor>>
+        std::vector<Actor *>
             participants_;
         friend class Chronicle;
     };

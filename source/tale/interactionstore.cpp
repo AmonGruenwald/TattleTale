@@ -79,7 +79,7 @@ namespace tattletale
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->relationship_effects;
     }
-    std::weak_ptr<Interaction> InteractionStore::CreateInteraction(Chronicle &chronicle, size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<std::weak_ptr<Actor>> participants)
+    std::weak_ptr<Interaction> InteractionStore::CreateInteraction(Chronicle &chronicle, size_t prototype_index, float chance, size_t tick, std::vector<std::weak_ptr<Kernel>> reasons, std::vector<Actor *> participants)
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         std::shared_ptr<InteractionPrototype> prototype = prototype_catalogue_.at(prototype_index);

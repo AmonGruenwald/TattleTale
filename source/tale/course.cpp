@@ -10,11 +10,11 @@ namespace tattletale
         size_t slot_count_per_week = setting.slot_count_per_week();
         for (size_t i = 0; i < slot_count_per_week; ++i)
         {
-            slots_.push_back(std::vector<std::weak_ptr<Actor>>());
+            slots_.push_back(std::vector<Actor *>());
         }
     }
 
-    const std::vector<std::weak_ptr<Actor>> &Course::GetCourseGroupForSlot(size_t slot)
+    const std::vector<Actor *> &Course::GetCourseGroupForSlot(size_t slot)
     {
         return slots_[slot];
     }
@@ -46,31 +46,31 @@ namespace tattletale
         }
         return random_slot;
     }
-    void Course::AddToSlot(std::vector<std::weak_ptr<Actor>> actors, size_t slot)
+    void Course::AddToSlot(std::vector<Actor *> actors, size_t slot)
     {
         TATTLETALE_ERROR_PRINT(slots_[slot].size() + actors.size() <= setting_.actors_per_course, fmt::format("Slot with id {} does not have enoug space", slot));
 
         for (auto &actor : actors)
         {
             slots_[slot].push_back(actor);
-            actor.lock()->EnrollInCourse(id_, slot);
+            actor->EnrollInCourse(id_, slot);
         }
     }
-    void Course::AddToSlot(std::weak_ptr<Actor> actor, size_t slot)
+    void Course::AddToSlot(Actor *actor, size_t slot)
     {
         TATTLETALE_ERROR_PRINT(slots_[slot].size() < setting_.actors_per_course, fmt::format("Slot with id {} does not have enoug space", slot));
         slots_[slot].push_back(actor);
-        actor.lock()->EnrollInCourse(id_, slot);
+        actor->EnrollInCourse(id_, slot);
     }
 
-    std::vector<std::weak_ptr<Actor>> Course::ClearSlot(size_t slot)
+    std::vector<Actor *> Course::ClearSlot(size_t slot)
     {
         TATTLETALE_ERROR_PRINT(slots_[slot].size() != 0, fmt::format("Slot with id {} is already empty", slot));
-        std::vector<std::weak_ptr<Actor>> group = slots_[slot];
+        std::vector<Actor *> group = slots_[slot];
         slots_[slot].clear();
         for (auto &actor : group)
         {
-            actor.lock()->EjectFromCourse(id_, slot);
+            actor->EjectFromCourse(id_, slot);
         }
         return group;
     }

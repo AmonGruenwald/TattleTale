@@ -50,7 +50,7 @@ namespace tattletale
             {
                 continue;
             }
-            auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner().lock()->id_, type).lock();
+            auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner()->id_, type).lock();
             float current_influence = last_emotion->GetValue() * value;
             if (current_influence < lowest_influence)
             {
@@ -60,7 +60,7 @@ namespace tattletale
         }
         if (tendency->wealth != 0)
         {
-            auto last_wealth = chronicle_.GetLastWealth(interaction->tick_, interaction->GetOwner().lock()->id_).lock();
+            auto last_wealth = chronicle_.GetLastWealth(interaction->tick_, interaction->GetOwner()->id_).lock();
             float current_influence = last_wealth->GetValue() * tendency->wealth;
             if (current_influence < lowest_influence)
             {
@@ -211,7 +211,7 @@ namespace tattletale
         size_t tick_cutoff = chronicle_.GetLastTick();
         tick_cutoff = tick_cutoff > depth ? tick_cutoff - base_interaction_tick_distance_to_end : tick_cutoff;
         auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff).lock();
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner().lock()->id_);
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner()->id_);
         auto blocking_resource = FindBlockingResource(base_interaction);
 
         std::shared_ptr<Kernel> end_kernel(nullptr);
@@ -222,11 +222,11 @@ namespace tattletale
 
         const auto &connection = FindCausalConnection(base_interaction, end_kernel);
 
-        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), *base_interaction->GetOwner().lock());
+        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), *base_interaction->GetOwner());
 
         if (normal_interaction)
         {
-            description += fmt::format("Normally one would find *{:f}* *{:p}*", *base_interaction->GetOwner().lock(), *normal_interaction);
+            description += fmt::format("Normally one would find *{:f}* *{:p}*", *base_interaction->GetOwner(), *normal_interaction);
             if (blocking_resource)
             {
                 description += fmt::format(", but despite *{:p}*, this time *{}*.", *blocking_resource, *base_interaction);
@@ -238,7 +238,7 @@ namespace tattletale
         }
         else if (blocking_resource)
         {
-            description += fmt::format("Despite *{:f}* *{:p}* *{}*", *blocking_resource->GetOwner().lock(), *blocking_resource, *base_interaction);
+            description += fmt::format("Despite *{:f}* *{:p}* *{}*", *blocking_resource->GetOwner(), *blocking_resource, *base_interaction);
         }
         else
         {
@@ -256,7 +256,7 @@ namespace tattletale
             std::map<size_t, std::vector<std::shared_ptr<Resource>>> last_resource_values;
             for (size_t i = 0; i < connection.size() - 1; ++i)
             {
-                auto owner = connection[i]->GetOwner().lock();
+                auto owner = connection[i]->GetOwner();
                 if (!last_resource_values.count(owner->id_))
                 {
                     last_resource_values.insert({owner->id_, std::vector<std::shared_ptr<Resource>>(static_cast<size_t>(EmotionType::kLast), std::shared_ptr<Resource>(nullptr))});

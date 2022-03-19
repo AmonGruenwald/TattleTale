@@ -55,7 +55,7 @@ namespace tattletale
             std::string negative_name_variant,
             size_t id,
             size_t tick,
-            std::weak_ptr<Actor> owner,
+            Actor *owner,
             std::vector<std::weak_ptr<Kernel>> reasons,
             float value,
             KernelType type = KernelType::kResource,

@@ -76,7 +76,7 @@ namespace tattletale
         return (enrolled_courses_id_[slot] == -1);
     }
 
-    int Actor::ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance)
+    int Actor::ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
     {
         const std::vector<std::shared_ptr<InteractionRequirement>> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
@@ -135,7 +135,7 @@ namespace tattletale
         out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
 
-        out_participants.push_back(weak_from_this());
+        out_participants.push_back(this);
         const std::shared_ptr<InteractionRequirement> &requirement = requirements[interaction_index];
         const std::shared_ptr<InteractionTendency> &tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement->participant_count; ++i)
@@ -147,7 +147,7 @@ namespace tattletale
             for (auto &actor : actor_group)
             {
                 std::weak_ptr<Kernel> reason;
-                size_t id = actor.lock()->id_;
+                size_t id = actor->id_;
                 if (relationships_.count(id))
                 {
                     std::map<RelationshipType, std::weak_ptr<Relationship>> relationship_map = relationships_[id];
@@ -212,7 +212,7 @@ namespace tattletale
             }
             size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
             // TODO: I think it is possible for actors to be assigned multiple times as targets for an interaction
-            while (actor_group[participant_index].lock()->id_ == id_)
+            while (actor_group[participant_index]->id_ == id_)
             {
                 participant_index += 1;
                 participant_index %= actor_group.size();
@@ -225,7 +225,7 @@ namespace tattletale
         }
         return interaction_index;
     }
-    bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const
+    bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const
     {
         // TODO: check for other requirements eg. participant count
         if (requirement.context != ContextType::kNone && requirement.context != context)
@@ -403,7 +403,7 @@ namespace tattletale
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(wealth_);
-        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, weak_from_this(), all_reasons, new_value);
+        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, this, all_reasons, new_value);
     }
     void Actor::ApplyEmotionChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, EmotionType type, float value)
     {
@@ -416,7 +416,7 @@ namespace tattletale
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<std::weak_ptr<Kernel>> all_reasons(reasons);
         all_reasons.push_back(emotions_[type]);
-        emotions_[type] = chronicle_.CreateEmotion(type, tick, weak_from_this(), all_reasons, new_value);
+        emotions_[type] = chronicle_.CreateEmotion(type, tick, this, all_reasons, new_value);
     }
     void Actor::ApplyRelationshipChange(const std::vector<std::weak_ptr<Kernel>> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change)
     {
@@ -455,7 +455,7 @@ namespace tattletale
             }
             // TODO: think about handling this cleaner
             float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-            relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, weak_from_this(), other_actor, all_reasons, new_value);
+            relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
         }
         UpdateKnownActors();
     }
@@ -471,7 +471,7 @@ namespace tattletale
         for (auto &[actor_index, map] : relationships_)
         {
             // TODO: this will only work after all actors have been created, which is wonky
-            auto other_actor = school_.GetActor(actor_index).lock();
+            Actor *other_actor = school_.GetActor(actor_index);
             detailed_actor_description += fmt::format("\n\tWith #{} {}:", other_actor->id_, *other_actor);
             for (auto &[type, relationship] : map)
             {
@@ -486,23 +486,23 @@ namespace tattletale
         return detailed_actor_description;
     }
 
-    const std::vector<std::weak_ptr<Actor>> &Actor::GetAllKnownActors() const
+    const std::vector<Actor *> &Actor::GetAllKnownActors() const
     {
         return known_actors_;
     }
-    std::vector<std::weak_ptr<Actor>> Actor::GetFreetimeActorGroup() const
+    std::vector<Actor *> Actor::GetFreetimeActorGroup() const
     {
         if (setting_.freetime_actor_count >= known_actors_.size())
         {
             return known_actors_;
         }
-        std::vector<std::weak_ptr<Actor>> freetime_actors = {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
+        std::vector<Actor *> freetime_actors = {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
         return freetime_actors;
     }
     void Actor::InitializeRandomWealth(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f));
+        wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f));
     }
     void Actor::InitializeRandomEmotions(size_t tick)
     {
@@ -511,23 +511,23 @@ namespace tattletale
             {
                 {
                     EmotionType::kHappy,
-                    chronicle_.CreateEmotion(EmotionType::kHappy, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kHappy, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kCalm,
-                    chronicle_.CreateEmotion(EmotionType::kCalm, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kCalm, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kSatisfied,
-                    chronicle_.CreateEmotion(EmotionType::kSatisfied, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kSatisfied, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kBrave,
-                    chronicle_.CreateEmotion(EmotionType::kBrave, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kBrave, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
                 {
                     EmotionType::kExtroverted,
-                    chronicle_.CreateEmotion(EmotionType::kExtroverted, tick, weak_from_this(), no_reasons, random_.GetFloat(-1.0f, 1.0f)),
+                    chronicle_.CreateEmotion(EmotionType::kExtroverted, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
                 },
             };
     }
@@ -540,7 +540,7 @@ namespace tattletale
             uint32_t other_actor_id = random_.GetUInt(0, setting_.actor_count - 1);
             auto other_actor = school_.GetActor(other_actor_id);
             size_t tries = 0;
-            while ((other_actor_id == id_ || HasRelationshipWith(other_actor_id) || other_actor.lock()->GetAllKnownActors().size() > setting_.desired_max_start_relationships_count) &&
+            while ((other_actor_id == id_ || HasRelationshipWith(other_actor_id) || other_actor->GetAllKnownActors().size() > setting_.desired_max_start_relationships_count) &&
                    tries < setting_.actor_count)
             {
                 ++tries;
@@ -553,46 +553,46 @@ namespace tattletale
             }
             std::map<RelationshipType, std::weak_ptr<Relationship>> relationship =
                 {
-                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
+                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
             InsertNewRelationship(other_actor, relationship);
             std::map<RelationshipType, std::weak_ptr<Relationship>> other_relationship =
                 {
-                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, weak_from_this(), other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
-            other_actor.lock()->InsertNewRelationship(weak_from_this(), relationship);
+                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
+                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
+            other_actor->InsertNewRelationship(this, relationship);
         }
     }
 
-    void Actor::InsertNewRelationship(std::weak_ptr<Actor> other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship)
+    void Actor::InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship)
     {
-        relationships_.insert({other_actor.lock()->id_, relationship});
+        relationships_.insert({other_actor->id_, relationship});
         known_actors_.push_back(other_actor);
         UpdateKnownActors();
     }
     void Actor::InitializeRandomGoal(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, weak_from_this(), no_reasons);
+        goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, this, no_reasons);
     }
     void Actor::InitializeRandomTraits(size_t tick)
     {
         std::vector<std::weak_ptr<Kernel>> no_reasons;
-        traits_ = {chronicle_.CreateTrait("trait", tick, weak_from_this(), no_reasons)};
+        traits_ = {chronicle_.CreateTrait("trait", tick, this, no_reasons)};
     }
 
     void Actor::UpdateKnownActors()
     {
-        std::sort(known_actors_.begin(), known_actors_.end(), [this](const std::weak_ptr<Actor> &lhs, const std::weak_ptr<Actor> &rhs)
+        std::sort(known_actors_.begin(), known_actors_.end(), [this](const Actor *lhs, const Actor *rhs)
                   {
-                      float lhs_value = CalculateRelationshipValue(lhs.lock()->id_);
-                      float rhs_value = CalculateRelationshipValue(rhs.lock()->id_);
+                      float lhs_value = CalculateRelationshipValue(lhs->id_);
+                      float rhs_value = CalculateRelationshipValue(rhs->id_);
                       return lhs_value > rhs_value; });
     }
 

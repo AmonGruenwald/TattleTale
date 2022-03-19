@@ -61,7 +61,7 @@ namespace tattletale
          * @param  actor_id The id of the Actor we want to get. Corresponds to index in actors_ vector.
          * @return The Actor.
          */
-        std::weak_ptr<Actor> GetActor(size_t actor_id);
+        Actor *GetActor(size_t actor_id);
         /**
          * @brief Getter for a Course
          *
@@ -114,11 +114,11 @@ namespace tattletale
         /**
          * @brief Holds all instanced actors.
          */
-        std::vector<std::shared_ptr<Actor>> actors_;
+        std::vector<Actor *> actors_;
         /**
          * @brief Holds all instanced actors as weak_ptrs.
          */
-        std::vector<std::weak_ptr<Actor>> freetime_group_;
+        std::vector<Actor *> freetime_group_;
         /**
          * @brief Holds a reference to an instance of the Setting object that was passed during construction.
          */
@@ -166,7 +166,7 @@ namespace tattletale
          * @param weekday Which Weekday we want to check.
          * @return The result of the check.
          */
-        void LetActorInteract(std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &group, ContextType type, std::string context_description = "an unknown time");
+        void LetActorInteract(Actor *&actor, const std::vector<Actor *> &group, ContextType type, std::string context_description = "an unknown time");
         bool IsWorkday(Weekday weekday) const;
         /**
          * @brief Checks wheter the passed Actor is in the passed course group.
@@ -175,7 +175,7 @@ namespace tattletale
          * @param course_group Which course group we want to look for the actor in.
          * @return The result of the check.
          */
-        bool ActorIsInCourseGroup(const std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &course_group) const;
+        bool ActorIsInCourseGroup(const Actor *actor, const std::vector<Actor *> &course_group) const;
         /**
          * @brief Transforms a Weekday and a daily tick to a slot index.
          *
@@ -197,7 +197,7 @@ namespace tattletale
          * @param slots The slots we want to find free \link Actor Actors \endlink for.
          * @return The found group of Actors.
          */
-        std::vector<std::weak_ptr<Actor>> FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots);
+        std::vector<Actor *> FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots);
 
         /**
          * @brief Creates a vector of randomly picked firstnames.

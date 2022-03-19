@@ -112,7 +112,7 @@ namespace tattletale
          * @return The index of the InteractionPrototype the Actor chose.
          */
         bool SlotEmpty(size_t slot) const;
-        int ChooseInteraction(const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<std::weak_ptr<Actor>> &out_participants, float &out_chance);
+        int ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<std::weak_ptr<Kernel>> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
         /**
          * @brief Calculates the chance of an Interaction based on its InteractionTendency and the \link Actor Actor's \endlink current state.
          *
@@ -130,7 +130,7 @@ namespace tattletale
          */
         float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, std::weak_ptr<Kernel> &out_reason);
         float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
-        bool CheckRequirements(const InteractionRequirement &requirement, const std::vector<std::weak_ptr<Actor>> &actor_group, ContextType context) const;
+        bool CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *
@@ -168,11 +168,11 @@ namespace tattletale
          * @return The description string.
          */
         std::string GetDetailedDescriptionString() const;
-        const std::vector<std::weak_ptr<Actor>> &GetAllKnownActors() const;
-        std::vector<std::weak_ptr<Actor>> GetFreetimeActorGroup() const;
+        const std::vector<Actor *> &GetAllKnownActors() const;
+        std::vector<Actor *> GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
-        void InsertNewRelationship(std::weak_ptr<Actor> other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship);
+        void InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, std::weak_ptr<Relationship>> relationship);
 
     private:
         /**
@@ -203,7 +203,7 @@ namespace tattletale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
-        std::vector<std::weak_ptr<Actor>> known_actors_;
+        std::vector<Actor *> known_actors_;
         /**
          * @brief Initializes the Wealth member with a random value.
          *

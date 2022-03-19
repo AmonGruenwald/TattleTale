@@ -68,7 +68,7 @@ namespace tattletale
          * @param reasons What other \link Kernel Kernels \endlink  led to this Emotion and its value.
          * @param value Value of the Emotion between -1.0 and 1.0.
          */
-        Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
+        Emotion(EmotionType type, size_t id, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, float value);
         /**
          * @brief The EmotionType of this Emotion.
          */

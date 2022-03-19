@@ -12,7 +12,7 @@ namespace tattletale
     School::School(Chronicle &chronicle, Random &random, const Setting &setting) : setting_(setting), random_(random), chronicle_(chronicle), interaction_store_(random_)
     {
         size_t actor_count = setting_.actor_count;
-        chronicle_.Reset(actor_count);
+        chronicle_.Reset();
         size_t tick = 0;
 
         std::vector<std::string> firstnames = GetRandomFirstnames(actor_count);
@@ -20,12 +20,9 @@ namespace tattletale
         std::string actor_creation_description = "CREATED ALL ACTORS:";
         for (size_t i = 0; i < actor_count; ++i)
         {
-            std::shared_ptr<Actor> actor(new Actor(*this, i, firstnames[i], surnames[i]));
+            Actor *actor = chronicle_.CreateActor(*this, firstnames[i], surnames[i]);
             actor_creation_description += fmt::format("\n{}: {}", i, *actor);
-
             actors_.push_back(actor);
-            // TODO: creating actors should probably be handled by the Chronicle class, similar to Kernels
-            chronicle_.actors_.push_back(actor);
             freetime_group_.push_back(actor);
         }
         // needs to happen after every actor is created bc of relationships
@@ -76,7 +73,7 @@ namespace tattletale
                     slots.push_back(random_slot_order[slot_index]);
                     ++slot_index;
                 }
-                std::vector<std::weak_ptr<Actor>> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
+                std::vector<Actor *> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
 
                 for (size_t j = 0; j < slots.size(); ++j)
                 {
@@ -121,7 +118,7 @@ namespace tattletale
                     size_t summarized_actor_count = actors_count_in_slot + other_actors_count_in_slot;
                     if (summarized_actor_count < setting_.actors_per_course && other_actors_count_in_slot > 0)
                     {
-                        std::vector<std::weak_ptr<Actor>> course_group = courses_[other_course_index].ClearSlot(slot_index);
+                        std::vector<Actor *> course_group = courses_[other_course_index].ClearSlot(slot_index);
                         courses_[course_index].AddToSlot(course_group, slot_index);
                     }
                 }
@@ -141,7 +138,7 @@ namespace tattletale
         TATTLETALE_VERBOSE_PRINT(fmt::format("RANDOM KERNEL CHAIN:\n{}", chronicle_GetRandomCausalityChainDescription(3)));
         TATTLETALE_VERBOSE_PRINT(fmt::format("AVERAGE INTERACTION CHANCE: {}", chronicle_.GetAverageInteractionChance()));
     }
-    std::weak_ptr<Actor> School::GetActor(size_t actor_id)
+    Actor *School::GetActor(size_t actor_id)
     {
         TATTLETALE_ERROR_PRINT(actor_id < actors_.size(), fmt::format("Actor with id {} does not exist", actor_id));
         return actors_[actor_id];
@@ -186,11 +183,10 @@ namespace tattletale
                 size_t slot = WeekdayAndDailyTickToSlot(weekday, i);
                 for (auto &course : courses_)
                 {
-                    std::vector<std::weak_ptr<Actor>> course_group = course.GetCourseGroupForSlot(slot);
+                    std::vector<Actor *> course_group = course.GetCourseGroupForSlot(slot);
                     for (auto &actor : course_group)
                     {
-                        std::shared_ptr locked_actor = actor.lock();
-                        LetActorInteract(locked_actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in {}", i, course.name_));
+                        LetActorInteract(actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in {}", i, course.name_));
                     }
                 }
                 ++current_tick_;
@@ -216,10 +212,10 @@ namespace tattletale
         }
     }
 
-    void School::LetActorInteract(std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &group, ContextType type, std::string context_description)
+    void School::LetActorInteract(Actor *&actor, const std::vector<Actor *> &group, ContextType type, std::string context_description)
     {
         std::vector<std::weak_ptr<Kernel>> reasons;
-        std::vector<std::weak_ptr<Actor>> participants;
+        std::vector<Actor *> participants;
         float chance;
         int interaction_index = actor->ChooseInteraction(group, type, reasons, participants, chance);
         std::string interaction_description = "did nothing.";
@@ -240,11 +236,11 @@ namespace tattletale
         return true;
     }
 
-    bool School::ActorIsInCourseGroup(const std::shared_ptr<Actor> &actor, const std::vector<std::weak_ptr<Actor>> &course_group) const
+    bool School::ActorIsInCourseGroup(const Actor *actor, const std::vector<Actor *> &course_group) const
     {
         for (auto &actor_in_course_group : course_group)
         {
-            if (actor_in_course_group.lock() == actor)
+            if (actor_in_course_group == actor)
             {
                 return true;
             }
@@ -257,9 +253,9 @@ namespace tattletale
         return static_cast<size_t>(weekday) * setting_.courses_per_day + daily_tick;
     }
 
-    std::vector<std::weak_ptr<Actor>> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
+    std::vector<Actor *> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
     {
-        std::vector<std::weak_ptr<Actor>> course_group;
+        std::vector<Actor *> course_group;
         if (actors_.size() > 0)
         {
             for (size_t i = 0; i < setting_.actors_per_course; ++i)

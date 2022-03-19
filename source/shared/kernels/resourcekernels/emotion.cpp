@@ -6,7 +6,7 @@
 
 namespace tattletale
 {
-    Emotion::Emotion(EmotionType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Emotion::Emotion(EmotionType type, size_t id, size_t tick, Actor *owner, std::vector<std::weak_ptr<Kernel>> reasons, float value)
         : Resource(
               EmotionTypeToString(type),
               Emotion::positive_name_variants_.at(type),

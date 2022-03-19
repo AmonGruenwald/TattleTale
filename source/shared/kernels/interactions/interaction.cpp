@@ -16,7 +16,7 @@ namespace tattletale
         size_t id,
         size_t tick,
         std::vector<std::weak_ptr<Kernel>> reasons,
-        std::vector<std::weak_ptr<Actor>> participants)
+        std::vector<Actor *> participants)
         : Kernel(prototype->name, id, tick, participants[0], reasons, KernelType::kInteraction),
           prototype_(prototype),
           requirement_(requirement),
@@ -30,15 +30,15 @@ namespace tattletale
         std::vector<std::weak_ptr<Kernel>> reasons{self};
         for (size_t i = 0; i < participants_.size(); ++i)
         {
-            participants_.at(i).lock()->ApplyWealthChange(reasons, tick_, prototype_->wealth_effects[i]);
+            participants_.at(i)->ApplyWealthChange(reasons, tick_, prototype_->wealth_effects[i]);
             for (auto &[type, value] : prototype_->emotion_effects[i])
             {
-                participants_.at(i).lock()->ApplyEmotionChange(reasons, tick_, type, value);
+                participants_.at(i)->ApplyEmotionChange(reasons, tick_, type, value);
             }
             for (auto &[other, change] : prototype_->relationship_effects[i])
             {
 
-                participants_.at(i).lock()->ApplyRelationshipChange(reasons, tick_, participants_[other].lock()->id_, change);
+                participants_.at(i)->ApplyRelationshipChange(reasons, tick_, participants_[other]->id_, change);
             }
         }
     }
@@ -49,7 +49,7 @@ namespace tattletale
         int count = 0;
         for (auto &participant : participants_)
         {
-            args[count++] = fmt::detail::make_arg<fmt::format_context>(participant.lock()->name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(participant->name_);
         }
         auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
         return description;
@@ -60,15 +60,15 @@ namespace tattletale
 
         if (participants_.size() == 2)
         {
-            return fmt::format("{} with participant {}", description, *participants_[1].lock());
+            return fmt::format("{} with participant {}", description, *participants_[1]);
         }
         else if (participants_.size() >= 3)
         {
-            description = fmt::format("{} with participants {}", description, *participants_[1].lock());
+            description = fmt::format("{} with participants {}", description, *participants_[1]);
 
             for (size_t i = 2; i < participants_.size(); ++i)
             {
-                description = fmt::format("{}, {}", description, *participants_[i].lock());
+                description = fmt::format("{}, {}", description, *participants_[i]);
             }
         }
         return description;
@@ -83,7 +83,7 @@ namespace tattletale
         int count = 0;
         for (size_t i = 1; i < participants_.size(); ++i)
         {
-            args[count++] = fmt::detail::make_arg<fmt::format_context>(participants_[i].lock()->name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(participants_[i]->name_);
         }
         auto description = fmt::vformat(prototype_->active_description, fmt::format_args(args, count));
         return description;
@@ -97,7 +97,7 @@ namespace tattletale
     {
         return tendency_;
     }
-    const std::vector<std::weak_ptr<Actor>> &Interaction::GetParticipants() const
+    const std::vector<Actor *> &Interaction::GetParticipants() const
     {
         return participants_;
     }

@@ -6,7 +6,7 @@
 
 namespace tattletale
 {
-    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, std::weak_ptr<Actor> owner, std::weak_ptr<Actor> target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
+    Relationship::Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<std::weak_ptr<Kernel>> reasons, float value)
         : Resource(
               RelationshipTypeToString(type),
               Relationship::positive_name_variants_.at(type),
@@ -96,18 +96,18 @@ namespace tattletale
     //                         "active_description" : "talk about the weather with {0}",
     std::string Relationship::GetDefaultDescription() const
     {
-        return fmt::format("{} {}", Resource::GetDefaultDescription(), *target_.lock());
+        return fmt::format("{} {}", Resource::GetDefaultDescription(), *target_);
     }
     std::string Relationship::GetDetailedDescription() const
     {
-        return fmt::format("{} targeting {}", Resource::GetDetailedDescription(), *target_.lock());
+        return fmt::format("{} targeting {}", Resource::GetDetailedDescription(), *target_);
     }
     std::string Relationship::GetPassiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetPassiveDescription(), *target_.lock());
+        return fmt::format("{} {}", Resource::GetPassiveDescription(), *target_);
     }
     std::string Relationship::GetActiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetActiveDescription(), *target_.lock());
+        return fmt::format("{} {}", Resource::GetActiveDescription(), *target_);
     }
 } // namespace tattletale

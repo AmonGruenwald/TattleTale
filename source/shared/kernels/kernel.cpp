@@ -9,7 +9,7 @@ namespace tattletale
     Kernel::Kernel(
         std::string name, size_t id,
         size_t tick,
-        std::weak_ptr<Actor> owner,
+        Actor *owner,
         std::vector<std::weak_ptr<Kernel>> reasons,
         KernelType type)
         : name_(name),
@@ -33,13 +33,13 @@ namespace tattletale
 
     std::string Kernel::GetDetailedDescription() const
     {
-        return fmt::format("#{} {} ({}) owned by {}", id_, name_, type_, *owner_.lock());
+        return fmt::format("#{} {} ({}) owned by {}", id_, name_, type_, *owner_);
     }
     const std::vector<std::weak_ptr<Kernel>> &Kernel::GetReasons() const
     {
         return reasons_;
     }
-    std::weak_ptr<Actor> Kernel::GetOwner() const
+    Actor *Kernel::GetOwner() const
     {
         return owner_;
     }
