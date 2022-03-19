@@ -21,7 +21,7 @@ namespace tattletale
      * @brief Represents one person in the simulation.
      * An Actor decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision.
      */
-    class Actor : public std::enable_shared_from_this<Actor>
+    class Actor
     {
     public:
         /**
