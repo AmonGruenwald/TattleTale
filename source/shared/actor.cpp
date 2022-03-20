@@ -442,6 +442,12 @@ namespace tattletale
             known_actors_.push_back(school_.GetActor(actor_id));
         }
         std::vector<Kernel *> all_reasons;
+        std::map<RelationshipType, Relationship *> relationship = {};
+
+        if (change.size() < 5)
+        {
+            int lasdfa = 0;
+        }
         for (auto &[type, value] : change)
         {
             all_reasons.clear();
@@ -451,6 +457,7 @@ namespace tattletale
             {
                 if (value == 0)
                 {
+                    relationship[type] = relationships_.at(actor_id).at(type);
                     continue;
                 }
                 previous_value = relationships_.at(actor_id).at(type)->GetValue();
@@ -458,9 +465,9 @@ namespace tattletale
             }
             // TODO: think about handling this cleaner
             float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-            relationships_[actor_id][type] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
+            relationship[type] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
         }
-        UpdateKnownActors();
+        UpdateRelationship(other_actor, relationship, already_known);
     }
 
     std::string Actor::GetDetailedDescriptionString() const
@@ -561,7 +568,7 @@ namespace tattletale
                     {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
-            InsertNewRelationship(other_actor, relationship);
+            UpdateRelationship(other_actor, relationship);
             std::map<RelationshipType, Relationship *> other_relationship =
                 {
                     {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
@@ -569,14 +576,22 @@ namespace tattletale
                     {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
                     {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
-            other_actor->InsertNewRelationship(this, relationship);
+            other_actor->UpdateRelationship(this, relationship);
         }
     }
 
-    void Actor::InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship)
+    void Actor::UpdateRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship, bool already_known)
     {
-        relationships_.insert({other_actor->id_, relationship});
-        known_actors_.push_back(other_actor);
+        if (relationship.size() < 5)
+        {
+            int alsdjfl = 0;
+        }
+        relationships_[other_actor->id_] = relationship;
+        if (!already_known)
+        {
+            // TODO: manual sort here
+            known_actors_.push_back(other_actor);
+        }
         UpdateKnownActors();
     }
     void Actor::InitializeRandomGoal(size_t tick)

@@ -172,7 +172,6 @@ namespace tattletale
         std::vector<Actor *> GetFreetimeActorGroup() const;
         float CalculateRelationshipValue(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
-        void InsertNewRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship);
 
     private:
         /**
@@ -246,6 +245,7 @@ namespace tattletale
          */
         void InitializeRandomTraits(size_t tick);
 
+        void UpdateRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship, bool already_known = false);
         void UpdateKnownActors();
     };
 
