@@ -10,11 +10,11 @@ namespace tattletale
         size_t slot_count_per_week = setting.slot_count_per_week();
         for (size_t i = 0; i < slot_count_per_week; ++i)
         {
-            slots_.push_back(std::vector<Actor *>());
+            slots_.push_back(std::list<Actor *>());
         }
     }
 
-    const std::vector<Actor *> &Course::GetCourseGroupForSlot(size_t slot)
+    const std::list<Actor *> &Course::GetCourseGroupForSlot(size_t slot)
     {
         return slots_[slot];
     }
@@ -46,7 +46,7 @@ namespace tattletale
         }
         return random_slot;
     }
-    void Course::AddToSlot(std::vector<Actor *> actors, size_t slot)
+    void Course::AddToSlot(std::list<Actor *> actors, size_t slot)
     {
         TATTLETALE_ERROR_PRINT(slots_[slot].size() + actors.size() <= setting_.actors_per_course, fmt::format("Slot with id {} does not have enoug space", slot));
 
@@ -63,10 +63,10 @@ namespace tattletale
         actor->EnrollInCourse(id_, slot);
     }
 
-    std::vector<Actor *> Course::ClearSlot(size_t slot)
+    std::list<Actor *> Course::ClearSlot(size_t slot)
     {
         TATTLETALE_ERROR_PRINT(slots_[slot].size() != 0, fmt::format("Slot with id {} is already empty", slot));
-        std::vector<Actor *> group = slots_[slot];
+        std::list<Actor *> group = slots_[slot];
         slots_[slot].clear();
         for (auto &actor : group)
         {

@@ -76,7 +76,7 @@ namespace tattletale
         return (enrolled_courses_id_[slot] == -1);
     }
 
-    int Actor::ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
+    int Actor::ChooseInteraction(const std::list<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
     {
         const std::vector<std::shared_ptr<InteractionRequirement>> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
@@ -212,12 +212,18 @@ namespace tattletale
             }
             size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
             // TODO: I think it is possible for actors to be assigned multiple times as targets for an interaction
-            while (actor_group[participant_index]->id_ == id_)
+            auto chosen_actor = std::next(actor_group.begin(), participant_index);
+            while ((*chosen_actor)->id_ == id_)
             {
-                participant_index += 1;
-                participant_index %= actor_group.size();
+                ++chosen_actor;
+                ++participant_index;
+                if (chosen_actor == actor_group.end())
+                {
+                    chosen_actor = actor_group.begin();
+                    participant_index = 0;
+                }
             }
-            out_participants.push_back(actor_group[participant_index]);
+            out_participants.push_back((*chosen_actor));
             if (participant_reasons[participant_index])
             {
                 out_reasons.push_back(participant_reasons[participant_index]);
@@ -225,7 +231,7 @@ namespace tattletale
         }
         return interaction_index;
     }
-    bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const
+    bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const
     {
         if (requirement.context != ContextType::kLast && requirement.context != context)
         {
@@ -438,10 +444,6 @@ namespace tattletale
         }
         bool already_known = relationships_.count(actor_id);
         auto other_actor = school_.GetActor(actor_id);
-        if (!already_known)
-        {
-            known_actors_.push_back(school_.GetActor(actor_id));
-        }
         std::vector<Kernel *> all_reasons;
         std::vector<Relationship *> relationship(static_cast<int>(RelationshipType::kLast));
         for (int type_index = 0; type_index < change.size(); ++type_index)
@@ -494,19 +496,15 @@ namespace tattletale
         return detailed_actor_description;
     }
 
-    const std::vector<Actor *> &Actor::GetAllKnownActors() const
+    const std::list<Actor *> &Actor::GetAllKnownActors() const
     {
         return known_actors_;
     }
-    std::vector<Actor *> Actor::GetFreetimeActorGroup() const
+    std::list<Actor *> Actor::GetFreetimeActorGroup() const
     {
-        if (setting_.freetime_actor_count >= known_actors_.size())
-        {
-            return known_actors_;
-        }
-        std::vector<Actor *> freetime_actors = {known_actors_.begin(), known_actors_.begin() + setting_.freetime_actor_count};
-        return freetime_actors;
+        return freetime_group;
     }
+
     void Actor::InitializeRandomWealth(size_t tick)
     {
         std::vector<Kernel *> no_reasons;
@@ -558,17 +556,46 @@ namespace tattletale
 
     void Actor::UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known)
     {
-        if (relationship.size() != 5)
-        {
-            int asdf = 0;
-        }
         relationships_[other_actor->id_] = relationship;
-        if (!already_known)
+        float relationship_strength = CalculateRelationshipStrength(other_actor->id_);
+        bool inserted = false;
+        freetime_group.clear();
+        int count = 0;
+        for (auto it = known_actors_.begin(); it != known_actors_.end(); ++it)
         {
-            // TODO: manual sort here
+            if (CalculateRelationshipStrength((*it)->id_) <= relationship_strength && !inserted)
+            {
+                if (!already_known)
+                {
+                    known_actors_.insert(it, other_actor);
+                    inserted = true;
+                }
+                else
+                {
+                    for (auto other_actor_iterator = known_actors_.begin(); other_actor_iterator != known_actors_.end(); ++other_actor_iterator)
+                    {
+                        if ((*other_actor_iterator)->id_ == other_actor->id_)
+                        {
+                            known_actors_.splice(it, known_actors_, other_actor_iterator);
+                            inserted = true;
+                        }
+                    }
+                }
+                freetime_group.push_back(other_actor);
+            }
+            else
+            {
+                if (count < setting_.freetime_actor_count)
+                {
+                    freetime_group.push_back(*it);
+                }
+            }
+            ++count;
+        }
+        if (!inserted && !already_known)
+        {
             known_actors_.push_back(other_actor);
         }
-        UpdateKnownActors();
     }
     void Actor::InitializeRandomGoal(size_t tick)
     {
@@ -579,15 +606,6 @@ namespace tattletale
     {
         std::vector<Kernel *> no_reasons;
         traits_ = {chronicle_.CreateTrait("trait", tick, this, no_reasons)};
-    }
-
-    void Actor::UpdateKnownActors()
-    {
-        std::sort(known_actors_.begin(), known_actors_.end(), [this](const Actor *lhs, const Actor *rhs)
-                  {
-                      float lhs_value = CalculateRelationshipStrength(lhs->id_);
-                      float rhs_value = CalculateRelationshipStrength(rhs->id_);
-                      return lhs_value > rhs_value; });
     }
 
     float Actor::CalculateRelationshipStrength(size_t actor_id) const

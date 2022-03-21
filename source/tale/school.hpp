@@ -166,7 +166,7 @@ namespace tattletale
          * @param weekday Which Weekday we want to check.
          * @return The result of the check.
          */
-        void LetActorInteract(Actor *&actor, const std::vector<Actor *> &group, ContextType type, std::string context_description = "an unknown time");
+        void LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType type, std::string context_description = "an unknown time");
         bool IsWorkday(Weekday weekday) const;
         /**
          * @brief Checks wheter the passed Actor is in the passed course group.
@@ -175,7 +175,7 @@ namespace tattletale
          * @param course_group Which course group we want to look for the actor in.
          * @return The result of the check.
          */
-        bool ActorIsInCourseGroup(const Actor *actor, const std::vector<Actor *> &course_group) const;
+        bool ActorIsInCourseGroup(const Actor *actor, const std::list<Actor *> &course_group) const;
         /**
          * @brief Transforms a Weekday and a daily tick to a slot index.
          *
@@ -197,7 +197,7 @@ namespace tattletale
          * @param slots The slots we want to find free \link Actor Actors \endlink for.
          * @return The found group of Actors.
          */
-        std::vector<Actor *> FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots);
+        std::list<Actor *> FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots);
 
         /**
          * @brief Creates a vector of randomly picked firstnames.

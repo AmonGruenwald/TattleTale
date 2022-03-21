@@ -113,7 +113,7 @@ namespace tattletale
          * @return The index of the InteractionPrototype the Actor chose.
          */
         bool SlotEmpty(size_t slot) const;
-        int ChooseInteraction(const std::vector<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
+        int ChooseInteraction(const std::list<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
         /**
          * @brief Calculates the chance of an Interaction based on its InteractionTendency and the \link Actor Actor's \endlink current state.
          *
@@ -131,7 +131,7 @@ namespace tattletale
          */
         float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason);
         float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
-        bool CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const;
+        bool CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *
@@ -169,8 +169,8 @@ namespace tattletale
          * @return The description string.
          */
         std::string GetDetailedDescriptionString() const;
-        const std::vector<Actor *> &GetAllKnownActors() const;
-        std::vector<Actor *> GetFreetimeActorGroup() const;
+        const std::list<Actor *> &GetAllKnownActors() const;
+        std::list<Actor *> GetFreetimeActorGroup() const;
         float CalculateRelationshipStrength(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
 
@@ -203,7 +203,8 @@ namespace tattletale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
-        std::vector<Actor *> known_actors_;
+        std::list<Actor *> known_actors_;
+        std::list<Actor *> freetime_group;
         /**
          * @brief Initializes the Wealth member with a random value.
          *
@@ -247,7 +248,6 @@ namespace tattletale
         void InitializeRandomTraits(size_t tick);
 
         void UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known = false);
-        void UpdateKnownActors();
     };
 
 } // namespace tattletale

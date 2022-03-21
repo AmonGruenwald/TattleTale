@@ -45,7 +45,7 @@ namespace tattletale
          * @param slot The slot where the group of \link Actor Actors \endlink will be looked up.
          * @return The found group.
          */
-        const std::vector<Actor *> &GetCourseGroupForSlot(size_t slot);
+        const std::list<Actor *> &GetCourseGroupForSlot(size_t slot);
         bool SpaceInSlot(size_t slot) const;
         /**
          * @brief Checks if the course has all slots filled.
@@ -70,9 +70,9 @@ namespace tattletale
          * @param actors Vector of \link Actor Actors \endlink that will be added to the slot.
          * @param slot The slot the \link Actor Actors \endlink will be added to.
          */
-        void AddToSlot(std::vector<Actor *> actors, size_t slot);
+        void AddToSlot(std::list<Actor *> actors, size_t slot);
         void AddToSlot(Actor *actor, size_t slot);
-        std::vector<Actor *> ClearSlot(size_t slot);
+        std::list<Actor *> ClearSlot(size_t slot);
         /**
          * @brief Getter for the amount of slots the Course currenty holds.
          *
@@ -86,7 +86,7 @@ namespace tattletale
         /**
          * @brief Holds the group of \link Actor Actors \endlink for each slot.
          */
-        std::vector<std::vector<Actor *>> slots_;
+        std::vector<std::list<Actor *>> slots_;
         /**
          * @brief Holds a reference to the Randmo objec that was passed during construction.
          */

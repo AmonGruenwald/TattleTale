@@ -73,7 +73,7 @@ namespace tattletale
                     slots.push_back(random_slot_order[slot_index]);
                     ++slot_index;
                 }
-                std::vector<Actor *> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
+                std::list<Actor *> course_group = FindRandomCourseGroup(courses_[i].id_, slots);
 
                 for (size_t j = 0; j < slots.size(); ++j)
                 {
@@ -118,7 +118,7 @@ namespace tattletale
                     size_t summarized_actor_count = actors_count_in_slot + other_actors_count_in_slot;
                     if (summarized_actor_count < setting_.actors_per_course && other_actors_count_in_slot > 0)
                     {
-                        std::vector<Actor *> course_group = courses_[other_course_index].ClearSlot(slot_index);
+                        std::list<Actor *> course_group = courses_[other_course_index].ClearSlot(slot_index);
                         courses_[course_index].AddToSlot(course_group, slot_index);
                     }
                 }
@@ -183,7 +183,7 @@ namespace tattletale
                 size_t slot = WeekdayAndDailyTickToSlot(weekday, i);
                 for (auto &course : courses_)
                 {
-                    std::vector<Actor *> course_group = course.GetCourseGroupForSlot(slot);
+                    std::list<Actor *> course_group = course.GetCourseGroupForSlot(slot);
                     for (auto &actor : course_group)
                     {
                         LetActorInteract(actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in {}", i, course.name_));
@@ -212,7 +212,7 @@ namespace tattletale
         }
     }
 
-    void School::LetActorInteract(Actor *&actor, const std::vector<Actor *> &group, ContextType type, std::string context_description)
+    void School::LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType type, std::string context_description)
     {
         std::vector<Kernel *> reasons;
         std::vector<Actor *> participants;
@@ -236,7 +236,7 @@ namespace tattletale
         return true;
     }
 
-    bool School::ActorIsInCourseGroup(const Actor *actor, const std::vector<Actor *> &course_group) const
+    bool School::ActorIsInCourseGroup(const Actor *actor, const std::list<Actor *> &course_group) const
     {
         for (auto &actor_in_course_group : course_group)
         {
@@ -253,9 +253,9 @@ namespace tattletale
         return static_cast<size_t>(weekday) * setting_.courses_per_day + daily_tick;
     }
 
-    std::vector<Actor *> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
+    std::list<Actor *> School::FindRandomCourseGroup(size_t course_id, const std::vector<uint32_t> &slots)
     {
-        std::vector<Actor *> course_group;
+        std::list<Actor *> course_group;
         if (actors_.size() > 0)
         {
             for (size_t i = 0; i < setting_.actors_per_course; ++i)
