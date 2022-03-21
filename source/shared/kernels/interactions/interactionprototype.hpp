@@ -7,6 +7,7 @@
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include <fmt/core.h>
+#include <robin_hood.h>
 
 namespace tattletale
 {
@@ -51,7 +52,7 @@ namespace tattletale
          * For each Actor a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs.
          * Those pairs signal how much each Relationship axis would be changed.
          */
-        std::vector<std::map<size_t, std::vector<float>>> relationship_effects;
+        std::vector<robin_hood::unordered_map<size_t, std::vector<float>>> relationship_effects;
 
         /**
          * @brief Creates a string describing the InteractionPrototype.

@@ -62,12 +62,17 @@ FetchContent_Declare(rang
 )
 FetchContent_MakeAvailable(rang)
 
+FetchContent_Declare(robin_hood
+  GIT_REPOSITORY https://github.com/martinus/robin-hood-hashing.git
+  GIT_TAG master
+)
+FetchContent_MakeAvailable(robin_hood)
 
 
 add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES})
 
 
-target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang)
+target_link_libraries(${LIBRARY_NAME} nlohmann_json::nlohmann_json fmt::fmt rang robin_hood)
 
 add_executable(${EXECUTABLE_NAME} ${ADDITIONAL_EXECTUABLE_SOURCES})
 # Uncomment/comment out for prints

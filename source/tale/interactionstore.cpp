@@ -74,7 +74,7 @@ namespace tattletale
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->emotion_effects;
     }
-    const std::vector<std::map<size_t, std::vector<float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
+    const std::vector<robin_hood::unordered_map<size_t, std::vector<float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->relationship_effects;

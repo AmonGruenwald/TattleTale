@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <memory>
+#include <robin_hood.h>
 #include "shared/setting.hpp"
 #include "shared/random.hpp"
 #include "tale/interactionstore.hpp"
@@ -52,7 +53,7 @@ namespace tattletale
          * @brief Holds the  \link Actor Actor's \endlink \link Relationship Relationships \endlink with other \link Actor Actors \endlink.
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
          */
-        std::map<size_t, std::vector<Relationship *>> relationships_;
+        robin_hood::unordered_map<size_t, std::vector<Relationship *>> relationships_;
         /**
          * @brief The \link Trait Traits \endlink  the Actor posses.
          */
