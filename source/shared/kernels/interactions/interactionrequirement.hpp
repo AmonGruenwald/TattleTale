@@ -27,12 +27,7 @@ namespace tattletale
             {EmotionType::kSatisfied, 0.0f},
             {EmotionType::kBrave, 0.0f},
             {EmotionType::kExtroverted, 0.0f}};
-        std::map<RelationshipType, float> relationship = {
-            {RelationshipType::kLove, 0.0f},
-            {RelationshipType::kAttraction, 0.0f},
-            {RelationshipType::kFriendship, 0.0f},
-            {RelationshipType::kAnger, 0.0f},
-            {RelationshipType::kProtective, 0.0f}};
+        std::vector<float> relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
 
         std::string ToString()
         {
@@ -62,11 +57,11 @@ namespace tattletale
                 emotions.at(EmotionType::kSatisfied),
                 emotions.at(EmotionType::kBrave),
                 emotions.at(EmotionType::kExtroverted),
-                relationship.at(RelationshipType::kLove),
-                relationship.at(RelationshipType::kAttraction),
-                relationship.at(RelationshipType::kFriendship),
-                relationship.at(RelationshipType::kAnger),
-                relationship.at(RelationshipType::kProtective));
+                relationship[static_cast<int>(RelationshipType::kLove)],
+                relationship[static_cast<int>(RelationshipType::kAttraction)],
+                relationship[static_cast<int>(RelationshipType::kFriendship)],
+                relationship[static_cast<int>(RelationshipType::kAnger)],
+                relationship[static_cast<int>(RelationshipType::kProtective)]);
             return string;
         }
 
@@ -77,7 +72,7 @@ namespace tattletale
             goal_type = GoalType::kNone;
             day = 0;
             emotions.clear();
-            relationship.clear();
+            relationship == std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
         }
 
         bool HasEmotionalRequirement() const
@@ -94,7 +89,7 @@ namespace tattletale
 
         bool HasRelationshipRequirement() const
         {
-            for (const auto &[key, value] : relationship)
+            for (const auto &value : relationship)
             {
                 if (value != 0)
                 {

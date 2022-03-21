@@ -74,7 +74,7 @@ namespace tattletale
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->emotion_effects;
     }
-    const std::vector<std::map<size_t, std::map<RelationshipType, float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
+    const std::vector<std::map<size_t, std::vector<float>>> &InteractionStore::GetRelationshipEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->relationship_effects;
@@ -203,7 +203,7 @@ namespace tattletale
                     {
                         return false;
                     }
-                    std::map<RelationshipType, float> map;
+                    std::vector<float> vector(static_cast<int>(RelationshipType::kLast));
                     for (auto &key : relationship_type_keys_)
                     {
                         float value = 0.0f;
@@ -215,10 +215,10 @@ namespace tattletale
                         {
                             return false;
                         }
-                        map.insert({Relationship::StringToRelationshipType(key), value});
+                        vector[static_cast<int>(Relationship::StringToRelationshipType(key))] = value;
                     }
 
-                    out_prototype->relationship_effects[i].insert({participant, map});
+                    out_prototype->relationship_effects[i].insert({participant, vector});
                     ++index;
                 }
             }
@@ -290,7 +290,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_requirement->relationship.insert({Relationship::StringToRelationshipType(key), relationship_value});
+            out_requirement->relationship[static_cast<int>(Relationship::StringToRelationshipType(key))] = relationship_value;
         }
 
         TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", out_requirement->ToString()));
@@ -361,7 +361,7 @@ namespace tattletale
             {
                 return false;
             }
-            std::map<RelationshipType, float> relationship_map;
+            std::vector<float> relationship_vector(static_cast<int>(RelationshipType::kLast), 0.0f);
             for (auto &key : relationship_type_keys_)
             {
                 float relationship_value = 0.0f;
@@ -373,9 +373,9 @@ namespace tattletale
                 {
                     return false;
                 }
-                relationship_map.insert({Relationship::StringToRelationshipType(key), relationship_value});
+                relationship_vector[static_cast<int>(Relationship::StringToRelationshipType(key))] = relationship_value;
             }
-            out_tendency->relationships.push_back(relationship_map);
+            out_tendency->relationships.push_back(relationship_vector);
         }
 
         TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION TENDENCY:\n{}\n", out_tendency->ToString()));

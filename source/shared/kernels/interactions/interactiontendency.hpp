@@ -24,7 +24,7 @@ namespace tattletale
             {EmotionType::kSatisfied, 0.0f},
             {EmotionType::kBrave, 0.0f},
             {EmotionType::kExtroverted, 0.0f}};
-        std::vector<std::map<RelationshipType, float>> relationships = {};
+        std::vector<std::vector<float>> relationships = {};
 
         std::string ToString()
         {
@@ -44,9 +44,10 @@ namespace tattletale
             for (size_t i = 0; i < relationships.size(); ++i)
             {
                 relationship_string += fmt::format("\tFor Participant{}:\n", i + 1);
-                for (auto &[key, value] : relationships[i])
+                for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
                 {
-                    relationship_string += fmt::format("\t\t{}: {}\n", Relationship::RelationshipTypeToString(key), value);
+                    RelationshipType type = static_cast<RelationshipType>(type_index);
+                    relationship_string += fmt::format("\t\t{}: {}\n", Relationship::RelationshipTypeToString(type), relationships[i][type_index]);
                 }
             }
             return (fmt::format("{}\n{}\n{}\n{}", contexts_string, wealth_string, emotions_string, relationship_string));

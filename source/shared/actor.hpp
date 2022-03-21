@@ -52,7 +52,7 @@ namespace tattletale
          * @brief Holds the  \link Actor Actor's \endlink \link Relationship Relationships \endlink with other \link Actor Actors \endlink.
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
          */
-        std::map<size_t, std::map<RelationshipType, Relationship *>> relationships_;
+        std::map<size_t, std::vector<Relationship *>> relationships_;
         /**
          * @brief The \link Trait Traits \endlink  the Actor posses.
          */
@@ -161,7 +161,7 @@ namespace tattletale
          * @param type The type of Relationship that gets changed.
          * @param value By how much the Relationship gets changed.
          */
-        void ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change);
+        void ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::vector<float> change);
         /**
          * @brief Creates a string describing the current status of the Actor.
          *
@@ -170,7 +170,7 @@ namespace tattletale
         std::string GetDetailedDescriptionString() const;
         const std::vector<Actor *> &GetAllKnownActors() const;
         std::vector<Actor *> GetFreetimeActorGroup() const;
-        float CalculateRelationshipValue(size_t actor_id) const;
+        float CalculateRelationshipStrength(size_t actor_id) const;
         bool HasRelationshipWith(size_t actor_id) const;
 
     private:
@@ -245,7 +245,7 @@ namespace tattletale
          */
         void InitializeRandomTraits(size_t tick);
 
-        void UpdateRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship, bool already_known = false);
+        void UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known = false);
         void UpdateKnownActors();
     };
 

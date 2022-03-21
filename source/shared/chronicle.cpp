@@ -153,7 +153,7 @@ namespace tattletale
         std::vector<Actor *> known_actors = actor->GetAllKnownActors();
         for (auto &other_actor : known_actors)
         {
-            description += fmt::format("{} known with value {}\n", *other_actor, actor->CalculateRelationshipValue(other_actor->id_));
+            description += fmt::format("{} known with value {}\n", *other_actor, actor->CalculateRelationshipStrength(other_actor->id_));
         }
         return description;
     }

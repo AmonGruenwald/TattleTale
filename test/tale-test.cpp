@@ -202,7 +202,7 @@ TEST(TaleExtraSchoolTests, MirroredInitializedRelationships)
         auto a = school.GetActor(i).lock();
         for (auto &b : a->GetAllKnownActors())
         {
-            EXPECT_EQ(a->CalculateRelationshipValue(b.lock()->id_), b.lock()->CalculateRelationshipValue(a->id_));
+            EXPECT_EQ(a->CalculateRelationshipStrength(b.lock()->id_), b.lock()->CalculateRelationshipStrength(a->id_));
         }
     }
 }
@@ -250,7 +250,7 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
         {
             for (auto &[relationship_type, value] : map)
             {
-                EXPECT_EQ(value, interaction_store.GetRelationshipEffects(interaction_index)[i].at(participant).at(relationship_type));
+                EXPECT_EQ(value, interaction_store.GetRelationshipEffects(interaction_index)[i].at(participant).at(static_cast<int>(relationship_type)));
             }
         }
     }
@@ -296,7 +296,7 @@ TEST(TaleInteractions, ApplyInteraction)
         std::map<tattletale::RelationshipType, float> relationship_map;
         std::map<tattletale::RelationshipType, float> expected_relationship_values_map;
         size_t other_participant = (participant_index == 0 ? 1 : 0);
-        for (int relationship_type_int = (int)tattletale::RelationshipType::kNone + 1; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
+        for (int relationship_type_int = 0; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
         {
             tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(relationship_type_int);
             relationship_map.insert({type, relationship_type_int * 0.1f * sign});
@@ -378,7 +378,7 @@ TEST(TaleInteractions, InteractionBecomesReason)
 
         std::map<tattletale::RelationshipType, float> relationship_map;
         size_t other_participant = (participant_index == 0 ? 1 : 0);
-        for (int relationship_type_int = (int)tattletale::RelationshipType::kNone + 1; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
+        for (int relationship_type_int = 0; relationship_type_int != (int)tattletale::RelationshipType::kLast; ++relationship_type_int)
         {
             tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(relationship_type_int);
             relationship_map.insert({type, 0.1f});

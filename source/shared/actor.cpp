@@ -134,13 +134,9 @@ namespace tattletale
         }
         out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
-        if (interaction_index = 1 && first_name_ == "Robin")
-        {
-            int aasdlf = 0;
-        }
         out_participants.push_back(this);
-        const std::shared_ptr<InteractionRequirement> &requirement = requirements[interaction_index];
-        const std::shared_ptr<InteractionTendency> &tendency = tendencies[interaction_index];
+        std::shared_ptr<InteractionRequirement> requirement = requirements[interaction_index];
+        std::shared_ptr<InteractionTendency> tendency = tendencies[interaction_index];
         for (size_t i = 1; i < requirement->participant_count; ++i)
         {
             uint32_t participant_zero_count = 0;
@@ -153,7 +149,7 @@ namespace tattletale
                 size_t id = actor->id_;
                 if (relationships_.count(id))
                 {
-                    std::map<RelationshipType, Relationship *> relationship_map = relationships_[id];
+                    std::vector<Relationship *> relationship_vector = relationships_[id];
 
                     float chance = 0.0f;
                     float highest_chance_increase = 0.0f;
@@ -161,9 +157,10 @@ namespace tattletale
                     uint16_t chance_parts = 0;
 
                     bool requirement_failed = false;
-                    for (auto &[type, relationship] : relationship_map)
+                    for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
                     {
-                        current_chance_increase = relationship->GetValue() * tendency->relationships[i - 1].at(type);
+                        Relationship *relationship = relationship_vector[type_index];
+                        current_chance_increase = relationship->GetValue() * tendency->relationships[i - 1][type_index];
                         chance += current_chance_increase;
                         ++chance_parts;
 
@@ -172,16 +169,16 @@ namespace tattletale
                             highest_chance_increase = current_chance_increase;
                             reason = relationship;
                         }
-                        if (requirement->relationship.at(type) < 0)
+                        if (requirement->relationship[type_index] < 0)
                         {
-                            if (relationship->GetValue() > requirement->relationship.at(type))
+                            if (relationship->GetValue() > requirement->relationship[type_index])
                             {
                                 requirement_failed = true;
                             }
                         }
-                        else if (requirement->relationship.at(type) > 0)
+                        else if (requirement->relationship[type_index] > 0)
                         {
-                            if (relationship->GetValue() < requirement->relationship.at(type))
+                            if (relationship->GetValue() < requirement->relationship[type_index])
                             {
                                 requirement_failed = true;
                             }
@@ -230,7 +227,6 @@ namespace tattletale
     }
     bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const
     {
-        // TODO: check for other requirements eg. participant count
         if (requirement.context != ContextType::kNone && requirement.context != context)
         {
             return false;
@@ -268,18 +264,19 @@ namespace tattletale
         for (auto &[actor_id, relationship] : relationships_)
         {
             match_found = true;
-            for (auto &[key, value] : requirement.relationship)
+            for (int type_index = 0; type_index < relationship.size(); ++type_index)
             {
+                float value = requirement.relationship[type_index];
                 if (value < 0)
                 {
-                    if (relationship.at(key)->GetValue() > value)
+                    if (relationship.at(type_index)->GetValue() > value)
                     {
                         match_found = false;
                     }
                 }
                 else if (value > 0)
                 {
-                    if (relationship.at(key)->GetValue() < value)
+                    if (relationship.at(type_index)->GetValue() < value)
                     {
                         match_found = false;
                     }
@@ -298,8 +295,8 @@ namespace tattletale
     }
     float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason)
     {
-        // TODO: reasons only track positive chance, they do not use reasons why we did not pick other interactions
-        // TODO: reasons also will never include groupsize or context
+        // TODO: reasons only track positive chance, they do track why we did not pick other interactions
+        // TODO: reasons also will never include context
         float chance = 0.0f;
         float highest_chance_influence = 0.0f;
         float current_chance_increase = 0.0f;
@@ -359,7 +356,7 @@ namespace tattletale
             {
                 if (effects[i].count(0))
                 {
-                    relevant_effect += effects[i].at(0).at(RelationshipType::kFriendship);
+                    relevant_effect += effects[i].at(0).at(static_cast<int>(RelationshipType::kFriendship));
                 }
             }
             break;
@@ -370,8 +367,8 @@ namespace tattletale
                 // do both sides of the relationship change
                 if (effects[i].count(0) && effects[0].count(i))
                 {
-                    relevant_effect += effects[i].at(0).at(RelationshipType::kLove);
-                    relevant_effect += effects[0].at(1).at(RelationshipType::kLove);
+                    relevant_effect += effects[i].at(0).at(static_cast<int>(RelationshipType::kLove));
+                    relevant_effect += effects[0].at(1).at(static_cast<int>(RelationshipType::kLove));
                 }
             }
             break;
@@ -379,13 +376,12 @@ namespace tattletale
             relevant_effect = interaction_store_.GetEmotionEffects(interaction_index)[0].at(EmotionType::kSatisfied);
             break;
         case GoalType::kPower:
-            const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
             // skip first as we want the values of other people to this actor
             for (const auto &[other_actor, effect] : effects[0])
             {
 
                 // using minus here because the actor wants a negative value
-                relevant_effect -= effect.at(RelationshipType::kProtective);
+                relevant_effect -= effect.at(static_cast<int>(RelationshipType::kProtective));
             }
             break;
         }
@@ -421,10 +417,10 @@ namespace tattletale
         all_reasons.push_back(emotions_[type]);
         emotions_[type] = chronicle_.CreateEmotion(type, tick, this, all_reasons, new_value);
     }
-    void Actor::ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::map<RelationshipType, float> change)
+    void Actor::ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::vector<float> change)
     {
         bool all_zero = true;
-        for (auto &[type, value] : change)
+        for (auto &value : change)
         {
             if (value != 0)
             {
@@ -442,14 +438,11 @@ namespace tattletale
             known_actors_.push_back(school_.GetActor(actor_id));
         }
         std::vector<Kernel *> all_reasons;
-        std::map<RelationshipType, Relationship *> relationship = {};
-
-        if (change.size() < 5)
+        std::vector<Relationship *> relationship(static_cast<int>(RelationshipType::kLast));
+        for (int type_index = 0; type_index < change.size(); ++type_index)
         {
-            int lasdfa = 0;
-        }
-        for (auto &[type, value] : change)
-        {
+            float value = change[type_index];
+            RelationshipType type = static_cast<RelationshipType>(type_index);
             all_reasons.clear();
             all_reasons.insert(all_reasons.end(), reasons.begin(), reasons.end());
             float previous_value = 0;
@@ -457,15 +450,15 @@ namespace tattletale
             {
                 if (value == 0)
                 {
-                    relationship[type] = relationships_.at(actor_id).at(type);
+                    relationship[type_index] = relationships_.at(actor_id).at(type_index);
                     continue;
                 }
-                previous_value = relationships_.at(actor_id).at(type)->GetValue();
-                all_reasons.push_back(relationships_.at(actor_id).at(type));
+                previous_value = relationships_.at(actor_id).at(type_index)->GetValue();
+                all_reasons.push_back(relationships_.at(actor_id).at(type_index));
             }
             // TODO: think about handling this cleaner
             float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
-            relationship[type] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
+            relationship[type_index] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
         }
         UpdateRelationship(other_actor, relationship, already_known);
     }
@@ -478,12 +471,12 @@ namespace tattletale
         {
             detailed_actor_description += fmt::format("\n\t{:o}", *emotion);
         }
-        for (auto &[actor_index, map] : relationships_)
+        for (auto &[actor_index, vector] : relationships_)
         {
             // TODO: this will only work after all actors have been created, which is wonky
             Actor *other_actor = school_.GetActor(actor_index);
             detailed_actor_description += fmt::format("\n\tWith #{} {}:", other_actor->id_, *other_actor);
-            for (auto &[type, relationship] : map)
+            for (auto &relationship : vector)
             {
                 detailed_actor_description += fmt::format("\n\t\t{:o}", *relationship);
             }
@@ -561,30 +554,25 @@ namespace tattletale
             {
                 return;
             }
-            std::map<RelationshipType, Relationship *> relationship =
-                {
-                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
+            int type_count = static_cast<int>(RelationshipType::kLast);
+            std::vector<Relationship *> relationship(type_count);
+            std::vector<Relationship *> other_relationship(type_count);
+            for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
+            {
+                RelationshipType type = static_cast<RelationshipType>(type_index);
+                relationship[type_index] = chronicle_.CreateRelationship(type, tick, this, other_actor, no_reasons, random_.GetFloat(-1.0f, 1.0f));
+                other_relationship[type_index] = chronicle_.CreateRelationship(type, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f));
+            }
             UpdateRelationship(other_actor, relationship);
-            std::map<RelationshipType, Relationship *> other_relationship =
-                {
-                    {RelationshipType::kLove, chronicle_.CreateRelationship(RelationshipType::kLove, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAttraction, chronicle_.CreateRelationship(RelationshipType::kAttraction, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kFriendship, chronicle_.CreateRelationship(RelationshipType::kFriendship, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kAnger, chronicle_.CreateRelationship(RelationshipType::kAnger, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))},
-                    {RelationshipType::kProtective, chronicle_.CreateRelationship(RelationshipType::kProtective, tick, other_actor, this, no_reasons, random_.GetFloat(-1.0f, 1.0f))}};
-            other_actor->UpdateRelationship(this, relationship);
+            other_actor->UpdateRelationship(this, other_relationship);
         }
     }
 
-    void Actor::UpdateRelationship(Actor *other_actor, std::map<RelationshipType, Relationship *> relationship, bool already_known)
+    void Actor::UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known)
     {
-        if (relationship.size() < 5)
+        if (relationship.size() != 5)
         {
-            int alsdjfl = 0;
+            int asdf = 0;
         }
         relationships_[other_actor->id_] = relationship;
         if (!already_known)
@@ -609,15 +597,15 @@ namespace tattletale
     {
         std::sort(known_actors_.begin(), known_actors_.end(), [this](const Actor *lhs, const Actor *rhs)
                   {
-                      float lhs_value = CalculateRelationshipValue(lhs->id_);
-                      float rhs_value = CalculateRelationshipValue(rhs->id_);
+                      float lhs_value = CalculateRelationshipStrength(lhs->id_);
+                      float rhs_value = CalculateRelationshipStrength(rhs->id_);
                       return lhs_value > rhs_value; });
     }
 
-    float Actor::CalculateRelationshipValue(size_t actor_id) const
+    float Actor::CalculateRelationshipStrength(size_t actor_id) const
     {
         float value = 0;
-        for (const auto &[type, relationship] : relationships_.at(actor_id))
+        for (const auto &relationship : relationships_.at(actor_id))
         {
             value += abs(relationship->GetValue());
         }

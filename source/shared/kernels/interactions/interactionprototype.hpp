@@ -51,7 +51,7 @@ namespace tattletale
          * For each Actor a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs.
          * Those pairs signal how much each Relationship axis would be changed.
          */
-        std::vector<std::map<size_t, std::map<RelationshipType, float>>> relationship_effects;
+        std::vector<std::map<size_t, std::vector<float>>> relationship_effects;
 
         /**
          * @brief Creates a string describing the InteractionPrototype.
@@ -80,12 +80,13 @@ namespace tattletale
             for (size_t i = 0; i < relationship_effects.size(); ++i)
             {
                 relationship_effects_string += fmt::format("\tRelationship Effects for Participant {}:", i);
-                for (auto &[other_participant, relationship_map] : relationship_effects[i])
+                for (auto &[other_participant, relationship_vector] : relationship_effects[i])
                 {
                     relationship_effects_string += fmt::format("\n\t\tWith Participant {}:", other_participant);
-                    for (auto &[relationship_type, relationship_value] : relationship_effects[i][other_participant])
+                    for (int type_index = 0; type_index < relationship_vector.size(); ++i)
                     {
-                        relationship_effects_string += fmt::format("\n\t\t\t{}: {}", Relationship::RelationshipTypeToString(relationship_type), relationship_value);
+                        RelationshipType type = static_cast<RelationshipType>(type_index);
+                        relationship_effects_string += fmt::format("\n\t\t\t{}: {}", Relationship::RelationshipTypeToString(type), relationship_vector[type_index]);
                     }
                 }
                 relationship_effects_string += "\n";

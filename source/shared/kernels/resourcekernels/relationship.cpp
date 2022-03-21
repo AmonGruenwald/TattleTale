@@ -35,20 +35,12 @@ namespace tattletale
             return RelationshipType::kProtective;
 
         TATTLETALE_ERROR_PRINT(true, "Invalid Relationship string was passed");
-        return RelationshipType::kNone;
+        return RelationshipType::kLast;
     }
     std::string Relationship::RelationshipTypeToString(RelationshipType relationship_type)
     {
         switch (relationship_type)
         {
-        case RelationshipType::kNone:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
-            return "none";
-            break;
-        case RelationshipType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
-            return "last";
-            break;
         case RelationshipType::kLove:
             return "love";
             break;
@@ -63,6 +55,10 @@ namespace tattletale
             break;
         case RelationshipType::kProtective:
             return "protective";
+            break;
+        case RelationshipType::kLast:
+            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
+            return "last";
             break;
         }
         return "none";

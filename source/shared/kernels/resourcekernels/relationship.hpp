@@ -8,7 +8,6 @@ namespace tattletale
 {
     enum class RelationshipType
     {
-        kNone,
         kLove,
         kAttraction,
         kFriendship,
@@ -31,7 +30,7 @@ namespace tattletale
          *
          * Uses the same string values RelationshipTypeToString returns.
          * So valid strings are: love", "attraction", "friendship", "anger" and "protective".
-         * Everything else just return RelationshipType::kNone. (But an assert will crash the Application in Debug mode.)
+         * Everything else just return RelationshipType::kLast. (But an assert will crash the Application in Debug mode.)
          *
          * @param relationship_string The string we want to convert.
          * @return The corresponding RelationshipType value.
@@ -40,7 +39,7 @@ namespace tattletale
         /**
          * @brief Converts an RelationshipType to a string for easy printing.
          *
-         * Note that RelationshipType:kNone and RelationshipType::kLast will assert and crash in Debug mode.
+         * Note that RelationshipType::kLast will assert false and crash in Debug mode.
          *
          * @param relationship_type The RelationshipType we want to convert.
          * @return The corresponding string.
