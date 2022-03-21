@@ -44,7 +44,7 @@ namespace tattletale
         /**
          * @brief Stores the effect the corresponding Interaction Interaction has on each participating \link Actor Actor's \endlink \link Emotion Emotions \endlink.
          */
-        std::vector<std::map<EmotionType, float>> emotion_effects;
+        std::vector<std::vector<float>> emotion_effects;
         /**
          * @brief TODO Stores the effect the corresponding Interaction has on each participating \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *
@@ -70,9 +70,12 @@ namespace tattletale
             for (size_t i = 0; i < emotion_effects.size(); ++i)
             {
                 emotion_effects_string += fmt::format("\t{}. Emotion Effect:", i);
-                for (auto &[emotion_type, emotion_value] : emotion_effects[i])
+
+                for (int type_index = 0; type_index < emotion_effects[i].size(); ++i)
                 {
-                    emotion_effects_string += fmt::format("\n\t\t{}: {}", Emotion::EmotionTypeToString(emotion_type), emotion_value);
+                    float value = emotion_effects[i][type_index];
+                    EmotionType type = static_cast<EmotionType>(type_index);
+                    emotion_effects_string += fmt::format("\n\t\t{}: {}", Emotion::EmotionTypeToString(type), value);
                 }
                 emotion_effects_string += "\n";
             }

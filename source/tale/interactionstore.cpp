@@ -69,7 +69,7 @@ namespace tattletale
         return prototype_catalogue_.at(prototype_index)->wealth_effects;
     }
 
-    const std::vector<std::map<EmotionType, float>> &InteractionStore::GetEmotionEffects(size_t prototype_index) const
+    const std::vector<std::vector<float>> &InteractionStore::GetEmotionEffects(size_t prototype_index) const
     {
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         return prototype_catalogue_.at(prototype_index)->emotion_effects;
@@ -157,7 +157,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_prototype->emotion_effects.push_back({});
+            out_prototype->emotion_effects.push_back(std::vector<float>(static_cast<int>(EmotionType::kLast)));
             for (auto &key : emotion_type_keys_)
             {
                 float emotion_value = 0.0f;
@@ -169,7 +169,7 @@ namespace tattletale
                 {
                     return false;
                 }
-                out_prototype->emotion_effects[i].insert({Emotion::StringToEmotionType(key), emotion_value});
+                out_prototype->emotion_effects[i][static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
             }
 
             nlohmann::json relationship_changes_array;
@@ -272,7 +272,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_requirement->emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
+            out_requirement->emotions[static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
         }
         nlohmann::json relationship_map_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationship_key_, false, error_preamble))
@@ -347,7 +347,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_tendency->emotions.insert({Emotion::StringToEmotionType(key), emotion_value});
+            out_tendency->emotions[static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
         }
         nlohmann::json relationship_array;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_array, json, relationship_key_, false, error_preamble))

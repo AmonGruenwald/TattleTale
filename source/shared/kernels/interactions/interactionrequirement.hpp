@@ -21,12 +21,7 @@ namespace tattletale
         size_t participant_count = 1;
         GoalType goal_type = GoalType::kNone;
         size_t day = 0;
-        std::map<EmotionType, float> emotions = {
-            {EmotionType::kHappy, 0.0f},
-            {EmotionType::kCalm, 0.0f},
-            {EmotionType::kSatisfied, 0.0f},
-            {EmotionType::kBrave, 0.0f},
-            {EmotionType::kExtroverted, 0.0f}};
+        std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
         std::vector<float> relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
 
         std::string ToString()
@@ -52,11 +47,11 @@ namespace tattletale
                 participant_count,
                 Goal::GoalTypeToString(goal_type),
                 day,
-                emotions.at(EmotionType::kHappy),
-                emotions.at(EmotionType::kCalm),
-                emotions.at(EmotionType::kSatisfied),
-                emotions.at(EmotionType::kBrave),
-                emotions.at(EmotionType::kExtroverted),
+                emotions[static_cast<int>(EmotionType::kHappy)],
+                emotions[static_cast<int>(EmotionType::kCalm)],
+                emotions[static_cast<int>(EmotionType::kSatisfied)],
+                emotions[static_cast<int>(EmotionType::kBrave)],
+                emotions[static_cast<int>(EmotionType::kExtroverted)],
                 relationship[static_cast<int>(RelationshipType::kLove)],
                 relationship[static_cast<int>(RelationshipType::kAttraction)],
                 relationship[static_cast<int>(RelationshipType::kFriendship)],
@@ -71,13 +66,13 @@ namespace tattletale
             participant_count = 1;
             goal_type = GoalType::kNone;
             day = 0;
-            emotions.clear();
-            relationship == std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
+            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
+            relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
         }
 
         bool HasEmotionalRequirement() const
         {
-            for (const auto &[key, value] : emotions)
+            for (const auto &value : emotions)
             {
                 if (value != 0)
                 {

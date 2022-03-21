@@ -33,20 +33,12 @@ namespace tattletale
         if (emotion_string == "extroverted")
             return EmotionType::kExtroverted;
         TATTLETALE_ERROR_PRINT(true, "Invalid Emotion string was passed");
-        return EmotionType::kNone;
+        return EmotionType::kLast;
     }
     std::string Emotion::EmotionTypeToString(EmotionType emotion_type)
     {
         switch (emotion_type)
         {
-        case EmotionType::kNone:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
-            return "none";
-            break;
-        case EmotionType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
-            return "last";
-            break;
         case EmotionType::kHappy:
             return "happy";
             break;
@@ -61,6 +53,10 @@ namespace tattletale
             break;
         case EmotionType::kExtroverted:
             return "extroverted";
+            break;
+        case EmotionType::kLast:
+            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
+            return "last";
             break;
         }
         return "none";

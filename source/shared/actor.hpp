@@ -47,7 +47,7 @@ namespace tattletale
         /**
          * @brief The \link Actor Actor's \endlink current \link Emotion Emotional \endlink state is. Maps one Emotion to each EmotionType.
          */
-        std::map<EmotionType, Emotion *> emotions_;
+        std::vector<Emotion *> emotions_;
         /**
          * @brief Holds the  \link Actor Actor's \endlink \link Relationship Relationships \endlink with other \link Actor Actors \endlink.
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
@@ -146,10 +146,10 @@ namespace tattletale
          *
          * @param reasons Vector holding the reasons for this change.
          * @param tick The tick during which this change happened.
-         * @param type The type of Emotion that gets changed.
+         * @param type_index The type index of the EmotionType of the Emotion that gets changed.
          * @param value By how much the Emotion gets changed.
          */
-        void ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, EmotionType type, float value);
+        void ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, int type_index, float value);
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *

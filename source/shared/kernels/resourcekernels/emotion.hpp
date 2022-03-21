@@ -9,7 +9,6 @@ namespace tattletale
 {
     enum class EmotionType
     {
-        kNone,
         kHappy,
         kCalm,
         kSatisfied,

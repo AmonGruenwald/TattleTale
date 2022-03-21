@@ -30,13 +30,13 @@ namespace tattletale
         for (size_t i = 0; i < participants_.size(); ++i)
         {
             participants_.at(i)->ApplyWealthChange(reasons, tick_, prototype_->wealth_effects[i]);
-            for (auto &[type, value] : prototype_->emotion_effects[i])
+            for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
             {
-                participants_.at(i)->ApplyEmotionChange(reasons, tick_, type, value);
+                float value = prototype_->emotion_effects[i][type_index];
+                participants_.at(i)->ApplyEmotionChange(reasons, tick_, type_index, value);
             }
             for (auto &[other, change] : prototype_->relationship_effects[i])
             {
-
                 participants_.at(i)->ApplyRelationshipChange(reasons, tick_, participants_[other]->id_, change);
             }
         }

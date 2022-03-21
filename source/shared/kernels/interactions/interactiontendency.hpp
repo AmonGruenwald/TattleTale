@@ -18,12 +18,7 @@ namespace tattletale
             {ContextType::kCourse, 0.0f},
             {ContextType::kFreetime, 0.0f}};
         float wealth = 0;
-        std::map<EmotionType, float> emotions = {
-            {EmotionType::kHappy, 0.0f},
-            {EmotionType::kCalm, 0.0f},
-            {EmotionType::kSatisfied, 0.0f},
-            {EmotionType::kBrave, 0.0f},
-            {EmotionType::kExtroverted, 0.0f}};
+        std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
         std::vector<std::vector<float>> relationships = {};
 
         std::string ToString()
@@ -35,9 +30,10 @@ namespace tattletale
             }
             std::string wealth_string = fmt::format("Wealth: {}\n", wealth);
             std::string emotions_string = "Emotions:\n";
-            for (auto &[key, value] : emotions)
+            for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
             {
-                emotions_string += fmt::format("\t{}: {}\n", Emotion::EmotionTypeToString(key), value);
+                EmotionType type = static_cast<EmotionType>(type_index);
+                emotions_string += fmt::format("\t{}: {}\n", Emotion::EmotionTypeToString(type), emotions[type_index]);
             }
             std::string relationship_string = "Relationships:\n";
 
@@ -56,7 +52,7 @@ namespace tattletale
         {
             contexts.clear();
             wealth = 0;
-            emotions.clear();
+            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast));
             relationships.clear();
         }
     };

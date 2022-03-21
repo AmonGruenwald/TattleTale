@@ -43,8 +43,10 @@ namespace tattletale
         auto tendency = interaction->GetTendency();
         float lowest_influence = 1.0f;
         Resource *blocking_resource = nullptr;
-        for (auto &[type, value] : tendency->emotions)
+        for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
         {
+            float value = tendency->emotions[type_index];
+            EmotionType type = static_cast<EmotionType>(type_index);
             if (value == 0)
             {
                 continue;

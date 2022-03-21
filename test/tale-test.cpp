@@ -241,7 +241,7 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     {
         for (auto &[emotion_type, value] : interaction->GetPrototype()->emotion_effects[i])
         {
-            EXPECT_EQ(value, interaction_store.GetEmotionEffects(interaction_index)[i].at(emotion_type));
+            EXPECT_EQ(value, interaction_store.GetEmotionEffects(interaction_index)[i][static_cast<int>(emotion_type)]);
         }
     }
     for (size_t i = 0; i < interaction->GetPrototype()->relationship_effects.size(); ++i)

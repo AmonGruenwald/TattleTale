@@ -198,7 +198,7 @@ namespace tattletale
                 }
                 else
                 {
-                    if (requirement->HasEmotionalRequirement())
+                    if (requirement->HasRelationshipRequirement())
                     {
                         participant_chances.push_back(0.0f);
                         ++participant_zero_count;
@@ -243,18 +243,19 @@ namespace tattletale
         {
             return false;
         }
-        for (auto &[key, value] : requirement.emotions)
+        for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
         {
+            float value = requirement.emotions[type_index];
             if (value < 0)
             {
-                if (emotions_.at(key)->GetValue() > value)
+                if (emotions_[type_index]->GetValue() > value)
                 {
                     return false;
                 }
             }
             else if (value > 0)
             {
-                if (emotions_.at(key)->GetValue() < value)
+                if (emotions_[type_index]->GetValue() < value)
                 {
                     return false;
                 }
@@ -319,15 +320,16 @@ namespace tattletale
             out_reason = wealth_;
         }
 
-        for (auto &[type, value] : tendency.emotions)
+        for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
         {
-            current_chance_increase = (value * emotions_[type]->GetValue());
+            float value = tendency.emotions[type_index];
+            current_chance_increase = (value * emotions_[type_index]->GetValue());
             chance += current_chance_increase;
             ++chance_parts;
             if (current_chance_increase > highest_chance_influence)
             {
                 highest_chance_influence = current_chance_increase;
-                out_reason = emotions_[type];
+                out_reason = emotions_[type_index];
             }
         }
 
@@ -373,7 +375,7 @@ namespace tattletale
             }
             break;
         case GoalType::kHedonism:
-            relevant_effect = interaction_store_.GetEmotionEffects(interaction_index)[0].at(EmotionType::kSatisfied);
+            relevant_effect = interaction_store_.GetEmotionEffects(interaction_index)[0][static_cast<int>(EmotionType::kSatisfied)];
             break;
         case GoalType::kPower:
             // skip first as we want the values of other people to this actor
@@ -404,18 +406,19 @@ namespace tattletale
         all_reasons.push_back(wealth_);
         wealth_ = chronicle_.CreateResource("wealth", "wealthy", "poor", tick, this, all_reasons, new_value);
     }
-    void Actor::ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, EmotionType type, float value)
+    void Actor::ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, int type_index, float value)
     {
         if (value == 0)
         {
             return;
         }
-        float previous_value = emotions_[type]->GetValue();
+        float previous_value = emotions_[type_index]->GetValue();
         // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<Kernel *> all_reasons(reasons);
-        all_reasons.push_back(emotions_[type]);
-        emotions_[type] = chronicle_.CreateEmotion(type, tick, this, all_reasons, new_value);
+        all_reasons.push_back(emotions_[type_index]);
+        EmotionType type = static_cast<EmotionType>(type_index);
+        emotions_[type_index] = chronicle_.CreateEmotion(type, tick, this, all_reasons, new_value);
     }
     void Actor::ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::vector<float> change)
     {
@@ -467,7 +470,7 @@ namespace tattletale
     {
         std::string detailed_actor_description = fmt::format("{}:", name_);
         detailed_actor_description += fmt::format("\n\t{:o}", *wealth_);
-        for (auto &[type, emotion] : emotions_)
+        for (auto &emotion : emotions_)
         {
             detailed_actor_description += fmt::format("\n\t{:o}", *emotion);
         }
@@ -510,29 +513,12 @@ namespace tattletale
     void Actor::InitializeRandomEmotions(size_t tick)
     {
         std::vector<Kernel *> no_reasons;
-        emotions_ =
-            {
-                {
-                    EmotionType::kHappy,
-                    chronicle_.CreateEmotion(EmotionType::kHappy, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
-                },
-                {
-                    EmotionType::kCalm,
-                    chronicle_.CreateEmotion(EmotionType::kCalm, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
-                },
-                {
-                    EmotionType::kSatisfied,
-                    chronicle_.CreateEmotion(EmotionType::kSatisfied, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
-                },
-                {
-                    EmotionType::kBrave,
-                    chronicle_.CreateEmotion(EmotionType::kBrave, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
-                },
-                {
-                    EmotionType::kExtroverted,
-                    chronicle_.CreateEmotion(EmotionType::kExtroverted, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f)),
-                },
-            };
+        emotions_ = std::vector<Emotion *>(static_cast<int>(EmotionType::kLast));
+        for (int type_index = 0; type_index < emotions_.size(); ++type_index)
+        {
+            EmotionType type = static_cast<EmotionType>(type_index);
+            emotions_[type_index] = chronicle_.CreateEmotion(type, tick, this, no_reasons, random_.GetFloat(-1.0f, 1.0f));
+        }
     }
     void Actor::InitializeRandomRelationships(size_t tick)
     {

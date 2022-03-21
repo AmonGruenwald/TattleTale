@@ -72,7 +72,7 @@ namespace tattletale
          * @param prototype_index Index of the queried InteractionPrototype.
          * @return The emotion effects
          */
-        const std::vector<std::map<EmotionType, float>> &GetEmotionEffects(size_t prototype_index) const;
+        const std::vector<std::vector<float>> &GetEmotionEffects(size_t prototype_index) const;
         /**
          * @brief Returns the relationship effects for a catalogued InteractionPrototype.
          *
@@ -80,7 +80,7 @@ namespace tattletale
          * @param prototype_index Index of the queried InteractionPrototype.
          * @return The relationship effects
          */
-        const std::vector<std::map<size_t, std::vector< float>>> &GetRelationshipEffects(size_t prototype_index) const;
+        const std::vector<std::map<size_t, std::vector<float>>> &GetRelationshipEffects(size_t prototype_index) const;
         /**
          * @brief Creates an interaction from a catalogued InteractionPrototype.
          *
