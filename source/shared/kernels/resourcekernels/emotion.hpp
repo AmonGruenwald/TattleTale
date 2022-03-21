@@ -72,18 +72,18 @@ namespace tattletale
          * @brief The EmotionType of this Emotion.
          */
         EmotionType type_;
-        const static inline std::map<EmotionType, std::string> positive_name_variants_ = {
-            {EmotionType::kHappy, "happy"},
-            {EmotionType::kBrave, "brave"},
-            {EmotionType::kCalm, "calm"},
-            {EmotionType::kExtroverted, "extroverted"},
-            {EmotionType::kSatisfied, "satisfied"}};
-        const static inline std::map<EmotionType, std::string> negative_name_variants_ = {
-            {EmotionType::kHappy, "sad"},
-            {EmotionType::kBrave, "fearful"},
-            {EmotionType::kCalm, "stressed"},
-            {EmotionType::kExtroverted, "shy"},
-            {EmotionType::kSatisfied, "unfullfilled"}};
+        const static inline std::vector<std::string> positive_name_variants_ =
+            {"happy",
+             "calm",
+             "satisfied",
+             "brave",
+             "extroverted"};
+        const static inline std::vector<std::string> negative_name_variants_ =
+            {"sad",
+             "stressed",
+             "unfullfilled",
+             "fearful",
+             "shy"};
         friend class Chronicle;
     };
 

@@ -14,9 +14,7 @@ namespace tattletale
      */
     struct InteractionTendency
     {
-        std::map<ContextType, float> contexts = {
-            {ContextType::kCourse, 0.0f},
-            {ContextType::kFreetime, 0.0f}};
+        std::vector<float> contexts = std::vector<float>(static_cast<int>(ContextType::kLast), 0.0f);
         float wealth = 0;
         std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
         std::vector<std::vector<float>> relationships = {};
@@ -24,9 +22,10 @@ namespace tattletale
         std::string ToString()
         {
             std::string contexts_string = "Contexts:\n";
-            for (auto &[key, value] : contexts)
+            for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
             {
-                contexts_string += fmt::format("\t{}: {}\n", ContextTypeToString(key), value);
+                ContextType type = static_cast<ContextType>(type_index);
+                contexts_string += fmt::format("\t{}: {}\n", ContextTypeToString(type), contexts[type_index]);
             }
             std::string wealth_string = fmt::format("Wealth: {}\n", wealth);
             std::string emotions_string = "Emotions:\n";
@@ -50,9 +49,9 @@ namespace tattletale
         }
         void ClearValues()
         {
-            contexts.clear();
+            contexts=std::vector<float>(static_cast<int>(ContextType::kLast),0.0f);
             wealth = 0;
-            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast));
+            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast),0.0f);
             relationships.clear();
         }
     };

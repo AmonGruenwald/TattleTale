@@ -8,7 +8,6 @@ namespace tattletale
      */
     enum class ContextType
     {
-        kNone,
         kCourse,
         kFreetime,
         kLast
@@ -30,7 +29,7 @@ namespace tattletale
             return ContextType::kCourse;
         if (context_string == "freetime")
             return ContextType::kFreetime;
-        return ContextType::kNone;
+        return ContextType::kLast;
     }
     /**
      * @brief Converts an ContextType to a string for easy printing.
@@ -42,17 +41,14 @@ namespace tattletale
     {
         switch (context_type)
         {
-        case ContextType::kNone:
-            return "none";
-            break;
-        case ContextType::kLast:
-            return "last";
-            break;
         case ContextType::kCourse:
             return "course";
             break;
         case ContextType::kFreetime:
             return "freetime";
+            break;
+        case ContextType::kLast:
+            return "last";
             break;
         }
         return "none";

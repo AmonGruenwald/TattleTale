@@ -14,7 +14,7 @@ namespace tattletale
         /**
          * @brief ContextType the corresponding Interaction needs.
          */
-        ContextType context = ContextType::kNone;
+        ContextType context = ContextType::kLast;
         /**
          * @brief How many \link Actor Actors \endlink the corresponding Interaction needs.
          */
@@ -62,7 +62,7 @@ namespace tattletale
 
         void ClearValues()
         {
-            context = ContextType::kNone;
+            context = ContextType::kLast;
             participant_count = 1;
             goal_type = GoalType::kNone;
             day = 0;

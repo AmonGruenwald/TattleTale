@@ -227,7 +227,7 @@ namespace tattletale
     }
     bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::vector<Actor *> &actor_group, ContextType context) const
     {
-        if (requirement.context != ContextType::kNone && requirement.context != context)
+        if (requirement.context != ContextType::kLast && requirement.context != context)
         {
             return false;
         }
@@ -303,8 +303,10 @@ namespace tattletale
         float current_chance_increase = 0.0f;
         uint16_t chance_parts = 0;
 
-        for (auto &[type, value] : tendency.contexts)
+        for (int type_index = 0; type_index < static_cast<int>(ContextType::kLast); ++type_index)
         {
+            ContextType type = static_cast<ContextType>(type_index);
+            float value = tendency.contexts[type_index];
             // TODO: rethink wether this makes sense
             current_chance_increase = (value * (context == type ? 1.0f : -1.0f));
             chance += current_chance_increase;

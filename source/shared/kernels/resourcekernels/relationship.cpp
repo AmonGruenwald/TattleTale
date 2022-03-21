@@ -9,8 +9,8 @@ namespace tattletale
     Relationship::Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value)
         : Resource(
               RelationshipTypeToString(type),
-              Relationship::positive_name_variants_.at(type),
-              Relationship::negative_name_variants_.at(type),
+              Relationship::positive_name_variants_[static_cast<int>(type)],
+              Relationship::negative_name_variants_[static_cast<int>(type)],
               id,
               tick,
               owner,

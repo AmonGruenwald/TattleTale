@@ -9,8 +9,8 @@ namespace tattletale
     Emotion::Emotion(EmotionType type, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value)
         : Resource(
               EmotionTypeToString(type),
-              Emotion::positive_name_variants_.at(type),
-              Emotion::negative_name_variants_.at(type),
+              Emotion::positive_name_variants_[static_cast<int>(type)],
+              Emotion::negative_name_variants_[static_cast<int>(type)],
               id,
               tick,
               owner,

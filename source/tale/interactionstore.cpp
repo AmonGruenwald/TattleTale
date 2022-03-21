@@ -318,7 +318,7 @@ namespace tattletale
             {
                 return false;
             }
-            out_tendency->contexts.insert({StringToContextType(key), context_value});
+            out_tendency->contexts[static_cast<int>(StringToContextType(key))] = context_value;
         }
         float wealth_value = 0.0f;
         if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(wealth_value, json, wealth_key_, false, error_preamble))

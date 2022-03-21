@@ -70,18 +70,18 @@ namespace tattletale
          * @brief The RelationshipType of this Relationship.
          */
         RelationshipType type_;
-        const static inline std::map<RelationshipType, std::string> positive_name_variants_ = {
-            {RelationshipType::kAnger, "anger for"},
-            {RelationshipType::kAttraction, "attraction for"},
-            {RelationshipType::kFriendship, "friendship for"},
-            {RelationshipType::kLove, "love for"},
-            {RelationshipType::kProtective, "protective of"}};
-        const static inline std::map<RelationshipType, std::string> negative_name_variants_ = {
-            {RelationshipType::kAnger, "comfortable with"},
-            {RelationshipType::kAttraction, "disgust for"},
-            {RelationshipType::kFriendship, "animosity for"},
-            {RelationshipType::kLove, "hate for"},
-            {RelationshipType::kProtective, "power over for"}};
+        const static inline std::vector<std::string> positive_name_variants_ =
+            {"love for",
+             "attraction for",
+             "friendship for",
+             "anger for",
+             "protective of"};
+        const static inline std::vector<std::string> negative_name_variants_ =
+            {"hate for",
+             "disgust for",
+             "animosity for",
+             "comfortable with",
+             "power over for"};
         Actor *target_;
         friend class Chronicle;
     };
