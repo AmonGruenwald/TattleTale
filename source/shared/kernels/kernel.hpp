@@ -36,6 +36,7 @@ namespace tattletale
         size_t id_;
         size_t tick_;
         KernelType type_;
+        virtual ~Kernel();
 
         void AddConsequence(Kernel *consequence);
         const std::vector<Kernel *> &GetConsequences() const;

@@ -2,7 +2,7 @@
 #define TALE_ACTOR_H
 
 #include <string>
-#include <map>
+#include <list>
 #include <memory>
 #include <robin_hood.h>
 #include "shared/setting.hpp"

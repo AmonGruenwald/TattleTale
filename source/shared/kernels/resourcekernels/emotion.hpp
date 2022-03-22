@@ -3,7 +3,6 @@
 
 #include <string>
 #include "shared/kernels/resourcekernels/resource.hpp"
-#include <map>
 
 namespace tattletale
 {

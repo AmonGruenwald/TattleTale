@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
+#include <list>
 #include <algorithm>
 #include <memory>
 #include "tale/tale.hpp"
@@ -27,7 +28,6 @@ TEST(TaleKernels, IncreasingKernelId)
     Relationship *relationship = chronicle.CreateRelationship(RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
     Resource *wealth = chronicle.CreateResource("wealth", "wealthy", "poor", tick, actor, no_reasons, 1);
     Trait *trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
-
     EXPECT_EQ(0, emotion->id_);
     EXPECT_EQ(1, goal->id_);
     EXPECT_EQ(2, relationship->id_);

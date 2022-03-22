@@ -2,6 +2,7 @@
 #include "shared/actor.hpp"
 #include <fmt/core.h>
 #include <math.h>
+#include <map>
 #include "shared/tattletalecore.hpp"
 
 namespace tattletale

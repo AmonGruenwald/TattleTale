@@ -5,7 +5,6 @@
 #include "shared/kernels/resourcekernels/resource.hpp"
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
-#include <map>
 #include <fmt/core.h>
 namespace tattletale
 {
@@ -49,9 +48,9 @@ namespace tattletale
         }
         void ClearValues()
         {
-            contexts=std::vector<float>(static_cast<int>(ContextType::kLast),0.0f);
+            contexts = std::vector<float>(static_cast<int>(ContextType::kLast), 0.0f);
             wealth = 0;
-            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast),0.0f);
+            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
             relationships.clear();
         }
     };

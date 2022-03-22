@@ -110,13 +110,13 @@ namespace tattletale
                 for (size_t other_course_index = course_index + 1; other_course_index < course_count; ++other_course_index)
                 {
                     size_t actors_count_in_slot = courses_[course_index].GetActorCount(slot_index);
-                    if (actors_count_in_slot > setting_.actors_per_course || actors_count_in_slot == 0)
+                    if (actors_count_in_slot >= setting_.actors_per_course || actors_count_in_slot == 0)
                     {
                         break;
                     }
                     size_t other_actors_count_in_slot = courses_[other_course_index].GetActorCount(slot_index);
                     size_t summarized_actor_count = actors_count_in_slot + other_actors_count_in_slot;
-                    if (summarized_actor_count < setting_.actors_per_course && other_actors_count_in_slot > 0)
+                    if (summarized_actor_count <= setting_.actors_per_course && other_actors_count_in_slot > 0)
                     {
                         std::list<Actor *> course_group = courses_[other_course_index].ClearSlot(slot_index);
                         courses_[course_index].AddToSlot(course_group, slot_index);

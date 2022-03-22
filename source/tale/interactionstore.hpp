@@ -2,7 +2,6 @@
 #define TALE_GLOBALS_INTERACTIONSTORE_H
 
 #include <string>
-#include <map>
 #include <memory>
 #include "shared/kernels/interactions/interaction.hpp"
 #include "shared/kernels/interactions/interactionprototype.hpp"

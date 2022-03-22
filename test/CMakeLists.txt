@@ -9,7 +9,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-set(SOURCES tale-test.cpp tattle-test.cpp)
+set(SOURCES test.cpp)
 
 add_executable(${TEST_EXECUTABLE_NAME} ${SOURCES})
 

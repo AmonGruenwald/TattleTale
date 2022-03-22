@@ -2,7 +2,6 @@
 #define TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H
 
 #include "shared/kernels/resourcekernels/resource.hpp"
-#include <map>
 
 namespace tattletale
 {

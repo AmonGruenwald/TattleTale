@@ -20,6 +20,8 @@ namespace tattletale
           type_(type)
     {
     }
+
+    Kernel::~Kernel(){};
     void Kernel::AddConsequence(Kernel *consequence)
     {
         consequences_.push_back(consequence);

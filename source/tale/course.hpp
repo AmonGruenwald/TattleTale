@@ -6,6 +6,7 @@
 #include "shared/setting.hpp"
 #include <string>
 #include <memory>
+#include <list>
 
 namespace tattletale
 {
