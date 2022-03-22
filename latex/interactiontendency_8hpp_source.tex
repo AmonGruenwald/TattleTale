@@ -9,55 +9,54 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <fmt/core.h>}}
-\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{11 \{}
-\DoxyCodeLine{15     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}}}
-\DoxyCodeLine{16     \{}
-\DoxyCodeLine{17         std::vector<float> contexts = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ContextType::kLast), 0.0f);}
-\DoxyCodeLine{18         \textcolor{keywordtype}{float} wealth = 0;}
-\DoxyCodeLine{19         std::vector<float> emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f);}
-\DoxyCodeLine{20         std::vector<std::vector<float>> relationships = \{\};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22         std::string ToString()}
-\DoxyCodeLine{23         \{}
-\DoxyCodeLine{24             std::string contexts\_string = \textcolor{stringliteral}{"{}Contexts:\(\backslash\)n"{}};}
-\DoxyCodeLine{25             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(EmotionType::kLast); ++type\_index)}
-\DoxyCodeLine{26             \{}
-\DoxyCodeLine{27                 \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} type = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}\textcolor{keyword}{>}(type\_index);}
-\DoxyCodeLine{28                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(type), contexts[type\_index]);}
-\DoxyCodeLine{29             \}}
-\DoxyCodeLine{30             std::string wealth\_string = fmt::format(\textcolor{stringliteral}{"{}Wealth: \{\}\(\backslash\)n"{}}, wealth);}
-\DoxyCodeLine{31             std::string emotions\_string = \textcolor{stringliteral}{"{}Emotions:\(\backslash\)n"{}};}
-\DoxyCodeLine{32             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(EmotionType::kLast); ++type\_index)}
-\DoxyCodeLine{33             \{}
-\DoxyCodeLine{34                 EmotionType type = \textcolor{keyword}{static\_cast<}EmotionType\textcolor{keyword}{>}(type\_index);}
-\DoxyCodeLine{35                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion::EmotionTypeToString}}(type), emotions[type\_index]);}
-\DoxyCodeLine{36             \}}
-\DoxyCodeLine{37             std::string relationship\_string = \textcolor{stringliteral}{"{}Relationships:\(\backslash\)n"{}};}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < relationships.size(); ++i)}
-\DoxyCodeLine{40             \{}
-\DoxyCodeLine{41                 relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tFor Participant\{\}:\(\backslash\)n"{}}, i + 1);}
-\DoxyCodeLine{42                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(RelationshipType::kLast); ++type\_index)}
-\DoxyCodeLine{43                 \{}
-\DoxyCodeLine{44                     RelationshipType type = \textcolor{keyword}{static\_cast<}RelationshipType\textcolor{keyword}{>}(type\_index);}
-\DoxyCodeLine{45                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship::RelationshipTypeToString}}(type), relationships[i][type\_index]);}
-\DoxyCodeLine{46                 \}}
-\DoxyCodeLine{47             \}}
-\DoxyCodeLine{48             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}"{}}, contexts\_string, wealth\_string, emotions\_string, relationship\_string));}
-\DoxyCodeLine{49         \}}
-\DoxyCodeLine{50         \textcolor{keywordtype}{void} ClearValues()}
-\DoxyCodeLine{51         \{}
-\DoxyCodeLine{52             contexts=std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ContextType::kLast),0.0f);}
-\DoxyCodeLine{53             wealth = 0;}
-\DoxyCodeLine{54             emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast),0.0f);}
-\DoxyCodeLine{55             relationships.clear();}
-\DoxyCodeLine{56         \}}
-\DoxyCodeLine{57     \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{14     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}}}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         std::vector<float> contexts = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ContextType::kLast), 0.0f);}
+\DoxyCodeLine{17         \textcolor{keywordtype}{float} wealth = 0;}
+\DoxyCodeLine{18         std::vector<float> emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f);}
+\DoxyCodeLine{19         std::vector<std::vector<float>> relationships = \{\};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         std::string ToString()}
+\DoxyCodeLine{22         \{}
+\DoxyCodeLine{23             std::string contexts\_string = \textcolor{stringliteral}{"{}Contexts:\(\backslash\)n"{}};}
+\DoxyCodeLine{24             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(EmotionType::kLast); ++type\_index)}
+\DoxyCodeLine{25             \{}
+\DoxyCodeLine{26                 \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} type = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}\textcolor{keyword}{>}(type\_index);}
+\DoxyCodeLine{27                 contexts\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(type), contexts[type\_index]);}
+\DoxyCodeLine{28             \}}
+\DoxyCodeLine{29             std::string wealth\_string = fmt::format(\textcolor{stringliteral}{"{}Wealth: \{\}\(\backslash\)n"{}}, wealth);}
+\DoxyCodeLine{30             std::string emotions\_string = \textcolor{stringliteral}{"{}Emotions:\(\backslash\)n"{}};}
+\DoxyCodeLine{31             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(EmotionType::kLast); ++type\_index)}
+\DoxyCodeLine{32             \{}
+\DoxyCodeLine{33                 EmotionType type = \textcolor{keyword}{static\_cast<}EmotionType\textcolor{keyword}{>}(type\_index);}
+\DoxyCodeLine{34                 emotions\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion::EmotionTypeToString}}(type), emotions[type\_index]);}
+\DoxyCodeLine{35             \}}
+\DoxyCodeLine{36             std::string relationship\_string = \textcolor{stringliteral}{"{}Relationships:\(\backslash\)n"{}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < relationships.size(); ++i)}
+\DoxyCodeLine{39             \{}
+\DoxyCodeLine{40                 relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)tFor Participant\{\}:\(\backslash\)n"{}}, i + 1);}
+\DoxyCodeLine{41                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < static\_cast<int>(RelationshipType::kLast); ++type\_index)}
+\DoxyCodeLine{42                 \{}
+\DoxyCodeLine{43                     RelationshipType type = \textcolor{keyword}{static\_cast<}RelationshipType\textcolor{keyword}{>}(type\_index);}
+\DoxyCodeLine{44                     relationship\_string += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t\{\}: \{\}\(\backslash\)n"{}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship::RelationshipTypeToString}}(type), relationships[i][type\_index]);}
+\DoxyCodeLine{45                 \}}
+\DoxyCodeLine{46             \}}
+\DoxyCodeLine{47             \textcolor{keywordflow}{return} (fmt::format(\textcolor{stringliteral}{"{}\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}\(\backslash\)n\{\}"{}}, contexts\_string, wealth\_string, emotions\_string, relationship\_string));}
+\DoxyCodeLine{48         \}}
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{50         \{}
+\DoxyCodeLine{51             contexts = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ContextType::kLast), 0.0f);}
+\DoxyCodeLine{52             wealth = 0;}
+\DoxyCodeLine{53             emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f);}
+\DoxyCodeLine{54             relationships.clear();}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56     \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONTENDENCY\_H}}
 
 \end{DoxyCode}

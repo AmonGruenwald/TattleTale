@@ -6,74 +6,75 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_GLOBALS\_CHRONICLE\_H}}
 \DoxyCodeLine{3 }
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interaction.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}shared/kernels/trait.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{15 \{}
-\DoxyCodeLine{16     \textcolor{keyword}{class }School;}
-\DoxyCodeLine{17     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}}
-\DoxyCodeLine{18     \{}
-\DoxyCodeLine{19     \textcolor{keyword}{public}:}
-\DoxyCodeLine{23         std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_chronicle_a80d84c9482c6bf8880b65e3f44ca2457}{actors\_}};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
-\DoxyCodeLine{26         \mbox{\hyperlink{classtattletale_1_1_chronicle}{\string~Chronicle}}();}
-\DoxyCodeLine{27         \textcolor{keywordtype}{void} Reset();}
-\DoxyCodeLine{28         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *CreateActor(\mbox{\hyperlink{classtattletale_1_1_school}{School}} \&school, std::string first\_name, std::string last\_name);}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *CreateInteraction(}
-\DoxyCodeLine{31             \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> prototype,}
-\DoxyCodeLine{32             \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement,}
-\DoxyCodeLine{33             \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency,}
-\DoxyCodeLine{34             \textcolor{keywordtype}{float} chance,}
-\DoxyCodeLine{35             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{36             std::vector<Kernel *> reasons,}
-\DoxyCodeLine{37             std::vector<Actor *> participants);}
-\DoxyCodeLine{38         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{39         \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} *CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{40         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *CreateResource(std::string name, std::string positive\_name\_variant, std::string negative\_name\_variant, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{41         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} *CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
-\DoxyCodeLine{42         \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}} *CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44         \textcolor{keywordtype}{float} GetAverageInteractionChance() \textcolor{keyword}{const};}
-\DoxyCodeLine{45         \textcolor{keywordtype}{float} GetAverageInteractionReasonCount() \textcolor{keyword}{const};}
-\DoxyCodeLine{46         std::string GetKnownActorsDescription(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{47         \textcolor{keywordtype}{size\_t} GetKernelAmount() \textcolor{keyword}{const};}
-\DoxyCodeLine{48         std::string GetRandomCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{49         std::string GetKissingCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{50         std::string GetGoalCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{51         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
-\DoxyCodeLine{52         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
-\DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{54         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, EmotionType type) \textcolor{keyword}{const};}
-\DoxyCodeLine{55         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{56         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58     \textcolor{keyword}{private}:}
-\DoxyCodeLine{59         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{60         std::vector<Kernel *>}
-\DoxyCodeLine{61             all\_kernels\_;}
-\DoxyCodeLine{62         std::vector<Interaction *>}
-\DoxyCodeLine{63             all\_interactions\_;}
-\DoxyCodeLine{64         std::vector<std::vector<Interaction *>>}
-\DoxyCodeLine{65             interactions\_by\_actor\_;}
-\DoxyCodeLine{66         std::vector<std::vector<Kernel *>>}
-\DoxyCodeLine{67             kernels\_by\_actor\_;}
-\DoxyCodeLine{68         std::vector<std::vector<Emotion *>>}
-\DoxyCodeLine{69             emotions\_by\_actor\_;}
-\DoxyCodeLine{70         std::vector<std::vector<Resource *>>}
-\DoxyCodeLine{71             wealth\_by\_actor\_;}
-\DoxyCodeLine{72         \textcolor{keywordtype}{size\_t} highest\_interaction\_id = 0;}
-\DoxyCodeLine{73         std::string GetRecursiveKernelDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{74     \};}
-\DoxyCodeLine{75 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interaction.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}shared/kernels/trait.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keyword}{class }School;}
+\DoxyCodeLine{18     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_chronicle_a80d84c9482c6bf8880b65e3f44ca2457}{actors\_}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{27         \mbox{\hyperlink{classtattletale_1_1_chronicle}{\string~Chronicle}}();}
+\DoxyCodeLine{28         \textcolor{keywordtype}{void} Reset();}
+\DoxyCodeLine{29         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *CreateActor(\mbox{\hyperlink{classtattletale_1_1_school}{School}} \&school, std::string first\_name, std::string last\_name);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *CreateInteraction(}
+\DoxyCodeLine{32             \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> prototype,}
+\DoxyCodeLine{33             \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement,}
+\DoxyCodeLine{34             \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency,}
+\DoxyCodeLine{35             \textcolor{keywordtype}{float} chance,}
+\DoxyCodeLine{36             \textcolor{keywordtype}{size\_t} tick,}
+\DoxyCodeLine{37             std::vector<Kernel *> reasons,}
+\DoxyCodeLine{38             std::vector<Actor *> participants);}
+\DoxyCodeLine{39         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{40         \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} *CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{41         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *CreateResource(std::string name, std::string positive\_name\_variant, std::string negative\_name\_variant, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{42         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} *CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
+\DoxyCodeLine{43         \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}} *CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{float} GetAverageInteractionChance() \textcolor{keyword}{const};}
+\DoxyCodeLine{46         \textcolor{keywordtype}{float} GetAverageInteractionReasonCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{47         std::string GetKnownActorsDescription(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{48         \textcolor{keywordtype}{size\_t} GetKernelAmount() \textcolor{keyword}{const};}
+\DoxyCodeLine{49         std::string GetRandomCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{50         std::string GetKissingCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{51         std::string GetGoalCausalityChainDescription(\textcolor{keywordtype}{size\_t} depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{52         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
+\DoxyCodeLine{54         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{55         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, EmotionType type) \textcolor{keyword}{const};}
+\DoxyCodeLine{56         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{57         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{private}:}
+\DoxyCodeLine{60         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{61         std::vector<Kernel *>}
+\DoxyCodeLine{62             all\_kernels\_;}
+\DoxyCodeLine{63         std::vector<Interaction *>}
+\DoxyCodeLine{64             all\_interactions\_;}
+\DoxyCodeLine{65         std::vector<std::vector<Interaction *>>}
+\DoxyCodeLine{66             interactions\_by\_actor\_;}
+\DoxyCodeLine{67         std::vector<std::vector<Kernel *>>}
+\DoxyCodeLine{68             kernels\_by\_actor\_;}
+\DoxyCodeLine{69         std::vector<std::vector<Emotion *>>}
+\DoxyCodeLine{70             emotions\_by\_actor\_;}
+\DoxyCodeLine{71         std::vector<std::vector<Resource *>>}
+\DoxyCodeLine{72             wealth\_by\_actor\_;}
+\DoxyCodeLine{73         \textcolor{keywordtype}{size\_t} highest\_interaction\_id = 0;}
+\DoxyCodeLine{74         std::string GetRecursiveKernelDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{75     \};}
+\DoxyCodeLine{76 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
 
 \end{DoxyCode}

@@ -10,33 +10,34 @@
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/setting.hpp"{}}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{11 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_course}{Course}}}
-\DoxyCodeLine{20     \{}
-\DoxyCodeLine{21     \textcolor{keyword}{public}:}
-\DoxyCodeLine{25         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994}{name\_}};}
-\DoxyCodeLine{29         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004}{id\_}};}
-\DoxyCodeLine{38         \mbox{\hyperlink{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}{Course}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string name);}
-\DoxyCodeLine{48         \textcolor{keyword}{const} std::list<Actor *> \&\mbox{\hyperlink{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}{GetCourseGroupForSlot}}(\textcolor{keywordtype}{size\_t} slot);}
-\DoxyCodeLine{49         \textcolor{keywordtype}{bool} SpaceInSlot(\textcolor{keywordtype}{size\_t} slot) \textcolor{keyword}{const};}
-\DoxyCodeLine{56         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}{AllSlotsFilled}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{64         uint32\_t \mbox{\hyperlink{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}{GetRandomEmptySlot}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{73         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{AddToSlot}}(std::list<Actor *> actors, \textcolor{keywordtype}{size\_t} slot);}
-\DoxyCodeLine{74         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{AddToSlot}}(\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *actor, \textcolor{keywordtype}{size\_t} slot);}
-\DoxyCodeLine{75         std::list<Actor *> ClearSlot(\textcolor{keywordtype}{size\_t} slot);}
-\DoxyCodeLine{81         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}{GetSlotCount}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{82         \textcolor{keywordtype}{size\_t} GetActorCount(\textcolor{keywordtype}{size\_t} slot\_index) \textcolor{keyword}{const};}
-\DoxyCodeLine{83         std::string ToString() \textcolor{keyword}{const};}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85     \textcolor{keyword}{private}:}
-\DoxyCodeLine{89         std::vector<std::list<Actor *>> \mbox{\hyperlink{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5}{slots\_}};}
-\DoxyCodeLine{93         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5}{random\_}};}
-\DoxyCodeLine{94         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{95     \};}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_COURSE\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_course}{Course}}}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22     \textcolor{keyword}{public}:}
+\DoxyCodeLine{26         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994}{name\_}};}
+\DoxyCodeLine{30         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004}{id\_}};}
+\DoxyCodeLine{39         \mbox{\hyperlink{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}{Course}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string name);}
+\DoxyCodeLine{49         \textcolor{keyword}{const} std::list<Actor *> \&\mbox{\hyperlink{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}{GetCourseGroupForSlot}}(\textcolor{keywordtype}{size\_t} slot);}
+\DoxyCodeLine{50         \textcolor{keywordtype}{bool} SpaceInSlot(\textcolor{keywordtype}{size\_t} slot) \textcolor{keyword}{const};}
+\DoxyCodeLine{57         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}{AllSlotsFilled}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{65         uint32\_t \mbox{\hyperlink{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}{GetRandomEmptySlot}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{AddToSlot}}(std::list<Actor *> actors, \textcolor{keywordtype}{size\_t} slot);}
+\DoxyCodeLine{75         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{AddToSlot}}(\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *actor, \textcolor{keywordtype}{size\_t} slot);}
+\DoxyCodeLine{76         std::list<Actor *> ClearSlot(\textcolor{keywordtype}{size\_t} slot);}
+\DoxyCodeLine{82         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}{GetSlotCount}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83         \textcolor{keywordtype}{size\_t} GetActorCount(\textcolor{keywordtype}{size\_t} slot\_index) \textcolor{keyword}{const};}
+\DoxyCodeLine{84         std::string ToString() \textcolor{keyword}{const};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{private}:}
+\DoxyCodeLine{90         std::vector<std::list<Actor *>> \mbox{\hyperlink{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5}{slots\_}};}
+\DoxyCodeLine{94         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5}{random\_}};}
+\DoxyCodeLine{95         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{96     \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_COURSE\_H}}
 
 \end{DoxyCode}
