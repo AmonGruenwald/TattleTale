@@ -7,7 +7,6 @@
 #include "shared/kernels/interactions/interactionprototype.hpp"
 #include "shared/kernels/interactions/interactionrequirement.hpp"
 #include "shared/kernels/interactions/interactiontendency.hpp"
-#include <map>
 #include <memory>
 
 namespace tattletale
