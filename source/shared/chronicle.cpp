@@ -67,13 +67,13 @@ namespace tattletale
     Emotion *Chronicle::CreateEmotion(EmotionType type, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value)
     {
         Emotion *emotion = new Emotion(type, all_kernels_.size(), tick, owner, reasons, value);
-        for (auto &reason : reasons)
-        {
-            reason->AddConsequence(emotion);
-        }
-        emotions_by_actor_[owner->id_].push_back(emotion);
-        all_kernels_.push_back(emotion);
-        kernels_by_actor_[owner->id_].push_back(emotion);
+        // for (auto &reason : reasons)
+        // {
+        //     reason->AddConsequence(emotion);
+        // }
+        // emotions_by_actor_[owner->id_].push_back(emotion);
+        // all_kernels_.push_back(emotion);
+        // kernels_by_actor_[owner->id_].push_back(emotion);
         return emotion;
     }
     Relationship *Chronicle::CreateRelationship(RelationshipType type, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value)
