@@ -15,7 +15,7 @@ TEST(TaleKernels, IncreasingKernelId)
 {
     Random random;
     Chronicle chronicle(random);
-    std::vector<Kernel *> no_reasons = {};
+    std::vector<Kernel *> no_reasons;
     size_t tick = 0;
     Setting setting;
     setting.actor_count = 0;
@@ -24,6 +24,10 @@ TEST(TaleKernels, IncreasingKernelId)
     chronicle.Reset();
     Actor *actor = chronicle.CreateActor(school, "John", "Doe");
     Emotion *emotion = chronicle.CreateEmotion(EmotionType::kHappy, tick, actor, no_reasons, 1);
+    Goal *goal = chronicle.CreateGoal(Goal::GetRandomGoalType(random), tick, actor, no_reasons);
+    Relationship *relationship = chronicle.CreateRelationship(RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
+    Resource *wealth = chronicle.CreateResource("wealth", "wealthy", "poor", tick, actor, no_reasons, 1);
+    Trait *trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
 }
 
 class DISABLED_TaleCreateAndRunSchool : public ::testing::Test
