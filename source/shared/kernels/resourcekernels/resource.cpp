@@ -22,6 +22,7 @@ namespace tattletale
           negative_name_variant_(negative_name_variant),
           value_(value),
           verb_(verb){};
+    Resource::~Resource() {}
     float Resource::GetValue() const
     {
         return value_;

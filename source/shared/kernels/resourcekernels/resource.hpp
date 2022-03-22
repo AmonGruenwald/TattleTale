@@ -25,6 +25,7 @@ namespace tattletale
     class Resource : public Kernel
     {
     public:
+        virtual ~Resource();
         /**
          * @brief Getter for the value of the Resource.
          *
