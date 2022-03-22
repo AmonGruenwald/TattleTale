@@ -110,7 +110,7 @@ namespace tattletale
                 for (size_t other_course_index = course_index + 1; other_course_index < course_count; ++other_course_index)
                 {
                     size_t actors_count_in_slot = courses_[course_index].GetActorCount(slot_index);
-                    if (actors_count_in_slot > setting_.actors_per_course || actors_count_in_slot == 0)
+                    if (actors_count_in_slot >= setting_.actors_per_course || actors_count_in_slot == 0)
                     {
                         break;
                     }

@@ -117,7 +117,7 @@ TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActor)
     SetUp(setting);
 }
 
-TEST_F(TaleCreateAndRunSchool, DISABLED_CreateAndRunSchoolWithOneActorPerCourse)
+TEST_F(TaleCreateAndRunSchool, CreateAndRunSchoolWithOneActorPerCourse)
 {
     Setting setting;
     setting.actors_per_course = 1;
