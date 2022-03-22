@@ -17,6 +17,7 @@
 
 namespace tattletale
 {
+    class Chronicle;
     class School;
     /**
      * @brief Represents one person in the simulation.
@@ -63,7 +64,6 @@ namespace tattletale
          */
         Goal *goal_;
 
-        Actor(School &school, size_t id, std::string first_name, std::string last_name);
         void SetupRandomValues(size_t tick);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
@@ -205,6 +205,7 @@ namespace tattletale
         std::vector<int> enrolled_courses_id_;
         std::list<Actor *> known_actors_;
         std::list<Actor *> freetime_group;
+        Actor(School &school, size_t id, std::string first_name, std::string last_name);
         /**
          * @brief Initializes the Wealth member with a random value.
          *
@@ -212,8 +213,7 @@ namespace tattletale
          *
          * @param tick The tick during which this happens.
          */
-        void
-        InitializeRandomWealth(size_t tick);
+        void InitializeRandomWealth(size_t tick);
         /**
          * @brief Initializes the Emotion member map with random values.
          *
@@ -248,6 +248,8 @@ namespace tattletale
         void InitializeRandomTraits(size_t tick);
 
         void UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known = false);
+
+        friend class Chronicle;
     };
 
 } // namespace tattletale

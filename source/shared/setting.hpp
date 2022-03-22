@@ -21,11 +21,11 @@ namespace tattletale
         /**
          * @brief How many days will be simulated.
          */
-        size_t days_to_simulate = 10;
+        size_t days_to_simulate = 5;
         /**
          * @brief How many \link Actor Actors \endlink will be instanced.
          */
-        size_t actor_count = 300;
+        size_t actor_count = 100;
         /**
          * @brief How may \link Course Courses \endlink an Actor can visit per day.
          */
