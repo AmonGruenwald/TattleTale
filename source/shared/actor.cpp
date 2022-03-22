@@ -213,8 +213,10 @@ namespace tattletale
             size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
             // TODO: I think it is possible for actors to be assigned multiple times as targets for an interaction
             auto chosen_actor = std::next(actor_group.begin(), participant_index);
-            while ((*chosen_actor)->id_ == id_)
+            size_t tries = 0;
+            while ((*chosen_actor)->id_ == id_ && tries < actor_group.size())
             {
+                ++tries;
                 ++chosen_actor;
                 ++participant_index;
                 if (chosen_actor == actor_group.end())
