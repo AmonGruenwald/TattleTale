@@ -116,7 +116,7 @@ namespace tattletale
                     }
                     size_t other_actors_count_in_slot = courses_[other_course_index].GetActorCount(slot_index);
                     size_t summarized_actor_count = actors_count_in_slot + other_actors_count_in_slot;
-                    if (summarized_actor_count < setting_.actors_per_course && other_actors_count_in_slot > 0)
+                    if (summarized_actor_count <= setting_.actors_per_course && other_actors_count_in_slot > 0)
                     {
                         std::list<Actor *> course_group = courses_[other_course_index].ClearSlot(slot_index);
                         courses_[course_index].AddToSlot(course_group, slot_index);
