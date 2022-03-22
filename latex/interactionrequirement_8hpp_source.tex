@@ -12,95 +12,85 @@
 \DoxyCodeLine{8 \{}
 \DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}}}
 \DoxyCodeLine{13     \{}
-\DoxyCodeLine{17         \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kNone;}
+\DoxyCodeLine{17         \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kLast;}
 \DoxyCodeLine{21         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
 \DoxyCodeLine{22         GoalType goal\_type = GoalType::kNone;}
 \DoxyCodeLine{23         \textcolor{keywordtype}{size\_t} day = 0;}
-\DoxyCodeLine{24         std::map<EmotionType, float> emotions = \{}
-\DoxyCodeLine{25             \{EmotionType::kHappy, 0.0f\},}
-\DoxyCodeLine{26             \{EmotionType::kCalm, 0.0f\},}
-\DoxyCodeLine{27             \{EmotionType::kSatisfied, 0.0f\},}
-\DoxyCodeLine{28             \{EmotionType::kBrave, 0.0f\},}
-\DoxyCodeLine{29             \{EmotionType::kExtroverted, 0.0f\}\};}
-\DoxyCodeLine{30         std::map<RelationshipType, float> relationship = \{}
-\DoxyCodeLine{31             \{RelationshipType::kLove, 0.0f\},}
-\DoxyCodeLine{32             \{RelationshipType::kAttraction, 0.0f\},}
-\DoxyCodeLine{33             \{RelationshipType::kFriendship, 0.0f\},}
-\DoxyCodeLine{34             \{RelationshipType::kAnger, 0.0f\},}
-\DoxyCodeLine{35             \{RelationshipType::kProtective, 0.0f\}\};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37         std::string ToString()}
-\DoxyCodeLine{38         \{}
-\DoxyCodeLine{39             std::string \textcolor{keywordtype}{string} = fmt::format(}
-\DoxyCodeLine{40                 \textcolor{stringliteral}{"{}Context: \{\} \(\backslash\)}}
-\DoxyCodeLine{41 \textcolor{stringliteral}{                \(\backslash\)nParticipant Count: \{\} \(\backslash\)}}
-\DoxyCodeLine{42 \textcolor{stringliteral}{                \(\backslash\)nGoal Type: \{\} \(\backslash\)}}
-\DoxyCodeLine{43 \textcolor{stringliteral}{                \(\backslash\)n Day: \{\} \(\backslash\)}}
-\DoxyCodeLine{44 \textcolor{stringliteral}{                \(\backslash\)nEmotions: \(\backslash\)}}
-\DoxyCodeLine{45 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tHappy: \{\} \(\backslash\)}}
-\DoxyCodeLine{46 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tCalme: \{\} \(\backslash\)}}
-\DoxyCodeLine{47 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tSatisfied: \{\} \(\backslash\)}}
-\DoxyCodeLine{48 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tBrave: \{\} \(\backslash\)}}
-\DoxyCodeLine{49 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tExtroverted: \{\} \(\backslash\)}}
-\DoxyCodeLine{50 \textcolor{stringliteral}{                \(\backslash\)nRelationship: \(\backslash\)}}
-\DoxyCodeLine{51 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tLove: \{\} \(\backslash\)}}
-\DoxyCodeLine{52 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAttraction: \{\} \(\backslash\)}}
-\DoxyCodeLine{53 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tFriendship: \{\} \(\backslash\)}}
-\DoxyCodeLine{54 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAnger: \{\} \(\backslash\)}}
-\DoxyCodeLine{55 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tProtective: \{\} "{}},}
-\DoxyCodeLine{56                 \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}}),}
-\DoxyCodeLine{57                 \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}},}
-\DoxyCodeLine{58                 Goal::GoalTypeToString(goal\_type),}
-\DoxyCodeLine{59                 day,}
-\DoxyCodeLine{60                 emotions.at(EmotionType::kHappy),}
-\DoxyCodeLine{61                 emotions.at(EmotionType::kCalm),}
-\DoxyCodeLine{62                 emotions.at(EmotionType::kSatisfied),}
-\DoxyCodeLine{63                 emotions.at(EmotionType::kBrave),}
-\DoxyCodeLine{64                 emotions.at(EmotionType::kExtroverted),}
-\DoxyCodeLine{65                 relationship.at(RelationshipType::kLove),}
-\DoxyCodeLine{66                 relationship.at(RelationshipType::kAttraction),}
-\DoxyCodeLine{67                 relationship.at(RelationshipType::kFriendship),}
-\DoxyCodeLine{68                 relationship.at(RelationshipType::kAnger),}
-\DoxyCodeLine{69                 relationship.at(RelationshipType::kProtective));}
-\DoxyCodeLine{70             \textcolor{keywordflow}{return} string;}
+\DoxyCodeLine{24         std::vector<float> emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f);}
+\DoxyCodeLine{25         std::vector<float> relationship = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kLast), 0.0f);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         std::string ToString()}
+\DoxyCodeLine{28         \{}
+\DoxyCodeLine{29             std::string \textcolor{keywordtype}{string} = fmt::format(}
+\DoxyCodeLine{30                 \textcolor{stringliteral}{"{}Context: \{\} \(\backslash\)}}
+\DoxyCodeLine{31 \textcolor{stringliteral}{                \(\backslash\)nParticipant Count: \{\} \(\backslash\)}}
+\DoxyCodeLine{32 \textcolor{stringliteral}{                \(\backslash\)nGoal Type: \{\} \(\backslash\)}}
+\DoxyCodeLine{33 \textcolor{stringliteral}{                \(\backslash\)n Day: \{\} \(\backslash\)}}
+\DoxyCodeLine{34 \textcolor{stringliteral}{                \(\backslash\)nEmotions: \(\backslash\)}}
+\DoxyCodeLine{35 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tHappy: \{\} \(\backslash\)}}
+\DoxyCodeLine{36 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tCalme: \{\} \(\backslash\)}}
+\DoxyCodeLine{37 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tSatisfied: \{\} \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tBrave: \{\} \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tExtroverted: \{\} \(\backslash\)}}
+\DoxyCodeLine{40 \textcolor{stringliteral}{                \(\backslash\)nRelationship: \(\backslash\)}}
+\DoxyCodeLine{41 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tLove: \{\} \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAttraction: \{\} \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tFriendship: \{\} \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tAnger: \{\} \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{stringliteral}{                \(\backslash\)n\(\backslash\)tProtective: \{\} "{}},}
+\DoxyCodeLine{46                 \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}}),}
+\DoxyCodeLine{47                 \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}},}
+\DoxyCodeLine{48                 Goal::GoalTypeToString(goal\_type),}
+\DoxyCodeLine{49                 day,}
+\DoxyCodeLine{50                 emotions[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kHappy)],}
+\DoxyCodeLine{51                 emotions[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kCalm)],}
+\DoxyCodeLine{52                 emotions[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kSatisfied)],}
+\DoxyCodeLine{53                 emotions[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kBrave)],}
+\DoxyCodeLine{54                 emotions[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kExtroverted)],}
+\DoxyCodeLine{55                 relationship[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kLove)],}
+\DoxyCodeLine{56                 relationship[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kAttraction)],}
+\DoxyCodeLine{57                 relationship[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kFriendship)],}
+\DoxyCodeLine{58                 relationship[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kAnger)],}
+\DoxyCodeLine{59                 relationship[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kProtective)]);}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} string;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{keywordtype}{void} ClearValues()}
+\DoxyCodeLine{64         \{}
+\DoxyCodeLine{65             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kLast;}
+\DoxyCodeLine{66             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
+\DoxyCodeLine{67             goal\_type = GoalType::kNone;}
+\DoxyCodeLine{68             day = 0;}
+\DoxyCodeLine{69             emotions = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f);}
+\DoxyCodeLine{70             relationship = std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kLast), 0.0f);}
 \DoxyCodeLine{71         \}}
 \DoxyCodeLine{72 }
-\DoxyCodeLine{73         \textcolor{keywordtype}{void} ClearValues()}
-\DoxyCodeLine{74         \{}
-\DoxyCodeLine{75             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kNone;}
-\DoxyCodeLine{76             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
-\DoxyCodeLine{77             goal\_type = GoalType::kNone;}
-\DoxyCodeLine{78             day = 0;}
-\DoxyCodeLine{79             emotions.clear();}
-\DoxyCodeLine{80             relationship.clear();}
-\DoxyCodeLine{81         \}}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{keywordtype}{bool} HasEmotionalRequirement()\textcolor{keyword}{ const}}
-\DoxyCodeLine{84 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{85             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&[key, value] : emotions)}
-\DoxyCodeLine{86             \{}
-\DoxyCodeLine{87                 \textcolor{keywordflow}{if} (value != 0)}
-\DoxyCodeLine{88                 \{}
-\DoxyCodeLine{89                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{90                 \}}
-\DoxyCodeLine{91             \}}
-\DoxyCodeLine{92             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{93         \}}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95         \textcolor{keywordtype}{bool} HasRelationshipRequirement()\textcolor{keyword}{ const}}
-\DoxyCodeLine{96 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{97             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&[key, value] : relationship)}
-\DoxyCodeLine{98             \{}
-\DoxyCodeLine{99                 \textcolor{keywordflow}{if} (value != 0)}
-\DoxyCodeLine{100                 \{}
-\DoxyCodeLine{101                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{102                 \}}
-\DoxyCodeLine{103             \}}
-\DoxyCodeLine{104             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{105         \}}
-\DoxyCodeLine{106     \};}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{73         \textcolor{keywordtype}{bool} HasEmotionalRequirement()\textcolor{keyword}{ const}}
+\DoxyCodeLine{74 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{75             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&value : emotions)}
+\DoxyCodeLine{76             \{}
+\DoxyCodeLine{77                 \textcolor{keywordflow}{if} (value != 0)}
+\DoxyCodeLine{78                 \{}
+\DoxyCodeLine{79                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{80                 \}}
+\DoxyCodeLine{81             \}}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{keywordtype}{bool} HasRelationshipRequirement()\textcolor{keyword}{ const}}
+\DoxyCodeLine{86 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&value : relationship)}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89                 \textcolor{keywordflow}{if} (value != 0)}
+\DoxyCodeLine{90                 \{}
+\DoxyCodeLine{91                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{92                 \}}
+\DoxyCodeLine{93             \}}
+\DoxyCodeLine{94             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96     \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 
 \end{DoxyCode}

@@ -15,14 +15,14 @@
 \DoxyCodeLine{11     \textcolor{keyword}{public}:}
 \DoxyCodeLine{12         \mbox{\hyperlink{classtattletale_1_1_curator}{Curator}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting);}
 \DoxyCodeLine{13         std::string Curate();}
-\DoxyCodeLine{14         std::shared\_ptr<Kernel> RecursivelyFindUnlikeliestReason(std::shared\_ptr<Kernel> to\_check, std::shared\_ptr<Kernel> current\_best);}
-\DoxyCodeLine{15         std::shared\_ptr<Kernel> RecursivelyFindUnlikeliestConsequence(std::shared\_ptr<Kernel> to\_check, std::shared\_ptr<Kernel> current\_best, \textcolor{keywordtype}{size\_t} depth);}
-\DoxyCodeLine{16         std::vector<std::shared\_ptr<Kernel>> FindCausalConnection(std::shared\_ptr<Kernel> start, std::shared\_ptr<Kernel> end) \textcolor{keyword}{const};}
-\DoxyCodeLine{17         std::shared\_ptr<Resource> FindBlockingResource(std::shared\_ptr<Interaction> interaction) \textcolor{keyword}{const};}
-\DoxyCodeLine{18         \textcolor{keywordtype}{bool} RecursivelyFindCausalConnectionBackwards(std::shared\_ptr<Kernel> root, std::shared\_ptr<Kernel> start, std::vector<std::shared\_ptr<Kernel>> \&out\_causal\_chain) \textcolor{keyword}{const};}
-\DoxyCodeLine{19         std::string GetTimeDescription(std::shared\_ptr<Kernel> start, std::shared\_ptr<Kernel> end) \textcolor{keyword}{const};}
+\DoxyCodeLine{14         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *RecursivelyFindUnlikeliestReason(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *to\_check, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *current\_best);}
+\DoxyCodeLine{15         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *RecursivelyFindUnlikeliestConsequence(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *to\_check, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *current\_best, \textcolor{keywordtype}{size\_t} depth);}
+\DoxyCodeLine{16         std::vector<Kernel *> FindCausalConnection(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
+\DoxyCodeLine{17         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *FindBlockingResource(\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const};}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} RecursivelyFindCausalConnectionBackwards(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *root, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, std::vector<Kernel *> \&out\_causal\_chain) \textcolor{keyword}{const};}
+\DoxyCodeLine{19         std::string GetTimeDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
 \DoxyCodeLine{20         std::string GetChanceDescription(\textcolor{keywordtype}{float} chance) \textcolor{keyword}{const};}
-\DoxyCodeLine{21         std::string GetResourceReasonDescription(std::shared\_ptr<Resource> resource) \textcolor{keyword}{const};}
+\DoxyCodeLine{21         std::string GetResourceReasonDescription(\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *resource) \textcolor{keyword}{const};}
 \DoxyCodeLine{22 }
 \DoxyCodeLine{23     \textcolor{keyword}{private}:}
 \DoxyCodeLine{24         std::string RarityCuration();}

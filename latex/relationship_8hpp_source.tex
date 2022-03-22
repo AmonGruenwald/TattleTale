@@ -12,46 +12,45 @@
 \DoxyCodeLine{8 \{}
 \DoxyCodeLine{9     \textcolor{keyword}{enum class} RelationshipType}
 \DoxyCodeLine{10     \{}
-\DoxyCodeLine{11         kNone,}
-\DoxyCodeLine{12         kLove,}
-\DoxyCodeLine{13         kAttraction,}
-\DoxyCodeLine{14         kFriendship,}
-\DoxyCodeLine{15         kAnger,}
-\DoxyCodeLine{16         kProtective,}
-\DoxyCodeLine{17         kLast}
-\DoxyCodeLine{18     \};}
-\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
-\DoxyCodeLine{27     \{}
-\DoxyCodeLine{28     \textcolor{keyword}{public}:}
-\DoxyCodeLine{39         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string relationship\_string);}
-\DoxyCodeLine{48         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{51         std::string GetDetailedDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{52         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{53         std::string GetActiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{keyword}{private}:}
-\DoxyCodeLine{68         \mbox{\hyperlink{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::weak\_ptr<Actor> target, std::vector<std::weak\_ptr<Kernel>> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{69         std::string GetAdjective() \textcolor{keyword}{const override};}
-\DoxyCodeLine{73         RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
-\DoxyCodeLine{74         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<RelationshipType, std::string> positive\_name\_variants\_ = \{}
-\DoxyCodeLine{75             \{RelationshipType::kAnger, \textcolor{stringliteral}{"{}anger for"{}}\},}
-\DoxyCodeLine{76             \{RelationshipType::kAttraction, \textcolor{stringliteral}{"{}attraction for"{}}\},}
-\DoxyCodeLine{77             \{RelationshipType::kFriendship, \textcolor{stringliteral}{"{}friendship for"{}}\},}
-\DoxyCodeLine{78             \{RelationshipType::kLove, \textcolor{stringliteral}{"{}love for"{}}\},}
-\DoxyCodeLine{79             \{RelationshipType::kProtective, \textcolor{stringliteral}{"{}protective of"{}}\}\};}
-\DoxyCodeLine{80         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::map<RelationshipType, std::string> negative\_name\_variants\_ = \{}
-\DoxyCodeLine{81             \{RelationshipType::kAnger, \textcolor{stringliteral}{"{}comfortable with"{}}\},}
-\DoxyCodeLine{82             \{RelationshipType::kAttraction, \textcolor{stringliteral}{"{}disgust for"{}}\},}
-\DoxyCodeLine{83             \{RelationshipType::kFriendship, \textcolor{stringliteral}{"{}animosity for"{}}\},}
-\DoxyCodeLine{84             \{RelationshipType::kLove, \textcolor{stringliteral}{"{}hate for"{}}\},}
-\DoxyCodeLine{85             \{RelationshipType::kProtective, \textcolor{stringliteral}{"{}power over for"{}}\}\};}
-\DoxyCodeLine{86         std::weak\_ptr<Actor> target\_;}
-\DoxyCodeLine{87         \textcolor{keyword}{friend} \textcolor{keyword}{class }Chronicle;}
-\DoxyCodeLine{88     \};}
-\DoxyCodeLine{89 }
-\DoxyCodeLine{90 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{11         kLove,}
+\DoxyCodeLine{12         kAttraction,}
+\DoxyCodeLine{13         kFriendship,}
+\DoxyCodeLine{14         kAnger,}
+\DoxyCodeLine{15         kProtective,}
+\DoxyCodeLine{16         kLast}
+\DoxyCodeLine{17     \};}
+\DoxyCodeLine{25     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{38         \textcolor{keyword}{static} RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string relationship\_string);}
+\DoxyCodeLine{47         \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{RelationshipTypeToString}}(RelationshipType relationship\_type);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{50         std::string GetDetailedDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{51         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{52         std::string GetActiveDescription() \textcolor{keyword}{const override};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{private}:}
+\DoxyCodeLine{67         \mbox{\hyperlink{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}{Relationship}}(RelationshipType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{68         std::string GetAdjective() \textcolor{keyword}{const override};}
+\DoxyCodeLine{72         RelationshipType \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
+\DoxyCodeLine{73         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> positive\_name\_variants\_ =}
+\DoxyCodeLine{74             \{\textcolor{stringliteral}{"{}love for"{}},}
+\DoxyCodeLine{75              \textcolor{stringliteral}{"{}attraction for"{}},}
+\DoxyCodeLine{76              \textcolor{stringliteral}{"{}friendship for"{}},}
+\DoxyCodeLine{77              \textcolor{stringliteral}{"{}anger for"{}},}
+\DoxyCodeLine{78              \textcolor{stringliteral}{"{}protective of"{}}\};}
+\DoxyCodeLine{79         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> negative\_name\_variants\_ =}
+\DoxyCodeLine{80             \{\textcolor{stringliteral}{"{}hate for"{}},}
+\DoxyCodeLine{81              \textcolor{stringliteral}{"{}disgust for"{}},}
+\DoxyCodeLine{82              \textcolor{stringliteral}{"{}animosity for"{}},}
+\DoxyCodeLine{83              \textcolor{stringliteral}{"{}comfortable with"{}},}
+\DoxyCodeLine{84              \textcolor{stringliteral}{"{}power over for"{}}\};}
+\DoxyCodeLine{85         Actor *target\_;}
+\DoxyCodeLine{86         \textcolor{keyword}{friend} \textcolor{keyword}{class }Chronicle;}
+\DoxyCodeLine{87     \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
 
 \end{DoxyCode}

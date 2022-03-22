@@ -12,7 +12,7 @@ Represents a \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} a
 Inheritance diagram for tattletale\+::Relationship\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{classtattletale_1_1_relationship}
+\includegraphics[height=3.000000cm]{classtattletale_1_1_relationship}
 \end{center}
 \end{figure}
 \doxysubsection*{Static Public Member Functions}
@@ -25,7 +25,7 @@ static std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}{Relationship}} (Relationship\+Type type, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ owner, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ target, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value)
+\mbox{\hyperlink{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}{Relationship}} (Relationship\+Type type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$target, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value)
 \begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -42,11 +42,11 @@ Represents a \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} a
 Will be instantiated inside a two dimensional map connecting different other \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} to \mbox{\hyperlink{}{Relationship\+Types }} and corresponding \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }} for each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}\label{classtattletale_1_1_relationship_af664510e42eba2d5252eb49990f18dd0}} 
+\mbox{\Hypertarget{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}\label{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}} 
 \index{tattletale::Relationship@{tattletale::Relationship}!Relationship@{Relationship}}
 \index{Relationship@{Relationship}!tattletale::Relationship@{tattletale::Relationship}}
 \doxysubsubsection{\texorpdfstring{Relationship()}{Relationship()}}
-{\footnotesize\ttfamily tattletale\+::\+Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{Relationship\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$}]{target,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tattletale\+::\+Relationship\+::\+Relationship (\begin{DoxyParamCaption}\item[{Relationship\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{target,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -82,7 +82,7 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 
 Converts an Relationship\+Type to a string for easy printing. 
 
-Note that Relationship\+Type\+:k\+None and Relationship\+Type\+::k\+Last will assert and crash in Debug mode.
+Note that Relationship\+Type\+::k\+Last will assert false and crash in Debug mode.
 
 
 \begin{DoxyParams}{Parameters}
@@ -102,7 +102,7 @@ The corresponding string.
 
 Converts a string to an Relationship\+Type. 
 
-Uses the same string values Relationship\+Type\+To\+String returns. So valid strings are\+: love\char`\"{}, \char`\"{}attraction\char`\"{}, \char`\"{}friendship\char`\"{}, \char`\"{}anger\char`\"{} and \char`\"{}protective"{}. Everything else just return Relationship\+Type\+::k\+None. (But an assert will crash the Application in Debug mode.)
+Uses the same string values Relationship\+Type\+To\+String returns. So valid strings are\+: love\char`\"{}, \char`\"{}attraction\char`\"{}, \char`\"{}friendship\char`\"{}, \char`\"{}anger\char`\"{} and \char`\"{}protective"{}. Everything else just return Relationship\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
 
 
 \begin{DoxyParams}{Parameters}

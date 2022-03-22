@@ -8,54 +8,54 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}shared/setting.hpp"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}tale/interactionstore.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}shared/kernels/trait.hpp"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interactionrequirement.hpp"{}}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{class }School;}
-\DoxyCodeLine{24     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Actor>}
-\DoxyCodeLine{25     \{}
-\DoxyCodeLine{26     \textcolor{keyword}{public}:}
-\DoxyCodeLine{30         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_actor_a243ef389ec0fe8b3b5664c6d70ff21fe}{id\_}};}
-\DoxyCodeLine{34         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_a40cdd9c99742aa5500e03aa55ec5adbc}{name\_}};}
-\DoxyCodeLine{38         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_a6b60b12786a000fb2e0b9a3aaefe2054}{first\_name\_}};}
-\DoxyCodeLine{42         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_af5ca4984d6ac05eb519ce00d5bcaa4ba}{last\_name\_}};}
-\DoxyCodeLine{46         std::weak\_ptr<Resource> \mbox{\hyperlink{classtattletale_1_1_actor_a2e6114e4da62fd39f95de4850e8bac98}{wealth\_}};}
-\DoxyCodeLine{50         std::map<EmotionType, std::weak\_ptr<Emotion>> \mbox{\hyperlink{classtattletale_1_1_actor_af12fdab21c815f0980b3b01ebd723639}{emotions\_}};}
-\DoxyCodeLine{55         std::map<size\_t, std::map<RelationshipType, std::weak\_ptr<Relationship>>> \mbox{\hyperlink{classtattletale_1_1_actor_a346fdbab0d27028cdd89730268d682db}{relationships\_}};}
-\DoxyCodeLine{59         std::vector<std::weak\_ptr<Trait>> \mbox{\hyperlink{classtattletale_1_1_actor_aa94018cf665d9cbc3151d63d31c1cb13}{traits\_}};}
-\DoxyCodeLine{63         std::weak\_ptr<Goal> \mbox{\hyperlink{classtattletale_1_1_actor_a07bbdf413001c2d0a16e77345c2fef70}{goal\_}};}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}(\mbox{\hyperlink{classtattletale_1_1_school}{School}} \&school, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string first\_name, std::string last\_name);}
-\DoxyCodeLine{66         \textcolor{keywordtype}{void} SetupRandomValues(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{73         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_aa13273d32c86d574795b8fd5aed70cce}{IsEnrolledInCourse}}(\textcolor{keywordtype}{size\_t} course\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{82         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a7c43a5f41fe96a2c4a4cddc4b0d0355a}{EnrollInCourse}}(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
-\DoxyCodeLine{83         \textcolor{keywordtype}{void} EjectFromCourse(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
-\DoxyCodeLine{89         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_actor_ab21931ccf86e3987194fa04f9baad1f3}{GetFilledSlotsCount}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{95         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a3de032662df388bedd88e3d9d2c36667}{AllSlotsFilled}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{102         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a2c51618ee6e2cfe18fccbaa6a380656f}{SlotsEmpty}}(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
-\DoxyCodeLine{114         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a676a759894d2398f3942295993647300}{SlotEmpty}}(\textcolor{keywordtype}{size\_t} slot) \textcolor{keyword}{const};}
-\DoxyCodeLine{115         \textcolor{keywordtype}{int} ChooseInteraction(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&actor\_group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context, std::vector<std::weak\_ptr<Kernel>> \&out\_reasons, std::vector<std::weak\_ptr<Actor>> \&out\_participants, \textcolor{keywordtype}{float} \&out\_chance);}
-\DoxyCodeLine{131         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_actor_a500bc83a92abb043342d45973410a619}{CalculateTendencyChance}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}} \&tendency, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \&context, std::weak\_ptr<Kernel> \&out\_reason);}
-\DoxyCodeLine{132         \textcolor{keywordtype}{float} ApplyGoalChanceModification(\textcolor{keywordtype}{float} original\_chance, \textcolor{keywordtype}{size\_t} interaction\_index, \textcolor{keywordtype}{bool} \&out\_had\_positive\_effect);}
-\DoxyCodeLine{133         \textcolor{keywordtype}{bool} CheckRequirements(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}} \&requirement, \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&actor\_group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context) \textcolor{keyword}{const};}
-\DoxyCodeLine{141         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a5b62b616d4a3935743be966f09d5a372}{ApplyWealthChange}}(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{152         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_af822c7c21074cf8343d876b8b0173afb}{ApplyEmotionChange}}(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&reasons, \textcolor{keywordtype}{size\_t} tick, EmotionType type, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{164         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a638cb61a98bd34fe072a025b5a7a2179}{ApplyRelationshipChange}}(\textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, std::map<RelationshipType, float> change);}
-\DoxyCodeLine{170         std::string \mbox{\hyperlink{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}{GetDetailedDescriptionString}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{171         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Actor>> \&GetAllKnownActors() \textcolor{keyword}{const};}
-\DoxyCodeLine{172         std::vector<std::weak\_ptr<Actor>> GetFreetimeActorGroup() \textcolor{keyword}{const};}
-\DoxyCodeLine{173         \textcolor{keywordtype}{float} CalculateRelationshipValue(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{174         \textcolor{keywordtype}{bool} HasRelationshipWith(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{175         \textcolor{keywordtype}{void} InsertNewRelationship(std::weak\_ptr<Actor> other\_actor, std::map<RelationshipType, std::weak\_ptr<Relationship>> relationship);}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <robin\_hood.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}shared/setting.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}tale/interactionstore.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/emotion.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/relationship.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}shared/kernels/trait.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interactionrequirement.hpp"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keyword}{class }Chronicle;}
+\DoxyCodeLine{21     \textcolor{keyword}{class }School;}
+\DoxyCodeLine{26     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
+\DoxyCodeLine{32         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_actor_a243ef389ec0fe8b3b5664c6d70ff21fe}{id\_}};}
+\DoxyCodeLine{36         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_a40cdd9c99742aa5500e03aa55ec5adbc}{name\_}};}
+\DoxyCodeLine{40         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_a6b60b12786a000fb2e0b9a3aaefe2054}{first\_name\_}};}
+\DoxyCodeLine{44         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_actor_af5ca4984d6ac05eb519ce00d5bcaa4ba}{last\_name\_}};}
+\DoxyCodeLine{48         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *\mbox{\hyperlink{classtattletale_1_1_actor_ae7873c0350bd7b9be850f78185904144}{wealth\_}};}
+\DoxyCodeLine{52         std::vector<Emotion *> \mbox{\hyperlink{classtattletale_1_1_actor_a326e881a216ec897be457868c6d37233}{emotions\_}};}
+\DoxyCodeLine{57         robin\_hood::unordered\_map<size\_t, std::vector<Relationship *>> \mbox{\hyperlink{classtattletale_1_1_actor_afbe30638e7ddbca1bd5cb8ef72e293b4}{relationships\_}};}
+\DoxyCodeLine{61         std::vector<Trait *> \mbox{\hyperlink{classtattletale_1_1_actor_a5946bda80e2bc8f8bc3ff565f020ed6f}{traits\_}};}
+\DoxyCodeLine{65         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} *\mbox{\hyperlink{classtattletale_1_1_actor_a8ad94f18c9381635d5b493b7d9034eb7}{goal\_}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \textcolor{keywordtype}{void} SetupRandomValues(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{74         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_aa13273d32c86d574795b8fd5aed70cce}{IsEnrolledInCourse}}(\textcolor{keywordtype}{size\_t} course\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{83         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a7c43a5f41fe96a2c4a4cddc4b0d0355a}{EnrollInCourse}}(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
+\DoxyCodeLine{84         \textcolor{keywordtype}{void} EjectFromCourse(\textcolor{keywordtype}{size\_t} course\_id, uint32\_t slot);}
+\DoxyCodeLine{90         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_actor_ab21931ccf86e3987194fa04f9baad1f3}{GetFilledSlotsCount}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{96         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a3de032662df388bedd88e3d9d2c36667}{AllSlotsFilled}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{103         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a2c51618ee6e2cfe18fccbaa6a380656f}{SlotsEmpty}}(\textcolor{keyword}{const} std::vector<uint32\_t> \&slots) \textcolor{keyword}{const};}
+\DoxyCodeLine{115         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_actor_a676a759894d2398f3942295993647300}{SlotEmpty}}(\textcolor{keywordtype}{size\_t} slot) \textcolor{keyword}{const};}
+\DoxyCodeLine{116         \textcolor{keywordtype}{int} ChooseInteraction(\textcolor{keyword}{const} std::list<Actor *> \&actor\_group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context, std::vector<Kernel *> \&out\_reasons, std::vector<Actor *> \&out\_participants, \textcolor{keywordtype}{float} \&out\_chance);}
+\DoxyCodeLine{132         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_actor_a8abfeaf5b18d85dc91e2dddba0cdad69}{CalculateTendencyChance}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{InteractionTendency}} \&tendency, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \&context, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_reason);}
+\DoxyCodeLine{133         \textcolor{keywordtype}{float} ApplyGoalChanceModification(\textcolor{keywordtype}{float} original\_chance, \textcolor{keywordtype}{size\_t} interaction\_index, \textcolor{keywordtype}{bool} \&out\_had\_positive\_effect);}
+\DoxyCodeLine{134         \textcolor{keywordtype}{bool} CheckRequirements(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}} \&requirement, \textcolor{keyword}{const} std::list<Actor *> \&actor\_group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context) \textcolor{keyword}{const};}
+\DoxyCodeLine{142         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_ad66db9c2438bc09c5312707b1a991480}{ApplyWealthChange}}(\textcolor{keyword}{const} std::vector<Kernel *> \&reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{153         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a8834e4e3e38b7c152eb1b0213025d9c5}{ApplyEmotionChange}}(\textcolor{keyword}{const} std::vector<Kernel *> \&reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{int} type\_index, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{165         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a07e4966d421dbb841c895abbee069a93}{ApplyRelationshipChange}}(\textcolor{keyword}{const} std::vector<Kernel *> \&reasons, \textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, std::vector<float> change);}
+\DoxyCodeLine{171         std::string \mbox{\hyperlink{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}{GetDetailedDescriptionString}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{172         \textcolor{keyword}{const} std::list<Actor *> \&GetAllKnownActors() \textcolor{keyword}{const};}
+\DoxyCodeLine{173         std::list<Actor *> GetFreetimeActorGroup() \textcolor{keyword}{const};}
+\DoxyCodeLine{174         \textcolor{keywordtype}{float} CalculateRelationshipStrength(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{175         \textcolor{keywordtype}{bool} HasRelationshipWith(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
 \DoxyCodeLine{176 }
 \DoxyCodeLine{177     \textcolor{keyword}{private}:}
 \DoxyCodeLine{181         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_actor_aa8ffdd94bc08c53aaa4f1acc304e6307}{random\_}};}
@@ -65,55 +65,58 @@
 \DoxyCodeLine{197         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_actor_a1a14643ea8b821727089ae0d290f4e09}{setting\_}};}
 \DoxyCodeLine{201         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_actor_a55e91e17a4b11846f7788551761ab71d}{filled\_slots\_count\_}} = 0;}
 \DoxyCodeLine{205         std::vector<int> \mbox{\hyperlink{classtattletale_1_1_actor_aee41d6b505068b3f85ac8b1bab3d89da}{enrolled\_courses\_id\_}};}
-\DoxyCodeLine{206         std::vector<std::weak\_ptr<Actor>> known\_actors\_;}
-\DoxyCodeLine{214         \textcolor{keywordtype}{void}}
-\DoxyCodeLine{215         \mbox{\hyperlink{classtattletale_1_1_actor_a1d8b0277ca64974b85b78827320b2253}{InitializeRandomWealth}}(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{223         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a62897b8a69bfefa43d73a5fd47047627}{InitializeRandomEmotions}}(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{231         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_afbb5d2766ca89ed27a8bbff4055bffa4}{InitializeRandomRelationships}}(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{239         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a291564b42467899d04300a86ea133430}{InitializeRandomGoal}}(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{247         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a3c08c887ccbce30d64d9ccf7bc807adb}{InitializeRandomTraits}}(\textcolor{keywordtype}{size\_t} tick);}
-\DoxyCodeLine{248 }
-\DoxyCodeLine{249         \textcolor{keywordtype}{void} UpdateKnownActors();}
-\DoxyCodeLine{250     \};}
+\DoxyCodeLine{206         std::list<Actor *> known\_actors\_;}
+\DoxyCodeLine{207         std::list<Actor *> freetime\_group;}
+\DoxyCodeLine{208         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}(\mbox{\hyperlink{classtattletale_1_1_school}{School}} \&school, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, std::string first\_name, std::string last\_name);}
+\DoxyCodeLine{216         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a1d8b0277ca64974b85b78827320b2253}{InitializeRandomWealth}}(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{224         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a62897b8a69bfefa43d73a5fd47047627}{InitializeRandomEmotions}}(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{232         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_afbb5d2766ca89ed27a8bbff4055bffa4}{InitializeRandomRelationships}}(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{240         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a291564b42467899d04300a86ea133430}{InitializeRandomGoal}}(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{248         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_actor_a3c08c887ccbce30d64d9ccf7bc807adb}{InitializeRandomTraits}}(\textcolor{keywordtype}{size\_t} tick);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250         \textcolor{keywordtype}{void} UpdateRelationship(\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *other\_actor, std::vector<Relationship *> relationship, \textcolor{keywordtype}{bool} already\_known = \textcolor{keyword}{false});}
 \DoxyCodeLine{251 }
-\DoxyCodeLine{252 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{253 }
-\DoxyCodeLine{254 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{255 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Actor, T>::value, char>> : fmt::formatter<std::string>}
-\DoxyCodeLine{256 \{}
-\DoxyCodeLine{257     \textcolor{comment}{// d -\/ default = fullname, l -\/ last name, s -\/ second name, o -\/ detail}}
-\DoxyCodeLine{258     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
-\DoxyCodeLine{259 }
-\DoxyCodeLine{260     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
-\DoxyCodeLine{261     \{}
-\DoxyCodeLine{262         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
-\DoxyCodeLine{263         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'f'} || *it == \textcolor{charliteral}{'l'} || *it == \textcolor{charliteral}{'d'} || *it == \textcolor{charliteral}{'o'}))}
-\DoxyCodeLine{264             presentation = *it++;}
-\DoxyCodeLine{265 }
-\DoxyCodeLine{266         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
-\DoxyCodeLine{267             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
+\DoxyCodeLine{252         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{253     \};}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{258 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Actor, T>::value, char>> : fmt::formatter<std::string>}
+\DoxyCodeLine{259 \{}
+\DoxyCodeLine{260     \textcolor{comment}{// d -\/ default = fullname, l -\/ last name, s -\/ second name, o -\/ detail}}
+\DoxyCodeLine{261     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{264     \{}
+\DoxyCodeLine{265         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
+\DoxyCodeLine{266         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'f'} || *it == \textcolor{charliteral}{'l'} || *it == \textcolor{charliteral}{'d'} || *it == \textcolor{charliteral}{'o'}))}
+\DoxyCodeLine{267             presentation = *it++;}
 \DoxyCodeLine{268 }
-\DoxyCodeLine{269         \textcolor{keywordflow}{return} it;}
-\DoxyCodeLine{270     \}}
+\DoxyCodeLine{269         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{270             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
 \DoxyCodeLine{271 }
-\DoxyCodeLine{272     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{273     \textcolor{keyword}{auto} format(\mbox{\hyperlink{classtattletale_1_1_actor}{tattletale::Actor}} \&actor, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
-\DoxyCodeLine{274     \{}
-\DoxyCodeLine{275         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'f'})}
-\DoxyCodeLine{276         \{}
-\DoxyCodeLine{277             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a6b60b12786a000fb2e0b9a3aaefe2054}{first\_name\_}}, ctx);}
-\DoxyCodeLine{278         \}}
-\DoxyCodeLine{279         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'l'})}
-\DoxyCodeLine{280         \{}
-\DoxyCodeLine{281             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_af5ca4984d6ac05eb519ce00d5bcaa4ba}{last\_name\_}}, ctx);}
-\DoxyCodeLine{282         \}}
-\DoxyCodeLine{283         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'o'})}
-\DoxyCodeLine{284         \{}
-\DoxyCodeLine{285             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}{GetDetailedDescriptionString}}(), ctx);}
-\DoxyCodeLine{286         \}}
-\DoxyCodeLine{287         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a40cdd9c99742aa5500e03aa55ec5adbc}{name\_}}, ctx);}
-\DoxyCodeLine{288     \}}
-\DoxyCodeLine{289 \};}
-\DoxyCodeLine{290 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
+\DoxyCodeLine{272         \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{273     \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{276     \textcolor{keyword}{auto} format(\mbox{\hyperlink{classtattletale_1_1_actor}{tattletale::Actor}} \&actor, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{277     \{}
+\DoxyCodeLine{278         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'f'})}
+\DoxyCodeLine{279         \{}
+\DoxyCodeLine{280             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a6b60b12786a000fb2e0b9a3aaefe2054}{first\_name\_}}, ctx);}
+\DoxyCodeLine{281         \}}
+\DoxyCodeLine{282         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'l'})}
+\DoxyCodeLine{283         \{}
+\DoxyCodeLine{284             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_af5ca4984d6ac05eb519ce00d5bcaa4ba}{last\_name\_}}, ctx);}
+\DoxyCodeLine{285         \}}
+\DoxyCodeLine{286         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'o'})}
+\DoxyCodeLine{287         \{}
+\DoxyCodeLine{288             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a01601b7175de38c8c4b349b2efbc74cd}{GetDetailedDescriptionString}}(), ctx);}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(actor.\mbox{\hyperlink{classtattletale_1_1_actor_a40cdd9c99742aa5500e03aa55ec5adbc}{name\_}}, ctx);}
+\DoxyCodeLine{291     \}}
+\DoxyCodeLine{292 \};}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_ACTOR\_H}}
 
 \end{DoxyCode}

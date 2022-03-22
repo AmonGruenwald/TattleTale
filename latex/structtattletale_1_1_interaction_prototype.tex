@@ -35,10 +35,10 @@ std\+::string {\bfseries active\+\_\+description} = \char`\"{}\char`\"{}
 \mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}\label{structtattletale_1_1_interaction_prototype_ad24c7d52f13e9a89ef441009deff7b63}} 
 std\+::vector$<$ float $>$ {\bfseries wealth\+\_\+effects}
 \begin{DoxyCompactList}\small\item\em Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}\label{structtattletale_1_1_interaction_prototype_a2a6b75c80839ea27e7b1ba223d84b99f}} 
-std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ {\bfseries emotion\+\_\+effects}
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ab03f6014a057983bf10933ce55976541}\label{structtattletale_1_1_interaction_prototype_ab03f6014a057983bf10933ce55976541}} 
+std\+::vector$<$ std\+::vector$<$ float $>$ $>$ {\bfseries emotion\+\_\+effects}
 \begin{DoxyCompactList}\small\item\em Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotions }}. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}{relationship\+\_\+effects}}
+std\+::vector$<$ robin\+\_\+hood\+::unordered\+\_\+map$<$ size\+\_\+t, std\+::vector$<$ float $>$ $>$ $>$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype_ab56840c0bcbc6c9070aa61b153327a8f}{relationship\+\_\+effects}}
 \begin{DoxyCompactList}\small\item\em TODO Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -64,11 +64,11 @@ The descriptive string.
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}\label{structtattletale_1_1_interaction_prototype_ac0b95e4cb38d8e8095bf89a4a5c5a259}} 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_ab56840c0bcbc6c9070aa61b153327a8f}\label{structtattletale_1_1_interaction_prototype_ab56840c0bcbc6c9070aa61b153327a8f}} 
 \index{tattletale::InteractionPrototype@{tattletale::InteractionPrototype}!relationship\_effects@{relationship\_effects}}
 \index{relationship\_effects@{relationship\_effects}!tattletale::InteractionPrototype@{tattletale::InteractionPrototype}}
 \doxysubsubsection{\texorpdfstring{relationship\_effects}{relationship\_effects}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::map$<$size\+\_\+t, std\+::map$<$Relationship\+Type, float$>$ $>$ $>$ tattletale\+::\+Interaction\+Prototype\+::relationship\+\_\+effects}
+{\footnotesize\ttfamily std\+::vector$<$robin\+\_\+hood\+::unordered\+\_\+map$<$size\+\_\+t, std\+::vector$<$float$>$ $>$ $>$ tattletale\+::\+Interaction\+Prototype\+::relationship\+\_\+effects}
 
 
 

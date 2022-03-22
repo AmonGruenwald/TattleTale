@@ -16,7 +16,7 @@
 \begin{DoxyCompactList}\small\item\em Constructor that sets up everything necessayr for the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_school_a1b580a346c799e98a6d850ab2e6ee7b8}{Simulate\+Days}} (size\+\_\+t days)
 \begin{DoxyCompactList}\small\item\em Runs the simulation for the passed amount of days. \end{DoxyCompactList}\item 
-std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ \mbox{\hyperlink{classtattletale_1_1_school_a4b5d60470586b993efbd4d9811ccaa31}{Get\+Actor}} (size\+\_\+t actor\+\_\+id)
+\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ \mbox{\hyperlink{classtattletale_1_1_school_a505cc724327eb4791485408af96aab64}{Get\+Actor}} (size\+\_\+t actor\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Getter for an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtattletale_1_1_course}{Course}} \& \mbox{\hyperlink{classtattletale_1_1_school_af972e5b216dcd749a9e65ce135dcfd4f}{Get\+Course}} (size\+\_\+t course\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Getter for a \mbox{\hyperlink{classtattletale_1_1_course}{Course}}. \end{DoxyCompactList}\item 
@@ -40,13 +40,13 @@ void \mbox{\hyperlink{classtattletale_1_1_school_a72c757a06043a0bd7784812edb71a7
 \mbox{\Hypertarget{classtattletale_1_1_school_a84730f21ae16254873268ac9081d74f4}\label{classtattletale_1_1_school_a84730f21ae16254873268ac9081d74f4}} 
 void {\bfseries Free\+Time\+Tick} ()
 \begin{DoxyCompactList}\small\item\em Simulates a tick where the \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} have free time. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtattletale_1_1_school_a626462142c2d2de5503a8ff499795ff5}{Let\+Actor\+Interact}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ \&actor, const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \&group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} type, std\+::string context\+\_\+description=\char`\"{}an unknown time\char`\"{})
+void \mbox{\hyperlink{classtattletale_1_1_school_af5502a844e848f1f8a79032cfb495d8e}{Let\+Actor\+Interact}} (\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$\&actor, const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \&group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} type, std\+::string context\+\_\+description=\char`\"{}an unknown time\char`\"{})
 \begin{DoxyCompactList}\small\item\em Checks wheter the passed Weeekday is a workday or not. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtattletale_1_1_school_ad62f42edaf73cf7c3a0690dcc0a7ddb9}{Actor\+Is\+In\+Course\+Group}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ \&actor, const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \&course\+\_\+group) const
+bool \mbox{\hyperlink{classtattletale_1_1_school_a978d246e2cb2f9b55d9c88a7968ad558}{Actor\+Is\+In\+Course\+Group}} (const \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$actor, const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \&course\+\_\+group) const
 \begin{DoxyCompactList}\small\item\em Checks wheter the passed \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} is in the passed course group. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_school_a751132eb1540b577681d9bc26a5b8a52}{Weekday\+And\+Daily\+Tick\+To\+Slot}} (\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday, size\+\_\+t daily\+\_\+tick) const
 \begin{DoxyCompactList}\small\item\em Transforms a Weekday and a daily tick to a slot index. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \mbox{\hyperlink{classtattletale_1_1_school_aa53a63585bd143fababcc01443d22c58}{Find\+Random\+Course\+Group}} (size\+\_\+t course\+\_\+id, const std\+::vector$<$ uint32\+\_\+t $>$ \&slots)
+std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \mbox{\hyperlink{classtattletale_1_1_school_ae0655d38ea30532aef09b51a0e859284}{Find\+Random\+Course\+Group}} (size\+\_\+t course\+\_\+id, const std\+::vector$<$ uint32\+\_\+t $>$ \&slots)
 \begin{DoxyCompactList}\small\item\em Finds a random group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} that could take the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} during those slots. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}{Get\+Random\+Firstnames}} (size\+\_\+t count)
 \begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked firstnames. \end{DoxyCompactList}\item 
@@ -60,11 +60,11 @@ std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_a
 \mbox{\Hypertarget{classtattletale_1_1_school_a52cc1fa397f32e3e81d025cb2992d2be}\label{classtattletale_1_1_school_a52cc1fa397f32e3e81d025cb2992d2be}} 
 std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_course}{Course}} $>$ {\bfseries courses\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all instanced courses. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_school_af4adb6bed8ddc47ff09de95e0cb49e1a}\label{classtattletale_1_1_school_af4adb6bed8ddc47ff09de95e0cb49e1a}} 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ {\bfseries actors\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_school_a7f79318d6bcdb11caec630d11759e9c6}\label{classtattletale_1_1_school_a7f79318d6bcdb11caec630d11759e9c6}} 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ {\bfseries actors\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all instanced actors. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_school_a914bd0d2d992b909647e49e64b02a3ae}\label{classtattletale_1_1_school_a914bd0d2d992b909647e49e64b02a3ae}} 
-std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ {\bfseries freetime\+\_\+group\+\_\+}
+\mbox{\Hypertarget{classtattletale_1_1_school_a4499844e407308c75b76fb2aa5b3d0c4}\label{classtattletale_1_1_school_a4499844e407308c75b76fb2aa5b3d0c4}} 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ {\bfseries freetime\+\_\+group\+\_\+}
 \begin{DoxyCompactList}\small\item\em Holds all instanced actors as weak\+\_\+ptrs. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}\label{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}} 
 const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \& {\bfseries setting\+\_\+}
@@ -115,11 +115,11 @@ Stores references to a \mbox{\hyperlink{classtattletale_1_1_random}{Random}} and
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_school_ad62f42edaf73cf7c3a0690dcc0a7ddb9}\label{classtattletale_1_1_school_ad62f42edaf73cf7c3a0690dcc0a7ddb9}} 
+\mbox{\Hypertarget{classtattletale_1_1_school_a978d246e2cb2f9b55d9c88a7968ad558}\label{classtattletale_1_1_school_a978d246e2cb2f9b55d9c88a7968ad558}} 
 \index{tattletale::School@{tattletale::School}!ActorIsInCourseGroup@{ActorIsInCourseGroup}}
 \index{ActorIsInCourseGroup@{ActorIsInCourseGroup}!tattletale::School@{tattletale::School}}
 \doxysubsubsection{\texorpdfstring{ActorIsInCourseGroup()}{ActorIsInCourseGroup()}}
-{\footnotesize\ttfamily bool tattletale\+::\+School\+::\+Actor\+Is\+In\+Course\+Group (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ \&}]{actor,  }\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \&}]{course\+\_\+group }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool tattletale\+::\+School\+::\+Actor\+Is\+In\+Course\+Group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{actor,  }\item[{const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \&}]{course\+\_\+group }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -135,11 +135,11 @@ Checks wheter the passed \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} is 
 \begin{DoxyReturn}{Returns}
 The result of the check. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_school_aa53a63585bd143fababcc01443d22c58}\label{classtattletale_1_1_school_aa53a63585bd143fababcc01443d22c58}} 
+\mbox{\Hypertarget{classtattletale_1_1_school_ae0655d38ea30532aef09b51a0e859284}\label{classtattletale_1_1_school_ae0655d38ea30532aef09b51a0e859284}} 
 \index{tattletale::School@{tattletale::School}!FindRandomCourseGroup@{FindRandomCourseGroup}}
 \index{FindRandomCourseGroup@{FindRandomCourseGroup}!tattletale::School@{tattletale::School}}
 \doxysubsubsection{\texorpdfstring{FindRandomCourseGroup()}{FindRandomCourseGroup()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ tattletale\+::\+School\+::\+Find\+Random\+Course\+Group (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{course\+\_\+id,  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{slots }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ tattletale\+::\+School\+::\+Find\+Random\+Course\+Group (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{course\+\_\+id,  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{slots }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -157,11 +157,11 @@ Picks random \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} and checks if
 \begin{DoxyReturn}{Returns}
 The found group of Actors. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_school_a4b5d60470586b993efbd4d9811ccaa31}\label{classtattletale_1_1_school_a4b5d60470586b993efbd4d9811ccaa31}} 
+\mbox{\Hypertarget{classtattletale_1_1_school_a505cc724327eb4791485408af96aab64}\label{classtattletale_1_1_school_a505cc724327eb4791485408af96aab64}} 
 \index{tattletale::School@{tattletale::School}!GetActor@{GetActor}}
 \index{GetActor@{GetActor}!tattletale::School@{tattletale::School}}
 \doxysubsubsection{\texorpdfstring{GetActor()}{GetActor()}}
-{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ tattletale\+::\+School\+::\+Get\+Actor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ tattletale\+::\+School\+::\+Get\+Actor (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor\+\_\+id }\end{DoxyParamCaption})}
 
 
 
@@ -333,11 +333,11 @@ Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_setting}{Set
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} object. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_school_a626462142c2d2de5503a8ff499795ff5}\label{classtattletale_1_1_school_a626462142c2d2de5503a8ff499795ff5}} 
+\mbox{\Hypertarget{classtattletale_1_1_school_af5502a844e848f1f8a79032cfb495d8e}\label{classtattletale_1_1_school_af5502a844e848f1f8a79032cfb495d8e}} 
 \index{tattletale::School@{tattletale::School}!LetActorInteract@{LetActorInteract}}
 \index{LetActorInteract@{LetActorInteract}!tattletale::School@{tattletale::School}}
 \doxysubsubsection{\texorpdfstring{LetActorInteract()}{LetActorInteract()}}
-{\footnotesize\ttfamily void tattletale\+::\+School\+::\+Let\+Actor\+Interact (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ \&}]{actor,  }\item[{const std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ \&}]{group,  }\item[{\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}}}]{type,  }\item[{std\+::string}]{context\+\_\+description = {\ttfamily \char`\"{}an~unknown~time\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void tattletale\+::\+School\+::\+Let\+Actor\+Interact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$\&}]{actor,  }\item[{const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \&}]{group,  }\item[{\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}}}]{type,  }\item[{std\+::string}]{context\+\_\+description = {\ttfamily \char`\"{}an~unknown~time\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

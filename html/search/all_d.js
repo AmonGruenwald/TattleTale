@@ -10,7 +10,7 @@ var searchData=
   ['simulatedays_7',['SimulateDays',['../classtattletale_1_1_school.html#a1b580a346c799e98a6d850ab2e6ee7b8',1,'tattletale::School']]],
   ['slot_5fcount_5fper_5fweek_8',['slot_count_per_week',['../structtattletale_1_1_setting.html#a9b6d83b5f2c06e84c841cf86c1624cad',1,'tattletale::Setting']]],
   ['slotempty_9',['SlotEmpty',['../classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300',1,'tattletale::Actor']]],
-  ['slots_5f_10',['slots_',['../classtattletale_1_1_course.html#a9d9e2f57b2f3ab3be679953375d6cf19',1,'tattletale::Course']]],
+  ['slots_5f_10',['slots_',['../classtattletale_1_1_course.html#afd8a4c6e161409e438e80b773c9612e5',1,'tattletale::Course']]],
   ['slotsempty_11',['SlotsEmpty',['../classtattletale_1_1_actor.html#a2c51618ee6e2cfe18fccbaa6a380656f',1,'tattletale::Actor']]],
   ['stringtocontexttype_12',['StringToContextType',['../namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585',1,'tattletale']]],
   ['stringtoemotiontype_13',['StringToEmotionType',['../classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7',1,'tattletale::Emotion']]],

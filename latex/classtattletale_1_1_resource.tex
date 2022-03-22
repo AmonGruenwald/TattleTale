@@ -12,7 +12,7 @@ Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}
 Inheritance diagram for tattletale\+::Resource\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{classtattletale_1_1_resource}
+\includegraphics[height=3.000000cm]{classtattletale_1_1_resource}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -23,7 +23,7 @@ float \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_resource_a390b8eaa912b84fcfc8b85989edb63e3}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ owner, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, float value, Kernel\+Type type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{}, \char`\"{}beeing\char`\"{}, \char`\"{}are\char`\"{}))
+\mbox{\hyperlink{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value, Kernel\+Type type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{}, \char`\"{}beeing\char`\"{}, \char`\"{}are\char`\"{}))
 \begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -37,11 +37,11 @@ float {\bfseries value\+\_\+}
 Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_resource_a390b8eaa912b84fcfc8b85989edb63e3}\label{classtattletale_1_1_resource_a390b8eaa912b84fcfc8b85989edb63e3}} 
+\mbox{\Hypertarget{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}\label{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}} 
 \index{tattletale::Resource@{tattletale::Resource}!Resource@{Resource}}
 \index{Resource@{Resource}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{Resource()}{Resource()}}
-{\footnotesize\ttfamily tattletale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{positive\+\_\+name\+\_\+variant,  }\item[{std\+::string}]{negative\+\_\+name\+\_\+variant,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$}]{owner,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{float}]{value,  }\item[{Kernel\+Type}]{type = {\ttfamily KernelType\+:\+:kResource},  }\item[{\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}]{verb = {\ttfamily \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{},~\char`\"{}beeing\char`\"{},~\char`\"{}are\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily tattletale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{positive\+\_\+name\+\_\+variant,  }\item[{std\+::string}]{negative\+\_\+name\+\_\+variant,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value,  }\item[{Kernel\+Type}]{type = {\ttfamily KernelType\+:\+:kResource},  }\item[{\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}]{verb = {\ttfamily \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{},~\char`\"{}beeing\char`\"{},~\char`\"{}are\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 

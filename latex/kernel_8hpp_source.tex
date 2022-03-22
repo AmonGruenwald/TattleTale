@@ -25,7 +25,7 @@
 \DoxyCodeLine{21         kLast}
 \DoxyCodeLine{22     \};}
 \DoxyCodeLine{23     \textcolor{keyword}{class }Actor;}
-\DoxyCodeLine{32     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} : \textcolor{keyword}{public} std::enable\_shared\_from\_this<Kernel>}
+\DoxyCodeLine{32     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
 \DoxyCodeLine{33     \{}
 \DoxyCodeLine{34     \textcolor{keyword}{public}:}
 \DoxyCodeLine{35         std::string name\_;}
@@ -33,21 +33,21 @@
 \DoxyCodeLine{37         \textcolor{keywordtype}{size\_t} tick\_;}
 \DoxyCodeLine{38         KernelType type\_;}
 \DoxyCodeLine{39 }
-\DoxyCodeLine{40         \textcolor{keywordtype}{void} AddConsequence(std::weak\_ptr<Kernel> consequence);}
-\DoxyCodeLine{41         \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetConsequences() \textcolor{keyword}{const};}
-\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector<std::weak\_ptr<Kernel>> \&GetReasons() \textcolor{keyword}{const};}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} AddConsequence(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *consequence);}
+\DoxyCodeLine{41         \textcolor{keyword}{const} std::vector<Kernel *> \&GetConsequences() \textcolor{keyword}{const};}
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector<Kernel *> \&GetReasons() \textcolor{keyword}{const};}
 \DoxyCodeLine{43         \textcolor{keyword}{virtual} std::string GetDefaultDescription() \textcolor{keyword}{const} = 0;}
 \DoxyCodeLine{44         \textcolor{keyword}{virtual} std::string GetDetailedDescription() \textcolor{keyword}{const};}
 \DoxyCodeLine{45         \textcolor{keyword}{virtual} std::string GetPassiveDescription() \textcolor{keyword}{const} = 0;}
 \DoxyCodeLine{46         \textcolor{keyword}{virtual} std::string GetActiveDescription() \textcolor{keyword}{const} = 0;}
 \DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} GetChance() \textcolor{keyword}{const};}
-\DoxyCodeLine{48         std::weak\_ptr<Actor> GetOwner() \textcolor{keyword}{const};}
+\DoxyCodeLine{48         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *GetOwner() \textcolor{keyword}{const};}
 \DoxyCodeLine{49 }
 \DoxyCodeLine{50     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{54         std::vector<std::weak\_ptr<Kernel>> \mbox{\hyperlink{classtattletale_1_1_kernel_a2ec855cec232883f9f26eeb8c8d0ad8e}{consequences\_}};}
-\DoxyCodeLine{55         std::vector<std::weak\_ptr<Kernel>> reasons\_;}
-\DoxyCodeLine{56         std::weak\_ptr<Actor> owner\_;}
-\DoxyCodeLine{57         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, std::weak\_ptr<Actor> owner, std::vector<std::weak\_ptr<Kernel>> reasons, KernelType type);}
+\DoxyCodeLine{54         std::vector<Kernel *> \mbox{\hyperlink{classtattletale_1_1_kernel_aeba9c27919b7917b14a711318e3d9cb3}{consequences\_}};}
+\DoxyCodeLine{55         std::vector<Kernel *> reasons\_;}
+\DoxyCodeLine{56         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner\_;}
+\DoxyCodeLine{57         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, KernelType type);}
 \DoxyCodeLine{58     \};}
 \DoxyCodeLine{59 }
 \DoxyCodeLine{60 \} \textcolor{comment}{// namespace tattletale}}

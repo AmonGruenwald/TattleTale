@@ -81,12 +81,6 @@ $(function() {
  <a href="classtattletale_1_1_actor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="actor_8hpp_source.html">shared/actor.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for tattletale::Actor:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classtattletale_1_1_actor.png" alt=""/>
- </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -108,18 +102,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a676a759894d2398f3942295993647300"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300">SlotEmpty</a> (size_t slot) const</td></tr>
 <tr class="memdesc:a676a759894d2398f3942295993647300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let's the actor decide on an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> for the currrent situation.  <a href="classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300">More...</a><br /></td></tr>
 <tr class="separator:a676a759894d2398f3942295993647300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a500bc83a92abb043342d45973410a619"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a500bc83a92abb043342d45973410a619">CalculateTendencyChance</a> (const <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &amp;tendency, const <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> &amp;context, std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &amp;out_reason)</td></tr>
-<tr class="memdesc:a500bc83a92abb043342d45973410a619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="TODO.">InteractionTendency</a> and the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current state.  <a href="classtattletale_1_1_actor.html#a500bc83a92abb043342d45973410a619">More...</a><br /></td></tr>
-<tr class="separator:a500bc83a92abb043342d45973410a619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b62b616d4a3935743be966f09d5a372"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a5b62b616d4a3935743be966f09d5a372">ApplyWealthChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, float value)</td></tr>
-<tr class="memdesc:a5b62b616d4a3935743be966f09d5a372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> wealth.  <a href="classtattletale_1_1_actor.html#a5b62b616d4a3935743be966f09d5a372">More...</a><br /></td></tr>
-<tr class="separator:a5b62b616d4a3935743be966f09d5a372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af822c7c21074cf8343d876b8b0173afb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#af822c7c21074cf8343d876b8b0173afb">ApplyEmotionChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, EmotionType type, float value)</td></tr>
-<tr class="memdesc:af822c7c21074cf8343d876b8b0173afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> state.  <a href="classtattletale_1_1_actor.html#af822c7c21074cf8343d876b8b0173afb">More...</a><br /></td></tr>
-<tr class="separator:af822c7c21074cf8343d876b8b0173afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a638cb61a98bd34fe072a025b5a7a2179"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a638cb61a98bd34fe072a025b5a7a2179">ApplyRelationshipChange</a> (const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;reasons, size_t tick, size_t actor_id, std::map&lt; RelationshipType, float &gt; change)</td></tr>
-<tr class="memdesc:a638cb61a98bd34fe072a025b5a7a2179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_relationship.html">Relationships </a>.  <a href="classtattletale_1_1_actor.html#a638cb61a98bd34fe072a025b5a7a2179">More...</a><br /></td></tr>
-<tr class="separator:a638cb61a98bd34fe072a025b5a7a2179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a8abfeaf5b18d85dc91e2dddba0cdad69">CalculateTendencyChance</a> (const <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &amp;tendency, const <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> &amp;context, <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;out_reason)</td></tr>
+<tr class="memdesc:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="TODO.">InteractionTendency</a> and the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current state.  <a href="classtattletale_1_1_actor.html#a8abfeaf5b18d85dc91e2dddba0cdad69">More...</a><br /></td></tr>
+<tr class="separator:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66db9c2438bc09c5312707b1a991480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#ad66db9c2438bc09c5312707b1a991480">ApplyWealthChange</a> (const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;reasons, size_t tick, float value)</td></tr>
+<tr class="memdesc:ad66db9c2438bc09c5312707b1a991480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> wealth.  <a href="classtattletale_1_1_actor.html#ad66db9c2438bc09c5312707b1a991480">More...</a><br /></td></tr>
+<tr class="separator:ad66db9c2438bc09c5312707b1a991480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8834e4e3e38b7c152eb1b0213025d9c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a8834e4e3e38b7c152eb1b0213025d9c5">ApplyEmotionChange</a> (const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;reasons, size_t tick, int type_index, float value)</td></tr>
+<tr class="memdesc:a8834e4e3e38b7c152eb1b0213025d9c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> state.  <a href="classtattletale_1_1_actor.html#a8834e4e3e38b7c152eb1b0213025d9c5">More...</a><br /></td></tr>
+<tr class="separator:a8834e4e3e38b7c152eb1b0213025d9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e4966d421dbb841c895abbee069a93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a07e4966d421dbb841c895abbee069a93">ApplyRelationshipChange</a> (const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;reasons, size_t tick, size_t actor_id, std::vector&lt; float &gt; change)</td></tr>
+<tr class="memdesc:a07e4966d421dbb841c895abbee069a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_relationship.html">Relationships </a>.  <a href="classtattletale_1_1_actor.html#a07e4966d421dbb841c895abbee069a93">More...</a><br /></td></tr>
+<tr class="separator:a07e4966d421dbb841c895abbee069a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01601b7175de38c8c4b349b2efbc74cd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a01601b7175de38c8c4b349b2efbc74cd">GetDetailedDescriptionString</a> () const</td></tr>
 <tr class="memdesc:a01601b7175de38c8c4b349b2efbc74cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a string describing the current status of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtattletale_1_1_actor.html#a01601b7175de38c8c4b349b2efbc74cd">More...</a><br /></td></tr>
 <tr class="separator:a01601b7175de38c8c4b349b2efbc74cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,26 +136,26 @@ const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>first_na
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>last_name_</b></td></tr>
 <tr class="memdesc:af5ca4984d6ac05eb519ce00d5bcaa4ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last name of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. <br /></td></tr>
 <tr class="separator:af5ca4984d6ac05eb519ce00d5bcaa4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e6114e4da62fd39f95de4850e8bac98"><td class="memItemLeft" align="right" valign="top"><a id="a2e6114e4da62fd39f95de4850e8bac98" name="a2e6114e4da62fd39f95de4850e8bac98"></a>
-std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_resource.html">Resource</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_</b></td></tr>
-<tr class="memdesc:a2e6114e4da62fd39f95de4850e8bac98"><td class="mdescLeft">&#160;</td><td class="mdescRight">The abstract state of the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
-<tr class="separator:a2e6114e4da62fd39f95de4850e8bac98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af12fdab21c815f0980b3b01ebd723639"><td class="memItemLeft" align="right" valign="top"><a id="af12fdab21c815f0980b3b01ebd723639" name="af12fdab21c815f0980b3b01ebd723639"></a>
-std::map&lt; EmotionType, std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_emotion.html">Emotion</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions_</b></td></tr>
-<tr class="memdesc:af12fdab21c815f0980b3b01ebd723639"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> state is. Maps one <a class="el" href="classtattletale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> to each EmotionType. <br /></td></tr>
-<tr class="separator:af12fdab21c815f0980b3b01ebd723639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a346fdbab0d27028cdd89730268d682db"><td class="memItemLeft" align="right" valign="top"><a id="a346fdbab0d27028cdd89730268d682db" name="a346fdbab0d27028cdd89730268d682db"></a>
-std::map&lt; size_t, std::map&lt; RelationshipType, std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_relationship.html">Relationship</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationships_</b></td></tr>
-<tr class="memdesc:a346fdbab0d27028cdd89730268d682db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_relationship.html">Relationships </a> with other <a class="el" href="classtattletale_1_1_actor.html">Actors </a>. Maps the other <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> id to another map of RelationshipType to <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a>. <br /></td></tr>
-<tr class="separator:a346fdbab0d27028cdd89730268d682db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa94018cf665d9cbc3151d63d31c1cb13"><td class="memItemLeft" align="right" valign="top"><a id="aa94018cf665d9cbc3151d63d31c1cb13" name="aa94018cf665d9cbc3151d63d31c1cb13"></a>
-std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_trait.html">Trait</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>traits_</b></td></tr>
-<tr class="memdesc:aa94018cf665d9cbc3151d63d31c1cb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_trait.html">Traits </a> the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> posses. <br /></td></tr>
-<tr class="separator:aa94018cf665d9cbc3151d63d31c1cb13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07bbdf413001c2d0a16e77345c2fef70"><td class="memItemLeft" align="right" valign="top"><a id="a07bbdf413001c2d0a16e77345c2fef70" name="a07bbdf413001c2d0a16e77345c2fef70"></a>
-std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_goal.html">Goal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>goal_</b></td></tr>
-<tr class="memdesc:a07bbdf413001c2d0a16e77345c2fef70"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is trying to reach during the simulation. <br /></td></tr>
-<tr class="separator:a07bbdf413001c2d0a16e77345c2fef70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7873c0350bd7b9be850f78185904144"><td class="memItemLeft" align="right" valign="top"><a id="ae7873c0350bd7b9be850f78185904144" name="ae7873c0350bd7b9be850f78185904144"></a>
+<a class="el" href="classtattletale_1_1_resource.html">Resource</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_</b></td></tr>
+<tr class="memdesc:ae7873c0350bd7b9be850f78185904144"><td class="mdescLeft">&#160;</td><td class="mdescRight">The abstract state of the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> wealth. <br /></td></tr>
+<tr class="separator:ae7873c0350bd7b9be850f78185904144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a326e881a216ec897be457868c6d37233"><td class="memItemLeft" align="right" valign="top"><a id="a326e881a216ec897be457868c6d37233" name="a326e881a216ec897be457868c6d37233"></a>
+std::vector&lt; <a class="el" href="classtattletale_1_1_emotion.html">Emotion</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions_</b></td></tr>
+<tr class="memdesc:a326e881a216ec897be457868c6d37233"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> state is. Maps one <a class="el" href="classtattletale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> to each EmotionType. <br /></td></tr>
+<tr class="separator:a326e881a216ec897be457868c6d37233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe30638e7ddbca1bd5cb8ef72e293b4"><td class="memItemLeft" align="right" valign="top"><a id="afbe30638e7ddbca1bd5cb8ef72e293b4" name="afbe30638e7ddbca1bd5cb8ef72e293b4"></a>
+robin_hood::unordered_map&lt; size_t, std::vector&lt; <a class="el" href="classtattletale_1_1_relationship.html">Relationship</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationships_</b></td></tr>
+<tr class="memdesc:afbe30638e7ddbca1bd5cb8ef72e293b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_relationship.html">Relationships </a> with other <a class="el" href="classtattletale_1_1_actor.html">Actors </a>. Maps the other <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> id to another map of RelationshipType to <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a>. <br /></td></tr>
+<tr class="separator:afbe30638e7ddbca1bd5cb8ef72e293b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5946bda80e2bc8f8bc3ff565f020ed6f"><td class="memItemLeft" align="right" valign="top"><a id="a5946bda80e2bc8f8bc3ff565f020ed6f" name="a5946bda80e2bc8f8bc3ff565f020ed6f"></a>
+std::vector&lt; <a class="el" href="classtattletale_1_1_trait.html">Trait</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>traits_</b></td></tr>
+<tr class="memdesc:a5946bda80e2bc8f8bc3ff565f020ed6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_trait.html">Traits </a> the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> posses. <br /></td></tr>
+<tr class="separator:a5946bda80e2bc8f8bc3ff565f020ed6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad94f18c9381635d5b493b7d9034eb7"><td class="memItemLeft" align="right" valign="top"><a id="a8ad94f18c9381635d5b493b7d9034eb7" name="a8ad94f18c9381635d5b493b7d9034eb7"></a>
+<a class="el" href="classtattletale_1_1_goal.html">Goal</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>goal_</b></td></tr>
+<tr class="memdesc:a8ad94f18c9381635d5b493b7d9034eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is trying to reach during the simulation. <br /></td></tr>
+<tr class="separator:a8ad94f18c9381635d5b493b7d9034eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -235,8 +229,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="af822c7c21074cf8343d876b8b0173afb" name="af822c7c21074cf8343d876b8b0173afb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af822c7c21074cf8343d876b8b0173afb">&#9670;&nbsp;</a></span>ApplyEmotionChange()</h2>
+<a id="a8834e4e3e38b7c152eb1b0213025d9c5" name="a8834e4e3e38b7c152eb1b0213025d9c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8834e4e3e38b7c152eb1b0213025d9c5">&#9670;&nbsp;</a></span>ApplyEmotionChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -244,7 +238,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tattletale::Actor::ApplyEmotionChange </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -256,8 +250,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">EmotionType&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type_index</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -278,7 +272,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
   <table class="params">
     <tr><td class="paramname">reasons</td><td>Vector holding the reasons for this change. </td></tr>
     <tr><td class="paramname">tick</td><td>The tick during which this change happened. </td></tr>
-    <tr><td class="paramname">type</td><td>The type of <a class="el" href="classtattletale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> that gets changed. </td></tr>
+    <tr><td class="paramname">type_index</td><td>The type index of the EmotionType of the <a class="el" href="classtattletale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> that gets changed. </td></tr>
     <tr><td class="paramname">value</td><td>By how much the <a class="el" href="classtattletale_1_1_emotion.html" title="Represents an Emotion an Actor has.">Emotion</a> gets changed. </td></tr>
   </table>
   </dd>
@@ -286,8 +280,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a638cb61a98bd34fe072a025b5a7a2179" name="a638cb61a98bd34fe072a025b5a7a2179"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a638cb61a98bd34fe072a025b5a7a2179">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
+<a id="a07e4966d421dbb841c895abbee069a93" name="a07e4966d421dbb841c895abbee069a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e4966d421dbb841c895abbee069a93">&#9670;&nbsp;</a></span>ApplyRelationshipChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +289,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tattletale::Actor::ApplyRelationshipChange </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -313,7 +307,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::map&lt; RelationshipType, float &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>change</em>&#160;</td>
         </tr>
         <tr>
@@ -338,8 +332,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a5b62b616d4a3935743be966f09d5a372" name="a5b62b616d4a3935743be966f09d5a372"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b62b616d4a3935743be966f09d5a372">&#9670;&nbsp;</a></span>ApplyWealthChange()</h2>
+<a id="ad66db9c2438bc09c5312707b1a991480" name="ad66db9c2438bc09c5312707b1a991480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66db9c2438bc09c5312707b1a991480">&#9670;&nbsp;</a></span>ApplyWealthChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,7 +341,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="memname">void tattletale::Actor::ApplyWealthChange </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;&#160;</td>
           <td class="paramname"><em>reasons</em>, </td>
         </tr>
         <tr>
@@ -382,8 +376,8 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
 
 </div>
 </div>
-<a id="a500bc83a92abb043342d45973410a619" name="a500bc83a92abb043342d45973410a619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a500bc83a92abb043342d45973410a619">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
+<a id="a8abfeaf5b18d85dc91e2dddba0cdad69" name="a8abfeaf5b18d85dc91e2dddba0cdad69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abfeaf5b18d85dc91e2dddba0cdad69">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,7 +397,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::weak_ptr&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;&#160;</td>
           <td class="paramname"><em>out_reason</em>&#160;</td>
         </tr>
         <tr>

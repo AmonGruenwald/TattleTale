@@ -33,14 +33,14 @@
 \DoxyCodeLine{37         std::string GetActiveDescription() \textcolor{keyword}{const override};}
 \DoxyCodeLine{38 }
 \DoxyCodeLine{39     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{52         \mbox{\hyperlink{classtattletale_1_1_resource_a390b8eaa912b84fcfc8b85989edb63e3}{Resource}}(}
+\DoxyCodeLine{52         \mbox{\hyperlink{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}{Resource}}(}
 \DoxyCodeLine{53             std::string name,}
 \DoxyCodeLine{54             std::string positive\_name\_variant,}
 \DoxyCodeLine{55             std::string negative\_name\_variant,}
 \DoxyCodeLine{56             \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id},}
 \DoxyCodeLine{57             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{58             std::weak\_ptr<Actor> owner,}
-\DoxyCodeLine{59             std::vector<std::weak\_ptr<Kernel>> reasons,}
+\DoxyCodeLine{58             \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner,}
+\DoxyCodeLine{59             std::vector<Kernel *> reasons,}
 \DoxyCodeLine{60             \textcolor{keywordtype}{float} value,}
 \DoxyCodeLine{61             KernelType type = KernelType::kResource,}
 \DoxyCodeLine{62             \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb = \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\textcolor{stringliteral}{"{}was"{}}, \textcolor{stringliteral}{"{}beeing"{}}, \textcolor{stringliteral}{"{}are"{}}));}

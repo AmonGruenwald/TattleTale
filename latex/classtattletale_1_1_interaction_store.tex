@@ -22,11 +22,11 @@ const size\+\_\+t \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_af38
 \begin{DoxyCompactList}\small\item\em Returns the participation count for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154}{Get\+Wealth\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the wealth effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a65511204f6c4eb9903d694683e95cb84}{Get\+Emotion\+Effects}} (size\+\_\+t prototype\+\_\+index) const
+const std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}{Get\+Emotion\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a5c47d77e323a3993d7824225e41e96ea}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
+const std\+::vector$<$ robin\+\_\+hood\+::unordered\+\_\+map$<$ size\+\_\+t, std\+::vector$<$ float $>$ $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ \mbox{\hyperlink{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}{Create\+Interaction}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$ reasons, std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$ participants)
+\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $\ast$ \mbox{\hyperlink{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}{Create\+Interaction}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ participants)
 \begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}{Get\+Requirement\+Catalogue}} () const
 \begin{DoxyCompactList}\small\item\em Gettter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} catalogue. \end{DoxyCompactList}\item 
@@ -78,11 +78,11 @@ Reads from tale/resources/interactioncatalogue.\+json to get the data to build u
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}\label{classtattletale_1_1_interaction_store_a944dd595d7d14d84834a4b9f19f1b248}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}\label{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!CreateInteraction@{CreateInteraction}}
 \index{CreateInteraction@{CreateInteraction}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
-{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $>$ tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $>$ $>$}]{reasons,  }\item[{std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $>$ $>$}]{participants }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $\ast$ tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$}]{participants }\end{DoxyParamCaption})}
 
 
 
@@ -102,11 +102,11 @@ This is the only way an \mbox{\hyperlink{classtattletale_1_1_interaction}{Intera
 \begin{DoxyReturn}{Returns}
 A pointer to the created \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a65511204f6c4eb9903d694683e95cb84}\label{classtattletale_1_1_interaction_store_a65511204f6c4eb9903d694683e95cb84}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}\label{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetEmotionEffects@{GetEmotionEffects}}
 \index{GetEmotionEffects@{GetEmotionEffects}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetEmotionEffects()}{GetEmotionEffects()}}
-{\footnotesize\ttfamily const std\+::vector$<$ std\+::map$<$ Emotion\+Type, float $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Emotion\+Effects (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Emotion\+Effects (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index }\end{DoxyParamCaption}) const}
 
 
 
@@ -169,11 +169,11 @@ Returns a random interaction\+Prototype index from the catalogue.
 \begin{DoxyReturn}{Returns}
 A random interaction\+Prototype index 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a5c47d77e323a3993d7824225e41e96ea}\label{classtattletale_1_1_interaction_store_a5c47d77e323a3993d7824225e41e96ea}} 
+\mbox{\Hypertarget{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}\label{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetRelationshipEffects@{GetRelationshipEffects}}
 \index{GetRelationshipEffects@{GetRelationshipEffects}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetRelationshipEffects()}{GetRelationshipEffects()}}
-{\footnotesize\ttfamily const std\+::vector$<$ std\+::map$<$ size\+\_\+t, std\+::map$<$ Relationship\+Type, float $>$ $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Relationship\+Effects (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ robin\+\_\+hood\+::unordered\+\_\+map$<$ size\+\_\+t, std\+::vector$<$ float $>$ $>$ $>$ \& tattletale\+::\+Interaction\+Store\+::\+Get\+Relationship\+Effects (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{prototype\+\_\+index }\end{DoxyParamCaption}) const}
 
 
 
