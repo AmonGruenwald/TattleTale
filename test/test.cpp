@@ -23,6 +23,7 @@ TEST(TaleKernels, IncreasingKernelId)
     School school(chronicle, random, setting);
     chronicle.Reset();
     Actor *actor = chronicle.CreateActor(school, "John", "Doe");
+    Emotion *emotion = chronicle.CreateEmotion(EmotionType::kHappy, tick, actor, no_reasons, 1);
 }
 
 class DISABLED_TaleCreateAndRunSchool : public ::testing::Test
