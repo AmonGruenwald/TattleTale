@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
+#include <list>
 #include <algorithm>
 #include <memory>
 #include "tale/tale.hpp"

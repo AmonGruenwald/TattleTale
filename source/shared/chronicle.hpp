@@ -2,6 +2,7 @@
 #define TALE_GLOBALS_CHRONICLE_H
 
 #include <memory>
+#include <list>
 #include <vector>
 #include <string>
 #include "shared/kernels/interactions/interaction.hpp"

@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <list>
 #include "tale/course.hpp"
 #include "shared/setting.hpp"
 #include "shared/random.hpp"
