@@ -15,7 +15,7 @@ TEST(TaleKernels, IncreasingKernelId)
 {
     Random random;
     Chronicle chronicle(random);
-    std::vector<Kernel *> no_reasons;
+    std::vector<Kernel *> no_reasons = {};
     size_t tick = 0;
     Setting setting;
     setting.actor_count = 0;
