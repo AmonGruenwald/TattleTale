@@ -28,7 +28,7 @@ namespace tattletale
         /**
          * @brief Converts a string to an EmotionType.
          *
-         * Uses the same string values EmotionTypeToString returns.
+         * Uses the same string values formater returns.
          * So valid strings are: "happy" "calm", "satisfied", "brave" and "extroverted".
          * Everything else just return EmotionType::kNone. (But an assert will crash the Application in Debug mode.)
          *
@@ -36,15 +36,6 @@ namespace tattletale
          * @return The corresponding EmotionType value.
          */
         static EmotionType StringToEmotionType(std::string emotion_string);
-        /**
-         * @brief Converts an EmotionType to a string for easy printing.
-         *
-         * Note that EmotionType:kNone and EmotionType::kLast will assert and crash in Debug mode.
-         *
-         * @param emotion_type The EmotionType we want to convert.
-         * @return The corresponding string.
-         */
-        static std::string EmotionTypeToString(EmotionType emotion_type);
 
         /**
          * @brief Creates a string describing the Emotion for easy printing.
@@ -87,4 +78,24 @@ namespace tattletale
     };
 
 } // namespace tattletale
+
+template <>
+struct fmt::formatter<tattletale::EmotionType> : formatter<string_view>
+{
+    std::string emotion_type_names[6] = {
+        "happy",
+        "calm",
+        "satisfied",
+        "brave",
+        "extroverted",
+        "last"};
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::EmotionType type, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(type);
+        string_view name = emotion_type_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
 #endif // TALE_KERNELS_RESOURCEKERNELS_EMOTION_H

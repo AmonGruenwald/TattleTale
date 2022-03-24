@@ -61,7 +61,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
         for (int type_index = 0; type_index < static_cast<int>(tattletale::EmotionType::kLast); ++type_index)
         {
             tattletale::EmotionType type = static_cast<tattletale::EmotionType>(type_index);
-            emotions_string += fmt::format("\t{}: {}\n", tattletale::Emotion::EmotionTypeToString(type), tendency.emotions[type_index]);
+            emotions_string += fmt::format("\t{}: {}\n", type, tendency.emotions[type_index]);
         }
         std::string relationship_string = "Relationships:\n";
 

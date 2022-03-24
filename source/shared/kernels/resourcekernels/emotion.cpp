@@ -8,7 +8,7 @@ namespace tattletale
 {
     Emotion::Emotion(EmotionType type, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value)
         : Resource(
-              EmotionTypeToString(type),
+              fmt::format("{}", type),
               Emotion::positive_name_variants_[static_cast<int>(type)],
               Emotion::negative_name_variants_[static_cast<int>(type)],
               id,
@@ -35,33 +35,6 @@ namespace tattletale
         TATTLETALE_ERROR_PRINT(true, "Invalid Emotion string was passed");
         return EmotionType::kLast;
     }
-    std::string Emotion::EmotionTypeToString(EmotionType emotion_type)
-    {
-        switch (emotion_type)
-        {
-        case EmotionType::kHappy:
-            return "happy";
-            break;
-        case EmotionType::kCalm:
-            return "calm";
-            break;
-        case EmotionType::kSatisfied:
-            return "satisfied";
-            break;
-        case EmotionType::kBrave:
-            return "brave";
-            break;
-        case EmotionType::kExtroverted:
-            return "extroverted";
-            break;
-        case EmotionType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Emotion type was passed");
-            return "last";
-            break;
-        }
-        return "none";
-    }
-
     EmotionType Emotion::GetType()
     {
         return type_;

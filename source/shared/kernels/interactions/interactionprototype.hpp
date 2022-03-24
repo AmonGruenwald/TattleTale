@@ -100,7 +100,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
             {
                 float value = prototype.emotion_effects[i][type_index];
                 tattletale::EmotionType type = static_cast<tattletale::EmotionType>(type_index);
-                emotion_effects_string += fmt::format("\n\t\t{}: {}", tattletale::Emotion::EmotionTypeToString(type), value);
+                emotion_effects_string += fmt::format("\n\t\t{}: {}", type, value);
             }
             emotion_effects_string += "\n";
         }
