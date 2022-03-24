@@ -18,7 +18,7 @@ namespace tattletale
      *
      * Uses the same string values formater returns.
      * So valid strings are: "course" and"freetime".
-     * Everything else just return ContextType::kNone.
+     * Everything else just returns ContextType::kLast.
      *
      * @param context_string The string we want to convert.
      * @return The corresponding ContextType value.

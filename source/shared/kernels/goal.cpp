@@ -7,7 +7,7 @@
 namespace tattletale
 {
     Goal::Goal(GoalType type, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons)
-        : type_(type), Kernel(GoalTypeToString(type), id, tick, owner, reasons, KernelType::kGoal){};
+        : type_(type), Kernel(fmt::format("{}", type), id, tick, owner, reasons, KernelType::kGoal){};
 
     GoalType Goal::GetRandomGoalType(Random &random)
     {
@@ -27,70 +27,34 @@ namespace tattletale
             return GoalType::kHedonism;
         if (goal_string == "power")
             return GoalType::kPower;
-        return GoalType::kNone;
-    }
-    std::string Goal::GoalTypeToString(GoalType goal_type)
-    {
-        switch (goal_type)
-        {
-        case GoalType::kNone:
-            return "none";
-            break;
-        case GoalType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Goal type was passed");
-            return "last";
-            break;
-        case GoalType::kWealth:
-            return "wealth";
-            break;
-        case GoalType::kAcceptance:
-            return "acceptance";
-            break;
-        case GoalType::kRelationship:
-            return "relationship";
-            break;
-        case GoalType::kHedonism:
-            return "hedonism";
-            break;
-        case GoalType::kPower:
-            return "power";
-            break;
-        }
-        return "none";
+        return GoalType::kLast;
     }
 
-    std::string Goal::GoalTypeToDescription(GoalType goal_type) const
-    {
-        switch (goal_type)
-        {
-        case GoalType::kNone:
-            return fmt::format("{} does not have a goal.", *owner_);
-            break;
-        case GoalType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Goal type was passed");
-            return fmt::format("{} does not have a goal.", *owner_);
-            break;
-        case GoalType::kWealth:
-            return fmt::format("{} want to become incredibly rich.", *owner_);
-            break;
-        case GoalType::kAcceptance:
-            return fmt::format("{} wants to be fully accepted by their peers.", *owner_);
-            break;
-        case GoalType::kRelationship:
-            return fmt::format("{} wants to have a loving relationship.", *owner_);
-            break;
-        case GoalType::kHedonism:
-            return fmt::format("{} only lives for pleasure.", *owner_);
-            break;
-        case GoalType::kPower:
-            return fmt::format("{} wants to be the most powerful person in school.", *owner_);
-            break;
-        }
-        return "none";
-    }
     std::string Goal::GetDefaultDescription() const
     {
-        return GoalTypeToDescription(type_);
+        std::string description = "No default description.";
+        switch (type_)
+        {
+        case GoalType::kLast:
+            description = fmt::format("{} does not have a goal.", *owner_);
+            break;
+        case GoalType::kWealth:
+            description = fmt::format("{} want to become incredibly rich.", *owner_);
+            break;
+        case GoalType::kAcceptance:
+            description = fmt::format("{} wants to be fully accepted by their peers.", *owner_);
+            break;
+        case GoalType::kRelationship:
+            description = fmt::format("{} wants to have a loving relationship.", *owner_);
+            break;
+        case GoalType::kHedonism:
+            description = fmt::format("{} only lives for pleasure.", *owner_);
+            break;
+        case GoalType::kPower:
+            description = fmt::format("{} wants to be the most powerful person in school.", *owner_);
+            break;
+        }
+        return description;
     }
     std::string Goal::GetPassiveDescription() const
     {

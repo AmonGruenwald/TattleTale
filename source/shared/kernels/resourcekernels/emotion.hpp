@@ -30,7 +30,7 @@ namespace tattletale
          *
          * Uses the same string values formater returns.
          * So valid strings are: "happy" "calm", "satisfied", "brave" and "extroverted".
-         * Everything else just return EmotionType::kNone. (But an assert will crash the Application in Debug mode.)
+         * Everything else just return EmotionType::kLast. (But an assert will crash the Application in Debug mode.)
          *
          * @param emotion_string The string we want to convert.
          * @return The corresponding EmotionType value.

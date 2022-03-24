@@ -243,7 +243,7 @@ namespace tattletale
         {
             return false;
         }
-        if (requirement.goal_type != GoalType::kNone && requirement.goal_type != goal_->type_)
+        if (requirement.goal_type != GoalType::kLast && requirement.goal_type != goal_->type_)
         {
             return false;
         }
@@ -353,12 +353,6 @@ namespace tattletale
         const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
         switch (goal_->type_)
         {
-        case GoalType::kNone:
-            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
-            break;
-        case GoalType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
-            break;
         case GoalType::kWealth:
             relevant_effect = interaction_store_.GetWealthEffects(interaction_index)[0];
             break;
@@ -395,6 +389,9 @@ namespace tattletale
                 // using minus here because the actor wants a negative value
                 relevant_effect -= effect.at(static_cast<int>(RelationshipType::kProtective));
             }
+            break;
+        case GoalType::kLast:
+            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
             break;
         }
         relevant_effect = std::clamp(relevant_effect, -1.0f, 1.0f);

@@ -19,7 +19,7 @@ namespace tattletale
          * @brief How many \link Actor Actors \endlink the corresponding Interaction needs.
          */
         size_t participant_count = 1;
-        GoalType goal_type = GoalType::kNone;
+        GoalType goal_type = GoalType::kLast;
         size_t day = 0;
         std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
         std::vector<float> relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
@@ -28,7 +28,7 @@ namespace tattletale
         {
             context = ContextType::kLast;
             participant_count = 1;
-            goal_type = GoalType::kNone;
+            goal_type = GoalType::kLast;
             day = 0;
             emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
             relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
@@ -101,7 +101,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
                 \n\tProtective: {} ",
             requirement.context,
             requirement.participant_count,
-            tattletale::Goal::GoalTypeToString(requirement.goal_type),
+            requirement.goal_type,
             requirement.day,
             requirement.emotions[static_cast<int>(tattletale::EmotionType::kHappy)],
             requirement.emotions[static_cast<int>(tattletale::EmotionType::kCalm)],

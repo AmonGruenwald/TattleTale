@@ -8,7 +8,6 @@ namespace tattletale
 {
     enum class GoalType
     {
-        kNone,
         kWealth,
         kAcceptance,
         kRelationship,
@@ -28,8 +27,6 @@ namespace tattletale
         std::string GetActiveDescription() const override;
         static GoalType GetRandomGoalType(Random &random);
         static GoalType StringToGoalType(std::string goal_string);
-        static std::string GoalTypeToString(GoalType goal_type);
-        std::string GoalTypeToDescription(GoalType goal_type) const;
 
         const GoalType type_;
 
@@ -38,5 +35,25 @@ namespace tattletale
         friend class Chronicle;
     };
 
-} // namespace tattletale
+} // namespace tattletale`
+
+template <>
+struct fmt::formatter<tattletale::GoalType> : formatter<string_view>
+{
+    std::string goal_type_names[6] = {
+        "wealth",
+        "acceptance",
+        "relationship",
+        "hedonism",
+        "power",
+        "last"};
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::GoalType type, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(type);
+        string_view name = goal_type_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
 #endif // TALE_GOAL_H
