@@ -4,7 +4,7 @@ namespace tattletale
     Random::Random()
     {
         uint32_t default_seed = 123456789;
-        Seed(123456789);
+        Seed(default_seed);
     }
     Random::Random(uint32_t seed)
     {
