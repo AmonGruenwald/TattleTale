@@ -378,7 +378,7 @@ namespace tattletale
             out_tendency->relationships.push_back(relationship_vector);
         }
 
-        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION TENDENCY:\n{}\n", out_tendency->ToString()));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION TENDENCY:\n{}\n", *out_tendency));
         return true;
     }
 
