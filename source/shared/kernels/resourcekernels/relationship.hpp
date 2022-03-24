@@ -27,7 +27,7 @@ namespace tattletale
         /**
          * @brief Converts a string to an RelationshipType.
          *
-         * Uses the same string values RelationshipTypeToString returns.
+         * Uses the same string values formater returns.
          * So valid strings are: love", "attraction", "friendship", "anger" and "protective".
          * Everything else just return RelationshipType::kLast. (But an assert will crash the Application in Debug mode.)
          *
@@ -35,15 +35,6 @@ namespace tattletale
          * @return The corresponding RelationshipType value.
          */
         static RelationshipType StringToRelationshipType(std::string relationship_string);
-        /**
-         * @brief Converts an RelationshipType to a string for easy printing.
-         *
-         * Note that RelationshipType::kLast will assert false and crash in Debug mode.
-         *
-         * @param relationship_type The RelationshipType we want to convert.
-         * @return The corresponding string.
-         */
-        static std::string RelationshipTypeToString(RelationshipType relationship_type);
 
         std::string GetDefaultDescription() const override;
         std::string GetDetailedDescription() const override;
@@ -86,4 +77,23 @@ namespace tattletale
     };
 
 } // namespace tattletale
+template <>
+struct fmt::formatter<tattletale::RelationshipType> : formatter<string_view>
+{
+    std::string relationship_type_names[6] = {
+        "love",
+        "attraction",
+        "friendship",
+        "anger",
+        "protective",
+        "last"};
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::RelationshipType type, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(type);
+        string_view name = relationship_type_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
 #endif // TALE_KERNELS_RESOURCEKERNELS_RELATIONSHIP_H

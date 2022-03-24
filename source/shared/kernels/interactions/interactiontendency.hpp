@@ -71,7 +71,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
             for (int type_index = 0; type_index < static_cast<int>(tattletale::RelationshipType::kLast); ++type_index)
             {
                 tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(type_index);
-                relationship_string += fmt::format("\t\t{}: {}\n", tattletale::Relationship::RelationshipTypeToString(type), tendency.relationships[i][type_index]);
+                relationship_string += fmt::format("\t\t{}: {}\n", type, tendency.relationships[i][type_index]);
             }
         }
 

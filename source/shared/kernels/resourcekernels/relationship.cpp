@@ -8,7 +8,7 @@ namespace tattletale
 {
     Relationship::Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value)
         : Resource(
-              RelationshipTypeToString(type),
+              fmt::format("{}", type),
               Relationship::positive_name_variants_[static_cast<int>(type)],
               Relationship::negative_name_variants_[static_cast<int>(type)],
               id,
@@ -36,32 +36,6 @@ namespace tattletale
 
         TATTLETALE_ERROR_PRINT(true, "Invalid Relationship string was passed");
         return RelationshipType::kLast;
-    }
-    std::string Relationship::RelationshipTypeToString(RelationshipType relationship_type)
-    {
-        switch (relationship_type)
-        {
-        case RelationshipType::kLove:
-            return "love";
-            break;
-        case RelationshipType::kAttraction:
-            return "attraction";
-            break;
-        case RelationshipType::kFriendship:
-            return "friendship";
-            break;
-        case RelationshipType::kAnger:
-            return "anger";
-            break;
-        case RelationshipType::kProtective:
-            return "protective";
-            break;
-        case RelationshipType::kLast:
-            TATTLETALE_ERROR_PRINT(true, "Invalid Relationship type was passed");
-            return "last";
-            break;
-        }
-        return "none";
     }
 
     std::string Relationship::GetAdjective() const

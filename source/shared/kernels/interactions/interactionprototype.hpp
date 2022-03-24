@@ -114,7 +114,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
                 for (int type_index = 0; type_index < relationship_vector.size(); ++type_index)
                 {
                     tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(type_index);
-                    relationship_effects_string += fmt::format("\n\t\t\t{}: {}", tattletale::Relationship::RelationshipTypeToString(type), relationship_vector[type_index]);
+                    relationship_effects_string += fmt::format("\n\t\t\t{}: {}", type, relationship_vector[type_index]);
                 }
             }
             relationship_effects_string += "\n";
