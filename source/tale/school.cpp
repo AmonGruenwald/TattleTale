@@ -135,7 +135,6 @@ namespace tattletale
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
         }
         TATTLETALE_DEBUG_PRINT(fmt::format("TALE CREATED {} KERNELS", chronicle_.GetKernelAmount()));
-        TATTLETALE_VERBOSE_PRINT(fmt::format("RANDOM KERNEL CHAIN:\n{}", chronicle_GetRandomCausalityChainDescription(3)));
         TATTLETALE_VERBOSE_PRINT(fmt::format("AVERAGE INTERACTION CHANCE: {}", chronicle_.GetAverageInteractionChance()));
     }
     Actor *School::GetActor(size_t actor_id)
