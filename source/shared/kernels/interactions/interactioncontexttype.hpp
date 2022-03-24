@@ -16,7 +16,7 @@ namespace tattletale
     /**
      * @brief Converts a string to an ContextType.
      *
-     * Uses the same string values ContextTypeToString returns.
+     * Uses the same string values formater returns.
      * So valid strings are: "course" and"freetime".
      * Everything else just return ContextType::kNone.
      *
@@ -31,27 +31,23 @@ namespace tattletale
             return ContextType::kFreetime;
         return ContextType::kLast;
     }
-    /**
-     * @brief Converts an ContextType to a string for easy printing.
-     *
-     * @param context_type The ContextType we want to convert.
-     * @return The corresponding string.
-     */
-    inline std::string ContextTypeToString(ContextType context_type)
-    {
-        switch (context_type)
-        {
-        case ContextType::kCourse:
-            return "course";
-            break;
-        case ContextType::kFreetime:
-            return "freetime";
-            break;
-        case ContextType::kLast:
-            return "last";
-            break;
-        }
-        return "none";
-    }
+
 } // namespace tattletale
+
+template <>
+struct fmt::formatter<tattletale::ContextType> : formatter<string_view>
+{
+    std::string context_type_names[3] = {
+        "course",
+        "freetime",
+        "last"};
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::ContextType type, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(type);
+        string_view name = context_type_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
 #endif // TALE_INTERACTIONS_INTERACTIONCONTEXTTYPE_H

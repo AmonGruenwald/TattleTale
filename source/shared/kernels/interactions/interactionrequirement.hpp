@@ -99,7 +99,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
                 \n\tFriendship: {} \
                 \n\tAnger: {} \
                 \n\tProtective: {} ",
-            tattletale::ContextTypeToString(requirement.context),
+            requirement.context,
             requirement.participant_count,
             tattletale::Goal::GoalTypeToString(requirement.goal_type),
             requirement.day,

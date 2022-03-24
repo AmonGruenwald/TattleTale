@@ -54,7 +54,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
         for (int type_index = 0; type_index < static_cast<int>(tattletale::ContextType::kLast); ++type_index)
         {
             tattletale::ContextType type = static_cast<tattletale::ContextType>(type_index);
-            contexts_string += fmt::format("\t{}: {}\n", tattletale::ContextTypeToString(type), tendency.contexts[type_index]);
+            contexts_string += fmt::format("\t{}: {}\n", type, tendency.contexts[type_index]);
         }
         std::string wealth_string = fmt::format("Wealth: {}\n", tendency.wealth);
         std::string emotions_string = "Emotions:\n";
