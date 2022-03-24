@@ -59,9 +59,7 @@ enum class \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd4961
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \mbox{\hyperlink{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}{String\+To\+Context\+Type}} (std\+::string context\+\_\+string)
-\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{Context\+Type\+To\+String}} (\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} context\+\_\+type)
-\begin{DoxyCompactList}\small\item\em Converts an Context\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -72,24 +70,6 @@ Responsible for the curation of the Tattle\+Tale project. For now it just contai
 \#include \char`\"{}shared/chronicle.\+hpp\char`\"{} \#include \char`\"{}shared/setting.\+hpp\char`\"{} 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}\label{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}} 
-\index{tattletale@{tattletale}!ContextTypeToString@{ContextTypeToString}}
-\index{ContextTypeToString@{ContextTypeToString}!tattletale@{tattletale}}
-\doxysubsubsection{\texorpdfstring{ContextTypeToString()}{ContextTypeToString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Context\+Type\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}}}]{context\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Converts an Context\+Type to a string for easy printing. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em context\+\_\+type} & The Context\+Type we want to convert. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The corresponding string. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}\label{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}} 
 \index{tattletale@{tattletale}!StringToContextType@{StringToContextType}}
 \index{StringToContextType@{StringToContextType}!tattletale@{tattletale}}
@@ -100,7 +80,7 @@ The corresponding string.
 
 Converts a string to an Context\+Type. 
 
-Uses the same string values Context\+Type\+To\+String returns. So valid strings are\+: \char`\"{}course\char`\"{} and\char`\"{}freetime\char`\"{}. Everything else just return Context\+Type\+::k\+None.
+Uses the same string values formater returns. So valid strings are\+: \char`\"{}course\char`\"{} and\char`\"{}freetime\char`\"{}. Everything else just returns Context\+Type\+::k\+Last.
 
 
 \begin{DoxyParams}{Parameters}

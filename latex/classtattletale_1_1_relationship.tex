@@ -19,9 +19,7 @@ Inheritance diagram for tattletale\+::Relationship\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 static Relationship\+Type \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{String\+To\+Relationship\+Type}} (std\+::string relationship\+\_\+string)
-\begin{DoxyCompactList}\small\item\em Converts a string to an Relationship\+Type. \end{DoxyCompactList}\item 
-static std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}{Relationship\+Type\+To\+String}} (Relationship\+Type relationship\+\_\+type)
-\begin{DoxyCompactList}\small\item\em Converts an Relationship\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Converts a string to an Relationship\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,26 +70,6 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}\label{classtattletale_1_1_relationship_a6dd75b4f276e28cee1deaf7f10ca326a}} 
-\index{tattletale::Relationship@{tattletale::Relationship}!RelationshipTypeToString@{RelationshipTypeToString}}
-\index{RelationshipTypeToString@{RelationshipTypeToString}!tattletale::Relationship@{tattletale::Relationship}}
-\doxysubsubsection{\texorpdfstring{RelationshipTypeToString()}{RelationshipTypeToString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Relationship\+::\+Relationship\+Type\+To\+String (\begin{DoxyParamCaption}\item[{Relationship\+Type}]{relationship\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Converts an Relationship\+Type to a string for easy printing. 
-
-Note that Relationship\+Type\+::k\+Last will assert false and crash in Debug mode.
-
-
-\begin{DoxyParams}{Parameters}
-{\em relationship\+\_\+type} & The Relationship\+Type we want to convert. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The corresponding string. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}\label{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}} 
 \index{tattletale::Relationship@{tattletale::Relationship}!StringToRelationshipType@{StringToRelationshipType}}
 \index{StringToRelationshipType@{StringToRelationshipType}!tattletale::Relationship@{tattletale::Relationship}}
@@ -102,7 +80,7 @@ The corresponding string.
 
 Converts a string to an Relationship\+Type. 
 
-Uses the same string values Relationship\+Type\+To\+String returns. So valid strings are\+: love\char`\"{}, \char`\"{}attraction\char`\"{}, \char`\"{}friendship\char`\"{}, \char`\"{}anger\char`\"{} and \char`\"{}protective"{}. Everything else just return Relationship\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
+Uses the same string values formater returns. So valid strings are\+: love\char`\"{}, \char`\"{}attraction\char`\"{}, \char`\"{}friendship\char`\"{}, \char`\"{}anger\char`\"{} and \char`\"{}protective"{}. Everything else just return Relationship\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
 
 
 \begin{DoxyParams}{Parameters}

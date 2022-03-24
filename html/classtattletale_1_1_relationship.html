@@ -96,9 +96,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1403eddade0dfbf76b0a6fcdbe780572"><td class="memItemLeft" align="right" valign="top">static RelationshipType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_relationship.html#a1403eddade0dfbf76b0a6fcdbe780572">StringToRelationshipType</a> (std::string relationship_string)</td></tr>
 <tr class="memdesc:a1403eddade0dfbf76b0a6fcdbe780572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an RelationshipType.  <a href="classtattletale_1_1_relationship.html#a1403eddade0dfbf76b0a6fcdbe780572">More...</a><br /></td></tr>
 <tr class="separator:a1403eddade0dfbf76b0a6fcdbe780572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dd75b4f276e28cee1deaf7f10ca326a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_relationship.html#a6dd75b4f276e28cee1deaf7f10ca326a">RelationshipTypeToString</a> (RelationshipType relationship_type)</td></tr>
-<tr class="memdesc:a6dd75b4f276e28cee1deaf7f10ca326a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an RelationshipType to a string for easy printing.  <a href="classtattletale_1_1_relationship.html#a6dd75b4f276e28cee1deaf7f10ca326a">More...</a><br /></td></tr>
-<tr class="separator:a6dd75b4f276e28cee1deaf7f10ca326a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -219,42 +216,6 @@ std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6dd75b4f276e28cee1deaf7f10ca326a" name="a6dd75b4f276e28cee1deaf7f10ca326a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dd75b4f276e28cee1deaf7f10ca326a">&#9670;&nbsp;</a></span>RelationshipTypeToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string tattletale::Relationship::RelationshipTypeToString </td>
-          <td>(</td>
-          <td class="paramtype">RelationshipType&#160;</td>
-          <td class="paramname"><em>relationship_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts an RelationshipType to a string for easy printing. </p>
-<p >Note that RelationshipType::kLast will assert false and crash in Debug mode.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">relationship_type</td><td>The RelationshipType we want to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The corresponding string. </dd></dl>
-
-</div>
-</div>
 <a id="a1403eddade0dfbf76b0a6fcdbe780572" name="a1403eddade0dfbf76b0a6fcdbe780572"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1403eddade0dfbf76b0a6fcdbe780572">&#9670;&nbsp;</a></span>StringToRelationshipType()</h2>
 
@@ -280,7 +241,7 @@ std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> 
 </div><div class="memdoc">
 
 <p>Converts a string to an RelationshipType. </p>
-<p >Uses the same string values RelationshipTypeToString returns. So valid strings are: love", "attraction", "friendship", "anger" and "protective". Everything else just return RelationshipType::kLast. (But an assert will crash the Application in Debug mode.)</p>
+<p >Uses the same string values formater returns. So valid strings are: love", "attraction", "friendship", "anger" and "protective". Everything else just return RelationshipType::kLast. (But an assert will crash the Application in Debug mode.)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">relationship_string</td><td>The string we want to convert. </td></tr>

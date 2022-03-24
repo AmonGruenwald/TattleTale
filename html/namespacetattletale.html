@@ -144,50 +144,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a51b15886f0518c8b4a543ca5c374d585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585">StringToContextType</a> (std::string context_string)</td></tr>
 <tr class="memdesc:a51b15886f0518c8b4a543ca5c374d585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an ContextType.  <a href="namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585">More...</a><br /></td></tr>
 <tr class="separator:a51b15886f0518c8b4a543ca5c374d585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ee066ca95cd32d89fb2d8c785ba6a6c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a0ee066ca95cd32d89fb2d8c785ba6a6c">ContextTypeToString</a> (<a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> context_type)</td></tr>
-<tr class="memdesc:a0ee066ca95cd32d89fb2d8c785ba6a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an ContextType to a string for easy printing.  <a href="namespacetattletale.html#a0ee066ca95cd32d89fb2d8c785ba6a6c">More...</a><br /></td></tr>
-<tr class="separator:a0ee066ca95cd32d89fb2d8c785ba6a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Responsible for the event generation of the TattleTale project. </p>
 <p >Responsible for the curation of the TattleTale project. For now it just contains two basic functions for testing purposes.</p>
 <p >#include "shared/chronicle.hpp" #include "shared/setting.hpp" </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0ee066ca95cd32d89fb2d8c785ba6a6c" name="a0ee066ca95cd32d89fb2d8c785ba6a6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ee066ca95cd32d89fb2d8c785ba6a6c">&#9670;&nbsp;</a></span>ContextTypeToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string tattletale::ContextTypeToString </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a>&#160;</td>
-          <td class="paramname"><em>context_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts an ContextType to a string for easy printing. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">context_type</td><td>The ContextType we want to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The corresponding string. </dd></dl>
-
-</div>
-</div>
 <a id="a51b15886f0518c8b4a543ca5c374d585" name="a51b15886f0518c8b4a543ca5c374d585"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51b15886f0518c8b4a543ca5c374d585">&#9670;&nbsp;</a></span>StringToContextType()</h2>
 
@@ -213,7 +175,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Converts a string to an ContextType. </p>
-<p >Uses the same string values ContextTypeToString returns. So valid strings are: "course" and"freetime". Everything else just return ContextType::kNone.</p>
+<p >Uses the same string values formater returns. So valid strings are: "course" and"freetime". Everything else just returns ContextType::kLast.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">context_string</td><td>The string we want to convert. </td></tr>

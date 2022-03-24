@@ -107,9 +107,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3228b2c1eb7bc40408a1cbb67f428eb7"><td class="memItemLeft" align="right" valign="top">static EmotionType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7">StringToEmotionType</a> (std::string emotion_string)</td></tr>
 <tr class="memdesc:a3228b2c1eb7bc40408a1cbb67f428eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an EmotionType.  <a href="classtattletale_1_1_emotion.html#a3228b2c1eb7bc40408a1cbb67f428eb7">More...</a><br /></td></tr>
 <tr class="separator:a3228b2c1eb7bc40408a1cbb67f428eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d7f53587557c604dc74b87b54c6b61"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">EmotionTypeToString</a> (EmotionType emotion_type)</td></tr>
-<tr class="memdesc:a44d7f53587557c604dc74b87b54c6b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an EmotionType to a string for easy printing.  <a href="classtattletale_1_1_emotion.html#a44d7f53587557c604dc74b87b54c6b61">More...</a><br /></td></tr>
-<tr class="separator:a44d7f53587557c604dc74b87b54c6b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -220,42 +217,6 @@ std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a44d7f53587557c604dc74b87b54c6b61" name="a44d7f53587557c604dc74b87b54c6b61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d7f53587557c604dc74b87b54c6b61">&#9670;&nbsp;</a></span>EmotionTypeToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string tattletale::Emotion::EmotionTypeToString </td>
-          <td>(</td>
-          <td class="paramtype">EmotionType&#160;</td>
-          <td class="paramname"><em>emotion_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts an EmotionType to a string for easy printing. </p>
-<p >Note that EmotionType:kNone and EmotionType::kLast will assert and crash in Debug mode.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">emotion_type</td><td>The EmotionType we want to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The corresponding string. </dd></dl>
-
-</div>
-</div>
 <a id="a49a32f0102687f47c22c0d70ab39105f" name="a49a32f0102687f47c22c0d70ab39105f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49a32f0102687f47c22c0d70ab39105f">&#9670;&nbsp;</a></span>GetType()</h2>
 
@@ -301,7 +262,7 @@ std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> 
 </div><div class="memdoc">
 
 <p>Converts a string to an EmotionType. </p>
-<p >Uses the same string values EmotionTypeToString returns. So valid strings are: "happy" "calm", "satisfied", "brave" and "extroverted". Everything else just return EmotionType::kNone. (But an assert will crash the Application in Debug mode.)</p>
+<p >Uses the same string values formater returns. So valid strings are: "happy" "calm", "satisfied", "brave" and "extroverted". Everything else just return EmotionType::kLast. (But an assert will crash the Application in Debug mode.)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">emotion_string</td><td>The string we want to convert. </td></tr>

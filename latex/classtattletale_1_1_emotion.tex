@@ -24,9 +24,7 @@ Emotion\+Type \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c
 \begin{DoxyCompactItemize}
 \item 
 static Emotion\+Type \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{String\+To\+Emotion\+Type}} (std\+::string emotion\+\_\+string)
-\begin{DoxyCompactList}\small\item\em Converts a string to an Emotion\+Type. \end{DoxyCompactList}\item 
-static std\+::string \mbox{\hyperlink{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}{Emotion\+Type\+To\+String}} (Emotion\+Type emotion\+\_\+type)
-\begin{DoxyCompactList}\small\item\em Converts an Emotion\+Type to a string for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Converts a string to an Emotion\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -77,26 +75,6 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}\label{classtattletale_1_1_emotion_a44d7f53587557c604dc74b87b54c6b61}} 
-\index{tattletale::Emotion@{tattletale::Emotion}!EmotionTypeToString@{EmotionTypeToString}}
-\index{EmotionTypeToString@{EmotionTypeToString}!tattletale::Emotion@{tattletale::Emotion}}
-\doxysubsubsection{\texorpdfstring{EmotionTypeToString()}{EmotionTypeToString()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Emotion\+::\+Emotion\+Type\+To\+String (\begin{DoxyParamCaption}\item[{Emotion\+Type}]{emotion\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Converts an Emotion\+Type to a string for easy printing. 
-
-Note that Emotion\+Type\+:k\+None and Emotion\+Type\+::k\+Last will assert and crash in Debug mode.
-
-
-\begin{DoxyParams}{Parameters}
-{\em emotion\+\_\+type} & The Emotion\+Type we want to convert. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The corresponding string. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}\label{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}} 
 \index{tattletale::Emotion@{tattletale::Emotion}!GetType@{GetType}}
 \index{GetType@{GetType}!tattletale::Emotion@{tattletale::Emotion}}
@@ -120,7 +98,7 @@ The description string.
 
 Converts a string to an Emotion\+Type. 
 
-Uses the same string values Emotion\+Type\+To\+String returns. So valid strings are\+: \char`\"{}happy\char`\"{} \char`\"{}calm\char`\"{}, \char`\"{}satisfied\char`\"{}, \char`\"{}brave\char`\"{} and \char`\"{}extroverted\char`\"{}. Everything else just return Emotion\+Type\+::k\+None. (But an assert will crash the Application in Debug mode.)
+Uses the same string values formater returns. So valid strings are\+: \char`\"{}happy\char`\"{} \char`\"{}calm\char`\"{}, \char`\"{}satisfied\char`\"{}, \char`\"{}brave\char`\"{} and \char`\"{}extroverted\char`\"{}. Everything else just return Emotion\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
 
 
 \begin{DoxyParams}{Parameters}

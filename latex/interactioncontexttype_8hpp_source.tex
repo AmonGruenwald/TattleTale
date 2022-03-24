@@ -22,23 +22,25 @@
 \DoxyCodeLine{31             \textcolor{keywordflow}{return} ContextType::kFreetime;}
 \DoxyCodeLine{32         \textcolor{keywordflow}{return} ContextType::kLast;}
 \DoxyCodeLine{33     \}}
-\DoxyCodeLine{40     \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespacetattletale_a0ee066ca95cd32d89fb2d8c785ba6a6c}{ContextTypeToString}}(\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context\_type)}
-\DoxyCodeLine{41     \{}
-\DoxyCodeLine{42         \textcolor{keywordflow}{switch} (context\_type)}
-\DoxyCodeLine{43         \{}
-\DoxyCodeLine{44         \textcolor{keywordflow}{case} ContextType::kCourse:}
-\DoxyCodeLine{45             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}course"{}};}
-\DoxyCodeLine{46             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{47         \textcolor{keywordflow}{case} ContextType::kFreetime:}
-\DoxyCodeLine{48             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}freetime"{}};}
-\DoxyCodeLine{49             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{50         \textcolor{keywordflow}{case} ContextType::kLast:}
-\DoxyCodeLine{51             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}last"{}};}
-\DoxyCodeLine{52             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{53         \}}
-\DoxyCodeLine{54         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}none"{}};}
-\DoxyCodeLine{55     \}}
-\DoxyCodeLine{56 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{38 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::ContextType> : formatter<string\_view>}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     std::string context\_type\_names[3] = \{}
+\DoxyCodeLine{41         \textcolor{stringliteral}{"{}course"{}},}
+\DoxyCodeLine{42         \textcolor{stringliteral}{"{}freetime"{}},}
+\DoxyCodeLine{43         \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{44     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
+\DoxyCodeLine{45     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{46     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{tattletale::ContextType}} type, FormatContext \&ctx)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{49         string\_view name = context\_type\_names[enum\_index];}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
 
 \end{DoxyCode}

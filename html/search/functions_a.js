@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tostring_0',['ToString',['../structtattletale_1_1_interaction_prototype.html#a55117b8bc2b1f8618dd94b69c35cba9a',1,'tattletale::InteractionPrototype']]]
+  ['weekdayanddailyticktoslot_0',['WeekdayAndDailyTickToSlot',['../classtattletale_1_1_school.html#a751132eb1540b577681d9bc26a5b8a52',1,'tattletale::School']]]
 ];
