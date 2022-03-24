@@ -224,7 +224,7 @@ namespace tattletale
             }
         }
 
-        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION PROTOTYPE:\n{}\n", out_prototype->ToString()));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION PROTOTYPE:\n{}\n", *out_prototype));
 
         return true;
     }

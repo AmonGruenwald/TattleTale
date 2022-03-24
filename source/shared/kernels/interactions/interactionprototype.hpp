@@ -53,50 +53,6 @@ namespace tattletale
          */
         std::vector<robin_hood::unordered_map<size_t, std::vector<float>>> relationship_effects;
 
-        /**
-         * @brief Creates a string describing the InteractionPrototype.
-         *
-         * @return The descriptive string.
-         */
-        std::string ToString()
-        {
-            std::string name_string = fmt::format("Name: {}\n", name);
-            std::string wealth_effects_string = "";
-            for (size_t i = 0; i < wealth_effects.size(); ++i)
-            {
-                wealth_effects_string += fmt::format("\t{}. Wealth Effect: {}\n", i, wealth_effects[i]);
-            }
-            std::string emotion_effects_string = "";
-            for (size_t i = 0; i < emotion_effects.size(); ++i)
-            {
-                emotion_effects_string += fmt::format("\t{}. Emotion Effect:", i);
-
-                for (int type_index = 0; type_index < emotion_effects[i].size(); ++i)
-                {
-                    float value = emotion_effects[i][type_index];
-                    EmotionType type = static_cast<EmotionType>(type_index);
-                    emotion_effects_string += fmt::format("\n\t\t{}: {}", Emotion::EmotionTypeToString(type), value);
-                }
-                emotion_effects_string += "\n";
-            }
-            std::string relationship_effects_string = "";
-            for (size_t i = 0; i < relationship_effects.size(); ++i)
-            {
-                relationship_effects_string += fmt::format("\tRelationship Effects for Participant {}:", i);
-                for (auto &[other_participant, relationship_vector] : relationship_effects[i])
-                {
-                    relationship_effects_string += fmt::format("\n\t\tWith Participant {}:", other_participant);
-                    for (int type_index = 0; type_index < relationship_vector.size(); ++i)
-                    {
-                        RelationshipType type = static_cast<RelationshipType>(type_index);
-                        relationship_effects_string += fmt::format("\n\t\t\t{}: {}", Relationship::RelationshipTypeToString(type), relationship_vector[type_index]);
-                    }
-                }
-                relationship_effects_string += "\n";
-            }
-            return (name_string + "\n" + wealth_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string);
-        }
-
         void ClearValues()
         {
             name = "";
@@ -107,4 +63,63 @@ namespace tattletale
     };
 
 } // namespace tattletale
+
+template <typename T>
+struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::InteractionPrototype, T>::value, char>> : fmt::formatter<std::string>
+{
+    // d - default
+    char presentation = 'd';
+
+    constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
+    {
+        auto it = ctx.begin(), end = ctx.end();
+        if (it != end && (*it == 'd'))
+            presentation = *it++;
+
+        if (it != end && *it != '}')
+            throw format_error("invalid format");
+
+        return it;
+    }
+
+    template <typename FormatContext>
+    auto format(tattletale::InteractionPrototype &prototype, FormatContext &ctx) -> decltype(ctx.out())
+    {
+        std::string name_string = fmt::format("Name: {}\n", prototype.name);
+        std::string wealth_effects_string = "";
+        for (size_t i = 0; i < prototype.wealth_effects.size(); ++i)
+        {
+            wealth_effects_string += fmt::format("\t{}. Wealth Effect: {}\n", i, prototype.wealth_effects[i]);
+        }
+        std::string emotion_effects_string = "";
+        for (size_t i = 0; i < prototype.emotion_effects.size(); ++i)
+        {
+            emotion_effects_string += fmt::format("\t{}. Emotion Effect:", i);
+
+            for (int type_index = 0; type_index < prototype.emotion_effects[i].size(); ++i)
+            {
+                float value = prototype.emotion_effects[i][type_index];
+                tattletale::EmotionType type = static_cast<tattletale::EmotionType>(type_index);
+                emotion_effects_string += fmt::format("\n\t\t{}: {}", tattletale::Emotion::EmotionTypeToString(type), value);
+            }
+            emotion_effects_string += "\n";
+        }
+        std::string relationship_effects_string = "";
+        for (size_t i = 0; i < prototype.relationship_effects.size(); ++i)
+        {
+            relationship_effects_string += fmt::format("\tRelationship Effects for Participant {}:", i);
+            for (auto &[other_participant, relationship_vector] : prototype.relationship_effects[i])
+            {
+                relationship_effects_string += fmt::format("\n\t\tWith Participant {}:", other_participant);
+                for (int type_index = 0; type_index < relationship_vector.size(); ++i)
+                {
+                    tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(type_index);
+                    relationship_effects_string += fmt::format("\n\t\t\t{}: {}", tattletale::Relationship::RelationshipTypeToString(type), relationship_vector[type_index]);
+                }
+            }
+            relationship_effects_string += "\n";
+        }
+        return fmt::formatter<std::string>::format(name_string + "\n" + wealth_effects_string + "\n" + emotion_effects_string + "\n" + relationship_effects_string, ctx);
+    }
+};
 #endif // TALE_INTERACTIONS_INTERACTIONPROTOTYPE_H
