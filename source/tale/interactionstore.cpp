@@ -293,7 +293,7 @@ namespace tattletale
             out_requirement->relationship[static_cast<int>(Relationship::StringToRelationshipType(key))] = relationship_value;
         }
 
-        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", out_requirement->ToString()));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", *out_requirement));
         return true;
     }
 
