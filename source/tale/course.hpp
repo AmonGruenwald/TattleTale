@@ -128,7 +128,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Course, T>
                 description += "\n";
             }
             ++count;
-            description += fmt::format("[{:02}]", couse.GetActorCount(slot_index));
+            description += fmt::format("[{:02}]", course.GetActorCount(slot_index));
         }
         return description;
         return fmt::formatter<std::string>::format(description, ctx);
