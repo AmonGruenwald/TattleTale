@@ -96,7 +96,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
         {
             emotion_effects_string += fmt::format("\t{}. Emotion Effect:", i);
 
-            for (int type_index = 0; type_index < prototype.emotion_effects[i].size(); ++i)
+            for (int type_index = 0; type_index < prototype.emotion_effects[i].size(); ++type_index)
             {
                 float value = prototype.emotion_effects[i][type_index];
                 tattletale::EmotionType type = static_cast<tattletale::EmotionType>(type_index);
@@ -111,7 +111,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
             for (auto &[other_participant, relationship_vector] : prototype.relationship_effects[i])
             {
                 relationship_effects_string += fmt::format("\n\t\tWith Participant {}:", other_participant);
-                for (int type_index = 0; type_index < relationship_vector.size(); ++i)
+                for (int type_index = 0; type_index < relationship_vector.size(); ++type_index)
                 {
                     tattletale::RelationshipType type = static_cast<tattletale::RelationshipType>(type_index);
                     relationship_effects_string += fmt::format("\n\t\t\t{}: {}", tattletale::Relationship::RelationshipTypeToString(type), relationship_vector[type_index]);
