@@ -81,7 +81,6 @@ namespace tattletale
          */
         size_t GetSlotCount() const;
         size_t GetActorCount(size_t slot_index) const;
-        std::string ToString() const;
 
     private:
         /**
@@ -96,4 +95,43 @@ namespace tattletale
     };
 
 } // namespace tattletale
+
+template <typename T>
+struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Course, T>::value, char>> : fmt::formatter<std::string>
+{
+    // d - default
+    char presentation = 'd';
+
+    constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
+    {
+        auto it = ctx.begin(), end = ctx.end();
+        if (it != end && (*it == 'd'))
+            presentation = *it++;
+
+        if (it != end && *it != '}')
+            throw format_error("invalid format");
+
+        return it;
+    }
+
+    template <typename FormatContext>
+    auto format(tattletale::Course &course, FormatContext &ctx) -> decltype(ctx.out())
+    {
+        std::string description = fmt::format("{}:\n", course.name_);
+
+        size_t count = 0;
+        for (size_t slot_index = 0; slot_index < course.GetSlotCount(); ++slot_index)
+        {
+            if (count == 4)
+            {
+                count = 0;
+                description += "\n";
+            }
+            ++count;
+            description += fmt::format("[{:02}]", couse.GetActorCount(slot_index));
+        }
+        return description;
+        return fmt::formatter<std::string>::format(description, ctx);
+    }
+};
 #endif // TALE_COURSE_H

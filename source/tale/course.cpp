@@ -84,21 +84,4 @@ namespace tattletale
     {
         return slots_[slot_index].size();
     }
-    std::string Course::ToString() const
-    {
-        std::string description = name_ + ":\n";
-
-        size_t count = 0;
-        for (auto &slot : slots_)
-        {
-            if (count == 4)
-            {
-                count = 0;
-                description += "\n";
-            }
-            ++count;
-            description += fmt::format("[{:02}]", slot.size());
-        }
-        return description;
-    }
 } // namespace tattletale
