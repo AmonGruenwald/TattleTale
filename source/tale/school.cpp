@@ -174,7 +174,7 @@ namespace tattletale
     }
     void School::SimulateDay(size_t day, Weekday weekday)
     {
-        TATTLETALE_VERBOSE_PRINT(fmt::format("{}. {}", day, weekday_string[static_cast<int>(weekday)]));
+        TATTLETALE_DEBUG_PRINT(fmt::format("{}. {}", day, weekday));
         if (IsWorkday(weekday))
         {
             for (size_t i = 0; i < setting_.courses_per_day; ++i)

@@ -26,10 +26,6 @@ namespace tattletale
         Saturday,
         Sunday
     };
-    /**
-     * @brief Array that allows easy transformation from Weekday enum to a string..
-     */
-    static const char *weekday_string[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
     /**
      * @brief School class that is responsible for managing actors and courses during the simulation
@@ -231,4 +227,19 @@ namespace tattletale
     };
 
 } // namespace tattletale
+
+template <>
+struct fmt::formatter<tattletale::Weekday> : formatter<string_view>
+{
+    std::string weekday_names[7] = {
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    // parse is inherited from formatter<string_view>.
+    template <typename FormatContext>
+    auto format(tattletale::Weekday weekday, FormatContext &ctx)
+    {
+        size_t enum_index = static_cast<size_t>(weekday);
+        string_view name = weekday_names[enum_index];
+        return formatter<string_view>::format(name, ctx);
+    }
+};
 #endif // TALE_SCHOOL_H
