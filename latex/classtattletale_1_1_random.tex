@@ -2,6 +2,158 @@
 \label{classtattletale_1_1_random}\index{tattletale::Random@{tattletale::Random}}
 
 
+Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision.  
+
+
+
+
+{\ttfamily \#include $<$shared/random.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06}\label{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06}} 
+{\bfseries Random} ()
+\begin{DoxyCompactList}\small\item\em Constructor seeding with a default value of 123456789. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}{Random}} (uint32\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Constructor seeding with the passed value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}{Seed}} (uint32\+\_\+t seed)
+\begin{DoxyCompactList}\small\item\em Function to reseed the object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}{Get\+Int}} (int min, int max)
+\begin{DoxyCompactList}\small\item\em Getter for a random integer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}{Get\+UInt}} (uint32\+\_\+t min, uint32\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em Getter for a random unsigned integer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}{Get\+Float}} (float min, float max)
+\begin{DoxyCompactList}\small\item\em Getter for a random float. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}{Pick\+Index}} (const std\+::vector$<$ float $>$ \&probability\+\_\+distribution, bool support\+\_\+all\+\_\+zeroes=false)
+\begin{DoxyCompactList}\small\item\em Getter for a random index according to a probability distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc}\label{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc}} 
+std\+::mt19937 {\bfseries rng\+\_\+}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_random}{Random}} number generator engine. Using Mersenne Twister. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}\label{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}} 
+\index{tattletale::Random@{tattletale::Random}!Random@{Random}}
+\index{Random@{Random}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily tattletale\+::\+Random\+::\+Random (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})}
+
+
+
+Constructor seeding with the passed value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & The seed that is to be used. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}\label{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}} 
+\index{tattletale::Random@{tattletale::Random}!GetFloat@{GetFloat}}
+\index{GetFloat@{GetFloat}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{GetFloat()}{GetFloat()}}
+{\footnotesize\ttfamily float tattletale\+::\+Random\+::\+Get\+Float (\begin{DoxyParamCaption}\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})}
+
+
+
+Getter for a random float. 
+
+Gets a random float between the passed bounds (inclusive). 
+\begin{DoxyParams}{Parameters}
+{\em min} & The lower bound for the returned value (inclusive). \\
+\hline
+{\em max} & The uppper bound for the returned value (inclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The random float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}\label{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}} 
+\index{tattletale::Random@{tattletale::Random}!GetInt@{GetInt}}
+\index{GetInt@{GetInt}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{GetInt()}{GetInt()}}
+{\footnotesize\ttfamily int tattletale\+::\+Random\+::\+Get\+Int (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Getter for a random integer. 
+
+Gets a random integer between the passed bounds (inclusive). 
+\begin{DoxyParams}{Parameters}
+{\em min} & The lower bound for the returned value (inclusive). \\
+\hline
+{\em max} & The uppper bound for the returned value (inclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The random integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}\label{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}} 
+\index{tattletale::Random@{tattletale::Random}!GetUInt@{GetUInt}}
+\index{GetUInt@{GetUInt}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{GetUInt()}{GetUInt()}}
+{\footnotesize\ttfamily uint32\+\_\+t tattletale\+::\+Random\+::\+Get\+UInt (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{min,  }\item[{uint32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+
+
+Getter for a random unsigned integer. 
+
+Gets a random unsigned integer between the passed bounds (inclusive). 
+\begin{DoxyParams}{Parameters}
+{\em min} & The lower bound for the returned value (inclusive). \\
+\hline
+{\em max} & The uppper bound for the returned value (inclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The random unsigned integer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}\label{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}} 
+\index{tattletale::Random@{tattletale::Random}!PickIndex@{PickIndex}}
+\index{PickIndex@{PickIndex}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{PickIndex()}{PickIndex()}}
+{\footnotesize\ttfamily size\+\_\+t tattletale\+::\+Random\+::\+Pick\+Index (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{probability\+\_\+distribution,  }\item[{bool}]{support\+\_\+all\+\_\+zeroes = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Getter for a random index according to a probability distribution. 
+
+Returns a random index for the passed vector, picked according to the chances stored in said vector (between 0.\+0f and 1.\+0f). If all passed values are zero a division through zero happens, because of that we have to check for that case. As this is quite a costly operation though, the user has to turn that check on manually if they know it could happen with the bool parameter. If it is turned on, all zeroes would mean every index has the same chance to be picked. 
+\begin{DoxyParams}{Parameters}
+{\em probability\+\_\+distribution} & The vector in which the chances for each index are stored. \\
+\hline
+{\em support\+\_\+all\+\_\+zeroes} & Flag wether the function has to check if every chance is zero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The random index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}\label{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}} 
+\index{tattletale::Random@{tattletale::Random}!Seed@{Seed}}
+\index{Seed@{Seed}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{Seed()}{Seed()}}
+{\footnotesize\ttfamily void tattletale\+::\+Random\+::\+Seed (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{seed }\end{DoxyParamCaption})}
+
+
+
+Function to reseed the object. 
+
+This brings the object in the same state it would have been in if it was constructed using the passed seed. 
+\begin{DoxyParams}{Parameters}
+{\em seed} & The seed that is to be used. \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 shared/random.\+hpp\item 
