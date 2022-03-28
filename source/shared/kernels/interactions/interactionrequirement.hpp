@@ -7,23 +7,38 @@
 namespace tattletale
 {
     /**
-     * @brief Stores all necessary \link InteractionRequirement Requirements \endlink for an Interaction to happen.
+     * @brief Stores all necessary requirements for an Interaction to happen.
      */
     struct InteractionRequirement
     {
         /**
-         * @brief ContextType the corresponding Interaction needs.
+         * @brief ContextType the corresponding Interaction needs for it to happen.
          */
         ContextType context = ContextType::kLast;
         /**
          * @brief How many \link Actor Actors \endlink the corresponding Interaction needs.
          */
         size_t participant_count = 1;
+        /**
+         * @brief The goal the active Actor needs to try to fulfill.
+         */
         GoalType goal_type = GoalType::kLast;
+        /**
+         * @brief After which day the interaction can first happen
+         */
         size_t day = 0;
+        /**
+         * @brief What emotions the active Actor has to have for the Interaction to happen.
+         */
         std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
+        /**
+         * @brief What relationship the Actor has to have for the participants he chooses.
+         */
         std::vector<float> relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
 
+        /**
+         * @brief Reset all values back to their default state.
+         */
         void ClearValues()
         {
             context = ContextType::kLast;
@@ -33,7 +48,10 @@ namespace tattletale
             emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
             relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
         }
-
+        /**
+         * @brief Checks wether an \link Emotion Emotional \endlink requirement exists.
+         * @return The result of the check.
+         */
         bool HasEmotionalRequirement() const
         {
             for (const auto &value : emotions)
@@ -45,7 +63,10 @@ namespace tattletale
             }
             return false;
         }
-
+        /**
+         * @brief Checks wether an Relationship requirement exists.
+         * @return The result of the check.
+         */
         bool HasRelationshipRequirement() const
         {
             for (const auto &value : relationship)
