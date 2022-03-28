@@ -6,6 +6,9 @@
 
 namespace tattletale
 {
+    /**
+     * @brief Types of Emotion axis for an Actor.
+     */
     enum class EmotionType
     {
         kHappy,
@@ -19,7 +22,8 @@ namespace tattletale
     /**
      * @brief Represents an Emotion an Actor has.
      *
-     * Will be instantiated inside a map connecting different \link EmotionType EmotionTypes \endlink to different \link Emotion Emotions \endlink for each Actor.
+     * Will be instantiated inside a vector connecting different \link EmotionType EmotionTypes \endlink (converted to indices)
+     * to different \link Emotion Emotions \endlink for each Actor.
      *
      */
     class Emotion : public Resource
@@ -38,9 +42,9 @@ namespace tattletale
         static EmotionType StringToEmotionType(std::string emotion_string);
 
         /**
-         * @brief Creates a string describing the Emotion for easy printing.
+         * @brief Getter for the EmotionType of this Emotion.
          *
-         * @return The description string.
+         * @return The EmotionType.
          */
         EmotionType GetType();
 
@@ -62,18 +66,27 @@ namespace tattletale
          * @brief The EmotionType of this Emotion.
          */
         EmotionType type_;
+        /**
+         * @brief Vector containing the positive name variants for this emotion.
+         */
         const static inline std::vector<std::string> positive_name_variants_ =
             {"happy",
              "calm",
              "satisfied",
              "brave",
              "extroverted"};
+        /**
+         * @brief Vector containing the negative name variants for this emotion.
+         */
         const static inline std::vector<std::string> negative_name_variants_ =
             {"sad",
              "stressed",
              "unfullfilled",
              "fearful",
              "shy"};
+        /**
+         * @brief Chronicle is a friend so private constructor can be accessed.
+         */
         friend class Chronicle;
     };
 
