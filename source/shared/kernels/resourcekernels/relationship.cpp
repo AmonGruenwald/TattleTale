@@ -62,8 +62,6 @@ namespace tattletale
         }
     }
 
-    //  "passive_description" : "talking about the weather",
-    //                         "active_description" : "talk about the weather with {0}",
     std::string Relationship::GetDefaultDescription() const
     {
         return fmt::format("{} {}", Resource::GetDefaultDescription(), *target_);
