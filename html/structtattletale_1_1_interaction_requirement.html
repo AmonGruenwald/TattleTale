@@ -68,31 +68,118 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtattletale_1_1_interaction_requirement-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tattletale::InteractionRequirement Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Stores all necessary <a class="el" href="structtattletale_1_1_interaction_requirement.html">Requirements </a> for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen.  
+<p>Stores all necessary requirements for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen.  
  <a href="structtattletale_1_1_interaction_requirement.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="interactionrequirement_8hpp_source.html">shared/kernels/interactions/interactionrequirement.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9c065d59864dfbfdeb0e8d1770994326"><td class="memItemLeft" align="right" valign="top"><a id="a9c065d59864dfbfdeb0e8d1770994326" name="a9c065d59864dfbfdeb0e8d1770994326"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearValues</b> ()</td></tr>
+<tr class="memdesc:a9c065d59864dfbfdeb0e8d1770994326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all values back to their default state. <br /></td></tr>
+<tr class="separator:a9c065d59864dfbfdeb0e8d1770994326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#ad73c28d9ac9c8daa0e9248bca8c1eef2">HasEmotionalRequirement</a> () const</td></tr>
+<tr class="memdesc:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#ad73c28d9ac9c8daa0e9248bca8c1eef2">More...</a><br /></td></tr>
+<tr class="separator:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35e968a6ac2c8d447f026524e52b807"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#ad35e968a6ac2c8d447f026524e52b807">HasRelationshipRequirement</a> () const</td></tr>
+<tr class="memdesc:ad35e968a6ac2c8d447f026524e52b807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#ad35e968a6ac2c8d447f026524e52b807">More...</a><br /></td></tr>
+<tr class="separator:ad35e968a6ac2c8d447f026524e52b807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a50d1c877d91d12d85aef885ba9432c0e"><td class="memItemLeft" align="right" valign="top"><a id="a50d1c877d91d12d85aef885ba9432c0e" name="a50d1c877d91d12d85aef885ba9432c0e"></a>
 <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>context</b> = ContextType::kLast</td></tr>
-<tr class="memdesc:a50d1c877d91d12d85aef885ba9432c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ContextType the corresponding <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> needs. <br /></td></tr>
+<tr class="memdesc:a50d1c877d91d12d85aef885ba9432c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ContextType the corresponding <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> needs for it to happen. <br /></td></tr>
 <tr class="separator:a50d1c877d91d12d85aef885ba9432c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83251a21b2edb4e41ce6b493481c5df5"><td class="memItemLeft" align="right" valign="top"><a id="a83251a21b2edb4e41ce6b493481c5df5" name="a83251a21b2edb4e41ce6b493481c5df5"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>participant_count</b> = 1</td></tr>
 <tr class="memdesc:a83251a21b2edb4e41ce6b493481c5df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">How many <a class="el" href="classtattletale_1_1_actor.html">Actors </a> the corresponding <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> needs. <br /></td></tr>
 <tr class="separator:a83251a21b2edb4e41ce6b493481c5df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a00a983c00e8ae1a17a03c2404a1b6"><td class="memItemLeft" align="right" valign="top"><a id="aa7a00a983c00e8ae1a17a03c2404a1b6" name="aa7a00a983c00e8ae1a17a03c2404a1b6"></a>
+GoalType&#160;</td><td class="memItemRight" valign="bottom"><b>goal_type</b> = GoalType::kLast</td></tr>
+<tr class="memdesc:aa7a00a983c00e8ae1a17a03c2404a1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal the active <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> needs to try to fulfill. <br /></td></tr>
+<tr class="separator:aa7a00a983c00e8ae1a17a03c2404a1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f68c142a888c71931cc7550960adfd7"><td class="memItemLeft" align="right" valign="top"><a id="a0f68c142a888c71931cc7550960adfd7" name="a0f68c142a888c71931cc7550960adfd7"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> = 0</td></tr>
+<tr class="memdesc:a0f68c142a888c71931cc7550960adfd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">After which day the interaction can first happen. <br /></td></tr>
+<tr class="separator:a0f68c142a888c71931cc7550960adfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05609b114b30fd71a2d234cb8051b8f6"><td class="memItemLeft" align="right" valign="top"><a id="a05609b114b30fd71a2d234cb8051b8f6" name="a05609b114b30fd71a2d234cb8051b8f6"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(EmotionType::kLast), 0.0f)</td></tr>
+<tr class="memdesc:a05609b114b30fd71a2d234cb8051b8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">What emotions the active <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has to have for the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. <br /></td></tr>
+<tr class="separator:a05609b114b30fd71a2d234cb8051b8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="memItemLeft" align="right" valign="top"><a id="aabc272991d9c6bbc0d5ad51c1bb1ff21" name="aabc272991d9c6bbc0d5ad51c1bb1ff21"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationship</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(RelationshipType::kLast), 0.0f)</td></tr>
+<tr class="memdesc:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="mdescLeft">&#160;</td><td class="mdescRight">What relationship the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has to have for the participants he chooses. <br /></td></tr>
+<tr class="separator:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Stores all necessary <a class="el" href="structtattletale_1_1_interaction_requirement.html">Requirements </a> for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p >Stores all necessary requirements for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad73c28d9ac9c8daa0e9248bca8c1eef2" name="ad73c28d9ac9c8daa0e9248bca8c1eef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73c28d9ac9c8daa0e9248bca8c1eef2">&#9670;&nbsp;</a></span>HasEmotionalRequirement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionRequirement::HasEmotionalRequirement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks wether an <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> requirement exists. </p>
+<dl class="section return"><dt>Returns</dt><dd>The result of the check. </dd></dl>
+
+</div>
+</div>
+<a id="ad35e968a6ac2c8d447f026524e52b807" name="ad35e968a6ac2c8d447f026524e52b807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad35e968a6ac2c8d447f026524e52b807">&#9670;&nbsp;</a></span>HasRelationshipRequirement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionRequirement::HasRelationshipRequirement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks wether an <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> requirement exists. </p>
+<dl class="section return"><dt>Returns</dt><dd>The result of the check. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>shared/kernels/interactions/<a class="el" href="interactionrequirement_8hpp_source.html">interactionrequirement.hpp</a></li>
 </ul>
 </div><!-- contents -->

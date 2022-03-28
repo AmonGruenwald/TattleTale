@@ -18,38 +18,53 @@ Inheritance diagram for tattletale\+::Emotion\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Emotion\+Type \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{Get\+Type}} ()
-\begin{DoxyCompactList}\small\item\em Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} for easy printing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{Get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static Emotion\+Type \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{String\+To\+Emotion\+Type}} (std\+::string emotion\+\_\+string)
+static \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{String\+To\+Emotion\+Type}} (std\+::string emotion\+\_\+string)
 \begin{DoxyCompactList}\small\item\em Converts a string to an Emotion\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}{Emotion}} (Emotion\+Type type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value)
+\mbox{\hyperlink{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}{Emotion}} (\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value)
 \begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}\label{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}} 
-Emotion\+Type {\bfseries type\+\_\+}
+\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} {\bfseries type\+\_\+}
 \begin{DoxyCompactList}\small\item\em The Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}\label{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}} 
+static const std\+::vector$<$ std\+::string $>$ {\bfseries positive\+\_\+name\+\_\+variants\+\_\+}
+\begin{DoxyCompactList}\small\item\em Vector containing the positive name variants for this emotion. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}\label{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}} 
+static const std\+::vector$<$ std\+::string $>$ {\bfseries negative\+\_\+name\+\_\+variants\+\_\+}
+\begin{DoxyCompactList}\small\item\em Vector containing the negative name variants for this emotion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c}} 
+class {\bfseries Chronicle}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Represents an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. 
 
-Will be instantiated inside a map connecting different \mbox{\hyperlink{}{Emotion\+Types }} to different \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotions }} for each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
+Will be instantiated inside a vector connecting different \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Types }} (converted to indices) to different \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotions }} for each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}\label{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}} 
 \index{tattletale::Emotion@{tattletale::Emotion}!Emotion@{Emotion}}
 \index{Emotion@{Emotion}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{Emotion()}{Emotion()}}
-{\footnotesize\ttfamily tattletale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{Emotion\+Type}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tattletale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}}}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -79,20 +94,20 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 \index{tattletale::Emotion@{tattletale::Emotion}!GetType@{GetType}}
 \index{GetType@{GetType}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
-{\footnotesize\ttfamily Emotion\+Type tattletale\+::\+Emotion\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} tattletale\+::\+Emotion\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Creates a string describing the \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} for easy printing. 
+Getter for the Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. 
 
 \begin{DoxyReturn}{Returns}
-The description string. 
+The Emotion\+Type. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}\label{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}} 
 \index{tattletale::Emotion@{tattletale::Emotion}!StringToEmotionType@{StringToEmotionType}}
 \index{StringToEmotionType@{StringToEmotionType}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{StringToEmotionType()}{StringToEmotionType()}}
-{\footnotesize\ttfamily Emotion\+Type tattletale\+::\+Emotion\+::\+String\+To\+Emotion\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{emotion\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} tattletale\+::\+Emotion\+::\+String\+To\+Emotion\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{emotion\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 

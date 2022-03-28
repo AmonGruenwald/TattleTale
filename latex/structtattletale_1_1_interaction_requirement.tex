@@ -2,26 +2,77 @@
 \label{structtattletale_1_1_interaction_requirement}\index{tattletale::InteractionRequirement@{tattletale::InteractionRequirement}}
 
 
-Stores all necessary \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen.  
+Stores all necessary requirements for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen.  
 
 
 
 
 {\ttfamily \#include $<$shared/kernels/interactions/interactionrequirement.\+hpp$>$}
 
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_a9c065d59864dfbfdeb0e8d1770994326}\label{structtattletale_1_1_interaction_requirement_a9c065d59864dfbfdeb0e8d1770994326}} 
+void {\bfseries Clear\+Values} ()
+\begin{DoxyCompactList}\small\item\em Reset all values back to their default state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ad73c28d9ac9c8daa0e9248bca8c1eef2}{Has\+Emotional\+Requirement}} () const
+\begin{DoxyCompactList}\small\item\em Checks wether an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotional }} requirement exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ad35e968a6ac2c8d447f026524e52b807}{Has\+Relationship\+Requirement}} () const
+\begin{DoxyCompactList}\small\item\em Checks wether an \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} requirement exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}\label{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}} 
 \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} {\bfseries context} = Context\+Type\+::k\+Last
-\begin{DoxyCompactList}\small\item\em Context\+Type the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} needs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Context\+Type the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} needs for it to happen. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}\label{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}} 
 size\+\_\+t {\bfseries participant\+\_\+count} = 1
-\begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} needs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em How many \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} needs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}\label{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}} 
+Goal\+Type {\bfseries goal\+\_\+type} = Goal\+Type\+::k\+Last
+\begin{DoxyCompactList}\small\item\em The goal the active \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} needs to try to fulfill. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}\label{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}} 
+size\+\_\+t {\bfseries day} = 0
+\begin{DoxyCompactList}\small\item\em After which day the interaction can first happen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_a05609b114b30fd71a2d234cb8051b8f6}\label{structtattletale_1_1_interaction_requirement_a05609b114b30fd71a2d234cb8051b8f6}} 
+std\+::vector$<$ float $>$ {\bfseries emotions} = std\+::vector$<$float$>$(static\+\_\+cast$<$int$>$(Emotion\+Type\+::k\+Last), 0.\+0f)
+\begin{DoxyCompactList}\small\item\em What emotions the active \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has to have for the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_aabc272991d9c6bbc0d5ad51c1bb1ff21}\label{structtattletale_1_1_interaction_requirement_aabc272991d9c6bbc0d5ad51c1bb1ff21}} 
+std\+::vector$<$ float $>$ {\bfseries relationship} = std\+::vector$<$float$>$(static\+\_\+cast$<$int$>$(Relationship\+Type\+::k\+Last), 0.\+0f)
+\begin{DoxyCompactList}\small\item\em What relationship the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has to have for the participants he chooses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Stores all necessary \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. 
+Stores all necessary requirements for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_ad73c28d9ac9c8daa0e9248bca8c1eef2}\label{structtattletale_1_1_interaction_requirement_ad73c28d9ac9c8daa0e9248bca8c1eef2}} 
+\index{tattletale::InteractionRequirement@{tattletale::InteractionRequirement}!HasEmotionalRequirement@{HasEmotionalRequirement}}
+\index{HasEmotionalRequirement@{HasEmotionalRequirement}!tattletale::InteractionRequirement@{tattletale::InteractionRequirement}}
+\doxysubsubsection{\texorpdfstring{HasEmotionalRequirement()}{HasEmotionalRequirement()}}
+{\footnotesize\ttfamily bool tattletale\+::\+Interaction\+Requirement\+::\+Has\+Emotional\+Requirement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks wether an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotional }} requirement exists. 
+
+\begin{DoxyReturn}{Returns}
+The result of the check. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtattletale_1_1_interaction_requirement_ad35e968a6ac2c8d447f026524e52b807}\label{structtattletale_1_1_interaction_requirement_ad35e968a6ac2c8d447f026524e52b807}} 
+\index{tattletale::InteractionRequirement@{tattletale::InteractionRequirement}!HasRelationshipRequirement@{HasRelationshipRequirement}}
+\index{HasRelationshipRequirement@{HasRelationshipRequirement}!tattletale::InteractionRequirement@{tattletale::InteractionRequirement}}
+\doxysubsubsection{\texorpdfstring{HasRelationshipRequirement()}{HasRelationshipRequirement()}}
+{\footnotesize\ttfamily bool tattletale\+::\+Interaction\+Requirement\+::\+Has\+Relationship\+Requirement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks wether an \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} requirement exists. 
+
+\begin{DoxyReturn}{Returns}
+The result of the check. 
+\end{DoxyReturn}
+
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

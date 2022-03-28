@@ -25,11 +25,11 @@ class \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}
 struct \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}
 \begin{DoxyCompactList}\small\item\em Prototype of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}}
-\begin{DoxyCompactList}\small\item\em Stores all necessary \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Stores all necessary requirements for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to happen. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}}
 \begin{DoxyCompactList}\small\item\em Stores Prototypes for all possible interactions. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}}
-\begin{DoxyCompactList}\small\item\em TODO. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Stores how the state of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} influence how likely an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is to happen. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}
 \begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} was created. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_random}{Random}}
@@ -52,6 +52,12 @@ struct \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}
 \mbox{\Hypertarget{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}\label{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}} 
 enum class \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} 
 \begin{DoxyCompactList}\small\item\em Types of Context an Interaction can happen in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacetattletale_abc63b833223270d262f7abc4bded53fb}\label{namespacetattletale_abc63b833223270d262f7abc4bded53fb}} 
+enum class \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} 
+\begin{DoxyCompactList}\small\item\em Types of Emotion axis for an Actor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacetattletale_a670d05138867becb57e23c6972bd5688}\label{namespacetattletale_a670d05138867becb57e23c6972bd5688}} 
+enum class \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{Relationship\+Type}} 
+\begin{DoxyCompactList}\small\item\em Types of Relationship axis for an Actor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacetattletale_a9052282506778d27986cfa871dd49611}\label{namespacetattletale_a9052282506778d27986cfa871dd49611}} 
 enum class \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} 
 \begin{DoxyCompactList}\small\item\em Enum specifying the days of the week. \end{DoxyCompactList}\end{DoxyCompactItemize}

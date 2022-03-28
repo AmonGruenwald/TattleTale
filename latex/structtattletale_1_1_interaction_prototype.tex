@@ -9,6 +9,12 @@ Prototype of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}.
 
 {\ttfamily \#include $<$shared/kernels/interactions/interactionprototype.\+hpp$>$}
 
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtattletale_1_1_interaction_prototype_a393f18ea029c0dad5479953437cebcb0}\label{structtattletale_1_1_interaction_prototype_a393f18ea029c0dad5479953437cebcb0}} 
+void {\bfseries Clear\+Values} ()
+\begin{DoxyCompactList}\small\item\em Reset all values back to their default state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -53,7 +59,7 @@ Used by the \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\
 
 TODO Stores the effect the corresponding \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} has on each participating \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationships }}. 
 
-For each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} a map is created that maps to participants index in the participants\+\_\+ vector another map of Relationship\+Type float pairs. Those pairs signal how much each \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} axis would be changed. 
+For each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} a map is created that maps to participants index in the participants\+\_\+ vector another vector of floats, which indecis correspond to the Relationship\+Type enum. Those pairs signal how much each \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} axis would be changed. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

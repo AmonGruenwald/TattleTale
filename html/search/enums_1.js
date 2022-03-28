@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weekday_0',['Weekday',['../namespacetattletale.html#a9052282506778d27986cfa871dd49611',1,'tattletale']]]
+  ['emotiontype_0',['EmotionType',['../namespacetattletale.html#abc63b833223270d262f7abc4bded53fb',1,'tattletale']]]
 ];

@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtattletale_1_1_interaction_prototype-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tattletale::InteractionPrototype Struct Reference</div></div>
@@ -79,6 +80,13 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="interactionprototype_8hpp_source.html">shared/kernels/interactions/interactionprototype.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a393f18ea029c0dad5479953437cebcb0"><td class="memItemLeft" align="right" valign="top"><a id="a393f18ea029c0dad5479953437cebcb0" name="a393f18ea029c0dad5479953437cebcb0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearValues</b> ()</td></tr>
+<tr class="memdesc:a393f18ea029c0dad5479953437cebcb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all values back to their default state. <br /></td></tr>
+<tr class="separator:a393f18ea029c0dad5479953437cebcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5fc7034fbf25273a4b681859aba321fc"><td class="memItemLeft" align="right" valign="top"><a id="a5fc7034fbf25273a4b681859aba321fc" name="a5fc7034fbf25273a4b681859aba321fc"></a>
@@ -130,7 +138,7 @@ std::vector&lt; std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRigh
 </div><div class="memdoc">
 
 <p>TODO Stores the effect the corresponding <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> has on each participating <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> <a class="el" href="classtattletale_1_1_relationship.html">Relationships </a>. </p>
-<p >For each <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> a map is created that maps to participants index in the participants_ vector another map of RelationshipType float pairs. Those pairs signal how much each <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> axis would be changed. </p>
+<p >For each <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> a map is created that maps to participants index in the participants_ vector another vector of floats, which indecis correspond to the RelationshipType enum. Those pairs signal how much each <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> axis would be changed. </p>
 
 </div>
 </div>

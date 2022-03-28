@@ -68,17 +68,46 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtattletale_1_1_interaction_tendency-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tattletale::InteractionTendency Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>TODO.  
+<p>Stores how the state of <a class="el" href="classtattletale_1_1_actor.html">Actors </a> influence how likely an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> is to happen.  
  <a href="structtattletale_1_1_interaction_tendency.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="interactiontendency_8hpp_source.html">shared/kernels/interactions/interactiontendency.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa16a7150d1a0c361df286fbba9def10c"><td class="memItemLeft" align="right" valign="top"><a id="aa16a7150d1a0c361df286fbba9def10c" name="aa16a7150d1a0c361df286fbba9def10c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearValues</b> ()</td></tr>
+<tr class="memdesc:aa16a7150d1a0c361df286fbba9def10c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all values back to their default state. <br /></td></tr>
+<tr class="separator:aa16a7150d1a0c361df286fbba9def10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae46c422c719a4403c7e5089d776eb692"><td class="memItemLeft" align="right" valign="top"><a id="ae46c422c719a4403c7e5089d776eb692" name="ae46c422c719a4403c7e5089d776eb692"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>contexts</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(ContextType::kLast), 0.0f)</td></tr>
+<tr class="memdesc:ae46c422c719a4403c7e5089d776eb692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of floats, which indices map to the ContextType enum, that stores how the current Context might influence the choice. <br /></td></tr>
+<tr class="separator:ae46c422c719a4403c7e5089d776eb692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a654aaf7924a515c467625a8f8639317b"><td class="memItemLeft" align="right" valign="top"><a id="a654aaf7924a515c467625a8f8639317b" name="a654aaf7924a515c467625a8f8639317b"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>wealth</b> = 0</td></tr>
+<tr class="memdesc:a654aaf7924a515c467625a8f8639317b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores how the wealth of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> influences the choice. <br /></td></tr>
+<tr class="separator:a654aaf7924a515c467625a8f8639317b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2071dfd28d8c80337ace9c9a7fd5c075"><td class="memItemLeft" align="right" valign="top"><a id="a2071dfd28d8c80337ace9c9a7fd5c075" name="a2071dfd28d8c80337ace9c9a7fd5c075"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(EmotionType::kLast), 0.0f)</td></tr>
+<tr class="memdesc:a2071dfd28d8c80337ace9c9a7fd5c075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores how the wealth of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> influences the choice. <br /></td></tr>
+<tr class="separator:a2071dfd28d8c80337ace9c9a7fd5c075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e56a04d7e3f87438d174fd4e9619b8"><td class="memItemLeft" align="right" valign="top"><a id="ad8e56a04d7e3f87438d174fd4e9619b8" name="ad8e56a04d7e3f87438d174fd4e9619b8"></a>
+std::vector&lt; std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationships</b> = {}</td></tr>
+<tr class="memdesc:ad8e56a04d7e3f87438d174fd4e9619b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores how the relationship to each participant influences how likely the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> is to pick them for this role. <br /></td></tr>
+<tr class="separator:ad8e56a04d7e3f87438d174fd4e9619b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >TODO. </p>
+<div class="textblock"><p >Stores how the state of <a class="el" href="classtattletale_1_1_actor.html">Actors </a> influence how likely an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> is to happen. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>shared/kernels/interactions/<a class="el" href="interactiontendency_8hpp_source.html">interactiontendency.hpp</a></li>
 </ul>

@@ -37,8 +37,8 @@
 \DoxyCodeLine{36             \textcolor{keywordtype}{size\_t} tick,}
 \DoxyCodeLine{37             std::vector<Kernel *> reasons,}
 \DoxyCodeLine{38             std::vector<Actor *> participants);}
-\DoxyCodeLine{39         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *CreateEmotion(EmotionType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{40         \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} *CreateRelationship(RelationshipType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{39         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *CreateEmotion(\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{40         \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} *CreateRelationship(\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}} type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
 \DoxyCodeLine{41         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *CreateResource(std::string name, std::string positive\_name\_variant, std::string negative\_name\_variant, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
 \DoxyCodeLine{42         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} *CreateGoal(GoalType type, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
 \DoxyCodeLine{43         \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}} *CreateTrait(std::string name, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
@@ -53,7 +53,7 @@
 \DoxyCodeLine{52         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
 \DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
 \DoxyCodeLine{54         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{55         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, EmotionType type) \textcolor{keyword}{const};}
+\DoxyCodeLine{55         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type) \textcolor{keyword}{const};}
 \DoxyCodeLine{56         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
 \DoxyCodeLine{57         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
 \DoxyCodeLine{58 }

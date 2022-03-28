@@ -22,38 +22,39 @@
 \DoxyCodeLine{24     \textcolor{keyword}{public}:}
 \DoxyCodeLine{28         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_interaction_a92061c4e14ce7278d611442df521b5bd}{Apply}}();}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{30         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{31         std::string GetDetailedDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{32         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{33         std::string GetActiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{40         \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> \mbox{\hyperlink{classtattletale_1_1_interaction_aac4d4e30ce3d7c4c725b4f3d3e643262}{GetPrototype}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{41         \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> GetTendency() \textcolor{keyword}{const};}
-\DoxyCodeLine{47         \textcolor{keyword}{const} std::vector<Actor *> \&\mbox{\hyperlink{classtattletale_1_1_interaction_ac4cb14903a045d05ba314ff70d128ac6}{GetParticipants}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49         \textcolor{keywordtype}{float} GetChance() \textcolor{keyword}{const override};}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51     \textcolor{keyword}{private}:}
-\DoxyCodeLine{65         \mbox{\hyperlink{classtattletale_1_1_interaction_a2665dce00ba6da46b50ad478b294bf9f}{Interaction}}(}
-\DoxyCodeLine{66             \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> Prototype,}
-\DoxyCodeLine{67             \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement,}
-\DoxyCodeLine{68             \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency,}
-\DoxyCodeLine{69             \textcolor{keywordtype}{float} chance,}
-\DoxyCodeLine{70             \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id},}
-\DoxyCodeLine{71             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{72             std::vector<Kernel *> reasons,}
-\DoxyCodeLine{73             std::vector<Actor *>}
-\DoxyCodeLine{74                 participants);}
-\DoxyCodeLine{78         \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> \mbox{\hyperlink{classtattletale_1_1_interaction_a1af62f8b2d92940afecd310c150fbe38}{prototype\_}};}
-\DoxyCodeLine{79         \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement\_;}
-\DoxyCodeLine{80         \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency\_;}
-\DoxyCodeLine{81         \textcolor{keywordtype}{float} chance\_;}
-\DoxyCodeLine{85         std::vector<Actor *>}
-\DoxyCodeLine{86             \mbox{\hyperlink{classtattletale_1_1_interaction_aad26c54cde90041fdef8f3df36e062d3}{participants\_}};}
-\DoxyCodeLine{87         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{88     \};}
-\DoxyCodeLine{89 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_INTERACTIONS\_INTERACTION\_H}}
+\DoxyCodeLine{37         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_ab09638e42f4b9534f14ed21ad856aa83}{GetDefaultDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{45         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_a63c6f3d3fbf942bdb1a0e2a8c3215006}{GetDetailedDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{54         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_ac0309c5993a64e03e3fc4652c8f6c075}{GetPassiveDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{63         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_acba6b70fd850be8bdb8b7aaaa0a53357}{GetActiveDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70         \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> \mbox{\hyperlink{classtattletale_1_1_interaction_aac4d4e30ce3d7c4c725b4f3d3e643262}{GetPrototype}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{76         \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> \mbox{\hyperlink{classtattletale_1_1_interaction_a30c1548b58d84e69324e67b408724333}{GetTendency}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{83         \textcolor{keyword}{const} std::vector<Actor *> \&\mbox{\hyperlink{classtattletale_1_1_interaction_ac4cb14903a045d05ba314ff70d128ac6}{GetParticipants}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{93         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_interaction_a4ec1715552d0ce969444203118df1370}{GetChance}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{private}:}
+\DoxyCodeLine{110         \mbox{\hyperlink{classtattletale_1_1_interaction_a2665dce00ba6da46b50ad478b294bf9f}{Interaction}}(}
+\DoxyCodeLine{111             \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> Prototype,}
+\DoxyCodeLine{112             \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> requirement,}
+\DoxyCodeLine{113             \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> tendency,}
+\DoxyCodeLine{114             \textcolor{keywordtype}{float} chance,}
+\DoxyCodeLine{115             \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id},}
+\DoxyCodeLine{116             \textcolor{keywordtype}{size\_t} tick,}
+\DoxyCodeLine{117             std::vector<Kernel *> reasons,}
+\DoxyCodeLine{118             std::vector<Actor *> participants);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{123         \textcolor{keyword}{const} std::shared\_ptr<InteractionPrototype> \mbox{\hyperlink{classtattletale_1_1_interaction_a1af62f8b2d92940afecd310c150fbe38}{prototype\_}};}
+\DoxyCodeLine{127         \textcolor{keyword}{const} std::shared\_ptr<InteractionRequirement> \mbox{\hyperlink{classtattletale_1_1_interaction_ad8165e993058cb07a7a65522be42cefc}{requirement\_}};}
+\DoxyCodeLine{131         \textcolor{keyword}{const} std::shared\_ptr<InteractionTendency> \mbox{\hyperlink{classtattletale_1_1_interaction_ac8126c9fd6c938df9e8b9b18a536d11c}{tendency\_}};}
+\DoxyCodeLine{135         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_interaction_afc4b74a1a697cc00eb5d76a638ca00c6}{chance\_}};}
+\DoxyCodeLine{139         std::vector<Actor *>}
+\DoxyCodeLine{140             \mbox{\hyperlink{classtattletale_1_1_interaction_aad26c54cde90041fdef8f3df36e062d3}{participants\_}};}
+\DoxyCodeLine{144         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{145     \};}
+\DoxyCodeLine{146 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_INTERACTIONS\_INTERACTION\_H}}
 
 \end{DoxyCode}
