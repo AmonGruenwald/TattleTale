@@ -9,15 +9,31 @@
 namespace tattletale
 {
     /**
-     * @brief TODO
+     * @brief Stores how the state of \link Actor Actors \endlink influence how likely an Interaction is to happen.
      */
     struct InteractionTendency
     {
+        /**
+         * @brief Vector of floats, which indices map to the ContextType enum, that stores how the current Context might influence the choice.
+         */
         std::vector<float> contexts = std::vector<float>(static_cast<int>(ContextType::kLast), 0.0f);
+
+        /**
+         * @brief Stores how the wealth of the Actor influences the choice.
+         */
         float wealth = 0;
+        /**
+         * @brief Stores how the wealth of the Actor influences the choice.
+         */
         std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
+        /**
+         * @brief Stores how the relationship to each participant influences how likely the Actor is to pick them for this role.
+         */
         std::vector<std::vector<float>> relationships = {};
 
+        /**
+         * @brief Reset all values back to their default state.
+         */
         void ClearValues()
         {
             contexts = std::vector<float>(static_cast<int>(ContextType::kLast), 0.0f);
