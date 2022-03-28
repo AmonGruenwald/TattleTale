@@ -58,7 +58,7 @@ namespace tattletale
     }
     std::string Resource::GetDefaultDescription() const
     {
-        return fmt::format("{:d} {} {} {}", verb_, owner_->name_, GetAdjective(), GetNameVariant());
+        return fmt::format("{} {:d} {} {}", owner_->name_, verb_, GetAdjective(), GetNameVariant());
     }
 
     std::string Resource::GetPassiveDescription() const
