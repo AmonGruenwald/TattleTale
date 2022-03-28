@@ -54,7 +54,7 @@ namespace tattletale
         std::vector<robin_hood::unordered_map<size_t, std::vector<float>>> relationship_effects;
 
         /**
-         * @brief Clears all values from the prototype.
+         * @brief Reset all values back to their default state.
          */
         void ClearValues()
         {
