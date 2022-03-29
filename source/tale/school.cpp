@@ -211,12 +211,12 @@ namespace tattletale
         }
     }
 
-    void School::LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType type, std::string context_description)
+    void School::LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType context_type, std::string context_description)
     {
         std::vector<Kernel *> reasons;
         std::vector<Actor *> participants;
         float chance;
-        int interaction_index = actor->ChooseInteraction(group, type, reasons, participants, chance);
+        int interaction_index = actor->ChooseInteraction(group, context_type, reasons, participants, chance);
         std::string interaction_description = "did nothing.";
         if (interaction_index != -1)
         {

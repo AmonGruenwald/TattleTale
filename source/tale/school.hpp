@@ -37,10 +37,13 @@ namespace tattletale
     {
     public:
         /**
-         * @brief Constructor that sets up everything necessayr for the simulation.
+         * @brief Constructor that sets up everything necessary for the simulation.
          *
-         * Stores references to a Random and an InteractionStore Object, to be used in the simulation. Uses the passed Setting object to instance actors and courses correctly.
+         * Stores references to a Chronicle and a Random Object, to be used for the simulation.
+         * Uses the passed Setting object to instance actors and courses correctly.
          *
+         * @param chronicle Reference to the Setting object for the Simulation
+         * @param random Reference to the Setting object for the Simulation
          * @param setting Reference to the Setting object for the Simulation
          */
         School(Chronicle &chronicle, Random &random, const Setting &setting);
@@ -113,10 +116,6 @@ namespace tattletale
          */
         std::vector<Actor *> actors_;
         /**
-         * @brief Holds all instanced actors as weak_ptrs.
-         */
-        std::vector<Actor *> freetime_group_;
-        /**
          * @brief Holds a reference to an instance of the Setting object that was passed during construction.
          */
         const Setting &setting_;
@@ -163,8 +162,19 @@ namespace tattletale
          * @param weekday Which Weekday we want to check.
          * @return The result of the check.
          */
-        void LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType type, std::string context_description = "an unknown time");
         bool IsWorkday(Weekday weekday) const;
+        /**
+         * @brief Let's the Actor interact with the passed parameters.
+         *
+         * The Actor choses an Interaction from the InteractionStore based on their internal State. Then if necessary searches for other participants
+         * after which the Interaction gets applied to each Actor participating.
+         *
+         * @param actor The Actor that will interact.
+         * @param group The group in which the Actor will look for other particpants.
+         * @param context_type The ContextType in which the Interaction will take place.
+         * @param context_description String describing the context for debugging purposes.
+         */
+        void LetActorInteract(Actor *&actor, const std::list<Actor *> &group, ContextType context_type, std::string context_description = "an unknown time");
         /**
          * @brief Checks wheter the passed Actor is in the passed course group.
          *
@@ -211,7 +221,7 @@ namespace tattletale
          * Reads from the file tale/resources/surname.txt to get random names;
          *
          * @param count How many surnames the vector should contain.
-         * @return he vector of surnames.
+         * @return The vector of surnames.
          */
         std::vector<std::string> GetRandomSurames(size_t count);
         /**
@@ -221,7 +231,7 @@ namespace tattletale
          *
          * @param count How many surnames the vector should contain.
          * @param path The path of the file containing the names to pick from.
-         * @return he vector of names.
+         * @return The vector of names.
          */
         std::vector<std::string> GetRandomNames(size_t count, std::string path);
     };
