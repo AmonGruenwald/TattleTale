@@ -1,4 +1,4 @@
-/// @file tattle.hpp For now just provides two basic functions for testing purposes.
+/// @file tattle.hpp Access point for the curation side of the project.
 #ifndef TATTLE_TATTLE_H
 #define TATTLE_TATTLE_H
 #include "shared/chronicle.hpp"
