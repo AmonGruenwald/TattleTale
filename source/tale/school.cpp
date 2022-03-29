@@ -23,7 +23,6 @@ namespace tattletale
             Actor *actor = chronicle_.CreateActor(*this, firstnames[i], surnames[i]);
             actor_creation_description += fmt::format("\n{}: {}", i, *actor);
             actors_.push_back(actor);
-            freetime_group_.push_back(actor);
         }
         // needs to happen after every actor is created bc of relationships
         for (auto &actor : actors_)
