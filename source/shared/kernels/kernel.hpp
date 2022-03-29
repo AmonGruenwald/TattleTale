@@ -9,6 +9,9 @@
 
 namespace tattletale
 {
+    /**
+     * @brief The types of Kernel that can be created.
+     */
     enum class KernelType
     {
         kNone,
@@ -22,6 +25,7 @@ namespace tattletale
     class Actor;
     /**
      * @brief Represents a part of the simulation, like an interaction, or an emotional goal.
+     *
      * To build up causality parts of the story have to reference each other. Because of that every
      * part of the story hast to be made up of a shared interface, which is what this class is. For
      * said causality everything needs to have possible reasons and consequences. In addition temporal
@@ -31,29 +35,116 @@ namespace tattletale
     class Kernel
     {
     public:
+        /**
+         * @brief The name of this Kernel.
+         */
         std::string name_;
+        /**
+         * @brief The id of this Kernel in the Chronicle.
+         */
         size_t id_;
+        /**
+         * @brief The tick during which this Kernel was created.
+         */
         size_t tick_;
+        /**
+         * @brief The KernelType of this Kernel.
+         */
         KernelType type_;
+        /**
+         * @brief Virtual destructor doing nothing.
+         */
         virtual ~Kernel();
 
+        /**
+         * @brief Adds another Kernel for which this Kernel was a reason for.
+         *
+         * @param consequence The other Kernel which was caused by this Kernel.
+         */
         void AddConsequence(Kernel *consequence);
+        /**
+         * @brief Getter for the vector of Kernel this Kernel was the cause of.
+         *
+         * @return The vector of consequences.
+         */
         const std::vector<Kernel *> &GetConsequences() const;
+        /**
+         * @brief Gets the \link Kernel Kernels \endlink that were the reason for the creation of this Kernel.
+         *
+         * @return The vector of reasons.
+         */
         virtual const std::vector<Kernel *> &GetReasons() const;
+        /**
+         * @brief Abstract method to get the default description for this Kernel.
+         *
+         * This description should be a complete sentence, that can be used in a narration.
+         *
+         * @return The default description
+         */
         virtual std::string GetDefaultDescription() const = 0;
+        /**
+         * @brief Gets a detailed description of the Kernel for debugging purposes.
+         *
+         * This description should not be used for curation at it is not written in a proper way.
+         * It only gives an overview of the Kernel to print out during debugging.
+         *
+         * @return The detailed description
+         */
         virtual std::string GetDetailedDescription() const;
+        /**
+         * @brief Abstract method to get a passive description for this Kernel.
+         *
+         * This description should be a sentence fragment that can be incorporated into a narrative.
+         * It should fit for example into the following gap: "One often sees them __________"
+         *
+         * @return The passive description
+         */
         virtual std::string GetPassiveDescription() const = 0;
+        /**
+         * @brief Abstract method to get an active description for this Kernel.
+         *
+         * This description should be a sentence fragment that can be incorporated into a narrative.
+         * It should fit for example into the following gap: "This caused them to __________"
+         *
+         * @return The active description
+         */
         virtual std::string GetActiveDescription() const = 0;
+        /**
+         * @brief Get the chance this Kernel had to be created.
+         *
+         * @return The chance.
+         */
         virtual float GetChance() const;
+        /**
+         * @brief Get the Actor owning this Kernel.
+         *
+         * @return The owner.
+         */
         Actor *GetOwner() const;
 
     protected:
         /**
          * @brief The Actor owning this Kernel.
          */
-        std::vector<Kernel *> consequences_;
-        std::vector<Kernel *> reasons_;
         Actor *owner_;
+        /**
+         * @brief Stores all other \link Kernel Kernels \endlink that were caused by this Kernel.
+         */
+        std::vector<Kernel *> consequences_;
+        /**
+         * @brief Stores all \link Kernel Kernels \endlink that caused this Kernel to be created.
+         */
+        std::vector<Kernel *> reasons_;
+        /**
+         * @brief Protected Constructor should only be called by derived classes.
+         *
+         * @param name The name of this Kernel.
+         * @param id The id of this Kernel in the Chronicle.
+         * @param tick The tick during which this Kernel is created.
+         * @param owner The Actor owning this Kernel.
+         * @param reasons Other \link Kernel Kernels \endlink that caused this Kernel to be created.
+         * @param type The KernelType of this Kernel.
+         */
         Kernel(std::string name, size_t id, size_t tick, Actor *owner, std::vector<Kernel *> reasons, KernelType type);
     };
 
