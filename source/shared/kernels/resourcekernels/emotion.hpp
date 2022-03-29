@@ -50,7 +50,7 @@ namespace tattletale
 
     private:
         /**
-         * @brief Constructor initializing base Resource class and type_ member.
+         * @brief Constructor, also initializing base Resource class and type_ member.
          *
          * This should only ever be called through the Chronicle.
          *

@@ -87,7 +87,7 @@ namespace tattletale
          */
         Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value);
         /**
-         * @brief Getter to find an adjective describing the severity of this emotion.
+         * @brief Getter to find an adjective describing the severity of this Emotion.
          *
          * @return The appropriate adjective.
          */
