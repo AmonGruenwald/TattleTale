@@ -35,7 +35,7 @@ namespace tattletale
     }
     uint32_t Course::GetRandomEmptySlot() const
     {
-        // TOOD as AllSlotsFilled is also false if slots are only partially filled this assert does not stop every misuse
+        // TODO: as AllSlotsFilled is also false if slots are only partially filled this assert does not stop every misuse
 
         TATTLETALE_ERROR_PRINT(!AllSlotsFilled(), "All slots are filled.");
         uint32_t random_slot = random_.GetUInt(0, slots_.size() - 1);

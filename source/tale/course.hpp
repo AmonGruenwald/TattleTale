@@ -47,9 +47,15 @@ namespace tattletale
          * @return The found group.
          */
         const std::list<Actor *> &GetCourseGroupForSlot(size_t slot);
+        /**
+         * @brief Checks wether there is still space left in a slot.
+         *
+         * @param slot The slot we want to check.
+         * @return The result of the check.
+         */
         bool SpaceInSlot(size_t slot) const;
         /**
-         * @brief Checks if the course has all slots filled.
+         * @brief Checks if the course has all slots completely filled.
          *
          *
          * @return The result of the check.
@@ -68,11 +74,27 @@ namespace tattletale
          *
          * This can crash if slot is not empty.
          *
-         * @param actors Vector of \link Actor Actors \endlink that will be added to the slot.
+         * @param actors List of \link Actor Actors \endlink that will be added to the slot.
          * @param slot The slot the \link Actor Actors \endlink will be added to.
          */
         void AddToSlot(std::list<Actor *> actors, size_t slot);
+        /**
+         * @brief Adds the Actor to the passed slot.
+         *
+         * This can crash if slot is not empty.
+         *
+         * @param actor Actor that will be added to the slot.
+         * @param slot The slot the Actor will be added to.
+         */
         void AddToSlot(Actor *actor, size_t slot);
+        /**
+         * @brief Clears the \link Actor Actors \endlink out of a slot.
+         *
+         * This can crash if slot is already empty.
+         *
+         * @param slot The slot the \link Actor Actors \endlink will be cleared from.
+         * @return The group of Actors that was cleared out of the slot.
+         */
         std::list<Actor *> ClearSlot(size_t slot);
         /**
          * @brief Getter for the amount of slots the Course currenty holds.
@@ -80,6 +102,12 @@ namespace tattletale
          * @return The amount of slots.
          */
         size_t GetSlotCount() const;
+        /**
+         * @brief Getter for the amount of \link Actor Actors \endlink  the Course holds in the passed slot.
+         *
+         * @param slot_index The index of the slot to check.
+         * @return The amount of \link Actor Actors \endlink in the slot.
+         */
         size_t GetActorCount(size_t slot_index) const;
 
     private:
@@ -88,9 +116,12 @@ namespace tattletale
          */
         std::vector<std::list<Actor *>> slots_;
         /**
-         * @brief Holds a reference to the Randmo objec that was passed during construction.
+         * @brief Holds a reference to the Random object that was passed during construction.
          */
         Random &random_;
+        /**
+         * @brief Holds a reference to the Setting object that was passed during construction.
+         */
         const Setting &setting_;
     };
 
