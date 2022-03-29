@@ -29,7 +29,6 @@ namespace tattletale
         InitializeRandomEmotions(tick);
         InitializeRandomRelationships(tick);
         InitializeRandomGoal(tick);
-        InitializeRandomTraits(tick);
     }
 
     bool Actor::IsEnrolledInCourse(size_t course_id) const
@@ -488,10 +487,6 @@ namespace tattletale
             }
         }
         detailed_actor_description += fmt::format("\n\t{:o}", *goal_);
-        for (auto &trait : traits_)
-        {
-            detailed_actor_description += fmt::format("\n\t{:o}", *trait);
-        }
         return detailed_actor_description;
     }
 
@@ -600,11 +595,6 @@ namespace tattletale
     {
         std::vector<Kernel *> no_reasons;
         goal_ = chronicle_.CreateGoal(Goal::GetRandomGoalType(random_), tick, this, no_reasons);
-    }
-    void Actor::InitializeRandomTraits(size_t tick)
-    {
-        std::vector<Kernel *> no_reasons;
-        traits_ = {chronicle_.CreateTrait("trait", tick, this, no_reasons)};
     }
 
     float Actor::CalculateRelationshipStrength(size_t actor_id) const

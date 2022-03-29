@@ -110,17 +110,6 @@ namespace tattletale
         kernels_by_actor_[owner->id_].push_back(goal);
         return goal;
     }
-    Trait *Chronicle::CreateTrait(std::string name, size_t tick, Actor *owner, std::vector<Kernel *> reasons)
-    {
-        Trait *trait = new Trait(name, all_kernels_.size(), tick, owner, reasons);
-        for (auto &reason : reasons)
-        {
-            reason->AddConsequence(trait);
-        }
-        all_kernels_.push_back(trait);
-        kernels_by_actor_[owner->id_].push_back(trait);
-        return trait;
-    }
 
     float Chronicle::GetAverageInteractionChance() const
     {

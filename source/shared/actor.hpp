@@ -12,7 +12,6 @@
 #include "shared/kernels/resourcekernels/resource.hpp"
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
-#include "shared/kernels/trait.hpp"
 #include "shared/kernels/interactions/interactionrequirement.hpp"
 
 namespace tattletale
@@ -55,10 +54,6 @@ namespace tattletale
          * Maps the other \link Actor Actor's \endlink id to another map of RelationshipType to Relationship.
          */
         robin_hood::unordered_map<size_t, std::vector<Relationship *>> relationships_;
-        /**
-         * @brief The \link Trait Traits \endlink  the Actor posses.
-         */
-        std::vector<Trait *> traits_;
         /**
          * @brief The Goal the Actor is trying to reach during the simulation.
          */
@@ -238,14 +233,6 @@ namespace tattletale
          * @param tick The tick during which this happens.
          */
         void InitializeRandomGoal(size_t tick);
-        /**
-         * @brief Initializes the Trait member vector with a random \link Trait Traits \endlink.
-         *
-         * WIP: this does not to anything yet
-         *
-         * @param tick The tick during which this happens.
-         */
-        void InitializeRandomTraits(size_t tick);
 
         void UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known = false);
 

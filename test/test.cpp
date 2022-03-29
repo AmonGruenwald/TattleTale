@@ -27,12 +27,10 @@ TEST(TaleKernels, IncreasingKernelId)
     Goal *goal = chronicle.CreateGoal(Goal::GetRandomGoalType(random), tick, actor, no_reasons);
     Relationship *relationship = chronicle.CreateRelationship(RelationshipType::kLove, tick, actor, actor, no_reasons, 1);
     Resource *wealth = chronicle.CreateResource("wealth", "wealthy", "poor", tick, actor, no_reasons, 1);
-    Trait *trait = chronicle.CreateTrait("trait", tick, actor, no_reasons);
     EXPECT_EQ(0, emotion->id_);
     EXPECT_EQ(1, goal->id_);
     EXPECT_EQ(2, relationship->id_);
     EXPECT_EQ(3, wealth->id_);
-    EXPECT_EQ(4, trait->id_);
 }
 
 class TaleCreateAndRunSchool : public ::testing::Test

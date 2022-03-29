@@ -9,7 +9,6 @@
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
 #include "shared/kernels/goal.hpp"
-#include "shared/kernels/trait.hpp"
 #include "shared/random.hpp"
 
 namespace tattletale
@@ -40,7 +39,6 @@ namespace tattletale
         Relationship *CreateRelationship(RelationshipType type, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value);
         Resource *CreateResource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value);
         Goal *CreateGoal(GoalType type, size_t tick, Actor *owner, std::vector<Kernel *> reasons);
-        Trait *CreateTrait(std::string name, size_t tick, Actor *owner, std::vector<Kernel *> reasons);
 
         float GetAverageInteractionChance() const;
         float GetAverageInteractionReasonCount() const;

@@ -11,7 +11,6 @@
 #include "shared/kernels/resourcekernels/resource.hpp"
 #include "shared/kernels/resourcekernels/emotion.hpp"
 #include "shared/kernels/resourcekernels/relationship.hpp"
-#include "shared/kernels/trait.hpp"
 #include "shared/random.hpp"
 #include "shared/chronicle.hpp"
 #include "shared/setting.hpp"

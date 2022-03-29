@@ -16,7 +16,6 @@ namespace tattletale
         kEmotion,
         kRelationship,
         kInteraction,
-        kTrait,
         kGoal,
         kLast
     };
@@ -102,13 +101,12 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Kernel, T>
 template <>
 struct fmt::formatter<tattletale::KernelType> : formatter<string_view>
 {
-    std::string kernel_type_names[8] = {
+    std::string kernel_type_names[7] = {
         "none",
         "resource",
         "emotion",
         "relationship",
         "interaction",
-        "trait",
         "goal",
         "last",
     };

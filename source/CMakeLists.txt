@@ -27,8 +27,6 @@ set(LIBRARY_SOURCES
     shared/kernels/interactions/interactionrequirement.hpp
     shared/kernels/interactions/interactioncontexttype.hpp
     shared/kernels/interactions/interactiontendency.hpp
-    shared/kernels/trait.hpp
-    shared/kernels/trait.cpp
     shared/random.hpp
     shared/random.cpp
     shared/chronicle.hpp
