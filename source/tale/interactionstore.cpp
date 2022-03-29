@@ -134,7 +134,7 @@ namespace tattletale
         }
 
         nlohmann::json relationship_json;
-        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_json, json, relationship_key_, false, error_preamble))
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_json, json, relationships_key_, false, error_preamble))
         {
             return false;
         }
@@ -275,7 +275,7 @@ namespace tattletale
             out_requirement->emotions[static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
         }
         nlohmann::json relationship_map_json;
-        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationship_key_, false, error_preamble))
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationships_key_, false, error_preamble))
         {
             return false;
         }
@@ -350,7 +350,7 @@ namespace tattletale
             out_tendency->emotions[static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
         }
         nlohmann::json relationship_array;
-        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_array, json, relationship_key_, false, error_preamble))
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_array, json, relationships_key_, false, error_preamble))
         {
             return false;
         }
