@@ -59,6 +59,11 @@ namespace tattletale
          */
         Goal *goal_;
 
+        /**
+         * @brief Randomizes the internal state of the Actor.
+         *
+         * @param tick During which tick this process happens.
+         */
         void SetupRandomValues(size_t tick);
         /**
          * @brief Checks if the Actor is enrolled in the passed Course.
@@ -76,6 +81,14 @@ namespace tattletale
          * @param slot The slot during which we want the Actor to enroll in the course.
          */
         void EnrollInCourse(size_t course_id, uint32_t slot);
+        /**
+         * @brief Removes the Actor from the passed course during the passed slot.
+         *
+         * This can crash if the slot is already empty.
+         *
+         * @param course_id The id of the Course we want the Actor to be removed from.
+         * @param slot The slot from which we want the Actor to be removed.
+         */
         void EjectFromCourse(size_t course_id, uint32_t slot);
         /**
          * @brief Getter for the amount of filled slots.
@@ -97,18 +110,27 @@ namespace tattletale
          */
         bool SlotsEmpty(const std::vector<uint32_t> &slots) const;
         /**
-         * @brief Let's the actor decide on an Interaction for the currrent situation.
+         * @brief Let's the actor decide on an Interaction for the currrent situation depending on their internal state.
          *
-         * WIP: Currently just chooses an Interaction at random.
+         * This first weeds out Interaction that are not possible due to their InteractionRequirements. Then calculates chances for each
+         * possible one based on their respective InteractionTendency and the \link Actor Actor's \endlink internal state and then chooses
+         * one at semi randomly based on the chances. Afterwards a similar process is employed to pick necessary participants for the Interaction.
          *
-         * @param[in] course_group The course group the Actor is currently interacting in.
+         * @param[in] actor_group The course group the Actor is currently interacting in.
+         * @param[in] context The ContextType this Interaction will be in.
          * @param[out] out_reasons Vector the Actor will write it's reason for the decision to.
          * @param[out] out_participants Vector the Actor will to with which other \link Actor Actors \endlink he wants to do the Interaction.
          * @param[out] out_chance How likely it was that this interaction was chosen.
          * @return The index of the InteractionPrototype the Actor chose.
          */
-        bool SlotEmpty(size_t slot) const;
         int ChooseInteraction(const std::list<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance);
+        /**
+         * @brief Checks wether the passed slot is still unused for the Actor.
+         *
+         * @param slot The slot that will be checked.
+         * @return The result of the check.
+         */
+        bool SlotEmpty(size_t slot) const;
         /**
          * @brief Calculates the chance of an Interaction based on its InteractionTendency and the \link Actor Actor's \endlink current state.
          *
@@ -125,7 +147,23 @@ namespace tattletale
          * @return A chance value between 0.0 and 1.0.
          */
         float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason);
+        /**
+         * @brief Modifies the chance for an Interaction based on the Goal of the Actor.
+         *
+         * @param original_chance The chance of the Interaction before this modification.
+         * @param interaction_index The index of the Interaction in the InteractionStore.
+         * @param out_had_positive_effect Flag wether the Goal had a positive influence on the chance.
+         * @return The modified chance.
+         */
         float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
+        /**
+         * @brief Checks wether the requirements of an Interaction are met based on the passed InteractionRequirement and the state of the Actor.
+         *
+         * @param requirement The InteractionRequirement object containing the necessary requirements to be met.
+         * @param actor_group The group of \link Actor Actors \endlink that this Interaction will take place in.
+         * @param context The ContextType this Interaction will take place in.
+         * @return The result of the check.
+         */
         bool CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const;
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
@@ -138,8 +176,6 @@ namespace tattletale
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink \link Emotion Emotional \endlink state.
          *
-         *
-         *
          * @param reasons Vector holding the reasons for this change.
          * @param tick The tick during which this change happened.
          * @param type_index The type index of the EmotionType of the Emotion that gets changed.
@@ -147,15 +183,12 @@ namespace tattletale
          */
         void ApplyEmotionChange(const std::vector<Kernel *> &reasons, size_t tick, int type_index, float value);
         /**
-         * @brief Applies a change to the \link Actor Actor's \endlink \link Relationship Relationships \endlink.
-         *
-         *
+         * @brief Applies changes to the \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *
          * @param reasons Vector holding the reasons for this change.
          * @param tick The tick during which this change happened.
          * @param actor_id The id of the Actor with which the Relationship gets changed..
-         * @param type The type of Relationship that gets changed.
-         * @param value By how much the Relationship gets changed.
+         * @param change Vector with floats describing by how much each Relationship will be changed.
          */
         void ApplyRelationshipChange(const std::vector<Kernel *> &reasons, size_t tick, size_t actor_id, std::vector<float> change);
         /**
@@ -164,9 +197,33 @@ namespace tattletale
          * @return The description string.
          */
         std::string GetDetailedDescriptionString() const;
+        /**
+         * @brief Returns a list of all other \link Actor Actors \endlink this Actor has some kind of Relationship with.
+         *
+         * @return The list of known \link Actor Actors \endlink.
+         */
         const std::list<Actor *> &GetAllKnownActors() const;
+        /**
+         * @brief Returns a list of \link Actor Actors \endlink this Actor has the strongest Relationship with. The size of this list is determined by the Setting.
+         *
+         * This group of Actors will be used for Interaction that happen during the freetime of the Actor. This happens because it makes sense for the Actor
+         * to interact with those Actors he has the strongest feelings for (be they negative or positive).
+         * @return The list of \link Actor Actors \endlink.
+         */
         std::list<Actor *> GetFreetimeActorGroup() const;
+        /**
+         * @brief Caluclate the strength of the Relationship for the passed Actor.
+         *
+         * @param actor_id The id of the Actor we want to determine the Relationship strength for.
+         * @return The Relationship strength.
+         */
         float CalculateRelationshipStrength(size_t actor_id) const;
+        /**
+         * @brief Checks wether the Actor has a Relationship with the passed Actor.
+         *
+         * @param actor_id The id of the Actor we want to check.
+         * @return The result of the check.
+         */
         bool HasRelationshipWith(size_t actor_id) const;
 
     private:
@@ -198,13 +255,26 @@ namespace tattletale
          * @brief Holds the ids of the \link Course Courses \endlink the Actor is enrolled in, in the order of the slots he will visit said courses.
          */
         std::vector<int> enrolled_courses_id_;
+        /**
+         * @brief Holds all other \link Actor Actors \endlink this Actor has some kind of Relationship with.
+         */
         std::list<Actor *> known_actors_;
+        /**
+         * @brief Holds all the \link Actor Actors \endlink this Actor has the strongest Relationships with.
+         * */
         std::list<Actor *> freetime_group;
+
+        /**
+         * @brief Private Constructor so only Chronicle can create Actors.
+         *
+         * @param school Reference to the School object the Actor is part of.
+         * @param id The \link Actor Actor's \endlink id.
+         * @param first_name The \link Actor Actor's \endlink first name.
+         * @param last_name The \link Actor Actor's \endlink last name.
+         */
         Actor(School &school, size_t id, std::string first_name, std::string last_name);
         /**
          * @brief Initializes the Wealth member with a random value.
-         *
-         *
          *
          * @param tick The tick during which this happens.
          */
@@ -212,15 +282,11 @@ namespace tattletale
         /**
          * @brief Initializes the Emotion member map with random values.
          *
-         *
-         *
          * @param tick The tick during which this happens.
          */
         void InitializeRandomEmotions(size_t tick);
         /**
          * @brief Initializes the Relationship member map with random values.
-         *
-         * WIP: this does not to anything yet
          *
          * @param tick The tick during which this happens.
          */
@@ -228,14 +294,21 @@ namespace tattletale
         /**
          * @brief Initializes the the Goal member with a random value.
          *
-         * WIP: this does not to anything yet
-         *
          * @param tick The tick during which this happens.
          */
         void InitializeRandomGoal(size_t tick);
 
+        /**
+         * @brief Updates the Relationship of this Actor with another one.
+         *
+         * @param other_actor The Actor with which the Relationship was changed.
+         * @param relationship The new Relationship values.
+         * @param already_known If the other Actor was already known to this Actor.
+         */
         void UpdateRelationship(Actor *other_actor, std::vector<Relationship *> relationship, bool already_known = false);
-
+        /**
+         * @brief Chronicle is a friend so private constructor can be accessed.
+         */
         friend class Chronicle;
     };
 
