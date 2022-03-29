@@ -32,36 +32,80 @@ namespace tattletale
 
     std::string Goal::GetDefaultDescription() const
     {
-        std::string description = "No default description.";
+        std::string description = "No default description";
         switch (type_)
         {
         case GoalType::kLast:
-            description = fmt::format("{} does not have a goal.", *owner_);
+            description = fmt::format("{} did not have a goal", *owner_);
             break;
         case GoalType::kWealth:
-            description = fmt::format("{} want to become incredibly rich.", *owner_);
+            description = fmt::format("{} wanted to become incredibly rich", *owner_);
             break;
         case GoalType::kAcceptance:
-            description = fmt::format("{} wants to be fully accepted by their peers.", *owner_);
+            description = fmt::format("{} wanted to be fully accepted by their peers", *owner_);
             break;
         case GoalType::kRelationship:
-            description = fmt::format("{} wants to have a loving relationship.", *owner_);
+            description = fmt::format("{} wanted to have a loving relationship", *owner_);
             break;
         case GoalType::kHedonism:
-            description = fmt::format("{} only lives for pleasure.", *owner_);
+            description = fmt::format("{} only lived for pleasure", *owner_);
             break;
         case GoalType::kPower:
-            description = fmt::format("{} wants to be the most powerful person in school.", *owner_);
+            description = fmt::format("{} wanted to be the most powerful person in school", *owner_);
             break;
         }
         return description;
     }
     std::string Goal::GetPassiveDescription() const
     {
-        return name_;
+        std::string description = "No passive description";
+        switch (type_)
+        {
+        case GoalType::kLast:
+            description = fmt::format("not having a goal", *owner_);
+            break;
+        case GoalType::kWealth:
+            description = fmt::format("wanting to become incredibly rich", *owner_);
+            break;
+        case GoalType::kAcceptance:
+            description = fmt::format("wanting to be fully accepted by their peers", *owner_);
+            break;
+        case GoalType::kRelationship:
+            description = fmt::format("wanting to have a loving relationship", *owner_);
+            break;
+        case GoalType::kHedonism:
+            description = fmt::format("only living for pleasure", *owner_);
+            break;
+        case GoalType::kPower:
+            description = fmt::format("wanting to be the most powerful person in school", *owner_);
+            break;
+        }
+        return description;
     }
     std::string Goal::GetActiveDescription() const
     {
-        return GetDefaultDescription();
+        std::string description = "No active description";
+        switch (type_)
+        {
+        case GoalType::kLast:
+            description = fmt::format("do not have a goal", *owner_);
+            break;
+        case GoalType::kWealth:
+            description = fmt::format("want to become incredibly rich", *owner_);
+            break;
+        case GoalType::kAcceptance:
+            description = fmt::format("want to be fully accepted by their peers", *owner_);
+            break;
+        case GoalType::kRelationship:
+            description = fmt::format("want to have a loving relationship", *owner_);
+            break;
+        case GoalType::kHedonism:
+            description = fmt::format("only live for pleasure", *owner_);
+            break;
+        case GoalType::kPower:
+            description = fmt::format("want to be the most powerful person in school", *owner_);
+            break;
+        }
+        return description;
     }
 } // namespace tattletale
