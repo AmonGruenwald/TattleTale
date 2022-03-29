@@ -58,7 +58,13 @@ namespace tattletale
          * @return The corresponding GoalType value.
          */
         static GoalType StringToGoalType(std::string goal_string);
-
+        /**
+         * @brief Getter for a random GoalType.
+         *
+         * @param random Random object to be used for random picking.
+         * @return A random GoalType.
+         */
+        static GoalType GetRandomGoalType(Random &random);
         /**
          * @brief The GoalType of this Goal.
          */
