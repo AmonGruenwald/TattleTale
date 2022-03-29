@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weekday_0',['Weekday',['../namespacetattletale.html#a9052282506778d27986cfa871dd49611',1,'tattletale']]]
+  ['kerneltype_0',['KernelType',['../namespacetattletale.html#a58dcf4c550c5f0a27c234f34489e6670',1,'tattletale']]]
 ];

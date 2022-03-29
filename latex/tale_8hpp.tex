@@ -2,7 +2,7 @@
 \label{tale_8hpp}\index{tale/tale.hpp@{tale/tale.hpp}}
 
 
-Collects everything that is necessary so user only have to include this one file.  
+Access point for the simulation side of the project.  
 
 
 {\ttfamily \#include \char`\"{}shared/kernels/kernel.\+hpp\char`\"{}}\newline
@@ -14,7 +14,6 @@ Collects everything that is necessary so user only have to include this one file
 {\ttfamily \#include \char`\"{}shared/kernels/resourcekernels/resource.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}shared/kernels/resourcekernels/emotion.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}shared/kernels/resourcekernels/relationship.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}shared/kernels/trait.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}shared/random.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}shared/chronicle.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}shared/setting.\+hpp\char`\"{}}\newline
@@ -26,9 +25,14 @@ Collects everything that is necessary so user only have to include this one file
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacetattletale}{tattletale}}
-\begin{DoxyCompactList}\small\item\em Responsible for the event generation of the Tattle\+Tale project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace for the Tattle\+Tale project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacetattletale_a7b5aec9343167a194f0701413f088263}{tattletale\+::\+Tale}} (Chronicle \&chronicle, Random \&random, const Setting \&setting)
+\begin{DoxyCompactList}\small\item\em Run the whole simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Collects everything that is necessary so user only have to include this one file. 
+Access point for the simulation side of the project. 
 

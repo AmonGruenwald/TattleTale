@@ -10,52 +10,51 @@
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
 \DoxyCodeLine{8 \{}
-\DoxyCodeLine{9     \textcolor{keyword}{enum class} GoalType}
-\DoxyCodeLine{10     \{}
-\DoxyCodeLine{11         kWealth,}
-\DoxyCodeLine{12         kAcceptance,}
-\DoxyCodeLine{13         kRelationship,}
-\DoxyCodeLine{14         kHedonism,}
-\DoxyCodeLine{15         kPower,}
-\DoxyCodeLine{16         kLast}
-\DoxyCodeLine{17     \};}
-\DoxyCodeLine{22     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{23     \{}
-\DoxyCodeLine{24     \textcolor{keyword}{public}:}
-\DoxyCodeLine{25         std::string GetDefaultDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{26         std::string GetPassiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{27         std::string GetActiveDescription() \textcolor{keyword}{const override};}
-\DoxyCodeLine{28         \textcolor{keyword}{static} GoalType GetRandomGoalType(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
-\DoxyCodeLine{29         \textcolor{keyword}{static} GoalType StringToGoalType(std::string goal\_string);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{keyword}{const} GoalType type\_;}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keyword}{private}:}
-\DoxyCodeLine{34         \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}(GoalType type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *, std::vector<Kernel *> reasons);}
-\DoxyCodeLine{35         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{36     \};}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38 \} \textcolor{comment}{// namespace tattletale`}}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{41 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::GoalType> : formatter<string\_view>}
-\DoxyCodeLine{42 \{}
-\DoxyCodeLine{43     std::string goal\_type\_names[6] = \{}
-\DoxyCodeLine{44         \textcolor{stringliteral}{"{}wealth"{}},}
-\DoxyCodeLine{45         \textcolor{stringliteral}{"{}acceptance"{}},}
-\DoxyCodeLine{46         \textcolor{stringliteral}{"{}relationship"{}},}
-\DoxyCodeLine{47         \textcolor{stringliteral}{"{}hedonism"{}},}
-\DoxyCodeLine{48         \textcolor{stringliteral}{"{}power"{}},}
-\DoxyCodeLine{49         \textcolor{stringliteral}{"{}last"{}}\};}
-\DoxyCodeLine{50     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{51     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{52     \textcolor{keyword}{auto} format(tattletale::GoalType type, FormatContext \&ctx)}
-\DoxyCodeLine{53     \{}
-\DoxyCodeLine{54         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{55         string\_view name = goal\_type\_names[enum\_index];}
-\DoxyCodeLine{56         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{57     \}}
-\DoxyCodeLine{58 \};}
-\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GOAL\_H}}
+\DoxyCodeLine{12     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         kWealth,}
+\DoxyCodeLine{15         kAcceptance,}
+\DoxyCodeLine{16         kRelationship,}
+\DoxyCodeLine{17         kHedonism,}
+\DoxyCodeLine{18         kPower,}
+\DoxyCodeLine{19         kLast}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{24     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26     \textcolor{keyword}{public}:}
+\DoxyCodeLine{33         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}{GetDefaultDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{41         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}{GetPassiveDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{49         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}{GetActiveDescription}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{60         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}{StringToGoalType}}(std::string goal\_string);}
+\DoxyCodeLine{67         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}{GetRandomGoalType}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{71         \textcolor{keyword}{const} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_a86c980ef90c40bbb7c214cb8a9a16aeb}{type\_}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{private}:}
+\DoxyCodeLine{85         \mbox{\hyperlink{classtattletale_1_1_goal_a97b05dc9cab5fc3390b66421343a8205}{Goal}}(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
+\DoxyCodeLine{89         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{90     \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \} \textcolor{comment}{// namespace tattletale`}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{95 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::GoalType> : formatter<string\_view>}
+\DoxyCodeLine{96 \{}
+\DoxyCodeLine{97     std::string goal\_type\_names[6] = \{}
+\DoxyCodeLine{98         \textcolor{stringliteral}{"{}wealth"{}},}
+\DoxyCodeLine{99         \textcolor{stringliteral}{"{}acceptance"{}},}
+\DoxyCodeLine{100         \textcolor{stringliteral}{"{}relationship"{}},}
+\DoxyCodeLine{101         \textcolor{stringliteral}{"{}hedonism"{}},}
+\DoxyCodeLine{102         \textcolor{stringliteral}{"{}power"{}},}
+\DoxyCodeLine{103         \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{104     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
+\DoxyCodeLine{105     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{106     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{tattletale::GoalType}} type, FormatContext \&ctx)}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{109         string\_view name = goal\_type\_names[enum\_index];}
+\DoxyCodeLine{110         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GOAL\_H}}
 
 \end{DoxyCode}

@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtattletale_1_1_interaction_store-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tattletale::InteractionStore Class Reference</div></div>
@@ -107,11 +108,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9d0eed36f3a2e345183fd3b94b1a8746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interaction from a catalogued <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>.  <a href="classtattletale_1_1_interaction_store.html#a9d0eed36f3a2e345183fd3b94b1a8746">More...</a><br /></td></tr>
 <tr class="separator:a9d0eed36f3a2e345183fd3b94b1a8746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabfe52632f5d17b4e8377dd72b8de97a"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#aabfe52632f5d17b4e8377dd72b8de97a">GetRequirementCatalogue</a> () const</td></tr>
-<tr class="memdesc:aabfe52632f5d17b4e8377dd72b8de97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gettter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> catalogue.  <a href="classtattletale_1_1_interaction_store.html#aabfe52632f5d17b4e8377dd72b8de97a">More...</a><br /></td></tr>
+<tr class="memdesc:aabfe52632f5d17b4e8377dd72b8de97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> catalogue.  <a href="classtattletale_1_1_interaction_store.html#aabfe52632f5d17b4e8377dd72b8de97a">More...</a><br /></td></tr>
 <tr class="separator:aabfe52632f5d17b4e8377dd72b8de97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc72f0516ce3cfeddcc21405b5690568"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#acc72f0516ce3cfeddcc21405b5690568">GetTendencyCatalogue</a> () const</td></tr>
-<tr class="memdesc:acc72f0516ce3cfeddcc21405b5690568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gettter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> catalogue.  <a href="classtattletale_1_1_interaction_store.html#acc72f0516ce3cfeddcc21405b5690568">More...</a><br /></td></tr>
+<tr class="memdesc:acc72f0516ce3cfeddcc21405b5690568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> catalogue.  <a href="classtattletale_1_1_interaction_store.html#acc72f0516ce3cfeddcc21405b5690568">More...</a><br /></td></tr>
 <tr class="separator:acc72f0516ce3cfeddcc21405b5690568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a868562000417860588bedfdb2b22db89"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#a868562000417860588bedfdb2b22db89">ReadPrototypeJSON</a> (nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_prototype.html">InteractionPrototype</a> &gt; &amp;out_prototype)</td></tr>
+<tr class="memdesc:a868562000417860588bedfdb2b22db89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> from a json describing such.  <a href="classtattletale_1_1_interaction_store.html#a868562000417860588bedfdb2b22db89">More...</a><br /></td></tr>
+<tr class="separator:a868562000417860588bedfdb2b22db89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09016762be6c47c11317915ba3c796d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#a09016762be6c47c11317915ba3c796d9">ReadRequirementJSON</a> (nlohmann::json json, std::string error_preamble, std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &gt; &amp;out_requirement)</td></tr>
+<tr class="memdesc:a09016762be6c47c11317915ba3c796d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> from a json describing such.  <a href="classtattletale_1_1_interaction_store.html#a09016762be6c47c11317915ba3c796d9">More...</a><br /></td></tr>
+<tr class="separator:a09016762be6c47c11317915ba3c796d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe863348c479675da2b3a8c5434687bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#abe863348c479675da2b3a8c5434687bb">ReadTendencyJSON</a> (nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &gt; &amp;out_tendency)</td></tr>
+<tr class="memdesc:abe863348c479675da2b3a8c5434687bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> from a json describing such.  <a href="classtattletale_1_1_interaction_store.html#abe863348c479675da2b3a8c5434687bb">More...</a><br /></td></tr>
+<tr class="separator:abe863348c479675da2b3a8c5434687bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8b5333709830ab22fc3bea40a6c5ff5"><td class="memTemplParams" colspan="2">template&lt;typename T1 , nlohmann::detail::value_t T2&gt; </td></tr>
+<tr class="memitem:af8b5333709830ab22fc3bea40a6c5ff5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#af8b5333709830ab22fc3bea40a6c5ff5">ReadJsonValueFromDictionary</a> (T1 &amp;out_value, nlohmann::json json, std::string key, bool required, std::string error_preamble=&quot;&quot;)</td></tr>
+<tr class="memdesc:af8b5333709830ab22fc3bea40a6c5ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a value of type T from a json object mapping to a dictionary.  <a href="classtattletale_1_1_interaction_store.html#af8b5333709830ab22fc3bea40a6c5ff5">More...</a><br /></td></tr>
+<tr class="separator:af8b5333709830ab22fc3bea40a6c5ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e0dba1342f0d868431ab786836dca6"><td class="memTemplParams" colspan="2">template&lt;typename T1 , nlohmann::detail::value_t T2&gt; </td></tr>
+<tr class="memitem:af9e0dba1342f0d868431ab786836dca6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#af9e0dba1342f0d868431ab786836dca6">ReadJsonValueFromArray</a> (T1 &amp;out_value, nlohmann::json json, size_t index, bool required, std::string error_preamble=&quot;&quot;)</td></tr>
+<tr class="memdesc:af9e0dba1342f0d868431ab786836dca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a value of type T from a json object mapping to an array.  <a href="classtattletale_1_1_interaction_store.html#af9e0dba1342f0d868431ab786836dca6">More...</a><br /></td></tr>
+<tr class="separator:af9e0dba1342f0d868431ab786836dca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6cf29ce0964b77acfa9ed3f8996a27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_interaction_store.html#a3c6cf29ce0964b77acfa9ed3f8996a27">CheckCorrectValueRange</a> (float value, std::string error_preamble=&quot;&quot;)</td></tr>
+<tr class="memdesc:a3c6cf29ce0964b77acfa9ed3f8996a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether the passed value is between the range of -1.0f and 1.0f.  <a href="classtattletale_1_1_interaction_store.html#a3c6cf29ce0964b77acfa9ed3f8996a27">More...</a><br /></td></tr>
+<tr class="separator:a3c6cf29ce0964b77acfa9ed3f8996a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -135,6 +159,74 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_int
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json_path_</b> = &quot;resources/interactioncatalogue.json&quot;</td></tr>
 <tr class="memdesc:a21c7054e51fe503ff715c0dff3397f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path to the json file where <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> prototypes are defined. <br /></td></tr>
 <tr class="separator:a21c7054e51fe503ff715c0dff3397f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0204103c5945e69c7ceaa0413577dc04"><td class="memItemLeft" align="right" valign="top"><a id="a0204103c5945e69c7ceaa0413577dc04" name="a0204103c5945e69c7ceaa0413577dc04"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name_key_</b> = &quot;name&quot;</td></tr>
+<tr class="memdesc:a0204103c5945e69c7ceaa0413577dc04"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to name entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a0204103c5945e69c7ceaa0413577dc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e184907932f24d766cacb127693b0fe"><td class="memItemLeft" align="right" valign="top"><a id="a4e184907932f24d766cacb127693b0fe" name="a4e184907932f24d766cacb127693b0fe"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description_key_</b> = &quot;description&quot;</td></tr>
+<tr class="memdesc:a4e184907932f24d766cacb127693b0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to description entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a4e184907932f24d766cacb127693b0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39606314481ddb69b12a1890563f975"><td class="memItemLeft" align="right" valign="top"><a id="ad39606314481ddb69b12a1890563f975" name="ad39606314481ddb69b12a1890563f975"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>passive_description_key_</b> = &quot;passive_description&quot;</td></tr>
+<tr class="memdesc:ad39606314481ddb69b12a1890563f975"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to passive_description entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:ad39606314481ddb69b12a1890563f975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d5a95657441d203cd0c20e634226b1"><td class="memItemLeft" align="right" valign="top"><a id="ab8d5a95657441d203cd0c20e634226b1" name="ab8d5a95657441d203cd0c20e634226b1"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>active_description_key_</b> = &quot;active_description&quot;</td></tr>
+<tr class="memdesc:ab8d5a95657441d203cd0c20e634226b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to active_description entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:ab8d5a95657441d203cd0c20e634226b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4cfd6a685470d93473972fbd181401c"><td class="memItemLeft" align="right" valign="top"><a id="ab4cfd6a685470d93473972fbd181401c" name="ab4cfd6a685470d93473972fbd181401c"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>participant_count_key_</b> = &quot;participant_count&quot;</td></tr>
+<tr class="memdesc:ab4cfd6a685470d93473972fbd181401c"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to participant_count entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:ab4cfd6a685470d93473972fbd181401c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332379d01ca9f4208ff43808a76653a2"><td class="memItemLeft" align="right" valign="top"><a id="a332379d01ca9f4208ff43808a76653a2" name="a332379d01ca9f4208ff43808a76653a2"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>goal_type_key_</b> = &quot;goal_type&quot;</td></tr>
+<tr class="memdesc:a332379d01ca9f4208ff43808a76653a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to goal_type entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a332379d01ca9f4208ff43808a76653a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2752cc798af7efe46274978ff9d366"><td class="memItemLeft" align="right" valign="top"><a id="abd2752cc798af7efe46274978ff9d366" name="abd2752cc798af7efe46274978ff9d366"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>day_key_</b> = &quot;day&quot;</td></tr>
+<tr class="memdesc:abd2752cc798af7efe46274978ff9d366"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to day entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:abd2752cc798af7efe46274978ff9d366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6840aa1f8b8fdc4bb31e668e0d8c9466"><td class="memItemLeft" align="right" valign="top"><a id="a6840aa1f8b8fdc4bb31e668e0d8c9466" name="a6840aa1f8b8fdc4bb31e668e0d8c9466"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>wealth_key_</b> = &quot;wealth&quot;</td></tr>
+<tr class="memdesc:a6840aa1f8b8fdc4bb31e668e0d8c9466"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to wealth entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a6840aa1f8b8fdc4bb31e668e0d8c9466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51aa9d27cfa3f4570d1cf5c64afc5bc1"><td class="memItemLeft" align="right" valign="top"><a id="a51aa9d27cfa3f4570d1cf5c64afc5bc1" name="a51aa9d27cfa3f4570d1cf5c64afc5bc1"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>emotion_key_</b> = &quot;emotions&quot;</td></tr>
+<tr class="memdesc:a51aa9d27cfa3f4570d1cf5c64afc5bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to emotions entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a51aa9d27cfa3f4570d1cf5c64afc5bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad641a4b7da5a45b3a5f8be274acb9804"><td class="memItemLeft" align="right" valign="top"><a id="ad641a4b7da5a45b3a5f8be274acb9804" name="ad641a4b7da5a45b3a5f8be274acb9804"></a>
+const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotion_type_keys_</b> = {&quot;happy&quot;, &quot;calm&quot;, &quot;satisfied&quot;, &quot;brave&quot;, &quot;extroverted&quot;}</td></tr>
+<tr class="memdesc:ad641a4b7da5a45b3a5f8be274acb9804"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to emotion type entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:ad641a4b7da5a45b3a5f8be274acb9804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4a367b3b21634c59604f238a79e9da0"><td class="memItemLeft" align="right" valign="top"><a id="ad4a367b3b21634c59604f238a79e9da0" name="ad4a367b3b21634c59604f238a79e9da0"></a>
+const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>context_type_keys_</b> = {&quot;course&quot;, &quot;freetime&quot;}</td></tr>
+<tr class="memdesc:ad4a367b3b21634c59604f238a79e9da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to context type entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:ad4a367b3b21634c59604f238a79e9da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12621958aec11f328a25dad858241b59"><td class="memItemLeft" align="right" valign="top"><a id="a12621958aec11f328a25dad858241b59" name="a12621958aec11f328a25dad858241b59"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>relationships_key_</b> = &quot;relationships&quot;</td></tr>
+<tr class="memdesc:a12621958aec11f328a25dad858241b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to relationships entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a12621958aec11f328a25dad858241b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c94bff866109999e0ba92049ad4b021"><td class="memItemLeft" align="right" valign="top"><a id="a9c94bff866109999e0ba92049ad4b021" name="a9c94bff866109999e0ba92049ad4b021"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>participant_key_</b> = &quot;participant&quot;</td></tr>
+<tr class="memdesc:a9c94bff866109999e0ba92049ad4b021"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to participant entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a9c94bff866109999e0ba92049ad4b021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bc1491020a97ac7d431a69deeb4e4e"><td class="memItemLeft" align="right" valign="top"><a id="a74bc1491020a97ac7d431a69deeb4e4e" name="a74bc1491020a97ac7d431a69deeb4e4e"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>changes_key_</b> = &quot;changes&quot;</td></tr>
+<tr class="memdesc:a74bc1491020a97ac7d431a69deeb4e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to changes entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a74bc1491020a97ac7d431a69deeb4e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739c1460ee928da14c373d14e2c0aa54"><td class="memItemLeft" align="right" valign="top"><a id="a739c1460ee928da14c373d14e2c0aa54" name="a739c1460ee928da14c373d14e2c0aa54"></a>
+const std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationship_type_keys_</b> = {&quot;love&quot;, &quot;attraction&quot;, &quot;friendship&quot;, &quot;anger&quot;, &quot;protective&quot;}</td></tr>
+<tr class="memdesc:a739c1460ee928da14c373d14e2c0aa54"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to relationship type entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a739c1460ee928da14c373d14e2c0aa54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13d1c3cb7606a3496744e9113d65dfec"><td class="memItemLeft" align="right" valign="top"><a id="a13d1c3cb7606a3496744e9113d65dfec" name="a13d1c3cb7606a3496744e9113d65dfec"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>context_key_</b> = &quot;context&quot;</td></tr>
+<tr class="memdesc:a13d1c3cb7606a3496744e9113d65dfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to context entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a13d1c3cb7606a3496744e9113d65dfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f350ea8232ab72f6ea85aa7251f968"><td class="memItemLeft" align="right" valign="top"><a id="a95f350ea8232ab72f6ea85aa7251f968" name="a95f350ea8232ab72f6ea85aa7251f968"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>group_size_key_</b> = &quot;group_size&quot;</td></tr>
+<tr class="memdesc:a95f350ea8232ab72f6ea85aa7251f968"><td class="mdescLeft">&#160;</td><td class="mdescRight">String mapping to group_size entries in the PrototypeCatalogue json. <br /></td></tr>
+<tr class="separator:a95f350ea8232ab72f6ea85aa7251f968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Stores Prototypes for all possible interactions. </p>
@@ -168,6 +260,52 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3c6cf29ce0964b77acfa9ed3f8996a27" name="a3c6cf29ce0964b77acfa9ed3f8996a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6cf29ce0964b77acfa9ed3f8996a27">&#9670;&nbsp;</a></span>CheckCorrectValueRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::CheckCorrectValueRange </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks wether the passed value is between the range of -1.0f and 1.0f. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value to be checked. </td></tr>
+    <tr><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the check. </dd></dl>
+
+</div>
+</div>
 <a id="a9d0eed36f3a2e345183fd3b94b1a8746" name="a9d0eed36f3a2e345183fd3b94b1a8746"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d0eed36f3a2e345183fd3b94b1a8746">&#9670;&nbsp;</a></span>CreateInteraction()</h2>
 
@@ -224,7 +362,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
     <tr><td class="paramname">prototype_index</td><td>Index of the <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> that should be used as a template </td></tr>
     <tr><td class="paramname">tick</td><td>Tick this interaction was created </td></tr>
     <tr><td class="paramname">participants</td><td>Vectors holding every <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> that was involved in the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> </td></tr>
-    <tr><td class="paramname">reasons</td><td>Vectors holding every <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> responsible for the creation. </td></tr>
+    <tr><td class="paramname">reasons</td><td>Vectors holding every <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal.">Kernel</a> responsible for the creation. </td></tr>
   </table>
   </dd>
 </dl>
@@ -375,7 +513,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
       </table>
 </div><div class="memdoc">
 
-<p>Gettter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> catalogue. </p>
+<p>Getter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> catalogue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A Reference to the catalogue for the <a class="el" href="structtattletale_1_1_interaction_requirement.html">Requirements </a>. </dd></dl>
 
 </div>
@@ -395,7 +533,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
       </table>
 </div><div class="memdoc">
 
-<p>Gettter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> catalogue. </p>
+<p>Getter for a Reference to the <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> catalogue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A Reference to the catalogue for the <a class="el" href="structtattletale_1_1_interaction_tendency.html">Tendencies </a>. </dd></dl>
 
 </div>
@@ -424,6 +562,322 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>prototype_json
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The wealth effects </dd></dl>
+
+</div>
+</div>
+<a id="af9e0dba1342f0d868431ab786836dca6" name="af9e0dba1342f0d868431ab786836dca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e0dba1342f0d868431ab786836dca6">&#9670;&nbsp;</a></span>ReadJsonValueFromArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T1 , nlohmann::detail::value_t T2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::ReadJsonValueFromArray </td>
+          <td>(</td>
+          <td class="paramtype">T1 &amp;&#160;</td>
+          <td class="paramname"><em>out_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">nlohmann::json&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>required</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads a value of type T from a json object mapping to an array. </p>
+<p >This also checks wether the value was existant (if it is required) and wether it was of the correct type T2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_value</td><td>Stores the read value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">json</td><td>The json object from which the value will be read. Must be an array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index from where the value will be read. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">required</td><td>Wether the value is required to be existant. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wether the process of reading was successful. </dd></dl>
+
+</div>
+</div>
+<a id="af8b5333709830ab22fc3bea40a6c5ff5" name="af8b5333709830ab22fc3bea40a6c5ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b5333709830ab22fc3bea40a6c5ff5">&#9670;&nbsp;</a></span>ReadJsonValueFromDictionary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T1 , nlohmann::detail::value_t T2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::ReadJsonValueFromDictionary </td>
+          <td>(</td>
+          <td class="paramtype">T1 &amp;&#160;</td>
+          <td class="paramname"><em>out_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">nlohmann::json&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>required</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads a value of type T from a json object mapping to a dictionary. </p>
+<p >This also checks wether the value was existant (if it is required) and wether it was of the correct type T2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_value</td><td>Stores the read value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">json</td><td>The json object from which the value will be read. Must be an array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>The key that corresponds to the value that will be read. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">required</td><td>Wether the value is required to be existant. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wether the process of reading was successful. </dd></dl>
+
+</div>
+</div>
+<a id="a868562000417860588bedfdb2b22db89" name="a868562000417860588bedfdb2b22db89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a868562000417860588bedfdb2b22db89">&#9670;&nbsp;</a></span>ReadPrototypeJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::ReadPrototypeJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_prototype.html">InteractionPrototype</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out_prototype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a> from a json describing such. </p>
+<p >This also checks for various errors in the structure of the json.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">json</td><td>The json describing the <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">participant_count</td><td>How many participants the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to be read has. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_prototype</td><td>Stores the read <a class="el" href="structtattletale_1_1_interaction_prototype.html" title="Prototype of an Interaction.">InteractionPrototype</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wether the process of reading was successful. </dd></dl>
+
+</div>
+</div>
+<a id="a09016762be6c47c11317915ba3c796d9" name="a09016762be6c47c11317915ba3c796d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09016762be6c47c11317915ba3c796d9">&#9670;&nbsp;</a></span>ReadRequirementJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::ReadRequirementJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out_requirement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> from a json describing such. </p>
+<p >This also checks for various errors in the structure of the json.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">json</td><td>The json describing the <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_requirement</td><td>Stores the read <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wether the process of reading was successful. </dd></dl>
+
+</div>
+</div>
+<a id="abe863348c479675da2b3a8c5434687bb" name="abe863348c479675da2b3a8c5434687bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe863348c479675da2b3a8c5434687bb">&#9670;&nbsp;</a></span>ReadTendencyJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tattletale::InteractionStore::ReadTendencyJSON </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error_preamble</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out_tendency</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> from a json describing such. </p>
+<p >This also checks for various errors in the structure of the json.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">json</td><td>The json describing the <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">participant_count</td><td>How many participants the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to be read has. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">error_preamble</td><td>A string that will be prepended to the error message if the value is outside the range. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_tendency</td><td>Stores the read <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wether the process of reading was successful. </dd></dl>
 
 </div>
 </div>

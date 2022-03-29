@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Responsible for the event generation of the TattleTale project.  
+<p>Namespace for the TattleTale project.  
 <a href="namespacetattletale.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -108,7 +108,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores how the state of <a class="el" href="classtattletale_1_1_actor.html">Actors </a> influence how likely an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> is to happen.  <a href="structtattletale_1_1_interaction_tendency.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_kernel.html">Kernel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> and storing on which tick the <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality...">Kernel</a> was created.  <a href="classtattletale_1_1_kernel.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a part of the simulation, like an interaction, or an emotional goal.  <a href="classtattletale_1_1_kernel.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_random.html">Random</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents one person in the simulation. An <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision.  <a href="classtattletale_1_1_random.html#details">More...</a><br /></td></tr>
@@ -125,17 +125,21 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_setting.html">Setting</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all settings necessary for the simulation.  <a href="structtattletale_1_1_setting.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_trait.html">Trait</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the Traits an <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has.  <a href="classtattletale_1_1_trait.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_verb.html">Verb</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores all necessary strings to complete different versions of descriptions for <a class="el" href="classtattletale_1_1_resource.html">Resources </a>.  <a href="structtattletale_1_1_verb.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a0b5004177b9218d961c6d80587c23e47"><td class="memItemLeft" align="right" valign="top"><a id="a0b5004177b9218d961c6d80587c23e47" name="a0b5004177b9218d961c6d80587c23e47"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a0b5004177b9218d961c6d80587c23e47">GoalType</a> </td></tr>
+<tr class="memdesc:a0b5004177b9218d961c6d80587c23e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of Goals an Actor can possess. <br /></td></tr>
+<tr class="separator:a0b5004177b9218d961c6d80587c23e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0b6a742e9c23a4108e87ba46b041428"><td class="memItemLeft" align="right" valign="top"><a id="ae0b6a742e9c23a4108e87ba46b041428" name="ae0b6a742e9c23a4108e87ba46b041428"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> </td></tr>
 <tr class="memdesc:ae0b6a742e9c23a4108e87ba46b041428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of Context an Interaction can happen in. <br /></td></tr>
 <tr class="separator:ae0b6a742e9c23a4108e87ba46b041428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58dcf4c550c5f0a27c234f34489e6670"><td class="memItemLeft" align="right" valign="top"><a id="a58dcf4c550c5f0a27c234f34489e6670" name="a58dcf4c550c5f0a27c234f34489e6670"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a58dcf4c550c5f0a27c234f34489e6670">KernelType</a> </td></tr>
+<tr class="memdesc:a58dcf4c550c5f0a27c234f34489e6670"><td class="mdescLeft">&#160;</td><td class="mdescRight">The types of Kernel that can be created. <br /></td></tr>
+<tr class="separator:a58dcf4c550c5f0a27c234f34489e6670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc63b833223270d262f7abc4bded53fb"><td class="memItemLeft" align="right" valign="top"><a id="abc63b833223270d262f7abc4bded53fb" name="abc63b833223270d262f7abc4bded53fb"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#abc63b833223270d262f7abc4bded53fb">EmotionType</a> </td></tr>
 <tr class="memdesc:abc63b833223270d262f7abc4bded53fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of Emotion axis for an Actor. <br /></td></tr>
 <tr class="separator:abc63b833223270d262f7abc4bded53fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,11 +155,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a51b15886f0518c8b4a543ca5c374d585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585">StringToContextType</a> (std::string context_string)</td></tr>
 <tr class="memdesc:a51b15886f0518c8b4a543ca5c374d585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an ContextType.  <a href="namespacetattletale.html#a51b15886f0518c8b4a543ca5c374d585">More...</a><br /></td></tr>
 <tr class="separator:a51b15886f0518c8b4a543ca5c374d585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5aec9343167a194f0701413f088263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#a7b5aec9343167a194f0701413f088263">Tale</a> (<a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> &amp;chronicle, <a class="el" href="classtattletale_1_1_random.html">Random</a> &amp;random, const <a class="el" href="structtattletale_1_1_setting.html">Setting</a> &amp;setting)</td></tr>
+<tr class="memdesc:a7b5aec9343167a194f0701413f088263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the whole simulation.  <a href="namespacetattletale.html#a7b5aec9343167a194f0701413f088263">More...</a><br /></td></tr>
+<tr class="separator:a7b5aec9343167a194f0701413f088263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a33a94a517e96f34c69d947bfd5251"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetattletale.html#aa1a33a94a517e96f34c69d947bfd5251">Tattle</a> (const <a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> &amp;chronicle, const <a class="el" href="structtattletale_1_1_setting.html">Setting</a> &amp;setting)</td></tr>
+<tr class="memdesc:aa1a33a94a517e96f34c69d947bfd5251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a curation on the <a class="el" href="classtattletale_1_1_kernel.html">Kernels </a> stored in the passed <a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a>.  <a href="namespacetattletale.html#aa1a33a94a517e96f34c69d947bfd5251">More...</a><br /></td></tr>
+<tr class="separator:aa1a33a94a517e96f34c69d947bfd5251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Responsible for the event generation of the TattleTale project. </p>
-<p >Responsible for the curation of the TattleTale project. For now it just contains two basic functions for testing purposes.</p>
-<p >#include "shared/chronicle.hpp" #include "shared/setting.hpp" </p>
+<div class="textblock"><p >Namespace for the TattleTale project. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a51b15886f0518c8b4a543ca5c374d585" name="a51b15886f0518c8b4a543ca5c374d585"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51b15886f0518c8b4a543ca5c374d585">&#9670;&nbsp;</a></span>StringToContextType()</h2>
@@ -190,6 +198,87 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The corresponding ContextType value. </dd></dl>
+
+</div>
+</div>
+<a id="a7b5aec9343167a194f0701413f088263" name="a7b5aec9343167a194f0701413f088263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5aec9343167a194f0701413f088263">&#9670;&nbsp;</a></span>Tale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tattletale::Tale </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> &amp;&#160;</td>
+          <td class="paramname"><em>chronicle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtattletale_1_1_random.html">Random</a> &amp;&#160;</td>
+          <td class="paramname"><em>random</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtattletale_1_1_setting.html">Setting</a> &amp;&#160;</td>
+          <td class="paramname"><em>setting</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run the whole simulation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chronicle</td><td><a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> object where Kernels get written to. Allows sharing of events with the curation part. </td></tr>
+    <tr><td class="paramname">random</td><td><a class="el" href="classtattletale_1_1_random.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Random</a> object that is to be used by the simulation. This allows repeatability. </td></tr>
+    <tr><td class="paramname">setting</td><td>Contains all parameters used by the simulation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa1a33a94a517e96f34c69d947bfd5251" name="aa1a33a94a517e96f34c69d947bfd5251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a33a94a517e96f34c69d947bfd5251">&#9670;&nbsp;</a></span>Tattle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tattletale::Tattle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> &amp;&#160;</td>
+          <td class="paramname"><em>chronicle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtattletale_1_1_setting.html">Setting</a> &amp;&#160;</td>
+          <td class="paramname"><em>setting</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run a curation on the <a class="el" href="classtattletale_1_1_kernel.html">Kernels </a> stored in the passed <a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chronicle</td><td><a class="el" href="classtattletale_1_1_chronicle.html">Chronicle</a> object where <a class="el" href="classtattletale_1_1_kernel.html">Kernels </a> are stored. </td></tr>
+    <tr><td class="paramname">setting</td><td>Contains all parameters used by the curation. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

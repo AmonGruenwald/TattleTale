@@ -2,7 +2,7 @@
 \label{namespacetattletale}\index{tattletale@{tattletale}}
 
 
-Responsible for the event generation of the Tattle\+Tale project.  
+Namespace for the Tattle\+Tale project.  
 
 
 \doxysubsection*{Classes}
@@ -31,7 +31,7 @@ class \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store
 struct \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}}
 \begin{DoxyCompactList}\small\item\em Stores how the state of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} influence how likely an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is to happen. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}
-\begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. To build up causality parts of the story have to reference each other. Because of that every part of the story hast to be made up of a shared interface, which is what this class is. For said causality everything needs to have possible reasons and consequences. In addition temporal tracking is supported though increasing numbers for each \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} and storing on which tick the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} was created. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Represents a part of the simulation, like an interaction, or an emotional goal. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_random}{Random}}
 \begin{DoxyCompactList}\small\item\em Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}
@@ -42,16 +42,20 @@ class \mbox{\hyperlink{classtattletale_1_1_school}{School}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_school}{School}} class that is responsible for managing actors and courses during the simulation. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}}
 \begin{DoxyCompactList}\small\item\em Stores all settings necessary for the simulation. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classtattletale_1_1_trait}{Trait}}
-\begin{DoxyCompactList}\small\item\em Represents the Traits an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stores all necessary strings to complete different versions of descriptions for \mbox{\hyperlink{classtattletale_1_1_resource}{Resources }}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}\label{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}} 
+enum class \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} 
+\begin{DoxyCompactList}\small\item\em Types of Goals an Actor can possess. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}\label{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}} 
 enum class \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} 
 \begin{DoxyCompactList}\small\item\em Types of Context an Interaction can happen in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}\label{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}} 
+enum class \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} 
+\begin{DoxyCompactList}\small\item\em The types of Kernel that can be created. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacetattletale_abc63b833223270d262f7abc4bded53fb}\label{namespacetattletale_abc63b833223270d262f7abc4bded53fb}} 
 enum class \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} 
 \begin{DoxyCompactList}\small\item\em Types of Emotion axis for an Actor. \end{DoxyCompactList}\item 
@@ -65,15 +69,15 @@ enum class \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd4961
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \mbox{\hyperlink{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}{String\+To\+Context\+Type}} (std\+::string context\+\_\+string)
-\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Converts a string to an Context\+Type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacetattletale_a7b5aec9343167a194f0701413f088263}{Tale}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting)
+\begin{DoxyCompactList}\small\item\em Run the whole simulation. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespacetattletale_aa1a33a94a517e96f34c69d947bfd5251}{Tattle}} (const \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting)
+\begin{DoxyCompactList}\small\item\em Run a curation on the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} stored in the passed \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Responsible for the event generation of the Tattle\+Tale project. 
-
-Responsible for the curation of the Tattle\+Tale project. For now it just contains two basic functions for testing purposes.
-
-\#include \char`\"{}shared/chronicle.\+hpp\char`\"{} \#include \char`\"{}shared/setting.\+hpp\char`\"{} 
+Namespace for the Tattle\+Tale project. 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}\label{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}} 
@@ -96,3 +100,39 @@ Uses the same string values formater returns. So valid strings are\+: \char`\"{}
 \begin{DoxyReturn}{Returns}
 The corresponding Context\+Type value. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{namespacetattletale_a7b5aec9343167a194f0701413f088263}\label{namespacetattletale_a7b5aec9343167a194f0701413f088263}} 
+\index{tattletale@{tattletale}!Tale@{Tale}}
+\index{Tale@{Tale}!tattletale@{tattletale}}
+\doxysubsubsection{\texorpdfstring{Tale()}{Tale()}}
+{\footnotesize\ttfamily void tattletale\+::\+Tale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&}]{random,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&}]{setting }\end{DoxyParamCaption})}
+
+
+
+Run the whole simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chronicle} & \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} object where Kernels get written to. Allows sharing of events with the curation part. \\
+\hline
+{\em random} & \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object that is to be used by the simulation. This allows repeatability. \\
+\hline
+{\em setting} & Contains all parameters used by the simulation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetattletale_aa1a33a94a517e96f34c69d947bfd5251}\label{namespacetattletale_aa1a33a94a517e96f34c69d947bfd5251}} 
+\index{tattletale@{tattletale}!Tattle@{Tattle}}
+\index{Tattle@{Tattle}!tattletale@{tattletale}}
+\doxysubsubsection{\texorpdfstring{Tattle()}{Tattle()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Tattle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&}]{setting }\end{DoxyParamCaption})}
+
+
+
+Run a curation on the \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} stored in the passed \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chronicle} & \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} object where \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} are stored. \\
+\hline
+{\em setting} & Contains all parameters used by the curation. \\
+\hline
+\end{DoxyParams}

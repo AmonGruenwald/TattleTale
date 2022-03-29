@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['random_0',['Random',['../classtattletale_1_1_random.html#a62c7e61a97046000ec43c0fb9ea9fe06',1,'tattletale::Random::Random()'],['../classtattletale_1_1_random.html#ae638766aa62139ce7b87bd12534934ee',1,'tattletale::Random::Random(uint32_t seed)'],['../classtattletale_1_1_random.html',1,'tattletale::Random']]],
-  ['random_5f_1',['random_',['../classtattletale_1_1_actor.html#aa8ffdd94bc08c53aaa4f1acc304e6307',1,'tattletale::Actor::random_()'],['../classtattletale_1_1_course.html#aa49122a85ab09e9f212a3377dd0b35e5',1,'tattletale::Course::random_()'],['../classtattletale_1_1_interaction_store.html#afaf80047ea82c970efd77483dc8332cd',1,'tattletale::InteractionStore::random_()'],['../classtattletale_1_1_school.html#a49de0172b24e71b4ee267e12586b26db',1,'tattletale::School::random_()']]],
-  ['relationship_2',['relationship',['../structtattletale_1_1_interaction_requirement.html#aabc272991d9c6bbc0d5ad51c1bb1ff21',1,'tattletale::InteractionRequirement']]],
-  ['relationship_3',['Relationship',['../classtattletale_1_1_relationship.html#ac872de998ff01c865e1411fa35a27fd9',1,'tattletale::Relationship::Relationship()'],['../classtattletale_1_1_relationship.html',1,'tattletale::Relationship']]],
-  ['relationship_5feffects_4',['relationship_effects',['../structtattletale_1_1_interaction_prototype.html#ab56840c0bcbc6c9070aa61b153327a8f',1,'tattletale::InteractionPrototype']]],
-  ['relationships_5',['relationships',['../structtattletale_1_1_interaction_tendency.html#ad8e56a04d7e3f87438d174fd4e9619b8',1,'tattletale::InteractionTendency']]],
-  ['relationships_5f_6',['relationships_',['../classtattletale_1_1_actor.html#afbe30638e7ddbca1bd5cb8ef72e293b4',1,'tattletale::Actor']]],
-  ['relationshiptype_7',['RelationshipType',['../namespacetattletale.html#a670d05138867becb57e23c6972bd5688',1,'tattletale']]],
-  ['requirement_5f_8',['requirement_',['../classtattletale_1_1_interaction.html#ad8165e993058cb07a7a65522be42cefc',1,'tattletale::Interaction']]],
-  ['requirements_5fcatalogue_5f_9',['requirements_catalogue_',['../classtattletale_1_1_interaction_store.html#a561790a4e437ba03f18b3a8f52908e02',1,'tattletale::InteractionStore']]],
-  ['resource_10',['Resource',['../classtattletale_1_1_resource.html#acd808f19d32660fa9b8884df4f77658b',1,'tattletale::Resource::Resource()'],['../classtattletale_1_1_resource.html',1,'tattletale::Resource']]],
-  ['rng_5f_11',['rng_',['../classtattletale_1_1_random.html#a49d25d0f36a95a65f8c0d998f75a93dc',1,'tattletale::Random']]]
+  ['participant_5fcount_0',['participant_count',['../structtattletale_1_1_interaction_requirement.html#a83251a21b2edb4e41ce6b493481c5df5',1,'tattletale::InteractionRequirement']]],
+  ['participant_5fcount_5fkey_5f_1',['participant_count_key_',['../classtattletale_1_1_interaction_store.html#ab4cfd6a685470d93473972fbd181401c',1,'tattletale::InteractionStore']]],
+  ['participant_5fkey_5f_2',['participant_key_',['../classtattletale_1_1_interaction_store.html#a9c94bff866109999e0ba92049ad4b021',1,'tattletale::InteractionStore']]],
+  ['participants_5f_3',['participants_',['../classtattletale_1_1_interaction.html#aad26c54cde90041fdef8f3df36e062d3',1,'tattletale::Interaction']]],
+  ['passive_5fdescription_4',['passive_description',['../structtattletale_1_1_interaction_prototype.html#a6796a7fad88342016be81a691daebdc4',1,'tattletale::InteractionPrototype']]],
+  ['passive_5fdescription_5fkey_5f_5',['passive_description_key_',['../classtattletale_1_1_interaction_store.html#ad39606314481ddb69b12a1890563f975',1,'tattletale::InteractionStore']]],
+  ['passive_5fverb_6',['passive_verb',['../structtattletale_1_1_verb.html#aafef06c0e9ad9a3794aaaa7fcf6a1d93',1,'tattletale::Verb']]],
+  ['pickindex_7',['PickIndex',['../classtattletale_1_1_random.html#a2ecf062b2661306e44e6a0466d96cf6f',1,'tattletale::Random']]],
+  ['positive_5fname_5fvariant_5f_8',['positive_name_variant_',['../classtattletale_1_1_resource.html#aab0336f9d895320f2ca7a9d68f07e891',1,'tattletale::Resource']]],
+  ['positive_5fname_5fvariants_5f_9',['positive_name_variants_',['../classtattletale_1_1_emotion.html#a3ddc94b8d3fa494a97f27e3e18c42588',1,'tattletale::Emotion::positive_name_variants_()'],['../classtattletale_1_1_relationship.html#a2f99fb2d444b6371efbb7087a01b0427',1,'tattletale::Relationship::positive_name_variants_()']]],
+  ['prototype_5f_10',['prototype_',['../classtattletale_1_1_interaction.html#a1af62f8b2d92940afecd310c150fbe38',1,'tattletale::Interaction']]],
+  ['prototype_5fcatalogue_5f_11',['prototype_catalogue_',['../classtattletale_1_1_interaction_store.html#a2520885627e6cd592892308e75ca5fac',1,'tattletale::InteractionStore']]],
+  ['prototype_5fjson_5fpath_5f_12',['prototype_json_path_',['../classtattletale_1_1_interaction_store.html#a21c7054e51fe503ff715c0dff3397f21',1,'tattletale::InteractionStore']]]
 ];

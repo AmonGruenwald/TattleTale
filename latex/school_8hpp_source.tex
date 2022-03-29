@@ -31,57 +31,56 @@
 \DoxyCodeLine{36     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_school}{School}}}
 \DoxyCodeLine{37     \{}
 \DoxyCodeLine{38     \textcolor{keyword}{public}:}
-\DoxyCodeLine{46         \mbox{\hyperlink{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}{School}}(\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting);}
-\DoxyCodeLine{54         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a1b580a346c799e98a6d850ab2e6ee7b8}{SimulateDays}}(\textcolor{keywordtype}{size\_t} days);}
-\DoxyCodeLine{61         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\mbox{\hyperlink{classtattletale_1_1_school_a505cc724327eb4791485408af96aab64}{GetActor}}(\textcolor{keywordtype}{size\_t} actor\_id);}
-\DoxyCodeLine{68         \mbox{\hyperlink{classtattletale_1_1_course}{Course}} \&\mbox{\hyperlink{classtattletale_1_1_school_af972e5b216dcd749a9e65ce135dcfd4f}{GetCourse}}(\textcolor{keywordtype}{size\_t} course\_id);}
-\DoxyCodeLine{74         \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} \mbox{\hyperlink{classtattletale_1_1_school_a5c83383ebe9ebf010034df56650caab0}{GetCurrentWeekday}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{80         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a3c3b370c20271413ed49bbe36f804dc8}{GetCurrentDay}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{86         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_school_a8aa5d3e2a8917f5f8a6985910872b33d}{GetSetting}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{92         \mbox{\hyperlink{classtattletale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtattletale_1_1_school_abed6beaee33e7f68c67819d76ec840a8}{GetInteractionStore}}();}
-\DoxyCodeLine{98         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_school_ab0bb0b3c4a5485d5a8bfc3c2dcdb0630}{GetRandom}}();}
-\DoxyCodeLine{104         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtattletale_1_1_school_a6f6f6a934653efaeca0f1deb820935c6}{GetChronicle}}();}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{106     \textcolor{keyword}{private}:}
-\DoxyCodeLine{110         std::vector<Course> \mbox{\hyperlink{classtattletale_1_1_school_a52cc1fa397f32e3e81d025cb2992d2be}{courses\_}};}
-\DoxyCodeLine{114         std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_school_a7f79318d6bcdb11caec630d11759e9c6}{actors\_}};}
-\DoxyCodeLine{118         std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_school_a4499844e407308c75b76fb2aa5b3d0c4}{freetime\_group\_}};}
-\DoxyCodeLine{122         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}{setting\_}};}
-\DoxyCodeLine{126         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_school_a49de0172b24e71b4ee267e12586b26db}{random\_}};}
-\DoxyCodeLine{130         \mbox{\hyperlink{classtattletale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtattletale_1_1_school_ac5d525165f8f5304698ca1aeb20b18e4}{interaction\_store\_}};}
-\DoxyCodeLine{134         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtattletale_1_1_school_a9ad54709657abb6d62c11b00a8174883}{chronicle\_}};}
-\DoxyCodeLine{138         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a5f08cec9ce27de2d15d00113413a6a5d}{current\_tick\_}} = 0;}
-\DoxyCodeLine{142         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a1bfae7b6d581435b975ded10eb2b9d91}{current\_day\_}} = 0;}
-\DoxyCodeLine{146         \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} \mbox{\hyperlink{classtattletale_1_1_school_a4b057b40424661a1e14e8b166aa3f451}{current\_weekday\_}} = Weekday::Monday;}
-\DoxyCodeLine{155         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a72c757a06043a0bd7784812edb71a714}{SimulateDay}}(\textcolor{keywordtype}{size\_t} day, \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday);}
-\DoxyCodeLine{159         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a84730f21ae16254873268ac9081d74f4}{FreeTimeTick}}();}
-\DoxyCodeLine{166         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_af5502a844e848f1f8a79032cfb495d8e}{LetActorInteract}}(\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\&actor, \textcolor{keyword}{const} std::list<Actor *> \&group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} type, std::string context\_description = \textcolor{stringliteral}{"{}an unknown time"{}});}
-\DoxyCodeLine{167         \textcolor{keywordtype}{bool} IsWorkday(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday) \textcolor{keyword}{const};}
-\DoxyCodeLine{175         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_school_a978d246e2cb2f9b55d9c88a7968ad558}{ActorIsInCourseGroup}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *actor, \textcolor{keyword}{const} std::list<Actor *> \&course\_group) \textcolor{keyword}{const};}
-\DoxyCodeLine{186         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a751132eb1540b577681d9bc26a5b8a52}{WeekdayAndDailyTickToSlot}}(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday, \textcolor{keywordtype}{size\_t} daily\_tick) \textcolor{keyword}{const};}
-\DoxyCodeLine{197         std::list<Actor *> \mbox{\hyperlink{classtattletale_1_1_school_ae0655d38ea30532aef09b51a0e859284}{FindRandomCourseGroup}}(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
-\DoxyCodeLine{198 }
-\DoxyCodeLine{207         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}{GetRandomFirstnames}}(\textcolor{keywordtype}{size\_t} count);}
-\DoxyCodeLine{216         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_ad5b350e2824196ef147bd8f5260f1790}{GetRandomSurames}}(\textcolor{keywordtype}{size\_t} count);}
-\DoxyCodeLine{226         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_acbdcbe4d2989e5167c66ce44c531dc3a}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
-\DoxyCodeLine{227     \};}
-\DoxyCodeLine{228 }
-\DoxyCodeLine{229 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{230 }
-\DoxyCodeLine{231 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{232 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Weekday> : formatter<string\_view>}
-\DoxyCodeLine{233 \{}
-\DoxyCodeLine{234     std::string weekday\_names[7] = \{}
-\DoxyCodeLine{235         \textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
-\DoxyCodeLine{236     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{237     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{238     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{tattletale::Weekday}} weekday, FormatContext \&ctx)}
-\DoxyCodeLine{239     \{}
-\DoxyCodeLine{240         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(weekday);}
-\DoxyCodeLine{241         string\_view name = weekday\_names[enum\_index];}
-\DoxyCodeLine{242         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{243     \}}
-\DoxyCodeLine{244 \};}
-\DoxyCodeLine{245 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{49         \mbox{\hyperlink{classtattletale_1_1_school_a8771b2399b724fd43cdcc3d7cbfe3ea0}{School}}(\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting);}
+\DoxyCodeLine{57         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a1b580a346c799e98a6d850ab2e6ee7b8}{SimulateDays}}(\textcolor{keywordtype}{size\_t} days);}
+\DoxyCodeLine{64         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\mbox{\hyperlink{classtattletale_1_1_school_a505cc724327eb4791485408af96aab64}{GetActor}}(\textcolor{keywordtype}{size\_t} actor\_id);}
+\DoxyCodeLine{71         \mbox{\hyperlink{classtattletale_1_1_course}{Course}} \&\mbox{\hyperlink{classtattletale_1_1_school_af972e5b216dcd749a9e65ce135dcfd4f}{GetCourse}}(\textcolor{keywordtype}{size\_t} course\_id);}
+\DoxyCodeLine{77         \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} \mbox{\hyperlink{classtattletale_1_1_school_a5c83383ebe9ebf010034df56650caab0}{GetCurrentWeekday}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a3c3b370c20271413ed49bbe36f804dc8}{GetCurrentDay}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{89         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_school_a8aa5d3e2a8917f5f8a6985910872b33d}{GetSetting}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{95         \mbox{\hyperlink{classtattletale_1_1_interaction_store}{InteractionStore}} \&\mbox{\hyperlink{classtattletale_1_1_school_abed6beaee33e7f68c67819d76ec840a8}{GetInteractionStore}}();}
+\DoxyCodeLine{101         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_school_ab0bb0b3c4a5485d5a8bfc3c2dcdb0630}{GetRandom}}();}
+\DoxyCodeLine{107         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtattletale_1_1_school_a6f6f6a934653efaeca0f1deb820935c6}{GetChronicle}}();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keyword}{private}:}
+\DoxyCodeLine{113         std::vector<Course> \mbox{\hyperlink{classtattletale_1_1_school_a52cc1fa397f32e3e81d025cb2992d2be}{courses\_}};}
+\DoxyCodeLine{117         std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_school_a7f79318d6bcdb11caec630d11759e9c6}{actors\_}};}
+\DoxyCodeLine{121         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&\mbox{\hyperlink{classtattletale_1_1_school_af7d70c9766b24eb1ecc538aee34f0259}{setting\_}};}
+\DoxyCodeLine{125         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_school_a49de0172b24e71b4ee267e12586b26db}{random\_}};}
+\DoxyCodeLine{129         \mbox{\hyperlink{classtattletale_1_1_interaction_store}{InteractionStore}} \mbox{\hyperlink{classtattletale_1_1_school_ac5d525165f8f5304698ca1aeb20b18e4}{interaction\_store\_}};}
+\DoxyCodeLine{133         \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&\mbox{\hyperlink{classtattletale_1_1_school_a9ad54709657abb6d62c11b00a8174883}{chronicle\_}};}
+\DoxyCodeLine{137         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a5f08cec9ce27de2d15d00113413a6a5d}{current\_tick\_}} = 0;}
+\DoxyCodeLine{141         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a1bfae7b6d581435b975ded10eb2b9d91}{current\_day\_}} = 0;}
+\DoxyCodeLine{145         \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} \mbox{\hyperlink{classtattletale_1_1_school_a4b057b40424661a1e14e8b166aa3f451}{current\_weekday\_}} = Weekday::Monday;}
+\DoxyCodeLine{154         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a72c757a06043a0bd7784812edb71a714}{SimulateDay}}(\textcolor{keywordtype}{size\_t} day, \mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday);}
+\DoxyCodeLine{158         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a84730f21ae16254873268ac9081d74f4}{FreeTimeTick}}();}
+\DoxyCodeLine{165         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_school_ac019a051c1174ac197936252c8c399f8}{IsWorkday}}(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday) \textcolor{keyword}{const};}
+\DoxyCodeLine{177         \textcolor{keywordtype}{void} \mbox{\hyperlink{classtattletale_1_1_school_a3370be2a58c1679aec8b68cc1772a34f}{LetActorInteract}}(\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\&actor, \textcolor{keyword}{const} std::list<Actor *> \&group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} context\_type, std::string context\_description = \textcolor{stringliteral}{"{}an unknown time"{}});}
+\DoxyCodeLine{185         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_school_a978d246e2cb2f9b55d9c88a7968ad558}{ActorIsInCourseGroup}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *actor, \textcolor{keyword}{const} std::list<Actor *> \&course\_group) \textcolor{keyword}{const};}
+\DoxyCodeLine{196         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classtattletale_1_1_school_a751132eb1540b577681d9bc26a5b8a52}{WeekdayAndDailyTickToSlot}}(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{Weekday}} weekday, \textcolor{keywordtype}{size\_t} daily\_tick) \textcolor{keyword}{const};}
+\DoxyCodeLine{207         std::list<Actor *> \mbox{\hyperlink{classtattletale_1_1_school_ae0655d38ea30532aef09b51a0e859284}{FindRandomCourseGroup}}(\textcolor{keywordtype}{size\_t} course\_id, \textcolor{keyword}{const} std::vector<uint32\_t> \&slots);}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{217         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}{GetRandomFirstnames}}(\textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{226         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_ad5b350e2824196ef147bd8f5260f1790}{GetRandomSurames}}(\textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{236         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_acbdcbe4d2989e5167c66ce44c531dc3a}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
+\DoxyCodeLine{237     \};}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{242 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Weekday> : formatter<string\_view>}
+\DoxyCodeLine{243 \{}
+\DoxyCodeLine{244     std::string weekday\_names[7] = \{}
+\DoxyCodeLine{245         \textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
+\DoxyCodeLine{246     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
+\DoxyCodeLine{247     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{248     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{tattletale::Weekday}} weekday, FormatContext \&ctx)}
+\DoxyCodeLine{249     \{}
+\DoxyCodeLine{250         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(weekday);}
+\DoxyCodeLine{251         string\_view name = weekday\_names[enum\_index];}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 \};}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}

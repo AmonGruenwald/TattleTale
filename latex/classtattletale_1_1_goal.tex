@@ -15,11 +15,164 @@ Inheritance diagram for tattletale\+::Goal\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classtattletale_1_1_goal}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}{Get\+Default\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the default description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}{Get\+Passive\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}{Get\+Active\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} \mbox{\hyperlink{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}{String\+To\+Goal\+Type}} (std\+::string goal\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Converts a string to an Goal\+Type. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} \mbox{\hyperlink{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}{Get\+Random\+Goal\+Type}} (\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random)
+\begin{DoxyCompactList}\small\item\em Getter for a random Goal\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_goal_a86c980ef90c40bbb7c214cb8a9a16aeb}\label{classtattletale_1_1_goal_a86c980ef90c40bbb7c214cb8a9a16aeb}} 
+const \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} {\bfseries type\+\_\+}
+\begin{DoxyCompactList}\small\item\em The Goal\+Type of this \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_goal_a97b05dc9cab5fc3390b66421343a8205}{Goal}} (\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons)
+\begin{DoxyCompactList}\small\item\em Constructor, also initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtattletale_1_1_goal_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_goal_aa77c3f3dde0b0a7c7b8e314d12413c4c}} 
+class {\bfseries Chronicle}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Represents the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} strives to fulfill. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_goal_a97b05dc9cab5fc3390b66421343a8205}\label{classtattletale_1_1_goal_a97b05dc9cab5fc3390b66421343a8205}} 
+\index{tattletale::Goal@{tattletale::Goal}!Goal@{Goal}}
+\index{Goal@{Goal}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{Goal()}{Goal()}}
+{\footnotesize\ttfamily tattletale\+::\+Goal\+::\+Goal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}}}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructor, also initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and type\+\_\+ member. 
+
+This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & What Goal\+Type this \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} is of. \\
+\hline
+{\em id} & The index this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \\
+\hline
+{\em tick} & In which tick this \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} was created. \\
+\hline
+{\em owner} & The \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} which owns this \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \\
+\hline
+{\em reasons} & What other \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}\label{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}} 
+\index{tattletale::Goal@{tattletale::Goal}!GetActiveDescription@{GetActiveDescription}}
+\index{GetActiveDescription@{GetActiveDescription}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{GetActiveDescription()}{GetActiveDescription()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Goal\+::\+Get\+Active\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. 
+
+This description forms an active sentence fragment that can be incorporated into a narrative. E.\+g.\+: \char`\"{}want to become incredibly rich\char`\"{} \begin{DoxyReturn}{Returns}
+The passive description. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}{tattletale\+::\+Kernel}}.
+
+\mbox{\Hypertarget{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}\label{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}} 
+\index{tattletale::Goal@{tattletale::Goal}!GetDefaultDescription@{GetDefaultDescription}}
+\index{GetDefaultDescription@{GetDefaultDescription}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{GetDefaultDescription()}{GetDefaultDescription()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Goal\+::\+Get\+Default\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the default description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. 
+
+This description forms a standalone sentence. E.\+g.\+: \char`\"{}\+John Doe wants to become incredibly rich.\char`\"{} \begin{DoxyReturn}{Returns}
+The default description. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a2df1d1bf2de3557317cdd91bcb8f1ce0}{tattletale\+::\+Kernel}}.
+
+\mbox{\Hypertarget{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}\label{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}} 
+\index{tattletale::Goal@{tattletale::Goal}!GetPassiveDescription@{GetPassiveDescription}}
+\index{GetPassiveDescription@{GetPassiveDescription}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{GetPassiveDescription()}{GetPassiveDescription()}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Goal\+::\+Get\+Passive\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}. 
+
+This description forms a passive sentence fragment that can be incorporated into a narrative. E.\+g.\+: \char`\"{}wanting to become incredibly rich\char`\"{} \begin{DoxyReturn}{Returns}
+The passive description. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classtattletale_1_1_kernel_aaa1afd2ae2abff75a8376872e6642b0a}{tattletale\+::\+Kernel}}.
+
+\mbox{\Hypertarget{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}\label{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}} 
+\index{tattletale::Goal@{tattletale::Goal}!GetRandomGoalType@{GetRandomGoalType}}
+\index{GetRandomGoalType@{GetRandomGoalType}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{GetRandomGoalType()}{GetRandomGoalType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} tattletale\+::\+Goal\+::\+Get\+Random\+Goal\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&}]{random }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Getter for a random Goal\+Type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em random} & \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object to be used for random picking. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random Goal\+Type. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}\label{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}} 
+\index{tattletale::Goal@{tattletale::Goal}!StringToGoalType@{StringToGoalType}}
+\index{StringToGoalType@{StringToGoalType}!tattletale::Goal@{tattletale::Goal}}
+\doxysubsubsection{\texorpdfstring{StringToGoalType()}{StringToGoalType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{Goal\+Type}} tattletale\+::\+Goal\+::\+String\+To\+Goal\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{goal\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a string to an Goal\+Type. 
+
+Uses the same string values formater returns. So valid strings are\+: \char`\"{}wealth\char`\"{} \char`\"{}acceptance\char`\"{}, \char`\"{}relationship\char`\"{}, \char`\"{}hedonism\char`\"{} and \char`\"{}power\char`\"{}. Everything else just return Goal\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal\+\_\+string} & The string we want to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding Goal\+Type value. 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

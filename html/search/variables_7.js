@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_5fname_5f_0',['last_name_',['../classtattletale_1_1_actor.html#af5ca4984d6ac05eb519ce00d5bcaa4ba',1,'tattletale::Actor']]]
+  ['known_5factors_5f_0',['known_actors_',['../classtattletale_1_1_actor.html#adfa9814fb2466d8a629b6c118dca356d',1,'tattletale::Actor']]]
 ];

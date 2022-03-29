@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['relationshiptype_0',['RelationshipType',['../namespacetattletale.html#a670d05138867becb57e23c6972bd5688',1,'tattletale']]]
+  ['goaltype_0',['GoalType',['../namespacetattletale.html#a0b5004177b9218d961c6d80587c23e47',1,'tattletale']]]
 ];

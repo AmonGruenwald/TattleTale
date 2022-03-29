@@ -177,7 +177,6 @@ boxfont setfont
 (tattletale::Goal) cw
 (tattletale::Interaction) cw
 (tattletale::Resource) cw
-(tattletale::Trait) cw
 (tattletale::Emotion) cw
 (tattletale::Relationship) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -191,20 +190,19 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (tattletale::Kernel) 1.500000 2.000000 box
+ (tattletale::Kernel) 1.000000 2.000000 box
  (tattletale::Goal) 0.000000 1.000000 box
  (tattletale::Interaction) 1.000000 1.000000 box
  (tattletale::Resource) 2.000000 1.000000 box
- (tattletale::Trait) 3.000000 1.000000 box
  (tattletale::Emotion) 1.500000 0.000000 box
  (tattletale::Relationship) 2.500000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 1.500000 1.250000 out
+1 1.000000 1.250000 out
 solid
-0.000000 3.000000 2.000000 conn
+0.000000 2.000000 2.000000 conn
 solid
 0 0.000000 1.750000 in
 solid
@@ -215,8 +213,6 @@ solid
 1 2.000000 0.250000 out
 solid
 1.500000 2.500000 1.000000 conn
-solid
-0 3.000000 1.750000 in
 solid
 0 1.500000 0.750000 in
 solid
