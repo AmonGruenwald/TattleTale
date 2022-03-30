@@ -6,7 +6,6 @@
 #include "shared/kernels/interactions/interaction.hpp"
 #include "shared/kernels/interactions/interactionprototype.hpp"
 #include "shared/kernels/interactions/interactionrequirement.hpp"
-#include "shared/kernels/interactions/interactionrequirement.hpp"
 #include "shared/kernels/interactions/interactioncontexttype.hpp"
 #include "shared/kernels/resourcekernels/resource.hpp"
 #include "shared/kernels/resourcekernels/emotion.hpp"

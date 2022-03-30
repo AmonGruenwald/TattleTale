@@ -1,6 +1,5 @@
 #include "shared/tattletalecore.hpp"
 #include "tale/school.hpp"
-#include "shared/kernels/interactions/interactionrequirement.hpp"
 #include <iostream>
 #include <assert.h>
 #include <algorithm>

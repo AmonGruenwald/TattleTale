@@ -233,10 +233,12 @@ namespace tattletale
     {
         TATTLETALE_VERBOSE_PRINT("CREATING REQUIREMENTS...");
         out_requirement->ClearValues();
-        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_requirement->participant_count, json, participant_count_key_, true, error_preamble))
+        size_t participant_count = 0;
+        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(participant_count, json, participant_count_key_, true, error_preamble))
         {
             return false;
         }
+        out_requirement->SetParticipantCount(participant_count);
         std::string context_value = "";
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(context_value, json, context_key_, false, error_preamble))
         {
@@ -256,24 +258,33 @@ namespace tattletale
             return false;
         }
 
-        nlohmann::json emotion_json;
-        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(emotion_json, json, emotion_key_, false, error_preamble))
+        nlohmann::json emotion_vector_json;
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(emotion_vector_json, json, emotion_key_, false, error_preamble))
         {
             return false;
         }
-        for (auto &key : emotion_type_keys_)
+        for (size_t i = 0; i < participant_count; ++i)
         {
-            float emotion_value = 0.0f;
-            if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(emotion_value, emotion_json, key, false, error_preamble))
+            nlohmann::json emotion_map_json;
+            if (!ReadJsonValueFromArray<nlohmann::json, nlohmann::detail::value_t::object>(emotion_map_json, emotion_vector_json, i, false, error_preamble))
             {
                 return false;
             }
-            if (!CheckCorrectValueRange(emotion_value))
+            for (auto &key : emotion_type_keys_)
             {
-                return false;
+                float emotion_value = 0.0f;
+                if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(emotion_value, emotion_map_json, key, false, error_preamble))
+                {
+                    return false;
+                }
+                if (!CheckCorrectValueRange(emotion_value))
+                {
+                    return false;
+                }
+                out_requirement->emotions[i][static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
             }
-            out_requirement->emotions[static_cast<int>(Emotion::StringToEmotionType(key))] = emotion_value;
         }
+
         nlohmann::json relationship_map_json;
         if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationships_key_, false, error_preamble))
         {

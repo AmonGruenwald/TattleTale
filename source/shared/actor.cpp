@@ -183,12 +183,31 @@ namespace tattletale
                             }
                         }
                     }
+
+                    for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
+                    {
+                        if (requirement->emotions[i][type_index] < 0)
+                        {
+                            if (actor->emotions_[type_index]->GetValue() > requirement->emotions[i][type_index])
+                            {
+                                requirement_failed = true;
+                            }
+                        }
+                        else if (requirement->emotions[i][type_index] > 0)
+                        {
+                            if (actor->emotions_[type_index]->GetValue() < requirement->emotions[i][type_index])
+                            {
+                                requirement_failed = true;
+                            }
+                        }
+                    }
+
+                    chance += static_cast<float>(chance_parts);
+                    chance /= static_cast<float>(chance_parts * 2);
                     if (requirement_failed)
                     {
                         chance = 0.0f;
                     }
-                    chance += static_cast<float>(chance_parts);
-                    chance /= static_cast<float>(chance_parts * 2);
                     if (chance == 0.0f)
                     {
                         ++participant_zero_count;
@@ -252,7 +271,7 @@ namespace tattletale
         }
         for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
         {
-            float value = requirement.emotions[type_index];
+            float value = requirement.emotions[0][type_index];
             if (value < 0)
             {
                 if (emotions_[type_index]->GetValue() > value)

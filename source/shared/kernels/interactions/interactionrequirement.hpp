@@ -28,9 +28,10 @@ namespace tattletale
          */
         size_t day = 0;
         /**
-         * @brief What emotions the active Actor has to have for the Interaction to happen.
+         * @brief What emotions the participating Actors have to have for the Interaction to happen.
          */
-        std::vector<float> emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
+        std::vector<std::vector<float>> emotions;
+
         /**
          * @brief What relationship the Actor has to have for the participants he chooses.
          */
@@ -45,16 +46,25 @@ namespace tattletale
             participant_count = 1;
             goal_type = GoalType::kLast;
             day = 0;
-            emotions = std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f);
+            emotions.clear();
             relationship = std::vector<float>(static_cast<int>(RelationshipType::kLast), 0.0f);
+        }
+
+        void SetParticipantCount(size_t participant_count)
+        {
+            this->participant_count = participant_count;
+            for (size_t i = 0; i < participant_count; ++i)
+            {
+                emotions.push_back(std::vector<float>(static_cast<int>(EmotionType::kLast), 0.0f));
+            }
         }
         /**
          * @brief Checks wether an \link Emotion Emotional \endlink requirement exists.
          * @return The result of the check.
          */
-        bool HasEmotionalRequirement() const
+        bool HasEmotionalRequirement(size_t participant_index) const
         {
-            for (const auto &value : emotions)
+            for (const auto &value : emotions[participant_index])
             {
                 if (value != 0)
                 {
@@ -103,37 +113,28 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Interactio
     template <typename FormatContext>
     auto format(tattletale::InteractionRequirement &requirement, FormatContext &ctx) -> decltype(ctx.out())
     {
-        std::string string = fmt::format(
-            "Context: {} \
-                \nParticipant Count: {} \
-                \nGoal Type: {} \
-                \n Day: {} \
-                \nEmotions: \
-                \n\tHappy: {} \
-                \n\tCalme: {} \
-                \n\tSatisfied: {} \
-                \n\tBrave: {} \
-                \n\tExtroverted: {} \
-                \nRelationship: \
-                \n\tLove: {} \
-                \n\tAttraction: {} \
-                \n\tFriendship: {} \
-                \n\tAnger: {} \
-                \n\tProtective: {} ",
-            requirement.context,
-            requirement.participant_count,
-            requirement.goal_type,
-            requirement.day,
-            requirement.emotions[static_cast<int>(tattletale::EmotionType::kHappy)],
-            requirement.emotions[static_cast<int>(tattletale::EmotionType::kCalm)],
-            requirement.emotions[static_cast<int>(tattletale::EmotionType::kSatisfied)],
-            requirement.emotions[static_cast<int>(tattletale::EmotionType::kBrave)],
-            requirement.emotions[static_cast<int>(tattletale::EmotionType::kExtroverted)],
-            requirement.relationship[static_cast<int>(tattletale::RelationshipType::kLove)],
-            requirement.relationship[static_cast<int>(tattletale::RelationshipType::kAttraction)],
-            requirement.relationship[static_cast<int>(tattletale::RelationshipType::kFriendship)],
-            requirement.relationship[static_cast<int>(tattletale::RelationshipType::kAnger)],
-            requirement.relationship[static_cast<int>(tattletale::RelationshipType::kProtective)]);
+        std::string string += fmt::format("Context: {}", requirement.context);
+        string += fmt::format("\nParticipant Count: {}", requirement.participant_count);
+        string += fmt::format("\nGoal Type: {}", requirement.goal_type);
+        string += fmt::format("\n Day: {}", requirement.day);
+        string += "\nEmotions:";
+        for (size_t i = 0; i < requirement.emotions.size(); ++i)
+        {
+            for (int type_index = 0; type_index < requirement.emotions[i].size(); ++type_index)
+            {
+                string += fmt::format(
+                    "\n\t{}: {}",
+                    static_cast<tattletale::EmotionType>(type_index),
+                    requirement.emotions[i][type_index]);
+            }
+        }
+        string += "\nRelationship:";
+        string += fmt::format("\n\tLove: {}", requirement.relationship[static_cast<int>(tattletale::RelationshipType::kLove)]);
+        string += fmt::format("\n\tAttraction: {}", requirement.relationship[static_cast<int>(tattletale::RelationshipType::kAttraction)]);
+        string += fmt::format("\n\tFriendship: {}", requirement.relationship[static_cast<int>(tattletale::RelationshipType::kFriendship)]);
+        string += fmt::format("\n\tAnger: {}", requirement.relationship[static_cast<int>(tattletale::RelationshipType::kAnger)]);
+        string += fmt::format("\n\tProtective: {}", requirement.relationship[static_cast<int>(tattletale::RelationshipType::kProtective)]);
+
         return fmt::formatter<std::string>::format(string, ctx);
     }
 };
