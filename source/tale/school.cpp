@@ -38,7 +38,12 @@ namespace tattletale
 
         size_t course_count = setting_.course_count();
         size_t slot_count_per_week = setting_.slot_count_per_week();
-        std::vector<uint32_t> random_slot_order;
+        std::vector<uint32_t> random_slot_order(slot_count_per_week, 0);
+        for (size_t slot = 0; slot < random_slot_order.size(); ++slot)
+        {
+            random_slot_order[slot] = slot;
+        }
+
         for (size_t i = 0; i < course_count; ++i)
         {
             // TODO: create better names
@@ -46,20 +51,8 @@ namespace tattletale
 
             // Filling courses:
             TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED COURSE {}", courses_[i].id_));
-            random_slot_order.clear();
             // randomly order all slots of the course
-            // TODO: optimize this by shuffling an already filled vector everytime instead of this
-            while (random_slot_order.size() < slot_count_per_week)
-            {
-                uint32_t random_slot = random_.GetUInt(0, slot_count_per_week - 1);
-                while (std::count(random_slot_order.begin(), random_slot_order.end(), random_slot))
-                {
-                    random_slot += 1;
-                    random_slot %= slot_count_per_week;
-                }
-                random_slot_order.push_back(random_slot);
-            }
-
+            random.Shuffle(random_slot_order);
             size_t slot_index = 0;
             // Go over every slot
             while (slot_index < random_slot_order.size() && setting_.same_course_per_week > 0)

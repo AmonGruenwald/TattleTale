@@ -51,4 +51,9 @@ namespace tattletale
         std::discrete_distribution<size_t> distribution(probability_distribution.begin(), probability_distribution.end());
         return distribution(rng_);
     }
+
+    void Random::Shuffle(std::vector<uint32_t> &out_vector)
+    {
+        std::shuffle(std::begin(out_vector), std::end(out_vector), rng_);
+    }
 } // namespace tattletale

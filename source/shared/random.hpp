@@ -72,6 +72,12 @@ namespace tattletale
          * @return The random index
          */
         size_t PickIndex(const std::vector<float> &probability_distribution, bool support_all_zeroes = false);
+        /**
+         * @brief Shuffles the elements of the passed vector.
+         *
+         * @param [out] out_vector The vector that is to be shuffled
+         */
+        void Shuffle(std::vector<uint32_t> &out_vector);
 
     private:
         /**
