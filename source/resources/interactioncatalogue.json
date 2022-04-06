@@ -1380,7 +1380,7 @@
             "name": "Form Clique",
             "description": "{0} formed a clique with {1}, {2} and {3}",
             "passive_description": "forming a clique with someone",
-            "active_description": "form a clique with {0, {1} and {3}",
+            "active_description": "form a clique with {0}, {1} and {2}",
             "emotions": [
                 {
                     "calm": 0.01,
