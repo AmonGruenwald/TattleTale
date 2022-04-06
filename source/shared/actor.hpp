@@ -165,6 +165,16 @@ namespace tattletale
          * @return The result of the check.
          */
         bool CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const;
+        /**
+         * @brief Calculates the chance an Actor to be picked for a participant slot.
+         *
+         * @param participant The participant for which we want to calculate the chance.
+         * @param participant_id The participant id for the slot we are currently picking for.
+         * @param requirement The relevant InteractionRequirement for this picking process.
+         * @param tendency The relevant InteractionTendency for this picking process.
+         * @param out_reason The potential Kernel that led to the calculated chance.
+         * @return The chance of the Actor being picked.
+         */
         float CalculateParticipantChance(const Actor *participant, size_t participant_id, const std::shared_ptr<InteractionRequirement> &requirement, const std::shared_ptr<InteractionTendency> &tendency, Kernel *&out_reason);
 
         /**
