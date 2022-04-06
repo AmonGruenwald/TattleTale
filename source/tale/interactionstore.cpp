@@ -28,7 +28,6 @@ namespace tattletale
             std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_id);
 
-            TATTLETALE_DEBUG_PRINT(interaction[requirements_key_].dump(4) + "\n\n");
             if (ReadRequirementJSON(interaction[requirements_key_], requirement_error_preamble, requirement))
             {
                 std::shared_ptr<InteractionPrototype> prototype(new InteractionPrototype());
@@ -83,7 +82,6 @@ namespace tattletale
     }
     Interaction *InteractionStore::CreateInteraction(Chronicle &chronicle, size_t prototype_index, float chance, size_t tick, std::vector<Kernel *> reasons, std::vector<Actor *> participants)
     {
-        // TODO: move this to chronicle
         TATTLETALE_ERROR_PRINT(prototype_index < prototype_catalogue_.size(), fmt::format("Prototype with id {} does not exist", prototype_index));
         std::shared_ptr<InteractionPrototype> prototype = prototype_catalogue_.at(prototype_index);
         std::shared_ptr<InteractionRequirement> &requirement = requirements_catalogue_.at(prototype_index);
@@ -318,7 +316,7 @@ namespace tattletale
             }
         }
 
-        TATTLETALE_DEBUG_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", *out_requirement));
+        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", *out_requirement));
         return true;
     }
 
