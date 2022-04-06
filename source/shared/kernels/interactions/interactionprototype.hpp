@@ -46,9 +46,9 @@ namespace tattletale
          */
         std::vector<std::vector<float>> emotion_effects;
         /**
-         * @brief TODO Stores the effect the corresponding Interaction has on each participating \link Actor Actor's \endlink \link Relationship Relationships \endlink.
+         * @brief Stores the effect the corresponding Interaction has on each participating \link Actor Actor's \endlink \link Relationship Relationships \endlink.
          *
-         * For each Actor a map is created that maps to participants index in the participants_ vector another vector of floats, which indecis correspond to the RelationshipType enum.
+         * For each Actor a map is created that maps an index in the participants_ vector to another vector of floats, which indices correspond to the RelationshipType enum.
          * Those pairs signal how much each Relationship axis would be changed.
          */
         std::vector<robin_hood::unordered_map<size_t, std::vector<float>>> relationship_effects;

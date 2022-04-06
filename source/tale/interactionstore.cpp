@@ -27,11 +27,13 @@ namespace tattletale
 
             std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
             std::string requirement_error_preamble = fmt::format("REQUIREMENT {}: ", interaction_id);
-            if (ReadRequirementJSON(interaction["requirements"], requirement_error_preamble, requirement))
+
+            TATTLETALE_DEBUG_PRINT(interaction[requirements_key_].dump(4) + "\n\n");
+            if (ReadRequirementJSON(interaction[requirements_key_], requirement_error_preamble, requirement))
             {
                 std::shared_ptr<InteractionPrototype> prototype(new InteractionPrototype());
                 prototype->id = interaction_id;
-                std::string prototype_error_preamble = fmt::format("REQUIREMENT #{}: ", interaction_id);
+                std::string prototype_error_preamble = fmt::format("PROTOTYPE {}: ", interaction_id);
                 if (ReadPrototypeJSON(interaction["prototype"], requirement->participant_count, prototype_error_preamble, prototype))
                 {
                     std::shared_ptr<InteractionTendency> tendency(new InteractionTendency());
@@ -270,6 +272,7 @@ namespace tattletale
             {
                 return false;
             }
+
             for (auto &key : emotion_type_keys_)
             {
                 float emotion_value = 0.0f;
@@ -285,26 +288,37 @@ namespace tattletale
             }
         }
 
-        nlohmann::json relationship_map_json;
-        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, json, relationships_key_, false, error_preamble))
+        nlohmann::json relationship_vector_json;
+        if (!ReadJsonValueFromDictionary<nlohmann::json, nlohmann::detail::value_t::array>(relationship_vector_json, json, relationships_key_, false, error_preamble))
         {
             return false;
         }
-        for (auto &key : relationship_type_keys_)
+        for (size_t i = 1; i < participant_count; ++i)
         {
-            float relationship_value = 0.0f;
-            if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(relationship_value, relationship_map_json, key, false, error_preamble))
+            nlohmann::json relationship_map_json;
+            if (!ReadJsonValueFromArray<nlohmann::json, nlohmann::detail::value_t::object>(relationship_map_json, relationship_vector_json, i - 1, false, error_preamble))
             {
                 return false;
             }
-            if (!CheckCorrectValueRange(relationship_value))
+
+            for (auto &key : relationship_type_keys_)
             {
-                return false;
+                float relationship_value = 0.0f;
+                if (!ReadJsonValueFromDictionary<float, nlohmann::detail::value_t::number_float>(relationship_value, relationship_map_json, key, false, error_preamble))
+                {
+                    return false;
+                }
+                if (!CheckCorrectValueRange(relationship_value))
+                {
+                    return false;
+                }
+                size_t index = i - 1;
+                size_t lasdf = static_cast<int>(Relationship::StringToRelationshipType(key));
+                out_requirement->relationship[index][lasdf] = relationship_value;
             }
-            out_requirement->relationship[static_cast<int>(Relationship::StringToRelationshipType(key))] = relationship_value;
         }
 
-        TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", *out_requirement));
+        TATTLETALE_DEBUG_PRINT(fmt::format("CREATED INTERACTION REQUIREMENT:\n{}\n", *out_requirement));
         return true;
     }
 

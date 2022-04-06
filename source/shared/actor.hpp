@@ -146,16 +146,16 @@ namespace tattletale
          * @param[out] out_reason Which part of the state of the Actor increased the chance the most.
          * @return A chance value between 0.0 and 1.0.
          */
-        float CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason);
+        float CalculateInteractionChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason);
         /**
          * @brief Modifies the chance for an Interaction based on the Goal of the Actor.
          *
          * @param original_chance The chance of the Interaction before this modification.
          * @param interaction_index The index of the Interaction in the InteractionStore.
-         * @param out_had_positive_effect Flag wether the Goal had a positive influence on the chance.
+         * @param out_reason If the goal had an effect, this will hold the Goal Kernel otherwise it will be a nullptr.
          * @return The modified chance.
          */
-        float ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect);
+        float ApplyGoalChanceModification(float original_chance, size_t interaction_index, Kernel *&out_reason);
         /**
          * @brief Checks wether the requirements of an Interaction are met based on the passed InteractionRequirement and the state of the Actor.
          *
@@ -165,6 +165,8 @@ namespace tattletale
          * @return The result of the check.
          */
         bool CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const;
+        float CalculateParticipantChance(const Actor *participant, size_t participant_id, const std::shared_ptr<InteractionRequirement> &requirement, const std::shared_ptr<InteractionTendency> &tendency, Kernel *&out_reason);
+
         /**
          * @brief Applies a change to the \link Actor Actor's \endlink wealth.
          *

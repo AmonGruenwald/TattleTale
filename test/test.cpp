@@ -376,7 +376,7 @@ TEST(TaleInteractions, InteractionBecomesReason)
     prototype->relationship_effects = relationship_effects;
     prototype->description = "{} did test interaction with {}";
     std::shared_ptr<InteractionRequirement> requirement(new InteractionRequirement());
-    requirement->participant_count = participant_count;
+    requirement->SetParticipantCount(participant_count);
     std::shared_ptr<InteractionTendency> tendency(new InteractionTendency());
 
     std::vector<Kernel *> no_reasons;
@@ -582,7 +582,7 @@ TEST_F(TaleActor, DefaultTendencyChanceCalculation)
     InteractionTendency tendency;
     ContextType context = ContextType::kLast;
     Kernel *reason;
-    float chance = actor_->CalculateTendencyChance(tendency, context, reason);
+    float chance = actor_->CalculateInteractionChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 0.5f);
 }
 
@@ -604,7 +604,7 @@ TEST_F(TaleActor, MaxTendencyChanceCalculation)
     }
     ContextType context = ContextType::kCourse;
     Kernel *reason;
-    float chance = actor_->CalculateTendencyChance(tendency, context, reason);
+    float chance = actor_->CalculateInteractionChance(tendency, context, reason);
     EXPECT_FLOAT_EQ(chance, 1.0f);
 }
 
@@ -631,7 +631,7 @@ TEST_F(TaleActor, RandomTendencyChanceCalculation)
         }
         ContextType context = (random.GetFloat(-1.0f, 1.0f) <= 0 ? ContextType::kCourse : ContextType::kFreetime);
         Kernel *reason;
-        float chance = actor_->CalculateTendencyChance(tendency, context, reason);
+        float chance = actor_->CalculateInteractionChance(tendency, context, reason);
         EXPECT_GE(chance, 0.0f);
         EXPECT_LE(chance, 1.0f);
     }

@@ -129,6 +129,10 @@ namespace tattletale
         std::string prototype_json_path_ = "resources/interactioncatalogue.json";
 
         /**
+         * @brief String mapping to requirements entries in the PrototypeCatalogue json.
+         */
+        const std::string requirements_key_ = "requirements";
+        /**
          * @brief String mapping to name entries in the PrototypeCatalogue json.
          */
         const std::string name_key_ = "name";

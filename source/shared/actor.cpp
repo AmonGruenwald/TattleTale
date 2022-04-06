@@ -103,22 +103,15 @@ namespace tattletale
         {
             std::shared_ptr<InteractionTendency> tendency = tendencies[i];
             Kernel *tendency_reason = nullptr;
-            float chance = CalculateTendencyChance(*tendency, context, tendency_reason);
-            bool goal_had_effect = false;
-            float modified_chance = ApplyGoalChanceModification(chance, i, goal_had_effect);
-            if (goal_had_effect)
-            {
-                goal_reasons.push_back(goal_);
-            }
-            else
-            {
-                goal_reasons.push_back(nullptr);
-            }
-            if (chance == 0.0f)
+            float chance = CalculateInteractionChance(*tendency, context, tendency_reason);
+            Kernel *goal_reason = nullptr;
+            float modified_chance = ApplyGoalChanceModification(chance, i, goal_reason);
+            goal_reasons.push_back(goal_reason);
+            if (modified_chance == 0.0f)
             {
                 ++zero_count;
             }
-            chances.push_back(chance);
+            chances.push_back(modified_chance);
             tendency_reasons.push_back(tendency_reason);
         }
 
@@ -133,6 +126,8 @@ namespace tattletale
         }
         out_chance = chances[index];
         size_t interaction_index = possible_interaction_indices[index];
+
+        // Choosing Participants:
         out_participants.push_back(this);
         std::shared_ptr<InteractionRequirement> requirement = requirements[interaction_index];
         std::shared_ptr<InteractionTendency> tendency = tendencies[interaction_index];
@@ -140,115 +135,40 @@ namespace tattletale
         {
             uint32_t participant_zero_count = 0;
             std::vector<float> participant_chances;
-
             std::vector<Kernel *> participant_reasons;
-            for (auto &actor : actor_group)
+
+            for (auto &participant : actor_group)
             {
+                for (auto &already_chosen_participant : out_participants)
+                {
+                    if (participant->id_ == id_)
+                    {
+                        continue;
+                    }
+                }
                 Kernel *reason = nullptr;
-                size_t id = actor->id_;
-                if (relationships_.count(id))
+                float chance = CalculateParticipantChance(participant, i, requirement, tendency, reason);
+                if (chance == 0.0f)
                 {
-                    std::vector<Relationship *> relationship_vector = relationships_[id];
-
-                    float chance = 0.0f;
-                    float highest_chance_increase = 0.0f;
-                    float current_chance_increase = 0.0f;
-                    uint16_t chance_parts = 0;
-
-                    bool requirement_failed = false;
-                    for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
-                    {
-                        Relationship *relationship = relationship_vector[type_index];
-                        current_chance_increase = relationship->GetValue() * tendency->relationships[i - 1][type_index];
-                        chance += current_chance_increase;
-                        ++chance_parts;
-
-                        if (current_chance_increase > highest_chance_increase)
-                        {
-                            highest_chance_increase = current_chance_increase;
-                            reason = relationship;
-                        }
-                        if (requirement->relationship[type_index] < 0)
-                        {
-                            if (relationship->GetValue() > requirement->relationship[type_index])
-                            {
-                                requirement_failed = true;
-                            }
-                        }
-                        else if (requirement->relationship[type_index] > 0)
-                        {
-                            if (relationship->GetValue() < requirement->relationship[type_index])
-                            {
-                                requirement_failed = true;
-                            }
-                        }
-                    }
-
-                    for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
-                    {
-                        if (requirement->emotions[i][type_index] < 0)
-                        {
-                            if (actor->emotions_[type_index]->GetValue() > requirement->emotions[i][type_index])
-                            {
-                                requirement_failed = true;
-                            }
-                        }
-                        else if (requirement->emotions[i][type_index] > 0)
-                        {
-                            if (actor->emotions_[type_index]->GetValue() < requirement->emotions[i][type_index])
-                            {
-                                requirement_failed = true;
-                            }
-                        }
-                    }
-
-                    chance += static_cast<float>(chance_parts);
-                    chance /= static_cast<float>(chance_parts * 2);
-                    if (requirement_failed)
-                    {
-                        chance = 0.0f;
-                    }
-                    if (chance == 0.0f)
-                    {
-                        ++participant_zero_count;
-                    }
-                    participant_chances.push_back(chance);
+                    participant_zero_count++;
                 }
-                else
-                {
-                    if (requirement->HasRelationshipRequirement())
-                    {
-                        participant_chances.push_back(0.0f);
-                        ++participant_zero_count;
-                    }
-                    else
-                    {
-                        participant_chances.push_back(0.5f);
-                    }
-                }
+                participant_chances.push_back(chance);
                 participant_reasons.push_back(reason);
             }
-            size_t participant_index = random_.PickIndex(participant_chances, (participant_zero_count == participant_chances.size()));
-            // TODO: I think it is possible for actors to be assigned multiple times as targets for an interaction
+            if ((participant_zero_count == participant_chances.size()))
+            {
+                return -1;
+            }
+            size_t participant_index = random_.PickIndex(participant_chances);
             auto chosen_actor = std::next(actor_group.begin(), participant_index);
             size_t tries = 0;
-            while ((*chosen_actor)->id_ == id_ && tries < actor_group.size())
-            {
-                ++tries;
-                ++chosen_actor;
-                ++participant_index;
-                if (chosen_actor == actor_group.end())
-                {
-                    chosen_actor = actor_group.begin();
-                    participant_index = 0;
-                }
-            }
             out_participants.push_back((*chosen_actor));
             if (participant_reasons[participant_index])
             {
                 out_reasons.push_back(participant_reasons[participant_index]);
             }
         }
+
         return interaction_index;
     }
     bool Actor::CheckRequirements(const InteractionRequirement &requirement, const std::list<Actor *> &actor_group, ContextType context) const
@@ -288,41 +208,128 @@ namespace tattletale
             }
         }
         bool match_found = true;
-        for (auto &[actor_id, relationship] : relationships_)
+        for (size_t participant_id = 1; participant_id < requirement.participant_count; ++participant_id)
         {
-            match_found = true;
-            for (int type_index = 0; type_index < relationship.size(); ++type_index)
+            if (requirement.HasRelationshipRequirement(participant_id))
             {
-                float value = requirement.relationship[type_index];
-                if (value < 0)
+                for (auto &[actor_id, relationship] : relationships_)
                 {
-                    if (relationship.at(type_index)->GetValue() > value)
+                    match_found = true;
+                    for (int type_index = 0; type_index < relationship.size(); ++type_index)
                     {
-                        match_found = false;
+                        // TODO: use indices correctly
+                        float value = requirement.relationship[participant_id - 1][type_index];
+                        if (value < 0)
+                        {
+                            if (relationship.at(type_index)->GetValue() > value)
+                            {
+                                match_found = false;
+                            }
+                        }
+                        else if (value > 0)
+                        {
+                            if (relationship.at(type_index)->GetValue() < value)
+                            {
+                                match_found = false;
+                            }
+                        }
+                    }
+                    if (match_found)
+                    {
+                        break;
                     }
                 }
-                else if (value > 0)
+                if (!match_found)
                 {
-                    if (relationship.at(type_index)->GetValue() < value)
-                    {
-                        match_found = false;
-                    }
+                    return false;
                 }
             }
-            if (match_found)
-            {
-                break;
-            }
-        }
-        if (!match_found)
-        {
-            return false;
         }
         return true;
     }
-    float Actor::CalculateTendencyChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason)
+
+    float Actor::CalculateParticipantChance(const Actor *participant, size_t participant_id, const std::shared_ptr<InteractionRequirement> &requirement, const std::shared_ptr<InteractionTendency> &tendency, Kernel *&out_reason)
     {
-        // TODO: reasons only track positive chance, they do track why we did not pick other interactions
+        size_t id = participant->id_;
+        if (relationships_.count(id))
+        {
+            std::vector<Relationship *> relationship_vector = relationships_[id];
+
+            float chance = 0.0f;
+            float highest_chance_increase = -1.0f;
+            bool requirement_failed = false;
+
+            for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
+            {
+                Relationship *relationship = relationship_vector[type_index];
+                float current_chance_increase = relationship->GetValue() * tendency->relationships[participant_id - 1][type_index];
+                chance += current_chance_increase;
+
+                if (current_chance_increase > highest_chance_increase)
+                {
+                    highest_chance_increase = current_chance_increase;
+                    out_reason = relationship;
+                }
+                float relationship_requirement_value = requirement->relationship[participant_id - 1][type_index];
+                if (relationship_requirement_value < 0)
+                {
+                    if (relationship->GetValue() > relationship_requirement_value)
+                    {
+                        requirement_failed = true;
+                    }
+                }
+                else if (relationship_requirement_value > 0)
+                {
+                    if (relationship->GetValue() < relationship_requirement_value)
+                    {
+                        requirement_failed = true;
+                    }
+                }
+            }
+
+            for (int type_index = 0; type_index < static_cast<int>(EmotionType::kLast); ++type_index)
+            {
+                float emotional_value = requirement->emotions[participant_id][type_index];
+                if (emotional_value < 0)
+                {
+                    if (participant->emotions_[type_index]->GetValue() > emotional_value)
+                    {
+                        requirement_failed = true;
+                    }
+                }
+                else if (emotional_value > 0)
+                {
+                    if (participant->emotions_[type_index]->GetValue() < emotional_value)
+                    {
+                        requirement_failed = true;
+                    }
+                }
+            }
+            if (requirement_failed)
+            {
+                return 0.0f;
+            }
+            float tendency_parts = static_cast<float>(RelationshipType::kLast);
+            chance += tendency_parts;
+            chance /= (tendency_parts * 2);
+            return chance;
+        }
+        else
+        {
+            if (requirement->HasRelationshipRequirement(participant_id))
+            {
+                return 0.0f;
+            }
+            else
+            {
+                return 0.5f;
+            }
+        }
+        return 0.0f;
+    }
+    float Actor::CalculateInteractionChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason)
+    {
+        // TODO: reasons only track positive chance, they do not track why we did not pick other interactions
         // TODO: reasons also will never include context
         float chance = 0.0f;
         float highest_chance_influence = 0.0f;
@@ -365,7 +372,7 @@ namespace tattletale
         chance /= static_cast<float>(chance_parts * 2);
         return chance;
     }
-    float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index, bool &out_had_positive_effect)
+    float Actor::ApplyGoalChanceModification(float original_chance, size_t interaction_index, Kernel *&out_reason)
     {
         float relevant_effect = 0;
         const auto &effects = interaction_store_.GetRelationshipEffects(interaction_index);
@@ -413,7 +420,14 @@ namespace tattletale
             break;
         }
         relevant_effect = std::clamp(relevant_effect, -1.0f, 1.0f);
-        out_had_positive_effect = relevant_effect > 0;
+        if (relevant_effect > 0)
+        {
+            out_reason = goal_;
+        }
+        else
+        {
+            out_reason = nullptr;
+        }
         // seet https://www.desmos.com/calculator/ojqnu2ni4c
         return pow(original_chance, (1.0f - relevant_effect));
     }

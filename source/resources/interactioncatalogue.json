@@ -350,9 +350,11 @@
                     "happy": -0.25
                 }
             ],
-            "relationships": {
-                "anger": 0.75
-            }
+            "relationships": [
+                {
+                    "anger": 0.75
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -411,9 +413,11 @@
                     "happy": -0.25
                 }
             ],
-            "relationships": {
-                "friendship": 0.25
-            }
+            "relationships": [
+                {
+                    "friendship": 0.25
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -510,9 +514,14 @@
         "requirements": {
             "participant_count": 3,
             "day": 3,
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                },
+                {
+                    "friendship": -0.01
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -574,9 +583,11 @@
                     "brave": 0.3
                 }
             ],
-            "relationships": {
-                "love": 0.25
-            }
+            "relationships": [
+                {
+                    "love": 0.25
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -773,9 +784,11 @@
                     "brave": 0.5
                 }
             ],
-            "relationships": {
-                "protective": -0.5
-            }
+            "relationships": [
+                {
+                    "protective": -0.5
+                }
+            ]
         },
         "tendencies": {
             "wealth": -1.0,
@@ -841,9 +854,11 @@
         "requirements": {
             "participant_count": 2,
             "day": 10,
-            "relationships": {
-                "protective": -0.5
-            }
+            "relationships": [
+                {
+                    "protective": -0.5
+                }
+            ]
         },
         "tendencies": {
             "wealth": -0.5,
@@ -909,10 +924,12 @@
                     "extroverted": 0.1
                 }
             ],
-            "relationships": {
-                "love": -0.01,
-                "attraction": 0.25
-            }
+            "relationships": [
+                {
+                    "love": 0.25,
+                    "attraction": 0.25
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -968,10 +985,12 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
-            "relationships": {
-                "love": 0.5,
-                "attraction": 0.1
-            }
+            "relationships": [
+                {
+                    "love": 0.5,
+                    "attraction": 0.1
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1038,10 +1057,12 @@
                     "extroverted": 0.5
                 }
             ],
-            "relationships": {
-                "love": -0.5,
-                "attraction": 0.5
-            }
+            "relationships": [
+                {
+                    "love": -0.5,
+                    "attraction": 0.5
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -1107,10 +1128,12 @@
                     "extroverted": 0.5
                 }
             ],
-            "relationships": {
-                "love": 0.5,
-                "attraction": 0.25
-            }
+            "relationships": [
+                {
+                    "love": 0.5,
+                    "attraction": 0.25
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -1179,10 +1202,12 @@
                     "extroverted": 0.5
                 }
             ],
-            "relationships": {
-                "love": 0.5,
-                "attraction": 0.25
-            }
+            "relationships": [
+                {
+                    "love": 0.5,
+                    "attraction": 0.25
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -1253,9 +1278,11 @@
                     "brave": 0.3
                 }
             ],
-            "relationships": {
-                "anger": 0.3
-            }
+            "relationships": [
+                {
+                    "anger": 0.3
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1325,9 +1352,11 @@
                     "brave": 0.3
                 }
             ],
-            "relationships": {
-                "anger": 0.3
-            }
+            "relationships": [
+                {
+                    "anger": 0.3
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1476,9 +1505,11 @@
                     "extroverted": 0.5
                 }
             ],
-            "relationships": {
-                "friendship": 0.25
-            }
+            "relationships": [
+                {
+                    "friendship": 0.25
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -1643,9 +1674,11 @@
         },
         "requirements": {
             "participant_count": 2,
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1706,9 +1739,11 @@
         },
         "requirements": {
             "participant_count": 2,
-            "relationships": {
-                "anger": 0.01
-            }
+            "relationships": [
+                {
+                    "anger": 0.01
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1772,9 +1807,11 @@
                     "happy": 0.01
                 }
             ],
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1880,10 +1917,12 @@
                     "brave": 0.5
                 }
             ],
-            "relationships": {
-                "friendship": 0.01,
-                "protective": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01,
+                    "protective": 0.01
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -1949,10 +1988,12 @@
                     "brave": 0.1
                 }
             ],
-            "relationships": {
-                "anger": 0.1,
-                "protective": -0.1
-            }
+            "relationships": [
+                {
+                    "anger": 0.1,
+                    "protective": -0.1
+                }
+            ]
         },
         "tendencies": {
             "emotions": {
@@ -2008,9 +2049,11 @@
         },
         "requirements": {
             "participant_count": 2,
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "relationships": [
@@ -2180,9 +2223,11 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
-            "relationships": {
-                "love": 0.01
-            }
+            "relationships": [
+                {
+                    "love": 0.01
+                }
+            ]
         },
         "tendencies": {
             "wealth": 1.0,
@@ -2247,9 +2292,11 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "wealth": 1.0,
@@ -2315,9 +2362,11 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
-            "relationships": {
-                "love": 0.01
-            }
+            "relationships": [
+                {
+                    "love": 0.01
+                }
+            ]
         },
         "tendencies": {
             "wealth": 1.0,
@@ -2383,9 +2432,11 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "wealth": 1.0,
@@ -2484,9 +2535,11 @@
                     "brave": 0.5
                 }
             ],
-            "relationships": {
-                "friendship": 0.01
-            }
+            "relationships": [
+                {
+                    "friendship": 0.01
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -2577,9 +2630,11 @@
                     "brave": 0.01
                 }
             ],
-            "relationships": {
-                "friendship": 0.2
-            }
+            "relationships": [
+                {
+                    "friendship": 0.2
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -3464,9 +3519,11 @@
                     "satisfied": -0.4
                 }
             ],
-            "relationships": {
-                "attraction": 0.7
-            }
+            "relationships": [
+                {
+                    "attraction": 0.7
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -3543,9 +3600,11 @@
                     "satisfied": -0.4
                 }
             ],
-            "relationships": {
-                "attraction": 0.7
-            }
+            "relationships": [
+                {
+                    "attraction": 0.7
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -3620,9 +3679,11 @@
                     "extroverted": 0.01
                 }
             ],
-            "relationships": {
-                "attraction": 0.1
-            }
+            "relationships": [
+                {
+                    "attraction": 0.1
+                }
+            ]
         },
         "tendencies": {
             "contexts": {
@@ -3697,9 +3758,11 @@
                     "extroverted": 0.01
                 }
             ],
-            "relationships": {
-                "attraction": 0.1
-            }
+            "relationships": [
+                {
+                    "attraction": 0.1
+                }
+            ]
         },
         "tendencies": {
             "contexts": {

@@ -213,6 +213,10 @@ namespace tattletale
         size_t tick_cutoff = chronicle_.GetLastTick();
         tick_cutoff = tick_cutoff > depth ? tick_cutoff - base_interaction_tick_distance_to_end : tick_cutoff;
         auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff);
+        if (!base_interaction)
+        {
+            return "Rarity Curation failed. No Interactions were created.";
+        }
         auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner()->id_);
         auto blocking_resource = FindBlockingResource(base_interaction);
 
