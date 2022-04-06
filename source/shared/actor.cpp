@@ -75,6 +75,7 @@ namespace tattletale
 
     int Actor::ChooseInteraction(const std::list<Actor *> &actor_group, ContextType context, std::vector<Kernel *> &out_reasons, std::vector<Actor *> &out_participants, float &out_chance)
     {
+        // Finding possible Interactions
         const std::vector<std::shared_ptr<InteractionRequirement>> &requirements = interaction_store_.GetRequirementCatalogue();
         std::vector<size_t> possible_interaction_indices;
         for (size_t i = 0; i < requirements.size(); ++i)
@@ -89,11 +90,12 @@ namespace tattletale
             return -1;
         }
 
+        // Calculating chances for each Interaction
         const std::vector<std::shared_ptr<InteractionTendency>> &tendencies = interaction_store_.GetTendencyCatalogue();
         std::vector<float> chances;
-        chances.reserve(possible_interaction_indices.size());
         std::vector<Kernel *> tendency_reasons;
         std::vector<Kernel *> goal_reasons;
+        chances.reserve(possible_interaction_indices.size());
         tendency_reasons.reserve(possible_interaction_indices.size());
         goal_reasons.reserve(possible_interaction_indices.size());
         uint32_t zero_count = 0;
@@ -104,15 +106,16 @@ namespace tattletale
             float chance = CalculateInteractionChance(*tendency, context, tendency_reason);
             Kernel *goal_reason = nullptr;
             float modified_chance = ApplyGoalChanceModification(chance, i, goal_reason);
-            goal_reasons.push_back(goal_reason);
             if (modified_chance == 0.0f)
             {
                 ++zero_count;
             }
             chances.push_back(modified_chance);
             tendency_reasons.push_back(tendency_reason);
+            goal_reasons.push_back(goal_reason);
         }
 
+        // Picking Interaction
         size_t index = random_.PickIndex(chances, (zero_count == chances.size()));
         if (tendency_reasons[index])
         {
@@ -164,7 +167,6 @@ namespace tattletale
             }
             size_t participant_index = random_.PickIndex(participant_chances);
             auto chosen_actor = std::next(actor_group.begin(), participant_index);
-            size_t tries = 0;
             out_participants.push_back((*chosen_actor));
             if (participant_reasons[participant_index])
             {
