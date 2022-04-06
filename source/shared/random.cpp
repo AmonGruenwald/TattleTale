@@ -1,4 +1,5 @@
 #include "shared/random.hpp"
+#include <algorithm>
 namespace tattletale
 {
     Random::Random()
