@@ -104,6 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2ecf062b2661306e44e6a0466d96cf6f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_random.html#a2ecf062b2661306e44e6a0466d96cf6f">PickIndex</a> (const std::vector&lt; float &gt; &amp;probability_distribution, bool support_all_zeroes=false)</td></tr>
 <tr class="memdesc:a2ecf062b2661306e44e6a0466d96cf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for a random index according to a probability distribution.  <a href="classtattletale_1_1_random.html#a2ecf062b2661306e44e6a0466d96cf6f">More...</a><br /></td></tr>
 <tr class="separator:a2ecf062b2661306e44e6a0466d96cf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ff69c205c8f7fbf9ca14abef21567f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_random.html#ac3ff69c205c8f7fbf9ca14abef21567f">Shuffle</a> (std::vector&lt; uint32_t &gt; &amp;out_vector)</td></tr>
+<tr class="memdesc:ac3ff69c205c8f7fbf9ca14abef21567f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffles the elements of the passed vector.  <a href="classtattletale_1_1_random.html#ac3ff69c205c8f7fbf9ca14abef21567f">More...</a><br /></td></tr>
+<tr class="separator:ac3ff69c205c8f7fbf9ca14abef21567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -314,6 +317,32 @@ std::mt19937&#160;</td><td class="memItemRight" valign="bottom"><b>rng_</b></td>
 <p >This brings the object in the same state it would have been in if it was constructed using the passed seed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">seed</td><td>The seed that is to be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3ff69c205c8f7fbf9ca14abef21567f" name="ac3ff69c205c8f7fbf9ca14abef21567f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ff69c205c8f7fbf9ca14abef21567f">&#9670;&nbsp;</a></span>Shuffle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tattletale::Random::Shuffle </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>out_vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shuffles the elements of the passed vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">out_vector</td><td>The vector that is to be shuffled </td></tr>
   </table>
   </dd>
 </dl>

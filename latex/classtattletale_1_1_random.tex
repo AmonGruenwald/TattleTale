@@ -26,7 +26,9 @@ uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b
 float \mbox{\hyperlink{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}{Get\+Float}} (float min, float max)
 \begin{DoxyCompactList}\small\item\em Getter for a random float. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}{Pick\+Index}} (const std\+::vector$<$ float $>$ \&probability\+\_\+distribution, bool support\+\_\+all\+\_\+zeroes=false)
-\begin{DoxyCompactList}\small\item\em Getter for a random index according to a probability distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter for a random index according to a probability distribution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}{Shuffle}} (std\+::vector$<$ uint32\+\_\+t $>$ \&out\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Shuffles the elements of the passed vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -150,6 +152,21 @@ Function to reseed the object.
 This brings the object in the same state it would have been in if it was constructed using the passed seed. 
 \begin{DoxyParams}{Parameters}
 {\em seed} & The seed that is to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}\label{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}} 
+\index{tattletale::Random@{tattletale::Random}!Shuffle@{Shuffle}}
+\index{Shuffle@{Shuffle}!tattletale::Random@{tattletale::Random}}
+\doxysubsubsection{\texorpdfstring{Shuffle()}{Shuffle()}}
+{\footnotesize\ttfamily void tattletale\+::\+Random\+::\+Shuffle (\begin{DoxyParamCaption}\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{out\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Shuffles the elements of the passed vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out\+\_\+vector} & The vector that is to be shuffled \\
 \hline
 \end{DoxyParams}
 

@@ -30,12 +30,14 @@ int \mbox{\hyperlink{classtattletale_1_1_actor_a71ab91c59f844f0a5d427cf0544b6ee7
 \begin{DoxyCompactList}\small\item\em Let\textquotesingle{}s the actor decide on an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} for the currrent situation depending on their internal state. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_actor_a676a759894d2398f3942295993647300}{Slot\+Empty}} (size\+\_\+t slot) const
 \begin{DoxyCompactList}\small\item\em Checks wether the passed slot is still unused for the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classtattletale_1_1_actor_a8abfeaf5b18d85dc91e2dddba0cdad69}{Calculate\+Tendency\+Chance}} (const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&tendency, const \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \&context, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&out\+\_\+reason)
+float \mbox{\hyperlink{classtattletale_1_1_actor_ad64334704720d89a2e7133d23170861b}{Calculate\+Interaction\+Chance}} (const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&tendency, const \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \&context, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&out\+\_\+reason)
 \begin{DoxyCompactList}\small\item\em Calculates the chance of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} based on its \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} and the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} current state. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classtattletale_1_1_actor_adde66da1735ebd4c6d7a9efd84fa5d60}{Apply\+Goal\+Chance\+Modification}} (float original\+\_\+chance, size\+\_\+t interaction\+\_\+index, bool \&out\+\_\+had\+\_\+positive\+\_\+effect)
+float \mbox{\hyperlink{classtattletale_1_1_actor_a3f4d83a615b0e5358a31448ce210c59b}{Apply\+Goal\+Chance\+Modification}} (float original\+\_\+chance, size\+\_\+t interaction\+\_\+index, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&out\+\_\+reason)
 \begin{DoxyCompactList}\small\item\em Modifies the chance for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} based on the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_actor_a567707b5050ea0fbb4ab304ce277fee9}{Check\+Requirements}} (const \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} \&requirement, const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \&actor\+\_\+group, \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} context) const
 \begin{DoxyCompactList}\small\item\em Checks wether the requirements of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} are met based on the passed \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} and the state of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classtattletale_1_1_actor_a8da042f27f7f3a913e6f63ac893bc1c9}{Calculate\+Participant\+Chance}} (const \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$participant, size\+\_\+t participant\+\_\+id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ \&requirement, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ \&tendency, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&out\+\_\+reason)
+\begin{DoxyCompactList}\small\item\em Calculates the chance an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} to be picked for a participant slot. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_actor_ad66db9c2438bc09c5312707b1a991480}{Apply\+Wealth\+Change}} (const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ \&reasons, size\+\_\+t tick, float value)
 \begin{DoxyCompactList}\small\item\em Applies a change to the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textquotesingle{}s }} wealth. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_actor_a8834e4e3e38b7c152eb1b0213025d9c5}{Apply\+Emotion\+Change}} (const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ \&reasons, size\+\_\+t tick, int type\+\_\+index, float value)
@@ -194,11 +196,11 @@ Applies a change to the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textqu
 {\em value} & By how much the \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_actor_adde66da1735ebd4c6d7a9efd84fa5d60}\label{classtattletale_1_1_actor_adde66da1735ebd4c6d7a9efd84fa5d60}} 
+\mbox{\Hypertarget{classtattletale_1_1_actor_a3f4d83a615b0e5358a31448ce210c59b}\label{classtattletale_1_1_actor_a3f4d83a615b0e5358a31448ce210c59b}} 
 \index{tattletale::Actor@{tattletale::Actor}!ApplyGoalChanceModification@{ApplyGoalChanceModification}}
 \index{ApplyGoalChanceModification@{ApplyGoalChanceModification}!tattletale::Actor@{tattletale::Actor}}
 \doxysubsubsection{\texorpdfstring{ApplyGoalChanceModification()}{ApplyGoalChanceModification()}}
-{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Apply\+Goal\+Chance\+Modification (\begin{DoxyParamCaption}\item[{float}]{original\+\_\+chance,  }\item[{size\+\_\+t}]{interaction\+\_\+index,  }\item[{bool \&}]{out\+\_\+had\+\_\+positive\+\_\+effect }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Apply\+Goal\+Chance\+Modification (\begin{DoxyParamCaption}\item[{float}]{original\+\_\+chance,  }\item[{size\+\_\+t}]{interaction\+\_\+index,  }\item[{\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&}]{out\+\_\+reason }\end{DoxyParamCaption})}
 
 
 
@@ -210,7 +212,7 @@ Modifies the chance for an \mbox{\hyperlink{classtattletale_1_1_interaction}{Int
 \hline
 {\em interaction\+\_\+index} & The index of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} in the \mbox{\hyperlink{classtattletale_1_1_interaction_store}{Interaction\+Store}}. \\
 \hline
-{\em out\+\_\+had\+\_\+positive\+\_\+effect} & Flag wether the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} had a positive influence on the chance. \\
+{\em out\+\_\+reason} & If the goal had an effect, this will hold the \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} otherwise it will be a nullptr. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -256,29 +258,11 @@ Applies a change to the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor\textqu
 {\em value} & By how much the wealth gets changed. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_actor_aab42efde5b95834abcf8c3488f04ca61}\label{classtattletale_1_1_actor_aab42efde5b95834abcf8c3488f04ca61}} 
-\index{tattletale::Actor@{tattletale::Actor}!CalculateRelationshipStrength@{CalculateRelationshipStrength}}
-\index{CalculateRelationshipStrength@{CalculateRelationshipStrength}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{CalculateRelationshipStrength()}{CalculateRelationshipStrength()}}
-{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Calculate\+Relationship\+Strength (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor\+\_\+id }\end{DoxyParamCaption}) const}
-
-
-
-Caluclate the strength of the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} for the passed \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em actor\+\_\+id} & The id of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} we want to determine the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} strength for. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} strength. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_actor_a8abfeaf5b18d85dc91e2dddba0cdad69}\label{classtattletale_1_1_actor_a8abfeaf5b18d85dc91e2dddba0cdad69}} 
-\index{tattletale::Actor@{tattletale::Actor}!CalculateTendencyChance@{CalculateTendencyChance}}
-\index{CalculateTendencyChance@{CalculateTendencyChance}!tattletale::Actor@{tattletale::Actor}}
-\doxysubsubsection{\texorpdfstring{CalculateTendencyChance()}{CalculateTendencyChance()}}
-{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Calculate\+Tendency\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \&}]{context,  }\item[{\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&}]{out\+\_\+reason }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classtattletale_1_1_actor_ad64334704720d89a2e7133d23170861b}\label{classtattletale_1_1_actor_ad64334704720d89a2e7133d23170861b}} 
+\index{tattletale::Actor@{tattletale::Actor}!CalculateInteractionChance@{CalculateInteractionChance}}
+\index{CalculateInteractionChance@{CalculateInteractionChance}!tattletale::Actor@{tattletale::Actor}}
+\doxysubsubsection{\texorpdfstring{CalculateInteractionChance()}{CalculateInteractionChance()}}
+{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Calculate\+Interaction\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} \&}]{tendency,  }\item[{const \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{Context\+Type}} \&}]{context,  }\item[{\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&}]{out\+\_\+reason }\end{DoxyParamCaption})}
 
 
 
@@ -299,6 +283,50 @@ Every value used is based between -\/1.\+0 and 1.\+0 except the return value whi
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A chance value between 0.\+0 and 1.\+0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_actor_a8da042f27f7f3a913e6f63ac893bc1c9}\label{classtattletale_1_1_actor_a8da042f27f7f3a913e6f63ac893bc1c9}} 
+\index{tattletale::Actor@{tattletale::Actor}!CalculateParticipantChance@{CalculateParticipantChance}}
+\index{CalculateParticipantChance@{CalculateParticipantChance}!tattletale::Actor@{tattletale::Actor}}
+\doxysubsubsection{\texorpdfstring{CalculateParticipantChance()}{CalculateParticipantChance()}}
+{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Calculate\+Participant\+Chance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{participant,  }\item[{size\+\_\+t}]{participant\+\_\+id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ \&}]{requirement,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ \&}]{tendency,  }\item[{\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$\&}]{out\+\_\+reason }\end{DoxyParamCaption})}
+
+
+
+Calculates the chance an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} to be picked for a participant slot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em participant} & The participant for which we want to calculate the chance. \\
+\hline
+{\em participant\+\_\+id} & The participant id for the slot we are currently picking for. \\
+\hline
+{\em requirement} & The relevant \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} for this picking process. \\
+\hline
+{\em tendency} & The relevant \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} for this picking process. \\
+\hline
+{\em out\+\_\+reason} & The potential \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} that led to the calculated chance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The chance of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} being picked. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_actor_aab42efde5b95834abcf8c3488f04ca61}\label{classtattletale_1_1_actor_aab42efde5b95834abcf8c3488f04ca61}} 
+\index{tattletale::Actor@{tattletale::Actor}!CalculateRelationshipStrength@{CalculateRelationshipStrength}}
+\index{CalculateRelationshipStrength@{CalculateRelationshipStrength}!tattletale::Actor@{tattletale::Actor}}
+\doxysubsubsection{\texorpdfstring{CalculateRelationshipStrength()}{CalculateRelationshipStrength()}}
+{\footnotesize\ttfamily float tattletale\+::\+Actor\+::\+Calculate\+Relationship\+Strength (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{actor\+\_\+id }\end{DoxyParamCaption}) const}
+
+
+
+Caluclate the strength of the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} for the passed \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor\+\_\+id} & The id of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} we want to determine the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} strength for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} strength. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_actor_a567707b5050ea0fbb4ab304ce277fee9}\label{classtattletale_1_1_actor_a567707b5050ea0fbb4ab304ce277fee9}} 
 \index{tattletale::Actor@{tattletale::Actor}!CheckRequirements@{CheckRequirements}}

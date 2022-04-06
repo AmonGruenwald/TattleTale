@@ -86,12 +86,12 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearValues</b> ()</td></tr>
 <tr class="memdesc:a9c065d59864dfbfdeb0e8d1770994326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all values back to their default state. <br /></td></tr>
 <tr class="separator:a9c065d59864dfbfdeb0e8d1770994326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#ad73c28d9ac9c8daa0e9248bca8c1eef2">HasEmotionalRequirement</a> () const</td></tr>
-<tr class="memdesc:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#ad73c28d9ac9c8daa0e9248bca8c1eef2">More...</a><br /></td></tr>
-<tr class="separator:ad73c28d9ac9c8daa0e9248bca8c1eef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad35e968a6ac2c8d447f026524e52b807"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#ad35e968a6ac2c8d447f026524e52b807">HasRelationshipRequirement</a> () const</td></tr>
-<tr class="memdesc:ad35e968a6ac2c8d447f026524e52b807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#ad35e968a6ac2c8d447f026524e52b807">More...</a><br /></td></tr>
-<tr class="separator:ad35e968a6ac2c8d447f026524e52b807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1d99caa6da4bff3f85f06c1d3e65ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#a7e1d99caa6da4bff3f85f06c1d3e65ba">HasEmotionalRequirement</a> (size_t participant_index) const</td></tr>
+<tr class="memdesc:a7e1d99caa6da4bff3f85f06c1d3e65ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_emotion.html">Emotional </a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#a7e1d99caa6da4bff3f85f06c1d3e65ba">More...</a><br /></td></tr>
+<tr class="separator:a7e1d99caa6da4bff3f85f06c1d3e65ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5ebf30f6a0432efb5d87ab438534cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtattletale_1_1_interaction_requirement.html#a6d5ebf30f6a0432efb5d87ab438534cc">HasRelationshipRequirement</a> (size_t participant_index) const</td></tr>
+<tr class="memdesc:a6d5ebf30f6a0432efb5d87ab438534cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether an <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> requirement exists.  <a href="structtattletale_1_1_interaction_requirement.html#a6d5ebf30f6a0432efb5d87ab438534cc">More...</a><br /></td></tr>
+<tr class="separator:a6d5ebf30f6a0432efb5d87ab438534cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -111,20 +111,20 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>participant_count</
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> = 0</td></tr>
 <tr class="memdesc:a0f68c142a888c71931cc7550960adfd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">After which day the interaction can first happen. <br /></td></tr>
 <tr class="separator:a0f68c142a888c71931cc7550960adfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05609b114b30fd71a2d234cb8051b8f6"><td class="memItemLeft" align="right" valign="top"><a id="a05609b114b30fd71a2d234cb8051b8f6" name="a05609b114b30fd71a2d234cb8051b8f6"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(EmotionType::kLast), 0.0f)</td></tr>
-<tr class="memdesc:a05609b114b30fd71a2d234cb8051b8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">What emotions the active <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has to have for the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. <br /></td></tr>
-<tr class="separator:a05609b114b30fd71a2d234cb8051b8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="memItemLeft" align="right" valign="top"><a id="aabc272991d9c6bbc0d5ad51c1bb1ff21" name="aabc272991d9c6bbc0d5ad51c1bb1ff21"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationship</b> = std::vector&lt;float&gt;(static_cast&lt;int&gt;(RelationshipType::kLast), 0.0f)</td></tr>
-<tr class="memdesc:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="mdescLeft">&#160;</td><td class="mdescRight">What relationship the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has to have for the participants he chooses. <br /></td></tr>
-<tr class="separator:aabc272991d9c6bbc0d5ad51c1bb1ff21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7db013148c03e4197a8192cb6d54fd6"><td class="memItemLeft" align="right" valign="top"><a id="ae7db013148c03e4197a8192cb6d54fd6" name="ae7db013148c03e4197a8192cb6d54fd6"></a>
+std::vector&lt; std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>emotions</b></td></tr>
+<tr class="memdesc:ae7db013148c03e4197a8192cb6d54fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">What emotions the participating Actors have to have for the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. <br /></td></tr>
+<tr class="separator:ae7db013148c03e4197a8192cb6d54fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ae03df85ba8bdab26c6dab30a5b302"><td class="memItemLeft" align="right" valign="top"><a id="af7ae03df85ba8bdab26c6dab30a5b302" name="af7ae03df85ba8bdab26c6dab30a5b302"></a>
+std::vector&lt; std::vector&lt; float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>relationship</b></td></tr>
+<tr class="memdesc:af7ae03df85ba8bdab26c6dab30a5b302"><td class="mdescLeft">&#160;</td><td class="mdescRight">What relationship the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> has to have with the participants he chooses. <br /></td></tr>
+<tr class="separator:af7ae03df85ba8bdab26c6dab30a5b302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Stores all necessary requirements for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> to happen. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad73c28d9ac9c8daa0e9248bca8c1eef2" name="ad73c28d9ac9c8daa0e9248bca8c1eef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad73c28d9ac9c8daa0e9248bca8c1eef2">&#9670;&nbsp;</a></span>HasEmotionalRequirement()</h2>
+<a id="a7e1d99caa6da4bff3f85f06c1d3e65ba" name="a7e1d99caa6da4bff3f85f06c1d3e65ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1d99caa6da4bff3f85f06c1d3e65ba">&#9670;&nbsp;</a></span>HasEmotionalRequirement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,7 +135,8 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         <tr>
           <td class="memname">bool tattletale::InteractionRequirement::HasEmotionalRequirement </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_index</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -151,8 +152,8 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a id="ad35e968a6ac2c8d447f026524e52b807" name="ad35e968a6ac2c8d447f026524e52b807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad35e968a6ac2c8d447f026524e52b807">&#9670;&nbsp;</a></span>HasRelationshipRequirement()</h2>
+<a id="a6d5ebf30f6a0432efb5d87ab438534cc" name="a6d5ebf30f6a0432efb5d87ab438534cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d5ebf30f6a0432efb5d87ab438534cc">&#9670;&nbsp;</a></span>HasRelationshipRequirement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +164,8 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         <tr>
           <td class="memname">bool tattletale::InteractionRequirement::HasRelationshipRequirement </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_index</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>

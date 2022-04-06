@@ -20,6 +20,8 @@ bool \mbox{\hyperlink{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32
 \begin{DoxyCompactList}\small\item\em Checks wether there is still space left in a slot. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}{All\+Slots\+Filled}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the course has all slots completely filled. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}{All\+Slots\+Not\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the course has at least one \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} in every slot. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}{Get\+Random\+Empty\+Slot}} () const
 \begin{DoxyCompactList}\small\item\em Looks for a random empty slot. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{Add\+To\+Slot}} (std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ actors, size\+\_\+t slot)
@@ -130,6 +132,19 @@ This can crash if slot is not empty.
 
 
 Checks if the course has all slots completely filled. 
+
+\begin{DoxyReturn}{Returns}
+The result of the check. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}\label{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}} 
+\index{tattletale::Course@{tattletale::Course}!AllSlotsNotEmpty@{AllSlotsNotEmpty}}
+\index{AllSlotsNotEmpty@{AllSlotsNotEmpty}!tattletale::Course@{tattletale::Course}}
+\doxysubsubsection{\texorpdfstring{AllSlotsNotEmpty()}{AllSlotsNotEmpty()}}
+{\footnotesize\ttfamily bool tattletale\+::\+Course\+::\+All\+Slots\+Not\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the course has at least one \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} in every slot. 
 
 \begin{DoxyReturn}{Returns}
 The result of the check. 

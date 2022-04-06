@@ -112,15 +112,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a676a759894d2398f3942295993647300"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300">SlotEmpty</a> (size_t slot) const</td></tr>
 <tr class="memdesc:a676a759894d2398f3942295993647300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether the passed slot is still unused for the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtattletale_1_1_actor.html#a676a759894d2398f3942295993647300">More...</a><br /></td></tr>
 <tr class="separator:a676a759894d2398f3942295993647300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a8abfeaf5b18d85dc91e2dddba0cdad69">CalculateTendencyChance</a> (const <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &amp;tendency, const <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> &amp;context, <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;out_reason)</td></tr>
-<tr class="memdesc:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> and the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current state.  <a href="classtattletale_1_1_actor.html#a8abfeaf5b18d85dc91e2dddba0cdad69">More...</a><br /></td></tr>
-<tr class="separator:a8abfeaf5b18d85dc91e2dddba0cdad69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde66da1735ebd4c6d7a9efd84fa5d60"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#adde66da1735ebd4c6d7a9efd84fa5d60">ApplyGoalChanceModification</a> (float original_chance, size_t interaction_index, bool &amp;out_had_positive_effect)</td></tr>
-<tr class="memdesc:adde66da1735ebd4c6d7a9efd84fa5d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifies the chance for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on the <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtattletale_1_1_actor.html#adde66da1735ebd4c6d7a9efd84fa5d60">More...</a><br /></td></tr>
-<tr class="separator:adde66da1735ebd4c6d7a9efd84fa5d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad64334704720d89a2e7133d23170861b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#ad64334704720d89a2e7133d23170861b">CalculateInteractionChance</a> (const <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &amp;tendency, const <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> &amp;context, <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;out_reason)</td></tr>
+<tr class="memdesc:ad64334704720d89a2e7133d23170861b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance of an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on its <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> and the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> current state.  <a href="classtattletale_1_1_actor.html#ad64334704720d89a2e7133d23170861b">More...</a><br /></td></tr>
+<tr class="separator:ad64334704720d89a2e7133d23170861b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f4d83a615b0e5358a31448ce210c59b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a3f4d83a615b0e5358a31448ce210c59b">ApplyGoalChanceModification</a> (float original_chance, size_t interaction_index, <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;out_reason)</td></tr>
+<tr class="memdesc:a3f4d83a615b0e5358a31448ce210c59b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifies the chance for an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> based on the <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtattletale_1_1_actor.html#a3f4d83a615b0e5358a31448ce210c59b">More...</a><br /></td></tr>
+<tr class="separator:a3f4d83a615b0e5358a31448ce210c59b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567707b5050ea0fbb4ab304ce277fee9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a567707b5050ea0fbb4ab304ce277fee9">CheckRequirements</a> (const <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &amp;requirement, const std::list&lt; <a class="el" href="classtattletale_1_1_actor.html">Actor</a> * &gt; &amp;actor_group, <a class="el" href="namespacetattletale.html#ae0b6a742e9c23a4108e87ba46b041428">ContextType</a> context) const</td></tr>
 <tr class="memdesc:a567707b5050ea0fbb4ab304ce277fee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks wether the requirements of an <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> are met based on the passed <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> and the state of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>.  <a href="classtattletale_1_1_actor.html#a567707b5050ea0fbb4ab304ce277fee9">More...</a><br /></td></tr>
 <tr class="separator:a567707b5050ea0fbb4ab304ce277fee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da042f27f7f3a913e6f63ac893bc1c9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#a8da042f27f7f3a913e6f63ac893bc1c9">CalculateParticipantChance</a> (const <a class="el" href="classtattletale_1_1_actor.html">Actor</a> *participant, size_t participant_id, const std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &gt; &amp;requirement, const std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &gt; &amp;tendency, <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;out_reason)</td></tr>
+<tr class="memdesc:a8da042f27f7f3a913e6f63ac893bc1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the chance an <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> to be picked for a participant slot.  <a href="classtattletale_1_1_actor.html#a8da042f27f7f3a913e6f63ac893bc1c9">More...</a><br /></td></tr>
+<tr class="separator:a8da042f27f7f3a913e6f63ac893bc1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad66db9c2438bc09c5312707b1a991480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_actor.html#ad66db9c2438bc09c5312707b1a991480">ApplyWealthChange</a> (const std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; &amp;reasons, size_t tick, float value)</td></tr>
 <tr class="memdesc:ad66db9c2438bc09c5312707b1a991480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a change to the <a class="el" href="classtattletale_1_1_actor.html">Actor's </a> wealth.  <a href="classtattletale_1_1_actor.html#ad66db9c2438bc09c5312707b1a991480">More...</a><br /></td></tr>
 <tr class="separator:ad66db9c2438bc09c5312707b1a991480"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -382,8 +385,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Chronicle</b></td></
 
 </div>
 </div>
-<a id="adde66da1735ebd4c6d7a9efd84fa5d60" name="adde66da1735ebd4c6d7a9efd84fa5d60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adde66da1735ebd4c6d7a9efd84fa5d60">&#9670;&nbsp;</a></span>ApplyGoalChanceModification()</h2>
+<a id="a3f4d83a615b0e5358a31448ce210c59b" name="a3f4d83a615b0e5358a31448ce210c59b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f4d83a615b0e5358a31448ce210c59b">&#9670;&nbsp;</a></span>ApplyGoalChanceModification()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,8 +406,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Chronicle</b></td></
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool &amp;&#160;</td>
-          <td class="paramname"><em>out_had_positive_effect</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;&#160;</td>
+          <td class="paramname"><em>out_reason</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -419,7 +422,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Chronicle</b></td></
   <table class="params">
     <tr><td class="paramname">original_chance</td><td>The chance of the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> before this modification. </td></tr>
     <tr><td class="paramname">interaction_index</td><td>The index of the <a class="el" href="classtattletale_1_1_interaction.html" title="Represents an Interaction an Actor had with other Actors .">Interaction</a> in the <a class="el" href="classtattletale_1_1_interaction_store.html" title="Stores Prototypes for all possible interactions.">InteractionStore</a>. </td></tr>
-    <tr><td class="paramname">out_had_positive_effect</td><td>Flag wether the <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> had a positive influence on the chance. </td></tr>
+    <tr><td class="paramname">out_reason</td><td>If the goal had an effect, this will hold the <a class="el" href="classtattletale_1_1_goal.html" title="Represents the Goal an Actor strives to fulfill.">Goal</a> <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal.">Kernel</a> otherwise it will be a nullptr. </td></tr>
   </table>
   </dd>
 </dl>
@@ -522,41 +525,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Chronicle</b></td></
 
 </div>
 </div>
-<a id="aab42efde5b95834abcf8c3488f04ca61" name="aab42efde5b95834abcf8c3488f04ca61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab42efde5b95834abcf8c3488f04ca61">&#9670;&nbsp;</a></span>CalculateRelationshipStrength()</h2>
+<a id="ad64334704720d89a2e7133d23170861b" name="ad64334704720d89a2e7133d23170861b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad64334704720d89a2e7133d23170861b">&#9670;&nbsp;</a></span>CalculateInteractionChance()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float tattletale::Actor::CalculateRelationshipStrength </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>actor_id</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Caluclate the strength of the <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> for the passed <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">actor_id</td><td>The id of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> we want to determine the <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> strength for. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> strength. </dd></dl>
-
-</div>
-</div>
-<a id="a8abfeaf5b18d85dc91e2dddba0cdad69" name="a8abfeaf5b18d85dc91e2dddba0cdad69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8abfeaf5b18d85dc91e2dddba0cdad69">&#9670;&nbsp;</a></span>CalculateTendencyChance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float tattletale::Actor::CalculateTendencyChance </td>
+          <td class="memname">float tattletale::Actor::CalculateInteractionChance </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &amp;&#160;</td>
           <td class="paramname"><em>tendency</em>, </td>
@@ -593,6 +569,92 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Chronicle</b></td></
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A chance value between 0.0 and 1.0. </dd></dl>
+
+</div>
+</div>
+<a id="a8da042f27f7f3a913e6f63ac893bc1c9" name="a8da042f27f7f3a913e6f63ac893bc1c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da042f27f7f3a913e6f63ac893bc1c9">&#9670;&nbsp;</a></span>CalculateParticipantChance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float tattletale::Actor::CalculateParticipantChance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtattletale_1_1_actor.html">Actor</a> *&#160;</td>
+          <td class="paramname"><em>participant</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>participant_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_requirement.html">InteractionRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>requirement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="structtattletale_1_1_interaction_tendency.html">InteractionTendency</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tendency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> *&amp;&#160;</td>
+          <td class="paramname"><em>out_reason</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the chance an <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> to be picked for a participant slot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">participant</td><td>The participant for which we want to calculate the chance. </td></tr>
+    <tr><td class="paramname">participant_id</td><td>The participant id for the slot we are currently picking for. </td></tr>
+    <tr><td class="paramname">requirement</td><td>The relevant <a class="el" href="structtattletale_1_1_interaction_requirement.html" title="Stores all necessary requirements for an Interaction to happen.">InteractionRequirement</a> for this picking process. </td></tr>
+    <tr><td class="paramname">tendency</td><td>The relevant <a class="el" href="structtattletale_1_1_interaction_tendency.html" title="Stores how the state of Actors  influence how likely an Interaction is to happen.">InteractionTendency</a> for this picking process. </td></tr>
+    <tr><td class="paramname">out_reason</td><td>The potential <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal.">Kernel</a> that led to the calculated chance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The chance of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> being picked. </dd></dl>
+
+</div>
+</div>
+<a id="aab42efde5b95834abcf8c3488f04ca61" name="aab42efde5b95834abcf8c3488f04ca61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab42efde5b95834abcf8c3488f04ca61">&#9670;&nbsp;</a></span>CalculateRelationshipStrength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float tattletale::Actor::CalculateRelationshipStrength </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>actor_id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caluclate the strength of the <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> for the passed <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actor_id</td><td>The id of the <a class="el" href="classtattletale_1_1_actor.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Actor</a> we want to determine the <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> strength for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classtattletale_1_1_relationship.html" title="Represents a Relationship an Actor has with another Actor.">Relationship</a> strength. </dd></dl>
 
 </div>
 </div>
