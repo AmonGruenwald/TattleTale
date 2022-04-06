@@ -62,6 +62,13 @@ namespace tattletale
          */
         bool AllSlotsFilled() const;
         /**
+         * @brief Checks if the course has at least one Actor in every slot.
+         *
+         *
+         * @return The result of the check.
+         */
+        bool AllSlotsNotEmpty() const;
+        /**
          * @brief Looks for a random empty slot.
          *
          * This can crash if there is no empty slot.
