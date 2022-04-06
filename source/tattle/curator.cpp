@@ -313,7 +313,7 @@ namespace tattletale
                 }
             }
             description += fmt::format("\nAnd after all that this unlikely chain of events ended when *{}*", *connection.back());
-            // TODO: Add reasn for last inteaction
+            // TODO: Add reason for last inteaction
             // TODO: deal with relationships
         }
         return description;
