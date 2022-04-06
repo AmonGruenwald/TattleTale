@@ -37,7 +37,6 @@ namespace tattletale
     }
     void Actor::EnrollInCourse(size_t course_id, uint32_t slot)
     {
-        // TODO: actual error handling
         TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == -1, fmt::format("{} already enrolled in a course during slot {}", name_, slot));
         TATTLETALE_ERROR_PRINT(filled_slots_count_ < setting_.slot_count_per_week(), fmt::format("{} already filled their whole schedule", name_))
         ++filled_slots_count_;
@@ -45,7 +44,6 @@ namespace tattletale
     }
     void Actor::EjectFromCourse(size_t course_id, uint32_t slot)
     {
-        // TODO: actual error handling
         TATTLETALE_ERROR_PRINT(enrolled_courses_id_[slot] == course_id, fmt::format("Actor is not enrolled in course with id {} during slot {}", course_id, slot));
         --filled_slots_count_;
         enrolled_courses_id_[slot] = -1;
@@ -222,7 +220,6 @@ namespace tattletale
                     match_found = true;
                     for (int type_index = 0; type_index < relationship.size(); ++type_index)
                     {
-                        // TODO: use indices correctly
                         float value = requirement.relationship[participant_id - 1][type_index];
                         if (value < 0)
                         {
@@ -334,8 +331,7 @@ namespace tattletale
     }
     float Actor::CalculateInteractionChance(const InteractionTendency &tendency, const ContextType &context, Kernel *&out_reason)
     {
-        // TODO: reasons only track positive chance, they do not track why we did not pick other interactions
-        // TODO: reasons also will never include context
+        // TODO: reasons will never include context
         float chance = 0.0f;
         float highest_chance_influence = 0.0f;
         float current_chance_increase = 0.0f;
@@ -345,7 +341,6 @@ namespace tattletale
         {
             ContextType type = static_cast<ContextType>(type_index);
             float value = tendency.contexts[type_index];
-            // TODO: rethink wether this makes sense
             current_chance_increase = (value * (context == type ? 1.0f : -1.0f));
             chance += current_chance_increase;
             ++chance_parts;
@@ -444,7 +439,6 @@ namespace tattletale
             return;
         }
         float previous_value = wealth_->GetValue();
-        // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<Kernel *> all_reasons(reasons);
         all_reasons.push_back(wealth_);
@@ -457,7 +451,6 @@ namespace tattletale
             return;
         }
         float previous_value = emotions_[type_index]->GetValue();
-        // TODO: think about handling this cleaner
         float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
         std::vector<Kernel *> all_reasons(reasons);
         all_reasons.push_back(emotions_[type_index]);
@@ -499,7 +492,6 @@ namespace tattletale
                 previous_value = relationships_.at(actor_id).at(type_index)->GetValue();
                 all_reasons.push_back(relationships_.at(actor_id).at(type_index));
             }
-            // TODO: think about handling this cleaner
             float new_value = std::clamp(previous_value + value, -1.0f, 1.0f);
             relationship[type_index] = chronicle_.CreateRelationship(type, tick, this, other_actor, all_reasons, new_value);
         }
@@ -516,7 +508,6 @@ namespace tattletale
         }
         for (auto &[actor_index, vector] : relationships_)
         {
-            // TODO: this will only work after all actors have been created, which is wonky
             Actor *other_actor = school_.GetActor(actor_index);
             detailed_actor_description += fmt::format("\n\tWith #{} {}:", other_actor->id_, *other_actor);
             for (auto &relationship : vector)
