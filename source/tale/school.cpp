@@ -44,10 +44,10 @@ namespace tattletale
             random_slot_order[slot] = slot;
         }
 
+        std::vector<std::string> course_names = GetRandomCourseNames(course_count);
         for (size_t i = 0; i < course_count; ++i)
         {
-            // TODO: create better names
-            courses_.push_back(Course(random_, setting_, i, fmt::format("Course {}", i)));
+            courses_.push_back(Course(random_, setting_, i, course_names[i]));
 
             // Filling courses:
             TATTLETALE_VERBOSE_PRINT(fmt::format("CREATED COURSE {}", courses_[i].id_));
@@ -176,7 +176,7 @@ namespace tattletale
                     std::list<Actor *> course_group = course.GetCourseGroupForSlot(slot);
                     for (auto &actor : course_group)
                     {
-                        LetActorInteract(actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in {}", i, course.name_));
+                        LetActorInteract(actor, course_group, ContextType::kCourse, fmt::format("During Slot {} in Course \"{}\"", i, course.name_));
                     }
                 }
                 ++current_tick_;
@@ -208,7 +208,7 @@ namespace tattletale
         std::vector<Actor *> participants;
         float chance;
         int interaction_index = actor->ChooseInteraction(group, context_type, reasons, participants, chance);
-        std::string interaction_description = "did nothing.";
+        std::string interaction_description = fmt::format("{} did nothing.", actor->name_);
         if (interaction_index != -1)
         {
             Interaction *interaction = interaction_store_.CreateInteraction(chronicle_, interaction_index, chance, current_tick_, reasons, participants);
@@ -276,16 +276,20 @@ namespace tattletale
     {
         return GetRandomNames(count, "resources/surname.txt");
     }
+    std::vector<std::string> School::GetRandomCourseNames(size_t count)
+    {
+        return GetRandomNames(count, "resources/courses.txt");
+    }
 
     std::vector<std::string> School::GetRandomNames(size_t count, std::string path)
     {
         std::vector<std::string> all_names;
-        std::string firstname;
-        std::ifstream firstname_file(path);
-        TATTLETALE_ERROR_PRINT(firstname_file.is_open(), fmt::format("Could not open {}", path));
-        while (getline(firstname_file, firstname))
+        std::string name;
+        std::ifstream name_file(path);
+        TATTLETALE_ERROR_PRINT(name_file.is_open(), fmt::format("Could not open {}", path));
+        while (getline(name_file, name))
         {
-            all_names.push_back(firstname);
+            all_names.push_back(name);
         }
         std::vector<std::string> random_names;
         for (size_t i = 0; i < count; ++i)

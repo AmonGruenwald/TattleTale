@@ -225,6 +225,15 @@ namespace tattletale
          */
         std::vector<std::string> GetRandomSurames(size_t count);
         /**
+         * @brief Creates a vector of randomly picked Course names.
+         *
+         * Reads from the file tale/resources/courses.txt to get random names;
+         *
+         * @param count How many Course names the vector should contain.
+         * @return The vector of Course names.
+         */
+        std::vector<std::string> GetRandomCourseNames(size_t count);
+        /**
          * @brief Creates a vector of randomly picked names.
          *
          * Reads from the passed filepath. This function should probably only be used internally by GetRandomFirstnames and GetRandomSurnames
