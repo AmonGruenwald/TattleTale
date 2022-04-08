@@ -8,10 +8,10 @@
             "emotions": [
                 {},
                 {
-                    "happy": -0.02,
-                    "calm": -0.02,
-                    "brave": -0.02,
-                    "extroverted": -0.05
+                    "happy": -0.2,
+                    "calm": -0.1,
+                    "brave": -0.1,
+                    "extroverted": -0.3
                 }
             ],
             "relationships": [
@@ -20,8 +20,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": -0.05,
-                            "anger": 0.05
+                            "attraction": -0.1,
+                            "anger": 0.1
                         }
                     }
                 ]
@@ -51,10 +51,10 @@
             "active_description": "get sick",
             "emotions": [
                 {
-                    "happy": -0.01,
-                    "calm": -0.02,
-                    "brave": -0.02,
-                    "extroverted": -0.0
+                    "happy": -0.1,
+                    "calm": -0.2,
+                    "brave": -0.2,
+                    "extroverted": -0.3
                 }
             ]
         },
@@ -76,33 +76,41 @@
             "active_description": "start rumors about {0}",
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "extroverted": 0.04
+                    "happy": 0.2,
+                    "extroverted": 0.3
                 },
                 {},
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "calm": -0.01
+                    "calm": -0.1,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -110,9 +118,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -121,9 +129,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -131,9 +139,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -141,9 +149,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -151,9 +159,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -161,9 +169,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -171,9 +179,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -181,9 +189,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -191,9 +199,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.02
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.2
                         }
                     }
                 ]
@@ -227,8 +235,8 @@
             "active_description": "do a happy jig",
             "emotions": [
                 {
-                    "happy": 0.03,
-                    "brave": 0.02
+                    "happy": 0.1,
+                    "brave": 0.2
                 }
             ]
         },
@@ -255,9 +263,9 @@
             "active_description": "stare apathetically at a wall",
             "emotions": [
                 {
-                    "happy": -0.04,
-                    "calm": 0.04,
-                    "extroverted": -0.03
+                    "happy": -0.1,
+                    "calm": 0.1,
+                    "extroverted": -0.1
                 }
             ]
         },
@@ -284,8 +292,8 @@
             "active_description": "throw a tantrum",
             "emotions": [
                 {
-                    "happy": -0.01,
-                    "calm": -0.03
+                    "happy": -0.1,
+                    "calm": -0.3
                 }
             ]
         },
@@ -313,12 +321,12 @@
             "active_description": "lash out in anger against {0}",
             "emotions": [
                 {
-                    "happy": -0.02,
-                    "calm": -0.02
+                    "happy": -0.2,
+                    "calm": -0.2
                 },
                 {
-                    "happy": -0.02,
-                    "calm": -0.02
+                    "happy": -0.2,
+                    "calm": -0.2
                 }
             ],
             "relationships": [
@@ -326,8 +334,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": -0.02,
-                            "anger": -0.02
+                            "friendship": -0.2,
+                            "anger": -0.2
                         }
                     }
                 ],
@@ -335,9 +343,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": -0.02,
-                            "friendship": -0.02,
-                            "anger": 0.02
+                            "attraction": -0.2,
+                            "friendship": -0.2,
+                            "anger": 0.2
                         }
                     }
                 ]
@@ -378,12 +386,12 @@
             "active_description": "commiserate with {0}",
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": 0.02
+                    "happy": 0.1,
+                    "calm": 0.1
                 },
                 {
-                    "happy": -0.01,
-                    "calm": -0.01
+                    "happy": -0.1,
+                    "calm": -0.1
                 }
             ],
             "relationships": [
@@ -391,7 +399,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -399,8 +408,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": -0.1
                         }
                     }
                 ]
@@ -440,8 +449,8 @@
             "active_description": "cry",
             "emotions": [
                 {
-                    "happy": -0.01,
-                    "calm": -0.01
+                    "happy": -0.1,
+                    "calm": -0.1
                 }
             ]
         },
@@ -472,10 +481,10 @@
             "active_description": "talk with {0} about {1}",
             "emotions": [
                 {
-                    "extroverted": 0.02
+                    "extroverted": 0.1
                 },
                 {
-                    "extroverted": 0.02
+                    "extroverted": 0.1
                 },
                 {}
             ],
@@ -484,13 +493,13 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01
+                            "friendship": 0.2
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": -0.01
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -498,13 +507,13 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01
+                            "friendship": 0.2
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": -0.01
+                            "friendship": -0.2
                         }
                     }
                 ],
@@ -542,15 +551,15 @@
             "active_description": "confess their love to {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.02,
-                    "satisfied": 0.01,
-                    "brave": 0.04,
-                    "extroverted": 0.03
+                    "happy": 0.1,
+                    "calm": -0.1,
+                    "satisfied": 0.2,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.03
+                    "happy": 0.1,
+                    "calm": -0.2
                 }
             ],
             "relationships": [
@@ -558,9 +567,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.03,
-                            "attraction": 0.01,
-                            "protective": 0.03
+                            "love": 0.3,
+                            "attraction": 0.1,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -568,9 +577,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.02,
-                            "attraction": 0.01,
-                            "protective": 0.02
+                            "love": 0.2,
+                            "attraction": 0.1,
+                            "protective": 0.2
                         }
                     }
                 ]
@@ -611,10 +620,10 @@
             "active_description": "embarrass themself",
             "emotions": [
                 {
-                    "happy": -0.03,
-                    "calm": -0.03,
-                    "brave": -0.03,
-                    "extroverted": -0.03
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "brave": -0.3,
+                    "extroverted": -0.3
                 }
             ]
         },
@@ -641,20 +650,20 @@
             "active_description": "protect {0} from {1}",
             "emotions": [
                 {
-                    "calm": 0.02,
-                    "brave": 0.03
+                    "calm": 0.2,
+                    "brave": 0.3
                 },
                 {
-                    "happy": 0.03,
-                    "calm": 0.03,
-                    "brave": 0.02,
-                    "extroverted": 0.01
+                    "happy": 0.3,
+                    "calm": 0.3,
+                    "brave": 0.2,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": -0.02,
-                    "calm": -0.03,
-                    "brave": -0.02,
-                    "extroverted": -0.01
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "brave": -0.2,
+                    "extroverted": -0.1
                 }
             ],
             "relationships": [
@@ -662,16 +671,16 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.03,
-                            "protective": 0.03
+                            "friendship": 0.2,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": -0.03,
-                            "anger": 0.03,
-                            "protective": -0.03
+                            "friendship": -0.2,
+                            "anger": 0.3,
+                            "protective": -0.3
                         }
                     }
                 ],
@@ -679,16 +688,16 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.03,
-                            "attraction": 0.03
+                            "friendship": 0.4,
+                            "attraction": 0.2
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": -0.03,
-                            "anger": 0.03,
-                            "protective": -0.03
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.3
                         }
                     }
                 ],
@@ -696,16 +705,16 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "anger": 0.01,
-                            "protective": -0.01
+                            "anger": 0.3,
+                            "protective": -0.3
                         }
                     },
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": -0.03,
-                            "anger": 0.03,
-                            "protective": -0.03
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.3
                         }
                     }
                 ]
@@ -736,22 +745,22 @@
             "passive_description": "extorting someone",
             "active_description": "extort {0} for some money",
             "wealth": [
-                0.05,
-                -0.05
+                0.2,
+                -0.2
             ],
             "emotions": [
                 {
-                    "calm": -0.02,
-                    "satisfied": 0.03,
-                    "brave": 0.02,
-                    "extroverted": 0.01
+                    "calm": -0.2,
+                    "satisfied": 0.3,
+                    "brave": 0.2,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": -0.02,
-                    "calm": -0.03,
-                    "satisfied": -0.03,
-                    "brave": -0.05,
-                    "extroverted": -0.01
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "satisfied": -0.3,
+                    "brave": -0.3,
+                    "extroverted": -0.2
                 }
             ],
             "relationships": [
@@ -814,19 +823,19 @@
             "passive_description": "blackmailing someone",
             "active_description": "blackmail {0} for some money",
             "wealth": [
-                0.05,
-                -0.05
+                0.3,
+                -0.3
             ],
             "emotions": [
                 {
-                    "satisfied": 0.01,
-                    "brave": 0.01
+                    "satisfied": 0.1,
+                    "brave": 0.1
                 },
                 {
-                    "happy": -0.02,
-                    "calm": -0.05,
-                    "satisfied": -0.01,
-                    "brave": -0.02
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "satisfied": -0.1,
+                    "brave": -0.2
                 }
             ],
             "relationships": [
@@ -834,7 +843,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "protective": -0.01
+                            "protective": -0.1
                         }
                     }
                 ],
@@ -842,10 +851,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.02,
-                            "attraction": -0.02,
-                            "friendship": -0.02,
-                            "anger": 0.05
+                            "love": -0.2,
+                            "attraction": -0.2,
+                            "friendship": -0.2,
+                            "anger": 0.3
                         }
                     }
                 ]
@@ -884,12 +893,12 @@
             "active_description": "have casual sex with {0}",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "satisfied": 0.05
+                    "happy": 0.2,
+                    "satisfied": 0.5
                 },
                 {
-                    "happy": 0.05,
-                    "satisfied": 0.05
+                    "happy": 0.2,
+                    "satisfied": 0.5
                 }
             ],
             "relationships": [
@@ -897,9 +906,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.01,
-                            "friendship": -0.03,
-                            "attraction": 0.03
+                            "love": 0.1,
+                            "friendship": -0.3,
+                            "attraction": 0.2
                         }
                     }
                 ],
@@ -907,9 +916,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.01,
-                            "friendship": -0.03,
-                            "attraction": 0.03
+                            "love": 0.1,
+                            "friendship": -0.3,
+                            "attraction": 0.2
                         }
                     }
                 ]
@@ -953,12 +962,12 @@
             "active_description": "make love with {1}",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "satisfied": 0.05
+                    "happy": 0.4,
+                    "satisfied": 0.5
                 },
                 {
-                    "happy": 0.05,
-                    "satisfied": 0.05
+                    "happy": 0.4,
+                    "satisfied": 0.5
                 }
             ],
             "relationships": [
@@ -966,8 +975,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.05,
-                            "attraction": 0.02
+                            "love": 0.3,
+                            "attraction": 0.2
                         }
                     }
                 ],
@@ -975,8 +984,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.05,
-                            "attraction": 0.02
+                            "love": 0.3,
+                            "attraction": 0.2
                         }
                     }
                 ]
@@ -1014,14 +1023,14 @@
             "active_description": "break up with {0}",
             "emotions": [
                 {
-                    "happy": -0.05,
-                    "brave": -0.03,
-                    "extroverted": -0.03
+                    "happy": -0.5,
+                    "brave": -0.3,
+                    "extroverted": -0.3
                 },
                 {
-                    "happy": -0.05,
-                    "brave": -0.03,
-                    "extroverted": -0.03
+                    "happy": -0.5,
+                    "brave": -0.3,
+                    "extroverted": -0.3
                 }
             ],
             "relationships": [
@@ -1029,10 +1038,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.1,
-                            "friendship": -0.03,
-                            "attraction": -0.03,
-                            "protective": -0.03
+                            "love": -0.5,
+                            "friendship": -0.3,
+                            "attraction": -0.3,
+                            "protective": -0.3
                         }
                     }
                 ],
@@ -1040,10 +1049,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": -0.03,
-                            "attraction": -0.03,
-                            "protective": -0.03,
-                            "anger": 0.05
+                            "friendship": -0.3,
+                            "attraction": -0.3,
+                            "protective": -0.3,
+                            "anger": 0.5
                         }
                     }
                 ]
@@ -1090,13 +1099,13 @@
             "active_description": "ask out {0}. {0} said they don't feel the same way though",
             "emotions": [
                 {
-                    "happy": -0.03,
-                    "brave": -0.03,
-                    "extroverted": -0.01
+                    "happy": -0.3,
+                    "brave": -0.3,
+                    "extroverted": -0.1
                 },
                 {
-                    "brave": 0.03,
-                    "extroverted": 0.01
+                    "brave": 0.3,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -1104,7 +1113,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "anger": 0.03
+                            "anger": 0.3
                         }
                     }
                 ],
@@ -1112,9 +1121,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.05,
-                            "attraction": -0.03,
-                            "protective": -0.03
+                            "love": -0.3,
+                            "attraction": -0.2,
+                            "protective": -0.2
                         }
                     }
                 ]
@@ -1161,14 +1170,14 @@
             "active_description": "succesfully ask {0} out",
             "emotions": [
                 {
-                    "happy": 0.03,
-                    "brave": 0.03,
-                    "extroverted": 0.01
+                    "happy": 0.4,
+                    "brave": 0.3,
+                    "extroverted": 0.2
                 },
                 {
-                    "happy": 0.03,
-                    "brave": 0.03,
-                    "extroverted": 0.01
+                    "happy": 0.4,
+                    "brave": 0.3,
+                    "extroverted": 0.2
                 }
             ],
             "relationships": [
@@ -1176,9 +1185,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.05,
-                            "attraction": 0.03,
-                            "protective": 0.03
+                            "love": 0.5,
+                            "attraction": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -1186,9 +1195,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.05,
-                            "attraction": 0.03,
-                            "protective": 0.03
+                            "love": 0.5,
+                            "attraction": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ]
@@ -1235,14 +1244,14 @@
             "active_description": "verbally fight with {0}",
             "emotions": [
                 {
-                    "happy": -0.03,
-                    "calm": -0.05,
-                    "brave": 0.03
+                    "happy": -0.1,
+                    "calm": -0.3,
+                    "brave": 0.2
                 },
                 {
-                    "happy": -0.03,
-                    "calm": -0.05,
-                    "brave": 0.03
+                    "happy": -0.1,
+                    "calm": -0.3,
+                    "brave": 0.2
                 }
             ],
             "relationships": [
@@ -1250,10 +1259,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05,
-                            "protective": -0.05
+                            "love": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.2
                         }
                     }
                 ],
@@ -1261,10 +1270,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05,
-                            "protective": -0.05
+                            "love": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.2
                         }
                     }
                 ]
@@ -1309,14 +1318,14 @@
             "active_description": "throw fists with {0}",
             "emotions": [
                 {
-                    "happy": -0.03,
-                    "calm": -0.05,
-                    "brave": 0.03
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "brave": 0.3
                 },
                 {
-                    "happy": -0.03,
-                    "calm": -0.05,
-                    "brave": 0.03
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "brave": 0.3
                 }
             ],
             "relationships": [
@@ -1324,10 +1333,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05,
-                            "protective": -0.05
+                            "love": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.2
                         }
                     }
                 ],
@@ -1335,10 +1344,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05,
-                            "protective": -0.05
+                            "love": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.2
                         }
                     }
                 ]
@@ -1383,24 +1392,24 @@
             "active_description": "form a clique with {0}, {1} and {2}",
             "emotions": [
                 {
-                    "calm": 0.01,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "calm": 0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 },
                 {
-                    "calm": 0.01,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "calm": 0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 },
                 {
-                    "calm": 0.01,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "calm": 0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 },
                 {
-                    "calm": 0.01,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "calm": 0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 }
             ],
             "relationships": [
@@ -1408,22 +1417,22 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 3,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -1431,22 +1440,22 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 3,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -1454,22 +1463,22 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 3,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -1477,22 +1486,22 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.05
+                            "friendship": 0.3,
+                            "protective": 0.3
                         }
                     }
                 ]
@@ -1538,8 +1547,8 @@
             "active_description": "notice {0} do something cute.",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "satisfied": -0.01
+                    "happy": 0.1,
+                    "satisfied": -0.1
                 },
                 {}
             ],
@@ -1548,8 +1557,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.02,
-                            "anger": -0.01
+                            "attraction": 0.2,
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -1568,13 +1577,13 @@
             "passive_description": "doing themselves up",
             "active_description": "do themself up",
             "wealth": [
-                -0.01
+                -0.1
             ],
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1,
+                    "extroverted": 0.1
                 }
             ]
         },
@@ -1598,9 +1607,9 @@
             "active_description": "notice how beautiful {0} is",
             "emotions": [
                 {
-                    "calm": 0.02,
-                    "satisfied": -0.02,
-                    "brave": 0.01
+                    "calm": 0.1,
+                    "satisfied": -0.1,
+                    "brave": 0.1
                 },
                 {}
             ],
@@ -1609,7 +1618,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.05
+                            "attraction": 0.3
                         }
                     }
                 ],
@@ -1639,16 +1648,16 @@
             "active_description": "tease back and forth with {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": -0.01,
-                    "brave": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "calm": -0.1,
+                    "brave": 0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01,
-                    "brave": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "calm": -0.1,
+                    "brave": 0.1,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -1656,8 +1665,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.01,
-                            "friendship": 0.01
+                            "attraction": 0.1,
+                            "friendship": 0.1
                         }
                     }
                 ],
@@ -1665,8 +1674,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.01,
-                            "friendship": 0.01
+                            "attraction": 0.1,
+                            "friendship": 0.1
                         }
                     }
                 ]
@@ -1704,14 +1713,14 @@
             "active_description": "call {0} names",
             "emotions": [
                 {
-                    "calm": -0.01,
-                    "satisfied": 0.01,
-                    "brave": 0.01
+                    "calm": -0.1,
+                    "satisfied": 0.1,
+                    "brave": 0.2
                 },
                 {
-                    "happy": -0.1,
-                    "calm": -0.01,
-                    "brave": -0.01
+                    "happy": -0.2,
+                    "calm": -0.1,
+                    "brave": -0.1
                 }
             ],
             "relationships": [
@@ -1719,7 +1728,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "anger": -0.01
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -1727,11 +1736,11 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.01,
-                            "anger": -0.01,
-                            "protective": -0.01
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.1,
+                            "anger": -0.1,
+                            "protective": -0.1
                         }
                     }
                 ]
@@ -1771,12 +1780,12 @@
             "active_description": "shoot the shit with {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 }
             ],
             "relationships": [
@@ -1784,8 +1793,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": 0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -1793,8 +1802,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": 0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ]
@@ -1835,19 +1844,19 @@
             "passive_description": "stopping bullies",
             "emotions": [
                 {
-                    "brave": 0.05
+                    "brave": 0.3
                 },
                 {
-                    "happy": -0.01,
-                    "calm": -0.03,
-                    "satisfied": -0.04,
-                    "brave": -0.05,
-                    "extroverted": -0.02
+                    "happy": -0.1,
+                    "calm": -0.2,
+                    "satisfied": -0.3,
+                    "brave": -0.4,
+                    "extroverted": -0.2
                 },
                 {
-                    "happy": 0.01,
-                    "calm": 0.03,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "calm": 0.3,
+                    "extroverted": 0.2
                 }
             ],
             "relationships": [
@@ -1855,18 +1864,18 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.01,
-                            "friendship": -0.05,
-                            "anger": 0.03,
-                            "protective": -0.05
+                            "love": -0.1,
+                            "attraction": -0.1,
+                            "friendship": -0.3,
+                            "anger": 0.3,
+                            "protective": -0.2
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.05
+                            "friendship": 0.1,
+                            "protective": 0.3
                         }
                     }
                 ],
@@ -1874,15 +1883,15 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05
+                            "attraction": -0.2,
+                            "friendship": -0.2,
+                            "anger": 0.3
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "anger": -0.02
+                            "anger": -0.2
                         }
                     }
                 ],
@@ -1890,20 +1899,20 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.01,
-                            "attraction": 0.05,
-                            "friendship": 0.05,
-                            "anger": -0.05,
-                            "protective": 0.05
+                            "love": 0.1,
+                            "attraction": 0.3,
+                            "friendship": 0.3,
+                            "anger": -0.3,
+                            "protective": 0.3
                         }
                     },
                     {
                         "participant": 1,
                         "changes": {
-                            "love": -0.01,
-                            "attraction": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05
+                            "love": -0.1,
+                            "attraction": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.5
                         }
                     }
                 ]
@@ -1947,15 +1956,15 @@
             "active_description": "bully {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "satisfied": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "satisfied": 0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": -0.05,
-                    "calm": -0.05,
-                    "brave": -0.05,
-                    "extroverted": -0.05
+                    "happy": -0.2,
+                    "calm": -0.3,
+                    "brave": -0.3,
+                    "extroverted": -0.3
                 }
             ],
             "relationships": [
@@ -1963,7 +1972,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "protective": -0.05
+                            "protective": -0.3
                         }
                     }
                 ],
@@ -1971,10 +1980,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.02,
-                            "attraction": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.05
+                            "love": -0.2,
+                            "attraction": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.5
                         }
                     }
                 ]
@@ -2020,10 +2029,10 @@
             "active_description": "send a message to {0}",
             "emotions": [
                 {
-                    "happy": 0.01
+                    "happy": 0.1
                 },
                 {
-                    "happy": 0.01
+                    "happy": 0.1
                 }
             ],
             "relationships": [
@@ -2031,8 +2040,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -2040,8 +2049,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ]
@@ -2073,11 +2082,11 @@
             "active_description": "satisfy themself",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.01,
-                    "satisfied": 0.02,
-                    "brave": -0.01,
-                    "extroverted": -0.01
+                    "happy": 0.1,
+                    "calm": 0.1,
+                    "satisfied": 0.2,
+                    "brave": -0.1,
+                    "extroverted": -0.1
                 }
             ]
         },
@@ -2106,9 +2115,9 @@
             "active_description": "watch an action movie",
             "emotions": [
                 {
-                    "calm": -0.01,
-                    "satisfied": 0.01,
-                    "brave": 0.01
+                    "calm": -0.1,
+                    "satisfied": 0.1,
+                    "brave": 0.1
                 }
             ]
         },
@@ -2132,9 +2141,9 @@
             "active_description": "watch an erotic movie",
             "emotions": [
                 {
-                    "calm": -0.01,
-                    "satisfied": -0.05,
-                    "brave": 0.01
+                    "calm": -0.1,
+                    "satisfied": -0.3,
+                    "brave": 0.1
                 }
             ]
         },
@@ -2158,8 +2167,8 @@
             "active_description": "watch a horror movie",
             "emotions": [
                 {
-                    "calm": -0.01,
-                    "brave": -0.01
+                    "calm": -0.1,
+                    "brave": -0.1
                 }
             ]
         },
@@ -2181,19 +2190,19 @@
             "passive_description": "going on a movie date",
             "active_description": "go to a date with {0} at the cinema",
             "wealth": [
-                -0.06,
+                -0.2,
                 0.0
             ],
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": 0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": 0.1,
+                    "satisfied": 0.1
                 },
                 {
-                    "happy": 0.02,
-                    "calm": 0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": 0.1,
+                    "satisfied": 0.1
                 }
             ],
             "relationships": [
@@ -2201,9 +2210,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "anger": -0.2,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2211,10 +2220,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.03,
-                            "attraction": 0.01,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "attraction": 0.1,
+                            "anger": -0.2,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -2251,19 +2260,19 @@
             "passive_description": "going to the cinema",
             "active_description": "go to the cinema with their friend {0}",
             "wealth": [
-                -0.03,
-                -0.03
+                -0.1,
+                -0.1
             ],
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": 0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": 0.1,
+                    "satisfied": 0.1
                 },
                 {
-                    "happy": 0.02,
-                    "calm": 0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": 0.1,
+                    "satisfied": 0.1
                 }
             ],
             "relationships": [
@@ -2271,9 +2280,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "friendship": 0.2,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2281,9 +2290,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "friendship": 0.2,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -2320,19 +2329,19 @@
             "passive_description": "going on a coffee date",
             "active_description": "go on a coffed date with {0}",
             "wealth": [
-                -0.04,
+                -0.4,
                 0.0
             ],
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": -0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": -0.1,
+                    "satisfied": 0.1
                 },
                 {
-                    "happy": 0.02,
-                    "calm": -0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": -0.1,
+                    "satisfied": 0.1
                 }
             ],
             "relationships": [
@@ -2340,9 +2349,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2350,10 +2359,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.03,
-                            "attraction": 0.01,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "attraction": 0.1,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -2391,19 +2400,19 @@
             "passive_description": "going for a coffee",
             "active_description": "go for a coffee with their friend {0}",
             "wealth": [
-                -0.02,
-                -0.02
+                -0.2,
+                -0.2
             ],
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": -0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": -0.1,
+                    "satisfied": 0.1
                 },
                 {
-                    "happy": 0.02,
-                    "calm": -0.01,
-                    "satisfied": 0.01
+                    "happy": 0.2,
+                    "calm": -0.1,
+                    "satisfied": 0.1
                 }
             ],
             "relationships": [
@@ -2411,9 +2420,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "friendship": 0.2,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2421,9 +2430,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.03,
-                            "anger": -0.02,
-                            "protective": 0.01
+                            "friendship": 0.2,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -2462,10 +2471,10 @@
             "active_description": "take some drugs",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "calm": -0.05,
-                    "satisfied": 0.05,
-                    "extroverted": -0.5
+                    "happy": 0.3,
+                    "calm": -0.4,
+                    "satisfied": 0.5,
+                    "extroverted": -0.4
                 }
             ]
         },
@@ -2492,21 +2501,21 @@
             "passive_description": "selling drugs",
             "active_description": "sell some drugs to {0}",
             "wealth": [
-                0.05,
-                -0.05
+                0.3,
+                -0.3
             ],
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": -0.01,
-                    "satisfied": 0.02,
-                    "brave": 0.01
+                    "happy": 0.1,
+                    "calm": -0.1,
+                    "satisfied": 0.2,
+                    "brave": 0.3
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01,
-                    "satisfied": 0.02,
-                    "brave": 0.1
+                    "happy": 0.1,
+                    "calm": -0.1,
+                    "satisfied": 0.2,
+                    "brave": 0.3
                 }
             ],
             "relationships": [
@@ -2514,7 +2523,7 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01
+                            "friendship": 0.1
                         }
                     }
                 ],
@@ -2522,7 +2531,7 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01
+                            "friendship": 0.1
                         }
                     }
                 ]
@@ -2572,7 +2581,7 @@
             ],
             "emotions": [
                 {
-                    "satisfied": -0.01
+                    "satisfied": -0.1
                 }
             ]
         },
@@ -2592,13 +2601,13 @@
             "active_description": "face the dare they were pushed to do by {0}",
             "emotions": [
                 {
-                    "happy": 0.03,
-                    "calm": -0.05,
-                    "brave": 0.05
+                    "happy": 0.2,
+                    "calm": -0.4,
+                    "brave": 0.5
                 },
                 {
-                    "happy": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -2606,8 +2615,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.05,
-                            "protective": 0.01
+                            "friendship": 0.3,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2615,9 +2624,9 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.01,
-                            "friendship": 0.05,
-                            "protective": 0.01
+                            "attraction": 0.1,
+                            "friendship": 0.3,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -2663,12 +2672,12 @@
             "passive_description": "buying themself some nice things",
             "active_description": "buy themself some nice things",
             "wealth": [
-                -0.05
+                -0.3
             ],
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "satisfied": 0.05
+                    "happy": 0.3,
+                    "satisfied": 0.3
                 }
             ]
         },
@@ -2692,8 +2701,8 @@
             "active_description": "read a book",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "calm": 0.03
+                    "happy": 0.1,
+                    "calm": 0.3
                 }
             ]
         },
@@ -2720,8 +2729,8 @@
             "active_description": "pay diligent attention during class",
             "emotions": [
                 {
-                    "calm": 0.02,
-                    "brave": -0.01
+                    "calm": 0.2,
+                    "brave": -0.1
                 }
             ],
             "relationships": [
@@ -2747,14 +2756,14 @@
             "passive_description": "distracting others during class",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "satisfied": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.1,
+                    "satisfied": 0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": -0.01,
-                    "calm": -0.02,
-                    "extroverted": -0.02
+                    "happy": -0.1,
+                    "calm": -0.2,
+                    "extroverted": -0.2
                 }
             ],
             "relationships": [
@@ -2810,51 +2819,51 @@
             "active_description": "play the class clown for a big group, including {0}, {1} and {3}",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "calm": -0.05,
-                    "satisfied": 0.03,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "happy": 0.3,
+                    "calm": -0.3,
+                    "satisfied": 0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": -0.01
+                    "happy": 0.1,
+                    "calm": -0.1
                 }
             ],
             "relationships": [
@@ -2862,71 +2871,71 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 3,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 4,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 5,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 6,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 7,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 8,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 9,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 10,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": 0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -2934,71 +2943,71 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     },
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "protective": -0.01
+                            "friendship": 0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -3033,7 +3042,7 @@
             "active_description": "say hello to {0}",
             "emotions": [
                 {
-                    "extroverted": 0.01
+                    "extroverted": 0.1
                 },
                 {}
             ],
@@ -3042,8 +3051,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3051,8 +3060,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ]
@@ -3071,7 +3080,7 @@
             "active_description": "greet {0} and {1}",
             "emotions": [
                 {
-                    "extroverted": 0.01
+                    "extroverted": 0.1
                 },
                 {},
                 {}
@@ -3081,15 +3090,15 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3097,8 +3106,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3106,8 +3115,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ]
@@ -3126,7 +3135,7 @@
             "active_description": "holler at the group of {0}, {1} and {2}",
             "emotions": [
                 {
-                    "extroverted": 0.01
+                    "extroverted": 0.1
                 },
                 {},
                 {},
@@ -3137,22 +3146,22 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     },
                     {
                         "participant": 2,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     },
                     {
                         "participant": 3,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3160,8 +3169,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3169,8 +3178,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ],
@@ -3178,8 +3187,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "attraction": 0.001,
-                            "friendship": 0.001
+                            "attraction": 0.05,
+                            "friendship": 0.05
                         }
                     }
                 ]
@@ -3197,12 +3206,12 @@
             "passive_description": "waiting tables",
             "active_description": "work as a waiter",
             "wealth": [
-                0.01
+                0.1
             ],
             "emotions": [
                 {
-                    "satisfied": -0.01,
-                    "extroverted": 0.01
+                    "satisfied": -0.1,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -3233,13 +3242,13 @@
             "passive_description": "working as a dishwasher",
             "active_description": "work as a dishwasher",
             "wealth": [
-                0.01
+                0.1
             ],
             "emotions": [
                 {
-                    "satisfied": -0.01,
-                    "calm": 0.01,
-                    "extroverted": -0.01
+                    "satisfied": -0.1,
+                    "calm": 0.1,
+                    "extroverted": -0.1
                 }
             ],
             "relationships": [
@@ -3270,17 +3279,14 @@
             "passive_description": "working at a construction site",
             "active_description": "work at a construction site",
             "wealth": [
-                0.02
+                0.2
             ],
             "emotions": [
                 {
-                    "satisfied": -0.01,
-                    "calm": -0.01,
-                    "brave": 0.01
+                    "satisfied": -0.1,
+                    "calm": -0.1,
+                    "brave": 0.1
                 }
-            ],
-            "relationships": [
-                []
             ]
         },
         "requirements": {
@@ -3306,17 +3312,14 @@
             "passive_description": "working as an artist",
             "active_description": "work as a freelance artist",
             "wealth": [
-                0.02
+                0.2
             ],
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "satisfied": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "satisfied": 0.1,
+                    "calm": 0.1
                 }
-            ],
-            "relationships": [
-                []
             ]
         },
         "requirements": {
@@ -3342,19 +3345,19 @@
             "passive_description": "stealing some money",
             "active_description": "steal some money from {0}",
             "wealth": [
-                0.01,
-                -0.01
+                0.1,
+                -0.1
             ],
             "emotions": [
                 {
-                    "calm": -0.01,
-                    "satisfied": 0.01,
-                    "brave": 0.01
+                    "calm": -0.1,
+                    "satisfied": 0.1,
+                    "brave": 0.1
                 },
                 {
-                    "happy": -0.01,
-                    "calm": -0.01,
-                    "satisfied": -0.01
+                    "happy": -0.1,
+                    "calm": -0.1,
+                    "satisfied": -0.1
                 }
             ],
             "relationships": [
@@ -3405,13 +3408,13 @@
             "active_description": "get caught while trying to steal from {0}",
             "emotions": [
                 {
-                    "happy": -0.05,
-                    "calm": -0.05,
-                    "brave": -0.05
+                    "happy": -0.3,
+                    "calm": -0.3,
+                    "brave": -0.5
                 },
                 {
-                    "happy": -0.01,
-                    "brave": 0.05
+                    "happy": -0.1,
+                    "brave": 0.3
                 }
             ],
             "relationships": [
@@ -3419,9 +3422,9 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": -0.03,
-                            "anger": -0.03,
-                            "protective": 0.03
+                            "friendship": -0.2,
+                            "anger": -0.2,
+                            "protective": 0.2
                         }
                     }
                 ],
@@ -3429,11 +3432,11 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.02,
-                            "attraction": -0.02,
-                            "friendship": -0.02,
-                            "anger": 0.05,
-                            "protective": -0.05
+                            "love": -0.2,
+                            "attraction": -0.2,
+                            "friendship": -0.2,
+                            "anger": 0.4,
+                            "protective": -0.3
                         }
                     }
                 ]
@@ -3474,16 +3477,16 @@
             "active_description": "kiss {0}. They both enjoyed it",
             "emotions": [
                 {
-                    "happy": 0.05,
-                    "calm": 0.01,
-                    "satisfied": 0.02,
-                    "brave": 0.01
+                    "happy": 0.5,
+                    "calm": 0.1,
+                    "satisfied": 0.2,
+                    "brave": 0.1
                 },
                 {
-                    "happy": 0.05,
-                    "calm": 0.01,
-                    "satisfied": 0.02,
-                    "brave": 0.01
+                    "happy": 0.5,
+                    "calm": 0.1,
+                    "satisfied": 0.2,
+                    "brave": 0.1
                 }
             ],
             "relationships": [
@@ -3491,10 +3494,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.02,
-                            "attraction": 0.01,
-                            "anger": -0.01,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "attraction": 0.1,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -3502,10 +3505,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.02,
-                            "attraction": 0.01,
-                            "anger": -0.01,
-                            "protective": 0.01
+                            "love": 0.2,
+                            "attraction": 0.1,
+                            "anger": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -3552,17 +3555,17 @@
             "active_description": "try to kiss {0}, but {0} dodged it",
             "emotions": [
                 {
-                    "happy": -0.05,
-                    "calm": -0.05,
-                    "satisfied": -0.05,
-                    "brave": -0.05,
-                    "extroverted": -0.05
+                    "happy": -0.5,
+                    "calm": -0.3,
+                    "satisfied": -0.3,
+                    "brave": -0.3,
+                    "extroverted": -0.2
                 },
                 {
-                    "happy": -0.01,
-                    "calm": -0.01,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "happy": -0.1,
+                    "calm": -0.1,
+                    "brave": 0.3,
+                    "extroverted": 0.2
                 }
             ],
             "relationships": [
@@ -3633,17 +3636,17 @@
             "active_description": "to flirt with {0}, who liked it.",
             "emotions": [
                 {
-                    "happy": 0.02,
-                    "calm": -0.02,
-                    "satisfied": -0.01,
-                    "brave": 0.01,
-                    "extroverted": 0.01
+                    "happy": 0.2,
+                    "calm": -0.2,
+                    "satisfied": -0.1,
+                    "brave": 0.1,
+                    "extroverted": 0.1
                 },
                 {
-                    "happy": 0.02,
-                    "calm": -0.02,
-                    "satisfied": -0.01,
-                    "extroverted": -0.01
+                    "happy": 0.2,
+                    "calm": -0.2,
+                    "satisfied": -0.1,
+                    "extroverted": -0.1
                 }
             ],
             "relationships": [
@@ -3651,10 +3654,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "love": 0.01,
-                            "attraction": 0.01,
-                            "friendship": -0.01,
-                            "protective": 0.01
+                            "love": 0.1,
+                            "attraction": 0.2,
+                            "friendship": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ],
@@ -3662,10 +3665,10 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": 0.01,
-                            "attraction": 0.02,
-                            "friendship": -0.01,
-                            "protective": 0.01
+                            "love": 0.1,
+                            "attraction": 0.2,
+                            "friendship": -0.1,
+                            "protective": 0.1
                         }
                     }
                 ]
@@ -3711,17 +3714,17 @@
             "active_description": "to try to flirt with {0}, who shot that down immediately",
             "emotions": [
                 {
-                    "happy": -0.02,
-                    "calm": -0.05,
-                    "satisfied": -0.05,
-                    "brave": -0.05,
-                    "extroverted": -0.01
+                    "happy": -0.2,
+                    "calm": -0.2,
+                    "satisfied": -0.2,
+                    "brave": -0.3,
+                    "extroverted": -0.3
                 },
                 {
-                    "happy": -0.02,
-                    "calm": -0.02,
-                    "brave": 0.05,
-                    "extroverted": 0.05
+                    "happy": -0.2,
+                    "calm": -0.2,
+                    "brave": 0.3,
+                    "extroverted": 0.3
                 }
             ],
             "relationships": [
@@ -3729,10 +3732,10 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "attraction": 0.01,
-                            "friendship": -0.04,
-                            "anger": 0.02,
-                            "protective": -0.01
+                            "attraction": 0.1,
+                            "friendship": -0.3,
+                            "anger": 0.2,
+                            "protective": -0.1
                         }
                     }
                 ],
@@ -3740,11 +3743,11 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "love": -0.02,
-                            "attraction": -0.05,
-                            "friendship": -0.05,
-                            "anger": 0.01,
-                            "protective": -0.02
+                            "love": -0.2,
+                            "attraction": -0.3,
+                            "friendship": -0.3,
+                            "anger": 0.1,
+                            "protective": -0.2
                         }
                     }
                 ]
@@ -3793,12 +3796,12 @@
             "active_description": "make some smalltalk with {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 }
             ],
             "relationships": [
@@ -3806,8 +3809,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -3815,8 +3818,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ]
@@ -3849,12 +3852,12 @@
             "active_description": "talk about the weather with {0}",
             "emotions": [
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 },
                 {
-                    "happy": 0.01,
-                    "calm": 0.01
+                    "happy": 0.1,
+                    "calm": 0.1
                 }
             ],
             "relationships": [
@@ -3862,8 +3865,8 @@
                     {
                         "participant": 1,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ],
@@ -3871,8 +3874,8 @@
                     {
                         "participant": 0,
                         "changes": {
-                            "friendship": 0.01,
-                            "anger": -0.01
+                            "friendship": 0.1,
+                            "anger": -0.1
                         }
                     }
                 ]
