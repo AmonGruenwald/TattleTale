@@ -1,0 +1,2 @@
+firstnames and surnames from: https://github.com/smashew/NameDatabases
+course names from: https://blog.collegevine.com/a-complete-list-of-all-high-school-classes/
