@@ -140,20 +140,15 @@ namespace tattletale
 
             for (auto &participant : actor_group)
             {
-                bool duplicate_participant = false;
+                Kernel *reason = nullptr;
+                float chance = CalculateParticipantChance(participant, i, requirement, tendency, reason);
                 for (auto &already_chosen_participant : out_participants)
                 {
                     if (participant->id_ == already_chosen_participant->id_)
                     {
-                        duplicate_participant = true;
+                        chance = 0;
                     }
                 }
-                if (duplicate_participant)
-                {
-                    continue;
-                }
-                Kernel *reason = nullptr;
-                float chance = CalculateParticipantChance(participant, i, requirement, tendency, reason);
                 if (chance == 0.0f)
                 {
                     participant_zero_count++;
