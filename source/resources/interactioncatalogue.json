@@ -355,7 +355,8 @@
             "participant_count": 2,
             "emotions": [
                 {
-                    "happy": -0.25
+                    "happy": -0.25,
+                    "calm": -0.25
                 }
             ],
             "relationships": [
@@ -420,6 +421,9 @@
             "emotions": [
                 {
                     "happy": -0.25
+                },
+                {
+                    "calm": 0.1
                 }
             ],
             "relationships": [
@@ -594,7 +598,7 @@
             ],
             "relationships": [
                 {
-                    "love": 0.25
+                    "love": 0.5
                 }
             ]
         },
@@ -631,7 +635,7 @@
             "participant_count": 1,
             "emotions": [
                 {
-                    "extroverted": 0.01
+                    "extroverted": 0.1
                 }
             ]
         },
@@ -726,6 +730,15 @@
                 {
                     "brave": 0.5
                 }
+            ],
+            "relationships": [
+                {
+                    "protective": 0.3
+                },
+                {
+                    "protective": -0.1,
+                    "anger": 0.1
+                }
             ]
         },
         "tendencies": {
@@ -791,6 +804,9 @@
             "emotions": [
                 {
                     "brave": 0.5
+                },
+                {
+                    "brave": -0.2
                 }
             ],
             "relationships": [
@@ -863,6 +879,12 @@
         "requirements": {
             "participant_count": 2,
             "day": 10,
+            "emotions": [
+                {},
+                {
+                    "extroverted": -0.1
+                }
+            ],
             "relationships": [
                 {
                     "protective": -0.5
@@ -931,6 +953,10 @@
                 {
                     "satisfied": -0.5,
                     "extroverted": 0.1
+                },
+                {
+                    "satisfied": -0.5,
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -994,6 +1020,14 @@
         "requirements": {
             "context": "freetime",
             "participant_count": 2,
+            "emotions": [
+                {
+                    "satisfied": -0.5
+                },
+                {
+                    "satisfied": -0.5
+                }
+            ],
             "relationships": [
                 {
                     "love": 0.5,
@@ -1135,6 +1169,9 @@
                 {
                     "brave": 0.5,
                     "extroverted": 0.5
+                },
+                {
+                    "happy": -0.1
                 }
             ],
             "relationships": [
@@ -1209,6 +1246,9 @@
                 {
                     "brave": 0.5,
                     "extroverted": 0.5
+                },
+                {
+                    "happy": 0.1
                 }
             ],
             "relationships": [
@@ -1284,7 +1324,11 @@
             "emotions": [
                 {
                     "calm": -0.3,
-                    "brave": 0.3
+                    "brave": -0.1
+                },
+                {
+                    "calm": -0.3,
+                    "brave": -0.1
                 }
             ],
             "relationships": [
@@ -1356,6 +1400,10 @@
         "requirements": {
             "participant_count": 2,
             "emotions": [
+                {
+                    "calm": -0.3,
+                    "brave": 0.3
+                },
                 {
                     "calm": -0.3,
                     "brave": 0.3
@@ -1511,10 +1559,25 @@
             "participant_count": 4,
             "emotions": [
                 {
-                    "extroverted": 0.5
+                    "extroverted": 0.3
+                },
+                {
+                    "extroverted": 0.1
+                },
+                {
+                    "extroverted": 0.1
+                },
+                {
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
+                {
+                    "friendship": 0.25
+                },
+                {
+                    "friendship": 0.25
+                },
                 {
                     "friendship": 0.25
                 }
@@ -1685,7 +1748,7 @@
             "participant_count": 2,
             "relationships": [
                 {
-                    "friendship": 0.01
+                    "friendship": 0.2
                 }
             ]
         },
@@ -1750,7 +1813,7 @@
             "participant_count": 2,
             "relationships": [
                 {
-                    "anger": 0.01
+                    "anger": 0.2
                 }
             ]
         },
@@ -1813,12 +1876,15 @@
             "participant_count": 2,
             "emotions": [
                 {
-                    "happy": 0.01
+                    "happy": 0.1
+                },
+                {
+                    "happy": 0.1
                 }
             ],
             "relationships": [
                 {
-                    "friendship": 0.01
+                    "friendship": 0.1
                 }
             ]
         },
@@ -1924,12 +1990,21 @@
                 {
                     "calm": 0.2,
                     "brave": 0.5
+                },
+                {
+                    "anger": 0.2
+                },
+                {
+                    "brave": -0.2
                 }
             ],
             "relationships": [
                 {
-                    "friendship": 0.01,
-                    "protective": 0.01
+                    "protective": -0.1
+                },
+                {
+                    "friendship": 0.1,
+                    "protective": 0.3
                 }
             ]
         },
@@ -1995,6 +2070,9 @@
                 {
                     "satisfied": -0.1,
                     "brave": 0.1
+                },
+                {
+                    "brave": -0.1
                 }
             ],
             "relationships": [
@@ -2542,6 +2620,9 @@
             "emotions": [
                 {
                     "brave": 0.5
+                },
+                {
+                    "brave": 0.5
                 }
             ],
             "relationships": [
@@ -2636,7 +2717,10 @@
             "participant_count": 2,
             "emotions": [
                 {
-                    "brave": 0.01
+                    "brave": 0.1
+                },
+                {
+                    "extroverted": 0.1
                 }
             ],
             "relationships": [
@@ -2791,6 +2875,9 @@
             "emotions": [
                 {
                     "extroverted": 0.01
+                },
+                {
+                    "calm": -0.01
                 }
             ]
         },
@@ -3380,6 +3467,9 @@
                     "calm": 0.01,
                     "satisfied": -0.05,
                     "brave": 0.02
+                },
+                {
+                    "brave": -0.01
                 }
             ]
         },
@@ -3449,6 +3539,9 @@
                     "calm": 0.01,
                     "satisfied": -0.05,
                     "brave": 0.02
+                },
+                {
+                    "brave": 0.01
                 }
             ]
         },
@@ -3518,6 +3611,9 @@
             "context": "freetime",
             "participant_count": 2,
             "emotions": [
+                {
+                    "satisfied": -0.4
+                },
                 {
                     "satisfied": -0.4
                 }
@@ -3601,6 +3697,9 @@
             "emotions": [
                 {
                     "satisfied": -0.4
+                },
+                {
+                    "satisfied": 0.01
                 }
             ],
             "relationships": [
@@ -3680,6 +3779,9 @@
                 {
                     "brave": 0.01,
                     "extroverted": 0.01
+                },
+                {
+                    "happy": 0.01
                 }
             ],
             "relationships": [
@@ -3759,6 +3861,9 @@
                 {
                     "brave": 0.01,
                     "extroverted": 0.01
+                },
+                {
+                    "happy": -0.01
                 }
             ],
             "relationships": [
