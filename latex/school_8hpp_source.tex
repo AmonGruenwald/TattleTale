@@ -62,25 +62,26 @@
 \DoxyCodeLine{208 }
 \DoxyCodeLine{217         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}{GetRandomFirstnames}}(\textcolor{keywordtype}{size\_t} count);}
 \DoxyCodeLine{226         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_ad5b350e2824196ef147bd8f5260f1790}{GetRandomSurames}}(\textcolor{keywordtype}{size\_t} count);}
-\DoxyCodeLine{236         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_acbdcbe4d2989e5167c66ce44c531dc3a}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
-\DoxyCodeLine{237     \};}
-\DoxyCodeLine{238 }
-\DoxyCodeLine{239 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{240 }
-\DoxyCodeLine{241 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{242 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Weekday> : formatter<string\_view>}
-\DoxyCodeLine{243 \{}
-\DoxyCodeLine{244     std::string weekday\_names[7] = \{}
-\DoxyCodeLine{245         \textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
-\DoxyCodeLine{246     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{247     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{248     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{tattletale::Weekday}} weekday, FormatContext \&ctx)}
-\DoxyCodeLine{249     \{}
-\DoxyCodeLine{250         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(weekday);}
-\DoxyCodeLine{251         string\_view name = weekday\_names[enum\_index];}
-\DoxyCodeLine{252         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{253     \}}
-\DoxyCodeLine{254 \};}
-\DoxyCodeLine{255 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
+\DoxyCodeLine{235         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_a1005ce38e0fc011083562bf43e30f7a9}{GetRandomCourseNames}}(\textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{245         std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_school_acbdcbe4d2989e5167c66ce44c531dc3a}{GetRandomNames}}(\textcolor{keywordtype}{size\_t} count, std::string path);}
+\DoxyCodeLine{246     \};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{251 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Weekday> : formatter<string\_view>}
+\DoxyCodeLine{252 \{}
+\DoxyCodeLine{253     std::string weekday\_names[7] = \{}
+\DoxyCodeLine{254         \textcolor{stringliteral}{"{}Monday"{}}, \textcolor{stringliteral}{"{}Tuesday"{}}, \textcolor{stringliteral}{"{}Wednesday"{}}, \textcolor{stringliteral}{"{}Thursday"{}}, \textcolor{stringliteral}{"{}Friday"{}}, \textcolor{stringliteral}{"{}Saturday"{}}, \textcolor{stringliteral}{"{}Sunday"{}}\};}
+\DoxyCodeLine{255     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
+\DoxyCodeLine{256     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{257     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a9052282506778d27986cfa871dd49611}{tattletale::Weekday}} weekday, FormatContext \&ctx)}
+\DoxyCodeLine{258     \{}
+\DoxyCodeLine{259         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(weekday);}
+\DoxyCodeLine{260         string\_view name = weekday\_names[enum\_index];}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263 \};}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SCHOOL\_H}}
 
 \end{DoxyCode}

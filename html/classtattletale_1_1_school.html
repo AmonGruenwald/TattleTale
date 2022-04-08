@@ -144,6 +144,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FreeTimeTick</b> ()</
 <tr class="memitem:ad5b350e2824196ef147bd8f5260f1790"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_school.html#ad5b350e2824196ef147bd8f5260f1790">GetRandomSurames</a> (size_t count)</td></tr>
 <tr class="memdesc:ad5b350e2824196ef147bd8f5260f1790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked surnames.  <a href="classtattletale_1_1_school.html#ad5b350e2824196ef147bd8f5260f1790">More...</a><br /></td></tr>
 <tr class="separator:ad5b350e2824196ef147bd8f5260f1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1005ce38e0fc011083562bf43e30f7a9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_school.html#a1005ce38e0fc011083562bf43e30f7a9">GetRandomCourseNames</a> (size_t count)</td></tr>
+<tr class="memdesc:a1005ce38e0fc011083562bf43e30f7a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked <a class="el" href="classtattletale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> names.  <a href="classtattletale_1_1_school.html#a1005ce38e0fc011083562bf43e30f7a9">More...</a><br /></td></tr>
+<tr class="separator:a1005ce38e0fc011083562bf43e30f7a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbdcbe4d2989e5167c66ce44c531dc3a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_school.html#acbdcbe4d2989e5167c66ce44c531dc3a">GetRandomNames</a> (size_t count, std::string path)</td></tr>
 <tr class="memdesc:acbdcbe4d2989e5167c66ce44c531dc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a vector of randomly picked names.  <a href="classtattletale_1_1_school.html#acbdcbe4d2989e5167c66ce44c531dc3a">More...</a><br /></td></tr>
 <tr class="separator:acbdcbe4d2989e5167c66ce44c531dc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -481,6 +484,42 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>current_day_</b> = 
 
 <p>Getter for a Reference to the <a class="el" href="classtattletale_1_1_random.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Random</a> object of the simulation. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="classtattletale_1_1_random.html" title="Represents one person in the simulation. An Actor decides how to act each tick of the simulation....">Random</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a1005ce38e0fc011083562bf43e30f7a9" name="a1005ce38e0fc011083562bf43e30f7a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1005ce38e0fc011083562bf43e30f7a9">&#9670;&nbsp;</a></span>GetRandomCourseNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; tattletale::School::GetRandomCourseNames </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a vector of randomly picked <a class="el" href="classtattletale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> names. </p>
+<p >Reads from the file tale/resources/courses.txt to get random names;</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>How many <a class="el" href="classtattletale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> names the vector should contain. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The vector of <a class="el" href="classtattletale_1_1_course.html" title="A Course grouping Actors  together during different slots of the day.">Course</a> names. </dd></dl>
 
 </div>
 </div>

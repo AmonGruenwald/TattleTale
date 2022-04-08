@@ -54,6 +54,8 @@ std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_a
 \begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked firstnames. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_ad5b350e2824196ef147bd8f5260f1790}{Get\+Random\+Surames}} (size\+\_\+t count)
 \begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked surnames. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_a1005ce38e0fc011083562bf43e30f7a9}{Get\+Random\+Course\+Names}} (size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked \mbox{\hyperlink{classtattletale_1_1_course}{Course}} names. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classtattletale_1_1_school_acbdcbe4d2989e5167c66ce44c531dc3a}{Get\+Random\+Names}} (size\+\_\+t count, std\+::string path)
 \begin{DoxyCompactList}\small\item\em Creates a vector of randomly picked names. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
@@ -260,6 +262,26 @@ Getter for a Reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Rando
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtattletale_1_1_school_a1005ce38e0fc011083562bf43e30f7a9}\label{classtattletale_1_1_school_a1005ce38e0fc011083562bf43e30f7a9}} 
+\index{tattletale::School@{tattletale::School}!GetRandomCourseNames@{GetRandomCourseNames}}
+\index{GetRandomCourseNames@{GetRandomCourseNames}!tattletale::School@{tattletale::School}}
+\doxysubsubsection{\texorpdfstring{GetRandomCourseNames()}{GetRandomCourseNames()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ tattletale\+::\+School\+::\+Get\+Random\+Course\+Names (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a vector of randomly picked \mbox{\hyperlink{classtattletale_1_1_course}{Course}} names. 
+
+Reads from the file tale/resources/courses.\+txt to get random names;
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & How many \mbox{\hyperlink{classtattletale_1_1_course}{Course}} names the vector should contain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of \mbox{\hyperlink{classtattletale_1_1_course}{Course}} names. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}\label{classtattletale_1_1_school_aeb9d17b67b291fd7adf39e5ccefe48c0}} 
 \index{tattletale::School@{tattletale::School}!GetRandomFirstnames@{GetRandomFirstnames}}

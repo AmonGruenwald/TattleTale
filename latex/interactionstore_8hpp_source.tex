@@ -34,93 +34,94 @@
 \DoxyCodeLine{95         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *\mbox{\hyperlink{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}{CreateInteraction}}(\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, \textcolor{keywordtype}{size\_t} prototype\_index, \textcolor{keywordtype}{float} chance, \textcolor{keywordtype}{size\_t} tick, std::vector<Kernel *> reasons, std::vector<Actor *> participants);}
 \DoxyCodeLine{101         \textcolor{keyword}{const} std::vector<std::shared\_ptr<InteractionRequirement>> \&\mbox{\hyperlink{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}{GetRequirementCatalogue}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{107         \textcolor{keyword}{const} std::vector<std::shared\_ptr<InteractionTendency>> \&\mbox{\hyperlink{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}{GetTendencyCatalogue}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{109     \textcolor{keyword}{private}:}
-\DoxyCodeLine{113         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}{random\_}};}
-\DoxyCodeLine{117         std::vector<std::shared\_ptr<InteractionPrototype>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}{prototype\_catalogue\_}};}
-\DoxyCodeLine{121         std::vector<std::shared\_ptr<InteractionRequirement>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}{requirements\_catalogue\_}};}
-\DoxyCodeLine{125         std::vector<std::shared\_ptr<InteractionTendency>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}{tendencies\_catalogue\_}};}
-\DoxyCodeLine{129         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}resources/interactioncatalogue.json"{}};}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{134         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6}{requirements\_key\_}} = \textcolor{stringliteral}{"{}requirements"{}};}
-\DoxyCodeLine{138         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04}{name\_key\_}} = \textcolor{stringliteral}{"{}name"{}};}
-\DoxyCodeLine{142         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe}{description\_key\_}} = \textcolor{stringliteral}{"{}description"{}};}
-\DoxyCodeLine{146         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975}{passive\_description\_key\_}} = \textcolor{stringliteral}{"{}passive\_description"{}};}
-\DoxyCodeLine{150         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1}{active\_description\_key\_}} = \textcolor{stringliteral}{"{}active\_description"{}};}
-\DoxyCodeLine{154         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c}{participant\_count\_key\_}} = \textcolor{stringliteral}{"{}participant\_count"{}};}
-\DoxyCodeLine{158         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2}{goal\_type\_key\_}} = \textcolor{stringliteral}{"{}goal\_type"{}};}
-\DoxyCodeLine{162         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366}{day\_key\_}} = \textcolor{stringliteral}{"{}day"{}};}
-\DoxyCodeLine{166         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466}{wealth\_key\_}} = \textcolor{stringliteral}{"{}wealth"{}};}
-\DoxyCodeLine{170         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1}{emotion\_key\_}} = \textcolor{stringliteral}{"{}emotions"{}};}
-\DoxyCodeLine{174         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804}{emotion\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}happy"{}}, \textcolor{stringliteral}{"{}calm"{}}, \textcolor{stringliteral}{"{}satisfied"{}}, \textcolor{stringliteral}{"{}brave"{}}, \textcolor{stringliteral}{"{}extroverted"{}}\};}
-\DoxyCodeLine{178         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0}{context\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}course"{}}, \textcolor{stringliteral}{"{}freetime"{}}\};}
-\DoxyCodeLine{182         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59}{relationships\_key\_}} = \textcolor{stringliteral}{"{}relationships"{}};}
-\DoxyCodeLine{186         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021}{participant\_key\_}} = \textcolor{stringliteral}{"{}participant"{}};}
-\DoxyCodeLine{190         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e}{changes\_key\_}} = \textcolor{stringliteral}{"{}changes"{}};}
-\DoxyCodeLine{194         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54}{relationship\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}love"{}}, \textcolor{stringliteral}{"{}attraction"{}}, \textcolor{stringliteral}{"{}friendship"{}}, \textcolor{stringliteral}{"{}anger"{}}, \textcolor{stringliteral}{"{}protective"{}}\};}
-\DoxyCodeLine{198         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec}{context\_key\_}} = \textcolor{stringliteral}{"{}context"{}};}
-\DoxyCodeLine{202         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968}{group\_size\_key\_}} = \textcolor{stringliteral}{"{}group\_size"{}};}
-\DoxyCodeLine{203 }
-\DoxyCodeLine{215         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}{ReadPrototypeJSON}}(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, std::shared\_ptr<InteractionPrototype> \&out\_prototype);}
-\DoxyCodeLine{226         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}{ReadRequirementJSON}}(nlohmann::json json, std::string error\_preamble, std::shared\_ptr<InteractionRequirement> \&out\_requirement);}
-\DoxyCodeLine{238         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}{ReadTendencyJSON}}(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, std::shared\_ptr<InteractionTendency> \&out\_tendency);}
-\DoxyCodeLine{239 }
-\DoxyCodeLine{252         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
-\DoxyCodeLine{253         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}{ReadJsonValueFromDictionary}}(T1 \&out\_value, nlohmann::json json, std::string key, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
-\DoxyCodeLine{254         \{}
-\DoxyCodeLine{255             \textcolor{keywordflow}{if} (!json.contains(key))}
-\DoxyCodeLine{256             \{}
-\DoxyCodeLine{257                 \textcolor{keywordflow}{if} (required)}
-\DoxyCodeLine{258                 \{}
-\DoxyCodeLine{259                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN KEY \{\}"{}}, error\_preamble, key));}
-\DoxyCodeLine{260                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{261                 \}}
-\DoxyCodeLine{262             \}}
-\DoxyCodeLine{263             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{264             \{}
-\DoxyCodeLine{265                 \textcolor{keywordflow}{if} (json[key].type() == T2)}
-\DoxyCodeLine{266                 \{}
-\DoxyCodeLine{267                     out\_value = json[key];}
-\DoxyCodeLine{268                 \}}
-\DoxyCodeLine{269                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{270                 \{}
-\DoxyCodeLine{271                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR KEY \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, key));}
-\DoxyCodeLine{272                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{273                 \}}
-\DoxyCodeLine{274             \}}
-\DoxyCodeLine{275             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{276         \}}
-\DoxyCodeLine{277 }
-\DoxyCodeLine{290         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
-\DoxyCodeLine{291         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}{ReadJsonValueFromArray}}(T1 \&out\_value, nlohmann::json json, \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
-\DoxyCodeLine{292         \{}
-\DoxyCodeLine{293             \textcolor{keywordflow}{if} (json.size() <= index)}
-\DoxyCodeLine{294             \{}
-\DoxyCodeLine{295                 \textcolor{keywordflow}{if} (required)}
-\DoxyCodeLine{296                 \{}
-\DoxyCodeLine{297                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN INDEX \{\}"{}}, error\_preamble, index));}
-\DoxyCodeLine{298                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{299                 \}}
-\DoxyCodeLine{300             \}}
-\DoxyCodeLine{301             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{302             \{}
-\DoxyCodeLine{303                 \textcolor{keywordflow}{if} (json[index].type() == T2)}
-\DoxyCodeLine{304                 \{}
-\DoxyCodeLine{305                     out\_value = json[index];}
-\DoxyCodeLine{306                 \}}
-\DoxyCodeLine{307                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{308                 \{}
-\DoxyCodeLine{309                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR INDEX \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, index));}
-\DoxyCodeLine{310                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{311                 \}}
-\DoxyCodeLine{312             \}}
-\DoxyCodeLine{313             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{314         \}}
-\DoxyCodeLine{315 }
-\DoxyCodeLine{323         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}{CheckCorrectValueRange}}(\textcolor{keywordtype}{float} value, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{324     \};}
-\DoxyCodeLine{325 }
-\DoxyCodeLine{326 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{327 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
+\DoxyCodeLine{113         \textcolor{keyword}{const} std::vector<std::shared\_ptr<InteractionPrototype>> \&\mbox{\hyperlink{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68}{GetPrototypeCatalogue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{keyword}{private}:}
+\DoxyCodeLine{119         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&\mbox{\hyperlink{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}{random\_}};}
+\DoxyCodeLine{123         std::vector<std::shared\_ptr<InteractionPrototype>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}{prototype\_catalogue\_}};}
+\DoxyCodeLine{127         std::vector<std::shared\_ptr<InteractionRequirement>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}{requirements\_catalogue\_}};}
+\DoxyCodeLine{131         std::vector<std::shared\_ptr<InteractionTendency>> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}{tendencies\_catalogue\_}};}
+\DoxyCodeLine{135         std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}{prototype\_json\_path\_}} = \textcolor{stringliteral}{"{}resources/interactioncatalogue.json"{}};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{140         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6}{requirements\_key\_}} = \textcolor{stringliteral}{"{}requirements"{}};}
+\DoxyCodeLine{144         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04}{name\_key\_}} = \textcolor{stringliteral}{"{}name"{}};}
+\DoxyCodeLine{148         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe}{description\_key\_}} = \textcolor{stringliteral}{"{}description"{}};}
+\DoxyCodeLine{152         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975}{passive\_description\_key\_}} = \textcolor{stringliteral}{"{}passive\_description"{}};}
+\DoxyCodeLine{156         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1}{active\_description\_key\_}} = \textcolor{stringliteral}{"{}active\_description"{}};}
+\DoxyCodeLine{160         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c}{participant\_count\_key\_}} = \textcolor{stringliteral}{"{}participant\_count"{}};}
+\DoxyCodeLine{164         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2}{goal\_type\_key\_}} = \textcolor{stringliteral}{"{}goal\_type"{}};}
+\DoxyCodeLine{168         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366}{day\_key\_}} = \textcolor{stringliteral}{"{}day"{}};}
+\DoxyCodeLine{172         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466}{wealth\_key\_}} = \textcolor{stringliteral}{"{}wealth"{}};}
+\DoxyCodeLine{176         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1}{emotion\_key\_}} = \textcolor{stringliteral}{"{}emotions"{}};}
+\DoxyCodeLine{180         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804}{emotion\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}happy"{}}, \textcolor{stringliteral}{"{}calm"{}}, \textcolor{stringliteral}{"{}satisfied"{}}, \textcolor{stringliteral}{"{}brave"{}}, \textcolor{stringliteral}{"{}extroverted"{}}\};}
+\DoxyCodeLine{184         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0}{context\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}course"{}}, \textcolor{stringliteral}{"{}freetime"{}}\};}
+\DoxyCodeLine{188         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59}{relationships\_key\_}} = \textcolor{stringliteral}{"{}relationships"{}};}
+\DoxyCodeLine{192         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021}{participant\_key\_}} = \textcolor{stringliteral}{"{}participant"{}};}
+\DoxyCodeLine{196         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e}{changes\_key\_}} = \textcolor{stringliteral}{"{}changes"{}};}
+\DoxyCodeLine{200         \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54}{relationship\_type\_keys\_}} = \{\textcolor{stringliteral}{"{}love"{}}, \textcolor{stringliteral}{"{}attraction"{}}, \textcolor{stringliteral}{"{}friendship"{}}, \textcolor{stringliteral}{"{}anger"{}}, \textcolor{stringliteral}{"{}protective"{}}\};}
+\DoxyCodeLine{204         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec}{context\_key\_}} = \textcolor{stringliteral}{"{}context"{}};}
+\DoxyCodeLine{208         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968}{group\_size\_key\_}} = \textcolor{stringliteral}{"{}group\_size"{}};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{221         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}{ReadPrototypeJSON}}(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, std::shared\_ptr<InteractionPrototype> \&out\_prototype);}
+\DoxyCodeLine{232         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}{ReadRequirementJSON}}(nlohmann::json json, std::string error\_preamble, std::shared\_ptr<InteractionRequirement> \&out\_requirement);}
+\DoxyCodeLine{244         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}{ReadTendencyJSON}}(nlohmann::json json, \textcolor{keywordtype}{size\_t} participant\_count, std::string error\_preamble, std::shared\_ptr<InteractionTendency> \&out\_tendency);}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{258         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
+\DoxyCodeLine{259         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}{ReadJsonValueFromDictionary}}(T1 \&out\_value, nlohmann::json json, std::string key, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{260         \{}
+\DoxyCodeLine{261             \textcolor{keywordflow}{if} (!json.contains(key))}
+\DoxyCodeLine{262             \{}
+\DoxyCodeLine{263                 \textcolor{keywordflow}{if} (required)}
+\DoxyCodeLine{264                 \{}
+\DoxyCodeLine{265                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN KEY \{\}"{}}, error\_preamble, key));}
+\DoxyCodeLine{266                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{267                 \}}
+\DoxyCodeLine{268             \}}
+\DoxyCodeLine{269             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{270             \{}
+\DoxyCodeLine{271                 \textcolor{keywordflow}{if} (json[key].type() == T2)}
+\DoxyCodeLine{272                 \{}
+\DoxyCodeLine{273                     out\_value = json[key];}
+\DoxyCodeLine{274                 \}}
+\DoxyCodeLine{275                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{276                 \{}
+\DoxyCodeLine{277                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR KEY \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, key));}
+\DoxyCodeLine{278                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{279                 \}}
+\DoxyCodeLine{280             \}}
+\DoxyCodeLine{281             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{282         \}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{296         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, nlohmann::detail::value\_t T2>}
+\DoxyCodeLine{297         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}{ReadJsonValueFromArray}}(T1 \&out\_value, nlohmann::json json, \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{bool} required, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{298         \{}
+\DoxyCodeLine{299             \textcolor{keywordflow}{if} (json.size() <= index)}
+\DoxyCodeLine{300             \{}
+\DoxyCodeLine{301                 \textcolor{keywordflow}{if} (required)}
+\DoxyCodeLine{302                 \{}
+\DoxyCodeLine{303                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}JSON DID NOT CONTAIN INDEX \{\}"{}}, error\_preamble, index));}
+\DoxyCodeLine{304                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{305                 \}}
+\DoxyCodeLine{306             \}}
+\DoxyCodeLine{307             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{308             \{}
+\DoxyCodeLine{309                 \textcolor{keywordflow}{if} (json[index].type() == T2)}
+\DoxyCodeLine{310                 \{}
+\DoxyCodeLine{311                     out\_value = json[index];}
+\DoxyCodeLine{312                 \}}
+\DoxyCodeLine{313                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{314                 \{}
+\DoxyCodeLine{315                     TATTLETALE\_ERROR\_PRINT(\textcolor{keyword}{true}, fmt::format(\textcolor{stringliteral}{"{}\{\}VALUE FOR INDEX \{\} WAS OF AN INCORRECT TYPE"{}}, error\_preamble, index));}
+\DoxyCodeLine{316                     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{317                 \}}
+\DoxyCodeLine{318             \}}
+\DoxyCodeLine{319             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{320         \}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{329         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}{CheckCorrectValueRange}}(\textcolor{keywordtype}{float} value, std::string error\_preamble = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{330     \};}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_INTERACTIONSTORE\_H}}
 
 \end{DoxyCode}
