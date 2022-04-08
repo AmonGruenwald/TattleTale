@@ -105,6 +105,12 @@ namespace tattletale
          * @return A Reference to the catalogue for the \link InteractionTendency Tendencies \endlink.
          */
         const std::vector<std::shared_ptr<InteractionTendency>> &GetTendencyCatalogue() const;
+        /**
+         * @brief Getter for a Reference to the InteractionPrototype catalogue.
+         *
+         * @return A Reference to the catalogue for the \link InteractionPrototype Prototypes \endlink.
+         */
+        const std::vector<std::shared_ptr<InteractionPrototype>> &GetPrototypeCatalogue() const;
 
     private:
         /**

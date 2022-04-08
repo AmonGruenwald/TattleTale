@@ -96,6 +96,10 @@ namespace tattletale
     {
         return tendencies_catalogue_;
     }
+    const std::vector<std::shared_ptr<InteractionPrototype>> &InteractionStore::GetPrototypeCatalogue() const
+    {
+        return prototype_catalogue_;
+    }
 
     bool InteractionStore::ReadPrototypeJSON(nlohmann::json json, size_t participant_count, std::string error_preamble, std::shared_ptr<InteractionPrototype> &out_prototype)
     {
