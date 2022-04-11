@@ -78,4 +78,12 @@ namespace tattletale
     {
         return fmt::format("{} {}", Resource::GetActiveDescription(), *target_);
     }
+
+    std::vector<Actor *> Relationship::GetAllParticipants() const
+    {
+        std::vector<Actor *> participants;
+        participants.push_back(owner_);
+        participants.push_back(target_);
+        return participants;
+    }
 } // namespace tattletale

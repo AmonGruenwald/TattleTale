@@ -71,6 +71,15 @@ namespace tattletale
          */
         std::string GetActiveDescription() const override;
 
+        /**
+         * @brief Getter for the participants this Relationship uses.
+         *
+         * Contains Owner and Target.
+         *
+         * @return The participants.
+         */
+        virtual std::vector<Actor *> GetAllParticipants() const override;
+
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.

@@ -96,7 +96,8 @@ namespace tattletale
     {
         return tendency_;
     }
-    const std::vector<Actor *> &Interaction::GetParticipants() const
+
+    std::vector<Actor *> Interaction::GetAllParticipants() const
     {
         return participants_;
     }
@@ -104,5 +105,10 @@ namespace tattletale
     float Interaction::GetChance() const
     {
         return chance_;
+    }
+
+    size_t Interaction::GetAbsoluteInterestScore() const
+    {
+        return prototype_->absolute_interest;
     }
 } // namespace tattletale

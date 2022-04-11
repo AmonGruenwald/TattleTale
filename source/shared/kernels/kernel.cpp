@@ -45,4 +45,16 @@ namespace tattletale
     {
         return owner_;
     }
+
+    std::vector<Actor *> Kernel::GetAllParticipants() const
+    {
+        std::vector<Actor *> participants;
+        participants.push_back(owner_);
+        return participants;
+    }
+
+    size_t Kernel::GetAbsoluteInterestScore() const
+    {
+        return 0;
+    }
 } // namespace tattletale

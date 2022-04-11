@@ -229,10 +229,10 @@ TEST(TaleInteractions, CreateRandomInteractionFromStore)
     Interaction *interaction = interaction_store.CreateInteraction(chronicle, interaction_index, 1.0f, tick, no_reasons, participants);
     EXPECT_EQ(interaction->name_, interaction_store.GetInteractionName(interaction_index));
     EXPECT_EQ(interaction->tick_, tick);
-    EXPECT_EQ(interaction->GetParticipants().size(), participant_count);
+    EXPECT_EQ(interaction->GetAllParticipants().size(), participant_count);
     for (size_t i = 0; i < participant_count; ++i)
     {
-        EXPECT_EQ(interaction->GetParticipants()[i], school.GetActor(i));
+        EXPECT_EQ(interaction->GetAllParticipants()[i], school.GetActor(i));
     }
     for (size_t i = 0; i < interaction->GetPrototype()->wealth_effects.size(); ++i)
     {

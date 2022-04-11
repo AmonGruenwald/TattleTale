@@ -121,6 +121,22 @@ namespace tattletale
          * @return The owner.
          */
         Actor *GetOwner() const;
+        /**
+         * @brief Getter for the participants this Kernel uses.
+         *
+         * For most \link Kernel Kernels \endlink this just contains the owner.
+         *
+         * @return The participants.
+         */
+        virtual std::vector<Actor *> GetAllParticipants() const;
+        /**
+         * @brief Getter for the absolute interest score of this Kernel.
+         *
+         * This is zero for every Kernel other than \link Interaction Interactions \endlink.
+         *
+         * @return The score.
+         */
+        virtual size_t GetAbsoluteInterestScore() const;
 
     protected:
         /**

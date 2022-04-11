@@ -80,8 +80,7 @@ namespace tattletale
          *
          * @return The participants.
          */
-        const std::vector<Actor *> &GetParticipants() const;
-
+        virtual std::vector<Actor *> GetAllParticipants() const override;
         /**
          * @brief Overriden getter for the chance this Interaction had when it was chosen.
          *
@@ -91,6 +90,13 @@ namespace tattletale
          * @return The chance.
          */
         float GetChance() const override;
+
+        /**
+         * @brief Getter for the absolute interest score of this Interaction.
+         *
+         * @return The score.
+         */
+        virtual size_t GetAbsoluteInterestScore() const override;
 
     private:
         /**
