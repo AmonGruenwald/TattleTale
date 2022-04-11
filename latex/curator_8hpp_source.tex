@@ -17,20 +17,27 @@
 \DoxyCodeLine{13         std::string Curate();}
 \DoxyCodeLine{14         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *RecursivelyFindUnlikeliestReason(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *to\_check, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *current\_best);}
 \DoxyCodeLine{15         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *RecursivelyFindUnlikeliestConsequence(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *to\_check, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *current\_best, \textcolor{keywordtype}{size\_t} depth);}
-\DoxyCodeLine{16         std::vector<Kernel *> FindCausalConnection(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
-\DoxyCodeLine{17         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *FindBlockingResource(\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const};}
-\DoxyCodeLine{18         \textcolor{keywordtype}{bool} RecursivelyFindCausalConnectionBackwards(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *root, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, std::vector<Kernel *> \&out\_causal\_chain) \textcolor{keyword}{const};}
-\DoxyCodeLine{19         std::string GetTimeDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
-\DoxyCodeLine{20         std::string GetChanceDescription(\textcolor{keywordtype}{float} chance) \textcolor{keyword}{const};}
-\DoxyCodeLine{21         std::string GetResourceReasonDescription(\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *resource) \textcolor{keyword}{const};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keyword}{private}:}
-\DoxyCodeLine{24         std::string RarityCuration();}
-\DoxyCodeLine{25         \textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle\_;}
-\DoxyCodeLine{26         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{27     \};}
+\DoxyCodeLine{16         \textcolor{keywordtype}{bool} HasCausalConnection(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
+\DoxyCodeLine{17         std::vector<Kernel *> FindCausalConnection(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end) \textcolor{keyword}{const};}
+\DoxyCodeLine{18         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *FindBlockingResource(\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const};}
+\DoxyCodeLine{19         \textcolor{keywordtype}{bool} RecursivelyFindCausalConnectionBackwards(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *root, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, std::vector<Kernel *> \&out\_causal\_chain) \textcolor{keyword}{const};}
+\DoxyCodeLine{20         std::string GetTimeDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end, \textcolor{keywordtype}{bool} first\_letter\_uppercase = \textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{21         std::string GetInterestScoreDescription(\textcolor{keywordtype}{float} score\_ratio) \textcolor{keyword}{const};}
+\DoxyCodeLine{22         std::string GetChanceDescription(\textcolor{keywordtype}{float} chance) \textcolor{keyword}{const};}
+\DoxyCodeLine{23         std::string GetResourceReasonDescription(\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *resource) \textcolor{keyword}{const};}
+\DoxyCodeLine{24         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *FindMostOccuringActor(\textcolor{keyword}{const} std::vector<Kernel *> \&kernels, \textcolor{keywordtype}{bool} \&out\_more\_actors\_present) \textcolor{keyword}{const};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *FindLowestNonZeroAbsoluteInterestKernel(\textcolor{keyword}{const} std::vector<Kernel *> \&kernels) \textcolor{keyword}{const};}
+\DoxyCodeLine{27         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *FindHighestNonZeroAbsoluteInterestKernel(\textcolor{keyword}{const} std::vector<Kernel *> \&kernels) \textcolor{keyword}{const};}
 \DoxyCodeLine{28 }
-\DoxyCodeLine{29 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATOR\_H}}
+\DoxyCodeLine{29     \textcolor{keyword}{private}:}
+\DoxyCodeLine{30         std::string RarityCuration();}
+\DoxyCodeLine{31         std::string AbsoluteInterestsCuration();}
+\DoxyCodeLine{32         \textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle\_;}
+\DoxyCodeLine{33         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{34     \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATOR\_H}}
 
 \end{DoxyCode}

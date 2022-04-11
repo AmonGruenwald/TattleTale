@@ -119,29 +119,32 @@ $(function() {
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        std::string GetActorInteractionsDescription(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_class" href="classtattletale_1_1_interaction.html">Interaction</a> *FindUnlikeliestInteraction(<span class="keywordtype">size_t</span> tick_cutoff) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_class" href="classtattletale_1_1_interaction.html">Interaction</a> *FindMostOccuringInteractionPrototypeForActor(<span class="keywordtype">size_t</span> actor_id) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_class" href="classtattletale_1_1_emotion.html">Emotion</a> *GetLastEmotionOfType(<span class="keywordtype">size_t</span> tick, <span class="keywordtype">size_t</span> actor_id, <a class="code hl_enumeration" href="namespacetattletale.html#abc63b833223270d262f7abc4bded53fb">EmotionType</a> type) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_class" href="classtattletale_1_1_resource.html">Resource</a> *GetLastWealth(<span class="keywordtype">size_t</span> tick, <span class="keywordtype">size_t</span> actor_id) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">size_t</span> GetLastTick() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_class" href="classtattletale_1_1_random.html">Random</a> &amp;random_;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::vector&lt;Kernel *&gt;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            all_kernels_;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        std::vector&lt;Interaction *&gt;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            all_interactions_;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        std::vector&lt;std::vector&lt;Interaction *&gt;&gt;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            interactions_by_actor_;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        std::vector&lt;std::vector&lt;Kernel *&gt;&gt;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            kernels_by_actor_;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::vector&lt;std::vector&lt;Emotion *&gt;&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            emotions_by_actor_;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        std::vector&lt;std::vector&lt;Resource *&gt;&gt;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            wealth_by_actor_;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">size_t</span> highest_interaction_id = 0;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::string GetRecursiveKernelDescription(<a class="code hl_class" href="classtattletale_1_1_kernel.html">Kernel</a> *kernel, <span class="keywordtype">size_t</span> current_depth, <span class="keywordtype">size_t</span> max_depth) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>} <span class="comment">// namespace tattletale</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#endif </span><span class="comment">// TALE_GLOBALS_CHRONICLE_H</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        std::vector&lt;Kernel *&gt; FindHighestAbsoluteInterestKernelChain(<span class="keywordtype">size_t</span> kernel_count, <span class="keywordtype">size_t</span> &amp;out_score) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">size_t</span> RecursivelyFindHighestAbsoluteInterestChain(<a class="code hl_class" href="classtattletale_1_1_kernel.html">Kernel</a> *kernel, <span class="keywordtype">size_t</span> current_depth, <span class="keywordtype">size_t</span> max_depth, std::vector&lt;Kernel *&gt; &amp;out_chain) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_class" href="classtattletale_1_1_emotion.html">Emotion</a> *GetLastEmotionOfType(<span class="keywordtype">size_t</span> tick, <span class="keywordtype">size_t</span> actor_id, <a class="code hl_enumeration" href="namespacetattletale.html#abc63b833223270d262f7abc4bded53fb">EmotionType</a> type) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_class" href="classtattletale_1_1_resource.html">Resource</a> *GetLastWealth(<span class="keywordtype">size_t</span> tick, <span class="keywordtype">size_t</span> actor_id) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">size_t</span> GetLastTick() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_class" href="classtattletale_1_1_random.html">Random</a> &amp;random_;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        std::vector&lt;Kernel *&gt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            all_kernels_;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        std::vector&lt;Interaction *&gt;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            all_interactions_;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        std::vector&lt;std::vector&lt;Interaction *&gt;&gt;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            interactions_by_actor_;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        std::vector&lt;std::vector&lt;Kernel *&gt;&gt;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            kernels_by_actor_;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        std::vector&lt;std::vector&lt;Emotion *&gt;&gt;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            emotions_by_actor_;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        std::vector&lt;std::vector&lt;Resource *&gt;&gt;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            wealth_by_actor_;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordtype">size_t</span> highest_interaction_id = 0;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        std::string GetRecursiveKernelDescription(<a class="code hl_class" href="classtattletale_1_1_kernel.html">Kernel</a> *kernel, <span class="keywordtype">size_t</span> current_depth, <span class="keywordtype">size_t</span> max_depth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>} <span class="comment">// namespace tattletale</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">// TALE_GLOBALS_CHRONICLE_H</span></div>
 <div class="ttc" id="aclasstattletale_1_1_actor_html"><div class="ttname"><a href="classtattletale_1_1_actor.html">tattletale::Actor</a></div><div class="ttdoc">Represents one person in the simulation. An Actor decides how to act each tick of the simulation....</div><div class="ttdef"><b>Definition:</b> actor.hpp:26</div></div>
 <div class="ttc" id="aclasstattletale_1_1_chronicle_html"><div class="ttname"><a href="classtattletale_1_1_chronicle.html">tattletale::Chronicle</a></div><div class="ttdef"><b>Definition:</b> chronicle.hpp:18</div></div>
 <div class="ttc" id="aclasstattletale_1_1_chronicle_html_a80d84c9482c6bf8880b65e3f44ca2457"><div class="ttname"><a href="classtattletale_1_1_chronicle.html#a80d84c9482c6bf8880b65e3f44ca2457">tattletale::Chronicle::actors_</a></div><div class="ttdeci">std::vector&lt; Actor * &gt; actors_</div><div class="ttdoc">Holds all instanced Actors .</div><div class="ttdef"><b>Definition:</b> chronicle.hpp:23</div></div>

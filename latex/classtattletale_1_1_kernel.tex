@@ -38,7 +38,11 @@ virtual std\+::string \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c95
 virtual float \mbox{\hyperlink{classtattletale_1_1_kernel_a447036911c901aace53a699a11e34e07}{Get\+Chance}} () const
 \begin{DoxyCompactList}\small\item\em Get the chance this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} had to be created. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ \mbox{\hyperlink{classtattletale_1_1_kernel_a3dc8f98551c2ca59fa658dbc5ccb44c9}{Get\+Owner}} () const
-\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} owning this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} owning this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \mbox{\hyperlink{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}{Get\+All\+Participants}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} uses. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_kernel_a9205adc72236be935c3f2878011c3882}{Get\+Absolute\+Interest\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the absolute interest score of this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -122,6 +126,25 @@ Adds another \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} for which thi
 {\em consequence} & The other \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} which was caused by this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classtattletale_1_1_kernel_a9205adc72236be935c3f2878011c3882}\label{classtattletale_1_1_kernel_a9205adc72236be935c3f2878011c3882}} 
+\index{tattletale::Kernel@{tattletale::Kernel}!GetAbsoluteInterestScore@{GetAbsoluteInterestScore}}
+\index{GetAbsoluteInterestScore@{GetAbsoluteInterestScore}!tattletale::Kernel@{tattletale::Kernel}}
+\doxysubsubsection{\texorpdfstring{GetAbsoluteInterestScore()}{GetAbsoluteInterestScore()}}
+{\footnotesize\ttfamily size\+\_\+t tattletale\+::\+Kernel\+::\+Get\+Absolute\+Interest\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter for the absolute interest score of this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}. 
+
+This is zero for every \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} other than \mbox{\hyperlink{classtattletale_1_1_interaction}{Interactions }}.
+
+\begin{DoxyReturn}{Returns}
+The score. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classtattletale_1_1_interaction_a1b9385f3ce51aa5ec8d77d84b1e84756}{tattletale\+::\+Interaction}}.
+
 \mbox{\Hypertarget{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}\label{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}} 
 \index{tattletale::Kernel@{tattletale::Kernel}!GetActiveDescription@{GetActiveDescription}}
 \index{GetActiveDescription@{GetActiveDescription}!tattletale::Kernel@{tattletale::Kernel}}
@@ -140,6 +163,25 @@ The active description
 
 
 Implemented in \mbox{\hyperlink{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}{tattletale\+::\+Goal}}, \mbox{\hyperlink{classtattletale_1_1_interaction_acba6b70fd850be8bdb8b7aaaa0a53357}{tattletale\+::\+Interaction}}, \mbox{\hyperlink{classtattletale_1_1_relationship_a5e046f6d92223adfe2c97dd6896e03a1}{tattletale\+::\+Relationship}}, and \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{tattletale\+::\+Resource}}.
+
+\mbox{\Hypertarget{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}\label{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}} 
+\index{tattletale::Kernel@{tattletale::Kernel}!GetAllParticipants@{GetAllParticipants}}
+\index{GetAllParticipants@{GetAllParticipants}!tattletale::Kernel@{tattletale::Kernel}}
+\doxysubsubsection{\texorpdfstring{GetAllParticipants()}{GetAllParticipants()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ tattletale\+::\+Kernel\+::\+Get\+All\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} uses. 
+
+For most \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} this just contains the owner.
+
+\begin{DoxyReturn}{Returns}
+The participants. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classtattletale_1_1_interaction_aa30c17746b82914481b388a2a539ff86}{tattletale\+::\+Interaction}}, and \mbox{\hyperlink{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}{tattletale\+::\+Relationship}}.
 
 \mbox{\Hypertarget{classtattletale_1_1_kernel_a447036911c901aace53a699a11e34e07}\label{classtattletale_1_1_kernel_a447036911c901aace53a699a11e34e07}} 
 \index{tattletale::Kernel@{tattletale::Kernel}!GetChance@{GetChance}}

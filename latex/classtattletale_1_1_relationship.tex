@@ -25,7 +25,9 @@ std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a41ee679c328a87f
 std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a1100fd16b1ec4f96a5492e8ec0f03c13}{Get\+Passive\+Description}} () const override
 \begin{DoxyCompactList}\small\item\em Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a5e046f6d92223adfe2c97dd6896e03a1}{Get\+Active\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \mbox{\hyperlink{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}{Get\+All\+Participants}} () const override
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -136,6 +138,25 @@ The appropriate adjective.
 
 
 Reimplemented from \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{tattletale\+::\+Resource}}.
+
+\mbox{\Hypertarget{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}\label{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}} 
+\index{tattletale::Relationship@{tattletale::Relationship}!GetAllParticipants@{GetAllParticipants}}
+\index{GetAllParticipants@{GetAllParticipants}!tattletale::Relationship@{tattletale::Relationship}}
+\doxysubsubsection{\texorpdfstring{GetAllParticipants()}{GetAllParticipants()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ tattletale\+::\+Relationship\+::\+Get\+All\+Participants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} uses. 
+
+Contains Owner and Target.
+
+\begin{DoxyReturn}{Returns}
+The participants. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}{tattletale\+::\+Kernel}}.
 
 \mbox{\Hypertarget{classtattletale_1_1_relationship_a88a1893e3aa75c9dbdd50d8cefea3e95}\label{classtattletale_1_1_relationship_a88a1893e3aa75c9dbdd50d8cefea3e95}} 
 \index{tattletale::Relationship@{tattletale::Relationship}!GetDefaultDescription@{GetDefaultDescription}}

@@ -51,28 +51,31 @@
 \DoxyCodeLine{50         std::string GetActorInteractionsDescription(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
 \DoxyCodeLine{51         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
 \DoxyCodeLine{52         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type) \textcolor{keyword}{const};}
-\DoxyCodeLine{54         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
-\DoxyCodeLine{55         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{keyword}{private}:}
-\DoxyCodeLine{58         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
-\DoxyCodeLine{59         std::vector<Kernel *>}
-\DoxyCodeLine{60             all\_kernels\_;}
-\DoxyCodeLine{61         std::vector<Interaction *>}
-\DoxyCodeLine{62             all\_interactions\_;}
-\DoxyCodeLine{63         std::vector<std::vector<Interaction *>>}
-\DoxyCodeLine{64             interactions\_by\_actor\_;}
-\DoxyCodeLine{65         std::vector<std::vector<Kernel *>>}
-\DoxyCodeLine{66             kernels\_by\_actor\_;}
-\DoxyCodeLine{67         std::vector<std::vector<Emotion *>>}
-\DoxyCodeLine{68             emotions\_by\_actor\_;}
-\DoxyCodeLine{69         std::vector<std::vector<Resource *>>}
-\DoxyCodeLine{70             wealth\_by\_actor\_;}
-\DoxyCodeLine{71         \textcolor{keywordtype}{size\_t} highest\_interaction\_id = 0;}
-\DoxyCodeLine{72         std::string GetRecursiveKernelDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
-\DoxyCodeLine{73     \};}
-\DoxyCodeLine{74 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         std::vector<Kernel *> FindHighestAbsoluteInterestKernelChain(\textcolor{keywordtype}{size\_t} kernel\_count, \textcolor{keywordtype}{size\_t} \&out\_score) \textcolor{keyword}{const};}
+\DoxyCodeLine{55         \textcolor{keywordtype}{size\_t} RecursivelyFindHighestAbsoluteInterestChain(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth, std::vector<Kernel *> \&out\_chain) \textcolor{keyword}{const};}
+\DoxyCodeLine{56         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type) \textcolor{keyword}{const};}
+\DoxyCodeLine{57         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
+\DoxyCodeLine{58         \textcolor{keywordtype}{size\_t} GetLastTick() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keyword}{private}:}
+\DoxyCodeLine{61         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{62         std::vector<Kernel *>}
+\DoxyCodeLine{63             all\_kernels\_;}
+\DoxyCodeLine{64         std::vector<Interaction *>}
+\DoxyCodeLine{65             all\_interactions\_;}
+\DoxyCodeLine{66         std::vector<std::vector<Interaction *>>}
+\DoxyCodeLine{67             interactions\_by\_actor\_;}
+\DoxyCodeLine{68         std::vector<std::vector<Kernel *>>}
+\DoxyCodeLine{69             kernels\_by\_actor\_;}
+\DoxyCodeLine{70         std::vector<std::vector<Emotion *>>}
+\DoxyCodeLine{71             emotions\_by\_actor\_;}
+\DoxyCodeLine{72         std::vector<std::vector<Resource *>>}
+\DoxyCodeLine{73             wealth\_by\_actor\_;}
+\DoxyCodeLine{74         \textcolor{keywordtype}{size\_t} highest\_interaction\_id = 0;}
+\DoxyCodeLine{75         std::string GetRecursiveKernelDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth) \textcolor{keyword}{const};}
+\DoxyCodeLine{76     \};}
+\DoxyCodeLine{77 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GLOBALS\_CHRONICLE\_H}}
 
 \end{DoxyCode}
