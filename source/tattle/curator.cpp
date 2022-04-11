@@ -3,6 +3,8 @@
 #include <fmt/core.h>
 #include <math.h>
 #include <map>
+#include <set>
+#include <queue>
 #include "shared/tattletalecore.hpp"
 
 namespace tattletale
@@ -22,6 +24,7 @@ namespace tattletale
         }
         return current_best;
     }
+
     Kernel *Curator::RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth)
     {
         if (!current_best || to_check->GetChance() < current_best->GetChance())
@@ -72,6 +75,31 @@ namespace tattletale
         }
         return blocking_resource;
     }
+
+    bool Curator::HasCausalConnection(Kernel *start, Kernel *end) const
+    {
+        std::queue<Kernel *> queue;
+        queue.push(start);
+        while (queue.size() > 0)
+        {
+            Kernel *current = queue.front();
+            queue.pop();
+            for (auto &reason : current->GetReasons())
+            {
+                if (reason->id_ == end->id_)
+                {
+                    return true;
+                }
+
+                if (reason->tick_ <= end->tick_)
+                {
+                    queue.push(reason);
+                }
+            }
+        }
+        return false;
+    }
+
     std::vector<Kernel *> Curator::FindCausalConnection(Kernel *start, Kernel *end) const
     {
         std::vector<Kernel *> causal_chain;
@@ -100,39 +128,55 @@ namespace tattletale
         }
         return false;
     }
-    std::string Curator::GetTimeDescription(Kernel *start, Kernel *end) const
+
+    std::string Curator::GetTimeDescription(Kernel *start, Kernel *end, bool first_letter_uppercase) const
     {
-        size_t tick_distance = end->tick_ - start->tick_;
+        bool reversed = (start->tick_ > end->tick_);
+        size_t tick_distance = 0;
+        if (reversed)
+        {
+            tick_distance = start->tick_ - end->tick_;
+        }
+        else
+        {
+            tick_distance = end->tick_ - start->tick_;
+        }
+        std::string description = (reversed ? "quite a lot of time later" : "quite a lot of time earlier");
+
         if (tick_distance == 0)
         {
-            return "At the same time";
+            description = "at the same time";
         }
         if (tick_distance < (setting_.courses_per_day + 1) / 2)
         {
-            return "Shortly after";
+            description = (reversed ? "shortly after" : "shortly before");
         }
         if (tick_distance < setting_.courses_per_day + 1)
         {
-            return "Later that day";
+            description = (reversed ? "later that day" : "earlier that day");
         }
         size_t days = tick_distance / (setting_.courses_per_day + 1);
         if (days <= 1)
         {
-            return "The following day";
+            description = (reversed ? "the following day" : "the previous day");
         }
         if (days <= 7)
         {
-            return "During the same week";
+            description = "during the same week";
         }
         if (days <= 14)
         {
-            return "About two week later";
+            description = (reversed ? "about two weeks later" : "about two weeks earlier");
         }
         if (days <= 31)
         {
-            return "During the same month";
+            description = "during the same month";
         }
-        return "Quite a lot of time later";
+        if (first_letter_uppercase)
+        {
+            description[0] = toupper(description[0]);
+        }
+        return description;
     }
 
     std::string Curator::GetChanceDescription(float chance) const
@@ -176,6 +220,48 @@ namespace tattletale
         return "completely banal";
     }
 
+    std::string Curator::GetInterestScoreDescription(float score_ratio) const
+    {
+        if (score_ratio < 0.1)
+        {
+
+            return "very boring";
+        }
+        if (score_ratio < 0.2)
+        {
+            return "boring";
+        }
+        if (score_ratio < 0.3)
+        {
+            return "somewhat boring";
+        }
+        if (score_ratio < 0.4)
+        {
+            return "normal";
+        }
+        if (score_ratio < 0.5)
+        {
+            return "slightly interesting";
+        }
+        if (score_ratio < 0.6)
+        {
+            return "interesting";
+        }
+        if (score_ratio < 0.7)
+        {
+            return "highly interesting";
+        }
+        if (score_ratio < 0.8)
+        {
+            return "fascinating";
+        }
+        if (score_ratio < 0.9)
+        {
+            return "highly fascinating";
+        }
+        return "mindblowingly fascinating";
+    }
+
     std::string Curator::GetResourceReasonDescription(Resource *resource) const
     {
         float value = abs(resource->GetValue());
@@ -201,11 +287,101 @@ namespace tattletale
         }
         return fmt::format("{:p} gave them a tiny nudge to", *resource);
     }
+    Actor *Curator::FindMostOccuringActor(const std::vector<Kernel *> &kernels, bool &out_more_actors_present) const
+    {
+        std::set<size_t> checked_actors;
+        Actor *highest_actor = nullptr;
+        size_t highest_occurence = 0;
+        for (auto kernel : kernels)
+        {
+            auto actors = kernel->GetAllParticipants();
+            for (auto &actor : actors)
+            {
+                size_t occurence = 0;
+                if (checked_actors.find(actor->id_) == checked_actors.end())
+                {
+                    checked_actors.insert(actor->id_);
+                    for (auto kernel_to_check : kernels)
+                    {
+                        auto actors_to_check = kernel_to_check->GetAllParticipants();
+                        for (auto &actor_to_check : actors_to_check)
+                        {
+                            if (actor_to_check->id_ == actor->id_)
+                            {
+                                ++occurence;
+                            }
+                        }
+                    }
+                    if (occurence > highest_occurence)
+                    {
+                        highest_occurence = occurence;
+                        highest_actor = actor;
+                    }
+                }
+            }
+        }
+        TATTLETALE_DEBUG_PRINT(fmt::format("{}", highest_occurence));
+        out_more_actors_present = (checked_actors.size() > 1);
+        return highest_actor;
+    }
+    Kernel *Curator::FindLowestNonZeroAbsoluteInterestKernel(const std::vector<Kernel *> &kernels) const
+    {
+        // TODO: define this globally
+        size_t lowest_score = 5;
+        Kernel *lowest_kernel = nullptr;
+        for (auto &kernel : kernels)
+        {
+            size_t score = kernel->GetAbsoluteInterestScore();
+            if (score == 0)
+            {
+                continue;
+            }
+            if (score < lowest_score)
+            {
+                lowest_score = score;
+                lowest_kernel = kernel;
+            }
+        }
+        return lowest_kernel;
+    }
+
+    Kernel *Curator::FindHighestNonZeroAbsoluteInterestKernel(const std::vector<Kernel *> &kernels) const
+    {
+        size_t highest_score = 0;
+        Kernel *highest_kernel = nullptr;
+        for (auto &kernel : kernels)
+        {
+            size_t score = kernel->GetAbsoluteInterestScore();
+            if (score == 0)
+            {
+                continue;
+            }
+            if (score >= highest_score)
+            {
+                highest_score = score;
+                highest_kernel = kernel;
+            }
+        }
+        return highest_kernel;
+    }
     std::string Curator::Curate()
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
-        return RarityCuration();
+        return fmt::format("RARITY CURATION:\n"
+                           "\n"
+                           "{}\n"
+                           "\n"
+                           "-------------------------------------------------------------------------------------------------------------------------------------------------\n"
+                           "\n"
+                           "ABSOLUTE INTEREST CURATION:\n "
+                           "\n"
+                           "{}\n"
+                           "\n"
+                           "-------------------------------------------------------------------------------------------------------------------------------------------------\n",
+                           RarityCuration(),
+                           AbsoluteInterestsCuration());
     }
+
     std::string Curator::RarityCuration()
     {
         size_t depth = 5;
@@ -315,6 +491,50 @@ namespace tattletale
             description += fmt::format("\nAnd after all that this unlikely chain of events ended when *{}*", *connection.back());
             // TODO: Add reason for last interaction
             // TODO: deal with relationships
+        }
+        return description;
+    }
+
+    std::string Curator::AbsoluteInterestsCuration()
+    {
+        size_t kernel_count = 10;
+        size_t score = 0;
+        auto absolute_interest_kernels = chronicle_.FindHighestAbsoluteInterestKernelChain(kernel_count, score);
+        if (absolute_interest_kernels.size() < 0)
+        {
+            return "Absolute Interest Curation failed. No valid Kernels were created.";
+        }
+        bool more_actors_present = false;
+        auto protagonist = FindMostOccuringActor(absolute_interest_kernels, more_actors_present);
+
+        // TODO: define 2.5 value globally
+        float score_ratio = static_cast<float>(score) / static_cast<float>(kernel_count * 2.5);
+        std::string acquaintance_description = (more_actors_present ? " and their acquaintances" : "");
+        Kernel *lowest_interest_kernel = FindLowestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
+        Kernel *highest_interest_kernel = FindHighestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
+        if (!lowest_interest_kernel)
+        {
+            return "Absolute Interest Curation failed. No valid Kernels were created.";
+        }
+        bool only_one_event = lowest_interest_kernel->id_ == highest_interest_kernel->id_;
+        std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), GetInterestScoreDescription(score_ratio));
+        std::string description = fmt::format("{} happened with {}{}.\n", event_count_description, *protagonist, acquaintance_description);
+        description += fmt::format("One of those events would be when {}", *lowest_interest_kernel);
+        if (!only_one_event)
+        {
+            auto time_description = GetTimeDescription(lowest_interest_kernel, highest_interest_kernel, false);
+            description += fmt::format(", but this was not even the craziest thing that happened because {} {} was found {:p}\n\n", time_description, *highest_interest_kernel->GetOwner(), *highest_interest_kernel);
+        }
+        else
+        {
+            description += ".\n\n";
+        }
+        description += "So what else happend?\n";
+        description += fmt::format("The whole sequence of events started when {}.\n", *absolute_interest_kernels[0]);
+        for (size_t index = 1; index < absolute_interest_kernels.size(); ++index)
+        {
+            Kernel *kernel = absolute_interest_kernels[index];
+            description += fmt::format("{}\n", *kernel);
         }
         return description;
     }

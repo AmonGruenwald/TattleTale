@@ -256,7 +256,62 @@ namespace tattletale
         }
         return nullptr;
     }
+    size_t Chronicle::RecursivelyFindHighestAbsoluteInterestChain(Kernel *kernel, size_t current_depth, size_t max_depth, std::vector<Kernel *> &out_chain) const
+    {
+        size_t score = kernel->GetAbsoluteInterestScore();
+        if (kernel->GetReasons().size() == 0 || (current_depth + 1) >= max_depth)
+        {
+            out_chain.push_back(kernel);
+            return score;
+        }
 
+        size_t highest_score = 0;
+        std::vector<Kernel *> highest_chain;
+        for (auto &reason : kernel->GetReasons())
+        {
+            std::vector<Kernel *> temp_chain;
+            size_t current_score = RecursivelyFindHighestAbsoluteInterestChain(reason, current_depth + 1, max_depth, temp_chain);
+            if (current_score > highest_score)
+            {
+                highest_score = current_score;
+                highest_chain = temp_chain;
+            }
+        }
+        out_chain.push_back(kernel);
+        for (auto &piece : highest_chain)
+        {
+            out_chain.push_back(piece);
+        }
+        if (highest_score > 1)
+        {
+            int as = 2;
+        }
+        return (highest_score + score);
+    }
+    std::vector<Kernel *> Chronicle::FindHighestAbsoluteInterestKernelChain(size_t kernel_count, size_t &out_score) const
+    {
+        size_t highest_score = 0;
+        std::vector<Kernel *> highest_chain;
+        size_t count = 0;
+        for (auto &kernel : all_kernels_)
+        {
+            ++count;
+            if (count == 100)
+            {
+                count = 0;
+                TATTLETALE_VERBOSE_PRINT(fmt::format("Checking Kernel ({}/{})", kernel->id_, all_kernels_.size()));
+            }
+            std::vector<Kernel *> chain;
+            size_t score = RecursivelyFindHighestAbsoluteInterestChain(kernel, 0, kernel_count, chain);
+            if (score > highest_score)
+            {
+                highest_score = score;
+                highest_chain = chain;
+            }
+        }
+        out_score = highest_score;
+        return highest_chain;
+    }
     size_t Chronicle::GetLastTick() const
     {
         return all_kernels_.back()->tick_;
