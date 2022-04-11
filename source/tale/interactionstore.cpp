@@ -111,6 +111,11 @@ namespace tattletale
             return false;
         }
 
+        if (!ReadJsonValueFromDictionary<size_t, nlohmann::detail::value_t::number_unsigned>(out_prototype->absolute_interest, json, absolute_interest_key_, false, error_preamble))
+        {
+            return false;
+        }
+
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->description, json, description_key_, true, error_preamble))
         {
             return false;

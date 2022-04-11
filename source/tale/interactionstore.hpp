@@ -143,6 +143,10 @@ namespace tattletale
          */
         const std::string name_key_ = "name";
         /**
+         * @brief String mapping to name entries in the PrototypeCatalogue json.
+         */
+        const std::string absolute_interest_key_ = "absolute_interest";
+        /**
          * @brief String mapping to description entries in the PrototypeCatalogue json.
          */
         const std::string description_key_ = "description";

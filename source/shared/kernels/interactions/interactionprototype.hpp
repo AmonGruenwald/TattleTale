@@ -26,6 +26,10 @@ namespace tattletale
          */
         size_t id = 0;
         /**
+         * @brief How much this prototype is of absolute interest.
+         */
+        size_t absolute_interest = 0;
+        /**
          * @brief The description template of the corresponding Interaction.
          */
         std::string description = "";
@@ -59,6 +63,7 @@ namespace tattletale
         void ClearValues()
         {
             name = "";
+            absolute_interest = 0;
             wealth_effects.clear();
             emotion_effects.clear();
             relationship_effects.clear();
