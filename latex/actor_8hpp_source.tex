@@ -83,7 +83,7 @@
 \DoxyCodeLine{329 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
 \DoxyCodeLine{330 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Actor, T>::value, char>> : fmt::formatter<std::string>}
 \DoxyCodeLine{331 \{}
-\DoxyCodeLine{332     \textcolor{comment}{// d -\/ default = fullname, l -\/ last name, s -\/ second name, o -\/ detail}}
+\DoxyCodeLine{332     \textcolor{comment}{// d -\/ default = fullname, l -\/ last name, f -\/ first name, o -\/ detail}}
 \DoxyCodeLine{333     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
 \DoxyCodeLine{334 }
 \DoxyCodeLine{335     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
