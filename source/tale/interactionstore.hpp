@@ -147,6 +147,18 @@ namespace tattletale
          */
         const std::string absolute_interest_key_ = "absolute_interest";
         /**
+         * @brief String mapping to fluff entries in the PrototypeCatalogue json.
+         */
+        const std::string fluff_key_ = "fluff";
+        /**
+         * @brief String mapping to angst entries in the PrototypeCatalogue json.
+         */
+        const std::string angst_key_ = "angst";
+        /**
+         * @brief String mapping to sexual entries in the PrototypeCatalogue json.
+         */
+        const std::string sexual_key_ = "sexual";
+        /**
          * @brief String mapping to description entries in the PrototypeCatalogue json.
          */
         const std::string description_key_ = "description";

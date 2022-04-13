@@ -116,6 +116,20 @@ namespace tattletale
             return false;
         }
 
+        if (!ReadJsonValueFromDictionary<bool, nlohmann::detail::value_t::boolean>(out_prototype->fluff, json, fluff_key_, false, error_preamble))
+        {
+            return false;
+        }
+
+        if (!ReadJsonValueFromDictionary<bool, nlohmann::detail::value_t::boolean>(out_prototype->angst, json, angst_key_, false, error_preamble))
+        {
+            return false;
+        }
+        if (!ReadJsonValueFromDictionary<bool, nlohmann::detail::value_t::boolean>(out_prototype->sexual, json, sexual_key_, false, error_preamble))
+        {
+            return false;
+        }
+
         if (!ReadJsonValueFromDictionary<std::string, nlohmann::detail::value_t::string>(out_prototype->description, json, description_key_, true, error_preamble))
         {
             return false;
