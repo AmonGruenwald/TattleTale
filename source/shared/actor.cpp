@@ -255,7 +255,7 @@ namespace tattletale
             std::vector<Relationship *> relationship_vector = relationships_[id];
 
             float chance = 0.0f;
-            float highest_chance_increase = -1.0f;
+            float highest_chance_increase = 0.0f;
             bool requirement_failed = false;
 
             for (int type_index = 0; type_index < static_cast<int>(RelationshipType::kLast); ++type_index)
