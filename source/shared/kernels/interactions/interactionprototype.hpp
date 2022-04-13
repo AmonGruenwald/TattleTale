@@ -30,6 +30,18 @@ namespace tattletale
          */
         size_t absolute_interest = 0;
         /**
+         * @brief If this InteractionPrototype would fulfill the fluff tag.
+         */
+        bool fluff = false;
+        /**
+         * @brief If this InteractionPrototype would fulfill the angst tag.
+         */
+        bool angst = false;
+        /**
+         * @brief If this InteractionPrototype would fulfill the sexual tag.
+         */
+        bool sexual = false;
+        /**
          * @brief The description template of the corresponding Interaction.
          */
         std::string description = "";
@@ -64,6 +76,9 @@ namespace tattletale
         {
             name = "";
             absolute_interest = 0;
+            fluff = false;
+            angst = false;
+            sexual = false;
             wealth_effects.clear();
             emotion_effects.clear();
             relationship_effects.clear();
