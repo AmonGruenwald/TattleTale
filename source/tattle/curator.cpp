@@ -25,7 +25,7 @@ namespace tattletale
         return current_best;
     }
 
-    Kernel *Curator::RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth)
+    Kernel *Curator::RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth) const
     {
         if (!current_best || to_check->GetChance() < current_best->GetChance())
         {
@@ -370,6 +370,8 @@ namespace tattletale
     std::string Curator::Curate()
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
+
+        const auto &chains = chronicle_.GetEveryPossibleChain(5);
         return fmt::format("RARITY CURATION:\n"
                            "\n"
                            "{}\n"
@@ -381,12 +383,13 @@ namespace tattletale
                            "{}\n"
                            "\n"
                            "-------------------------------------------------------------------------------------------------------------------------------------------------\n",
-                           RarityCuration(),
-                           AbsoluteInterestsCuration());
+                           RarityCuration(chains),
+                           AbsoluteInterestsCuration(chains));
     }
 
-    std::string Curator::RarityCuration()
+    std::string Curator::RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const
     {
+        // TODO: use chains instead
         size_t depth = 5;
         size_t base_interaction_tick_distance_to_end = 10;
         size_t tick_cutoff = chronicle_.GetLastTick();
@@ -498,17 +501,17 @@ namespace tattletale
         return description;
     }
 
-    std::string Curator::AbsoluteInterestsCuration()
+    std::string Curator::AbsoluteInterestsCuration(const std::vector<std::vector<Kernel *>> &chains) const
     {
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
-        size_t kernel_count = 10;
         size_t score = 0;
-        auto absolute_interest_kernels = chronicle_.FindHighestAbsoluteInterestKernelChain(kernel_count, score);
+        auto absolute_interest_kernels = chronicle_.FindHighestAbsoluteInterestKernelChain(chains, score);
         if (absolute_interest_kernels.size() < 0)
         {
             return "Absolute Interest Curation failed. No valid Kernels were created.";
         }
+        size_t kernel_count = absolute_interest_kernels.size();
         bool more_actors_present = false;
         auto protagonist = FindMostOccuringActor(absolute_interest_kernels, more_actors_present);
 

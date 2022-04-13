@@ -53,7 +53,7 @@ namespace tattletale
         Interaction *FindUnlikeliestInteraction(size_t tick_cutoff) const;
         Interaction *FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const;
 
-        std::vector<Kernel *> FindHighestAbsoluteInterestKernelChain(size_t kernel_count, size_t &out_score) const;
+        std::vector<Kernel *> FindHighestAbsoluteInterestKernelChain(const std::vector<std::vector<Kernel *>> chains, size_t &out_score) const;
         size_t RecursivelyFindHighestAbsoluteInterestChain(Kernel *kernel, size_t current_depth, size_t max_depth, std::vector<Kernel *> &out_chain) const;
         Emotion *GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const;
         Resource *GetLastWealth(size_t tick, size_t actor_id) const;

@@ -12,7 +12,7 @@ namespace tattletale
         Curator(const Chronicle &chronicle, const Setting &setting);
         std::string Curate();
         Kernel *RecursivelyFindUnlikeliestReason(Kernel *to_check, Kernel *current_best);
-        Kernel *RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth);
+        Kernel *RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth) const;
         bool HasCausalConnection(Kernel *start, Kernel *end) const;
         std::vector<Kernel *> FindCausalConnection(Kernel *start, Kernel *end) const;
         Resource *FindBlockingResource(Interaction *interaction) const;
@@ -27,8 +27,8 @@ namespace tattletale
         Kernel *FindHighestNonZeroAbsoluteInterestKernel(const std::vector<Kernel *> &kernels) const;
 
     private:
-        std::string RarityCuration();
-        std::string AbsoluteInterestsCuration();
+        std::string RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const;
+        std::string AbsoluteInterestsCuration(const std::vector<std::vector<Kernel *>> &chains) const;
         const Chronicle &chronicle_;
         const Setting &setting_;
     };
