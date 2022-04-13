@@ -329,7 +329,7 @@ namespace tattletale
 template <typename T>
 struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Actor, T>::value, char>> : fmt::formatter<std::string>
 {
-    // d - default = fullname, l - last name, s - second name, o - detail
+    // d - default = fullname, l - last name, f - first name, o - detail
     char presentation = 'd';
 
     constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
