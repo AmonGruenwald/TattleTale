@@ -312,6 +312,48 @@ namespace tattletale
         out_score = highest_score;
         return highest_chain;
     }
+
+    std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChain(size_t chain_size) const
+    {
+        std::vector<std::vector<Kernel *>> chains;
+        for (auto &kernel : all_kernels_)
+        {
+            auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
+            for (auto &kernel_chain : kernel_chains)
+            {
+                chains.push_back(kernel_chain);
+            }
+        }
+        return chains;
+    }
+
+    std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChainRecursivly(Kernel *kernel, size_t current_depth, size_t max_depth) const
+    {
+        std::vector<std::vector<Kernel *>> chains;
+        auto &consequences = kernel->GetConsequences();
+        if ((current_depth + 1) < max_depth && consequences.size() > 0)
+        {
+            for (auto &consequence : consequences)
+            {
+                const auto &reason_chains = GetEveryPossibleChainRecursivly(consequence, current_depth + 1, max_depth);
+                for (auto &reason_chain : reason_chains)
+                {
+                    std::vector<Kernel *> chain;
+                    chain.push_back(kernel);
+                    for (auto reason_chain_piece : reason_chain)
+                    {
+                        chain.push_back(reason_chain_piece);
+                    }
+                    chains.push_back(chain);
+                }
+            }
+        }
+        else
+        {
+            chains.push_back({kernel});
+        }
+        return chains;
+    }
     size_t Chronicle::GetLastTick() const
     {
         return all_kernels_.back()->tick_;

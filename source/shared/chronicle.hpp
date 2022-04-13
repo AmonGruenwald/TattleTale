@@ -40,6 +40,8 @@ namespace tattletale
         Resource *CreateResource(std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t tick, Actor *owner, std::vector<Kernel *> reasons, float value);
         Goal *CreateGoal(GoalType type, size_t tick, Actor *owner, std::vector<Kernel *> reasons);
 
+        std::vector<std::vector<Kernel *>> GetEveryPossibleChain(size_t chain_size) const;
+        std::vector<std::vector<Kernel *>> GetEveryPossibleChainRecursivly(Kernel *kernel, size_t current_depth, size_t max_depth) const;
         float GetAverageInteractionChance() const;
         float GetAverageInteractionReasonCount() const;
         std::string GetKnownActorsDescription(size_t actor_id) const;
