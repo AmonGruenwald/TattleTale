@@ -3,6 +3,8 @@
         "prototype": {
             "name": "Infect other",
             "absolute_interest": 2,
+            "angst": true,
+            "sexual": true,
             "description": "{0} infected {1} with a sickness",
             "passive_description": "infecting others",
             "active_description": "infect {0} with a sickness",
@@ -48,6 +50,7 @@
         "prototype": {
             "name": "Sickness",
             "absolute_interest": 2,
+            "angst": true,
             "description": "{0} got sick",
             "passive_description": "getting sick",
             "active_description": "get sick",
@@ -74,6 +77,7 @@
         "prototype": {
             "name": "Start a rumor",
             "absolute_interest": 1,
+            "angst": true,
             "description": "{0} started a rumor about {1}",
             "passive_description": "starting rumors",
             "active_description": "start rumors about {0}",
@@ -233,6 +237,7 @@
     {
         "prototype": {
             "name": "Happy Jig",
+            "fluff": true,
             "description": "{0} did a happy jig",
             "passive_description": "doing a happy jig",
             "active_description": "do a happy jig",
@@ -261,6 +266,7 @@
     {
         "prototype": {
             "name": "Stare at wall",
+            "angst": true,
             "description": "{0} apathetically stared at a wall",
             "passive_description": "staring apathetically at a wall",
             "active_description": "stare apathetically at a wall",
@@ -290,6 +296,7 @@
     {
         "prototype": {
             "name": "Throw a tantrum",
+            "angst": true,
             "description": "{0} threw a tantrum",
             "passive_description": "throwing a tantrum",
             "active_description": "throw a tantrum",
@@ -320,6 +327,7 @@
         "prototype": {
             "name": "Lash out in anger",
             "absolute_interest": 2,
+            "angst": true,
             "description": "{0} lashed out against {1} in anger",
             "passive_description": "lashing out in anger",
             "active_description": "lash out in anger against {0}",
@@ -386,6 +394,7 @@
     {
         "prototype": {
             "name": "Commiserate with someone",
+            "angst": true,
             "description": "{0} commiserated with {1}",
             "passive_description": "commiserating with someone",
             "active_description": "commiserate with {0}",
@@ -452,6 +461,7 @@
     {
         "prototype": {
             "name": "Cry",
+            "angst": true,
             "description": "{0} started crying",
             "passive_description": "crying",
             "active_description": "cry",
@@ -484,6 +494,7 @@
     {
         "prototype": {
             "name": "Talk about someone",
+            "angst": true,
             "description": "{0} talked with {1} about {2}",
             "passive_description": "talking about someone",
             "active_description": "talk with {0} about {1}",
@@ -555,6 +566,7 @@
         "prototype": {
             "name": "Confess love",
             "absolute_interest": 2,
+            "fluff": true,
             "description": "{0} confessed their love to {1}",
             "passive_description": "confessing their love",
             "active_description": "confess their love to {0}",
@@ -624,6 +636,7 @@
     {
         "prototype": {
             "name": "Embarrass oneself",
+            "angst": true,
             "description": "{0} embarrassed themself",
             "passive_description": "embarrassing themself",
             "active_description": "embarrass themself",
@@ -655,6 +668,7 @@
         "prototype": {
             "name": "Protect someone",
             "absolute_interest": 3,
+            "fluff": true,
             "description": "{0} protected {1} from {2}",
             "passive_description": "protecting someone",
             "active_description": "protect {0} from {1}",
@@ -761,6 +775,7 @@
         "prototype": {
             "name": "Extort someone",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} extorted {1} for some money",
             "passive_description": "extorting someone",
             "active_description": "extort {0} for some money",
@@ -843,6 +858,7 @@
         "prototype": {
             "name": "Blackmail someone",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} blackmailed {1} for some money",
             "passive_description": "blackmailing someone",
             "active_description": "blackmail {0} for some money",
@@ -919,6 +935,7 @@
         "prototype": {
             "name": "Casual sex",
             "absolute_interest": 3,
+            "sexual": true,
             "description": "{0} and {1} had casual sex",
             "passive_description": "having casual sex",
             "active_description": "have casual sex with {0}",
@@ -993,6 +1010,7 @@
         "prototype": {
             "name": "Make love",
             "absolute_interest": 3,
+            "sexual": true,
             "description": "{0} and {1} made love",
             "passive_description": "making love",
             "active_description": "make love with {1}",
@@ -1063,6 +1081,7 @@
         "prototype": {
             "name": "Break up",
             "absolute_interest": 4,
+            "angst": true,
             "description": "{0} broke up with {1}",
             "passive_description": "breaking up with someone",
             "active_description": "break up with {0}",
@@ -1140,6 +1159,7 @@
         "prototype": {
             "name": "Asked out unsuccessfully",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} asked {1} out. {1} said they don't feel the same way though",
             "passive_description": "failing when asking someone out",
             "active_description": "ask out {0}. {0} said they don't feel the same way though",
@@ -1215,6 +1235,7 @@
         "prototype": {
             "name": "Asked out successfully",
             "absolute_interest": 2,
+            "fluff": true,
             "description": "{0} asked {1} out. {1} said yes",
             "passive_description": "asking someone out",
             "active_description": "succesfully ask {0} out",
@@ -1293,6 +1314,7 @@
         "prototype": {
             "name": "Fight verbally",
             "absolute_interest": 2,
+            "angst": true,
             "description": "{0} verbally fought with {1}",
             "passive_description": "verbally fighting with someone",
             "active_description": "verbally fight with {0}",
@@ -1372,6 +1394,7 @@
         "prototype": {
             "name": "Fight physically",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} threw fists with {1}",
             "passive_description": "throwing fists with someone",
             "active_description": "throw fists with {0}",
@@ -1620,6 +1643,7 @@
     {
         "prototype": {
             "name": "Saw cute action",
+            "fluff": true,
             "description": "{0} saw {1} do something cute",
             "passive_description": "looking at someone cute",
             "active_description": "notice {0} do something cute.",
@@ -1651,6 +1675,7 @@
     {
         "prototype": {
             "name": "Do up",
+            "fluff": true,
             "description": "{0} did themself up",
             "passive_description": "doing themselves up",
             "active_description": "do themself up",
@@ -1681,6 +1706,7 @@
         "prototype": {
             "name": "Notice Beauty",
             "absolute_interest": 1,
+            "fluff": true,
             "description": "{0} noticed how beautiful {1} is",
             "passive_description": "noticing how beautiful someone is",
             "active_description": "notice how beautiful {0} is",
@@ -1722,6 +1748,7 @@
     {
         "prototype": {
             "name": "Tease each other",
+            "fluff": true,
             "description": "{0} and {1} teased each other",
             "passive_description": "teasing someone else",
             "active_description": "tease back and forth with {0}",
@@ -1788,6 +1815,7 @@
         "prototype": {
             "name": "Call someone names",
             "absolute_interest": 1,
+            "angst": true,
             "description": "{0} called {1} names",
             "passive_description": "calling someone names",
             "active_description": "call {0} names",
@@ -1855,6 +1883,7 @@
     {
         "prototype": {
             "name": "Shoot the shit",
+            "fluff": true,
             "description": "{0} shot the shit with {1}",
             "passive_description": "shooting the shit with someone",
             "active_description": "shoot the shit with {0}",
@@ -2045,6 +2074,7 @@
         "prototype": {
             "name": "Bully someone",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} bullied {1}",
             "passive_description": "bullying someone",
             "active_description": "bully {0}",
@@ -2175,6 +2205,7 @@
         "prototype": {
             "name": "Satisfy themself",
             "absolute_interest": 2,
+            "sexual": true,
             "description": "{0} satisfied themself",
             "passive_description": "satisfying themself",
             "active_description": "satisfy themself",
@@ -2234,6 +2265,7 @@
     {
         "prototype": {
             "name": "Erotic Movie",
+            "sexual": true,
             "description": "{0} watched an erotic movie",
             "passive_description": "watching an erotic movie",
             "active_description": "watch an erotic movie",
@@ -2260,6 +2292,7 @@
     {
         "prototype": {
             "name": "Horror Movie",
+            "angst": true,
             "description": "{0} watched a horror movie",
             "passive_description": "watching a horror movie",
             "active_description": "watch a horror movie",
@@ -2285,6 +2318,7 @@
         "prototype": {
             "name": "Cinema Date",
             "absolute_interest": 1,
+            "fluff": true,
             "description": "{0} went to the cinema as a date with {1}",
             "passive_description": "going on a movie date",
             "active_description": "go to a date with {0} at the cinema",
@@ -2354,7 +2388,8 @@
     },
     {
         "prototype": {
-            "name": "Got to the Cinema as Friend",
+            "name": "Go to the Cinema as Friend",
+            "fluff": true,
             "description": "{0} went to the cinema with their friend {1}",
             "passive_description": "going to the cinema",
             "active_description": "go to the cinema with their friend {0}",
@@ -2425,6 +2460,7 @@
         "prototype": {
             "name": "Coffee Date",
             "absolute_interest": 1,
+            "fluff": true,
             "description": "{0} went on a coffee date with {1}",
             "passive_description": "going on a coffee date",
             "active_description": "go on a coffed date with {0}",
@@ -2495,7 +2531,8 @@
     },
     {
         "prototype": {
-            "name": "Got for a Coffee with a Friend",
+            "name": "Go for a Coffee with a Friend",
+            "fluff": true,
             "description": "{0} went for a coffee with their friend {1}",
             "passive_description": "going for a coffee",
             "active_description": "go for a coffee with their friend {0}",
@@ -2567,6 +2604,7 @@
         "prototype": {
             "name": "Take Drugs",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} took some drugs",
             "passive_description": "taking drugs",
             "active_description": "take some drugs",
@@ -2641,12 +2679,15 @@
         },
         "requirements": {
             "participant_count": 2,
+            "context": "freetime",
             "emotions": [
                 {
-                    "brave": 0.5
+                    "brave": 0.5,
+                    "calm": 0.25
                 },
                 {
-                    "brave": 0.5
+                    "brave": 0.5,
+                    "calm": 0.25
                 }
             ],
             "relationships": [
@@ -3520,6 +3561,7 @@
         "prototype": {
             "name": "Caught Stealing",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} was caught trying to steal from {1}",
             "passive_description": "getting caught stealing",
             "active_description": "get caught while trying to steal from {0}",
@@ -3593,6 +3635,7 @@
         "prototype": {
             "name": "Kiss successfully",
             "absolute_interest": 2,
+            "fluff": true,
             "description": "{0} kissed {1}. They both enjoyed it",
             "passive_description": "kissing someone",
             "active_description": "kiss {0}. They both enjoyed it",
@@ -3675,6 +3718,7 @@
         "prototype": {
             "name": "Kiss unsuccessfully",
             "absolute_interest": 3,
+            "angst": true,
             "description": "{0} tried to kiss {1} but {1} dodged it",
             "passive_description": "failing to kiss someone",
             "active_description": "try to kiss {0}, but {0} dodged it",
@@ -3760,6 +3804,7 @@
         "prototype": {
             "name": "Flirt successfully",
             "absolute_interest": 1,
+            "fluff": true,
             "description": "{0} flirted with {1} and {1} liked it",
             "passive_description": "flirting with someone",
             "active_description": "to flirt with {0}, who liked it.",
@@ -3842,6 +3887,7 @@
         "prototype": {
             "name": "Flirt unsuccessfully",
             "absolute_interest": 2,
+            "angst": true,
             "description": "{0} tried to flirt with {1} but {1} shot that down immediately",
             "passive_description": "failing to flirt with someone",
             "active_description": "to try to flirt with {0}, who shot that down immediately",
