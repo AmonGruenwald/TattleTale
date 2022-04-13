@@ -282,6 +282,7 @@ namespace tattletale
         {
             out_chain.push_back(piece);
         }
+        out_chain.push_back(kernel);
         if (highest_score > 1)
         {
             int as = 2;
