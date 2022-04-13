@@ -277,7 +277,6 @@ namespace tattletale
                 highest_chain = temp_chain;
             }
         }
-        out_chain.push_back(kernel);
         for (auto &piece : highest_chain)
         {
             out_chain.push_back(piece);
