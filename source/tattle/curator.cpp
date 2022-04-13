@@ -56,7 +56,11 @@ namespace tattletale
                 continue;
             }
             auto last_emotion = chronicle_.GetLastEmotionOfType(interaction->tick_, interaction->GetOwner()->id_, type);
-            float current_influence = last_emotion->GetValue() * value;
+            float current_influence = 0;
+            if (last_emotion)
+            {
+                current_influence = last_emotion->GetValue() * value;
+            }
             if (current_influence < lowest_influence)
             {
                 blocking_resource = last_emotion;
@@ -320,7 +324,6 @@ namespace tattletale
                 }
             }
         }
-        TATTLETALE_DEBUG_PRINT(fmt::format("{}", highest_occurence));
         out_more_actors_present = (checked_actors.size() > 1);
         return highest_actor;
     }
@@ -497,6 +500,8 @@ namespace tattletale
 
     std::string Curator::AbsoluteInterestsCuration()
     {
+        // TODO: track which actors were alread named and only use firstnames for those
+        // TODO: repeated interactions should be combined
         size_t kernel_count = 10;
         size_t score = 0;
         auto absolute_interest_kernels = chronicle_.FindHighestAbsoluteInterestKernelChain(kernel_count, score);
@@ -518,23 +523,79 @@ namespace tattletale
         }
         bool only_one_event = lowest_interest_kernel->id_ == highest_interest_kernel->id_;
         std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), GetInterestScoreDescription(score_ratio));
-        std::string description = fmt::format("{} happened with {}{}.\n", event_count_description, *protagonist, acquaintance_description);
+        std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
         description += fmt::format("One of those events would be when {}", *lowest_interest_kernel);
         if (!only_one_event)
         {
             auto time_description = GetTimeDescription(lowest_interest_kernel, highest_interest_kernel, false);
-            description += fmt::format(", but this was not even the craziest thing that happened because {} {} was found {:p}\n\n", time_description, *highest_interest_kernel->GetOwner(), *highest_interest_kernel);
+            description += fmt::format(", but this was not even the craziest thing that happened because {} {} was found {:p}{}.\n\n",
+                                       time_description,
+                                       *highest_interest_kernel->GetOwner(),
+                                       *highest_interest_kernel,
+                                       (highest_interest_kernel->IsSameSpecificType(lowest_interest_kernel) ? " again" : ""));
         }
         else
         {
             description += ".\n\n";
         }
         description += "So what else happend?\n";
-        description += fmt::format("The whole sequence of events started when {}.\n", *absolute_interest_kernels[0]);
+        auto previous_kernel = absolute_interest_kernels[0];
+        description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
+        auto previous_reasons = previous_kernel->GetReasons();
+        if (previous_reasons.size() > 0)
+        {
+            description += fmt::format(", because {:f} was {:p}", *(previous_kernel->GetOwner()), *previous_reasons[0]);
+            for (size_t reason_index = 1; reason_index < previous_reasons.size(); ++reason_index)
+            {
+                auto &reason = previous_reasons[reason_index];
+                description += fmt::format(" and was also {:p}", *reason);
+            }
+        }
         for (size_t index = 1; index < absolute_interest_kernels.size(); ++index)
         {
             Kernel *kernel = absolute_interest_kernels[index];
-            description += fmt::format("{}\n", *kernel);
+            if (kernel->IsSameSpecificType(previous_kernel))
+            {
+                previous_reasons = kernel->GetReasons();
+                previous_kernel = kernel;
+                continue;
+            }
+            if (kernel->type_ != KernelType::kInteraction)
+            {
+
+                description += " which in turn let ";
+            }
+            else
+            {
+                description += ".\nThis ";
+                for (auto &reason : kernel->GetReasons())
+                {
+                    if (reason->id_ != previous_kernel->id_ && !reason->IsSameSpecificType(kernel))
+                    {
+                        if (reason->GetOwner()->id_ == kernel->GetOwner()->id_)
+                        {
+                            description += fmt::format("and them {:p} ", *reason);
+                        }
+                        else
+                        {
+                            description += fmt::format("and {:f} {:p} ", *(reason->GetOwner()), *reason);
+                        }
+                    }
+                }
+                description += "made ";
+            }
+            bool compound_reason = false;
+            for (auto &previous_reason : previous_reasons)
+            {
+                if (previous_reason->IsSameSpecificType(kernel) && previous_reason->GetOwner()->id_ == kernel->GetOwner()->id_)
+                {
+                    compound_reason = true;
+                }
+            }
+
+            description += fmt::format("{} {:a}{}", *(kernel->GetOwner()), *kernel, (compound_reason ? " even more" : ""));
+            previous_reasons = kernel->GetReasons();
+            previous_kernel = kernel;
         }
         return description;
     }
