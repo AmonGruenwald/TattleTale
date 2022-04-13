@@ -39,4 +39,16 @@ namespace tattletale
     {
         return type_;
     }
+    float Emotion::CalculateChanceInfluence(const Interaction *interaction) const
+    {
+        return (interaction->GetTendency()->emotions[static_cast<int>(type_)] * value_);
+    }
+    bool Emotion::IsSameSpecificType(Kernel *other) const
+    {
+        if (!IsSameKernelType(other))
+        {
+            return false;
+        }
+        return (dynamic_cast<Emotion *>(other)->type_ == type_);
+    }
 } // namespace tattletale

@@ -83,6 +83,11 @@ namespace tattletale
          */
         std::string GetActiveDescription() const override;
 
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const;
+
     protected:
         /**
          * @brief Constructor initializing base Kernel class and value_ member.

@@ -72,4 +72,23 @@ namespace tattletale
         return fmt::format("{:a} {} {}", verb_, GetAdjective(), GetNameVariant());
     }
 
+    float Resource::CalculateChanceInfluence(const Interaction *interaction) const
+    {
+        // TODO: this breaks completely if we ever use more than wealth resources
+        if (name_ == "wealth")
+        {
+            return (interaction->GetTendency()->wealth * value_);
+        }
+        return 0;
+    }
+
+    bool Resource::IsSameSpecificType(Kernel *other) const
+    {
+        if (!IsSameKernelType(other))
+        {
+            return false;
+        }
+        return (other->name_ == name_);
+    }
+
 } // namespace tattletale

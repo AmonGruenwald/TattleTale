@@ -48,6 +48,11 @@ namespace tattletale
          */
         EmotionType GetType();
 
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const;
+
     private:
         /**
          * @brief Constructor, also initializing base Resource class and type_ member.

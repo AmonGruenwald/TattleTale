@@ -108,4 +108,62 @@ namespace tattletale
         }
         return description;
     }
+
+    float Goal::CalculateChanceInfluence(const Interaction *interaction) const
+    {
+        float influence = 0;
+        auto &relationship_effects = interaction->GetPrototype()->relationship_effects;
+        switch (type_)
+        {
+        case GoalType::kWealth:
+            influence = interaction->GetPrototype()->wealth_effects[0];
+            break;
+        case GoalType::kAcceptance:
+            // skip first as we want the values of other people to this actor
+            for (size_t i = 1; i < relationship_effects.size(); ++i)
+            {
+                if (relationship_effects[i].count(0))
+                {
+                    influence += relationship_effects[i].at(0).at(static_cast<int>(RelationshipType::kFriendship));
+                }
+            }
+            break;
+        case GoalType::kRelationship:
+            // skip first as we want the values of other people to this actor
+            for (size_t i = 1; i < relationship_effects.size(); ++i)
+            {
+                // do both sides of the relationship change
+                if (relationship_effects[i].count(0) && relationship_effects[0].count(i))
+                {
+                    influence += relationship_effects[i].at(0).at(static_cast<int>(RelationshipType::kLove));
+                    influence += relationship_effects[0].at(1).at(static_cast<int>(RelationshipType::kLove));
+                }
+            }
+            break;
+        case GoalType::kHedonism:
+            influence = interaction->GetPrototype()->emotion_effects[0][static_cast<int>(EmotionType::kSatisfied)];
+            break;
+        case GoalType::kPower:
+            // skip first as we want the values of other people to this actor
+            for (const auto &[other_actor, effect] : relationship_effects[0])
+            {
+                // using minus here because the actor wants a negative value
+                influence -= effect.at(static_cast<int>(RelationshipType::kProtective));
+            }
+            break;
+        case GoalType::kLast:
+            TATTLETALE_ERROR_PRINT(true, "Trying to apply invalid goal type");
+            break;
+        }
+        influence = std::clamp(influence, -1.0f, 1.0f);
+        return influence;
+    }
+    bool Goal::IsSameSpecificType(Kernel *other) const
+    {
+        if (!IsSameKernelType(other))
+        {
+            return false;
+        }
+        return (dynamic_cast<Goal *>(other)->type_ == type_);
+    }
 } // namespace tattletale

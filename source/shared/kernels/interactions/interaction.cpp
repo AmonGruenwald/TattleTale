@@ -111,4 +111,22 @@ namespace tattletale
     {
         return prototype_->absolute_interest;
     }
+
+    float Interaction::CalculateChanceInfluence(const Interaction *interaction) const
+    {
+        return 0;
+    }
+    bool Interaction::IsNegativeReason(Kernel *reason) const
+    {
+        return (reason->CalculateChanceInfluence(this) < 0);
+    }
+    bool Interaction::IsSameSpecificType(Kernel *other) const
+    {
+        if (!IsSameKernelType(other))
+        {
+            return false;
+        }
+        return (other->name_ == name_);
+    }
+
 } // namespace tattletale

@@ -97,6 +97,13 @@ namespace tattletale
          * @return The score.
          */
         virtual size_t GetAbsoluteInterestScore() const override;
+        // TODO: documentation
+        virtual bool IsNegativeReason(Kernel *reason) const override;
+
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const;
 
     private:
         /**

@@ -86,4 +86,31 @@ namespace tattletale
         participants.push_back(target_);
         return participants;
     }
+
+    float Relationship::CalculateChanceInfluence(const Interaction *interaction) const
+    {
+        const auto &participants = interaction->GetAllParticipants();
+        int participant_index = -1;
+        for (size_t i = 0; i < participants.size(); ++i)
+        {
+            if (participants[i]->id_ == target_->id_)
+            {
+                participant_index = i;
+            }
+        }
+        // if not found or owner is meant
+        if (participant_index <= 0)
+        {
+            return 0;
+        }
+        return (interaction->GetTendency()->relationships[participant_index - 1][static_cast<int>(type_)] * value_);
+    }
+    bool Relationship::IsSameSpecificType(Kernel *other) const
+    {
+        if (!IsSameKernelType(other))
+        {
+            return false;
+        }
+        return (dynamic_cast<Relationship *>(other)->type_ == type_);
+    }
 } // namespace tattletale

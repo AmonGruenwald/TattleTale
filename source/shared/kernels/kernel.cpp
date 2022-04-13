@@ -57,4 +57,14 @@ namespace tattletale
     {
         return 0;
     }
+
+    bool Kernel::IsNegativeReason(Kernel *reason) const
+    {
+        return false;
+    }
+
+    bool Kernel::IsSameKernelType(Kernel *other) const
+    {
+        return (type_ == other->type_);
+    }
 } // namespace tattletale

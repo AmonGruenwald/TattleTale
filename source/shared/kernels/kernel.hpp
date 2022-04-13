@@ -23,6 +23,7 @@ namespace tattletale
         kLast
     };
     class Actor;
+    class Interaction;
     /**
      * @brief Represents a part of the simulation, like an interaction, or an emotional goal.
      *
@@ -137,6 +138,14 @@ namespace tattletale
          * @return The score.
          */
         virtual size_t GetAbsoluteInterestScore() const;
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const = 0;
+        // TODO: documentation
+        virtual bool IsNegativeReason(Kernel *reason) const;
+        // TODO: documentation
+        bool IsSameKernelType(Kernel *other) const;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const = 0;
 
     protected:
         /**

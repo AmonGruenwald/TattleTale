@@ -80,6 +80,11 @@ namespace tattletale
          */
         virtual std::vector<Actor *> GetAllParticipants() const override;
 
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const;
+
     private:
         /**
          * @brief Constructor initializing base Resource class and type_ member.
@@ -122,7 +127,7 @@ namespace tattletale
              "disgust for",
              "animosity for",
              "comfortable with",
-             "power over for"};
+             "powerful towards"};
         /**
          * @brief The Actor which is targeted by this Relationship.
          */

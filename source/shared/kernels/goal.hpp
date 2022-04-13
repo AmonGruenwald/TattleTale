@@ -70,6 +70,11 @@ namespace tattletale
          */
         const GoalType type_;
 
+        // TODO: documentation
+        virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
+        // TODO: documentation
+        virtual bool IsSameSpecificType(Kernel *other) const;
+
     private:
         /**
          * @brief Constructor, also initializing base Kernel class and type_ member.
