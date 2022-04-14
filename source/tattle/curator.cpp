@@ -571,7 +571,7 @@ namespace tattletale
 
     std::string Curator::Curate(const std::vector<std::vector<Kernel *>> &chains, Curation *curation) const
     {
-        auto chain = CurateForScore(chains, curation);
+        auto chain = FindBestScoringChain(chains, curation);
         if (chain.size() < 0)
         {
             return fmt::format("{} Curation failed. No valid Kernels were created.", curation->name_);
@@ -579,7 +579,7 @@ namespace tattletale
         return Narrativize(chain, curation);
     }
 
-    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const
+    std::vector<Kernel *> Curator::FindBestScoringChain(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const
     {
         float highest_score = 0.0f;
         std::vector<Kernel *> highest_chain;

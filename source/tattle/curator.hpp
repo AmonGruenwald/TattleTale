@@ -19,10 +19,12 @@ namespace tattletale
         std::vector<Kernel *> FindCausalConnection(Kernel *start, Kernel *end) const;
         Resource *FindBlockingResource(Interaction *interaction) const;
         bool RecursivelyFindCausalConnectionBackwards(Kernel *root, Kernel *start, std::vector<Kernel *> &out_causal_chain) const;
+
         std::string GetTimeDescription(Kernel *start, Kernel *end, bool first_letter_uppercase = true) const;
         std::string GetChanceDescription(float chance) const;
         std::string GenerateScoreDescription(float score) const;
         std::string GetResourceReasonDescription(Resource *resource) const;
+
         Actor *FindMostOccuringActor(const std::vector<Kernel *> &kernels, bool &out_more_actors_present) const;
 
     private:
@@ -30,7 +32,7 @@ namespace tattletale
         const Setting &setting_;
 
         std::string RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const;
-        std::vector<Kernel *> CurateForScore(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const;
+        std::vector<Kernel *> FindBestScoringChain(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const;
 
         std::string Curate(const std::vector<std::vector<Kernel *>> &chains, Curation *curation) const;
     };
