@@ -10,10 +10,6 @@ namespace tattletale
     {
         return 1;
     }
-    std::string TagCuration::GenerateScoreDescription(float score) const
-    {
-        return "";
-    }
     Kernel *TagCuration::GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const
     {
         return chain[0];

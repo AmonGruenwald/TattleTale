@@ -10,7 +10,6 @@ namespace tattletale
     {
     public:
         virtual float CalculateScore(const std::vector<Kernel *> &chain) const = 0;
-        virtual std::string GenerateScoreDescription(float score_ratio) const = 0;
         virtual Kernel *GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const = 0;
         virtual Kernel *GetSecondNoteworthyEvent(const std::vector<Kernel *> &chain) const = 0;
         const std::string name_;

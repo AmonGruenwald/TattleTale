@@ -228,6 +228,47 @@ namespace tattletale
         return "completely banal";
     }
 
+    std::string Curator::GenerateScoreDescription(float score) const
+    {
+        if (score < 0.1)
+        {
+
+            return "very boring";
+        }
+        if (score < 0.2)
+        {
+            return "boring";
+        }
+        if (score < 0.3)
+        {
+            return "somewhat boring";
+        }
+        if (score < 0.4)
+        {
+            return "normal";
+        }
+        if (score < 0.5)
+        {
+            return "slightly interesting";
+        }
+        if (score < 0.6)
+        {
+            return "interesting";
+        }
+        if (score < 0.7)
+        {
+            return "highly interesting";
+        }
+        if (score < 0.8)
+        {
+            return "fascinating";
+        }
+        if (score < 0.9)
+        {
+            return "highly fascinating";
+        }
+        return "mindblowingly fascinating";
+    }
     std::string Curator::GetResourceReasonDescription(Resource *resource) const
     {
         float value = abs(resource->GetValue());
@@ -304,7 +345,7 @@ namespace tattletale
         curations.push_back(new AbsoluteInterestCuration(max_chain_size));
         curations.push_back(new TagCuration(max_chain_size));
         curations.push_back(new CatCuration(max_chain_size));
-        curations.push_back(new RandomCuration(max_chain_size));
+        curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
         for (auto &curation : curations)
         {
             narrative += fmt::format(preamble, curation->name_, Curate(chains, curation));
@@ -321,24 +362,26 @@ namespace tattletale
     {
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
+        // TODO: resource are summarized even when they change sign
+
         bool more_than_one_actor_present = false;
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
         std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
         float score = curation->CalculateScore(chain);
-        std::string score_description = curation->GenerateScoreDescription(score);
+        std::string score_description = GenerateScoreDescription(score);
         Kernel *first_noteworthy_event = curation->GetFirstNoteworthyEvent(chain);
         Kernel *second_noteworthy_event = curation->GetSecondNoteworthyEvent(chain);
         if (!first_noteworthy_event)
         {
             return "Narrativization failed. No noteworthy events were created.";
         }
-        bool only_one_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
+        bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
 
-        std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), score_description);
+        std::string event_count_description = fmt::format((only_one_noteworthy_event ? "Something {}" : "Some {} events"), score_description);
         std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
         description += fmt::format("One of those events would be when {}", *first_noteworthy_event);
-        if (!only_one_event)
+        if (!only_one_noteworthy_event)
         {
             auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
             description += fmt::format(", but this was not even the most noteworthy thing that happened because {} {} was found {:p}{}.\n\n",

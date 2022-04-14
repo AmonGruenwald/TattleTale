@@ -5,22 +5,18 @@
 namespace tattletale
 {
 
-    RandomCuration::RandomCuration(size_t max_chain_size) : Curation("Random", max_chain_size) {}
+    RandomCuration::RandomCuration(size_t max_chain_size, Random &random) : Curation("Random", max_chain_size), random_(random) {}
     float RandomCuration::CalculateScore(const std::vector<Kernel *> &chain) const
     {
-        return 1;
-    }
-    std::string RandomCuration::GenerateScoreDescription(float score) const
-    {
-        return "";
+        return random_.GetFloat(0.0f, 1.0f);
     }
     Kernel *RandomCuration::GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const
     {
-        return chain[0];
+        return chain[random_.GetUInt(0, chain.size() - 1)];
     }
     Kernel *RandomCuration::GetSecondNoteworthyEvent(const std::vector<Kernel *> &chain) const
     {
-        return chain[chain.size() - 1];
+        return chain[random_.GetUInt(0, chain.size() - 1)];
     }
 
 } // namespace tattletale

@@ -10,10 +10,6 @@ namespace tattletale
     {
         return 1;
     }
-    std::string CatCuration::GenerateScoreDescription(float score) const
-    {
-        return "";
-    }
     Kernel *CatCuration::GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const
     {
         return chain[0];

@@ -422,4 +422,8 @@ namespace tattletale
         }
         return description;
     }
+    Random &Chronicle::GetRandom() const
+    {
+        return random_;
+    }
 } // namespace tattletale

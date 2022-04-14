@@ -21,47 +21,7 @@ namespace tattletale
         // TODO: don't use 4 magic number (max possible score)
         return std::clamp(score / max_interactions / 4.0f, 0.0f, 1.0f);
     }
-    std::string AbsoluteInterestCuration::GenerateScoreDescription(float score) const
-    {
-        if (score < 0.1)
-        {
 
-            return "very boring";
-        }
-        if (score < 0.2)
-        {
-            return "boring";
-        }
-        if (score < 0.3)
-        {
-            return "somewhat boring";
-        }
-        if (score < 0.4)
-        {
-            return "normal";
-        }
-        if (score < 0.5)
-        {
-            return "slightly interesting";
-        }
-        if (score < 0.6)
-        {
-            return "interesting";
-        }
-        if (score < 0.7)
-        {
-            return "highly interesting";
-        }
-        if (score < 0.8)
-        {
-            return "fascinating";
-        }
-        if (score < 0.9)
-        {
-            return "highly fascinating";
-        }
-        return "mindblowingly fascinating";
-    }
     Kernel *AbsoluteInterestCuration::GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const
     {
         // TODO: define this globally

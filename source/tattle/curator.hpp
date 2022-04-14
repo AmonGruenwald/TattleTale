@@ -21,6 +21,7 @@ namespace tattletale
         bool RecursivelyFindCausalConnectionBackwards(Kernel *root, Kernel *start, std::vector<Kernel *> &out_causal_chain) const;
         std::string GetTimeDescription(Kernel *start, Kernel *end, bool first_letter_uppercase = true) const;
         std::string GetChanceDescription(float chance) const;
+        std::string GenerateScoreDescription(float score) const;
         std::string GetResourceReasonDescription(Resource *resource) const;
         Actor *FindMostOccuringActor(const std::vector<Kernel *> &kernels, bool &out_more_actors_present) const;
 

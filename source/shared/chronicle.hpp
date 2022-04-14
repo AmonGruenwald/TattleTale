@@ -57,6 +57,7 @@ namespace tattletale
         Emotion *GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const;
         Resource *GetLastWealth(size_t tick, size_t actor_id) const;
         size_t GetLastTick() const;
+        Random &GetRandom() const;
 
     private:
         Random &random_;
