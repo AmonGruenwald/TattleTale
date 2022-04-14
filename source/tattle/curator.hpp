@@ -31,9 +31,7 @@ namespace tattletale
         const Chronicle &chronicle_;
         const Setting &setting_;
 
-        std::string CurateForRarity(const std::vector<std::vector<Kernel *>> &chains) const;
         std::vector<Kernel *> FindBestScoringChain(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const;
-
         std::string Curate(const std::vector<std::vector<Kernel *>> &chains, Curation *curation) const;
     };
 

@@ -251,7 +251,7 @@ namespace tattletale
         }
         if (score < 0.4)
         {
-            return "normal";
+            return "generic";
         }
         if (score < 0.5)
         {
@@ -275,6 +275,7 @@ namespace tattletale
         }
         return "mindblowingly fascinating";
     }
+
     std::string Curator::GetResourceReasonDescription(Resource *resource) const
     {
         float value = abs(resource->GetValue());
@@ -300,6 +301,7 @@ namespace tattletale
         }
         return fmt::format("{:p} gave them a tiny nudge to", *resource);
     }
+
     Actor *Curator::FindMostOccuringActor(const std::vector<Kernel *> &kernels, bool &out_more_actors_present) const
     {
         std::set<size_t> checked_actors;
@@ -340,18 +342,21 @@ namespace tattletale
     std::string Curator::UseAllCurations()
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
+
         size_t max_chain_size = 5;
         const auto &chains = chronicle_.GetEveryPossibleChain(max_chain_size);
+
         std::string preamble = "{} Curation:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n";
 
         std::string narrative = "";
-        narrative += fmt::format(preamble, "Rarity", CurateForRarity(chains));
 
         std::vector<Curation *> curations;
-        // curations.push_back(new AbsoluteInterestCuration(max_chain_size));
+        curations.push_back(new RarityCuration(max_chain_size));
+        curations.push_back(new AbsoluteInterestCuration(max_chain_size));
         // curations.push_back(new TagCuration(max_chain_size));
         // curations.push_back(new CatCuration(max_chain_size));
-        // curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
+        curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
+
         for (auto &curation : curations)
         {
             narrative += fmt::format(preamble, curation->name_, Curate(chains, curation));
@@ -361,17 +366,21 @@ namespace tattletale
             delete curation;
         }
         curations.clear();
+
         return narrative;
     }
 
     std::string Curator::Narrativize(const std::vector<Kernel *> &chain, const Curation *curation) const
     {
+        // TODO: give current status of players
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
         // TODO: resource are summarized even when they change sign
 
         bool more_than_one_actor_present = false;
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
+
         std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
         float score = curation->CalculateScore(chain);
@@ -383,15 +392,31 @@ namespace tattletale
             return "Narrativization failed. No noteworthy events were created.";
         }
         bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
-
-        std::string event_count_description = fmt::format((only_one_noteworthy_event ? "Something {}" : "Some {} events"), score_description);
-        std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
+        std::string description = "";
+        if (normal_interaction)
+        {
+            description += fmt::format("Normally one would find {} {:p} but this time s", *protagonist, *normal_interaction);
+        }
+        else
+        {
+            description += "S";
+        }
+        std::string event_count_description = fmt::format((only_one_noteworthy_event ? "omething {}" : "ome {} events"), score_description);
+        description += fmt::format("{} happened around them{}.\n", event_count_description, acquaintance_description);
         description += fmt::format("One of those events would be when {}", *first_noteworthy_event);
         if (!only_one_noteworthy_event)
         {
             auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
-            description += fmt::format(", but this was not even the most noteworthy thing that happened because {} {} was found {:p}{}.\n\n",
+
+            auto blocking_resource = FindBlockingResource(second_noteworthy_event);
+            std::string blocking_description = "";
+            if (blocking_resource)
+            {
+                blocking_description = fmt::format(" despite {:p},", *blocking_resource);
+            }
+            description += fmt::format(", but this was not even the most noteworthy thing that happened because {}{} {} was found {:p}{}.\n\n",
                                        time_description,
+                                       blocking_description,
                                        *second_noteworthy_event->GetOwner(),
                                        *second_noteworthy_event,
                                        (second_noteworthy_event->IsSameSpecificType(first_noteworthy_event) ? " again" : ""));
@@ -458,119 +483,6 @@ namespace tattletale
             description += fmt::format("{} {:a}{}", *(kernel->GetOwner()), *kernel, (compound_reason ? " even more" : ""));
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
-        }
-        return description;
-    }
-    std::string Curator::CurateForRarity(const std::vector<std::vector<Kernel *>> &chains) const
-    {
-        size_t max_chain_size = 5;
-        RarityCuration *curation = new RarityCuration(max_chain_size);
-        const auto &chain = FindBestScoringChain(chains, curation);
-        if (chain.size() == 0)
-        {
-            return "Rarity Curation failed. No Interactions were created.";
-        }
-        bool more_actors_present = false;
-        const auto &protagonist = FindMostOccuringActor(chain, more_actors_present);
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
-        auto base_interaction = curation->GetSecondNoteworthyEvent(chain);
-        auto blocking_resource = FindBlockingResource(base_interaction);
-
-        Kernel *end_kernel = nullptr;
-        for (auto &consequence : base_interaction->GetConsequences())
-        {
-            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence, end_kernel, max_chain_size);
-        }
-
-        const auto &connection = FindCausalConnection(base_interaction, end_kernel);
-
-        std::string description = fmt::format("Something {} happened with {}!\n", GetChanceDescription(base_interaction->GetChance()), *base_interaction->GetOwner());
-
-        if (normal_interaction)
-        {
-            description += fmt::format("Normally one would find *{:f}* *{:p}*", *base_interaction->GetOwner(), *normal_interaction);
-            if (blocking_resource)
-            {
-                description += fmt::format(", but despite *{:p}*, this time *{}*.", *blocking_resource, *base_interaction);
-            }
-            else
-            {
-                description += fmt::format(", but this time *{}*.", *base_interaction);
-            }
-        }
-        else if (blocking_resource)
-        {
-            description += fmt::format("Despite *{:f}* *{:p}* *{}*", *blocking_resource->GetOwner(), *blocking_resource, *base_interaction);
-        }
-        else
-        {
-            description += fmt::format("*{}*.", *base_interaction);
-        }
-
-        if (end_kernel)
-        {
-            description += fmt::format("\nThis somehow led to another event that was *{}*. *{}*.", GetChanceDescription(end_kernel->GetChance()), *end_kernel);
-        }
-        if (connection.size() > 2)
-        {
-            description += "\n\nHow did it get to this?";
-            std::string time_description = "Well the story starts when ";
-            std::map<size_t, std::vector<Resource *>> last_resource_values;
-            for (size_t i = 0; i < connection.size() - 1; ++i)
-            {
-                auto owner = connection[i]->GetOwner();
-                if (!last_resource_values.count(owner->id_))
-                {
-                    last_resource_values.insert({owner->id_, std::vector<Resource *>(static_cast<size_t>(EmotionType::kLast), nullptr)});
-                }
-                if (connection[i]->type_ == KernelType::kEmotion || connection[i]->type_ == KernelType::kResource)
-                {
-                    size_t type_index = last_resource_values[owner->id_].size() - 1;
-                    if (connection[i]->type_ == KernelType::kEmotion)
-                    {
-                        auto emotion = dynamic_cast<Emotion *>(connection[i]);
-                        size_t type_index = static_cast<size_t>(emotion->GetType());
-                    }
-                    auto resource = dynamic_cast<Resource *>(connection[i]);
-                    if (last_resource_values[owner->id_][type_index])
-                    {
-                        float last_value = last_resource_values[owner->id_][type_index]->GetValue();
-                        if (signbit(last_value) == signbit(resource->GetValue()))
-                        {
-                            continue;
-                        }
-                    }
-                    last_resource_values[owner->id_][type_index] = resource;
-                }
-                if (connection[i]->type_ == KernelType::kEmotion)
-                {
-                    description += fmt::format(" which made *{:f}* *{:a}*", *owner, *connection[i]);
-                }
-                else if (connection[i]->type_ == KernelType::kResource)
-                {
-                    description += fmt::format(" which made *{:f}* *{:a}*", *owner, *connection[i]);
-                }
-                else
-                {
-                    std::string reason_description = "";
-                    std::string event_description = fmt::format("{}", *connection[i]);
-                    if (i > 0)
-                    {
-                        time_description = fmt::format("*{}*", GetTimeDescription(connection[i - 1], connection[i]));
-                        if (connection[i - 1]->type_ == KernelType::kResource || connection[i - 1]->type_ == KernelType::kEmotion)
-                        {
-                            auto reason = dynamic_cast<Resource *>(connection[i - 1]);
-                            reason_description = fmt::format(", *{}*", GetResourceReasonDescription(reason));
-                        }
-                        description += ".";
-                        event_description = reason_description == "" ? fmt::format("*{}*", *connection[i]) : fmt::format("*{:a}*", *connection[i]);
-                    }
-                    description += fmt::format("\n{}{} {}", time_description, reason_description, event_description);
-                }
-            }
-            description += fmt::format("\nAnd after all that this unlikely chain of events ended when *{}*", *connection.back());
-            // TODO: Add reason for last interaction
-            // TODO: deal with relationships
         }
         return description;
     }
