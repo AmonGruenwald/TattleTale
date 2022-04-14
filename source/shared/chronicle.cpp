@@ -289,7 +289,7 @@ namespace tattletale
         return (highest_score + score);
     }
 
-    std::vector<Kernel *> Chronicle::FindHighestAbsoluteInterestKernelChain(const std::vector<std::vector<Kernel *>> chains, size_t &out_score) const
+    std::vector<Kernel *> Chronicle::CurateForAbsoluteInterest(const std::vector<std::vector<Kernel *>> chains, size_t &out_score) const
     {
         size_t highest_score = 0;
         std::vector<Kernel *> highest_chain;

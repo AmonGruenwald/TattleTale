@@ -506,7 +506,7 @@ namespace tattletale
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
         size_t score = 0;
-        auto absolute_interest_kernels = chronicle_.FindHighestAbsoluteInterestKernelChain(chains, score);
+        auto absolute_interest_kernels = chronicle_.CurateForAbsoluteInterest(chains, score);
         if (absolute_interest_kernels.size() < 0)
         {
             return "Absolute Interest Curation failed. No valid Kernels were created.";
@@ -602,4 +602,5 @@ namespace tattletale
         }
         return description;
     }
+
 } // namespace tattletale
