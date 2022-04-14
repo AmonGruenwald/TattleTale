@@ -5,7 +5,7 @@
 namespace tattletale
 {
 
-    CatCuration::CatCuration(size_t max_chain_size) : Curation("Tag", max_chain_size) {}
+    CatCuration::CatCuration(size_t max_chain_size) : Curation("Cat", max_chain_size) {}
     float CatCuration::CalculateScore(const std::vector<Kernel *> &chain) const
     {
         return 1;
