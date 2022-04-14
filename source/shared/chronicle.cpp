@@ -289,34 +289,6 @@ namespace tattletale
         return (highest_score + score);
     }
 
-    std::vector<Kernel *> Chronicle::CurateForAbsoluteInterest(const std::vector<std::vector<Kernel *>> chains, size_t &out_score) const
-    {
-        size_t highest_score = 0;
-        std::vector<Kernel *> highest_chain;
-        size_t count = 0;
-        for (auto &chain : chains)
-        {
-            ++count;
-            if (count == 100)
-            {
-                count = 0;
-                TATTLETALE_VERBOSE_PRINT(fmt::format("Checking Kernel ({}/{})", kernel->id_, all_kernels_.size()));
-            }
-            size_t score = 0;
-            for (const auto &kernel : chain)
-            {
-                score += kernel->GetAbsoluteInterestScore();
-            }
-            if (score > highest_score)
-            {
-                highest_score = score;
-                highest_chain = chain;
-            }
-        }
-        out_score = highest_score;
-        return highest_chain;
-    }
-
     std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChain(size_t chain_size) const
     {
         std::vector<std::vector<Kernel *>> chains;

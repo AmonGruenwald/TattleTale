@@ -372,21 +372,19 @@ namespace tattletale
         TATTLETALE_DEBUG_PRINT("START CURATION");
 
         const auto &chains = chronicle_.GetEveryPossibleChain(5);
-        return fmt::format("RARITY CURATION:\n"
-                           "\n"
-                           "{}\n"
-                           "\n"
-                           "-------------------------------------------------------------------------------------------------------------------------------------------------\n"
-                           "\n"
-                           "ABSOLUTE INTEREST CURATION:\n "
-                           "\n"
-                           "{}\n"
-                           "\n"
-                           "-------------------------------------------------------------------------------------------------------------------------------------------------\n",
-                           RarityCuration(chains),
-                           AbsoluteInterestsCuration(chains));
+
+        std::string rarity_curation = fmt::format("RARITY CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
+                                                  RarityCuration(chains));
+        std::string absolute_interest_curation = fmt::format("ABSOLUTE INTEREST CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
+                                                             AbsoluteInterestsCuration(chains));
+
+        return (rarity_curation + absolute_interest_curation);
     }
 
+    std::string Curator::Narrativize(const std::vector<Kernel *> &chain) const
+    {
+        return "";
+    }
     std::string Curator::RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const
     {
         // TODO: use chains instead
@@ -506,7 +504,7 @@ namespace tattletale
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
         size_t score = 0;
-        auto absolute_interest_kernels = chronicle_.CurateForAbsoluteInterest(chains, score);
+        auto absolute_interest_kernels = CurateForScore(chains, &CalculateAbsoluteInterestScore, score);
         if (absolute_interest_kernels.size() < 0)
         {
             return "Absolute Interest Curation failed. No valid Kernels were created.";
@@ -515,8 +513,6 @@ namespace tattletale
         bool more_actors_present = false;
         auto protagonist = FindMostOccuringActor(absolute_interest_kernels, more_actors_present);
 
-        // TODO: define 2.5 value globally
-        float score_ratio = static_cast<float>(score) / static_cast<float>(kernel_count * 2.5);
         std::string acquaintance_description = (more_actors_present ? " and their acquaintances" : "");
         Kernel *lowest_interest_kernel = FindLowestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
         Kernel *highest_interest_kernel = FindHighestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
@@ -525,6 +521,8 @@ namespace tattletale
             return "Absolute Interest Curation failed. No valid Kernels were created.";
         }
         bool only_one_event = lowest_interest_kernel->id_ == highest_interest_kernel->id_;
+        // TODO: define 2.5 value globally
+        float score_ratio = static_cast<float>(score) / static_cast<float>(kernel_count * 2.5);
         std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), GetInterestScoreDescription(score_ratio));
         std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
         description += fmt::format("One of those events would be when {}", *lowest_interest_kernel);
@@ -601,6 +599,32 @@ namespace tattletale
             previous_kernel = kernel;
         }
         return description;
+    }
+
+    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, float (*scoring_function)(const std::vector<Kernel *> &), size_t &out_score) const
+    {
+        size_t highest_score = 0;
+        std::vector<Kernel *> highest_chain;
+        for (auto &chain : chains)
+        {
+            size_t score = (*scoring_function)(chain);
+            if (score > highest_score)
+            {
+                highest_score = score;
+                highest_chain = chain;
+            }
+        }
+        out_score = highest_score;
+        return highest_chain;
+    }
+    float Curator::CalculateAbsoluteInterestScore(const std::vector<Kernel *> &chain)
+    {
+        size_t score = 0;
+        for (const auto &kernel : chain)
+        {
+            score += kernel->GetAbsoluteInterestScore();
+        }
+        return score;
     }
 
 } // namespace tattletale
