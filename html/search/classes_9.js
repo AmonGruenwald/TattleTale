@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verb_0',['Verb',['../structtattletale_1_1_verb.html',1,'tattletale']]]
+  ['tagcuration_0',['TagCuration',['../classtattletale_1_1_tag_curation.html',1,'tattletale']]]
 ];

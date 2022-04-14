@@ -1,0 +1,27 @@
+\hypertarget{randomcuration_8hpp_source}{}\doxysection{randomcuration.\+hpp}
+\label{randomcuration_8hpp_source}\index{tattle/curations/randomcuration.hpp@{tattle/curations/randomcuration.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TATTLE\_CURATIONS\_RANDOMCURATION\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TATTLE\_CURATIONS\_RANDOMCURATION\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}tattle/curations/curation.hpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_random_curation}{RandomCuration}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \mbox{\hyperlink{classtattletale_1_1_random_curation}{RandomCuration}}(\textcolor{keywordtype}{size\_t} max\_chain\_size, \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
+\DoxyCodeLine{13         \textcolor{keywordtype}{float} CalculateScore(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
+\DoxyCodeLine{14         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetFirstNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
+\DoxyCodeLine{15         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetSecondNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{private}:}
+\DoxyCodeLine{18         \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random\_;}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{20 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATIONS\_RANDOMCURATION\_H}}
+
+\end{DoxyCode}
