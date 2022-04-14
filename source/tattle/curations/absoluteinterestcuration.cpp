@@ -30,6 +30,7 @@ namespace tattletale
         for (auto &kernel : chain)
         {
             size_t score = kernel->GetAbsoluteInterestScore();
+            // skipping completely irrelevant kernels
             if (score == 0)
             {
                 continue;
@@ -49,6 +50,7 @@ namespace tattletale
         for (auto &kernel : chain)
         {
             size_t score = kernel->GetAbsoluteInterestScore();
+            // skipping completely irrelevant kernels
             if (score == 0)
             {
                 continue;
