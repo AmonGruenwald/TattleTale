@@ -54,7 +54,7 @@
 \DoxyCodeLine{53         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindUnlikeliestInteraction(\textcolor{keywordtype}{size\_t} tick\_cutoff) \textcolor{keyword}{const};}
 \DoxyCodeLine{54         \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *FindMostOccuringInteractionPrototypeForActor(\textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
 \DoxyCodeLine{55 }
-\DoxyCodeLine{56         std::vector<Kernel *> FindHighestAbsoluteInterestKernelChain(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> chains, \textcolor{keywordtype}{size\_t} \&out\_score) \textcolor{keyword}{const};}
+\DoxyCodeLine{56         std::vector<Kernel *> CurateForAbsoluteInterest(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> chains, \textcolor{keywordtype}{size\_t} \&out\_score) \textcolor{keyword}{const};}
 \DoxyCodeLine{57         \textcolor{keywordtype}{size\_t} RecursivelyFindHighestAbsoluteInterestChain(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *kernel, \textcolor{keywordtype}{size\_t} current\_depth, \textcolor{keywordtype}{size\_t} max\_depth, std::vector<Kernel *> \&out\_chain) \textcolor{keyword}{const};}
 \DoxyCodeLine{58         \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} *GetLastEmotionOfType(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id, \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type) \textcolor{keyword}{const};}
 \DoxyCodeLine{59         \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *GetLastWealth(\textcolor{keywordtype}{size\_t} tick, \textcolor{keywordtype}{size\_t} actor\_id) \textcolor{keyword}{const};}
