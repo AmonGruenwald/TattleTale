@@ -322,7 +322,7 @@ namespace tattletale
         std::vector<std::vector<Kernel *>> chains;
         for (auto &kernel : all_kernels_)
         {
-            auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
+            const auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
             for (auto &kernel_chain : kernel_chains)
             {
                 chains.push_back(kernel_chain);
