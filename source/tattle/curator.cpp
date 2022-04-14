@@ -224,7 +224,7 @@ namespace tattletale
         return "completely banal";
     }
 
-    std::string Curator::GetInterestScoreDescription(float score_ratio) const
+    std::string Curator::GenerateAbsoluteInterestScoreDescription(float score_ratio)
     {
         if (score_ratio < 0.1)
         {
@@ -327,7 +327,7 @@ namespace tattletale
         out_more_actors_present = (checked_actors.size() > 1);
         return highest_actor;
     }
-    Kernel *Curator::FindLowestNonZeroAbsoluteInterestKernel(const std::vector<Kernel *> &kernels) const
+    Kernel *Curator::GetFirstNoteworthyAbsoluteInterestEvent(const std::vector<Kernel *> &kernels)
     {
         // TODO: define this globally
         size_t lowest_score = 5;
@@ -348,7 +348,7 @@ namespace tattletale
         return lowest_kernel;
     }
 
-    Kernel *Curator::FindHighestNonZeroAbsoluteInterestKernel(const std::vector<Kernel *> &kernels) const
+    Kernel *Curator::GetSecondNoteworthyAbsoluteInterestEvent(const std::vector<Kernel *> &kernels)
     {
         size_t highest_score = 0;
         Kernel *highest_kernel = nullptr;
@@ -370,20 +370,111 @@ namespace tattletale
     std::string Curator::Curate()
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
-
-        const auto &chains = chronicle_.GetEveryPossibleChain(5);
+        size_t max_chain_size = 5;
+        const auto &chains = chronicle_.GetEveryPossibleChain(max_chain_size);
 
         std::string rarity_curation = fmt::format("RARITY CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
                                                   RarityCuration(chains));
         std::string absolute_interest_curation = fmt::format("ABSOLUTE INTEREST CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
-                                                             AbsoluteInterestsCuration(chains));
+                                                             AbsoluteInterestsCuration(chains, max_chain_size));
 
         return (rarity_curation + absolute_interest_curation);
     }
 
-    std::string Curator::Narrativize(const std::vector<Kernel *> &chain) const
+    std::string Curator::Narrativize(const std::vector<Kernel *> &chain, size_t max_chain_size, const NarrativeFunctions &narrative_functions) const
     {
-        return "";
+        // TODO: track which actors were alread named and only use firstnames for those
+        // TODO: repeated interactions should be combined
+        bool more_than_one_actor_present = false;
+        auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
+        std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
+
+        float score = (*narrative_functions.calculate_score)(chain, max_chain_size);
+        std::string score_description = (*narrative_functions.generate_score_description)(score);
+        Kernel *first_noteworthy_event = (*narrative_functions.get_first_noteworthy_event)(chain);
+        Kernel *second_noteworthy_event = (*narrative_functions.get_second_noteworthy_event)(chain);
+        if (!first_noteworthy_event)
+        {
+            return "Narrativization failed. No noteworthy events were created.";
+        }
+        bool only_one_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
+
+        std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), score_description);
+        std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
+        description += fmt::format("One of those events would be when {}", *first_noteworthy_event);
+        if (!only_one_event)
+        {
+            auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
+            description += fmt::format(", but this was not even the most noteworthy thing that happened because {} {} was found {:p}{}.\n\n",
+                                       time_description,
+                                       *second_noteworthy_event->GetOwner(),
+                                       *second_noteworthy_event,
+                                       (second_noteworthy_event->IsSameSpecificType(first_noteworthy_event) ? " again" : ""));
+        }
+        else
+        {
+            description += ".\n\n";
+        }
+        description += "So what else happend?\n";
+        auto previous_kernel = chain[0];
+        description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
+        auto previous_reasons = previous_kernel->GetReasons();
+        if (previous_reasons.size() > 0)
+        {
+            description += fmt::format(", because {:f} was {:p}", *(previous_kernel->GetOwner()), *previous_reasons[0]);
+            for (size_t reason_index = 1; reason_index < previous_reasons.size(); ++reason_index)
+            {
+                auto &reason = previous_reasons[reason_index];
+                description += fmt::format(" and was also {:p}", *reason);
+            }
+        }
+        for (size_t index = 1; index < chain.size(); ++index)
+        {
+            Kernel *kernel = chain[index];
+            if (kernel->IsSameSpecificType(previous_kernel))
+            {
+                previous_reasons = kernel->GetReasons();
+                previous_kernel = kernel;
+                continue;
+            }
+            if (kernel->type_ != KernelType::kInteraction)
+            {
+
+                description += " which in turn let ";
+            }
+            else
+            {
+                description += ".\nThis ";
+                for (auto &reason : kernel->GetReasons())
+                {
+                    if (reason->id_ != previous_kernel->id_ && !reason->IsSameSpecificType(kernel))
+                    {
+                        if (reason->GetOwner()->id_ == kernel->GetOwner()->id_)
+                        {
+                            description += fmt::format("and them {:p} ", *reason);
+                        }
+                        else
+                        {
+                            description += fmt::format("and {:f} {:p} ", *(reason->GetOwner()), *reason);
+                        }
+                    }
+                }
+                description += "made ";
+            }
+            bool compound_reason = false;
+            for (auto &previous_reason : previous_reasons)
+            {
+                if (previous_reason->IsSameSpecificType(kernel) && previous_reason->GetOwner()->id_ == kernel->GetOwner()->id_)
+                {
+                    compound_reason = true;
+                }
+            }
+
+            description += fmt::format("{} {:a}{}", *(kernel->GetOwner()), *kernel, (compound_reason ? " even more" : ""));
+            previous_reasons = kernel->GetReasons();
+            previous_kernel = kernel;
+        }
+        return description;
     }
     std::string Curator::RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const
     {
@@ -499,132 +590,51 @@ namespace tattletale
         return description;
     }
 
-    std::string Curator::AbsoluteInterestsCuration(const std::vector<std::vector<Kernel *>> &chains) const
+    std::string Curator::AbsoluteInterestsCuration(const std::vector<std::vector<Kernel *>> &chains, size_t max_chain_size) const
     {
-        // TODO: track which actors were alread named and only use firstnames for those
-        // TODO: repeated interactions should be combined
-        size_t score = 0;
-        auto absolute_interest_kernels = CurateForScore(chains, &CalculateAbsoluteInterestScore, score);
+        auto absolute_interest_kernels = CurateForScore(chains, max_chain_size, &CalculateAbsoluteInterestScore);
         if (absolute_interest_kernels.size() < 0)
         {
             return "Absolute Interest Curation failed. No valid Kernels were created.";
         }
-        size_t kernel_count = absolute_interest_kernels.size();
-        bool more_actors_present = false;
-        auto protagonist = FindMostOccuringActor(absolute_interest_kernels, more_actors_present);
-
-        std::string acquaintance_description = (more_actors_present ? " and their acquaintances" : "");
-        Kernel *lowest_interest_kernel = FindLowestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
-        Kernel *highest_interest_kernel = FindHighestNonZeroAbsoluteInterestKernel(absolute_interest_kernels);
-        if (!lowest_interest_kernel)
-        {
-            return "Absolute Interest Curation failed. No valid Kernels were created.";
-        }
-        bool only_one_event = lowest_interest_kernel->id_ == highest_interest_kernel->id_;
-        // TODO: define 2.5 value globally
-        float score_ratio = static_cast<float>(score) / static_cast<float>(kernel_count * 2.5);
-        std::string event_count_description = fmt::format((only_one_event ? "Something {}" : "Some {} events"), GetInterestScoreDescription(score_ratio));
-        std::string description = fmt::format("{} happened around {}{}.\n", event_count_description, *protagonist, acquaintance_description);
-        description += fmt::format("One of those events would be when {}", *lowest_interest_kernel);
-        if (!only_one_event)
-        {
-            auto time_description = GetTimeDescription(lowest_interest_kernel, highest_interest_kernel, false);
-            description += fmt::format(", but this was not even the craziest thing that happened because {} {} was found {:p}{}.\n\n",
-                                       time_description,
-                                       *highest_interest_kernel->GetOwner(),
-                                       *highest_interest_kernel,
-                                       (highest_interest_kernel->IsSameSpecificType(lowest_interest_kernel) ? " again" : ""));
-        }
-        else
-        {
-            description += ".\n\n";
-        }
-        description += "So what else happend?\n";
-        auto previous_kernel = absolute_interest_kernels[0];
-        description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
-        auto previous_reasons = previous_kernel->GetReasons();
-        if (previous_reasons.size() > 0)
-        {
-            description += fmt::format(", because {:f} was {:p}", *(previous_kernel->GetOwner()), *previous_reasons[0]);
-            for (size_t reason_index = 1; reason_index < previous_reasons.size(); ++reason_index)
-            {
-                auto &reason = previous_reasons[reason_index];
-                description += fmt::format(" and was also {:p}", *reason);
-            }
-        }
-        for (size_t index = 1; index < absolute_interest_kernels.size(); ++index)
-        {
-            Kernel *kernel = absolute_interest_kernels[index];
-            if (kernel->IsSameSpecificType(previous_kernel))
-            {
-                previous_reasons = kernel->GetReasons();
-                previous_kernel = kernel;
-                continue;
-            }
-            if (kernel->type_ != KernelType::kInteraction)
-            {
-
-                description += " which in turn let ";
-            }
-            else
-            {
-                description += ".\nThis ";
-                for (auto &reason : kernel->GetReasons())
-                {
-                    if (reason->id_ != previous_kernel->id_ && !reason->IsSameSpecificType(kernel))
-                    {
-                        if (reason->GetOwner()->id_ == kernel->GetOwner()->id_)
-                        {
-                            description += fmt::format("and them {:p} ", *reason);
-                        }
-                        else
-                        {
-                            description += fmt::format("and {:f} {:p} ", *(reason->GetOwner()), *reason);
-                        }
-                    }
-                }
-                description += "made ";
-            }
-            bool compound_reason = false;
-            for (auto &previous_reason : previous_reasons)
-            {
-                if (previous_reason->IsSameSpecificType(kernel) && previous_reason->GetOwner()->id_ == kernel->GetOwner()->id_)
-                {
-                    compound_reason = true;
-                }
-            }
-
-            description += fmt::format("{} {:a}{}", *(kernel->GetOwner()), *kernel, (compound_reason ? " even more" : ""));
-            previous_reasons = kernel->GetReasons();
-            previous_kernel = kernel;
-        }
-        return description;
+        NarrativeFunctions narrative_functions(
+            &CalculateAbsoluteInterestScore,
+            &GenerateAbsoluteInterestScoreDescription,
+            &GetFirstNoteworthyAbsoluteInterestEvent,
+            &GetSecondNoteworthyAbsoluteInterestEvent);
+        return Narrativize(absolute_interest_kernels, max_chain_size, narrative_functions);
     }
 
-    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, float (*scoring_function)(const std::vector<Kernel *> &), size_t &out_score) const
+    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, size_t max_chain_size, float (*scoring_function)(const std::vector<Kernel *> &, size_t)) const
     {
-        size_t highest_score = 0;
+        float highest_score = 0.0f;
         std::vector<Kernel *> highest_chain;
         for (auto &chain : chains)
         {
-            size_t score = (*scoring_function)(chain);
+            float score = (*scoring_function)(chain, max_chain_size);
             if (score > highest_score)
             {
                 highest_score = score;
                 highest_chain = chain;
             }
         }
-        out_score = highest_score;
         return highest_chain;
     }
-    float Curator::CalculateAbsoluteInterestScore(const std::vector<Kernel *> &chain)
+    float Curator::CalculateAbsoluteInterestScore(const std::vector<Kernel *> &chain, size_t max_chain_size)
     {
-        size_t score = 0;
+        float max_interactions = ceil(static_cast<float>(max_chain_size) / 2.0f);
+        size_t score = 0.0f;
         for (const auto &kernel : chain)
         {
             score += kernel->GetAbsoluteInterestScore();
         }
-        return score;
+        if (score == 7)
+        {
+            int aslkdf = 0;
+        }
+        // TODO: don't use 4 magic number (max possible score)
+        float score_ratio = std::clamp(score / max_interactions / 4.0f, 0.0f, 1.0f);
+        return score_ratio;
     }
 
 } // namespace tattletale
