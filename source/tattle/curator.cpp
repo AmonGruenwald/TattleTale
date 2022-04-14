@@ -6,6 +6,10 @@
 #include <set>
 #include <queue>
 #include "shared/tattletalecore.hpp"
+#include "tattle/curations/absoluteinterestcuration.hpp"
+#include "tattle/curations/tagcuration.hpp"
+#include "tattle/curations/catcuration.hpp"
+#include "tattle/curations/randomcuration.hpp"
 
 namespace tattletale
 {
@@ -224,48 +228,6 @@ namespace tattletale
         return "completely banal";
     }
 
-    std::string Curator::GenerateAbsoluteInterestScoreDescription(float score_ratio)
-    {
-        if (score_ratio < 0.1)
-        {
-
-            return "very boring";
-        }
-        if (score_ratio < 0.2)
-        {
-            return "boring";
-        }
-        if (score_ratio < 0.3)
-        {
-            return "somewhat boring";
-        }
-        if (score_ratio < 0.4)
-        {
-            return "normal";
-        }
-        if (score_ratio < 0.5)
-        {
-            return "slightly interesting";
-        }
-        if (score_ratio < 0.6)
-        {
-            return "interesting";
-        }
-        if (score_ratio < 0.7)
-        {
-            return "highly interesting";
-        }
-        if (score_ratio < 0.8)
-        {
-            return "fascinating";
-        }
-        if (score_ratio < 0.9)
-        {
-            return "highly fascinating";
-        }
-        return "mindblowingly fascinating";
-    }
-
     std::string Curator::GetResourceReasonDescription(Resource *resource) const
     {
         float value = abs(resource->GetValue());
@@ -327,61 +289,35 @@ namespace tattletale
         out_more_actors_present = (checked_actors.size() > 1);
         return highest_actor;
     }
-    Kernel *Curator::GetFirstNoteworthyAbsoluteInterestEvent(const std::vector<Kernel *> &kernels)
-    {
-        // TODO: define this globally
-        size_t lowest_score = 5;
-        Kernel *lowest_kernel = nullptr;
-        for (auto &kernel : kernels)
-        {
-            size_t score = kernel->GetAbsoluteInterestScore();
-            if (score == 0)
-            {
-                continue;
-            }
-            if (score < lowest_score)
-            {
-                lowest_score = score;
-                lowest_kernel = kernel;
-            }
-        }
-        return lowest_kernel;
-    }
 
-    Kernel *Curator::GetSecondNoteworthyAbsoluteInterestEvent(const std::vector<Kernel *> &kernels)
-    {
-        size_t highest_score = 0;
-        Kernel *highest_kernel = nullptr;
-        for (auto &kernel : kernels)
-        {
-            size_t score = kernel->GetAbsoluteInterestScore();
-            if (score == 0)
-            {
-                continue;
-            }
-            if (score >= highest_score)
-            {
-                highest_score = score;
-                highest_kernel = kernel;
-            }
-        }
-        return highest_kernel;
-    }
-    std::string Curator::Curate()
+    std::string Curator::UseAllCurations()
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
         size_t max_chain_size = 5;
         const auto &chains = chronicle_.GetEveryPossibleChain(max_chain_size);
+        std::string preamble = "{} Curation:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n";
 
-        std::string rarity_curation = fmt::format("RARITY CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
-                                                  RarityCuration(chains));
-        std::string absolute_interest_curation = fmt::format("ABSOLUTE INTEREST CURATION:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
-                                                             AbsoluteInterestsCuration(chains, max_chain_size));
+        std::string narrative = "";
+        narrative += fmt::format(preamble, "Rarity", RarityCuration(chains));
 
-        return (rarity_curation + absolute_interest_curation);
+        std::vector<Curation *> curations;
+        curations.push_back(new AbsoluteInterestCuration(max_chain_size));
+        curations.push_back(new TagCuration(max_chain_size));
+        curations.push_back(new CatCuration(max_chain_size));
+        curations.push_back(new RandomCuration(max_chain_size));
+        for (auto &curation : curations)
+        {
+            narrative += fmt::format(preamble, curation->name_, Curate(chains, curation));
+        }
+        for (auto &curation : curations)
+        {
+            delete curation;
+        }
+        curations.clear();
+        return narrative;
     }
 
-    std::string Curator::Narrativize(const std::vector<Kernel *> &chain, size_t max_chain_size, const NarrativeFunctions &narrative_functions) const
+    std::string Curator::Narrativize(const std::vector<Kernel *> &chain, const Curation *curation) const
     {
         // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
@@ -389,10 +325,10 @@ namespace tattletale
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
         std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
-        float score = (*narrative_functions.calculate_score)(chain, max_chain_size);
-        std::string score_description = (*narrative_functions.generate_score_description)(score);
-        Kernel *first_noteworthy_event = (*narrative_functions.get_first_noteworthy_event)(chain);
-        Kernel *second_noteworthy_event = (*narrative_functions.get_second_noteworthy_event)(chain);
+        float score = curation->CalculateScore(chain);
+        std::string score_description = curation->GenerateScoreDescription(score);
+        Kernel *first_noteworthy_event = curation->GetFirstNoteworthyEvent(chain);
+        Kernel *second_noteworthy_event = curation->GetSecondNoteworthyEvent(chain);
         if (!first_noteworthy_event)
         {
             return "Narrativization failed. No noteworthy events were created.";
@@ -590,28 +526,23 @@ namespace tattletale
         return description;
     }
 
-    std::string Curator::AbsoluteInterestsCuration(const std::vector<std::vector<Kernel *>> &chains, size_t max_chain_size) const
+    std::string Curator::Curate(const std::vector<std::vector<Kernel *>> &chains, Curation *curation) const
     {
-        auto absolute_interest_kernels = CurateForScore(chains, max_chain_size, &CalculateAbsoluteInterestScore);
-        if (absolute_interest_kernels.size() < 0)
+        auto chain = CurateForScore(chains, curation);
+        if (chain.size() < 0)
         {
-            return "Absolute Interest Curation failed. No valid Kernels were created.";
+            return fmt::format("{} Curation failed. No valid Kernels were created.", curation->name_);
         }
-        NarrativeFunctions narrative_functions(
-            &CalculateAbsoluteInterestScore,
-            &GenerateAbsoluteInterestScoreDescription,
-            &GetFirstNoteworthyAbsoluteInterestEvent,
-            &GetSecondNoteworthyAbsoluteInterestEvent);
-        return Narrativize(absolute_interest_kernels, max_chain_size, narrative_functions);
+        return Narrativize(chain, curation);
     }
 
-    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, size_t max_chain_size, float (*scoring_function)(const std::vector<Kernel *> &, size_t)) const
+    std::vector<Kernel *> Curator::CurateForScore(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const
     {
         float highest_score = 0.0f;
         std::vector<Kernel *> highest_chain;
         for (auto &chain : chains)
         {
-            float score = (*scoring_function)(chain, max_chain_size);
+            float score = curation->CalculateScore(chain);
             if (score > highest_score)
             {
                 highest_score = score;
@@ -620,21 +551,4 @@ namespace tattletale
         }
         return highest_chain;
     }
-    float Curator::CalculateAbsoluteInterestScore(const std::vector<Kernel *> &chain, size_t max_chain_size)
-    {
-        float max_interactions = ceil(static_cast<float>(max_chain_size) / 2.0f);
-        size_t score = 0.0f;
-        for (const auto &kernel : chain)
-        {
-            score += kernel->GetAbsoluteInterestScore();
-        }
-        if (score == 7)
-        {
-            int aslkdf = 0;
-        }
-        // TODO: don't use 4 magic number (max possible score)
-        float score_ratio = std::clamp(score / max_interactions / 4.0f, 0.0f, 1.0f);
-        return score_ratio;
-    }
-
 } // namespace tattletale

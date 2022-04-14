@@ -11,6 +11,6 @@ namespace tattletale
     {
         TATTLETALE_DEBUG_PRINT("TATTLE STARTED");
         Curator curator(chronicle, setting);
-        return curator.Curate();
+        return curator.UseAllCurations();
     }
 } // namespace tattletale
