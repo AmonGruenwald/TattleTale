@@ -35,6 +35,17 @@ set(LIBRARY_SOURCES
     tattle/tattle.cpp
     tattle/curator.hpp
     tattle/curator.cpp
+    tattle/curations/curation.hpp
+    tattle/curations/raritycuration.hpp
+    tattle/curations/raritycuration.cpp
+    tattle/curations/absoluteinterestcuration.hpp
+    tattle/curations/absoluteinterestcuration.cpp
+    tattle/curations/tagcuration.hpp
+    tattle/curations/tagcuration.cpp
+    tattle/curations/catcuration.hpp
+    tattle/curations/catcuration.cpp
+    tattle/curations/randomcuration.hpp
+    tattle/curations/randomcuration.cpp
 )
 
 set(ADDITIONAL_EXECTUABLE_SOURCES 

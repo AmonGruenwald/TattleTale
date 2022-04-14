@@ -6,6 +6,7 @@
 #include <set>
 #include <queue>
 #include "shared/tattletalecore.hpp"
+#include "tattle/curations/raritycuration.hpp"
 #include "tattle/curations/absoluteinterestcuration.hpp"
 #include "tattle/curations/tagcuration.hpp"
 #include "tattle/curations/catcuration.hpp"
@@ -46,8 +47,13 @@ namespace tattletale
         return current_best;
     }
 
-    Resource *Curator::FindBlockingResource(Interaction *interaction) const
+    Resource *Curator::FindBlockingResource(Kernel *kernel) const
     {
+        if (kernel->type_ != KernelType::kInteraction)
+        {
+            return nullptr;
+        }
+        auto interaction = dynamic_cast<Interaction *>(kernel);
         auto tendency = interaction->GetTendency();
         float lowest_influence = 1.0f;
         Resource *blocking_resource = nullptr;
@@ -339,13 +345,13 @@ namespace tattletale
         std::string preamble = "{} Curation:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n";
 
         std::string narrative = "";
-        narrative += fmt::format(preamble, "Rarity", RarityCuration(chains));
+        narrative += fmt::format(preamble, "Rarity", CurateForRarity(chains));
 
         std::vector<Curation *> curations;
-        curations.push_back(new AbsoluteInterestCuration(max_chain_size));
-        curations.push_back(new TagCuration(max_chain_size));
-        curations.push_back(new CatCuration(max_chain_size));
-        curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
+        // curations.push_back(new AbsoluteInterestCuration(max_chain_size));
+        // curations.push_back(new TagCuration(max_chain_size));
+        // curations.push_back(new CatCuration(max_chain_size));
+        // curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
         for (auto &curation : curations)
         {
             narrative += fmt::format(preamble, curation->name_, Curate(chains, curation));
@@ -372,7 +378,7 @@ namespace tattletale
         std::string score_description = GenerateScoreDescription(score);
         Kernel *first_noteworthy_event = curation->GetFirstNoteworthyEvent(chain);
         Kernel *second_noteworthy_event = curation->GetSecondNoteworthyEvent(chain);
-        if (!first_noteworthy_event)
+        if (!first_noteworthy_event || !second_noteworthy_event)
         {
             return "Narrativization failed. No noteworthy events were created.";
         }
@@ -455,25 +461,25 @@ namespace tattletale
         }
         return description;
     }
-    std::string Curator::RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const
+    std::string Curator::CurateForRarity(const std::vector<std::vector<Kernel *>> &chains) const
     {
-        // TODO: use chains instead
-        size_t depth = 5;
-        size_t base_interaction_tick_distance_to_end = 10;
-        size_t tick_cutoff = chronicle_.GetLastTick();
-        tick_cutoff = tick_cutoff > depth ? tick_cutoff - base_interaction_tick_distance_to_end : tick_cutoff;
-        auto base_interaction = chronicle_.FindUnlikeliestInteraction(tick_cutoff);
-        if (!base_interaction)
+        size_t max_chain_size = 5;
+        RarityCuration *curation = new RarityCuration(max_chain_size);
+        const auto &chain = FindBestScoringChain(chains, curation);
+        if (chain.size() == 0)
         {
             return "Rarity Curation failed. No Interactions were created.";
         }
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(base_interaction->GetOwner()->id_);
+        bool more_actors_present = false;
+        const auto &protagonist = FindMostOccuringActor(chain, more_actors_present);
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
+        auto base_interaction = curation->GetSecondNoteworthyEvent(chain);
         auto blocking_resource = FindBlockingResource(base_interaction);
 
         Kernel *end_kernel = nullptr;
         for (auto &consequence : base_interaction->GetConsequences())
         {
-            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence, end_kernel, depth);
+            end_kernel = RecursivelyFindUnlikeliestConsequence(consequence, end_kernel, max_chain_size);
         }
 
         const auto &connection = FindCausalConnection(base_interaction, end_kernel);
@@ -508,7 +514,7 @@ namespace tattletale
         if (connection.size() > 2)
         {
             description += "\n\nHow did it get to this?";
-            std::string time_description = "Well, as already stated the story starts when ";
+            std::string time_description = "Well the story starts when ";
             std::map<size_t, std::vector<Resource *>> last_resource_values;
             for (size_t i = 0; i < connection.size() - 1; ++i)
             {

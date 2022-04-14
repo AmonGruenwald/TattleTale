@@ -17,7 +17,7 @@ namespace tattletale
         Kernel *RecursivelyFindUnlikeliestConsequence(Kernel *to_check, Kernel *current_best, size_t depth) const;
         bool HasCausalConnection(Kernel *start, Kernel *end) const;
         std::vector<Kernel *> FindCausalConnection(Kernel *start, Kernel *end) const;
-        Resource *FindBlockingResource(Interaction *interaction) const;
+        Resource *FindBlockingResource(Kernel *interaction) const;
         bool RecursivelyFindCausalConnectionBackwards(Kernel *root, Kernel *start, std::vector<Kernel *> &out_causal_chain) const;
 
         std::string GetTimeDescription(Kernel *start, Kernel *end, bool first_letter_uppercase = true) const;
@@ -31,7 +31,7 @@ namespace tattletale
         const Chronicle &chronicle_;
         const Setting &setting_;
 
-        std::string RarityCuration(const std::vector<std::vector<Kernel *>> &chains) const;
+        std::string CurateForRarity(const std::vector<std::vector<Kernel *>> &chains) const;
         std::vector<Kernel *> FindBestScoringChain(const std::vector<std::vector<Kernel *>> chains, Curation *curation) const;
 
         std::string Curate(const std::vector<std::vector<Kernel *>> &chains, Curation *curation) const;
