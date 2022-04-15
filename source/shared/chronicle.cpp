@@ -292,8 +292,16 @@ namespace tattletale
     std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChain(size_t chain_size) const
     {
         std::vector<std::vector<Kernel *>> chains;
+        size_t count = 0;
+        size_t kernel_amount = GetKernelAmount();
         for (auto &kernel : all_kernels_)
         {
+            ++count;
+            if (count >= 100 || kernel->id_ == kernel_amount - 1)
+            {
+                count = 0;
+                TATTLETALE_DEBUG_PRINT(fmt::format("Creating Kernel Chains {}/{}", kernel->id_ + 1, kernel_amount));
+            }
             const auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
             for (auto &kernel_chain : kernel_chains)
             {
