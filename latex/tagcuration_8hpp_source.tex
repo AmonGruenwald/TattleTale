@@ -16,8 +16,20 @@
 \DoxyCodeLine{12         \textcolor{keywordtype}{float} CalculateScore(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
 \DoxyCodeLine{13         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetFirstNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
 \DoxyCodeLine{14         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetSecondNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const override};}
-\DoxyCodeLine{15     \};}
-\DoxyCodeLine{16 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATIONS\_TAGCURATION\_H}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{private}:}
+\DoxyCodeLine{17         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} max\_interaction\_count\_;}
+\DoxyCodeLine{18         \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *FindNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \textcolor{keywordtype}{bool} first) \textcolor{keyword}{const};}
+\DoxyCodeLine{19         \textcolor{keywordtype}{bool} IsFluff(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{20         \textcolor{keywordtype}{bool} IsAngst(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{21         \textcolor{keywordtype}{bool} IsSexual(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{22         \textcolor{keywordtype}{bool} IsRelationship(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{bool} IsHurtComfort(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{24         \textcolor{keywordtype}{bool} IsFamily(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{25         \textcolor{keywordtype}{bool} IsFriendship(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{26         \textcolor{keywordtype}{bool} IsLove(\textcolor{keyword}{const} std::vector<Kernel *> \&chain, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_first\_noteworthy\_event, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *\&out\_second\_noteworthy\_event) \textcolor{keyword}{const};}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATIONS\_TAGCURATION\_H}}
 
 \end{DoxyCode}
