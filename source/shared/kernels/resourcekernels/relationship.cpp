@@ -113,4 +113,9 @@ namespace tattletale
         }
         return (dynamic_cast<Relationship *>(other)->type_ == type_);
     }
+
+    RelationshipType Relationship::GetType() const
+    {
+        return type_;
+    }
 } // namespace tattletale

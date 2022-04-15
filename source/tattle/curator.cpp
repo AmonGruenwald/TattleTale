@@ -353,12 +353,13 @@ namespace tattletale
         std::vector<Curation *> curations;
         curations.push_back(new RarityCuration(max_chain_size));
         curations.push_back(new AbsoluteInterestCuration(max_chain_size));
-        // curations.push_back(new TagCuration(max_chain_size));
+        curations.push_back(new TagCuration(max_chain_size));
         // curations.push_back(new CatCuration(max_chain_size));
         curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
         {
+            TATTLETALE_DEBUG_PRINT(fmt::format("{} Curation...", curation->name_));
             narrative += fmt::format(preamble, curation->name_, Curate(chains, curation));
         }
         for (auto &curation : curations)

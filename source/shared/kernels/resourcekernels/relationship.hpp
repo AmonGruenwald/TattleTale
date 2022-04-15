@@ -84,6 +84,8 @@ namespace tattletale
         virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
         // TODO: documentation
         virtual bool IsSameSpecificType(Kernel *other) const;
+        // TODO: documentation
+        RelationshipType GetType() const;
 
     private:
         /**
