@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
     tattletale::Chronicle chronicle(random);
 
     std::string path = "results.txt";
-    for (size_t i = 0; i < 1; ++i)
+    size_t run_amount = 1;
+    for (size_t i = 0; i < run_amount; ++i)
     {
         random.Seed(i);
         tattletale::Tale(chronicle, random, setting);
