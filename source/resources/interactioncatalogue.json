@@ -3807,7 +3807,7 @@
             "fluff": true,
             "description": "{0} flirted with {1} and {1} liked it",
             "passive_description": "flirting with someone",
-            "active_description": "to flirt with {0}, who liked it.",
+            "active_description": "try to flirt with {0}, who liked it.",
             "emotions": [
                 {
                     "happy": 0.2,
@@ -3890,7 +3890,7 @@
             "angst": true,
             "description": "{0} tried to flirt with {1} but {1} shot that down immediately",
             "passive_description": "failing to flirt with someone",
-            "active_description": "to try to flirt with {0}, who shot that down immediately",
+            "active_description": "try to flirt with {0}, who shot that down immediately",
             "emotions": [
                 {
                     "happy": -0.2,
