@@ -48,7 +48,7 @@ namespace tattletale
         int count = 0;
         for (auto &participant : participants_)
         {
-            args[count++] = fmt::detail::make_arg<fmt::format_context>(participant->name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(*participant);
         }
         auto description = fmt::vformat(prototype_->description, fmt::format_args(args, count));
         return description;
@@ -82,7 +82,7 @@ namespace tattletale
         int count = 0;
         for (size_t i = 1; i < participants_.size(); ++i)
         {
-            args[count++] = fmt::detail::make_arg<fmt::format_context>(participants_[i]->name_);
+            args[count++] = fmt::detail::make_arg<fmt::format_context>(*participants_[i]);
         }
         auto description = fmt::vformat(prototype_->active_description, fmt::format_args(args, count));
         return description;

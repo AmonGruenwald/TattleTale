@@ -4,6 +4,7 @@
 #include <string>
 #include <list>
 #include <memory>
+#include <set>
 #include <robin_hood.h>
 #include "shared/setting.hpp"
 #include "shared/random.hpp"
@@ -59,6 +60,7 @@ namespace tattletale
          */
         Goal *goal_;
 
+        static std::set<size_t>* named_actors_;
         /**
          * @brief Randomizes the internal state of the Actor.
          *
@@ -347,6 +349,22 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Actor, T>:
     template <typename FormatContext>
     auto format(tattletale::Actor &actor, FormatContext &ctx) -> decltype(ctx.out())
     {
+        if (presentation == 'd')
+        {
+            presentation = 'c';
+            if (actor.named_actors_)
+            {
+                if (actor.named_actors_->find(actor.id_) == actor.named_actors_->end())
+                {
+                    actor.named_actors_->insert(actor.id_);
+                }
+                else
+                {
+                    presentation = 'f';
+                }
+            }
+        }
+
         if (presentation == 'f')
         {
             return fmt::formatter<std::string>::format(actor.first_name_, ctx);
@@ -359,7 +377,10 @@ struct fmt::formatter<T, std::enable_if_t<std::is_base_of<tattletale::Actor, T>:
         {
             return fmt::formatter<std::string>::format(actor.GetDetailedDescriptionString(), ctx);
         }
-        return fmt::formatter<std::string>::format(actor.name_, ctx);
+        else if (presentation == 'c')
+        {
+            return fmt::formatter<std::string>::format(actor.name_, ctx);
+        }
     }
 };
 #endif // TALE_ACTOR_H

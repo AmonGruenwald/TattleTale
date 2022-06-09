@@ -64,19 +64,23 @@ namespace tattletale
 
     std::string Relationship::GetDefaultDescription() const
     {
-        return fmt::format("{} {}", Resource::GetDefaultDescription(), *target_);
+        std::string default_description = Resource::GetDefaultDescription();
+        return fmt::format("{} {}", default_description, *target_);
     }
     std::string Relationship::GetDetailedDescription() const
     {
-        return fmt::format("{} targeting {}", Resource::GetDetailedDescription(), *target_);
+        std::string detailed_description = Resource::GetDetailedDescription();
+        return fmt::format("{} targeting {}", detailed_description, *target_);
     }
     std::string Relationship::GetPassiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetPassiveDescription(), *target_);
+        std::string passive_description = Resource::GetPassiveDescription();
+        return fmt::format("{} {}", passive_description, *target_);
     }
     std::string Relationship::GetActiveDescription() const
     {
-        return fmt::format("{} {}", Resource::GetActiveDescription(), *target_);
+        std::string active_description = Resource::GetActiveDescription();
+        return fmt::format("{} {}",active_description, *target_);
     }
 
     std::vector<Actor *> Relationship::GetAllParticipants() const

@@ -62,22 +62,22 @@ namespace tattletale
         switch (type_)
         {
         case GoalType::kLast:
-            description = fmt::format("not having a goal", *owner_);
+            description = fmt::format("not having a goal");
             break;
         case GoalType::kWealth:
-            description = fmt::format("wanting to become incredibly rich", *owner_);
+            description = fmt::format("wanting to become incredibly rich");
             break;
         case GoalType::kAcceptance:
-            description = fmt::format("wanting to be fully accepted by their peers", *owner_);
+            description = fmt::format("wanting to be fully accepted by their peers");
             break;
         case GoalType::kRelationship:
-            description = fmt::format("wanting to have a loving relationship", *owner_);
+            description = fmt::format("wanting to have a loving relationship");
             break;
         case GoalType::kHedonism:
-            description = fmt::format("only living for pleasure", *owner_);
+            description = fmt::format("only living for pleasure");
             break;
         case GoalType::kPower:
-            description = fmt::format("wanting to be the most powerful person in school", *owner_);
+            description = fmt::format("wanting to be the most powerful person in school");
             break;
         }
         return description;
@@ -88,22 +88,22 @@ namespace tattletale
         switch (type_)
         {
         case GoalType::kLast:
-            description = fmt::format("do not have a goal", *owner_);
+            description = fmt::format("do not have a goal");
             break;
         case GoalType::kWealth:
-            description = fmt::format("want to become incredibly rich", *owner_);
+            description = fmt::format("want to become incredibly rich");
             break;
         case GoalType::kAcceptance:
-            description = fmt::format("want to be fully accepted by their peers", *owner_);
+            description = fmt::format("want to be fully accepted by their peers");
             break;
         case GoalType::kRelationship:
-            description = fmt::format("want to have a loving relationship", *owner_);
+            description = fmt::format("want to have a loving relationship");
             break;
         case GoalType::kHedonism:
-            description = fmt::format("only live for pleasure", *owner_);
+            description = fmt::format("only live for pleasure");
             break;
         case GoalType::kPower:
-            description = fmt::format("want to be the most powerful person in school", *owner_);
+            description = fmt::format("want to be the most powerful person in school");
             break;
         }
         return description;

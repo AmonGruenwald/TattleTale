@@ -354,7 +354,7 @@ namespace tattletale
         curations.push_back(new RarityCuration(max_chain_size));
         curations.push_back(new AbsoluteInterestCuration(max_chain_size));
         curations.push_back(new TagCuration(max_chain_size));
-        // curations.push_back(new CatCuration(max_chain_size));
+        //curations.push_back(new CatCuration(max_chain_size));
         curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
@@ -371,13 +371,15 @@ namespace tattletale
         return narrative;
     }
 
+    
     std::string Curator::Narrativize(const std::vector<Kernel *> &chain, const Curation *curation) const
     {
+        std::set<size_t> named_actors;
+        Actor::named_actors_ = &named_actors;
+
         // TODO: give current status of players
-        // TODO: track which actors were alread named and only use firstnames for those
         // TODO: repeated interactions should be combined
         // TODO: resource are summarized even when they change sign
-
         bool more_than_one_actor_present = false;
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
         auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
@@ -418,7 +420,7 @@ namespace tattletale
             description += fmt::format(", but this was not even the most noteworthy thing that happened because {}{} {} was found {:p}{}.\n\n",
                                        time_description,
                                        blocking_description,
-                                       *second_noteworthy_event->GetOwner(),
+                                       *(second_noteworthy_event->GetOwner()),
                                        *second_noteworthy_event,
                                        (second_noteworthy_event->IsSameSpecificType(first_noteworthy_event) ? " again" : ""));
         }
@@ -432,7 +434,7 @@ namespace tattletale
         auto previous_reasons = previous_kernel->GetReasons();
         if (previous_reasons.size() > 0)
         {
-            description += fmt::format(", because {:f} was {:p}", *(previous_kernel->GetOwner()), *previous_reasons[0]);
+            description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *previous_reasons[0]);
             for (size_t reason_index = 1; reason_index < previous_reasons.size(); ++reason_index)
             {
                 auto &reason = previous_reasons[reason_index];
@@ -466,7 +468,7 @@ namespace tattletale
                         }
                         else
                         {
-                            description += fmt::format("and {:f} {:p} ", *(reason->GetOwner()), *reason);
+                            description += fmt::format("and {} {:p} ", *(reason->GetOwner()), *reason);
                         }
                     }
                 }
@@ -485,6 +487,7 @@ namespace tattletale
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
         }
+        Actor::named_actors_ = nullptr;
         return description;
     }
 

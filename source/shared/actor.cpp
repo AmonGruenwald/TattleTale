@@ -9,6 +9,8 @@
 
 namespace tattletale
 {
+    std::set<size_t>* Actor::named_actors_ =  nullptr;
+    
     Actor::Actor(School &school, size_t id, std::string first_name, std::string last_name)
         : random_(school.GetRandom()),
           setting_(school.GetSetting()),
