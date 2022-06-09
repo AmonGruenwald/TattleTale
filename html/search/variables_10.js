@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['wealth_0',['wealth',['../structtattletale_1_1_interaction_tendency.html#a654aaf7924a515c467625a8f8639317b',1,'tattletale::InteractionTendency']]],
-  ['wealth_5f_1',['wealth_',['../classtattletale_1_1_actor.html#ae7873c0350bd7b9be850f78185904144',1,'tattletale::Actor']]],
-  ['wealth_5feffects_2',['wealth_effects',['../structtattletale_1_1_interaction_prototype.html#ad24c7d52f13e9a89ef441009deff7b63',1,'tattletale::InteractionPrototype']]],
-  ['wealth_5fkey_5f_3',['wealth_key_',['../classtattletale_1_1_interaction_store.html#a6840aa1f8b8fdc4bb31e668e0d8c9466',1,'tattletale::InteractionStore']]]
+  ['value_5f_0',['value_',['../classtattletale_1_1_resource.html#a2a8a5d772bb2ede4637b5c6eb2f0c560',1,'tattletale::Resource']]],
+  ['verb_5f_1',['verb_',['../classtattletale_1_1_resource.html#a7b822386f5c50909c0c0ad9552852775',1,'tattletale::Resource']]]
 ];

@@ -9,54 +9,93 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <assert.h>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <algorithm>}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include <shared/tattletalecore.hpp>}}
-\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{15     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_setting}{Setting}}}
-\DoxyCodeLine{16     \{}
-\DoxyCodeLine{20         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_af92c1c655488268a2995b70487d5757f}{seed}} = 123456789;}
-\DoxyCodeLine{24         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a764a64317641dc1366649c167da44ffd}{days\_to\_simulate}} = 5;}
-\DoxyCodeLine{28         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} = 100;}
-\DoxyCodeLine{32         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_ac89b750f8c183762b3fc62206509781b}{courses\_per\_day}} = 6;}
-\DoxyCodeLine{36         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}} = 30;}
-\DoxyCodeLine{40         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}} = 4;}
-\DoxyCodeLine{44         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} = 0;}
-\DoxyCodeLine{48         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}} = 4;}
-\DoxyCodeLine{52         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a90b315471203aeccff36bcbc743dccd0}{freetime\_actor\_count}} = 6;}
-\DoxyCodeLine{60         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a9b6d83b5f2c06e84c841cf86c1624cad}{slot\_count\_per\_week}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{61 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{62             \textcolor{comment}{// 5 day workweek}}
-\DoxyCodeLine{63             \textcolor{keywordflow}{return} \mbox{\hyperlink{structtattletale_1_1_setting_ac89b750f8c183762b3fc62206509781b}{courses\_per\_day}} * 5;}
-\DoxyCodeLine{64         \}}
-\DoxyCodeLine{70         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_ae0994dd85b21012613db3e776f53950c}{minimum\_necessary\_course\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{71 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{72             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}} == 0)}
-\DoxyCodeLine{73             \{}
-\DoxyCodeLine{74                 \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{75             \}}
-\DoxyCodeLine{76             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a9b6d83b5f2c06e84c841cf86c1624cad}{slot\_count\_per\_week}}() / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}});}
-\DoxyCodeLine{77         \}}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{86         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a78f81c2b218b1c7181f7fa2de75c670e}{course\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{87 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{88             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}} == 0)}
-\DoxyCodeLine{89             \{}
-\DoxyCodeLine{90                 \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{91             \}}
-\DoxyCodeLine{92             \textcolor{keywordflow}{return} std::max((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{structtattletale_1_1_setting_ae0994dd85b21012613db3e776f53950c}{minimum\_necessary\_course\_count}}(), (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}}));}
-\DoxyCodeLine{93         \}}
-\DoxyCodeLine{102         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_a58dfb18a4dc51f7b47bd98e17ddf141e}{min\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{103 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{104             TATTLETALE\_ERROR\_PRINT(\mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}}, \textcolor{stringliteral}{"{}desired\_min\_start\_relationships\_count must be smaller or equal to desired\_max\_start\_relationships\_count"{}});}
-\DoxyCodeLine{105             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}});}
-\DoxyCodeLine{106         \}}
-\DoxyCodeLine{115         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_a9f3788169f6225d7a81fa4dceea7abe7}{max\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{116 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{117             TATTLETALE\_ERROR\_PRINT((\mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}}), \textcolor{stringliteral}{"{}desired\_min\_start\_relationships\_count must be smaller or equal to desired\_max\_start\_relationships\_count"{}});}
-\DoxyCodeLine{118             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}});}
-\DoxyCodeLine{119         \}}
-\DoxyCodeLine{120     \};}
-\DoxyCodeLine{121 }
-\DoxyCodeLine{122 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SETTING\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fmt/core.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <fmt/format.h>}}
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{17     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_setting}{Setting}}}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{22         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_af92c1c655488268a2995b70487d5757f}{seed}} = 123456789;}
+\DoxyCodeLine{26         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a764a64317641dc1366649c167da44ffd}{days\_to\_simulate}} = 5;}
+\DoxyCodeLine{30         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} = 100;}
+\DoxyCodeLine{34         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_ac89b750f8c183762b3fc62206509781b}{courses\_per\_day}} = 6;}
+\DoxyCodeLine{38         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}} = 30;}
+\DoxyCodeLine{42         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}} = 4;}
+\DoxyCodeLine{46         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} = 0;}
+\DoxyCodeLine{50         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}} = 4;}
+\DoxyCodeLine{54         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a90b315471203aeccff36bcbc743dccd0}{freetime\_actor\_count}} = 6;}
+\DoxyCodeLine{58         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a71a678d33edeb5d085bf704a0c3f2ae3}{max\_chain\_size}} = 5;}
+\DoxyCodeLine{66         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a9b6d83b5f2c06e84c841cf86c1624cad}{slot\_count\_per\_week}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{67 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{68             \textcolor{comment}{// 5 day workweek}}
+\DoxyCodeLine{69             \textcolor{keywordflow}{return} \mbox{\hyperlink{structtattletale_1_1_setting_ac89b750f8c183762b3fc62206509781b}{courses\_per\_day}} * 5;}
+\DoxyCodeLine{70         \}}
+\DoxyCodeLine{76         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_ae0994dd85b21012613db3e776f53950c}{minimum\_necessary\_course\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{77 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{78             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}} == 0)}
+\DoxyCodeLine{79             \{}
+\DoxyCodeLine{80                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{81             \}}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a9b6d83b5f2c06e84c841cf86c1624cad}{slot\_count\_per\_week}}() / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}});}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{92         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_setting_a78f81c2b218b1c7181f7fa2de75c670e}{course\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{93 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{94             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}} == 0)}
+\DoxyCodeLine{95             \{}
+\DoxyCodeLine{96                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{97             \}}
+\DoxyCodeLine{98             \textcolor{keywordflow}{return} std::max((\textcolor{keywordtype}{size\_t})\mbox{\hyperlink{structtattletale_1_1_setting_ae0994dd85b21012613db3e776f53950c}{minimum\_necessary\_course\_count}}(), (\textcolor{keywordtype}{size\_t})ceil((\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} / (\textcolor{keywordtype}{double})\mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}}));}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{108         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_a58dfb18a4dc51f7b47bd98e17ddf141e}{min\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{109 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{110             TATTLETALE\_ERROR\_PRINT(\mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}}, \textcolor{stringliteral}{"{}desired\_min\_start\_relationships\_count must be smaller or equal to desired\_max\_start\_relationships\_count"{}});}
+\DoxyCodeLine{111             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}});}
+\DoxyCodeLine{112         \}}
+\DoxyCodeLine{121         uint32\_t \mbox{\hyperlink{structtattletale_1_1_setting_a9f3788169f6225d7a81fa4dceea7abe7}{max\_start\_relationships\_count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{122 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{123             TATTLETALE\_ERROR\_PRINT((\mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}} <= \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}}), \textcolor{stringliteral}{"{}desired\_min\_start\_relationships\_count must be smaller or equal to desired\_max\_start\_relationships\_count"{}});}
+\DoxyCodeLine{124             \textcolor{keywordflow}{return} std::min((uint32\_t)(std::max((\textcolor{keywordtype}{int})(\mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}} -\/ 1), 0)), \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}});}
+\DoxyCodeLine{125         \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127         std::string ToString()\textcolor{keyword}{ const}}
+\DoxyCodeLine{128 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{129             std::string \textcolor{keywordtype}{string} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{130             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}The seed was \{\}.\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_setting_af92c1c655488268a2995b70487d5757f}{seed}});}
+\DoxyCodeLine{131             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}Simulated \{\} days with \{\} actors that had \(\backslash\)nbetween \{\} and \{\} established relationship at the \(\backslash\)nstart.\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_setting_a764a64317641dc1366649c167da44ffd}{days\_to\_simulate}}, \mbox{\hyperlink{structtattletale_1_1_setting_aac04cdf44c015e0c5ad41a81b92c98b0}{actor\_count}}, \mbox{\hyperlink{structtattletale_1_1_setting_aa2fc901990899930b9f96abe48305326}{desired\_min\_start\_relationships\_count}}, \mbox{\hyperlink{structtattletale_1_1_setting_afa38707308f65070f4c48bfe220c7d39}{desired\_max\_start\_relationships\_count}});}
+\DoxyCodeLine{132             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}They had \{\} courses per day with \{\} actors per \(\backslash\)ncourse and each course was run \{\} per week.\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_setting_ac89b750f8c183762b3fc62206509781b}{courses\_per\_day}}, \mbox{\hyperlink{structtattletale_1_1_setting_a2ca7f2034ddbd59134e70720145037ef}{actors\_per\_course}}, \mbox{\hyperlink{structtattletale_1_1_setting_a84626f0674f9c22dbf5734ca3f555ee0}{same\_course\_per\_week}});}
+\DoxyCodeLine{133             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}During freetime the actors could choose to \(\backslash\)ninteract from a group of \{\} other actors.\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_setting_a90b315471203aeccff36bcbc743dccd0}{freetime\_actor\_count}});}
+\DoxyCodeLine{134             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}For the curation kernel chains of maximum size \(\backslash\)n\{\} were considered.\(\backslash\)n"{}}, \mbox{\hyperlink{structtattletale_1_1_setting_a71a678d33edeb5d085bf704a0c3f2ae3}{max\_chain\_size}});}
+\DoxyCodeLine{135             \textcolor{keywordflow}{return} string;}
+\DoxyCodeLine{136         \}}
+\DoxyCodeLine{137     \};}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{142 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Setting>}
+\DoxyCodeLine{143 \{}
+\DoxyCodeLine{144     \textcolor{comment}{// d -\/ default}}
+\DoxyCodeLine{145     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
+\DoxyCodeLine{150         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'d'}))}
+\DoxyCodeLine{151             presentation = *it++;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{154             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{157     \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{160     \textcolor{keyword}{auto} format(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{tattletale::Setting}} \&setting, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{161     \{}
+\DoxyCodeLine{162         \textcolor{keywordflow}{return} format\_to(ctx.out(), \textcolor{stringliteral}{"{}\{\}"{}}, setting.ToString());}
+\DoxyCodeLine{163     \}}
+\DoxyCodeLine{164 \};}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_SETTING\_H}}
 
 \end{DoxyCode}

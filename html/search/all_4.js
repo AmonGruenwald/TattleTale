@@ -16,9 +16,10 @@ var searchData=
   ['formatter_3c_20tattletale_3a_3agoaltype_20_3e_13',['formatter&lt; tattletale::GoalType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_goal_type_01_4.html',1,'fmt']]],
   ['formatter_3c_20tattletale_3a_3akerneltype_20_3e_14',['formatter&lt; tattletale::KernelType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_kernel_type_01_4.html',1,'fmt']]],
   ['formatter_3c_20tattletale_3a_3arelationshiptype_20_3e_15',['formatter&lt; tattletale::RelationshipType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_relationship_type_01_4.html',1,'fmt']]],
-  ['formatter_3c_20tattletale_3a_3averb_20_3e_16',['formatter&lt; tattletale::Verb &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_verb_01_4.html',1,'fmt']]],
-  ['formatter_3c_20tattletale_3a_3aweekday_20_3e_17',['formatter&lt; tattletale::Weekday &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_weekday_01_4.html',1,'fmt']]],
-  ['freetime_5factor_5fcount_18',['freetime_actor_count',['../structtattletale_1_1_setting.html#a90b315471203aeccff36bcbc743dccd0',1,'tattletale::Setting']]],
-  ['freetime_5fgroup_19',['freetime_group',['../classtattletale_1_1_actor.html#adf75dfece1ba65940fd5c1e72f9e5549',1,'tattletale::Actor']]],
-  ['freetimetick_20',['FreeTimeTick',['../classtattletale_1_1_school.html#a84730f21ae16254873268ac9081d74f4',1,'tattletale::School']]]
+  ['formatter_3c_20tattletale_3a_3asetting_20_3e_16',['formatter&lt; tattletale::Setting &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_setting_01_4.html',1,'fmt']]],
+  ['formatter_3c_20tattletale_3a_3averb_20_3e_17',['formatter&lt; tattletale::Verb &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_verb_01_4.html',1,'fmt']]],
+  ['formatter_3c_20tattletale_3a_3aweekday_20_3e_18',['formatter&lt; tattletale::Weekday &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_weekday_01_4.html',1,'fmt']]],
+  ['freetime_5factor_5fcount_19',['freetime_actor_count',['../structtattletale_1_1_setting.html#a90b315471203aeccff36bcbc743dccd0',1,'tattletale::Setting']]],
+  ['freetime_5fgroup_20',['freetime_group',['../classtattletale_1_1_actor.html#adf75dfece1ba65940fd5c1e72f9e5549',1,'tattletale::Actor']]],
+  ['freetimetick_21',['FreeTimeTick',['../classtattletale_1_1_school.html#a84730f21ae16254873268ac9081d74f4',1,'tattletale::School']]]
 ];

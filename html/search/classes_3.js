@@ -11,6 +11,7 @@ var searchData=
   ['formatter_3c_20tattletale_3a_3agoaltype_20_3e_8',['formatter&lt; tattletale::GoalType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_goal_type_01_4.html',1,'fmt']]],
   ['formatter_3c_20tattletale_3a_3akerneltype_20_3e_9',['formatter&lt; tattletale::KernelType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_kernel_type_01_4.html',1,'fmt']]],
   ['formatter_3c_20tattletale_3a_3arelationshiptype_20_3e_10',['formatter&lt; tattletale::RelationshipType &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_relationship_type_01_4.html',1,'fmt']]],
-  ['formatter_3c_20tattletale_3a_3averb_20_3e_11',['formatter&lt; tattletale::Verb &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_verb_01_4.html',1,'fmt']]],
-  ['formatter_3c_20tattletale_3a_3aweekday_20_3e_12',['formatter&lt; tattletale::Weekday &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_weekday_01_4.html',1,'fmt']]]
+  ['formatter_3c_20tattletale_3a_3asetting_20_3e_11',['formatter&lt; tattletale::Setting &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_setting_01_4.html',1,'fmt']]],
+  ['formatter_3c_20tattletale_3a_3averb_20_3e_12',['formatter&lt; tattletale::Verb &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_verb_01_4.html',1,'fmt']]],
+  ['formatter_3c_20tattletale_3a_3aweekday_20_3e_13',['formatter&lt; tattletale::Weekday &gt;',['../structfmt_1_1formatter_3_01tattletale_1_1_weekday_01_4.html',1,'fmt']]]
 ];

@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['target_5f_0',['target_',['../classtattletale_1_1_relationship.html#a2dbb2545a1413360796b4dcbfcedbd29',1,'tattletale::Relationship']]],
-  ['tendencies_5fcatalogue_5f_1',['tendencies_catalogue_',['../classtattletale_1_1_interaction_store.html#a4652da789f7c702d0216817549aed1e1',1,'tattletale::InteractionStore']]],
-  ['tendency_5f_2',['tendency_',['../classtattletale_1_1_interaction.html#ac8126c9fd6c938df9e8b9b18a536d11c',1,'tattletale::Interaction']]],
-  ['tick_5f_3',['tick_',['../classtattletale_1_1_kernel.html#afab1808227fd1d3db2908c8dc163b6eb',1,'tattletale::Kernel']]],
-  ['type_5f_4',['type_',['../classtattletale_1_1_goal.html#a86c980ef90c40bbb7c214cb8a9a16aeb',1,'tattletale::Goal::type_()'],['../classtattletale_1_1_kernel.html#af6032d677e09bf99c41f180de38cc835',1,'tattletale::Kernel::type_()'],['../classtattletale_1_1_emotion.html#a6f59f7ce4b4897bf949f5032033a2c30',1,'tattletale::Emotion::type_()'],['../classtattletale_1_1_relationship.html#a50cfd022d18694f68a770b4dce4c21b7',1,'tattletale::Relationship::type_()']]]
+  ['same_5fcourse_5fper_5fweek_0',['same_course_per_week',['../structtattletale_1_1_setting.html#a84626f0674f9c22dbf5734ca3f555ee0',1,'tattletale::Setting']]],
+  ['school_5f_1',['school_',['../classtattletale_1_1_actor.html#a4c015a851a6a1ece3f161d1893e8cc82',1,'tattletale::Actor']]],
+  ['seed_2',['seed',['../structtattletale_1_1_setting.html#af92c1c655488268a2995b70487d5757f',1,'tattletale::Setting']]],
+  ['setting_5f_3',['setting_',['../classtattletale_1_1_actor.html#a1a14643ea8b821727089ae0d290f4e09',1,'tattletale::Actor::setting_()'],['../classtattletale_1_1_course.html#a711a7658f0afe806d2e2933cab533342',1,'tattletale::Course::setting_()'],['../classtattletale_1_1_school.html#af7d70c9766b24eb1ecc538aee34f0259',1,'tattletale::School::setting_()']]],
+  ['sexual_4',['sexual',['../structtattletale_1_1_interaction_prototype.html#ad1eb9b8fa55a12e21bc2b84ea9d95ddf',1,'tattletale::InteractionPrototype']]],
+  ['sexual_5fkey_5f_5',['sexual_key_',['../classtattletale_1_1_interaction_store.html#ab7a96c9edb9e1fa90a2587d1438fd83b',1,'tattletale::InteractionStore']]],
+  ['slots_5f_6',['slots_',['../classtattletale_1_1_course.html#afd8a4c6e161409e438e80b773c9612e5',1,'tattletale::Course']]]
 ];
