@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <algorithm>
 #include <shared/tattletalecore.hpp>
+#include <fmt/core.h>
+#include <fmt/format.h>
 namespace tattletale
 {
     /**
@@ -50,6 +52,10 @@ namespace tattletale
          * @brief To how many \link Actor Actors \endlink another Actor would reach out to during freetime.
          */
         size_t freetime_actor_count = 6;
+        /**
+         * @brief How many Kernel objects are contained in a chain that could potentially be curated.
+         */
+        size_t max_chain_size = 5;
         /**
          * @brief Calculates how many slots are there in total in a week.
          *
@@ -117,7 +123,43 @@ namespace tattletale
             TATTLETALE_ERROR_PRINT((desired_min_start_relationships_count <= desired_max_start_relationships_count), "desired_min_start_relationships_count must be smaller or equal to desired_max_start_relationships_count");
             return std::min((uint32_t)(std::max((int)(actor_count - 1), 0)), desired_max_start_relationships_count);
         }
+
+        std::string ToString() const
+        {
+            std::string string = "";
+            string += fmt::format("The seed was {}.\n", seed);
+            string += fmt::format("Simulated {} days with {} actors that had \nbetween {} and {} established relationship at the \nstart.\n", days_to_simulate, actor_count, desired_min_start_relationships_count, desired_max_start_relationships_count);
+            string += fmt::format("They had {} courses per day with {} actors per \ncourse and each course was run {} per week.\n", courses_per_day, actors_per_course, same_course_per_week);
+            string += fmt::format("During freetime the actors could choose to \ninteract from a group of {} other actors.\n", freetime_actor_count);
+            string += fmt::format("For the curation kernel chains of maximum size \n{} were considered.\n", max_chain_size);
+            return string;
+        }
     };
 
 } // namespace tattletale
+
+template <>
+struct fmt::formatter<tattletale::Setting>
+{
+    // d - default
+    char presentation = 'd';
+
+    constexpr auto parse(format_parse_context &ctx) -> decltype(ctx.begin())
+    {
+        auto it = ctx.begin(), end = ctx.end();
+        if (it != end && (*it == 'd'))
+            presentation = *it++;
+
+        if (it != end && *it != '}')
+            throw format_error("invalid format");
+
+        return it;
+    }
+
+    template <typename FormatContext>
+    auto format(const tattletale::Setting &setting, FormatContext &ctx) -> decltype(ctx.out())
+    {
+        return format_to(ctx.out(), "{}", setting.ToString());
+    }
+};
 #endif // TALE_SETTING_H

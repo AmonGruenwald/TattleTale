@@ -343,19 +343,18 @@ namespace tattletale
     {
         TATTLETALE_DEBUG_PRINT("START CURATION");
 
-        size_t max_chain_size = 5;
-        const auto &chains = chronicle_.GetEveryPossibleChain(max_chain_size);
+        const auto &chains = chronicle_.GetEveryPossibleChain(setting_.max_chain_size);
 
-        std::string preamble = "{} Curation:\n\n{}\n\n-------------------------------------------------------------------------------------------------------------------------------------------------\n\n";
+        std::string preamble = "{} Curation:\n\n{}\n\n...............................................\n\n";
 
         std::string narrative = "";
 
         std::vector<Curation *> curations;
-        curations.push_back(new RarityCuration(max_chain_size));
-        curations.push_back(new AbsoluteInterestCuration(max_chain_size));
-        curations.push_back(new TagCuration(max_chain_size));
-        //curations.push_back(new CatCuration(max_chain_size));
-        curations.push_back(new RandomCuration(max_chain_size, chronicle_.GetRandom()));
+        curations.push_back(new RarityCuration(setting_.max_chain_size));
+        curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
+        curations.push_back(new TagCuration(setting_.max_chain_size));
+        //curations.push_back(new CatCuration(setting_.max_chain_size));
+        curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
         {

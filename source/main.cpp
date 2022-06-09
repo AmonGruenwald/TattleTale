@@ -1,6 +1,9 @@
 #include "tale/tale.hpp"
 #include "tattle/tattle.hpp"
 #include <fstream>
+#include <chrono>
+#include <fmt/format.h>
+#include <ctime> 
 
 void AppendStringToFile(const std::string &string, const std::string &path)
 {
@@ -11,28 +14,38 @@ void AppendStringToFile(const std::string &string, const std::string &path)
 int main(int argc, char *argv[])
 {
     tattletale::Setting setting;
-    setting.days_to_simulate = 5;
-    setting.actor_count = 50;
+    setting.days_to_simulate = 7;
+    setting.actor_count = 30;
     setting.actors_per_course = 30;
+    setting.max_chain_size = 5;
     tattletale::Random random(setting.seed);
     tattletale::Chronicle chronicle(random);
 
     std::string path = "results.txt";
     size_t run_amount = 1;
+
+
+    std::string result = "===============================================\n";
+    std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    result+=std::string(std::ctime(&time));
+    result+="\n";
     for (size_t i = 0; i < run_amount; ++i)
     {
-        random.Seed(i);
+        setting.seed = i;
+        random.Seed(setting.seed);
         tattletale::Tale(chronicle, random, setting);
-        std::string result = "";
-        result += "===============================================\n";
-        result += "||                  RUN # ";
+        result += "-----------------------------------------------\n";
+        result += "|                   RUN # ";
         result += std::to_string(i);
-        result += "                  ||\n";
-        result += "===============================================\n";
+        result += "                   |\n";
+        result += "-----------------------------------------------\n";
+        result+=fmt::format("Setting:\n{}", setting);
+        result += "-----------------------------------------------\n";
         result += tattletale::Tattle(chronicle, setting);
-        result += "\n";
-        std::cout << result;
-        AppendStringToFile(result, path);
+        result += "\n\n";
     }
-    return 0; // optional return value
+    result += "===============================================\n\n\n\n";
+    AppendStringToFile(result, path);
+    std::cout << result;
+    return 0; 
 }
