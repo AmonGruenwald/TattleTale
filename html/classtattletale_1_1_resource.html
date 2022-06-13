@@ -114,6 +114,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Resource</b> ()</
 <tr class="memitem:a03ef7ded88cb90205bf0672b3b0d1f69"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a03ef7ded88cb90205bf0672b3b0d1f69">GetActiveDescription</a> () const override</td></tr>
 <tr class="memdesc:a03ef7ded88cb90205bf0672b3b0d1f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an active description for the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtattletale_1_1_resource.html#a03ef7ded88cb90205bf0672b3b0d1f69">More...</a><br /></td></tr>
 <tr class="separator:a03ef7ded88cb90205bf0672b3b0d1f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7160fd0e7c5157720914e96c021606a0"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a7160fd0e7c5157720914e96c021606a0">GetAdjective</a> () const</td></tr>
+<tr class="memdesc:a7160fd0e7c5157720914e96c021606a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter to find an adjective describing the severity of this <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtattletale_1_1_resource.html#a7160fd0e7c5157720914e96c021606a0">More...</a><br /></td></tr>
+<tr class="separator:a7160fd0e7c5157720914e96c021606a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#ac3f1d3ff3b648c86eb9ecdb1e8a78227">GetNameVariant</a> () const</td></tr>
+<tr class="memdesc:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the name variant depending on the value of the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. E.g "wealthy" if it is positive "poor" if it is negative.  <a href="classtattletale_1_1_resource.html#ac3f1d3ff3b648c86eb9ecdb1e8a78227">More...</a><br /></td></tr>
+<tr class="separator:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtattletale_1_1_kernel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtattletale_1_1_kernel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtattletale_1_1_kernel.html">tattletale::Kernel</a></td></tr>
 <tr class="memitem:ae443c5ca39fc431ebdfc0c668b29c417 inherit pub_methods_classtattletale_1_1_kernel"><td class="memItemLeft" align="right" valign="top"><a id="ae443c5ca39fc431ebdfc0c668b29c417" name="ae443c5ca39fc431ebdfc0c668b29c417"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Kernel</b> ()</td></tr>
@@ -146,12 +152,6 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:acd808f19d32660fa9b8884df4f77658b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#acd808f19d32660fa9b8884df4f77658b">Resource</a> (std::string name, std::string positive_name_variant, std::string negative_name_variant, size_t id, size_t tick, <a class="el" href="classtattletale_1_1_actor.html">Actor</a> *owner, std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; reasons, float value, <a class="el" href="namespacetattletale.html#a58dcf4c550c5f0a27c234f34489e6670">KernelType</a> type=KernelType::kResource, <a class="el" href="structtattletale_1_1_verb.html">Verb</a> verb=<a class="el" href="structtattletale_1_1_verb.html">Verb</a>(&quot;was&quot;, &quot;beeing&quot;, &quot;are&quot;))</td></tr>
 <tr class="memdesc:acd808f19d32660fa9b8884df4f77658b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing base <a class="el" href="classtattletale_1_1_kernel.html" title="Represents a part of the simulation, like an interaction, or an emotional goal.">Kernel</a> class and value_ member.  <a href="classtattletale_1_1_resource.html#acd808f19d32660fa9b8884df4f77658b">More...</a><br /></td></tr>
 <tr class="separator:acd808f19d32660fa9b8884df4f77658b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7160fd0e7c5157720914e96c021606a0"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#a7160fd0e7c5157720914e96c021606a0">GetAdjective</a> () const</td></tr>
-<tr class="memdesc:a7160fd0e7c5157720914e96c021606a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter to find an adjective describing the severity of this <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>.  <a href="classtattletale_1_1_resource.html#a7160fd0e7c5157720914e96c021606a0">More...</a><br /></td></tr>
-<tr class="separator:a7160fd0e7c5157720914e96c021606a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_resource.html#ac3f1d3ff3b648c86eb9ecdb1e8a78227">GetNameVariant</a> () const</td></tr>
-<tr class="memdesc:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the name variant depending on the value of the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. E.g "wealthy" if it is positive "poor" if it is negative.  <a href="classtattletale_1_1_resource.html#ac3f1d3ff3b648c86eb9ecdb1e8a78227">More...</a><br /></td></tr>
-<tr class="separator:ac3f1d3ff3b648c86eb9ecdb1e8a78227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classtattletale_1_1_kernel"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classtattletale_1_1_kernel')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtattletale_1_1_kernel.html">tattletale::Kernel</a></td></tr>
 <tr class="memitem:a6d0454571fa9ca4f238644a1d621a5ca inherit pro_methods_classtattletale_1_1_kernel"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtattletale_1_1_kernel.html#a6d0454571fa9ca4f238644a1d621a5ca">Kernel</a> (std::string name, size_t id, size_t tick, <a class="el" href="classtattletale_1_1_actor.html">Actor</a> *owner, std::vector&lt; <a class="el" href="classtattletale_1_1_kernel.html">Kernel</a> * &gt; reasons, <a class="el" href="namespacetattletale.html#a58dcf4c550c5f0a27c234f34489e6670">KernelType</a> type)</td></tr>
 <tr class="memdesc:a6d0454571fa9ca4f238644a1d621a5ca inherit pro_methods_classtattletale_1_1_kernel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected Constructor should only be called by derived classes.  <a href="classtattletale_1_1_kernel.html#a6d0454571fa9ca4f238644a1d621a5ca">More...</a><br /></td></tr>
@@ -370,7 +370,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tick_</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -447,9 +447,6 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tick_</b></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string tattletale::Resource::GetNameVariant </td>
@@ -458,11 +455,6 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>tick_</b></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Getter for the name variant depending on the value of the <a class="el" href="classtattletale_1_1_resource.html" title="Represents an abstract Resource an Actor has.">Resource</a>. E.g "wealthy" if it is positive "poor" if it is negative. </p>

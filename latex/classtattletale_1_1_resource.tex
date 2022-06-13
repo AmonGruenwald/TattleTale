@@ -30,16 +30,16 @@ std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_aed70696ac0146953c56
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}{Get\+Passive\+Description}} () const override
 \begin{DoxyCompactList}\small\item\em Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{Get\+Active\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{}, \char`\"{}beeing\char`\"{}, \char`\"{}are\char`\"{}))
-\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
 virtual std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{Get\+Adjective}} () const
 \begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}{Get\+Name\+Variant}} () const
 \begin{DoxyCompactList}\small\item\em Getter for the name variant depending on the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. E.\+g \char`\"{}wealthy\char`\"{} if it is positive \char`\"{}poor\char`\"{} if it is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_resource_acd808f19d32660fa9b8884df4f77658b}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{}, \char`\"{}beeing\char`\"{}, \char`\"{}are\char`\"{}))
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -127,7 +127,7 @@ Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10
 \index{tattletale::Resource@{tattletale::Resource}!GetAdjective@{GetAdjective}}
 \index{GetAdjective@{GetAdjective}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetAdjective()}{GetAdjective()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Resource\+::\+Get\+Adjective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Resource\+::\+Get\+Adjective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -178,7 +178,7 @@ Reimplemented from \mbox{\hyperlink{classtattletale_1_1_kernel_a604ea09606e2530e
 \index{tattletale::Resource@{tattletale::Resource}!GetNameVariant@{GetNameVariant}}
 \index{GetNameVariant@{GetNameVariant}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetNameVariant()}{GetNameVariant()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Resource\+::\+Get\+Name\+Variant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Resource\+::\+Get\+Name\+Variant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

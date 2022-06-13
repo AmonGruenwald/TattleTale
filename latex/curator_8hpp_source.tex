@@ -26,20 +26,21 @@
 \DoxyCodeLine{22 }
 \DoxyCodeLine{23         std::string GetTimeDescription(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *start, \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *end, \textcolor{keywordtype}{bool} first\_letter\_uppercase = \textcolor{keyword}{true}) \textcolor{keyword}{const};}
 \DoxyCodeLine{24         std::string GetChanceDescription(\textcolor{keywordtype}{float} chance) \textcolor{keyword}{const};}
-\DoxyCodeLine{25         std::string GenerateScoreDescription(\textcolor{keywordtype}{float} score) \textcolor{keyword}{const};}
-\DoxyCodeLine{26         std::string GetResourceReasonDescription(\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *resource) \textcolor{keyword}{const};}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *FindMostOccuringActor(\textcolor{keyword}{const} std::vector<Kernel *> \&kernels, \textcolor{keywordtype}{bool} \&out\_more\_actors\_present) \textcolor{keyword}{const};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     \textcolor{keyword}{private}:}
-\DoxyCodeLine{31         \textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle\_;}
-\DoxyCodeLine{32         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         std::vector<Kernel *> FindBestScoringChain(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> chains, \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}} *curation) \textcolor{keyword}{const};}
-\DoxyCodeLine{35         std::string Curate(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> \&chains, \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}} *curation) \textcolor{keyword}{const};}
-\DoxyCodeLine{36     \};}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATOR\_H}}
+\DoxyCodeLine{25         std::string GenerateStatusDescription(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_actor_status}{ActorStatus}}\& start\_status, \textcolor{keyword}{const} std::vector<Kernel *> \&kernels) \textcolor{keyword}{const};}
+\DoxyCodeLine{26         std::string GenerateScoreDescription(\textcolor{keywordtype}{float} score) \textcolor{keyword}{const};}
+\DoxyCodeLine{27         std::string GetResourceReasonDescription(\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} *resource) \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *FindMostOccuringActor(\textcolor{keyword}{const} std::vector<Kernel *> \&kernels, \textcolor{keywordtype}{bool} \&out\_more\_actors\_present) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{private}:}
+\DoxyCodeLine{32         \textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle\_;}
+\DoxyCodeLine{33         \textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting\_;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         std::vector<Kernel *> FindBestScoringChain(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> chains, \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}} *curation) \textcolor{keyword}{const};}
+\DoxyCodeLine{36         std::string Curate(\textcolor{keyword}{const} std::vector<std::vector<Kernel *>> \&chains, \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}} *curation) \textcolor{keyword}{const};}
+\DoxyCodeLine{37     \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATOR\_H}}
 
 \end{DoxyCode}

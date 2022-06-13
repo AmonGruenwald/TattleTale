@@ -27,7 +27,9 @@ std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a1100fd16b1ec4f9
 std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a5e046f6d92223adfe2c97dd6896e03a1}{Get\+Active\+Description}} () const override
 \begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}. \end{DoxyCompactList}\item 
 virtual std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \mbox{\hyperlink{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}{Get\+All\+Participants}} () const override
-\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} uses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} uses. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999ba2482ea91a01a13b9d6e}{Get\+Adjective}} () const override
+\begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,9 +39,7 @@ static \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{R
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}{Relationship}} (\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{Relationship\+Type}} type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$target, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value)
-\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999ba2482ea91a01a13b9d6e}{Get\+Adjective}} () const override
-\begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -126,7 +126,7 @@ Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10
 \index{tattletale::Relationship@{tattletale::Relationship}!GetAdjective@{GetAdjective}}
 \index{GetAdjective@{GetAdjective}!tattletale::Relationship@{tattletale::Relationship}}
 \doxysubsubsection{\texorpdfstring{GetAdjective()}{GetAdjective()}}
-{\footnotesize\ttfamily std\+::string tattletale\+::\+Relationship\+::\+Get\+Adjective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::string tattletale\+::\+Relationship\+::\+Get\+Adjective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

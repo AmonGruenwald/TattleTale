@@ -4,27 +4,36 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}rang.hpp"{}}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef TATTLETALE\_DEBUG\_PRINT\_OUTPUT}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TATTLETALE\_DEBUG\_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "{}[ DEBUG ]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
-\DoxyCodeLine{5                                             << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                         \(\backslash\)}
-\DoxyCodeLine{6                                             << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef TATTLETALE\_PROGRESS\_PRINT\_OUTPUT}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TATTLETALE\_PROGRESS\_PRINT(x) std::cout << rang::bg::green << rang::fg::black << rang::style::bold << "{}[PROGRESS]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{5                                             << rang::style::reset << rang::bg::reset << rang::fg::green << "{}\(\backslash\)n"{}                         \(\backslash\)}
+\DoxyCodeLine{6                                             << x << "{}\(\backslash\)n\(\backslash\)n"{} << rang::fg::reset}
 \DoxyCodeLine{7 }
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#define TATTLETALE\_DEBUG\_PRINT(x)}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define TATTLETALE\_PROGRESS\_PRINT(x)}}
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifdef TATTLETALE\_VERBOSE\_PRINT\_OUTPUT}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#define TATTLETALE\_VERBOSE\_PRINT(x) std::cout << rang::bg::yellow << rang::fg::reset << rang::style::bold << "{}[VERBOSE]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
-\DoxyCodeLine{14                                               << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                            \(\backslash\)}
-\DoxyCodeLine{15                                               << x << "{}\(\backslash\)n\(\backslash\)n"{}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#define TATTLETALE\_VERBOSE\_PRINT(x)}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifdef TATTLETALE\_ERROR\_PRINT\_OUTPUT}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TATTLETALE\_ERROR\_PRINT(value, message)if (!(value))\{std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "{}[ ERROR ]["{}} << \_\_TIME\_\_ << "{}]["{} << \_\_FILE\_\_ << "{}]"{} << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}<< (message) << "{}\(\backslash\)n\(\backslash\)n"{};assert(false);\}else\{\}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#define TATTLETALE\_ERROR\_PRINT(value, message)}}
-\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifdef TATTLETALE\_DEBUG\_PRINT\_OUTPUT}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define TATTLETALE\_DEBUG\_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "{}[ DEBUG ]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{14                                             << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                         \(\backslash\)}
+\DoxyCodeLine{15                                             << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define TATTLETALE\_DEBUG\_PRINT(x)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifdef TATTLETALE\_VERBOSE\_PRINT\_OUTPUT}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define TATTLETALE\_VERBOSE\_PRINT(x) std::cout << rang::bg::yellow << rang::fg::reset << rang::style::bold << "{}[VERBOSE]["{}} << \_\_TIME\_\_ << "{}]"{} \(\backslash\)}
+\DoxyCodeLine{23                                               << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}                            \(\backslash\)}
+\DoxyCodeLine{24                                               << x << "{}\(\backslash\)n\(\backslash\)n"{}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define TATTLETALE\_VERBOSE\_PRINT(x)}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifdef TATTLETALE\_ERROR\_PRINT\_OUTPUT}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TATTLETALE\_ERROR\_PRINT(value, message)if (!(value))\{std::cout << rang::bg::red << rang::fg::reset << rang::style::bold << "{}[ ERROR ]["{}} << \_\_TIME\_\_ << "{}]["{} << \_\_FILE\_\_ << "{}]"{} << rang::style::reset << rang::bg::reset << rang::fg::reset << "{}\(\backslash\)n"{}<< (message) << "{}\(\backslash\)n\(\backslash\)n"{};assert(false);\}else\{\}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define TATTLETALE\_ERROR\_PRINT(value, message)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -50,80 +50,82 @@
 \DoxyCodeLine{143         \textcolor{comment}{// TODO: documentation}}
 \DoxyCodeLine{144         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsNegativeReason(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *reason) \textcolor{keyword}{const};}
 \DoxyCodeLine{145         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{146         \textcolor{keywordtype}{bool} IsSameKernelType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
+\DoxyCodeLine{146         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsReason(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
 \DoxyCodeLine{147         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{148         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{149 }
-\DoxyCodeLine{150     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{154         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\mbox{\hyperlink{classtattletale_1_1_kernel_a66ab8f8a7b82c136c922b3f062224c09}{owner\_}};}
-\DoxyCodeLine{158         std::vector<Kernel *> \mbox{\hyperlink{classtattletale_1_1_kernel_aeba9c27919b7917b14a711318e3d9cb3}{consequences\_}};}
-\DoxyCodeLine{162         std::vector<Kernel *> \mbox{\hyperlink{classtattletale_1_1_kernel_a075e5bd7b7aec272786ae80f4ba223c7}{reasons\_}};}
-\DoxyCodeLine{173         \mbox{\hyperlink{classtattletale_1_1_kernel_a6d0454571fa9ca4f238644a1d621a5ca}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{KernelType}} type);}
-\DoxyCodeLine{174     \};}
-\DoxyCodeLine{175 }
-\DoxyCodeLine{176 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{177 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{178 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Kernel, T>::value, char>> : fmt::formatter<std::string>}
-\DoxyCodeLine{179 \{}
-\DoxyCodeLine{180     \textcolor{comment}{// d -\/ default, a -\/ active, p -\/ passive, n -\/ name, o -\/ detailed}}
-\DoxyCodeLine{181     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
-\DoxyCodeLine{184     \{}
-\DoxyCodeLine{185         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
-\DoxyCodeLine{186         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'a'} || *it == \textcolor{charliteral}{'p'} || *it == \textcolor{charliteral}{'n'} || *it == \textcolor{charliteral}{'d'} || *it == \textcolor{charliteral}{'o'}))}
-\DoxyCodeLine{187             presentation = *it++;}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{189         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
-\DoxyCodeLine{190             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
-\DoxyCodeLine{191 }
-\DoxyCodeLine{192         \textcolor{keywordflow}{return} it;}
-\DoxyCodeLine{193     \}}
-\DoxyCodeLine{194 }
-\DoxyCodeLine{195     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{196     \textcolor{keyword}{auto} format(\mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale::Kernel}} \&kernel, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
-\DoxyCodeLine{197     \{}
-\DoxyCodeLine{198         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'a'})}
-\DoxyCodeLine{199         \{}
-\DoxyCodeLine{200             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}{GetActiveDescription}}(), ctx);}
-\DoxyCodeLine{201         \}}
-\DoxyCodeLine{202         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'p'})}
-\DoxyCodeLine{203         \{}
-\DoxyCodeLine{204             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_aaa1afd2ae2abff75a8376872e6642b0a}{GetPassiveDescription}}(), ctx);}
-\DoxyCodeLine{205         \}}
-\DoxyCodeLine{206         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'n'})}
-\DoxyCodeLine{207         \{}
-\DoxyCodeLine{208             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a93b365fcda5e3698083beb777aff99f3}{name\_}}, ctx);}
-\DoxyCodeLine{209         \}}
-\DoxyCodeLine{210         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'o'})}
-\DoxyCodeLine{211         \{}
-\DoxyCodeLine{212             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a604ea09606e2530e03474fec80d80afd}{GetDetailedDescription}}(), ctx);}
-\DoxyCodeLine{213         \}}
-\DoxyCodeLine{214         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a2df1d1bf2de3557317cdd91bcb8f1ce0}{GetDefaultDescription}}(), ctx);}
-\DoxyCodeLine{215     \}}
-\DoxyCodeLine{216 \};}
-\DoxyCodeLine{217 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{218 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::KernelType> : formatter<string\_view>}
-\DoxyCodeLine{219 \{}
-\DoxyCodeLine{220     std::string kernel\_type\_names[7] = \{}
-\DoxyCodeLine{221         \textcolor{stringliteral}{"{}none"{}},}
-\DoxyCodeLine{222         \textcolor{stringliteral}{"{}resource"{}},}
-\DoxyCodeLine{223         \textcolor{stringliteral}{"{}emotion"{}},}
-\DoxyCodeLine{224         \textcolor{stringliteral}{"{}relationship"{}},}
-\DoxyCodeLine{225         \textcolor{stringliteral}{"{}interaction"{}},}
-\DoxyCodeLine{226         \textcolor{stringliteral}{"{}goal"{}},}
-\DoxyCodeLine{227         \textcolor{stringliteral}{"{}last"{}},}
-\DoxyCodeLine{228     \};}
-\DoxyCodeLine{229     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{230     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{231     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{tattletale::KernelType}} type, FormatContext \&ctx)}
-\DoxyCodeLine{232     \{}
-\DoxyCodeLine{233         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{234         string\_view name = kernel\_type\_names[enum\_index];}
-\DoxyCodeLine{235         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{236     \}}
-\DoxyCodeLine{237 \};}
-\DoxyCodeLine{238 }
-\DoxyCodeLine{239 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
+\DoxyCodeLine{148         \textcolor{keywordtype}{bool} IsSameKernelType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
+\DoxyCodeLine{149         \textcolor{comment}{// TODO: documentation}}
+\DoxyCodeLine{150         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{156         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\mbox{\hyperlink{classtattletale_1_1_kernel_a66ab8f8a7b82c136c922b3f062224c09}{owner\_}};}
+\DoxyCodeLine{160         std::vector<Kernel *> \mbox{\hyperlink{classtattletale_1_1_kernel_aeba9c27919b7917b14a711318e3d9cb3}{consequences\_}};}
+\DoxyCodeLine{164         std::vector<Kernel *> \mbox{\hyperlink{classtattletale_1_1_kernel_a075e5bd7b7aec272786ae80f4ba223c7}{reasons\_}};}
+\DoxyCodeLine{175         \mbox{\hyperlink{classtattletale_1_1_kernel_a6d0454571fa9ca4f238644a1d621a5ca}{Kernel}}(std::string name, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{KernelType}} type);}
+\DoxyCodeLine{176     \};}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \} \textcolor{comment}{// namespace tattletale}}
+\DoxyCodeLine{179 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{180 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::Kernel, T>::value, char>> : fmt::formatter<std::string>}
+\DoxyCodeLine{181 \{}
+\DoxyCodeLine{182     \textcolor{comment}{// d -\/ default, a -\/ active, p -\/ passive, n -\/ name, o -\/ detailed}}
+\DoxyCodeLine{183     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{186     \{}
+\DoxyCodeLine{187         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
+\DoxyCodeLine{188         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'a'} || *it == \textcolor{charliteral}{'p'} || *it == \textcolor{charliteral}{'n'} || *it == \textcolor{charliteral}{'d'} || *it == \textcolor{charliteral}{'o'}))}
+\DoxyCodeLine{189             presentation = *it++;}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{192             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} it;}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{198     \textcolor{keyword}{auto} format(\mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale::Kernel}} \&kernel, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{199     \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'a'})}
+\DoxyCodeLine{201         \{}
+\DoxyCodeLine{202             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}{GetActiveDescription}}(), ctx);}
+\DoxyCodeLine{203         \}}
+\DoxyCodeLine{204         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'p'})}
+\DoxyCodeLine{205         \{}
+\DoxyCodeLine{206             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_aaa1afd2ae2abff75a8376872e6642b0a}{GetPassiveDescription}}(), ctx);}
+\DoxyCodeLine{207         \}}
+\DoxyCodeLine{208         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'n'})}
+\DoxyCodeLine{209         \{}
+\DoxyCodeLine{210             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a93b365fcda5e3698083beb777aff99f3}{name\_}}, ctx);}
+\DoxyCodeLine{211         \}}
+\DoxyCodeLine{212         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'o'})}
+\DoxyCodeLine{213         \{}
+\DoxyCodeLine{214             \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a604ea09606e2530e03474fec80d80afd}{GetDetailedDescription}}(), ctx);}
+\DoxyCodeLine{215         \}}
+\DoxyCodeLine{216         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(kernel.\mbox{\hyperlink{classtattletale_1_1_kernel_a2df1d1bf2de3557317cdd91bcb8f1ce0}{GetDefaultDescription}}(), ctx);}
+\DoxyCodeLine{217     \}}
+\DoxyCodeLine{218 \};}
+\DoxyCodeLine{219 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{220 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::KernelType> : formatter<string\_view>}
+\DoxyCodeLine{221 \{}
+\DoxyCodeLine{222     std::string kernel\_type\_names[7] = \{}
+\DoxyCodeLine{223         \textcolor{stringliteral}{"{}none"{}},}
+\DoxyCodeLine{224         \textcolor{stringliteral}{"{}resource"{}},}
+\DoxyCodeLine{225         \textcolor{stringliteral}{"{}emotion"{}},}
+\DoxyCodeLine{226         \textcolor{stringliteral}{"{}relationship"{}},}
+\DoxyCodeLine{227         \textcolor{stringliteral}{"{}interaction"{}},}
+\DoxyCodeLine{228         \textcolor{stringliteral}{"{}goal"{}},}
+\DoxyCodeLine{229         \textcolor{stringliteral}{"{}last"{}},}
+\DoxyCodeLine{230     \};}
+\DoxyCodeLine{231     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
+\DoxyCodeLine{232     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
+\DoxyCodeLine{233     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{tattletale::KernelType}} type, FormatContext \&ctx)}
+\DoxyCodeLine{234     \{}
+\DoxyCodeLine{235         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{236         string\_view name = kernel\_type\_names[enum\_index];}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239 \};}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNEL\_H}}
 
 \end{DoxyCode}
