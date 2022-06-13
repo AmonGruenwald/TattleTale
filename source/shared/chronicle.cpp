@@ -316,8 +316,8 @@ namespace tattletale
 
     std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChain(size_t chain_size) const
     {
-        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
         std::vector<std::vector<Kernel *>> chains;
+        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
         size_t count = 0;
         size_t kernel_amount = GetKernelAmount();
         auto t1 = std::chrono::steady_clock::now();
@@ -345,14 +345,31 @@ namespace tattletale
                 std::string progress_string ="[";
 
                 for(size_t i = 0; i<30;++i){
-                    if(i<30*progress){
-                        progress_string+="|";
-                    }else{
-                        progress_string+=" ";
+                    if (i == 13)
+                    {
+                        if(progress<0.1){
+                            progress_string += "0";
+                        }
+                        if(progress<1.0){
+                            progress_string += "0";
+                        }
+                        progress_string += std::to_string(static_cast<int>(progress * 100));
+                        progress_string += "%";
+                    }
+                    else if (i < 16 && i >= 13)
+                    {
+                    }
+                    else if (i < 30 * progress)
+                    {
+                        progress_string += "|";
+                    }
+                    else
+                    {
+                        progress_string += " ";
                     }
                 }
                 progress_string +="]";
-                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Creation: {} {:%M:%S}/{:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(sum), std::chrono::floor<std::chrono::seconds>(max_duration)));
+                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Creation: {} {:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(max_duration-sum)));
             }
             #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
             const auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);

@@ -11,6 +11,8 @@
 #include "tattle/curations/tagcuration.hpp"
 #include "tattle/curations/catcuration.hpp"
 #include "tattle/curations/randomcuration.hpp"
+#include <chrono>
+#include <fmt/chrono.h>
 
 namespace tattletale
 {
@@ -583,14 +585,70 @@ namespace tattletale
     {
         float highest_score = 0.0f;
         std::vector<Kernel *> highest_chain;
-        for (auto &chain : chains)
+
+        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+        size_t count = 0;
+        size_t chain_amount = chains.size();
+        auto t1 = std::chrono::steady_clock::now();
+        std::chrono::nanoseconds sum = std::chrono::nanoseconds(0);
+        size_t duration_count = 0;
+        #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
+
+        for (size_t index = 0; index < chains.size(); ++index)
         {
-            float score = curation->CalculateScore(chain);
+            float score = curation->CalculateScore(chains[index]);
             if (score > highest_score)
             {
                 highest_score = score;
-                highest_chain = chain;
+                highest_chain = chains[index];
             }
+
+#ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+            ++count;
+            if (count >= 1000 || index == chain_amount - 1)
+            {
+                count = 0;
+                auto t2 = std::chrono::steady_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1);
+                ++duration_count;
+                t1 = t2;
+                sum += duration;
+                auto average = sum / duration_count;
+                auto max_duration = (chain_amount/1000.0f)*average;
+
+                double progress = static_cast<double>(sum.count())/static_cast<double>(max_duration.count());
+
+                std::string progress_string ="[";
+
+                for (size_t i = 0; i < 30; ++i)
+                {
+                    if (i == 13)
+                    {
+                        if(progress<0.1){
+                            progress_string += "0";
+                        }
+                        if(progress<1.0){
+                            progress_string += "0";
+                        }
+                        progress_string += std::to_string(static_cast<int>(progress * 100));
+                        progress_string += "%";
+                    }
+                    else if (i < 16 && i >= 13)
+                    {
+                    }
+                    else if (i < 30 * progress)
+                    {
+                        progress_string += "|";
+                    }
+                    else
+                    {
+                        progress_string += " ";
+                    }
+                }
+                progress_string +="]";
+                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Scoring: {} {:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(max_duration-sum)));
+            }
+            #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
         }
         return highest_chain;
     }
