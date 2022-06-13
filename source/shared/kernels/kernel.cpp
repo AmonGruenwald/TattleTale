@@ -62,6 +62,14 @@ namespace tattletale
     {
         return false;
     }
+    bool Kernel::IsReason(size_t id) const{
+        for(auto& reason: reasons_){
+            if(reason->id_==id){
+                return true;
+            }
+        }
+        return false;
+    }
 
     bool Kernel::IsSameKernelType(Kernel *other) const
     {

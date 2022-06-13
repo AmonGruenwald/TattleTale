@@ -22,6 +22,7 @@ namespace tattletale
 
         std::string GetTimeDescription(Kernel *start, Kernel *end, bool first_letter_uppercase = true) const;
         std::string GetChanceDescription(float chance) const;
+        std::string GenerateStatusDescription(const ActorStatus& start_status, const std::vector<Kernel *> &kernels) const;
         std::string GenerateScoreDescription(float score) const;
         std::string GetResourceReasonDescription(Resource *resource) const;
 

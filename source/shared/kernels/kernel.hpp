@@ -143,6 +143,8 @@ namespace tattletale
         // TODO: documentation
         virtual bool IsNegativeReason(Kernel *reason) const;
         // TODO: documentation
+        virtual bool IsReason(size_t id) const;
+        // TODO: documentation
         bool IsSameKernelType(Kernel *other) const;
         // TODO: documentation
         virtual bool IsSameSpecificType(Kernel *other) const = 0;

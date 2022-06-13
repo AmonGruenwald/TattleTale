@@ -86,6 +86,12 @@ namespace tattletale
         virtual bool IsSameSpecificType(Kernel *other) const;
         // TODO: documentation
         RelationshipType GetType() const;
+        /**
+         * @brief Getter to find an adjective describing the severity of this Emotion.
+         *
+         * @return The appropriate adjective.
+         */
+        std::string GetAdjective() const override;
 
     private:
         /**
@@ -102,12 +108,7 @@ namespace tattletale
          * @param value Value of the Relationship between -1.0 and 1.0.
          */
         Relationship(RelationshipType type, size_t id, size_t tick, Actor *owner, Actor *target, std::vector<Kernel *> reasons, float value);
-        /**
-         * @brief Getter to find an adjective describing the severity of this Emotion.
-         *
-         * @return The appropriate adjective.
-         */
-        std::string GetAdjective() const override;
+        
         /**
          * @brief The RelationshipType of this Relationship.
          */

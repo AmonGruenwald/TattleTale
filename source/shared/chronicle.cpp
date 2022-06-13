@@ -256,6 +256,29 @@ namespace tattletale
         }
         return nullptr;
     }
+    
+    ActorStatus Chronicle::FindActorStatusDuringTick(size_t actor_id, size_t tick) const{
+        std::vector<Emotion*> emotions (static_cast<int>(EmotionType::kLast), nullptr);
+        Resource* wealth= nullptr;
+        Goal* goal = actors_[actor_id]->goal_;
+        for(auto& kernel : kernels_by_actor_[actor_id]){
+            if(kernel->tick_>=tick){
+                break;
+            }
+            if(kernel->type_==KernelType::kResource){
+                wealth = dynamic_cast<Resource*>(kernel);
+            }
+            if(kernel->type_==KernelType::kEmotion){
+                Emotion* emotion = dynamic_cast<Emotion*>(kernel);
+                emotions[static_cast<int>(emotion->GetType())]=emotion;
+            }
+        }
+        ActorStatus status;
+        status.goal=goal;
+        status.wealth=wealth;
+        status.emotions = emotions;
+        return status;
+    }
     size_t Chronicle::RecursivelyFindHighestAbsoluteInterestChain(Kernel *kernel, size_t current_depth, size_t max_depth, std::vector<Kernel *> &out_chain) const
     {
         size_t score = kernel->GetAbsoluteInterestScore();

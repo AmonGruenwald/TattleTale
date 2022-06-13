@@ -87,6 +87,18 @@ namespace tattletale
         virtual float CalculateChanceInfluence(const Interaction *interaction) const override;
         // TODO: documentation
         virtual bool IsSameSpecificType(Kernel *other) const;
+        /**
+         * @brief Getter to find an adjective describing the severity of this Resource.
+         *
+         * @return The appropriate adjective.
+         */
+        virtual std::string GetAdjective() const;
+        /**
+         * @brief Getter for the name variant depending on the value of the Resource. E.g "wealthy" if it is positive "poor" if it is negative.
+         *
+         * @return The appropriate name variant.
+         */
+        std::string GetNameVariant() const;
 
     protected:
         /**
@@ -116,18 +128,7 @@ namespace tattletale
             float value,
             KernelType type = KernelType::kResource,
             Verb verb = Verb("was", "beeing", "are"));
-        /**
-         * @brief Getter to find an adjective describing the severity of this Resource.
-         *
-         * @return The appropriate adjective.
-         */
-        virtual std::string GetAdjective() const;
-        /**
-         * @brief Getter for the name variant depending on the value of the Resource. E.g "wealthy" if it is positive "poor" if it is negative.
-         *
-         * @return The appropriate name variant.
-         */
-        std::string GetNameVariant() const;
+        
         /**
          * @brief The value of this Resource.
          */

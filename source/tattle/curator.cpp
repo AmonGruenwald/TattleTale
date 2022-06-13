@@ -234,6 +234,46 @@ namespace tattletale
         return "completely banal";
     }
 
+    std::string Curator::GenerateStatusDescription(const ActorStatus& start_status, const std::vector<Kernel *> &kernels)const{
+        std::string description = fmt::format("{}.",*start_status.goal);
+        
+        size_t relevant_emotion_count =0;
+        std::string previous_adjective = "";
+        for(auto& emotion: start_status.emotions){
+            bool relevant=false;
+            for(auto& kernel: kernels){
+                if(kernel->IsReason(emotion->id_)){
+                    relevant = true;
+                }
+            }
+            if (relevant)
+            {
+                std::string adjective = emotion->GetAdjective();
+
+                if (relevant_emotion_count > 0)
+                {
+                    std::string adjective_description = "";
+                    if (adjective != previous_adjective)
+                    {
+                        adjective_description = fmt::format("{} ", adjective);;
+                    }
+                    description += fmt::format(" and {}{}", adjective_description, emotion->GetNameVariant());
+                }
+                else
+                {
+                    description += fmt::format("They were currently {:p}",  *emotion);
+                }
+                previous_adjective = adjective;
+                ++relevant_emotion_count;
+            }
+        }
+        if (relevant_emotion_count > 0)
+        {
+            description += ".";
+        }
+        description+=fmt::format(" {} was also {} {}.\n",*start_status.wealth->GetOwner(), start_status.wealth->GetAdjective(), start_status.wealth->GetNameVariant());
+        return description;
+    }
     std::string Curator::GenerateScoreDescription(float score) const
     {
         if (score < 0.1)
@@ -351,10 +391,10 @@ namespace tattletale
 
         std::vector<Curation *> curations;
         curations.push_back(new RarityCuration(setting_.max_chain_size));
-        curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
-        curations.push_back(new TagCuration(setting_.max_chain_size));
+        //curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
+        //curations.push_back(new TagCuration(setting_.max_chain_size));
         //curations.push_back(new CatCuration(setting_.max_chain_size));
-        curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
+        //curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
         {
@@ -376,25 +416,28 @@ namespace tattletale
         std::set<size_t> named_actors;
         Actor::named_actors_ = &named_actors;
 
-        // TODO: give current status of players
-        // TODO: repeated interactions should be combined
-        // TODO: resource are summarized even when they change sign
-        bool more_than_one_actor_present = false;
-        auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
-
-        std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
-
-        float score = curation->CalculateScore(chain);
-        std::string score_description = GenerateScoreDescription(score);
         Kernel *first_noteworthy_event = curation->GetFirstNoteworthyEvent(chain);
         Kernel *second_noteworthy_event = curation->GetSecondNoteworthyEvent(chain);
         if (!first_noteworthy_event || !second_noteworthy_event)
         {
             return "Narrativization failed. No noteworthy events were created.";
         }
-        bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
+        // TODO: repeated interactions should be combined
+        // TODO: resource are summarized even when they change sign
+        
+        bool more_than_one_actor_present = false;
+        auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
+        std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
+
         std::string description = "";
+        
+        
+
+
+        float score = curation->CalculateScore(chain);
+        std::string score_description = GenerateScoreDescription(score);
+        
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
         if (normal_interaction)
         {
             description += fmt::format("Normally one would find {} {:p} but this time s", *protagonist, *normal_interaction);
@@ -403,9 +446,16 @@ namespace tattletale
         {
             description += "S";
         }
+        bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
         std::string event_count_description = fmt::format((only_one_noteworthy_event ? "omething {}" : "ome {} events"), score_description);
-        description += fmt::format("{} happened around them{}.\n", event_count_description, acquaintance_description);
-        description += fmt::format("One of those events would be when {}", *first_noteworthy_event);
+        description += fmt::format("{} happened around them{} that I want to tell you about.\n", event_count_description, acquaintance_description);
+        
+        auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
+        auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size()-1]->tick_);
+        std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
+        description += fmt::format("But first let's take a quick look at our protagonist at the beginning of this story. {}\n", status_description);
+        
+        description += fmt::format("This story starts when {}", *first_noteworthy_event);
         if (!only_one_noteworthy_event)
         {
             auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
@@ -427,7 +477,10 @@ namespace tattletale
         {
             description += ".\n\n";
         }
-        description += "So what else happend?\n";
+
+
+        
+        description += "So how exactly did this happen?\n";
         auto previous_kernel = chain[0];
         description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
         auto previous_reasons = previous_kernel->GetReasons();
@@ -486,6 +539,10 @@ namespace tattletale
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
         }
+
+
+
+
         Actor::named_actors_ = nullptr;
         return description;
     }

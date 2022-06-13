@@ -13,6 +13,11 @@
 
 namespace tattletale
 {
+    struct ActorStatus{
+        Goal* goal;
+        Resource* wealth;
+        std::vector<Emotion*> emotions;
+    };
     class School;
     class Chronicle
     {
@@ -52,7 +57,7 @@ namespace tattletale
         std::string GetActorInteractionsDescription(size_t id) const;
         Interaction *FindUnlikeliestInteraction(size_t tick_cutoff) const;
         Interaction *FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const;
-
+        ActorStatus FindActorStatusDuringTick(size_t actor_id, size_t tick) const;
         size_t RecursivelyFindHighestAbsoluteInterestChain(Kernel *kernel, size_t current_depth, size_t max_depth, std::vector<Kernel *> &out_chain) const;
         Emotion *GetLastEmotionOfType(size_t tick, size_t actor_id, EmotionType type) const;
         Resource *GetLastWealth(size_t tick, size_t actor_id) const;
