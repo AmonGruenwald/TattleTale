@@ -234,15 +234,19 @@ namespace tattletale
         return "completely banal";
     }
 
-    std::string Curator::GenerateStatusDescription(const ActorStatus& start_status, const std::vector<Kernel *> &kernels)const{
-        std::string description = fmt::format("{}.",*start_status.goal);
-        
-        size_t relevant_emotion_count =0;
+    std::string Curator::GenerateStatusDescription(const ActorStatus &start_status, const std::vector<Kernel *> &kernels) const
+    {
+        std::string description = fmt::format("{}.", *start_status.goal);
+
+        size_t relevant_emotion_count = 0;
         std::string previous_adjective = "";
-        for(auto& emotion: start_status.emotions){
-            bool relevant=false;
-            for(auto& kernel: kernels){
-                if(kernel->IsReason(emotion->id_)){
+        for (auto &emotion : start_status.emotions)
+        {
+            bool relevant = false;
+            for (auto &kernel : kernels)
+            {
+                if (kernel->IsReason(emotion->id_))
+                {
                     relevant = true;
                 }
             }
@@ -255,13 +259,14 @@ namespace tattletale
                     std::string adjective_description = "";
                     if (adjective != previous_adjective)
                     {
-                        adjective_description = fmt::format("{} ", adjective);;
+                        adjective_description = fmt::format("{} ", adjective);
+                        ;
                     }
                     description += fmt::format(" and {}{}", adjective_description, emotion->GetNameVariant());
                 }
                 else
                 {
-                    description += fmt::format("They were currently {:p}",  *emotion);
+                    description += fmt::format("They were currently {:p}", *emotion);
                 }
                 previous_adjective = adjective;
                 ++relevant_emotion_count;
@@ -271,7 +276,7 @@ namespace tattletale
         {
             description += ".";
         }
-        description+=fmt::format(" {} was also {} {}.\n",*start_status.wealth->GetOwner(), start_status.wealth->GetAdjective(), start_status.wealth->GetNameVariant());
+        description += fmt::format(" {} was also {} {}.\n", *start_status.wealth->GetOwner(), start_status.wealth->GetAdjective(), start_status.wealth->GetNameVariant());
         return description;
     }
     std::string Curator::GenerateScoreDescription(float score) const
@@ -391,10 +396,10 @@ namespace tattletale
 
         std::vector<Curation *> curations;
         curations.push_back(new RarityCuration(setting_.max_chain_size));
-        //curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
-        //curations.push_back(new TagCuration(setting_.max_chain_size));
-        //curations.push_back(new CatCuration(setting_.max_chain_size));
-        //curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
+        // curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
+        // curations.push_back(new TagCuration(setting_.max_chain_size));
+        // curations.push_back(new CatCuration(setting_.max_chain_size));
+        // curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
         {
@@ -410,7 +415,6 @@ namespace tattletale
         return narrative;
     }
 
-    
     std::string Curator::Narrativize(const std::vector<Kernel *> &chain, const Curation *curation) const
     {
         std::set<size_t> named_actors;
@@ -424,19 +428,16 @@ namespace tattletale
         }
         // TODO: repeated interactions should be combined
         // TODO: resource are summarized even when they change sign
-        
+
         bool more_than_one_actor_present = false;
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
         std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
         std::string description = "";
-        
-        
-
 
         float score = curation->CalculateScore(chain);
         std::string score_description = GenerateScoreDescription(score);
-        
+
         auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
         if (normal_interaction)
         {
@@ -449,12 +450,12 @@ namespace tattletale
         bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
         std::string event_count_description = fmt::format((only_one_noteworthy_event ? "omething {}" : "ome {} events"), score_description);
         description += fmt::format("{} happened around them{} that I want to tell you about.\n", event_count_description, acquaintance_description);
-        
+
         auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
-        auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size()-1]->tick_);
+        auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size() - 1]->tick_);
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
         description += fmt::format("But first let's take a quick look at our protagonist at the beginning of this story. {}\n", status_description);
-        
+
         description += fmt::format("This story starts when {}", *first_noteworthy_event);
         if (!only_one_noteworthy_event)
         {
@@ -478,8 +479,6 @@ namespace tattletale
             description += ".\n\n";
         }
 
-
-        
         description += "So how exactly did this happen?\n";
         auto previous_kernel = chain[0];
         description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
@@ -502,13 +501,17 @@ namespace tattletale
                 previous_kernel = kernel;
                 continue;
             }
-            if (kernel->type_ != KernelType::kInteraction)
+            if (kernel->type_ == KernelType::kInteraction)
             {
 
-                description += " which in turn let ";
-            }
-            else
-            {
+                if (index + 2 < chain.size())
+                {
+                    if (chain[index + 2]->IsSameSpecificType(kernel))
+                    {
+                        ++index;
+                        continue;
+                    }
+                }
                 description += ".\nThis ";
                 for (auto &reason : kernel->GetReasons())
                 {
@@ -524,24 +527,43 @@ namespace tattletale
                         }
                     }
                 }
-                description += "made ";
+                description += fmt::format("made {} {:a}",*(kernel->GetOwner()), *kernel);
             }
-            bool compound_reason = false;
-            for (auto &previous_reason : previous_reasons)
+            else
             {
-                if (previous_reason->IsSameSpecificType(kernel) && previous_reason->GetOwner()->id_ == kernel->GetOwner()->id_)
-                {
-                    compound_reason = true;
-                }
-            }
+                description += " which in turn ";
 
-            description += fmt::format("{} {:a}{}", *(kernel->GetOwner()), *kernel, (compound_reason ? " even more" : ""));
+                bool compound_reason = false;
+                for (auto &previous_reason : previous_reasons)
+                {
+                    if (previous_reason->IsSameSpecificType(kernel) && previous_reason->GetOwner()->id_ == kernel->GetOwner()->id_)
+                    {
+                        compound_reason = true;
+                    }
+                }
+                bool reduced_value = false;
+                if(previous_kernel->type_==KernelType::kInteraction){
+                    for(auto& reason: kernel->GetReasons()){
+                        if(reason->IsSameSpecificType(kernel)){
+                            reduced_value = (dynamic_cast<Resource*>(kernel)->GetValue()) < (dynamic_cast<Resource*>(reason)->GetValue());
+                        }
+                    }
+                }
+                std::string other_participant = "";
+                if (kernel->type_ == KernelType::kRelationship)
+                {
+                    other_participant = fmt::format(" for {}", *kernel->GetAllParticipants()[1]);
+                }
+                description += fmt::format("{} {}'s {}{}{}",
+                                           (reduced_value ? "reduced" : "increased"),
+                                           *(kernel->GetOwner()),
+                                           kernel->name_,
+                                           other_participant,
+                                           (compound_reason ? " even more" : ""));
+            }
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
         }
-
-
-
 
         Actor::named_actors_ = nullptr;
         return description;
