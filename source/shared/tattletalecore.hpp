@@ -1,5 +1,14 @@
 #include "rang.hpp"
 
+#ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+#define TATTLETALE_PROGRESS_PRINT(x) std::cout << rang::bg::green << rang::fg::black << rang::style::bold << "[PROGRESS][" << __TIME__ << "]" \
+                                            << rang::style::reset << rang::bg::reset << rang::fg::green << "\n"                         \
+                                            << x << "\n\n" << rang::fg::reset
+
+#else
+#define TATTLETALE_PROGRESS_PRINT(x)
+#endif
+
 #ifdef TATTLETALE_DEBUG_PRINT_OUTPUT
 #define TATTLETALE_DEBUG_PRINT(x) std::cout << rang::bg::gray << rang::fg::blue << rang::style::bold << "[ DEBUG ][" << __TIME__ << "]" \
                                             << rang::style::reset << rang::bg::reset << rang::fg::reset << "\n"                         \

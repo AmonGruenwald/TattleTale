@@ -2,6 +2,8 @@
 #include "shared/tattletalecore.hpp"
 #include "shared/actor.hpp"
 #include "tale/school.hpp"
+#include <chrono>
+#include <fmt/chrono.h>
 
 namespace tattletale
 {
@@ -314,17 +316,45 @@ namespace tattletale
 
     std::vector<std::vector<Kernel *>> Chronicle::GetEveryPossibleChain(size_t chain_size) const
     {
+        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
         std::vector<std::vector<Kernel *>> chains;
         size_t count = 0;
         size_t kernel_amount = GetKernelAmount();
+        auto t1 = std::chrono::steady_clock::now();
+        std::chrono::nanoseconds sum = std::chrono::nanoseconds(0);
+        size_t duration_count = 0;
+        #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
         for (auto &kernel : all_kernels_)
         {
+            
+        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
             ++count;
             if (count >= 100 || kernel->id_ == kernel_amount - 1)
             {
                 count = 0;
-                TATTLETALE_DEBUG_PRINT(fmt::format("Creating Kernel Chains {}/{}", kernel->id_ + 1, kernel_amount));
+                auto t2 = std::chrono::steady_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1);
+                ++duration_count;
+                t1 = t2;
+                sum += duration;
+                auto average = sum / duration_count;
+                auto max_duration = (kernel_amount/100.0f)*average;
+
+                double progress = static_cast<double>(sum.count())/static_cast<double>(max_duration.count());
+
+                std::string progress_string ="[";
+
+                for(size_t i = 0; i<30;++i){
+                    if(i<30*progress){
+                        progress_string+="|";
+                    }else{
+                        progress_string+=" ";
+                    }
+                }
+                progress_string +="]";
+                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Creation: {} {:%M:%S}/{:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(sum), std::chrono::floor<std::chrono::seconds>(max_duration)));
             }
+            #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
             const auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
             for (auto &kernel_chain : kernel_chains)
             {
