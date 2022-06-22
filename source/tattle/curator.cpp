@@ -505,7 +505,13 @@ namespace tattletale
             }
             if (kernel->type_ == KernelType::kInteraction)
             {
-
+                if (index <=2){
+                    if (chain[index]->IsSameSpecificType(chain[0]))
+                    {
+                        ++index;
+                        continue;
+                    }
+                }
                 if (index + 2 < chain.size())
                 {
                     if (chain[index + 2]->IsSameSpecificType(kernel))
