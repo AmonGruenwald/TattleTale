@@ -1238,7 +1238,7 @@
             "fluff": true,
             "description": "{0} asked {1} out. {1} said yes",
             "passive_description": "asking someone out",
-            "active_description": "succesfully ask {0} out",
+            "active_description": "successfully ask {0} out",
             "emotions": [
                 {
                     "happy": 0.4,
