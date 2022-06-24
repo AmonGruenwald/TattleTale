@@ -268,7 +268,7 @@ namespace tattletale
                 }
                 else
                 {
-                    description += fmt::format("They were currently {:p}", *emotion);
+                    description += fmt::format("At the start of the story they were {:p}", *emotion);
                 }
                 previous_adjective = adjective;
                 ++relevant_emotion_count;
@@ -398,10 +398,9 @@ namespace tattletale
 
         std::vector<Curation *> curations;
         curations.push_back(new RarityCuration(setting_.max_chain_size));
-        // curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
-        // curations.push_back(new TagCuration(setting_.max_chain_size));
-        // curations.push_back(new CatCuration(setting_.max_chain_size));
-        // curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
+        curations.push_back(new AbsoluteInterestCuration(setting_.max_chain_size));
+        curations.push_back(new TagCuration(setting_.max_chain_size));
+        curations.push_back(new RandomCuration(setting_.max_chain_size, chronicle_.GetRandom()));
 
         for (auto &curation : curations)
         {
@@ -428,8 +427,6 @@ namespace tattletale
         {
             return "Narrativization failed. No noteworthy events were created.";
         }
-        // TODO: repeated interactions should be combined
-        // TODO: resource are summarized even when they change sign
 
         bool more_than_one_actor_present = false;
         auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
@@ -458,7 +455,7 @@ namespace tattletale
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
         description += fmt::format("But first let's take a quick look at our protagonist at the beginning of this story. {}\n", status_description);
 
-        description += fmt::format("This story starts when {}", *first_noteworthy_event);
+        description += fmt::format("One interesting thing that happened was {} {:p}", *(first_noteworthy_event->GetOwner()), *first_noteworthy_event);
         if (!only_one_noteworthy_event)
         {
             auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
@@ -469,10 +466,11 @@ namespace tattletale
             {
                 blocking_description = fmt::format(" despite {:p},", *blocking_resource);
             }
-            description += fmt::format(", but this was not even the most noteworthy thing that happened because {}{} {} was found {:p}{}.\n\n",
+            description += fmt::format(", but this was not even the most noteworthy thing that happened because {}{} {} was{} found {:p}{}.\n\n",
                                        time_description,
                                        blocking_description,
                                        *(second_noteworthy_event->GetOwner()),
+                                       (first_noteworthy_event->GetOwner()->id_==second_noteworthy_event->GetOwner()->id_?" also":""),
                                        *second_noteworthy_event,
                                        (second_noteworthy_event->IsSameSpecificType(first_noteworthy_event) ? " again" : ""));
         }
@@ -558,13 +556,19 @@ namespace tattletale
                     }
                 }
                 std::string other_participant = "";
+                std::string trajectory = "made";
+                std::string trajectory_accessory = (reduced_value ? " less" : " more");
                 if (kernel->type_ == KernelType::kRelationship)
                 {
                     other_participant = fmt::format(" for {}", *kernel->GetAllParticipants()[1]);
+                    trajectory = (reduced_value ? "reduced" : "increased");
+                    trajectory_accessory = "'s";
                 }
-                description += fmt::format("{} {}'s {}{}{}",
-                                           (reduced_value ? "reduced" : "increased"),
+
+                description += fmt::format("{} {}{} {}{}{}",
+                                           trajectory,
                                            *(kernel->GetOwner()),
+                                           trajectory_accessory,
                                            kernel->name_,
                                            other_participant,
                                            (compound_reason ? " even more" : ""));
@@ -574,6 +578,7 @@ namespace tattletale
         }
 
         Actor::named_actors_ = nullptr;
+        description+=".";
         return description;
     }
 
@@ -654,7 +659,7 @@ namespace tattletale
                 progress_string +="]";
                 TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Scoring: {} {:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(max_duration-sum)));
             }
-            #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
+#endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
         }
         return highest_chain;
     }
