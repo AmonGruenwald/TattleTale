@@ -263,6 +263,9 @@ namespace tattletale
         std::vector<Emotion*> emotions (static_cast<int>(EmotionType::kLast), nullptr);
         Resource* wealth= nullptr;
         Goal* goal = actors_[actor_id]->goal_;
+        if(tick ==0){
+            tick=1;
+        }
         for(auto& kernel : kernels_by_actor_[actor_id]){
             if(kernel->tick_>=tick){
                 break;
