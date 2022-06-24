@@ -129,7 +129,7 @@ namespace tattletale
             std::string string = "";
             string += fmt::format("The seed was {}.\n", seed);
             string += fmt::format("Simulated {} days with {} actors that had \nbetween {} and {} established relationship at the \nstart.\n", days_to_simulate, actor_count, desired_min_start_relationships_count, desired_max_start_relationships_count);
-            string += fmt::format("They had {} courses per day with {} actors per \ncourse and each course was run {} per week.\n", courses_per_day, actors_per_course, same_course_per_week);
+            string += fmt::format("They had {} courses per day with {} actors per \ncourse and each course was run {} times per week.\n", courses_per_day, actors_per_course, same_course_per_week);
             string += fmt::format("During freetime the actors could choose to \ninteract from a group of {} other actors.\n", freetime_actor_count);
             string += fmt::format("For the curation kernel chains of maximum size \n{} were considered.\n", max_chain_size);
             return string;
