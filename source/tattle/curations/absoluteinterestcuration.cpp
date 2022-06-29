@@ -14,10 +14,6 @@ namespace tattletale
         {
             score += kernel->GetAbsoluteInterestScore();
         }
-        if (score == 7)
-        {
-            int aslkdf = 0;
-        }
         // TODO: don't use 4 magic number (max possible score)
         return std::clamp(score / max_interactions / 4.0f, 0.0f, 1.0f);
     }
