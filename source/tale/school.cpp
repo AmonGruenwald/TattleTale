@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <fstream>
 #include <fmt/core.h>
+#include <chrono>
+#include <fmt/chrono.h>
 
 namespace tattletale
 {
@@ -119,12 +121,65 @@ namespace tattletale
 
     void School::SimulateDays(size_t days)
     {
+        #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+        size_t count = 0;
+        auto t1 = std::chrono::steady_clock::now();
+        std::chrono::nanoseconds sum = std::chrono::nanoseconds(0);
+        size_t duration_count = 0;
+        #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
+
         for (size_t i = 0; i < days; ++i)
         {
             SimulateDay(current_day_, current_weekday_);
             ++current_day_;
             current_weekday_ = static_cast<Weekday>((static_cast<int>(current_weekday_) + 1) % 7);
+
+            #ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+                auto t2 = std::chrono::steady_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1);
+                ++duration_count;
+                t1 = t2;
+                sum += duration;
+                auto average = sum / duration_count;
+                auto max_duration = days*average;
+                double progress = static_cast<double>(i+1)/static_cast<double>(days);
+                std::string progress_string ="[";
+                for(size_t i = 0; i<30;++i){
+                    if (i == 13)
+                    {
+                        if(progress<0.1){
+                            progress_string += "0";
+                        }
+                        if(progress<1.0){
+                            progress_string += "0";
+                        }
+                        progress_string += std::to_string(static_cast<int>(progress * 100));
+                        progress_string += "%";
+                    }
+                    else if (i < 16 && i >= 13)
+                    {
+                    }
+                    else if (i < 30 * progress)
+                    {
+                        progress_string += "|";
+                    }
+                    else
+                    {
+                        progress_string += " ";
+                    }
+                }
+                progress_string +="]";
+                auto time_left = std::chrono::floor<std::chrono::seconds>(max_duration - sum);
+                bool last_day = (i == days - 1);
+                TATTLETALE_PROGRESS_PRINT(fmt::format("| Simulating Days:           {} {:%M:%S}|", progress_string,
+                                                      (last_day ? std::chrono::floor<std::chrono::seconds>(sum) : time_left)));
+
+#endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
         }
+        
+#ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+        std::cout << "\n";
+#endif // TATTLETALE_PROGRESS_PRINT_OUTPUT
         TATTLETALE_DEBUG_PRINT(fmt::format("TALE CREATED {} KERNELS", chronicle_.GetKernelAmount()));
         TATTLETALE_VERBOSE_PRINT(fmt::format("AVERAGE INTERACTION CHANCE: {}", chronicle_.GetAverageInteractionChance()));
     }
