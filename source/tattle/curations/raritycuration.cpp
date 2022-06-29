@@ -8,12 +8,16 @@ namespace tattletale
 
     float RarityCuration::CalculateScore(const std::vector<Kernel *> &chain) const
     {
+        float max_interactions = ceil(static_cast<float>(max_chain_size_) / 2.0f);
         float score = 0.0f;
         for (auto &kernel : chain)
         {
-            score += (1 - kernel->GetChance());
+            float chance = kernel->GetChance();
+            if(chance<1.0f){
+                score += (1 - kernel->GetChance());
+            }
         }
-        score /= static_cast<float>(max_chain_size_);
+        score /= max_interactions;
         return score;
     }
     Kernel *RarityCuration::GetFirstNoteworthyEvent(const std::vector<Kernel *> &chain) const
