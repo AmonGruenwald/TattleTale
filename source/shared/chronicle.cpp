@@ -342,7 +342,7 @@ namespace tattletale
                 sum += duration;
                 auto average = sum / duration_count;
                 auto max_duration = (kernel_amount/100.0f)*average;
-
+                
                 double progress = static_cast<double>(sum.count())/static_cast<double>(max_duration.count());
 
                 std::string progress_string ="[";
@@ -372,7 +372,8 @@ namespace tattletale
                     }
                 }
                 progress_string +="]";
-                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Creation: {} {:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(max_duration-sum)));
+                auto time_left = std::chrono::floor<std::chrono::seconds>(max_duration-sum);
+                TATTLETALE_PROGRESS_PRINT(fmt::format("| Chain Creation:            {} {:%M:%S}|", progress_string,(time_left.count()<0?std::chrono::floor<std::chrono::seconds>(sum):time_left)));
             }
             #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
             const auto &kernel_chains = GetEveryPossibleChainRecursivly(kernel, 0, chain_size);
@@ -381,6 +382,9 @@ namespace tattletale
                 chains.push_back(kernel_chain);
             }
         }
+#ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+        std::cout << "\n";
+#endif // TATTLETALE_PROGRESS_PRINT_OUTPUT
         return chains;
     }
 
