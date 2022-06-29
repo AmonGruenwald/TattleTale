@@ -2463,7 +2463,7 @@
             "fluff": true,
             "description": "{0} went on a coffee date with {1}",
             "passive_description": "going on a coffee date",
-            "active_description": "go on a coffed date with {0}",
+            "active_description": "go on a coffee date with {0}",
             "wealth": [
                 -0.4,
                 0.0
