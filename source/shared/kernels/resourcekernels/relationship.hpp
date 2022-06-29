@@ -150,7 +150,7 @@ struct fmt::formatter<tattletale::RelationshipType> : formatter<string_view>
         "attraction",
         "friendship",
         "anger",
-        "protective",
+        "protectiveness",
         "last"};
     // parse is inherited from formatter<string_view>.
     template <typename FormatContext>

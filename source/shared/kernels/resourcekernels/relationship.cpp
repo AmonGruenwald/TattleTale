@@ -40,7 +40,7 @@ namespace tattletale
 
     std::string Relationship::GetAdjective() const
     {
-        if ((type_ == RelationshipType::kProtective && value_ >= 0) || (type_ == RelationshipType::kAnger && value_ < 0))
+        if ((type_ == RelationshipType::kProtective) || (type_ == RelationshipType::kAnger && value_ < 0))
         {
             return Resource::GetAdjective();
         }
