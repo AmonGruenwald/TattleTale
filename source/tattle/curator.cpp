@@ -158,34 +158,34 @@ namespace tattletale
         {
             tick_distance = end->tick_ - start->tick_;
         }
-        std::string description = (reversed ? "quite a lot of time later" : "quite a lot of time earlier");
+        std::string description = (!reversed ? "quite a lot of time later" : "quite a lot of time earlier");
 
+        size_t days = tick_distance / (setting_.courses_per_day + 1);
         if (tick_distance == 0)
         {
             description = "at the same time";
         }
-        if (tick_distance < (setting_.courses_per_day + 1) / 2)
+        else if (tick_distance < (setting_.courses_per_day + 1) / 2)
         {
-            description = (reversed ? "shortly after" : "shortly before");
+            description = (!reversed ? "shortly after" : "shortly before");
         }
-        if (tick_distance < setting_.courses_per_day + 1)
+        else if (tick_distance < setting_.courses_per_day + 1)
         {
-            description = (reversed ? "later that day" : "earlier that day");
+            description = (!reversed ? "later that day" : "earlier that day");
         }
-        size_t days = tick_distance / (setting_.courses_per_day + 1);
-        if (days <= 1)
+        else if (days <= 1)
         {
-            description = (reversed ? "the following day" : "the previous day");
+            description = (!reversed ? "the following day" : "the previous day");
         }
-        if (days <= 7)
+        else if (days <= 7)
         {
             description = "during the same week";
         }
-        if (days <= 14)
+        else if (days <= 14)
         {
-            description = (reversed ? "about two weeks later" : "about two weeks earlier");
+            description = (!reversed ? "about two weeks later" : "about two weeks earlier");
         }
-        if (days <= 31)
+        else if (days <= 31)
         {
             description = "during the same month";
         }
@@ -465,7 +465,7 @@ namespace tattletale
         float score = curation->CalculateScore(chain);
         std::string score_description = GenerateScoreDescription(score);
 
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActorBeforeTick(protagonist->id_, chain[0]->tick_);
         if (normal_interaction)
         {
             description += fmt::format("Normally one would find {} {:p} but this time s", *protagonist, *normal_interaction);
@@ -481,7 +481,7 @@ namespace tattletale
         auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
         auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size() - 1]->tick_);
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
-        description += fmt::format("But first let's take a quick look at our protagonist at the beginning of this story. {}\n", status_description);
+        description += fmt::format("But first let's take a quick look at our protagonist. {}\n", status_description);
 
         description += fmt::format("One interesting thing that happened was {} {:p}", *(first_noteworthy_event->GetOwner()), *first_noteworthy_event);
         if (!only_one_noteworthy_event)
@@ -520,10 +520,20 @@ namespace tattletale
                 if(reason->IsSameSpecificType(previous_kernel)){
                     continue;
                 }
-                if(no_reason_yet){
-                     description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *reason);
-                    no_reason_yet=false;
-                }else{
+                if (no_reason_yet)
+                {
+                    if (reason->type_ == KernelType::kInteraction)
+                    {
+                        description += fmt::format(", because {}", *reason);
+                    }
+                    else
+                    {
+                        description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *reason);
+                    }
+                    no_reason_yet = false;
+                }
+                else
+                {
                     description += fmt::format(" and was also {:p}", *reason);
                 }
             }
