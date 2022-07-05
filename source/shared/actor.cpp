@@ -409,9 +409,11 @@ namespace tattletale
             // skip first as we want the values of other people to this actor
             for (const auto &[other_actor, effect] : effects[0])
             {
-
                 // using minus here because the actor wants a negative value
                 relevant_effect -= effect.at(static_cast<int>(RelationshipType::kProtective));
+            }
+            if(effects[0].size()>0){
+                relevant_effect /= effects[0].size();
             }
             break;
         case GoalType::kLast:

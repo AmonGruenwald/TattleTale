@@ -233,12 +233,19 @@ namespace tattletale
         }
         return unlikeliest_interaction;
     }
-    Interaction *Chronicle::FindMostOccuringInteractionPrototypeForActor(size_t actor_id) const
+    Interaction *Chronicle::FindMostOccuringInteractionPrototypeForActorBeforeTick(size_t actor_id, size_t tick) const
     {
         std::vector<size_t> occurences(highest_interaction_id + 1);
         for (auto &interaction : interactions_by_actor_[actor_id])
         {
-            occurences[interaction->GetPrototype()->id] += 1;
+            if (interaction->tick_ < tick)
+            {
+                occurences[interaction->GetPrototype()->id] += 1;
+            }
+            else
+            {
+                break;
+            }
         }
         size_t highest = 0;
         for (size_t i = 1; i < occurences.size(); ++i)

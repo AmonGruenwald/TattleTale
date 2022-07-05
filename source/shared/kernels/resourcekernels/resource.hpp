@@ -70,7 +70,7 @@ namespace tattletale
          * @brief Gets a passive description for the Resource.
          *
          * This description forms a passive sentence fragment that can be incorporated into a narrative.
-         * E.g.: "beeing quite wealthy"
+         * E.g.: "being quite wealthy"
          * @return The passive description.
          */
         std::string GetPassiveDescription() const override;
@@ -127,7 +127,7 @@ namespace tattletale
             std::vector<Kernel *> reasons,
             float value,
             KernelType type = KernelType::kResource,
-            Verb verb = Verb("was", "beeing", "are"));
+            Verb verb = Verb("was", "being", "are"));
         
         /**
          * @brief The value of this Resource.

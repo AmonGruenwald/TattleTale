@@ -86,7 +86,7 @@ namespace tattletale
         const static inline std::vector<std::string> negative_name_variants_ =
             {"sad",
              "stressed",
-             "unfullfilled",
+             "unfulfilled",
              "fearful",
              "shy"};
         /**

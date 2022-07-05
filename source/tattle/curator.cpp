@@ -2,6 +2,7 @@
 #include "shared/actor.hpp"
 #include <fmt/core.h>
 #include <math.h>
+#include <algorithm>
 #include <map>
 #include <set>
 #include <queue>
@@ -157,34 +158,34 @@ namespace tattletale
         {
             tick_distance = end->tick_ - start->tick_;
         }
-        std::string description = (reversed ? "quite a lot of time later" : "quite a lot of time earlier");
+        std::string description = (!reversed ? "quite a lot of time later" : "quite a lot of time earlier");
 
+        size_t days = tick_distance / (setting_.courses_per_day + 1);
         if (tick_distance == 0)
         {
             description = "at the same time";
         }
-        if (tick_distance < (setting_.courses_per_day + 1) / 2)
+        else if (tick_distance < (setting_.courses_per_day + 1) / 2)
         {
-            description = (reversed ? "shortly after" : "shortly before");
+            description = (!reversed ? "shortly after" : "shortly before");
         }
-        if (tick_distance < setting_.courses_per_day + 1)
+        else if (tick_distance < setting_.courses_per_day + 1)
         {
-            description = (reversed ? "later that day" : "earlier that day");
+            description = (!reversed ? "later that day" : "earlier that day");
         }
-        size_t days = tick_distance / (setting_.courses_per_day + 1);
-        if (days <= 1)
+        else if (days <= 1)
         {
-            description = (reversed ? "the following day" : "the previous day");
+            description = (!reversed ? "the following day" : "the previous day");
         }
-        if (days <= 7)
+        else if (days <= 7)
         {
             description = "during the same week";
         }
-        if (days <= 14)
+        else if (days <= 14)
         {
-            description = (reversed ? "about two weeks later" : "about two weeks earlier");
+            description = (!reversed ? "about two weeks later" : "about two weeks earlier");
         }
-        if (days <= 31)
+        else if (days <= 31)
         {
             description = "during the same month";
         }
@@ -268,7 +269,7 @@ namespace tattletale
                 }
                 else
                 {
-                    description += fmt::format("At the start of the story they were {:p}", *emotion);
+                    description += fmt::format(" At the start of the story they were {:p}", *emotion);
                 }
                 previous_adjective = adjective;
                 ++relevant_emotion_count;
@@ -392,7 +393,7 @@ namespace tattletale
 
         const auto &chains = chronicle_.GetEveryPossibleChain(setting_.max_chain_size);
 
-        std::string preamble = "{} Curation:\n\n{}\n\n...............................................\n\n";
+        std::string preamble = "{} Curation:\n\n{}\n\n.....................................................................\n\n";
 
         std::string narrative = "";
 
@@ -423,13 +424,40 @@ namespace tattletale
 
         Kernel *first_noteworthy_event = curation->GetFirstNoteworthyEvent(chain);
         Kernel *second_noteworthy_event = curation->GetSecondNoteworthyEvent(chain);
+        bool more_than_one_actor_present = false;
+        auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
+        bool noteworthy_for_protag = false;
+        bool ignore_protag = false;
+        for (auto &participant : second_noteworthy_event->GetAllParticipants())
+        {
+            if (participant->id_ == protagonist->id_)
+            {
+                noteworthy_for_protag = true;
+            }
+        }
+        if (!noteworthy_for_protag)
+        {
+            ignore_protag = true;
+        }
+
+        noteworthy_for_protag = false;
+        for (auto &participant : first_noteworthy_event->GetAllParticipants())
+        {
+            if (participant->id_ == protagonist->id_)
+            {
+                noteworthy_for_protag = true;
+            }
+        }
+        if (!noteworthy_for_protag)
+        {
+            ignore_protag = true;
+        }
+
         if (!first_noteworthy_event || !second_noteworthy_event)
         {
             return "Narrativization failed. No noteworthy events were created.";
         }
 
-        bool more_than_one_actor_present = false;
-        auto protagonist = FindMostOccuringActor(chain, more_than_one_actor_present);
         std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
         std::string description = "";
@@ -437,7 +465,7 @@ namespace tattletale
         float score = curation->CalculateScore(chain);
         std::string score_description = GenerateScoreDescription(score);
 
-        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActor(protagonist->id_);
+        auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActorBeforeTick(protagonist->id_, chain[0]->tick_);
         if (normal_interaction)
         {
             description += fmt::format("Normally one would find {} {:p} but this time s", *protagonist, *normal_interaction);
@@ -451,9 +479,8 @@ namespace tattletale
         description += fmt::format("{} happened around them{} that I want to tell you about.\n", event_count_description, acquaintance_description);
 
         auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
-        auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size() - 1]->tick_);
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
-        description += fmt::format("But first let's take a quick look at our protagonist at the beginning of this story. {}\n", status_description);
+        description += fmt::format("But first let's take a quick look at our protagonist. {}\n", status_description);
 
         description += fmt::format("One interesting thing that happened was {} {:p}", *(first_noteworthy_event->GetOwner()), *first_noteworthy_event);
         if (!only_one_noteworthy_event)
@@ -485,11 +512,29 @@ namespace tattletale
         auto previous_reasons = previous_kernel->GetReasons();
         if (previous_reasons.size() > 0)
         {
-            description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *previous_reasons[0]);
-            for (size_t reason_index = 1; reason_index < previous_reasons.size(); ++reason_index)
+            bool no_reason_yet=true;
+            for (size_t reason_index = 0; reason_index < previous_reasons.size(); ++reason_index)
             {
                 auto &reason = previous_reasons[reason_index];
-                description += fmt::format(" and was also {:p}", *reason);
+                if(reason->IsSameSpecificType(previous_kernel)){
+                    continue;
+                }
+                if (no_reason_yet)
+                {
+                    if (reason->type_ == KernelType::kInteraction)
+                    {
+                        description += fmt::format(", because {}", *reason);
+                    }
+                    else
+                    {
+                        description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *reason);
+                    }
+                    no_reason_yet = false;
+                }
+                else
+                {
+                    description += fmt::format(" and was also {:p}", *reason);
+                }
             }
         }
         for (size_t index = 1; index < chain.size(); ++index)
@@ -503,16 +548,37 @@ namespace tattletale
             }
             if (kernel->type_ == KernelType::kInteraction)
             {
-                if (index <=2){
+                if (index <= 2)
+                {
                     if (chain[index]->IsSameSpecificType(chain[0]))
                     {
                         ++index;
                         continue;
                     }
                 }
-                if (index + 2 < chain.size())
+                int offset =0;
+                while(index+offset+2< chain.size() && chain[index+offset+2]->IsSameSpecificType(chain[index+offset+1])){
+                    ++offset;
+                }
+                if (index +offset+ 2 < chain.size())
                 {
-                    if (chain[index + 2]->IsSameSpecificType(kernel))
+                    if (chain[index + offset + 2]->IsSameSpecificType(kernel))
+                    {
+                        index+=offset;
+                        ++index;
+                        continue;
+                    }
+                }
+                bool protag_included = false;
+                for (auto &participant : kernel->GetAllParticipants())
+                {
+                    if (participant->id_ == protagonist->id_)
+                    {
+                        protag_included = true;
+                    }
+                }
+                if (!protag_included && !ignore_protag)
+                {
                     {
                         ++index;
                         continue;
@@ -533,7 +599,7 @@ namespace tattletale
                         }
                     }
                 }
-                description += fmt::format("made {} {:a}",*(kernel->GetOwner()), *kernel);
+                description += fmt::format("made {} {:a}", *(kernel->GetOwner()), *kernel);
             }
             else
             {
@@ -547,24 +613,37 @@ namespace tattletale
                         compound_reason = true;
                     }
                 }
-                bool reduced_value = false;
-                if(previous_kernel->type_==KernelType::kInteraction){
-                    for(auto& reason: kernel->GetReasons()){
-                        if(reason->IsSameSpecificType(kernel)){
-                            reduced_value = (dynamic_cast<Resource*>(kernel)->GetValue()) < (dynamic_cast<Resource*>(reason)->GetValue());
+                float reduced_value = 0;
+                if (previous_kernel->type_ == KernelType::kInteraction)
+                {
+                    for (auto &consequence : previous_kernel->GetConsequences())
+                    {
+                        if (consequence->IsSameSpecificType(kernel))
+                        {
+                            for (auto &reason : consequence->GetReasons())
+                            {
+                                if (reason->IsSameSpecificType(kernel))
+                                {
+                                    reduced_value = dynamic_cast<Resource *>(reason)->GetValue() - dynamic_cast<Resource *>(consequence)->GetValue();
+                                }
+                            }
                         }
                     }
                 }
                 std::string other_participant = "";
                 std::string trajectory = "made";
-                std::string trajectory_accessory = (reduced_value ? " less" : " more");
-                if (kernel->type_ == KernelType::kRelationship)
+                std::string trajectory_accessory = (reduced_value>0 ? " less" : " more");
+                if (kernel->type_ == KernelType::kRelationship )
                 {
                     other_participant = fmt::format(" for {}", *kernel->GetAllParticipants()[1]);
-                    trajectory = (reduced_value ? "reduced" : "increased");
+                    trajectory = (reduced_value>0 ? "reduced" : "increased");
                     trajectory_accessory = "'s";
                 }
-
+                if(kernel->type_ == KernelType::kResource){
+                    trajectory = (reduced_value>0 ? "reduced" : "increased");
+                    trajectory_accessory = "'s";
+                }
+                if(reduced_value!=0){
                 description += fmt::format("{} {}{} {}{}{}",
                                            trajectory,
                                            *(kernel->GetOwner()),
@@ -572,9 +651,15 @@ namespace tattletale
                                            kernel->name_,
                                            other_participant,
                                            (compound_reason ? " even more" : ""));
+                }else{
+                    description += fmt::format("confirmed {} in {:p}",*(kernel->GetOwner()),*kernel);
+                }
             }
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
+            while(index+1<chain.size() && chain[index+1]->IsSameSpecificType(kernel)){
+                ++index;
+            }
         }
 
         Actor::named_actors_ = nullptr;
@@ -603,6 +688,10 @@ namespace tattletale
         auto t1 = std::chrono::steady_clock::now();
         std::chrono::nanoseconds sum = std::chrono::nanoseconds(0);
         size_t duration_count = 0;
+        std::string spaces = " ";
+        for(int i = 0; i< (std::string("Absolute Interest").length()-curation->name_.length());++i){
+            spaces+=" ";
+        }
         #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
 
         for (size_t index = 0; index < chains.size(); ++index)
@@ -657,10 +746,15 @@ namespace tattletale
                     }
                 }
                 progress_string +="]";
-                TATTLETALE_PROGRESS_PRINT(fmt::format("Chain Scoring: {} {:%M:%S}", progress_string, std::chrono::floor<std::chrono::seconds>(max_duration-sum)));
+                
+                auto time_left = std::chrono::floor<std::chrono::seconds>(max_duration-sum);
+                TATTLETALE_PROGRESS_PRINT(fmt::format("| {} Scoring:{}{} {:%M:%S}|",curation->name_,spaces, progress_string, (time_left.count()>0?time_left:std::chrono::floor<std::chrono::seconds>(sum))));
             }
 #endif //TATTLETALE_PROGRESS_PRINT_OUTPUT
         }
+#ifdef TATTLETALE_PROGRESS_PRINT_OUTPUT
+        std::cout << "\n";
+#endif // TATTLETALE_PROGRESS_PRINT_OUTPUT
         return highest_chain;
     }
 } // namespace tattletale
