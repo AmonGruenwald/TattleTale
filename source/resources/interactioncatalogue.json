@@ -930,7 +930,7 @@
             "sexual": true,
             "description": "{0} and {1} made love",
             "passive_description": "making love",
-            "active_description": "make love with {1}",
+            "active_description": "make love with {0}",
             "emotions": [
                 {
                     "happy": 0.4,
@@ -1544,7 +1544,7 @@
                 "freetime": 0.0
             },
             "emotions": {
-                "calm": 0.03,
+                "calm": 0.3,
                 "extroverted": 1.0
             },
             "relationships": [
@@ -2172,7 +2172,7 @@
             "participant_count": 1
         },
         "tendencies": {
-            "wealth": -0.05,
+            "wealth": -0.5,
             "emotions": {
                 "calm": -0.5,
                 "brave": 0.1
@@ -2238,7 +2238,7 @@
             "fluff": true,
             "description": "{0} went to the cinema as a date with {1}",
             "passive_description": "going on a movie date",
-            "active_description": "go to a date with {0} at the cinema",
+            "active_description": "go on a date with {0} at the cinema",
             "wealth": [
                 -0.2,
                 0.0
@@ -3138,9 +3138,15 @@
             ]
         },
         "requirements": {
-            "participant_count": 2
+            "participant_count": 2,
+            "extroverted": 0.01
         },
-        "tendencies": {}
+        "tendencies": {
+            "emotions": {
+            "happy": 0.1,
+            "calm": 0.1,
+            "extroverted": 0.3
+        }}
     },
     {
         "prototype": {
@@ -3724,7 +3730,7 @@
             "fluff": true,
             "description": "{0} flirted with {1} and {1} liked it",
             "passive_description": "flirting with someone",
-            "active_description": "try to flirt with {0}, who liked it.",
+            "active_description": "try to flirt with {0}, who liked it",
             "emotions": [
                 {
                     "happy": 0.2,
@@ -3891,7 +3897,7 @@
         "prototype": {
             "name": "Smalltalk",
             "description": "{0} made some smalltalk with {1}",
-            "passive_description": "making some smalltalk",
+            "passive_description": "making some smalltalk with someone",
             "active_description": "make some smalltalk with {0}",
             "emotions": [
                 {
