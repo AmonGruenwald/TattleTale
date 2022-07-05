@@ -479,7 +479,6 @@ namespace tattletale
         description += fmt::format("{} happened around them{} that I want to tell you about.\n", event_count_description, acquaintance_description);
 
         auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
-        auto protagonist_end_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[chain.size() - 1]->tick_);
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
         description += fmt::format("But first let's take a quick look at our protagonist. {}\n", status_description);
 
@@ -557,10 +556,15 @@ namespace tattletale
                         continue;
                     }
                 }
-                if (index + 2 < chain.size())
+                int offset =0;
+                while(index+offset+2< chain.size() && chain[index+offset+2]->IsSameSpecificType(chain[index+offset+1])){
+                    ++offset;
+                }
+                if (index +offset+ 2 < chain.size())
                 {
-                    if (chain[index + 2]->IsSameSpecificType(kernel))
+                    if (chain[index + offset + 2]->IsSameSpecificType(kernel))
                     {
+                        index+=offset;
                         ++index;
                         continue;
                     }
@@ -629,9 +633,13 @@ namespace tattletale
                 std::string other_participant = "";
                 std::string trajectory = "made";
                 std::string trajectory_accessory = (reduced_value>0 ? " less" : " more");
-                if (kernel->type_ == KernelType::kRelationship)
+                if (kernel->type_ == KernelType::kRelationship )
                 {
                     other_participant = fmt::format(" for {}", *kernel->GetAllParticipants()[1]);
+                    trajectory = (reduced_value>0 ? "reduced" : "increased");
+                    trajectory_accessory = "'s";
+                }
+                if(kernel->type_ == KernelType::kResource){
                     trajectory = (reduced_value>0 ? "reduced" : "increased");
                     trajectory_accessory = "'s";
                 }
@@ -649,6 +657,9 @@ namespace tattletale
             }
             previous_reasons = kernel->GetReasons();
             previous_kernel = kernel;
+            while(index+1<chain.size() && chain[index+1]->IsSameSpecificType(kernel)){
+                ++index;
+            }
         }
 
         Actor::named_actors_ = nullptr;
