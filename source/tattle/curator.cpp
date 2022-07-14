@@ -269,7 +269,7 @@ namespace tattletale
                 }
                 else
                 {
-                    description += fmt::format(" At the start of the story they were {:p}", *emotion);
+                    description += fmt::format(" Before this all started they were {:p}", *emotion);
                 }
                 previous_adjective = adjective;
                 ++relevant_emotion_count;
@@ -458,7 +458,7 @@ namespace tattletale
             return "Narrativization failed. No noteworthy events were created.";
         }
 
-        std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
+        //std::string acquaintance_description = (more_than_one_actor_present ? " and their acquaintances" : "");
 
         std::string description = "";
 
@@ -468,21 +468,21 @@ namespace tattletale
         auto normal_interaction = chronicle_.FindMostOccuringInteractionPrototypeForActorBeforeTick(protagonist->id_, chain[0]->tick_);
         if (normal_interaction)
         {
-            description += fmt::format("Normally one would find {} {:p} but this time s", *protagonist, *normal_interaction);
+            description += fmt::format("On a regular day {} would be {:p} but this time s", *protagonist, *normal_interaction);
         }
         else
         {
             description += "S";
         }
         bool only_one_noteworthy_event = first_noteworthy_event->id_ == second_noteworthy_event->id_;
-        std::string event_count_description = fmt::format((only_one_noteworthy_event ? "omething {}" : "ome {} events"), score_description);
-        description += fmt::format("{} happened around them{} that I want to tell you about.\n", event_count_description, acquaintance_description);
+        std::string event_count_description = fmt::format((only_one_noteworthy_event ? "omething {}" : "ome {} things"), score_description);
+        description += fmt::format("{} happened around them. ", event_count_description);
 
         auto protagonist_start_status = chronicle_.FindActorStatusDuringTick(protagonist->id_, chain[0]->tick_);
         std::string status_description = GenerateStatusDescription(protagonist_start_status, chain);
-        description += fmt::format("But first let's take a quick look at our protagonist. {}\n", status_description);
+        description += fmt::format("Before telling the story let's take a look at our main character. {}\n", status_description);
 
-        description += fmt::format("One interesting thing that happened was {} {:p}", *(first_noteworthy_event->GetOwner()), *first_noteworthy_event);
+        /*description += fmt::format("One interesting thing that happened was {} {:p}", *(first_noteworthy_event->GetOwner()), *first_noteworthy_event);
         if (!only_one_noteworthy_event)
         {
             auto time_description = GetTimeDescription(first_noteworthy_event, second_noteworthy_event, false);
@@ -504,36 +504,37 @@ namespace tattletale
         else
         {
             description += ".\n\n";
-        }
+        }*/
 
-        description += "So how exactly did this happen?\n";
         auto previous_kernel = chain[0];
-        description += fmt::format("The whole sequence of events started when {}", *previous_kernel);
+        description += fmt::format("The story begins when {}", *previous_kernel);
         auto previous_reasons = previous_kernel->GetReasons();
         if (previous_reasons.size() > 0)
         {
-            bool no_reason_yet=true;
+            bool goal_reason=false;
             for (size_t reason_index = 0; reason_index < previous_reasons.size(); ++reason_index)
             {
                 auto &reason = previous_reasons[reason_index];
                 if(reason->IsSameSpecificType(previous_kernel)){
                     continue;
                 }
-                if (no_reason_yet)
+                if (reason->type_ == KernelType::kGoal)
                 {
-                    if (reason->type_ == KernelType::kInteraction)
-                    {
-                        description += fmt::format(", because {}", *reason);
-                    }
-                    else
-                    {
-                        description += fmt::format(", because {} was {:p}", *previous_kernel->GetOwner(), *reason);
-                    }
-                    no_reason_yet = false;
+                    description += fmt::format(", because {}", *reason);
+                    goal_reason = true;
                 }
-                else
+            }
+            if (!goal_reason)
+            {
+                for (size_t reason_index = 0; reason_index < previous_reasons.size(); ++reason_index)
                 {
-                    description += fmt::format(" and was also {:p}", *reason);
+                    auto &reason = previous_reasons[reason_index];
+                    if (reason->IsSameSpecificType(previous_kernel))
+                    {
+                        continue;
+                    }
+                    description += fmt::format(", because {}", *reason);
+                    break;
                 }
             }
         }
@@ -584,22 +585,28 @@ namespace tattletale
                         continue;
                     }
                 }
-                description += ".\nThis ";
+                
+                std::string time_description= fmt::format(".\n{} ",GetTimeDescription(previous_kernel,kernel));
+                bool first_other_reason = true;
                 for (auto &reason : kernel->GetReasons())
                 {
-                    if (reason->id_ != previous_kernel->id_ && !reason->IsSameSpecificType(kernel))
+                    if (reason->id_ != previous_kernel->id_ && !reason->IsSameSpecificType(kernel)&& !reason->IsSameSpecificType(previous_kernel))
                     {
-                        if (reason->GetOwner()->id_ == kernel->GetOwner()->id_)
-                        {
-                            description += fmt::format("and them {:p} ", *reason);
+                        std::string subject = "they";
+                        if(!first_other_reason){
+                            description+=" and ";
+                        }else{
+                            description+=time_description;
+                            first_other_reason=false;
                         }
-                        else
+                        if (reason->GetOwner()->id_ != kernel->GetOwner()->id_)
                         {
-                            description += fmt::format("and {} {:p} ", *(reason->GetOwner()), *reason);
+                            subject= fmt::format("{}", *(reason->GetOwner()));
                         }
+                        description += fmt::format("{} were also {:p}", subject, *reason);
                     }
                 }
-                description += fmt::format("made {} {:a}", *(kernel->GetOwner()), *kernel);
+                description += fmt::format(". Because of this {}",  *kernel);
             }
             else
             {
