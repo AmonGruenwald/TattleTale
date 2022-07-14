@@ -130,7 +130,7 @@ namespace tattletale
              "disgust for",
              "animosity for",
              "comfortable with",
-             "powerful towards"};
+             "dominant towards"};
         /**
          * @brief The Actor which is targeted by this Relationship.
          */
