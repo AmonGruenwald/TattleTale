@@ -667,7 +667,7 @@
     {
         "prototype": {
             "name": "Protect someone",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "fluff": true,
             "description": "{0} protected {1} from {2}",
             "passive_description": "protecting someone",
@@ -774,7 +774,7 @@
     {
         "prototype": {
             "name": "Blackmail someone",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} blackmailed {1} for some money",
             "passive_description": "blackmailing someone",
@@ -851,7 +851,7 @@
     {
         "prototype": {
             "name": "Casual sex",
-            "absolute_interest": 3,
+            "absolute_interest": 4,
             "sexual": true,
             "description": "{0} and {1} had casual sex",
             "passive_description": "having casual sex",
@@ -926,7 +926,7 @@
     {
         "prototype": {
             "name": "Make love",
-            "absolute_interest": 3,
+            "absolute_interest": 4,
             "sexual": true,
             "description": "{0} and {1} made love",
             "passive_description": "making love",
@@ -997,7 +997,7 @@
     {
         "prototype": {
             "name": "Break up",
-            "absolute_interest": 4,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} broke up with {1}",
             "passive_description": "breaking up with someone",
@@ -1075,7 +1075,7 @@
     {
         "prototype": {
             "name": "Asked out unsuccessfully",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} asked {1} out. {1} said they don't feel the same way though",
             "passive_description": "failing when asking someone out",
@@ -1310,7 +1310,7 @@
     {
         "prototype": {
             "name": "Fight physically",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} threw fists with {1}",
             "passive_description": "throwing fists with someone",
@@ -1869,7 +1869,7 @@
     {
         "prototype": {
             "name": "Stop bullying",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "description": "{0} stepped in when {1} tried to bully {2}",
             "passive_description": "stopping bullies",
             "emotions": [
@@ -1990,7 +1990,7 @@
     {
         "prototype": {
             "name": "Bully someone",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} bullied {1}",
             "passive_description": "bullying someone",
@@ -2520,7 +2520,7 @@
     {
         "prototype": {
             "name": "Take Drugs",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} took some drugs",
             "passive_description": "taking drugs",
@@ -2553,7 +2553,7 @@
     {
         "prototype": {
             "name": "Sell Drugs",
-            "absolute_interest": 4,
+            "absolute_interest": 2,
             "description": "{0} sold some drugs to {1}",
             "passive_description": "selling drugs",
             "active_description": "sell some drugs to {0}",
@@ -2659,7 +2659,7 @@
     {
         "prototype": {
             "name": "Dare",
-            "absolute_interest": 2,
+            "absolute_interest": 1,
             "description": "{0} faced a dare because {1} pushed them to",
             "passive_description": "facing a dare",
             "active_description": "face the dare they were pushed to do by {0}",
@@ -3483,7 +3483,7 @@
     {
         "prototype": {
             "name": "Caught Stealing",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} was caught trying to steal from {1}",
             "passive_description": "getting caught stealing",
@@ -3640,7 +3640,7 @@
     {
         "prototype": {
             "name": "Kiss unsuccessfully",
-            "absolute_interest": 3,
+            "absolute_interest": 2,
             "angst": true,
             "description": "{0} tried to kiss {1} but {1} dodged it",
             "passive_description": "failing to kiss someone",
