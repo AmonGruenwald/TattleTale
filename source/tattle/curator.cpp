@@ -248,9 +248,15 @@ namespace tattletale
             bool relevant = false;
             for (auto &kernel : kernels)
             {
-                if (kernel->IsReason(emotion->id_))
+                for (auto &reason : kernel->GetReasons())
                 {
-                    relevant = true;
+                    if (reason->GetOwner()->id_ == start_status.goal->GetOwner()->id_)
+                    {
+                        if (reason->IsSameSpecificType(emotion))
+                        {
+                            relevant = true;
+                        }
+                    }
                 }
             }
             if (relevant)
@@ -279,7 +285,14 @@ namespace tattletale
         {
             description += ".";
         }
-        description += fmt::format(" {} was also {} {}.\n", *start_status.wealth->GetOwner(), start_status.wealth->GetAdjective(), start_status.wealth->GetNameVariant());
+        for (auto &kernel : kernels)
+        {
+            if (kernel->type_ == KernelType::kResource)
+            {
+                description += fmt::format(" {} was also {} {}.\n", *start_status.wealth->GetOwner(), start_status.wealth->GetAdjective(), start_status.wealth->GetNameVariant());
+                break;
+            }
+        }
         return description;
     }
     std::string Curator::GenerateScoreDescription(float score) const
