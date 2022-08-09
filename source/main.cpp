@@ -33,16 +33,16 @@ int main(int argc, char *argv[])
 
     tattletale::Setting setting;
 #ifdef TRIAL_RUN
-    setting.days_to_simulate = 10;
+    setting.days_to_simulate = 15;
     setting.actor_count = 50;
     setting.actors_per_course = 30;
     setting.max_chain_size = 5;
     size_t run_amount = 1;
 #else
-    setting.days_to_simulate = 30;
+    setting.days_to_simulate = 15;
     setting.actor_count = 300;
     setting.actors_per_course = 30;
-    setting.max_chain_size = 10;
+    setting.max_chain_size = 5;
     size_t run_amount = 9;
 #endif // TRIAL_RUN
 
