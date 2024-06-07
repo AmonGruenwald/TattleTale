@@ -33,11 +33,11 @@ Automated actions have been able to compile TattleTale for Windows, Mac and Linu
 ## Statistics:
 This project is part of my master thesis so the following section tracks it's progress using a few different metrics.
 ### Worktime
-![Hours worked](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=697458418&format=image)
+![Hours worked](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=697458418&format=image)
 ### Progress:
 
-![Closed Issues](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=1636710030&format=image) ![Finsihed Sections](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=353310724&format=image)![Finished Wordcount](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=1770022941&format=image)
-![Wordcount per Chapter](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=1675755669&format=image)![Actual vs Expected Wordcount](https://docs.google.com/spreadsheets/d/e/2PACX-1vTTxcAeGq-1fY3fod4xhDw62EIbXXiYOqvOPFSLNdttHZ6vF07qft4-eNj0cMo635jT2Cmi5LpUHoRP/pubchart?oid=1751949352&format=image)
+![Closed Issues](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=1636710030&format=image)![Finsihed Sections](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=353310724&format=image)![Finished Wordcount](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=1770022941&format=image)
+![Wordcount per Chapter](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=1675755669&format=image)![Actual vs Expected Wordcount](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcVp9l0luq1MfDvR5QGOC7mLE6pc46OgSYV-UJraDOYWmt_d0xirO9UjfuubzcQRjJ0ocMFn93tOIY/pubchart?oid=1751949352&format=image)
 
 ---
 
