@@ -1,129 +1,129 @@
-\hypertarget{interactionrequirement_8hpp_source}{}\doxysection{interactionrequirement.\+hpp}
-\label{interactionrequirement_8hpp_source}\index{shared/kernels/interactions/interactionrequirement.hpp@{shared/kernels/interactions/interactionrequirement.hpp}}
+\doxysection{interactionrequirement.\+hpp}
+\hypertarget{interactionrequirement_8hpp_source}{}\label{interactionrequirement_8hpp_source}\index{shared/kernels/interactions/interactionrequirement.hpp@{shared/kernels/interactions/interactionrequirement.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fmt/core.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/interactions/interactioncontexttype.hpp"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/kernels/goal.hpp"{}}}
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}}}
-\DoxyCodeLine{13     \{}
-\DoxyCodeLine{17         \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kLast;}
-\DoxyCodeLine{21         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
-\DoxyCodeLine{25         \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}} = GoalType::kLast;}
-\DoxyCodeLine{29         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}} = 0;}
-\DoxyCodeLine{33         std::vector<std::vector<float>> \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}};}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{38         std::vector<std::vector<float>> \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a9c065d59864dfbfdeb0e8d1770994326}{ClearValues}}()}
-\DoxyCodeLine{44         \{}
-\DoxyCodeLine{45             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}} = ContextType::kLast;}
-\DoxyCodeLine{46             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} = 1;}
-\DoxyCodeLine{47             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}} = GoalType::kLast;}
-\DoxyCodeLine{48             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}} = 0;}
-\DoxyCodeLine{49             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.clear();}
-\DoxyCodeLine{50             \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.clear();}
-\DoxyCodeLine{51         \}}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53         \textcolor{keywordtype}{void} SetParticipantCount(\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}})}
-\DoxyCodeLine{54         \{}
-\DoxyCodeLine{55             this-\/>participant\_count = \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}};}
-\DoxyCodeLine{56             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}}; ++i)}
-\DoxyCodeLine{57             \{}
-\DoxyCodeLine{58                 \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.push\_back(std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast), 0.0f));}
-\DoxyCodeLine{59             \}}
-\DoxyCodeLine{60             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} active\_participant = 1; active\_participant < \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}}; ++active\_participant)}
-\DoxyCodeLine{61             \{}
-\DoxyCodeLine{62                 \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.push\_back(std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kLast), 0.0f));}
-\DoxyCodeLine{63             \}}
-\DoxyCodeLine{64         \}}
-\DoxyCodeLine{69         \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a7e1d99caa6da4bff3f85f06c1d3e65ba}{HasEmotionalRequirement}}(\textcolor{keywordtype}{size\_t} participant\_index)\textcolor{keyword}{ const}}
-\DoxyCodeLine{70 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{71             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&value : \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[participant\_index])}
-\DoxyCodeLine{72             \{}
-\DoxyCodeLine{73                 \textcolor{keywordflow}{if} (value != 0)}
-\DoxyCodeLine{74                 \{}
-\DoxyCodeLine{75                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{76                 \}}
-\DoxyCodeLine{77             \}}
-\DoxyCodeLine{78             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{79         \}}
-\DoxyCodeLine{84         \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a6d5ebf30f6a0432efb5d87ab438534cc}{HasRelationshipRequirement}}(\textcolor{keywordtype}{size\_t} participant\_index)\textcolor{keyword}{ const}}
-\DoxyCodeLine{85 \textcolor{keyword}{        }\{}
-\DoxyCodeLine{86             \textcolor{keywordflow}{if} (\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}} == 1)}
-\DoxyCodeLine{87             \{}
-\DoxyCodeLine{88                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{89             \}}
-\DoxyCodeLine{90             \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&value : \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[participant\_index -\/ 1])}
-\DoxyCodeLine{91             \{}
-\DoxyCodeLine{92                 \textcolor{keywordflow}{if} (value != 0)}
-\DoxyCodeLine{93                 \{}
-\DoxyCodeLine{94                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{95                 \}}
-\DoxyCodeLine{96             \}}
-\DoxyCodeLine{97             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{98         \}}
-\DoxyCodeLine{99     \};}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{104 \textcolor{keyword}{struct }fmt::formatter<T, std::enable\_if\_t<std::is\_base\_of<tattletale::InteractionRequirement, T>::value, char>> : fmt::formatter<std::string>}
-\DoxyCodeLine{105 \{}
-\DoxyCodeLine{106     \textcolor{comment}{// d -\/ default}}
-\DoxyCodeLine{107     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{109     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
-\DoxyCodeLine{110     \{}
-\DoxyCodeLine{111         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
-\DoxyCodeLine{112         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'d'}))}
-\DoxyCodeLine{113             presentation = *it++;}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{115         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
-\DoxyCodeLine{116             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{118         \textcolor{keywordflow}{return} it;}
-\DoxyCodeLine{119     \}}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{121     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{122     \textcolor{keyword}{auto} format(\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{tattletale::InteractionRequirement}} \&requirement, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
-\DoxyCodeLine{123     \{}
-\DoxyCodeLine{124         std::string \textcolor{keywordtype}{string} = fmt::format(\textcolor{stringliteral}{"{}Context: \{\}"{}}, requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}});}
-\DoxyCodeLine{125         \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nParticipant Count: \{\}"{}}, requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}});}
-\DoxyCodeLine{126         \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nGoal Type: \{\}"{}}, requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}});}
-\DoxyCodeLine{127         \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nDay: \{\}"{}}, requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}});}
-\DoxyCodeLine{128         \textcolor{keywordtype}{string} += \textcolor{stringliteral}{"{}\(\backslash\)nEmotions:"{}};}
-\DoxyCodeLine{129         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.size(); ++i)}
-\DoxyCodeLine{130         \{}
-\DoxyCodeLine{131             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tParticipant: \{\}"{}}, i);}
-\DoxyCodeLine{132             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[i].size(); ++type\_index)}
-\DoxyCodeLine{133             \{}
-\DoxyCodeLine{134                 \textcolor{keywordtype}{string} += fmt::format(}
-\DoxyCodeLine{135                     \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\{:<11\}: \{\}"{}},}
-\DoxyCodeLine{136                     \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{tattletale::EmotionType}}\textcolor{keyword}{>}(type\_index),}
-\DoxyCodeLine{137                     requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[i][type\_index]);}
-\DoxyCodeLine{138             \}}
-\DoxyCodeLine{139         \}}
-\DoxyCodeLine{140         \textcolor{keywordtype}{string} += \textcolor{stringliteral}{"{}\(\backslash\)nRelationship:"{}};}
-\DoxyCodeLine{141         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.size(); ++i)}
-\DoxyCodeLine{142         \{}
-\DoxyCodeLine{143             \textcolor{keywordtype}{string} += fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)twith Participant: \{\}"{}}, i + 1);}
-\DoxyCodeLine{144             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} type\_index = 0; type\_index < requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[i].size(); ++type\_index)}
-\DoxyCodeLine{145             \{}
-\DoxyCodeLine{146                 \textcolor{keywordtype}{string} += fmt::format(}
-\DoxyCodeLine{147                     \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)t\{:<10\}: \{\}"{}},}
-\DoxyCodeLine{148                     \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{tattletale::RelationshipType}}\textcolor{keyword}{>}(type\_index),}
-\DoxyCodeLine{149                     requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[i][type\_index]);}
-\DoxyCodeLine{150             \}}
-\DoxyCodeLine{151         \}}
-\DoxyCodeLine{152         \textcolor{keywordflow}{return} fmt::formatter<std::string>::format(\textcolor{keywordtype}{string}, ctx);}
-\DoxyCodeLine{153     \}}
-\DoxyCodeLine{154 \};}
-\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fmt/core.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/interactions/interactioncontexttype.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/goal.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{InteractionRequirement}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}}\ =\ ContextType::kLast;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}}\ =\ 1;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}}\ =\ GoalType::kLast;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}}\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::vector<std::vector<float>>\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::vector<std::vector<float>>\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a9c065d59864dfbfdeb0e8d1770994326}{ClearValues}}()}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}}\ =\ ContextType::kLast;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}}\ =\ 1;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}}\ =\ GoalType::kLast;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}}\ =\ 0;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.clear();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.clear();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetParticipantCount(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}})}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>participant\_count\ =\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}};\ ++i)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.push\_back(std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(EmotionType::kLast),\ 0.0f));}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ active\_participant\ =\ 1;\ active\_participant\ <\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}};\ ++active\_participant)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.push\_back(std::vector<float>(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(RelationshipType::kLast),\ 0.0f));}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a7e1d99caa6da4bff3f85f06c1d3e65ba}{HasEmotionalRequirement}}(\textcolor{keywordtype}{size\_t}\ participant\_index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00070\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&value\ :\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[participant\_index])}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ 0)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a6d5ebf30f6a0432efb5d87ab438534cc}{HasRelationshipRequirement}}(\textcolor{keywordtype}{size\_t}\ participant\_index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}}\ ==\ 1)}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&value\ :\ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[participant\_index\ -\/\ 1])}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ 0)}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00104\ \textcolor{keyword}{struct\ }fmt::formatter<T,\ std::enable\_if\_t<std::is\_base\_of<tattletale::InteractionRequirement,\ T>::value,\ char>>\ :\ fmt::formatter<std::string>}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ d\ -\/\ default}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{char}\ presentation\ =\ \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ parse(format\_parse\_context\ \&ctx)\ -\/>\ \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ ctx.begin(),\ end\ =\ ctx.end();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ (*it\ ==\ \textcolor{charliteral}{'d'}))}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ presentation\ =\ *it++;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ !=\ \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ format\_error(\textcolor{stringliteral}{"{}invalid\ format"{}});}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{auto}\ format(\mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{tattletale::InteractionRequirement}}\ \&requirement,\ FormatContext\ \&ctx)\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::string\ \textcolor{keywordtype}{string}\ =\ fmt::format(\textcolor{stringliteral}{"{}Context:\ \{\}"{}},\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a50d1c877d91d12d85aef885ba9432c0e}{context}});}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nParticipant\ Count:\ \{\}"{}},\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a83251a21b2edb4e41ce6b493481c5df5}{participant\_count}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nGoal\ Type:\ \{\}"{}},\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_aa7a00a983c00e8ae1a17a03c2404a1b6}{goal\_type}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)nDay:\ \{\}"{}},\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_a0f68c142a888c71931cc7550960adfd7}{day}});}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)nEmotions:"{}};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}.size();\ ++i)}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)tParticipant:\ \{\}"{}},\ i);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ type\_index\ =\ 0;\ type\_index\ <\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[i].size();\ ++type\_index)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\{:<11\}:\ \{\}"{}},}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{tattletale::EmotionType}}\textcolor{keyword}{>}(type\_index),}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_ae7db013148c03e4197a8192cb6d54fd6}{emotions}}[i][type\_index]);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)nRelationship:"{}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}.size();\ ++i)}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)twith\ Participant:\ \{\}"{}},\ i\ +\ 1);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ type\_index\ =\ 0;\ type\_index\ <\ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[i].size();\ ++type\_index)}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ +=\ fmt::format(}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)t\(\backslash\)t\(\backslash\)t\{:<10\}:\ \{\}"{}},}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{tattletale::RelationshipType}}\textcolor{keyword}{>}(type\_index),}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ requirement.\mbox{\hyperlink{structtattletale_1_1_interaction_requirement_af7ae03df85ba8bdab26c6dab30a5b302}{relationship}}[i][type\_index]);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fmt::formatter<std::string>::format(\textcolor{keywordtype}{string},\ ctx);}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_INTERACTIONS\_INTERACTIONREQUIREMENT\_H}}
 
 \end{DoxyCode}

@@ -1,39 +1,39 @@
-\hypertarget{structtattletale_1_1_interaction_tendency}{}\doxysection{tattletale\+::Interaction\+Tendency Struct Reference}
-\label{structtattletale_1_1_interaction_tendency}\index{tattletale::InteractionTendency@{tattletale::InteractionTendency}}
+\doxysection{tattletale\+::Interaction\+Tendency Struct Reference}
+\hypertarget{structtattletale_1_1_interaction_tendency}{}\label{structtattletale_1_1_interaction_tendency}\index{tattletale::InteractionTendency@{tattletale::InteractionTendency}}
 
 
-Stores how the state of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} influence how likely an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is to happen.  
+Stores how the state of \doxylink{classtattletale_1_1_actor}{Actors } influence how likely an \doxylink{classtattletale_1_1_interaction}{Interaction} is to happen.  
 
 
 
 
 {\ttfamily \#include $<$shared/kernels/interactions/interactiontendency.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_tendency_aa16a7150d1a0c361df286fbba9def10c}\label{structtattletale_1_1_interaction_tendency_aa16a7150d1a0c361df286fbba9def10c}} 
+\Hypertarget{structtattletale_1_1_interaction_tendency_aa16a7150d1a0c361df286fbba9def10c}\label{structtattletale_1_1_interaction_tendency_aa16a7150d1a0c361df286fbba9def10c} 
 void {\bfseries Clear\+Values} ()
 \begin{DoxyCompactList}\small\item\em Reset all values back to their default state. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_tendency_ae46c422c719a4403c7e5089d776eb692}\label{structtattletale_1_1_interaction_tendency_ae46c422c719a4403c7e5089d776eb692}} 
+\Hypertarget{structtattletale_1_1_interaction_tendency_ae46c422c719a4403c7e5089d776eb692}\label{structtattletale_1_1_interaction_tendency_ae46c422c719a4403c7e5089d776eb692} 
 std\+::vector$<$ float $>$ {\bfseries contexts} = std\+::vector$<$float$>$(static\+\_\+cast$<$int$>$(Context\+Type\+::k\+Last), 0.\+0f)
 \begin{DoxyCompactList}\small\item\em Vector of floats, which indices map to the Context\+Type enum, that stores how the current Context might influence the choice. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_tendency_a654aaf7924a515c467625a8f8639317b}\label{structtattletale_1_1_interaction_tendency_a654aaf7924a515c467625a8f8639317b}} 
+\Hypertarget{structtattletale_1_1_interaction_tendency_a654aaf7924a515c467625a8f8639317b}\label{structtattletale_1_1_interaction_tendency_a654aaf7924a515c467625a8f8639317b} 
 float {\bfseries wealth} = 0
-\begin{DoxyCompactList}\small\item\em Stores how the wealth of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} influences the choice. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_tendency_a2071dfd28d8c80337ace9c9a7fd5c075}\label{structtattletale_1_1_interaction_tendency_a2071dfd28d8c80337ace9c9a7fd5c075}} 
+\begin{DoxyCompactList}\small\item\em Stores how the wealth of the \doxylink{classtattletale_1_1_actor}{Actor} influences the choice. \end{DoxyCompactList}\item 
+\Hypertarget{structtattletale_1_1_interaction_tendency_a2071dfd28d8c80337ace9c9a7fd5c075}\label{structtattletale_1_1_interaction_tendency_a2071dfd28d8c80337ace9c9a7fd5c075} 
 std\+::vector$<$ float $>$ {\bfseries emotions} = std\+::vector$<$float$>$(static\+\_\+cast$<$int$>$(Emotion\+Type\+::k\+Last), 0.\+0f)
-\begin{DoxyCompactList}\small\item\em Stores how the wealth of the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} influences the choice. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structtattletale_1_1_interaction_tendency_ad8e56a04d7e3f87438d174fd4e9619b8}\label{structtattletale_1_1_interaction_tendency_ad8e56a04d7e3f87438d174fd4e9619b8}} 
+\begin{DoxyCompactList}\small\item\em Stores how the wealth of the \doxylink{classtattletale_1_1_actor}{Actor} influences the choice. \end{DoxyCompactList}\item 
+\Hypertarget{structtattletale_1_1_interaction_tendency_ad8e56a04d7e3f87438d174fd4e9619b8}\label{structtattletale_1_1_interaction_tendency_ad8e56a04d7e3f87438d174fd4e9619b8} 
 std\+::vector$<$ std\+::vector$<$ float $>$ $>$ {\bfseries relationships} = \{\}
-\begin{DoxyCompactList}\small\item\em Stores how the relationship to each participant influences how likely the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} is to pick them for this role. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stores how the relationship to each participant influences how likely the \doxylink{classtattletale_1_1_actor}{Actor} is to pick them for this role. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Stores how the state of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} influence how likely an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is to happen. 
+Stores how the state of \doxylink{classtattletale_1_1_actor}{Actors } influence how likely an \doxylink{classtattletale_1_1_interaction}{Interaction} is to happen. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

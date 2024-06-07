@@ -1,46 +1,46 @@
-\hypertarget{interactioncontexttype_8hpp_source}{}\doxysection{interactioncontexttype.\+hpp}
-\label{interactioncontexttype_8hpp_source}\index{shared/kernels/interactions/interactioncontexttype.hpp@{shared/kernels/interactions/interactioncontexttype.hpp}}
+\doxysection{interactioncontexttype.\+hpp}
+\hypertarget{interactioncontexttype_8hpp_source}{}\label{interactioncontexttype_8hpp_source}\index{shared/kernels/interactions/interactioncontexttype.hpp@{shared/kernels/interactions/interactioncontexttype.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{4 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{5 \{}
-\DoxyCodeLine{9     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}}
-\DoxyCodeLine{10     \{}
-\DoxyCodeLine{11         kCourse,}
-\DoxyCodeLine{12         kFreetime,}
-\DoxyCodeLine{13         kLast}
-\DoxyCodeLine{14     \};}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{26     \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}} \mbox{\hyperlink{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}{StringToContextType}}(std::string context\_string)}
-\DoxyCodeLine{27     \{}
-\DoxyCodeLine{28         \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}course"{}})}
-\DoxyCodeLine{29             \textcolor{keywordflow}{return} ContextType::kCourse;}
-\DoxyCodeLine{30         \textcolor{keywordflow}{if} (context\_string == \textcolor{stringliteral}{"{}freetime"{}})}
-\DoxyCodeLine{31             \textcolor{keywordflow}{return} ContextType::kFreetime;}
-\DoxyCodeLine{32         \textcolor{keywordflow}{return} ContextType::kLast;}
-\DoxyCodeLine{33     \}}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{38 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::ContextType> : formatter<string\_view>}
-\DoxyCodeLine{39 \{}
-\DoxyCodeLine{40     std::string context\_type\_names[3] = \{}
-\DoxyCodeLine{41         \textcolor{stringliteral}{"{}course"{}},}
-\DoxyCodeLine{42         \textcolor{stringliteral}{"{}freetime"{}},}
-\DoxyCodeLine{43         \textcolor{stringliteral}{"{}last"{}}\};}
-\DoxyCodeLine{44     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{45     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{46     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{tattletale::ContextType}} type, FormatContext \&ctx)}
-\DoxyCodeLine{47     \{}
-\DoxyCodeLine{48         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{49         string\_view name = context\_type\_names[enum\_index];}
-\DoxyCodeLine{50         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{51     \}}
-\DoxyCodeLine{52 \};}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ kCourse,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ kFreetime,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ kLast}
+\DoxyCodeLine{00014\ \ \ \ \ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{ContextType}}\ \mbox{\hyperlink{namespacetattletale_a51b15886f0518c8b4a543ca5c374d585}{StringToContextType}}(std::string\ context\_string)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (context\_string\ ==\ \textcolor{stringliteral}{"{}course"{}})}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ContextType::kCourse;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (context\_string\ ==\ \textcolor{stringliteral}{"{}freetime"{}})}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ContextType::kFreetime;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ContextType::kLast;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::ContextType>\ :\ formatter<string\_view>}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ context\_type\_names[3]\ =\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}course"{}},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}freetime"{}},}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ parse\ is\ inherited\ from\ formatter<string\_view>.}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{auto}\ format(\mbox{\hyperlink{namespacetattletale_ae0b6a742e9c23a4108e87ba46b041428}{tattletale::ContextType}}\ type,\ FormatContext\ \&ctx)}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ enum\_index\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ string\_view\ name\ =\ context\_type\_names[enum\_index];}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatter<string\_view>::format(name,\ ctx);}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_INTERACTIONS\_INTERACTIONCONTEXTTYPE\_H}}
 
 \end{DoxyCode}

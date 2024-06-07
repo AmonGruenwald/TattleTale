@@ -1,28 +1,28 @@
-\hypertarget{curation_8hpp_source}{}\doxysection{curation.\+hpp}
-\label{curation_8hpp_source}\index{tattle/curations/curation.hpp@{tattle/curations/curation.hpp}}
+\doxysection{curation.\+hpp}
+\hypertarget{curation_8hpp_source}{}\label{curation_8hpp_source}\index{tattle/curations/curation.hpp@{tattle/curations/curation.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TATTLE\_CURATIONS\_CURATION\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TATTLE\_CURATIONS\_CURATION\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}shared/kernels/kernel.hpp"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{9     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_curation}{Curation}}}
-\DoxyCodeLine{10     \{}
-\DoxyCodeLine{11     \textcolor{keyword}{public}:}
-\DoxyCodeLine{12         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} CalculateScore(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{13         \textcolor{keyword}{virtual} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetFirstNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{14         \textcolor{keyword}{virtual} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *GetSecondNoteworthyEvent(\textcolor{keyword}{const} std::vector<Kernel *> \&chain) \textcolor{keyword}{const} = 0;}
-\DoxyCodeLine{15         \textcolor{keyword}{const} std::string name\_;}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{18         \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}}(std::string name, \textcolor{keywordtype}{size\_t} max\_chain\_size) : name\_(name), max\_chain\_size\_(max\_chain\_size)\{\};}
-\DoxyCodeLine{19         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} max\_chain\_size\_;}
-\DoxyCodeLine{20     \};}
-\DoxyCodeLine{21 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TATTLE\_CURATIONS\_CURATION\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TATTLE\_CURATIONS\_CURATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TATTLE\_CURATIONS\_CURATION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/kernel.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_curation}{Curation}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ CalculateScore(\textcolor{keyword}{const}\ std::vector<Kernel\ *>\ \&chain)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *GetFirstNoteworthyEvent(\textcolor{keyword}{const}\ std::vector<Kernel\ *>\ \&chain)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *GetSecondNoteworthyEvent(\textcolor{keyword}{const}\ std::vector<Kernel\ *>\ \&chain)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ name\_;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_curation}{Curation}}(std::string\ name,\ \textcolor{keywordtype}{size\_t}\ max\_chain\_size)\ :\ name\_(name),\ max\_chain\_size\_(max\_chain\_size)\{\};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ max\_chain\_size\_;}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TATTLE\_CURATIONS\_CURATION\_H}}
 
 \end{DoxyCode}

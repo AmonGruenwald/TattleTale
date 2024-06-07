@@ -2,7 +2,7 @@ var searchData=
 [
   ['chance_5f_0',['chance_',['../classtattletale_1_1_interaction.html#afc4b74a1a697cc00eb5d76a638ca00c6',1,'tattletale::Interaction']]],
   ['changes_5fkey_5f_1',['changes_key_',['../classtattletale_1_1_interaction_store.html#a74bc1491020a97ac7d431a69deeb4e4e',1,'tattletale::InteractionStore']]],
-  ['chronicle_5f_2',['chronicle_',['../classtattletale_1_1_actor.html#a8d94fd3c0da88ba50fd42d8b1fa74b1e',1,'tattletale::Actor::chronicle_()'],['../classtattletale_1_1_school.html#a9ad54709657abb6d62c11b00a8174883',1,'tattletale::School::chronicle_()']]],
+  ['chronicle_5f_2',['chronicle_',['../classtattletale_1_1_actor.html#a8d94fd3c0da88ba50fd42d8b1fa74b1e',1,'tattletale::Actor::chronicle_'],['../classtattletale_1_1_school.html#a9ad54709657abb6d62c11b00a8174883',1,'tattletale::School::chronicle_']]],
   ['consequences_5f_3',['consequences_',['../classtattletale_1_1_kernel.html#aeba9c27919b7917b14a711318e3d9cb3',1,'tattletale::Kernel']]],
   ['context_4',['context',['../structtattletale_1_1_interaction_requirement.html#a50d1c877d91d12d85aef885ba9432c0e',1,'tattletale::InteractionRequirement']]],
   ['context_5fkey_5f_5',['context_key_',['../classtattletale_1_1_interaction_store.html#a13d1c3cb7606a3496744e9113d65dfec',1,'tattletale::InteractionStore']]],

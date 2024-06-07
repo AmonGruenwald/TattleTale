@@ -1,99 +1,99 @@
-\hypertarget{resource_8hpp_source}{}\doxysection{resource.\+hpp}
-\label{resource_8hpp_source}\index{shared/kernels/resourcekernels/resource.hpp@{shared/kernels/resourcekernels/resource.hpp}}
+\doxysection{resource.\+hpp}
+\hypertarget{resource_8hpp_source}{}\label{resource_8hpp_source}\index{shared/kernels/resourcekernels/resource.hpp@{shared/kernels/resourcekernels/resource.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fmt/format.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fmt/core.h>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}shared/kernels/kernel.hpp"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{13     \textcolor{keyword}{struct }\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}
-\DoxyCodeLine{14     \{}
-\DoxyCodeLine{18         std::string \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}};}
-\DoxyCodeLine{22         std::string \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}};}
-\DoxyCodeLine{26         std::string \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}};}
-\DoxyCodeLine{30         \mbox{\hyperlink{structtattletale_1_1_verb_ae36cf8662d7023793a36815ba5613b53}{Verb}}(std::string \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}},}
-\DoxyCodeLine{31              std::string \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}},}
-\DoxyCodeLine{32              std::string \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}}) : \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}}),}
-\DoxyCodeLine{33                                         \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}}),}
-\DoxyCodeLine{34                                         \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}}) \{\}}
-\DoxyCodeLine{35     \};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{40     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{41     \{}
-\DoxyCodeLine{42     \textcolor{keyword}{public}:}
-\DoxyCodeLine{46         \textcolor{keyword}{virtual} \mbox{\hyperlink{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00}{\string~Resource}}();}
-\DoxyCodeLine{52         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{GetValue}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{60         std::string \mbox{\hyperlink{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}{GetDefaultDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{68         std::string \mbox{\hyperlink{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}{GetDetailedDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{76         std::string \mbox{\hyperlink{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}{GetPassiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{84         std::string \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{GetActiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{87         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} CalculateChanceInfluence(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const override};}
-\DoxyCodeLine{88         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{89         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
-\DoxyCodeLine{95         \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{GetAdjective}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{101         std::string \mbox{\hyperlink{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}{GetNameVariant}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{103     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{120         \mbox{\hyperlink{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}{Resource}}(}
-\DoxyCodeLine{121             std::string name,}
-\DoxyCodeLine{122             std::string positive\_name\_variant,}
-\DoxyCodeLine{123             std::string negative\_name\_variant,}
-\DoxyCodeLine{124             \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id},}
-\DoxyCodeLine{125             \textcolor{keywordtype}{size\_t} tick,}
-\DoxyCodeLine{126             \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner,}
-\DoxyCodeLine{127             std::vector<Kernel *> reasons,}
-\DoxyCodeLine{128             \textcolor{keywordtype}{float} value,}
-\DoxyCodeLine{129             \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{KernelType}} type = KernelType::kResource,}
-\DoxyCodeLine{130             \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb = \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\textcolor{stringliteral}{"{}was"{}}, \textcolor{stringliteral}{"{}being"{}}, \textcolor{stringliteral}{"{}are"{}}));}
-\DoxyCodeLine{131         }
-\DoxyCodeLine{135         \textcolor{keywordtype}{float} \mbox{\hyperlink{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}{value\_}};}
-\DoxyCodeLine{139         \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} \mbox{\hyperlink{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775}{verb\_}};}
-\DoxyCodeLine{143         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891}{positive\_name\_variant\_}};}
-\DoxyCodeLine{147         \textcolor{keyword}{const} std::string \mbox{\hyperlink{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5}{negative\_name\_variant\_}};}
-\DoxyCodeLine{151         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{152     \};}
-\DoxyCodeLine{153 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{154 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{155 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Verb>}
-\DoxyCodeLine{156 \{}
-\DoxyCodeLine{157     \textcolor{comment}{// d -\/ default, a -\/ active, p -\/ passive}}
-\DoxyCodeLine{158     \textcolor{keywordtype}{char} presentation = \textcolor{charliteral}{'d'};}
-\DoxyCodeLine{159 }
-\DoxyCodeLine{160     \textcolor{keyword}{constexpr} \textcolor{keyword}{auto} parse(format\_parse\_context \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.begin())}
-\DoxyCodeLine{161     \{}
-\DoxyCodeLine{162         \textcolor{keyword}{auto} it = ctx.begin(), end = ctx.end();}
-\DoxyCodeLine{163         \textcolor{keywordflow}{if} (it != end \&\& (*it == \textcolor{charliteral}{'d'} || *it == \textcolor{charliteral}{'a'} || *it == \textcolor{charliteral}{'p'}))}
-\DoxyCodeLine{164             presentation = *it++;}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166         \textcolor{keywordflow}{if} (it != end \&\& *it != \textcolor{charliteral}{'\}'})}
-\DoxyCodeLine{167             \textcolor{keywordflow}{throw} format\_error(\textcolor{stringliteral}{"{}invalid format"{}});}
-\DoxyCodeLine{168 }
-\DoxyCodeLine{169         \textcolor{keywordflow}{return} it;}
-\DoxyCodeLine{170     \}}
-\DoxyCodeLine{171 }
-\DoxyCodeLine{172     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{173     \textcolor{keyword}{auto} format(\textcolor{keyword}{const} \mbox{\hyperlink{structtattletale_1_1_verb}{tattletale::Verb}} \&verb, FormatContext \&ctx) -\/> \textcolor{keyword}{decltype}(ctx.out())}
-\DoxyCodeLine{174     \{}
-\DoxyCodeLine{175         \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'p'})}
-\DoxyCodeLine{176         \{}
-\DoxyCodeLine{177             \textcolor{keywordflow}{return} format\_to(ctx.out(), \textcolor{stringliteral}{"{}\{\}"{}}, verb.\mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}});}
-\DoxyCodeLine{178         \}}
-\DoxyCodeLine{179         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (presentation == \textcolor{charliteral}{'a'})}
-\DoxyCodeLine{180         \{}
-\DoxyCodeLine{181             \textcolor{keywordflow}{return} format\_to(ctx.out(), \textcolor{stringliteral}{"{}\{\}"{}}, verb.\mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}});}
-\DoxyCodeLine{182         \}}
-\DoxyCodeLine{183 }
-\DoxyCodeLine{184         \textcolor{keywordflow}{return} format\_to(ctx.out(), \textcolor{stringliteral}{"{}\{\}"{}}, verb.\mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}});}
-\DoxyCodeLine{185     \}}
-\DoxyCodeLine{186 \};}
-\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fmt/format.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fmt/core.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/kernel.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_verb_ae36cf8662d7023793a36815ba5613b53}{Verb}}(std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}})\ :\ \mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}}),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}}),}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}}(\mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}})\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00}{\string~Resource}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{GetValue}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}{GetDefaultDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}{GetDetailedDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}{GetPassiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{GetActiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ CalculateChanceInfluence(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}\ *interaction)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{GetAdjective}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}{GetNameVariant}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}(}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ positive\_name\_variant,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ negative\_name\_variant,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ tick,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *owner,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Kernel\ *>\ reasons,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ value,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{KernelType}}\ type\ =\ KernelType::kResource,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}\ verb\ =\ \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\textcolor{stringliteral}{"{}was"{}},\ \textcolor{stringliteral}{"{}being"{}},\ \textcolor{stringliteral}{"{}are"{}}));}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}{value\_}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}\ \mbox{\hyperlink{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775}{verb\_}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891}{positive\_name\_variant\_}};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5}{negative\_name\_variant\_}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{00152\ \ \ \ \ \};}
+\DoxyCodeLine{00153\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00154\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00155\ \textcolor{keyword}{struct\ }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::Verb>}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ d\ -\/\ default,\ a\ -\/\ active,\ p\ -\/\ passive}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{char}\ presentation\ =\ \textcolor{charliteral}{'d'};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ parse(format\_parse\_context\ \&ctx)\ -\/>\ \textcolor{keyword}{decltype}(ctx.begin())}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ ctx.begin(),\ end\ =\ ctx.end();}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ (*it\ ==\ \textcolor{charliteral}{'d'}\ ||\ *it\ ==\ \textcolor{charliteral}{'a'}\ ||\ *it\ ==\ \textcolor{charliteral}{'p'}))}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ presentation\ =\ *it++;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ end\ \&\&\ *it\ !=\ \textcolor{charliteral}{'\}'})}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ format\_error(\textcolor{stringliteral}{"{}invalid\ format"{}});}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{auto}\ format(\textcolor{keyword}{const}\ \mbox{\hyperlink{structtattletale_1_1_verb}{tattletale::Verb}}\ \&verb,\ FormatContext\ \&ctx)\ -\/>\ \textcolor{keyword}{decltype}(ctx.out())}
+\DoxyCodeLine{00174\ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (presentation\ ==\ \textcolor{charliteral}{'p'})}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ format\_to(ctx.out(),\ \textcolor{stringliteral}{"{}\{\}"{}},\ verb.\mbox{\hyperlink{structtattletale_1_1_verb_aafef06c0e9ad9a3794aaaa7fcf6a1d93}{passive\_verb}});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (presentation\ ==\ \textcolor{charliteral}{'a'})}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ format\_to(ctx.out(),\ \textcolor{stringliteral}{"{}\{\}"{}},\ verb.\mbox{\hyperlink{structtattletale_1_1_verb_a6ed17bb0cd6cbc3ccebc4cdaf556d32b}{active\_verb}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ format\_to(ctx.out(),\ \textcolor{stringliteral}{"{}\{\}"{}},\ verb.\mbox{\hyperlink{structtattletale_1_1_verb_a5bbfa3317211778b0301bd3e08e27366}{default\_verb}});}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \};}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_KERNELS\_RESOURCEKERNELS\_RESOURCE\_H}}
 
 \end{DoxyCode}

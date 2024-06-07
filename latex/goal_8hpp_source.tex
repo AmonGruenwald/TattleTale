@@ -1,65 +1,65 @@
-\hypertarget{goal_8hpp_source}{}\doxysection{goal.\+hpp}
-\label{goal_8hpp_source}\index{shared/kernels/goal.hpp@{shared/kernels/goal.hpp}}
+\doxysection{goal.\+hpp}
+\hypertarget{goal_8hpp_source}{}\label{goal_8hpp_source}\index{shared/kernels/goal.hpp@{shared/kernels/goal.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_GOAL\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_GOAL\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}shared/kernels/kernel.hpp"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/random.hpp"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}}
-\DoxyCodeLine{13     \{}
-\DoxyCodeLine{14         kWealth,}
-\DoxyCodeLine{15         kAcceptance,}
-\DoxyCodeLine{16         kRelationship,}
-\DoxyCodeLine{17         kHedonism,}
-\DoxyCodeLine{18         kPower,}
-\DoxyCodeLine{19         kLast}
-\DoxyCodeLine{20     \};}
-\DoxyCodeLine{24     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_goal}{Goal}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
-\DoxyCodeLine{25     \{}
-\DoxyCodeLine{26     \textcolor{keyword}{public}:}
-\DoxyCodeLine{33         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}{GetDefaultDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{41         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}{GetPassiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{49         std::string \mbox{\hyperlink{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}{GetActiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{60         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}{StringToGoalType}}(std::string goal\_string);}
-\DoxyCodeLine{67         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}{GetRandomGoalType}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random);}
-\DoxyCodeLine{71         \textcolor{keyword}{const} \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} \mbox{\hyperlink{classtattletale_1_1_goal_a86c980ef90c40bbb7c214cb8a9a16aeb}{type\_}};}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{73         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{74         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} CalculateChanceInfluence(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const override};}
-\DoxyCodeLine{75         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{76         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \textcolor{keyword}{private}:}
-\DoxyCodeLine{90         \mbox{\hyperlink{classtattletale_1_1_goal_a97b05dc9cab5fc3390b66421343a8205}{Goal}}(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}} type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons);}
-\DoxyCodeLine{94         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{95     \};}
-\DoxyCodeLine{96 }
-\DoxyCodeLine{97 \} \textcolor{comment}{// namespace tattletale`}}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{99 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{100 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::GoalType> : formatter<string\_view>}
-\DoxyCodeLine{101 \{}
-\DoxyCodeLine{102     std::string goal\_type\_names[6] = \{}
-\DoxyCodeLine{103         \textcolor{stringliteral}{"{}wealth"{}},}
-\DoxyCodeLine{104         \textcolor{stringliteral}{"{}acceptance"{}},}
-\DoxyCodeLine{105         \textcolor{stringliteral}{"{}relationship"{}},}
-\DoxyCodeLine{106         \textcolor{stringliteral}{"{}hedonism"{}},}
-\DoxyCodeLine{107         \textcolor{stringliteral}{"{}power"{}},}
-\DoxyCodeLine{108         \textcolor{stringliteral}{"{}last"{}}\};}
-\DoxyCodeLine{109     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{110     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{111     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{tattletale::GoalType}} type, FormatContext \&ctx)}
-\DoxyCodeLine{112     \{}
-\DoxyCodeLine{113         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{114         string\_view name = goal\_type\_names[enum\_index];}
-\DoxyCodeLine{115         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{116     \}}
-\DoxyCodeLine{117 \};}
-\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_GOAL\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_GOAL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_GOAL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/kernel.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}shared/random.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ kWealth,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ kAcceptance,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ kRelationship,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ kHedonism,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ kPower,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ kLast}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_goal_a234911633fae21270efc7978b9b3e886}{GetDefaultDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_goal_a12a6f13e0f8390ba9fa6aff70c8fec4e}{GetPassiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_goal_a33bb45d22f77ee822caec3b48b9b5935}{GetActiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}\ \mbox{\hyperlink{classtattletale_1_1_goal_acca98f602b296d87706569ad66e1ac28}{StringToGoalType}}(std::string\ goal\_string);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}\ \mbox{\hyperlink{classtattletale_1_1_goal_ac4e859eab4f254e24f0ec722681ce1bb}{GetRandomGoalType}}(\mbox{\hyperlink{classtattletale_1_1_random}{Random}}\ \&random);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}\ \mbox{\hyperlink{classtattletale_1_1_goal_a86c980ef90c40bbb7c214cb8a9a16aeb}{type\_}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ CalculateChanceInfluence(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}\ *interaction)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_goal}{Goal}}(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{GoalType}}\ type,\ \textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{size\_t}\ tick,\ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *owner,\ std::vector<Kernel\ *>\ reasons);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{00095\ \ \ \ \ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \}\ \textcolor{comment}{//\ namespace\ tattletale`}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00100\ \textcolor{keyword}{struct\ }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::GoalType>\ :\ formatter<string\_view>}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ std::string\ goal\_type\_names[6]\ =\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}wealth"{}},}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}acceptance"{}},}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}relationship"{}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}hedonism"{}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}power"{}},}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ parse\ is\ inherited\ from\ formatter<string\_view>.}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{auto}\ format(\mbox{\hyperlink{namespacetattletale_a0b5004177b9218d961c6d80587c23e47}{tattletale::GoalType}}\ type,\ FormatContext\ \&ctx)}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ enum\_index\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ string\_view\ name\ =\ goal\_type\_names[enum\_index];}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatter<string\_view>::format(name,\ ctx);}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_GOAL\_H}}
 
 \end{DoxyCode}

@@ -1,18 +1,18 @@
-\hypertarget{classtattletale_1_1_random}{}\doxysection{tattletale\+::Random Class Reference}
-\label{classtattletale_1_1_random}\index{tattletale::Random@{tattletale::Random}}
+\doxysection{tattletale\+::Random Class Reference}
+\hypertarget{classtattletale_1_1_random}{}\label{classtattletale_1_1_random}\index{tattletale::Random@{tattletale::Random}}
 
 
-Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision.  
+Represents one person in the simulation. An \doxylink{classtattletale_1_1_actor}{Actor} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision.  
 
 
 
 
 {\ttfamily \#include $<$shared/random.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06}\label{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06}} 
+\Hypertarget{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06}\label{classtattletale_1_1_random_a62c7e61a97046000ec43c0fb9ea9fe06} 
 {\bfseries Random} ()
 \begin{DoxyCompactList}\small\item\em Constructor seeding with a default value of 123456789. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}{Random}} (uint32\+\_\+t seed)
@@ -29,19 +29,19 @@ size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_random_a2ecf062b2661306e44e6a04
 \begin{DoxyCompactList}\small\item\em Getter for a random index according to a probability distribution. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}{Shuffle}} (std\+::vector$<$ uint32\+\_\+t $>$ \&out\+\_\+vector)
 \begin{DoxyCompactList}\small\item\em Shuffles the elements of the passed vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc}\label{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc}} 
+\Hypertarget{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc}\label{classtattletale_1_1_random_a49d25d0f36a95a65f8c0d998f75a93dc} 
 std\+::mt19937 {\bfseries rng\+\_\+}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_random}{Random}} number generator engine. Using Mersenne Twister. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{classtattletale_1_1_random}{Random} number generator engine. Using Mersenne Twister. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents one person in the simulation. An \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
+Represents one person in the simulation. An \doxylink{classtattletale_1_1_actor}{Actor} decides how to act each tick of the simulation. To do this it needs to hold all information necessary to come to a decision. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}\label{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}} 
+\Hypertarget{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee}\label{classtattletale_1_1_random_ae638766aa62139ce7b87bd12534934ee} 
 \index{tattletale::Random@{tattletale::Random}!Random@{Random}}
 \index{Random@{Random}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{Random()}{Random()}}
@@ -59,7 +59,7 @@ Constructor seeding with the passed value.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}\label{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}} 
+\Hypertarget{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27}\label{classtattletale_1_1_random_a01f94db39ce26b4f12bcb86f17d8ab27} 
 \index{tattletale::Random@{tattletale::Random}!GetFloat@{GetFloat}}
 \index{GetFloat@{GetFloat}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{GetFloat()}{GetFloat()}}
@@ -79,7 +79,7 @@ Gets a random float between the passed bounds (inclusive).
 \begin{DoxyReturn}{Returns}
 The random float 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}\label{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}} 
+\Hypertarget{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba}\label{classtattletale_1_1_random_a67e46ce9e08d3fd71fd0e4d58356dcba} 
 \index{tattletale::Random@{tattletale::Random}!GetInt@{GetInt}}
 \index{GetInt@{GetInt}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{GetInt()}{GetInt()}}
@@ -99,7 +99,7 @@ Gets a random integer between the passed bounds (inclusive).
 \begin{DoxyReturn}{Returns}
 The random integer 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}\label{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}} 
+\Hypertarget{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2}\label{classtattletale_1_1_random_ab7b4dbd7a5f1708823d7b58a4e9371b2} 
 \index{tattletale::Random@{tattletale::Random}!GetUInt@{GetUInt}}
 \index{GetUInt@{GetUInt}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{GetUInt()}{GetUInt()}}
@@ -119,7 +119,7 @@ Gets a random unsigned integer between the passed bounds (inclusive).
 \begin{DoxyReturn}{Returns}
 The random unsigned integer 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}\label{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}} 
+\Hypertarget{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f}\label{classtattletale_1_1_random_a2ecf062b2661306e44e6a0466d96cf6f} 
 \index{tattletale::Random@{tattletale::Random}!PickIndex@{PickIndex}}
 \index{PickIndex@{PickIndex}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{PickIndex()}{PickIndex()}}
@@ -139,7 +139,7 @@ Returns a random index for the passed vector, picked according to the chances st
 \begin{DoxyReturn}{Returns}
 The random index 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}\label{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}} 
+\Hypertarget{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a}\label{classtattletale_1_1_random_a5f1caf7eb245ea38dd8c63c1acbd8d3a} 
 \index{tattletale::Random@{tattletale::Random}!Seed@{Seed}}
 \index{Seed@{Seed}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{Seed()}{Seed()}}
@@ -154,7 +154,7 @@ This brings the object in the same state it would have been in if it was constru
 {\em seed} & The seed that is to be used. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}\label{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}} 
+\Hypertarget{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f}\label{classtattletale_1_1_random_ac3ff69c205c8f7fbf9ca14abef21567f} 
 \index{tattletale::Random@{tattletale::Random}!Shuffle@{Shuffle}}
 \index{Shuffle@{Shuffle}!tattletale::Random@{tattletale::Random}}
 \doxysubsubsection{\texorpdfstring{Shuffle()}{Shuffle()}}

@@ -1,8 +1,8 @@
-\hypertarget{classtattletale_1_1_emotion}{}\doxysection{tattletale\+::Emotion Class Reference}
-\label{classtattletale_1_1_emotion}\index{tattletale::Emotion@{tattletale::Emotion}}
+\doxysection{tattletale\+::Emotion Class Reference}
+\hypertarget{classtattletale_1_1_emotion}{}\label{classtattletale_1_1_emotion}\index{tattletale::Emotion@{tattletale::Emotion}}
 
 
-Represents an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has.  
+Represents an \doxylink{classtattletale_1_1_emotion}{Emotion} an \doxylink{classtattletale_1_1_actor}{Actor} has.  
 
 
 
@@ -15,82 +15,161 @@ Inheritance diagram for tattletale\+::Emotion\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{classtattletale_1_1_emotion}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{Get\+Type}} ()
-\begin{DoxyCompactList}\small\item\em Getter for the Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em Getter for the Emotion\+Type of this \doxylink{classtattletale_1_1_emotion}{Emotion}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_resource}{tattletale\+::\+Resource}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Resource} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor, does not do anything for now. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{Get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the value of the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}{Get\+Default\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the default description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}{Get\+Detailed\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets a detailed description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}{Get\+Passive\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets a passive description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{Get\+Active\+Description}} () const override
+\begin{DoxyCompactList}\small\item\em Gets an active description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{Get\+Adjective}} () const
+\begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}{Get\+Name\+Variant}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the name variant depending on the value of the \doxylink{classtattletale_1_1_resource}{Resource}. E.\+g "{}wealthy"{} if it is positive "{}poor"{} if it is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Kernel} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor doing nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_kernel_a3649e09f7bb2c8e5a6fa39dcbf667962}{Add\+Consequence}} (\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}consequence)
+\begin{DoxyCompactList}\small\item\em Adds another \doxylink{classtattletale_1_1_kernel}{Kernel} for which this \doxylink{classtattletale_1_1_kernel}{Kernel} was a reason for. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classtattletale_1_1_kernel_a722c702ebf255e76ecb5292d41915ce6}{Get\+Consequences}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vector of \doxylink{classtattletale_1_1_kernel}{Kernel} this \doxylink{classtattletale_1_1_kernel}{Kernel} was the cause of. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classtattletale_1_1_kernel_a147e8032c06bb3aca9ad998316e2ebcb}{Get\+Reasons}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{classtattletale_1_1_kernel}{Kernels } that were the reason for the creation of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classtattletale_1_1_kernel_a447036911c901aace53a699a11e34e07}{Get\+Chance}} () const
+\begin{DoxyCompactList}\small\item\em Get the chance this \doxylink{classtattletale_1_1_kernel}{Kernel} had to be created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtattletale_1_1_kernel_a3dc8f98551c2ca59fa658dbc5ccb44c9}{Get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{classtattletale_1_1_actor}{Actor} owning this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}{Get\+All\+Participants}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \doxylink{classtattletale_1_1_kernel}{Kernel} uses. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_kernel_a9205adc72236be935c3f2878011c3882}{Get\+Absolute\+Interest\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the absolute interest score of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{String\+To\+Emotion\+Type}} (std\+::string emotion\+\_\+string)
 \begin{DoxyCompactList}\small\item\em Converts a string to an Emotion\+Type. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
+\doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}{Emotion}} (\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value)
-\begin{DoxyCompactList}\small\item\em Constructor, also initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\mbox{\hyperlink{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}{Emotion}} (\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} type, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, float value)
+\begin{DoxyCompactList}\small\item\em Constructor, also initializing base \doxylink{classtattletale_1_1_resource}{Resource} class and type\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}\label{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}} 
+\Hypertarget{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}\label{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30} 
 \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}} {\bfseries type\+\_\+}
-\begin{DoxyCompactList}\small\item\em The Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactList}\small\item\em The Emotion\+Type of this \doxylink{classtattletale_1_1_emotion}{Emotion}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}\label{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}} 
+\Hypertarget{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}\label{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588} 
 static const std\+::vector$<$ std\+::string $>$ {\bfseries positive\+\_\+name\+\_\+variants\+\_\+}
 \begin{DoxyCompactList}\small\item\em Vector containing the positive name variants for this emotion. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}\label{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}} 
+\Hypertarget{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}\label{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721} 
 static const std\+::vector$<$ std\+::string $>$ {\bfseries negative\+\_\+name\+\_\+variants\+\_\+}
 \begin{DoxyCompactList}\small\item\em Vector containing the negative name variants for this emotion. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
+\doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c}} 
+\Hypertarget{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_emotion_aa77c3f3dde0b0a7c7b8e314d12413c4c} 
 class {\bfseries Chronicle}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em \doxylink{classtattletale_1_1_chronicle}{Chronicle} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries name\+\_\+}
+\begin{DoxyCompactList}\small\item\em The name of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+size\+\_\+t {\bfseries id\+\_\+}
+\begin{DoxyCompactList}\small\item\em The id of this \doxylink{classtattletale_1_1_kernel}{Kernel} in the \doxylink{classtattletale_1_1_chronicle}{Chronicle}. \end{DoxyCompactList}\item 
+size\+\_\+t {\bfseries tick\+\_\+}
+\begin{DoxyCompactList}\small\item\em The tick during which this \doxylink{classtattletale_1_1_kernel}{Kernel} was created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} {\bfseries type\+\_\+}
+\begin{DoxyCompactList}\small\item\em The Kernel\+Type of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_resource}{tattletale\+::\+Resource}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, float value, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}("{}was"{}, "{}being"{}, "{}are"{}))
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \doxylink{classtattletale_1_1_kernel}{Kernel} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_kernel_a6d0454571fa9ca4f238644a1d621a5ca}{Kernel}} (std\+::string name, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Protected Constructor should only be called by derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classtattletale_1_1_resource}{tattletale\+::\+Resource}}}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries value\+\_\+}
+\begin{DoxyCompactList}\small\item\em The value of this \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} {\bfseries verb\+\_\+}
+\begin{DoxyCompactList}\small\item\em The \doxylink{structtattletale_1_1_verb}{Verb} storing the strings nvecessary for description construction. \end{DoxyCompactList}\item 
+const std\+::string {\bfseries positive\+\_\+name\+\_\+variant\+\_\+}
+\begin{DoxyCompactList}\small\item\em Name variant when the value of this \doxylink{classtattletale_1_1_resource}{Resource} is positive. \end{DoxyCompactList}\item 
+const std\+::string {\bfseries negative\+\_\+name\+\_\+variant\+\_\+}
+\begin{DoxyCompactList}\small\item\em Name variant when the value of this \doxylink{classtattletale_1_1_resource}{Resource} is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} {\bfseries owner\+\_\+}
+\begin{DoxyCompactList}\small\item\em The \doxylink{classtattletale_1_1_actor}{Actor} owning this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries consequences\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores all other \doxylink{classtattletale_1_1_kernel}{Kernels } that were caused by this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries reasons\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores all \doxylink{classtattletale_1_1_kernel}{Kernels } that caused this \doxylink{classtattletale_1_1_kernel}{Kernel} to be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents an \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. 
+Represents an \doxylink{classtattletale_1_1_emotion}{Emotion} an \doxylink{classtattletale_1_1_actor}{Actor} has. 
 
-Will be instantiated inside a vector connecting different \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Types }} (converted to indices) to different \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotions }} for each \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}. 
+Will be instantiated inside a vector connecting different \doxylink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Types } (converted to indices) to different \doxylink{classtattletale_1_1_emotion}{Emotions } for each \doxylink{classtattletale_1_1_actor}{Actor}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}\label{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}} 
+\Hypertarget{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}\label{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88} 
 \index{tattletale::Emotion@{tattletale::Emotion}!Emotion@{Emotion}}
 \index{Emotion@{Emotion}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{Emotion()}{Emotion()}}
-{\footnotesize\ttfamily tattletale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}}}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily tattletale\+::\+Emotion\+::\+Emotion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{Emotion\+Type}}}]{type,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$}]{reasons,  }\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Constructor, also initializing base \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} class and type\+\_\+ member. 
+Constructor, also initializing base \doxylink{classtattletale_1_1_resource}{Resource} class and type\+\_\+ member. 
 
-This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}.
+This should only ever be called through the \doxylink{classtattletale_1_1_chronicle}{Chronicle}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em type} & What Emotion\+Type this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} is of. \\
+{\em type} & What Emotion\+Type this \doxylink{classtattletale_1_1_emotion}{Emotion} is of. \\
 \hline
-{\em id} & The index this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \\
+{\em id} & The index this \doxylink{classtattletale_1_1_kernel}{Kernel} holds in the \doxylink{classtattletale_1_1_chronicle}{Chronicle}. \\
 \hline
-{\em tick} & In which tick this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} was created. \\
+{\em tick} & In which tick this \doxylink{classtattletale_1_1_emotion}{Emotion} was created. \\
 \hline
-{\em owner} & The \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} which owns this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \\
+{\em owner} & The \doxylink{classtattletale_1_1_actor}{Actor} which owns this \doxylink{classtattletale_1_1_resource}{Resource}. \\
 \hline
-{\em reasons} & What other \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} and its value. \\
+{\em reasons} & What other \doxylink{classtattletale_1_1_kernel}{Kernels } led to this \doxylink{classtattletale_1_1_emotion}{Emotion} and its value. \\
 \hline
-{\em value} & Value of the \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} between -\/1.\+0 and 1.\+0. \\
+{\em value} & Value of the \doxylink{classtattletale_1_1_emotion}{Emotion} between -\/1.\+0 and 1.\+0. \\
 \hline
 \end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}\label{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}} 
+\Hypertarget{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}\label{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f} 
 \index{tattletale::Emotion@{tattletale::Emotion}!GetType@{GetType}}
 \index{GetType@{GetType}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
@@ -98,12 +177,12 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 
 
 
-Getter for the Emotion\+Type of this \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}. 
+Getter for the Emotion\+Type of this \doxylink{classtattletale_1_1_emotion}{Emotion}. 
 
 \begin{DoxyReturn}{Returns}
 The Emotion\+Type. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}\label{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}} 
+\Hypertarget{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}\label{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7} 
 \index{tattletale::Emotion@{tattletale::Emotion}!StringToEmotionType@{StringToEmotionType}}
 \index{StringToEmotionType@{StringToEmotionType}!tattletale::Emotion@{tattletale::Emotion}}
 \doxysubsubsection{\texorpdfstring{StringToEmotionType()}{StringToEmotionType()}}
@@ -113,7 +192,7 @@ The Emotion\+Type.
 
 Converts a string to an Emotion\+Type. 
 
-Uses the same string values formater returns. So valid strings are\+: \char`\"{}happy\char`\"{} \char`\"{}calm\char`\"{}, \char`\"{}satisfied\char`\"{}, \char`\"{}brave\char`\"{} and \char`\"{}extroverted\char`\"{}. Everything else just return Emotion\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
+Uses the same string values formater returns. So valid strings are\+: "{}happy"{} "{}calm"{}, "{}satisfied"{}, "{}brave"{} and "{}extroverted"{}. Everything else just return Emotion\+Type\+::k\+Last. (But an assert will crash the Application in Debug mode.)
 
 
 \begin{DoxyParams}{Parameters}

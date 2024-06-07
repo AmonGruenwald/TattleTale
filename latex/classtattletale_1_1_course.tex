@@ -1,69 +1,69 @@
-\hypertarget{classtattletale_1_1_course}{}\doxysection{tattletale\+::Course Class Reference}
-\label{classtattletale_1_1_course}\index{tattletale::Course@{tattletale::Course}}
+\doxysection{tattletale\+::Course Class Reference}
+\hypertarget{classtattletale_1_1_course}{}\label{classtattletale_1_1_course}\index{tattletale::Course@{tattletale::Course}}
 
 
-A \mbox{\hyperlink{classtattletale_1_1_course}{Course}} grouping \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} together during different slots of the day.  
+A \doxylink{classtattletale_1_1_course}{Course} grouping \doxylink{classtattletale_1_1_actor}{Actors } together during different slots of the day.  
 
 
 
 
 {\ttfamily \#include $<$tale/course.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}{Course}} (\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random, const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \&setting, size\+\_\+t id, std\+::string name)
-\begin{DoxyCompactList}\small\item\em Constructor that uses the passed \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} to setup the course. \end{DoxyCompactList}\item 
-const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}{Get\+Course\+Group\+For\+Slot}} (size\+\_\+t slot)
-\begin{DoxyCompactList}\small\item\em Finds the group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} for the passed slot. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor that uses the passed \doxylink{structtattletale_1_1_setting}{Setting} to setup the course. \end{DoxyCompactList}\item 
+const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}{Get\+Course\+Group\+For\+Slot}} (size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Finds the group of \doxylink{classtattletale_1_1_actor}{Actors } for the passed slot. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32bb}{Space\+In\+Slot}} (size\+\_\+t slot) const
 \begin{DoxyCompactList}\small\item\em Checks wether there is still space left in a slot. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}{All\+Slots\+Filled}} () const
 \begin{DoxyCompactList}\small\item\em Checks if the course has all slots completely filled. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}{All\+Slots\+Not\+Empty}} () const
-\begin{DoxyCompactList}\small\item\em Checks if the course has at least one \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} in every slot. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the course has at least one \doxylink{classtattletale_1_1_actor}{Actor} in every slot. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}{Get\+Random\+Empty\+Slot}} () const
 \begin{DoxyCompactList}\small\item\em Looks for a random empty slot. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{Add\+To\+Slot}} (std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ actors, size\+\_\+t slot)
-\begin{DoxyCompactList}\small\item\em Adds the passed group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} to the passed slot. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126}{Add\+To\+Slot}} (\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$actor, size\+\_\+t slot)
-\begin{DoxyCompactList}\small\item\em Adds the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} to the passed slot. \end{DoxyCompactList}\item 
-std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \mbox{\hyperlink{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99}{Clear\+Slot}} (size\+\_\+t slot)
-\begin{DoxyCompactList}\small\item\em Clears the \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} out of a slot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}{Add\+To\+Slot}} (std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ actors, size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Adds the passed group of \doxylink{classtattletale_1_1_actor}{Actors } to the passed slot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126}{Add\+To\+Slot}} (\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}actor, size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Adds the \doxylink{classtattletale_1_1_actor}{Actor} to the passed slot. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99}{Clear\+Slot}} (size\+\_\+t slot)
+\begin{DoxyCompactList}\small\item\em Clears the \doxylink{classtattletale_1_1_actor}{Actors } out of a slot. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}{Get\+Slot\+Count}} () const
-\begin{DoxyCompactList}\small\item\em Getter for the amount of slots the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} currenty holds. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for the amount of slots the \doxylink{classtattletale_1_1_course}{Course} currenty holds. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_course_a65c365d9dcd18b50ab212b5cc89a1a0e}{Get\+Actor\+Count}} (size\+\_\+t slot\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Getter for the amount of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} holds in the passed slot. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Getter for the amount of \doxylink{classtattletale_1_1_actor}{Actors } the \doxylink{classtattletale_1_1_course}{Course} holds in the passed slot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994}\label{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994}} 
+\Hypertarget{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994}\label{classtattletale_1_1_course_a983ae043e1abf78561f387ac5d47c994} 
 const std\+::string {\bfseries name\+\_\+}
-\begin{DoxyCompactList}\small\item\em Name of the \mbox{\hyperlink{classtattletale_1_1_course}{Course}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004}\label{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004}} 
+\begin{DoxyCompactList}\small\item\em Name of the \doxylink{classtattletale_1_1_course}{Course}. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004}\label{classtattletale_1_1_course_a2ed3c9e775121d4a7cfeaa6185659004} 
 const size\+\_\+t {\bfseries id\+\_\+}
-\begin{DoxyCompactList}\small\item\em Id of the \mbox{\hyperlink{classtattletale_1_1_course}{Course}}. Should correspond to the index of it in the vector holding all courses in an \mbox{\hyperlink{classtattletale_1_1_school}{School}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\begin{DoxyCompactList}\small\item\em Id of the \doxylink{classtattletale_1_1_course}{Course}. Should correspond to the index of it in the vector holding all courses in an \doxylink{classtattletale_1_1_school}{School} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5}\label{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5}} 
-std\+::vector$<$ std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ $>$ {\bfseries slots\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds the group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} for each slot. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5}\label{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5}} 
+\Hypertarget{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5}\label{classtattletale_1_1_course_afd8a4c6e161409e438e80b773c9612e5} 
+std\+::vector$<$ std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ $>$ {\bfseries slots\+\_\+}
+\begin{DoxyCompactList}\small\item\em Holds the group of \doxylink{classtattletale_1_1_actor}{Actors } for each slot. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5}\label{classtattletale_1_1_course_aa49122a85ab09e9f212a3377dd0b35e5} 
 \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object that was passed during construction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_course_a711a7658f0afe806d2e2933cab533342}\label{classtattletale_1_1_course_a711a7658f0afe806d2e2933cab533342}} 
+\begin{DoxyCompactList}\small\item\em Holds a reference to the \doxylink{classtattletale_1_1_random}{Random} object that was passed during construction. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_course_a711a7658f0afe806d2e2933cab533342}\label{classtattletale_1_1_course_a711a7658f0afe806d2e2933cab533342} 
 const \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} \& {\bfseries setting\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} object that was passed during construction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Holds a reference to the \doxylink{structtattletale_1_1_setting}{Setting} object that was passed during construction. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A \mbox{\hyperlink{classtattletale_1_1_course}{Course}} grouping \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} together during different slots of the day. 
+A \doxylink{classtattletale_1_1_course}{Course} grouping \doxylink{classtattletale_1_1_actor}{Actors } together during different slots of the day. 
 
-A \mbox{\hyperlink{classtattletale_1_1_course}{Course}} happens a few times week. Those times are called slots. Each slots has a fixed group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} that visit the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} during that time. As \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} can have the same \mbox{\hyperlink{classtattletale_1_1_course}{Course}} a few times each week, some slots feature the same group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} but it is guaranteed that \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} always visit a single \mbox{\hyperlink{classtattletale_1_1_course}{Course}} in the same group. 
+A \doxylink{classtattletale_1_1_course}{Course} happens a few times week. Those times are called slots. Each slots has a fixed group of \doxylink{classtattletale_1_1_actor}{Actors } that visit the \doxylink{classtattletale_1_1_course}{Course} during that time. As \doxylink{classtattletale_1_1_actor}{Actors } can have the same \doxylink{classtattletale_1_1_course}{Course} a few times each week, some slots feature the same group of \doxylink{classtattletale_1_1_actor}{Actors } but it is guaranteed that \doxylink{classtattletale_1_1_actor}{Actors } always visit a single \doxylink{classtattletale_1_1_course}{Course} in the same group. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}\label{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}} 
+\Hypertarget{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af}\label{classtattletale_1_1_course_a494c055f8ab502ad0cae921d809969af} 
 \index{tattletale::Course@{tattletale::Course}!Course@{Course}}
 \index{Course@{Course}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{Course()}{Course()}}
@@ -71,59 +71,59 @@ A \mbox{\hyperlink{classtattletale_1_1_course}{Course}} happens a few times week
 
 
 
-Constructor that uses the passed \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} to setup the course. 
+Constructor that uses the passed \doxylink{structtattletale_1_1_setting}{Setting} to setup the course. 
 
-In addition to seting up the slots\+\_\+ vector depending on the \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} object, the Constructor stores a reference to the passed \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object and applies the name. 
+In addition to seting up the slots\+\_\+ vector depending on the \doxylink{structtattletale_1_1_setting}{Setting} object, the Constructor stores a reference to the passed \doxylink{classtattletale_1_1_random}{Random} object and applies the name. 
 \begin{DoxyParams}{Parameters}
-{\em random} & Reference to \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object of the simulation \\
+{\em random} & Reference to \doxylink{classtattletale_1_1_random}{Random} object of the simulation \\
 \hline
-{\em setting} & Reference to the \mbox{\hyperlink{structtattletale_1_1_setting}{Setting}} object of the simulation \\
+{\em setting} & Reference to the \doxylink{structtattletale_1_1_setting}{Setting} object of the simulation \\
 \hline
-{\em name} & The name of the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} \\
+{\em name} & The name of the \doxylink{classtattletale_1_1_course}{Course} \\
 \hline
 \end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126}\label{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126}} 
+\Hypertarget{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126}\label{classtattletale_1_1_course_a3b7fc9bc7df19bb597fe556b322aa126} 
 \index{tattletale::Course@{tattletale::Course}!AddToSlot@{AddToSlot}}
 \index{AddToSlot@{AddToSlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{AddToSlot()}{AddToSlot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void tattletale\+::\+Course\+::\+Add\+To\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{actor,  }\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tattletale\+::\+Course\+::\+Add\+To\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}}]{actor,  }\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
 
 
 
-Adds the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} to the passed slot. 
+Adds the \doxylink{classtattletale_1_1_actor}{Actor} to the passed slot. 
 
 This can crash if slot is not empty.
 
 
 \begin{DoxyParams}{Parameters}
-{\em actor} & \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} that will be added to the slot. \\
+{\em actor} & \doxylink{classtattletale_1_1_actor}{Actor} that will be added to the slot. \\
 \hline
-{\em slot} & The slot the \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} will be added to. \\
+{\em slot} & The slot the \doxylink{classtattletale_1_1_actor}{Actor} will be added to. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}\label{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}} 
+\Hypertarget{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857}\label{classtattletale_1_1_course_a6518c461c60f62aa19658bf73a3b9857} 
 \index{tattletale::Course@{tattletale::Course}!AddToSlot@{AddToSlot}}
 \index{AddToSlot@{AddToSlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{AddToSlot()}{AddToSlot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void tattletale\+::\+Course\+::\+Add\+To\+Slot (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$}]{actors,  }\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void tattletale\+::\+Course\+::\+Add\+To\+Slot (\begin{DoxyParamCaption}\item[{std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$}]{actors,  }\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
 
 
 
-Adds the passed group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} to the passed slot. 
+Adds the passed group of \doxylink{classtattletale_1_1_actor}{Actors } to the passed slot. 
 
 This can crash if slot is not empty.
 
 
 \begin{DoxyParams}{Parameters}
-{\em actors} & List of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} that will be added to the slot. \\
+{\em actors} & List of \doxylink{classtattletale_1_1_actor}{Actors } that will be added to the slot. \\
 \hline
-{\em slot} & The slot the \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} will be added to. \\
+{\em slot} & The slot the \doxylink{classtattletale_1_1_actor}{Actors } will be added to. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}\label{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}} 
+\Hypertarget{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3}\label{classtattletale_1_1_course_ae0c4c1d6204fd035ede8349b4a007ca3} 
 \index{tattletale::Course@{tattletale::Course}!AllSlotsFilled@{AllSlotsFilled}}
 \index{AllSlotsFilled@{AllSlotsFilled}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{AllSlotsFilled()}{AllSlotsFilled()}}
@@ -136,7 +136,7 @@ Checks if the course has all slots completely filled.
 \begin{DoxyReturn}{Returns}
 The result of the check. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}\label{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}} 
+\Hypertarget{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202}\label{classtattletale_1_1_course_ad42e1ddd8e2142d6bdd846bfec3da202} 
 \index{tattletale::Course@{tattletale::Course}!AllSlotsNotEmpty@{AllSlotsNotEmpty}}
 \index{AllSlotsNotEmpty@{AllSlotsNotEmpty}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{AllSlotsNotEmpty()}{AllSlotsNotEmpty()}}
@@ -144,32 +144,32 @@ The result of the check.
 
 
 
-Checks if the course has at least one \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} in every slot. 
+Checks if the course has at least one \doxylink{classtattletale_1_1_actor}{Actor} in every slot. 
 
 \begin{DoxyReturn}{Returns}
 The result of the check. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99}\label{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99}} 
+\Hypertarget{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99}\label{classtattletale_1_1_course_a5e9bd949ca9ca4952a457db7ad537f99} 
 \index{tattletale::Course@{tattletale::Course}!ClearSlot@{ClearSlot}}
 \index{ClearSlot@{ClearSlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{ClearSlot()}{ClearSlot()}}
-{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ tattletale\+::\+Course\+::\+Clear\+Slot (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ tattletale\+::\+Course\+::\+Clear\+Slot (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
 
 
 
-Clears the \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} out of a slot. 
+Clears the \doxylink{classtattletale_1_1_actor}{Actors } out of a slot. 
 
 This can crash if slot is already empty.
 
 
 \begin{DoxyParams}{Parameters}
-{\em slot} & The slot the \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} will be cleared from. \\
+{\em slot} & The slot the \doxylink{classtattletale_1_1_actor}{Actors } will be cleared from. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The group of Actors that was cleared out of the slot. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_a65c365d9dcd18b50ab212b5cc89a1a0e}\label{classtattletale_1_1_course_a65c365d9dcd18b50ab212b5cc89a1a0e}} 
+\Hypertarget{classtattletale_1_1_course_a65c365d9dcd18b50ab212b5cc89a1a0e}\label{classtattletale_1_1_course_a65c365d9dcd18b50ab212b5cc89a1a0e} 
 \index{tattletale::Course@{tattletale::Course}!GetActorCount@{GetActorCount}}
 \index{GetActorCount@{GetActorCount}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{GetActorCount()}{GetActorCount()}}
@@ -177,7 +177,7 @@ The group of Actors that was cleared out of the slot.
 
 
 
-Getter for the amount of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} holds in the passed slot. 
+Getter for the amount of \doxylink{classtattletale_1_1_actor}{Actors } the \doxylink{classtattletale_1_1_course}{Course} holds in the passed slot. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -185,29 +185,29 @@ Getter for the amount of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} t
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The amount of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} in the slot. 
+The amount of \doxylink{classtattletale_1_1_actor}{Actors } in the slot. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}\label{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}} 
+\Hypertarget{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b}\label{classtattletale_1_1_course_a47bcba6b5c24e9a9e6b7672064dc2d1b} 
 \index{tattletale::Course@{tattletale::Course}!GetCourseGroupForSlot@{GetCourseGroupForSlot}}
 \index{GetCourseGroupForSlot@{GetCourseGroupForSlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{GetCourseGroupForSlot()}{GetCourseGroupForSlot()}}
-{\footnotesize\ttfamily const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ \& tattletale\+::\+Course\+::\+Get\+Course\+Group\+For\+Slot (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily const std\+::list$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ \& tattletale\+::\+Course\+::\+Get\+Course\+Group\+For\+Slot (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{slot }\end{DoxyParamCaption})}
 
 
 
-Finds the group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} for the passed slot. 
+Finds the group of \doxylink{classtattletale_1_1_actor}{Actors } for the passed slot. 
 
-Looks in the slot\+\_\+ vector for the group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} that visit the course during the passed slot. This can crash if the slot is not filled.
+Looks in the slot\+\_\+ vector for the group of \doxylink{classtattletale_1_1_actor}{Actors } that visit the course during the passed slot. This can crash if the slot is not filled.
 
 
 \begin{DoxyParams}{Parameters}
-{\em slot} & The slot where the group of \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} will be looked up. \\
+{\em slot} & The slot where the group of \doxylink{classtattletale_1_1_actor}{Actors } will be looked up. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The found group. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}\label{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}} 
+\Hypertarget{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b}\label{classtattletale_1_1_course_a48ad7f6c906b16f0b545c8c8a1efb64b} 
 \index{tattletale::Course@{tattletale::Course}!GetRandomEmptySlot@{GetRandomEmptySlot}}
 \index{GetRandomEmptySlot@{GetRandomEmptySlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{GetRandomEmptySlot()}{GetRandomEmptySlot()}}
@@ -222,7 +222,7 @@ This can crash if there is no empty slot.
 \begin{DoxyReturn}{Returns}
 The found slot. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}\label{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}} 
+\Hypertarget{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb}\label{classtattletale_1_1_course_afa4c0cbae89466a391c602fae966e0eb} 
 \index{tattletale::Course@{tattletale::Course}!GetSlotCount@{GetSlotCount}}
 \index{GetSlotCount@{GetSlotCount}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{GetSlotCount()}{GetSlotCount()}}
@@ -230,12 +230,12 @@ The found slot.
 
 
 
-Getter for the amount of slots the \mbox{\hyperlink{classtattletale_1_1_course}{Course}} currenty holds. 
+Getter for the amount of slots the \doxylink{classtattletale_1_1_course}{Course} currenty holds. 
 
 \begin{DoxyReturn}{Returns}
 The amount of slots. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32bb}\label{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32bb}} 
+\Hypertarget{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32bb}\label{classtattletale_1_1_course_aabb039ba7b221d5b5d8e47d07dca32bb} 
 \index{tattletale::Course@{tattletale::Course}!SpaceInSlot@{SpaceInSlot}}
 \index{SpaceInSlot@{SpaceInSlot}!tattletale::Course@{tattletale::Course}}
 \doxysubsubsection{\texorpdfstring{SpaceInSlot()}{SpaceInSlot()}}

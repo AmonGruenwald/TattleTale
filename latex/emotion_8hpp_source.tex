@@ -1,76 +1,76 @@
-\hypertarget{emotion_8hpp_source}{}\doxysection{emotion.\+hpp}
-\label{emotion_8hpp_source}\index{shared/kernels/resourcekernels/emotion.hpp@{shared/kernels/resourcekernels/emotion.hpp}}
+\doxysection{emotion.\+hpp}
+\hypertarget{emotion_8hpp_source}{}\label{emotion_8hpp_source}\index{shared/kernels/resourcekernels/emotion.hpp@{shared/kernels/resourcekernels/emotion.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{8 \{}
-\DoxyCodeLine{12     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}}
-\DoxyCodeLine{13     \{}
-\DoxyCodeLine{14         kHappy,}
-\DoxyCodeLine{15         kCalm,}
-\DoxyCodeLine{16         kSatisfied,}
-\DoxyCodeLine{17         kBrave,}
-\DoxyCodeLine{18         kExtroverted,}
-\DoxyCodeLine{19         kLast}
-\DoxyCodeLine{20     \};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{29     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
-\DoxyCodeLine{30     \{}
-\DoxyCodeLine{31     \textcolor{keyword}{public}:}
-\DoxyCodeLine{42         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{StringToEmotionType}}(std::string emotion\_string);}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{49         \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{GetType}}();}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{52         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} CalculateChanceInfluence(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const override};}
-\DoxyCodeLine{53         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{54         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keyword}{private}:}
-\DoxyCodeLine{69         \mbox{\hyperlink{classtattletale_1_1_emotion_a8bafc7062a868509b46a551991a62e88}{Emotion}}(\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{73         \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}} \mbox{\hyperlink{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}{type\_}};}
-\DoxyCodeLine{77         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}{positive\_name\_variants\_}} =}
-\DoxyCodeLine{78             \{\textcolor{stringliteral}{"{}happy"{}},}
-\DoxyCodeLine{79              \textcolor{stringliteral}{"{}calm"{}},}
-\DoxyCodeLine{80              \textcolor{stringliteral}{"{}satisfied"{}},}
-\DoxyCodeLine{81              \textcolor{stringliteral}{"{}brave"{}},}
-\DoxyCodeLine{82              \textcolor{stringliteral}{"{}extroverted"{}}\};}
-\DoxyCodeLine{86         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}{negative\_name\_variants\_}} =}
-\DoxyCodeLine{87             \{\textcolor{stringliteral}{"{}sad"{}},}
-\DoxyCodeLine{88              \textcolor{stringliteral}{"{}stressed"{}},}
-\DoxyCodeLine{89              \textcolor{stringliteral}{"{}unfulfilled"{}},}
-\DoxyCodeLine{90              \textcolor{stringliteral}{"{}fearful"{}},}
-\DoxyCodeLine{91              \textcolor{stringliteral}{"{}shy"{}}\};}
-\DoxyCodeLine{95         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{96     \};}
-\DoxyCodeLine{97 }
-\DoxyCodeLine{98 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{101 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::EmotionType> : formatter<string\_view>}
-\DoxyCodeLine{102 \{}
-\DoxyCodeLine{103     std::string emotion\_type\_names[6] = \{}
-\DoxyCodeLine{104         \textcolor{stringliteral}{"{}happy"{}},}
-\DoxyCodeLine{105         \textcolor{stringliteral}{"{}calm"{}},}
-\DoxyCodeLine{106         \textcolor{stringliteral}{"{}satisfied"{}},}
-\DoxyCodeLine{107         \textcolor{stringliteral}{"{}brave"{}},}
-\DoxyCodeLine{108         \textcolor{stringliteral}{"{}extroverted"{}},}
-\DoxyCodeLine{109         \textcolor{stringliteral}{"{}last"{}}\};}
-\DoxyCodeLine{110     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{111     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{112     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{tattletale::EmotionType}} type, FormatContext \&ctx)}
-\DoxyCodeLine{113     \{}
-\DoxyCodeLine{114         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{115         string\_view name = emotion\_type\_names[enum\_index];}
-\DoxyCodeLine{116         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{117     \}}
-\DoxyCodeLine{118 \};}
-\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/resourcekernels/resource.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ kHappy,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ kCalm,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ kSatisfied,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ kBrave,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ kExtroverted,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ kLast}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}\ \mbox{\hyperlink{classtattletale_1_1_emotion_a3228b2c1eb7bc40408a1cbb67f428eb7}{StringToEmotionType}}(std::string\ emotion\_string);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}\ \mbox{\hyperlink{classtattletale_1_1_emotion_a49a32f0102687f47c22c0d70ab39105f}{GetType}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ CalculateChanceInfluence(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}\ *interaction)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_emotion}{Emotion}}(\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}\ type,\ \textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{size\_t}\ tick,\ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *owner,\ std::vector<Kernel\ *>\ reasons,\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{EmotionType}}\ \mbox{\hyperlink{classtattletale_1_1_emotion_a6f59f7ce4b4897bf949f5032033a2c30}{type\_}};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::string>\ \mbox{\hyperlink{classtattletale_1_1_emotion_a3ddc94b8d3fa494a97f27e3e18c42588}{positive\_name\_variants\_}}\ =}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}happy"{}},}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}calm"{}},}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}satisfied"{}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}brave"{}},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}extroverted"{}}\};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::string>\ \mbox{\hyperlink{classtattletale_1_1_emotion_adfd29384150bb2693bd6247e9a2aa721}{negative\_name\_variants\_}}\ =}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}sad"{}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}stressed"{}},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}unfulfilled"{}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}fearful"{}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}shy"{}}\};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{00096\ \ \ \ \ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00101\ \textcolor{keyword}{struct\ }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::EmotionType>\ :\ formatter<string\_view>}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ std::string\ emotion\_type\_names[6]\ =\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}happy"{}},}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}calm"{}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}satisfied"{}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}brave"{}},}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}extroverted"{}},}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ parse\ is\ inherited\ from\ formatter<string\_view>.}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{auto}\ format(\mbox{\hyperlink{namespacetattletale_abc63b833223270d262f7abc4bded53fb}{tattletale::EmotionType}}\ type,\ FormatContext\ \&ctx)}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ enum\_index\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ string\_view\ name\ =\ emotion\_type\_names[enum\_index];}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatter<string\_view>::format(name,\ ctx);}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_KERNELS\_RESOURCEKERNELS\_EMOTION\_H}}
 
 \end{DoxyCode}

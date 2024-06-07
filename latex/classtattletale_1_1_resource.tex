@@ -1,8 +1,8 @@
-\hypertarget{classtattletale_1_1_resource}{}\doxysection{tattletale\+::Resource Class Reference}
-\label{classtattletale_1_1_resource}\index{tattletale::Resource@{tattletale::Resource}}
+\doxysection{tattletale\+::Resource Class Reference}
+\hypertarget{classtattletale_1_1_resource}{}\label{classtattletale_1_1_resource}\index{tattletale::Resource@{tattletale::Resource}}
 
 
-Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has.  
+Represents an abstract \doxylink{classtattletale_1_1_resource}{Resource} an \doxylink{classtattletale_1_1_actor}{Actor} has.  
 
 
 
@@ -15,98 +15,142 @@ Inheritance diagram for tattletale\+::Resource\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{classtattletale_1_1_resource}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00}\label{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00}} 
-virtual {\bfseries $\sim$\+Resource} ()
+\Hypertarget{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00}\label{classtattletale_1_1_resource_a9085f90ff4aca465a4a70c99145bef00} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Resource} ()
 \begin{DoxyCompactList}\small\item\em Virtual destructor, does not do anything for now. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}{Get\+Value}} () const
-\begin{DoxyCompactList}\small\item\em Getter for the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for the value of the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}{Get\+Default\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets the default description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the default description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}{Get\+Detailed\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets a detailed description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets a detailed description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}{Get\+Passive\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets a passive description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}{Get\+Active\+Description}} () const override
-\begin{DoxyCompactList}\small\item\em Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets an active description for the \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 virtual std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}{Get\+Adjective}} () const
-\begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter to find an adjective describing the severity of this \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}{Get\+Name\+Variant}} () const
-\begin{DoxyCompactList}\small\item\em Getter for the name variant depending on the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. E.\+g \char`\"{}wealthy\char`\"{} if it is positive \char`\"{}poor\char`\"{} if it is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactList}\small\item\em Getter for the name variant depending on the value of the \doxylink{classtattletale_1_1_resource}{Resource}. E.\+g "{}wealthy"{} if it is positive "{}poor"{} if it is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, float value, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{}, \char`\"{}being\char`\"{}, \char`\"{}are\char`\"{}))
-\begin{DoxyCompactList}\small\item\em Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Kernel} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor doing nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtattletale_1_1_kernel_a3649e09f7bb2c8e5a6fa39dcbf667962}{Add\+Consequence}} (\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*}consequence)
+\begin{DoxyCompactList}\small\item\em Adds another \doxylink{classtattletale_1_1_kernel}{Kernel} for which this \doxylink{classtattletale_1_1_kernel}{Kernel} was a reason for. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classtattletale_1_1_kernel_a722c702ebf255e76ecb5292d41915ce6}{Get\+Consequences}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vector of \doxylink{classtattletale_1_1_kernel}{Kernel} this \doxylink{classtattletale_1_1_kernel}{Kernel} was the cause of. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classtattletale_1_1_kernel_a147e8032c06bb3aca9ad998316e2ebcb}{Get\+Reasons}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{classtattletale_1_1_kernel}{Kernels } that were the reason for the creation of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classtattletale_1_1_kernel_a447036911c901aace53a699a11e34e07}{Get\+Chance}} () const
+\begin{DoxyCompactList}\small\item\em Get the chance this \doxylink{classtattletale_1_1_kernel}{Kernel} had to be created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtattletale_1_1_kernel_a3dc8f98551c2ca59fa658dbc5ccb44c9}{Get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{classtattletale_1_1_actor}{Actor} owning this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classtattletale_1_1_kernel_a68ee2a7f0db7ecc991b9479cd6e7fa8b}{Get\+All\+Participants}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the participants this \doxylink{classtattletale_1_1_kernel}{Kernel} uses. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classtattletale_1_1_kernel_a9205adc72236be935c3f2878011c3882}{Get\+Absolute\+Interest\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the absolute interest score of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}\label{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}} 
+\mbox{\hyperlink{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}{Resource}} (std\+::string name, std\+::string positive\+\_\+name\+\_\+variant, std\+::string negative\+\_\+name\+\_\+variant, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, float value, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type=Kernel\+Type\+::k\+Resource, \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} verb=\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}("{}was"{}, "{}being"{}, "{}are"{}))
+\begin{DoxyCompactList}\small\item\em Constructor initializing base \doxylink{classtattletale_1_1_kernel}{Kernel} class and value\+\_\+ member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtattletale_1_1_kernel_a6d0454571fa9ca4f238644a1d621a5ca}{Kernel}} (std\+::string name, size\+\_\+t id, size\+\_\+t tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}owner, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, \mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Protected Constructor should only be called by derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560}\label{classtattletale_1_1_resource_a2a8a5d772bb2ede4637b5c6eb2f0c560} 
 float {\bfseries value\+\_\+}
-\begin{DoxyCompactList}\small\item\em The value of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775}\label{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775}} 
+\begin{DoxyCompactList}\small\item\em The value of this \doxylink{classtattletale_1_1_resource}{Resource}. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775}\label{classtattletale_1_1_resource_a7b822386f5c50909c0c0ad9552852775} 
 \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} {\bfseries verb\+\_\+}
-\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} storing the strings nvecessary for description construction. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891}\label{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891}} 
+\begin{DoxyCompactList}\small\item\em The \doxylink{structtattletale_1_1_verb}{Verb} storing the strings nvecessary for description construction. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891}\label{classtattletale_1_1_resource_aab0336f9d895320f2ca7a9d68f07e891} 
 const std\+::string {\bfseries positive\+\_\+name\+\_\+variant\+\_\+}
-\begin{DoxyCompactList}\small\item\em Name variant when the value of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} is positive. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5}\label{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5}} 
+\begin{DoxyCompactList}\small\item\em Name variant when the value of this \doxylink{classtattletale_1_1_resource}{Resource} is positive. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5}\label{classtattletale_1_1_resource_a1dfbaf34d0d963489fd337059036bff5} 
 const std\+::string {\bfseries negative\+\_\+name\+\_\+variant\+\_\+}
-\begin{DoxyCompactList}\small\item\em Name variant when the value of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Friends}
+\begin{DoxyCompactList}\small\item\em Name variant when the value of this \doxylink{classtattletale_1_1_resource}{Resource} is negative. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_resource_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_resource_aa77c3f3dde0b0a7c7b8e314d12413c4c}} 
+\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} {\bfseries owner\+\_\+}
+\begin{DoxyCompactList}\small\item\em The \doxylink{classtattletale_1_1_actor}{Actor} owning this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries consequences\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores all other \doxylink{classtattletale_1_1_kernel}{Kernels } that were caused by this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries reasons\+\_\+}
+\begin{DoxyCompactList}\small\item\em Stores all \doxylink{classtattletale_1_1_kernel}{Kernels } that caused this \doxylink{classtattletale_1_1_kernel}{Kernel} to be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtattletale_1_1_resource_aa77c3f3dde0b0a7c7b8e314d12413c4c}\label{classtattletale_1_1_resource_aa77c3f3dde0b0a7c7b8e314d12413c4c} 
 class {\bfseries Chronicle}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em \doxylink{classtattletale_1_1_chronicle}{Chronicle} is a friend so private constructor can be accessed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classtattletale_1_1_kernel}{tattletale\+::\+Kernel}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries name\+\_\+}
+\begin{DoxyCompactList}\small\item\em The name of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\item 
+size\+\_\+t {\bfseries id\+\_\+}
+\begin{DoxyCompactList}\small\item\em The id of this \doxylink{classtattletale_1_1_kernel}{Kernel} in the \doxylink{classtattletale_1_1_chronicle}{Chronicle}. \end{DoxyCompactList}\item 
+size\+\_\+t {\bfseries tick\+\_\+}
+\begin{DoxyCompactList}\small\item\em The tick during which this \doxylink{classtattletale_1_1_kernel}{Kernel} was created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}} {\bfseries type\+\_\+}
+\begin{DoxyCompactList}\small\item\em The Kernel\+Type of this \doxylink{classtattletale_1_1_kernel}{Kernel}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Represents an abstract \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} an \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} has. 
+Represents an abstract \doxylink{classtattletale_1_1_resource}{Resource} an \doxylink{classtattletale_1_1_actor}{Actor} has. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}\label{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}} 
+\Hypertarget{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82}\label{classtattletale_1_1_resource_aa4208e9205daf4828391e98eaecc2b82} 
 \index{tattletale::Resource@{tattletale::Resource}!Resource@{Resource}}
 \index{Resource@{Resource}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{Resource()}{Resource()}}
-{\footnotesize\ttfamily tattletale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{positive\+\_\+name\+\_\+variant,  }\item[{std\+::string}]{negative\+\_\+name\+\_\+variant,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{float}]{value,  }\item[{\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}}}]{type = {\ttfamily KernelType\+:\+:kResource},  }\item[{\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}]{verb = {\ttfamily \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}(\char`\"{}was\char`\"{},~\char`\"{}being\char`\"{},~\char`\"{}are\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily tattletale\+::\+Resource\+::\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{positive\+\_\+name\+\_\+variant,  }\item[{std\+::string}]{negative\+\_\+name\+\_\+variant,  }\item[{size\+\_\+t}]{id,  }\item[{size\+\_\+t}]{tick,  }\item[{\mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*}}]{owner,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$}]{reasons,  }\item[{float}]{value,  }\item[{\mbox{\hyperlink{namespacetattletale_a58dcf4c550c5f0a27c234f34489e6670}{Kernel\+Type}}}]{type = {\ttfamily KernelType\+:\+:kResource},  }\item[{\mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}}]{verb = {\ttfamily \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}}("{}was"{},~"{}being"{},~"{}are"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-Constructor initializing base \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} class and value\+\_\+ member. 
+Constructor initializing base \doxylink{classtattletale_1_1_kernel}{Kernel} class and value\+\_\+ member. 
 
-This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}.
+This should only ever be called through the \doxylink{classtattletale_1_1_chronicle}{Chronicle}.
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & The name of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. Should describe what this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} is tracking. \\
+{\em name} & The name of this \doxylink{classtattletale_1_1_resource}{Resource}. Should describe what this \doxylink{classtattletale_1_1_resource}{Resource} is tracking. \\
 \hline
 {\em positive\+\_\+name\+\_\+variant} & The positive name variant of the resource. E.\+g. wealthy. \\
 \hline
 {\em negative\+\_\+name\+\_\+variant} & The negative name variant of the resource. E.\+g. poor. \\
 \hline
-{\em id} & The index this \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} holds in the \mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}}. \\
+{\em id} & The index this \doxylink{classtattletale_1_1_kernel}{Kernel} holds in the \doxylink{classtattletale_1_1_chronicle}{Chronicle}. \\
 \hline
-{\em tick} & In which tick this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} was created. \\
+{\em tick} & In which tick this \doxylink{classtattletale_1_1_resource}{Resource} was created. \\
 \hline
-{\em owner} & The \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} which owns this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. \\
+{\em owner} & The \doxylink{classtattletale_1_1_actor}{Actor} which owns this \doxylink{classtattletale_1_1_resource}{Resource}. \\
 \hline
-{\em reasons} & What other \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernels }} led to this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} and its value. \\
+{\em reasons} & What other \doxylink{classtattletale_1_1_kernel}{Kernels } led to this \doxylink{classtattletale_1_1_resource}{Resource} and its value. \\
 \hline
-{\em value} & Value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}} between -\/1.\+0 and 1.\+0. \\
+{\em value} & Value of the \doxylink{classtattletale_1_1_resource}{Resource} between -\/1.\+0 and 1.\+0. \\
 \hline
 {\em type} & The Kernel\+Type of this resource. \\
 \hline
-{\em verb} & \mbox{\hyperlink{structtattletale_1_1_verb}{Verb}} struct holding all necessary strings to complete the descriptions. \\
+{\em verb} & \doxylink{structtattletale_1_1_verb}{Verb} struct holding all necessary strings to complete the descriptions. \\
 \hline
 \end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}\label{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}} 
+\Hypertarget{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69}\label{classtattletale_1_1_resource_a03ef7ded88cb90205bf0672b3b0d1f69} 
 \index{tattletale::Resource@{tattletale::Resource}!GetActiveDescription@{GetActiveDescription}}
 \index{GetActiveDescription@{GetActiveDescription}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetActiveDescription()}{GetActiveDescription()}}
@@ -114,16 +158,16 @@ This should only ever be called through the \mbox{\hyperlink{classtattletale_1_1
 
 
 
-Gets an active description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Gets an active description for the \doxylink{classtattletale_1_1_resource}{Resource}. 
 
-This description forms an active sentence fragment that can be incorporated into a narrative. E.\+g.\+: \char`\"{}are quite wealthy\char`\"{} \begin{DoxyReturn}{Returns}
+This description forms an active sentence fragment that can be incorporated into a narrative. E.\+g.\+: "{}are quite wealthy"{} \begin{DoxyReturn}{Returns}
 The passive description. 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10c748c777}{tattletale\+::\+Kernel}}.
 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}\label{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}} 
+\Hypertarget{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0}\label{classtattletale_1_1_resource_a7160fd0e7c5157720914e96c021606a0} 
 \index{tattletale::Resource@{tattletale::Resource}!GetAdjective@{GetAdjective}}
 \index{GetAdjective@{GetAdjective}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetAdjective()}{GetAdjective()}}
@@ -131,7 +175,7 @@ Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a979570cb92c953513a210f10
 
 
 
-Getter to find an adjective describing the severity of this \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Getter to find an adjective describing the severity of this \doxylink{classtattletale_1_1_resource}{Resource}. 
 
 \begin{DoxyReturn}{Returns}
 The appropriate adjective. 
@@ -140,7 +184,7 @@ The appropriate adjective.
 
 Reimplemented in \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999ba2482ea91a01a13b9d6e}{tattletale\+::\+Relationship}}.
 
-\mbox{\Hypertarget{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}\label{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}} 
+\Hypertarget{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015}\label{classtattletale_1_1_resource_a07840a5549347562ad61c194dfb59015} 
 \index{tattletale::Resource@{tattletale::Resource}!GetDefaultDescription@{GetDefaultDescription}}
 \index{GetDefaultDescription@{GetDefaultDescription}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetDefaultDescription()}{GetDefaultDescription()}}
@@ -148,16 +192,16 @@ Reimplemented in \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999b
 
 
 
-Gets the default description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Gets the default description for the \doxylink{classtattletale_1_1_resource}{Resource}. 
 
-This description forms a standalone sentence. E.\+g.\+: \char`\"{}\+John Doe was quite wealthy.\char`\"{} \begin{DoxyReturn}{Returns}
+This description forms a standalone sentence. E.\+g.\+: "{}\+John Doe was quite wealthy."{} \begin{DoxyReturn}{Returns}
 The default description. 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a2df1d1bf2de3557317cdd91bcb8f1ce0}{tattletale\+::\+Kernel}}.
 
-\mbox{\Hypertarget{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}\label{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}} 
+\Hypertarget{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599}\label{classtattletale_1_1_resource_aed70696ac0146953c566e3a0113a9599} 
 \index{tattletale::Resource@{tattletale::Resource}!GetDetailedDescription@{GetDetailedDescription}}
 \index{GetDetailedDescription@{GetDetailedDescription}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetDetailedDescription()}{GetDetailedDescription()}}
@@ -165,7 +209,7 @@ Implements \mbox{\hyperlink{classtattletale_1_1_kernel_a2df1d1bf2de3557317cdd91b
 
 
 
-Gets a detailed description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Gets a detailed description for the \doxylink{classtattletale_1_1_resource}{Resource}. 
 
 This is only used for debugging purposes and should not be incorporated into curation as it is not in the form of a well structured sentence. \begin{DoxyReturn}{Returns}
 The detailed description. 
@@ -174,7 +218,7 @@ The detailed description.
 
 Reimplemented from \mbox{\hyperlink{classtattletale_1_1_kernel_a604ea09606e2530e03474fec80d80afd}{tattletale\+::\+Kernel}}.
 
-\mbox{\Hypertarget{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}\label{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}} 
+\Hypertarget{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227}\label{classtattletale_1_1_resource_ac3f1d3ff3b648c86eb9ecdb1e8a78227} 
 \index{tattletale::Resource@{tattletale::Resource}!GetNameVariant@{GetNameVariant}}
 \index{GetNameVariant@{GetNameVariant}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetNameVariant()}{GetNameVariant()}}
@@ -182,12 +226,12 @@ Reimplemented from \mbox{\hyperlink{classtattletale_1_1_kernel_a604ea09606e2530e
 
 
 
-Getter for the name variant depending on the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. E.\+g \char`\"{}wealthy\char`\"{} if it is positive \char`\"{}poor\char`\"{} if it is negative. 
+Getter for the name variant depending on the value of the \doxylink{classtattletale_1_1_resource}{Resource}. E.\+g "{}wealthy"{} if it is positive "{}poor"{} if it is negative. 
 
 \begin{DoxyReturn}{Returns}
 The appropriate name variant. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}\label{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}} 
+\Hypertarget{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913}\label{classtattletale_1_1_resource_a8dea15073dd09f87016ab3f078455913} 
 \index{tattletale::Resource@{tattletale::Resource}!GetPassiveDescription@{GetPassiveDescription}}
 \index{GetPassiveDescription@{GetPassiveDescription}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetPassiveDescription()}{GetPassiveDescription()}}
@@ -195,16 +239,16 @@ The appropriate name variant.
 
 
 
-Gets a passive description for the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Gets a passive description for the \doxylink{classtattletale_1_1_resource}{Resource}. 
 
-This description forms a passive sentence fragment that can be incorporated into a narrative. E.\+g.\+: \char`\"{}being quite wealthy\char`\"{} \begin{DoxyReturn}{Returns}
+This description forms a passive sentence fragment that can be incorporated into a narrative. E.\+g.\+: "{}being quite wealthy"{} \begin{DoxyReturn}{Returns}
 The passive description. 
 \end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classtattletale_1_1_kernel_aaa1afd2ae2abff75a8376872e6642b0a}{tattletale\+::\+Kernel}}.
 
-\mbox{\Hypertarget{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}\label{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}} 
+\Hypertarget{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1}\label{classtattletale_1_1_resource_aa629baf20a6c1fa48c40db9d09a733c1} 
 \index{tattletale::Resource@{tattletale::Resource}!GetValue@{GetValue}}
 \index{GetValue@{GetValue}!tattletale::Resource@{tattletale::Resource}}
 \doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
@@ -212,7 +256,7 @@ Implements \mbox{\hyperlink{classtattletale_1_1_kernel_aaa1afd2ae2abff75a8376872
 
 
 
-Getter for the value of the \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}. 
+Getter for the value of the \doxylink{classtattletale_1_1_resource}{Resource}. 
 
 \begin{DoxyReturn}{Returns}
 The value. 

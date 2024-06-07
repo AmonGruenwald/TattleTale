@@ -1,5 +1,5 @@
-\hypertarget{classtattletale_1_1_interaction_store}{}\doxysection{tattletale\+::Interaction\+Store Class Reference}
-\label{classtattletale_1_1_interaction_store}\index{tattletale::InteractionStore@{tattletale::InteractionStore}}
+\doxysection{tattletale\+::Interaction\+Store Class Reference}
+\hypertarget{classtattletale_1_1_interaction_store}{}\label{classtattletale_1_1_interaction_store}\index{tattletale::InteractionStore@{tattletale::InteractionStore}}
 
 
 Stores Prototypes for all possible interactions.  
@@ -9,7 +9,7 @@ Stores Prototypes for all possible interactions.
 
 {\ttfamily \#include $<$tale/interactionstore.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}{Interaction\+Store}} (\mbox{\hyperlink{classtattletale_1_1_random}{Random}} \&random)
@@ -17,131 +17,131 @@ Stores Prototypes for all possible interactions.
 uint32\+\_\+t \mbox{\hyperlink{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b}{Get\+Random\+Interaction\+Prototype\+Index}} () const
 \begin{DoxyCompactList}\small\item\em Returns a random interaction\+Prototype index from the catalogue. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classtattletale_1_1_interaction_store_ab80b77cf49c734a48f9aaa8db76ae860}{Get\+Interaction\+Name}} (size\+\_\+t prototype\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Returns the name of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} that would be created with the passed index. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the name of the \doxylink{classtattletale_1_1_interaction}{Interaction} that would be created with the passed index. \end{DoxyCompactList}\item 
 const size\+\_\+t \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_af38872ad8f22f778a728ba03711fe837}{Get\+Participant\+Count}} (size\+\_\+t prototype\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Returns the participation count for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the participation count for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154}{Get\+Wealth\+Effects}} (size\+\_\+t prototype\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Returns the wealth effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the wealth effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::vector$<$ float $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}{Get\+Emotion\+Effects}} (size\+\_\+t prototype\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the emotion effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ robin\+\_\+hood\+::unordered\+\_\+map$<$ size\+\_\+t, std\+::vector$<$ float $>$ $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}{Get\+Relationship\+Effects}} (size\+\_\+t prototype\+\_\+index) const
-\begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $\ast$ \mbox{\hyperlink{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}{Create\+Interaction}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$ reasons, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$ participants)
-\begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the relationship effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}{Create\+Interaction}} (\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&chronicle, size\+\_\+t prototype\+\_\+index, float chance, size\+\_\+t tick, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$ reasons, std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$ participants)
+\begin{DoxyCompactList}\small\item\em Creates an interaction from a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}{Get\+Requirement\+Catalogue}} () const
-\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} catalogue. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement} catalogue. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}{Get\+Tendency\+Catalogue}} () const
-\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} catalogue. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency} catalogue. \end{DoxyCompactList}\item 
 const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ $>$ \& \mbox{\hyperlink{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68}{Get\+Prototype\+Catalogue}} () const
-\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactList}\small\item\em Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype} catalogue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}{Read\+Prototype\+JSON}} (nlohmann\+::json json, size\+\_\+t participant\+\_\+count, std\+::string error\+\_\+preamble, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ \&out\+\_\+prototype)
-\begin{DoxyCompactList}\small\item\em Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} from a json describing such. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reads an \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype} from a json describing such. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}{Read\+Requirement\+JSON}} (nlohmann\+::json json, std\+::string error\+\_\+preamble, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ \&out\+\_\+requirement)
-\begin{DoxyCompactList}\small\item\em Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} from a json describing such. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reads an \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement} from a json describing such. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}{Read\+Tendency\+JSON}} (nlohmann\+::json json, size\+\_\+t participant\+\_\+count, std\+::string error\+\_\+preamble, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ \&out\+\_\+tendency)
-\begin{DoxyCompactList}\small\item\em Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} from a json describing such. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ }\\bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}{Read\+Json\+Value\+From\+Dictionary}} (T1 \&out\+\_\+value, nlohmann\+::json json, std\+::string key, bool required, std\+::string error\+\_\+preamble=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Reads an \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency} from a json describing such. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ }\\bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}{Read\+Json\+Value\+From\+Dictionary}} (T1 \&out\+\_\+value, nlohmann\+::json json, std\+::string key, bool required, std\+::string error\+\_\+preamble="{}"{})
 \begin{DoxyCompactList}\small\item\em Reads a value of type T from a json object mapping to a dictionary. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ }\\bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}{Read\+Json\+Value\+From\+Array}} (T1 \&out\+\_\+value, nlohmann\+::json json, size\+\_\+t index, bool required, std\+::string error\+\_\+preamble=\char`\"{}\char`\"{})
+{\footnotesize template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ }\\bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}{Read\+Json\+Value\+From\+Array}} (T1 \&out\+\_\+value, nlohmann\+::json json, size\+\_\+t index, bool required, std\+::string error\+\_\+preamble="{}"{})
 \begin{DoxyCompactList}\small\item\em Reads a value of type T from a json object mapping to an array. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}{Check\+Correct\+Value\+Range}} (float value, std\+::string error\+\_\+preamble=\char`\"{}\char`\"{})
+bool \mbox{\hyperlink{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}{Check\+Correct\+Value\+Range}} (float value, std\+::string error\+\_\+preamble="{}"{})
 \begin{DoxyCompactList}\small\item\em Checks wether the passed value is between the range of -\/1.\+0f and 1.\+0f. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
+\doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}\label{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}} 
+\Hypertarget{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd}\label{classtattletale_1_1_interaction_store_afaf80047ea82c970efd77483dc8332cd} 
 \mbox{\hyperlink{classtattletale_1_1_random}{Random}} \& {\bfseries random\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds a reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object of the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}\label{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}} 
+\begin{DoxyCompactList}\small\item\em Holds a reference to the \doxylink{classtattletale_1_1_random}{Random} object of the simulation. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac}\label{classtattletale_1_1_interaction_store_a2520885627e6cd592892308e75ca5fac} 
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} $>$ $>$ {\bfseries prototype\+\_\+catalogue\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds all available \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototypes }}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}\label{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}} 
+\begin{DoxyCompactList}\small\item\em Holds all available \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototypes }. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02}\label{classtattletale_1_1_interaction_store_a561790a4e437ba03f18b3a8f52908e02} 
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} $>$ $>$ {\bfseries requirements\+\_\+catalogue\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for all available \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}\label{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}} 
+\begin{DoxyCompactList}\small\item\em Holds the hard \doxylink{structtattletale_1_1_interaction_requirement}{Requirements } for all available \doxylink{classtattletale_1_1_interaction}{Interaction} prototypes. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1}\label{classtattletale_1_1_interaction_store_a4652da789f7c702d0216817549aed1e1} 
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} $>$ $>$ {\bfseries tendencies\+\_\+catalogue\+\_\+}
-\begin{DoxyCompactList}\small\item\em Holds the hard \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }} for all available \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} prototypes. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}\label{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}} 
-std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = \char`\"{}resources/interactioncatalogue.\+json\char`\"{}
-\begin{DoxyCompactList}\small\item\em Path to the json file where \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} prototypes are defined. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6}\label{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6}} 
-const std\+::string {\bfseries requirements\+\_\+key\+\_\+} = \char`\"{}requirements\char`\"{}
+\begin{DoxyCompactList}\small\item\em Holds the hard \doxylink{structtattletale_1_1_interaction_requirement}{Requirements } for all available \doxylink{classtattletale_1_1_interaction}{Interaction} prototypes. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21}\label{classtattletale_1_1_interaction_store_a21c7054e51fe503ff715c0dff3397f21} 
+std\+::string {\bfseries prototype\+\_\+json\+\_\+path\+\_\+} = "{}resources/interactioncatalogue.\+json"{}
+\begin{DoxyCompactList}\small\item\em Path to the json file where \doxylink{classtattletale_1_1_interaction}{Interaction} prototypes are defined. \end{DoxyCompactList}\item 
+\Hypertarget{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6}\label{classtattletale_1_1_interaction_store_af3edc2bdf23eea7637e7e3c21abefcd6} 
+const std\+::string {\bfseries requirements\+\_\+key\+\_\+} = "{}requirements"{}
 \begin{DoxyCompactList}\small\item\em String mapping to requirements entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04}\label{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04}} 
-const std\+::string {\bfseries name\+\_\+key\+\_\+} = \char`\"{}name\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04}\label{classtattletale_1_1_interaction_store_a0204103c5945e69c7ceaa0413577dc04} 
+const std\+::string {\bfseries name\+\_\+key\+\_\+} = "{}name"{}
 \begin{DoxyCompactList}\small\item\em String mapping to name entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a3e6abcf1a0d578cc2f8765d86dcb0f9f}\label{classtattletale_1_1_interaction_store_a3e6abcf1a0d578cc2f8765d86dcb0f9f}} 
-const std\+::string {\bfseries absolute\+\_\+interest\+\_\+key\+\_\+} = \char`\"{}absolute\+\_\+interest\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a3e6abcf1a0d578cc2f8765d86dcb0f9f}\label{classtattletale_1_1_interaction_store_a3e6abcf1a0d578cc2f8765d86dcb0f9f} 
+const std\+::string {\bfseries absolute\+\_\+interest\+\_\+key\+\_\+} = "{}absolute\+\_\+interest"{}
 \begin{DoxyCompactList}\small\item\em String mapping to name entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aadeea103eeef6d2ecc930f99b0b6f92a}\label{classtattletale_1_1_interaction_store_aadeea103eeef6d2ecc930f99b0b6f92a}} 
-const std\+::string {\bfseries fluff\+\_\+key\+\_\+} = \char`\"{}fluff\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_aadeea103eeef6d2ecc930f99b0b6f92a}\label{classtattletale_1_1_interaction_store_aadeea103eeef6d2ecc930f99b0b6f92a} 
+const std\+::string {\bfseries fluff\+\_\+key\+\_\+} = "{}fluff"{}
 \begin{DoxyCompactList}\small\item\em String mapping to fluff entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a22f5acd1301b570bb88dccd885d79a9b}\label{classtattletale_1_1_interaction_store_a22f5acd1301b570bb88dccd885d79a9b}} 
-const std\+::string {\bfseries angst\+\_\+key\+\_\+} = \char`\"{}angst\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a22f5acd1301b570bb88dccd885d79a9b}\label{classtattletale_1_1_interaction_store_a22f5acd1301b570bb88dccd885d79a9b} 
+const std\+::string {\bfseries angst\+\_\+key\+\_\+} = "{}angst"{}
 \begin{DoxyCompactList}\small\item\em String mapping to angst entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ab7a96c9edb9e1fa90a2587d1438fd83b}\label{classtattletale_1_1_interaction_store_ab7a96c9edb9e1fa90a2587d1438fd83b}} 
-const std\+::string {\bfseries sexual\+\_\+key\+\_\+} = \char`\"{}sexual\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_ab7a96c9edb9e1fa90a2587d1438fd83b}\label{classtattletale_1_1_interaction_store_ab7a96c9edb9e1fa90a2587d1438fd83b} 
+const std\+::string {\bfseries sexual\+\_\+key\+\_\+} = "{}sexual"{}
 \begin{DoxyCompactList}\small\item\em String mapping to sexual entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe}\label{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe}} 
-const std\+::string {\bfseries description\+\_\+key\+\_\+} = \char`\"{}description\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe}\label{classtattletale_1_1_interaction_store_a4e184907932f24d766cacb127693b0fe} 
+const std\+::string {\bfseries description\+\_\+key\+\_\+} = "{}description"{}
 \begin{DoxyCompactList}\small\item\em String mapping to description entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975}\label{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975}} 
-const std\+::string {\bfseries passive\+\_\+description\+\_\+key\+\_\+} = \char`\"{}passive\+\_\+description\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975}\label{classtattletale_1_1_interaction_store_ad39606314481ddb69b12a1890563f975} 
+const std\+::string {\bfseries passive\+\_\+description\+\_\+key\+\_\+} = "{}passive\+\_\+description"{}
 \begin{DoxyCompactList}\small\item\em String mapping to passive\+\_\+description entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1}\label{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1}} 
-const std\+::string {\bfseries active\+\_\+description\+\_\+key\+\_\+} = \char`\"{}active\+\_\+description\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1}\label{classtattletale_1_1_interaction_store_ab8d5a95657441d203cd0c20e634226b1} 
+const std\+::string {\bfseries active\+\_\+description\+\_\+key\+\_\+} = "{}active\+\_\+description"{}
 \begin{DoxyCompactList}\small\item\em String mapping to active\+\_\+description entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c}\label{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c}} 
-const std\+::string {\bfseries participant\+\_\+count\+\_\+key\+\_\+} = \char`\"{}participant\+\_\+count\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c}\label{classtattletale_1_1_interaction_store_ab4cfd6a685470d93473972fbd181401c} 
+const std\+::string {\bfseries participant\+\_\+count\+\_\+key\+\_\+} = "{}participant\+\_\+count"{}
 \begin{DoxyCompactList}\small\item\em String mapping to participant\+\_\+count entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2}\label{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2}} 
-const std\+::string {\bfseries goal\+\_\+type\+\_\+key\+\_\+} = \char`\"{}goal\+\_\+type\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2}\label{classtattletale_1_1_interaction_store_a332379d01ca9f4208ff43808a76653a2} 
+const std\+::string {\bfseries goal\+\_\+type\+\_\+key\+\_\+} = "{}goal\+\_\+type"{}
 \begin{DoxyCompactList}\small\item\em String mapping to goal\+\_\+type entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366}\label{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366}} 
-const std\+::string {\bfseries day\+\_\+key\+\_\+} = \char`\"{}day\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366}\label{classtattletale_1_1_interaction_store_abd2752cc798af7efe46274978ff9d366} 
+const std\+::string {\bfseries day\+\_\+key\+\_\+} = "{}day"{}
 \begin{DoxyCompactList}\small\item\em String mapping to day entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466}\label{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466}} 
-const std\+::string {\bfseries wealth\+\_\+key\+\_\+} = \char`\"{}wealth\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466}\label{classtattletale_1_1_interaction_store_a6840aa1f8b8fdc4bb31e668e0d8c9466} 
+const std\+::string {\bfseries wealth\+\_\+key\+\_\+} = "{}wealth"{}
 \begin{DoxyCompactList}\small\item\em String mapping to wealth entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1}\label{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1}} 
-const std\+::string {\bfseries emotion\+\_\+key\+\_\+} = \char`\"{}emotions\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1}\label{classtattletale_1_1_interaction_store_a51aa9d27cfa3f4570d1cf5c64afc5bc1} 
+const std\+::string {\bfseries emotion\+\_\+key\+\_\+} = "{}emotions"{}
 \begin{DoxyCompactList}\small\item\em String mapping to emotions entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804}\label{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804}} 
-const std\+::vector$<$ std\+::string $>$ {\bfseries emotion\+\_\+type\+\_\+keys\+\_\+} = \{\char`\"{}happy\char`\"{}, \char`\"{}calm\char`\"{}, \char`\"{}satisfied\char`\"{}, \char`\"{}brave\char`\"{}, \char`\"{}extroverted\char`\"{}\}
+\Hypertarget{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804}\label{classtattletale_1_1_interaction_store_ad641a4b7da5a45b3a5f8be274acb9804} 
+const std\+::vector$<$ std\+::string $>$ {\bfseries emotion\+\_\+type\+\_\+keys\+\_\+} = \{"{}happy"{}, "{}calm"{}, "{}satisfied"{}, "{}brave"{}, "{}extroverted"{}\}
 \begin{DoxyCompactList}\small\item\em String mapping to emotion type entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0}\label{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0}} 
-const std\+::vector$<$ std\+::string $>$ {\bfseries context\+\_\+type\+\_\+keys\+\_\+} = \{\char`\"{}course\char`\"{}, \char`\"{}freetime\char`\"{}\}
+\Hypertarget{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0}\label{classtattletale_1_1_interaction_store_ad4a367b3b21634c59604f238a79e9da0} 
+const std\+::vector$<$ std\+::string $>$ {\bfseries context\+\_\+type\+\_\+keys\+\_\+} = \{"{}course"{}, "{}freetime"{}\}
 \begin{DoxyCompactList}\small\item\em String mapping to context type entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59}\label{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59}} 
-const std\+::string {\bfseries relationships\+\_\+key\+\_\+} = \char`\"{}relationships\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59}\label{classtattletale_1_1_interaction_store_a12621958aec11f328a25dad858241b59} 
+const std\+::string {\bfseries relationships\+\_\+key\+\_\+} = "{}relationships"{}
 \begin{DoxyCompactList}\small\item\em String mapping to relationships entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021}\label{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021}} 
-const std\+::string {\bfseries participant\+\_\+key\+\_\+} = \char`\"{}participant\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021}\label{classtattletale_1_1_interaction_store_a9c94bff866109999e0ba92049ad4b021} 
+const std\+::string {\bfseries participant\+\_\+key\+\_\+} = "{}participant"{}
 \begin{DoxyCompactList}\small\item\em String mapping to participant entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e}\label{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e}} 
-const std\+::string {\bfseries changes\+\_\+key\+\_\+} = \char`\"{}changes\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e}\label{classtattletale_1_1_interaction_store_a74bc1491020a97ac7d431a69deeb4e4e} 
+const std\+::string {\bfseries changes\+\_\+key\+\_\+} = "{}changes"{}
 \begin{DoxyCompactList}\small\item\em String mapping to changes entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54}\label{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54}} 
-const std\+::vector$<$ std\+::string $>$ {\bfseries relationship\+\_\+type\+\_\+keys\+\_\+} = \{\char`\"{}love\char`\"{}, \char`\"{}attraction\char`\"{}, \char`\"{}friendship\char`\"{}, \char`\"{}anger\char`\"{}, \char`\"{}protective\char`\"{}\}
+\Hypertarget{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54}\label{classtattletale_1_1_interaction_store_a739c1460ee928da14c373d14e2c0aa54} 
+const std\+::vector$<$ std\+::string $>$ {\bfseries relationship\+\_\+type\+\_\+keys\+\_\+} = \{"{}love"{}, "{}attraction"{}, "{}friendship"{}, "{}anger"{}, "{}protective"{}\}
 \begin{DoxyCompactList}\small\item\em String mapping to relationship type entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec}\label{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec}} 
-const std\+::string {\bfseries context\+\_\+key\+\_\+} = \char`\"{}context\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec}\label{classtattletale_1_1_interaction_store_a13d1c3cb7606a3496744e9113d65dfec} 
+const std\+::string {\bfseries context\+\_\+key\+\_\+} = "{}context"{}
 \begin{DoxyCompactList}\small\item\em String mapping to context entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968}\label{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968}} 
-const std\+::string {\bfseries group\+\_\+size\+\_\+key\+\_\+} = \char`\"{}group\+\_\+size\char`\"{}
+\Hypertarget{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968}\label{classtattletale_1_1_interaction_store_a95f350ea8232ab72f6ea85aa7251f968} 
+const std\+::string {\bfseries group\+\_\+size\+\_\+key\+\_\+} = "{}group\+\_\+size"{}
 \begin{DoxyCompactList}\small\item\em String mapping to group\+\_\+size entries in the Prototype\+Catalogue json. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Stores Prototypes for all possible interactions. 
 
-An \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} options for each situation 
+An \doxylink{classtattletale_1_1_interaction}{Interaction} should only be created through this class, so it\textquotesingle{}s field are correctly filled. Also contains helper function to get appropriate \doxylink{classtattletale_1_1_interaction}{Interaction} options for each situation 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}\label{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}} 
+\Hypertarget{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6}\label{classtattletale_1_1_interaction_store_aeaa067d5905a980839430dd3de1ec9c6} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!InteractionStore@{InteractionStore}}
 \index{InteractionStore@{InteractionStore}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{InteractionStore()}{InteractionStore()}}
@@ -155,17 +155,17 @@ Reads from tale/resources/interactioncatalogue.\+json to get the data to build u
 
 
 \begin{DoxyParams}{Parameters}
-{\em random} & Reference to the \mbox{\hyperlink{classtattletale_1_1_random}{Random}} object used by the simulation. \\
+{\em random} & Reference to the \doxylink{classtattletale_1_1_random}{Random} object used by the simulation. \\
 \hline
 \end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}\label{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27}\label{classtattletale_1_1_interaction_store_a3c6cf29ce0964b77acfa9ed3f8996a27} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!CheckCorrectValueRange@{CheckCorrectValueRange}}
 \index{CheckCorrectValueRange@{CheckCorrectValueRange}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CheckCorrectValueRange()}{CheckCorrectValueRange()}}
-{\footnotesize\ttfamily bool tattletale\+::\+Interaction\+Store\+::\+Check\+Correct\+Value\+Range (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily bool tattletale\+::\+Interaction\+Store\+::\+Check\+Correct\+Value\+Range (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -181,31 +181,31 @@ Checks wether the passed value is between the range of -\/1.\+0f and 1.\+0f.
 \begin{DoxyReturn}{Returns}
 The result of the check. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}\label{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746}\label{classtattletale_1_1_interaction_store_a9d0eed36f3a2e345183fd3b94b1a8746} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!CreateInteraction@{CreateInteraction}}
 \index{CreateInteraction@{CreateInteraction}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{CreateInteraction()}{CreateInteraction()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} $\ast$ tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} $\ast$ $>$}]{reasons,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} $\ast$ $>$}]{participants }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} \texorpdfstring{$\ast$}{*} tattletale\+::\+Interaction\+Store\+::\+Create\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}} \&}]{chronicle,  }\item[{size\+\_\+t}]{prototype\+\_\+index,  }\item[{float}]{chance,  }\item[{size\+\_\+t}]{tick,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} \texorpdfstring{$\ast$}{*} $>$}]{reasons,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} \texorpdfstring{$\ast$}{*} $>$}]{participants }\end{DoxyParamCaption})}
 
 
 
-Creates an interaction from a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+Creates an interaction from a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. 
 
-This is the only way an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} should be created. This ensures that the member variables of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} is properly populated. 
+This is the only way an \doxylink{classtattletale_1_1_interaction}{Interaction} should be created. This ensures that the member variables of the \doxylink{classtattletale_1_1_interaction}{Interaction} is properly populated. 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & Index of the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} that should be used as a template \\
+{\em prototype\+\_\+index} & Index of the \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype} that should be used as a template \\
 \hline
 {\em tick} & Tick this interaction was created \\
 \hline
-{\em participants} & Vectors holding every \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} that was involved in the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} \\
+{\em participants} & Vectors holding every \doxylink{classtattletale_1_1_actor}{Actor} that was involved in the \doxylink{classtattletale_1_1_interaction}{Interaction} \\
 \hline
-{\em reasons} & Vectors holding every \mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} responsible for the creation. \\
+{\em reasons} & Vectors holding every \doxylink{classtattletale_1_1_kernel}{Kernel} responsible for the creation. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pointer to the created \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} 
+A pointer to the created \doxylink{classtattletale_1_1_interaction}{Interaction} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}\label{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73}\label{classtattletale_1_1_interaction_store_a46c31740c65f910de25ed73bd8383b73} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetEmotionEffects@{GetEmotionEffects}}
 \index{GetEmotionEffects@{GetEmotionEffects}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetEmotionEffects()}{GetEmotionEffects()}}
@@ -213,17 +213,17 @@ A pointer to the created \mbox{\hyperlink{classtattletale_1_1_interaction}{Inter
 
 
 
-Returns the emotion effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+Returns the emotion effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. 
 
 Should only really be needed for testing purposes 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & Index of the queried \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+{\em prototype\+\_\+index} & Index of the queried \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The emotion effects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_ab80b77cf49c734a48f9aaa8db76ae860}\label{classtattletale_1_1_interaction_store_ab80b77cf49c734a48f9aaa8db76ae860}} 
+\Hypertarget{classtattletale_1_1_interaction_store_ab80b77cf49c734a48f9aaa8db76ae860}\label{classtattletale_1_1_interaction_store_ab80b77cf49c734a48f9aaa8db76ae860} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetInteractionName@{GetInteractionName}}
 \index{GetInteractionName@{GetInteractionName}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetInteractionName()}{GetInteractionName()}}
@@ -231,17 +231,17 @@ The emotion effects
 
 
 
-Returns the name of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} that would be created with the passed index. 
+Returns the name of the \doxylink{classtattletale_1_1_interaction}{Interaction} that would be created with the passed index. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & The index of the corresponding \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+{\em prototype\+\_\+index} & The index of the corresponding \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The name of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. 
+The name of the \doxylink{classtattletale_1_1_interaction}{Interaction}. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_af38872ad8f22f778a728ba03711fe837}\label{classtattletale_1_1_interaction_store_af38872ad8f22f778a728ba03711fe837}} 
+\Hypertarget{classtattletale_1_1_interaction_store_af38872ad8f22f778a728ba03711fe837}\label{classtattletale_1_1_interaction_store_af38872ad8f22f778a728ba03711fe837} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetParticipantCount@{GetParticipantCount}}
 \index{GetParticipantCount@{GetParticipantCount}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetParticipantCount()}{GetParticipantCount()}}
@@ -249,17 +249,17 @@ The name of the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}.
 
 
 
-Returns the participation count for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+Returns the participation count for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. 
 
-Participation count is needed to know how many \mbox{\hyperlink{classtattletale_1_1_actor}{Actors }} are necessary for creation of an \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}. This will fail if the index is invalid. 
+Participation count is needed to know how many \doxylink{classtattletale_1_1_actor}{Actors } are necessary for creation of an \doxylink{classtattletale_1_1_interaction}{Interaction}. This will fail if the index is invalid. 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & Index of the queried \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+{\em prototype\+\_\+index} & Index of the queried \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The participation count 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68}\label{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68}\label{classtattletale_1_1_interaction_store_a82d0eef5185efab17613a217ebeb1a68} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetPrototypeCatalogue@{GetPrototypeCatalogue}}
 \index{GetPrototypeCatalogue@{GetPrototypeCatalogue}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetPrototypeCatalogue()}{GetPrototypeCatalogue()}}
@@ -267,12 +267,12 @@ The participation count
 
 
 
-Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} catalogue. 
+Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype} catalogue. 
 
 \begin{DoxyReturn}{Returns}
-A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Prototypes }}. 
+A Reference to the catalogue for the \doxylink{structtattletale_1_1_interaction_prototype}{Prototypes }. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b}\label{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b}\label{classtattletale_1_1_interaction_store_a8c0b5e13ffc6c3a5ef8357c13578053b} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetRandomInteractionPrototypeIndex@{GetRandomInteractionPrototypeIndex}}
 \index{GetRandomInteractionPrototypeIndex@{GetRandomInteractionPrototypeIndex}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetRandomInteractionPrototypeIndex()}{GetRandomInteractionPrototypeIndex()}}
@@ -285,7 +285,7 @@ Returns a random interaction\+Prototype index from the catalogue.
 \begin{DoxyReturn}{Returns}
 A random interaction\+Prototype index 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}\label{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}} 
+\Hypertarget{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848}\label{classtattletale_1_1_interaction_store_adb8f2d017282a087fc0d81be73a17848} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetRelationshipEffects@{GetRelationshipEffects}}
 \index{GetRelationshipEffects@{GetRelationshipEffects}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetRelationshipEffects()}{GetRelationshipEffects()}}
@@ -293,17 +293,17 @@ A random interaction\+Prototype index
 
 
 
-Returns the relationship effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+Returns the relationship effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. 
 
 Should only really be needed for testing purposes 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & Index of the queried \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+{\em prototype\+\_\+index} & Index of the queried \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The relationship effects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}\label{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}} 
+\Hypertarget{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a}\label{classtattletale_1_1_interaction_store_aabfe52632f5d17b4e8377dd72b8de97a} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetRequirementCatalogue@{GetRequirementCatalogue}}
 \index{GetRequirementCatalogue@{GetRequirementCatalogue}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetRequirementCatalogue()}{GetRequirementCatalogue()}}
@@ -311,12 +311,12 @@ The relationship effects
 
 
 
-Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} catalogue. 
+Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement} catalogue. 
 
 \begin{DoxyReturn}{Returns}
-A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Requirements }}. 
+A Reference to the catalogue for the \doxylink{structtattletale_1_1_interaction_requirement}{Requirements }. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}\label{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}} 
+\Hypertarget{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568}\label{classtattletale_1_1_interaction_store_acc72f0516ce3cfeddcc21405b5690568} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetTendencyCatalogue@{GetTendencyCatalogue}}
 \index{GetTendencyCatalogue@{GetTendencyCatalogue}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetTendencyCatalogue()}{GetTendencyCatalogue()}}
@@ -324,12 +324,12 @@ A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_inter
 
 
 
-Getter for a Reference to the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} catalogue. 
+Getter for a Reference to the \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency} catalogue. 
 
 \begin{DoxyReturn}{Returns}
-A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Tendencies }}. 
+A Reference to the catalogue for the \doxylink{structtattletale_1_1_interaction_tendency}{Tendencies }. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154}\label{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154}\label{classtattletale_1_1_interaction_store_a287784e25d490eebd6ac5c47f6e8b154} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!GetWealthEffects@{GetWealthEffects}}
 \index{GetWealthEffects@{GetWealthEffects}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{GetWealthEffects()}{GetWealthEffects()}}
@@ -337,22 +337,22 @@ A Reference to the catalogue for the \mbox{\hyperlink{structtattletale_1_1_inter
 
 
 
-Returns the wealth effects for a catalogued \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. 
+Returns the wealth effects for a catalogued \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. 
 
 Should only really be needed for testing purposes 
 \begin{DoxyParams}{Parameters}
-{\em prototype\+\_\+index} & Index of the queried \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+{\em prototype\+\_\+index} & Index of the queried \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The wealth effects 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}\label{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}} 
+\Hypertarget{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6}\label{classtattletale_1_1_interaction_store_af9e0dba1342f0d868431ab786836dca6} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!ReadJsonValueFromArray@{ReadJsonValueFromArray}}
 \index{ReadJsonValueFromArray@{ReadJsonValueFromArray}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{ReadJsonValueFromArray()}{ReadJsonValueFromArray()}}
 {\footnotesize\ttfamily template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ \\
-bool tattletale\+::\+Interaction\+Store\+::\+Read\+Json\+Value\+From\+Array (\begin{DoxyParamCaption}\item[{T1 \&}]{out\+\_\+value,  }\item[{nlohmann\+::json}]{json,  }\item[{size\+\_\+t}]{index,  }\item[{bool}]{required,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+bool tattletale\+::\+Interaction\+Store\+::\+Read\+Json\+Value\+From\+Array (\begin{DoxyParamCaption}\item[{T1 \&}]{out\+\_\+value,  }\item[{nlohmann\+::json}]{json,  }\item[{size\+\_\+t}]{index,  }\item[{bool}]{required,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 
 
@@ -376,12 +376,12 @@ This also checks wether the value was existant (if it is required) and wether it
 \begin{DoxyReturn}{Returns}
 Wether the process of reading was successful. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}\label{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}} 
+\Hypertarget{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5}\label{classtattletale_1_1_interaction_store_af8b5333709830ab22fc3bea40a6c5ff5} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!ReadJsonValueFromDictionary@{ReadJsonValueFromDictionary}}
 \index{ReadJsonValueFromDictionary@{ReadJsonValueFromDictionary}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{ReadJsonValueFromDictionary()}{ReadJsonValueFromDictionary()}}
 {\footnotesize\ttfamily template$<$typename T1 , nlohmann\+::detail\+::value\+\_\+t T2$>$ \\
-bool tattletale\+::\+Interaction\+Store\+::\+Read\+Json\+Value\+From\+Dictionary (\begin{DoxyParamCaption}\item[{T1 \&}]{out\+\_\+value,  }\item[{nlohmann\+::json}]{json,  }\item[{std\+::string}]{key,  }\item[{bool}]{required,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+bool tattletale\+::\+Interaction\+Store\+::\+Read\+Json\+Value\+From\+Dictionary (\begin{DoxyParamCaption}\item[{T1 \&}]{out\+\_\+value,  }\item[{nlohmann\+::json}]{json,  }\item[{std\+::string}]{key,  }\item[{bool}]{required,  }\item[{std\+::string}]{error\+\_\+preamble = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 
 
@@ -405,7 +405,7 @@ This also checks wether the value was existant (if it is required) and wether it
 \begin{DoxyReturn}{Returns}
 Wether the process of reading was successful. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}\label{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89}\label{classtattletale_1_1_interaction_store_a868562000417860588bedfdb2b22db89} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!ReadPrototypeJSON@{ReadPrototypeJSON}}
 \index{ReadPrototypeJSON@{ReadPrototypeJSON}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{ReadPrototypeJSON()}{ReadPrototypeJSON()}}
@@ -413,25 +413,25 @@ Wether the process of reading was successful.
 
 
 
-Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}} from a json describing such. 
+Reads an \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype} from a json describing such. 
 
 This also checks for various errors in the structure of the json.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em json} & The json describing the \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+\mbox{\texttt{ in}}  & {\em json} & The json describing the \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
-\mbox{\texttt{ in}}  & {\em participant\+\_\+count} & How many participants the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to be read has. \\
+\mbox{\texttt{ in}}  & {\em participant\+\_\+count} & How many participants the \doxylink{classtattletale_1_1_interaction}{Interaction} to be read has. \\
 \hline
 \mbox{\texttt{ in}}  & {\em error\+\_\+preamble} & A string that will be prepended to the error message if the value is outside the range. \\
 \hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+prototype} & Stores the read \mbox{\hyperlink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}}. \\
+\mbox{\texttt{ out}}  & {\em out\+\_\+prototype} & Stores the read \doxylink{structtattletale_1_1_interaction_prototype}{Interaction\+Prototype}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Wether the process of reading was successful. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}\label{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}} 
+\Hypertarget{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9}\label{classtattletale_1_1_interaction_store_a09016762be6c47c11317915ba3c796d9} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!ReadRequirementJSON@{ReadRequirementJSON}}
 \index{ReadRequirementJSON@{ReadRequirementJSON}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{ReadRequirementJSON()}{ReadRequirementJSON()}}
@@ -439,23 +439,23 @@ Wether the process of reading was successful.
 
 
 
-Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}} from a json describing such. 
+Reads an \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement} from a json describing such. 
 
 This also checks for various errors in the structure of the json.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em json} & The json describing the \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}}. \\
+\mbox{\texttt{ in}}  & {\em json} & The json describing the \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}. \\
 \hline
 \mbox{\texttt{ in}}  & {\em error\+\_\+preamble} & A string that will be prepended to the error message if the value is outside the range. \\
 \hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+requirement} & Stores the read \mbox{\hyperlink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}}. \\
+\mbox{\texttt{ out}}  & {\em out\+\_\+requirement} & Stores the read \doxylink{structtattletale_1_1_interaction_requirement}{Interaction\+Requirement}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Wether the process of reading was successful. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}\label{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}} 
+\Hypertarget{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb}\label{classtattletale_1_1_interaction_store_abe863348c479675da2b3a8c5434687bb} 
 \index{tattletale::InteractionStore@{tattletale::InteractionStore}!ReadTendencyJSON@{ReadTendencyJSON}}
 \index{ReadTendencyJSON@{ReadTendencyJSON}!tattletale::InteractionStore@{tattletale::InteractionStore}}
 \doxysubsubsection{\texorpdfstring{ReadTendencyJSON()}{ReadTendencyJSON()}}
@@ -463,19 +463,19 @@ Wether the process of reading was successful.
 
 
 
-Reads an \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}} from a json describing such. 
+Reads an \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency} from a json describing such. 
 
 This also checks for various errors in the structure of the json.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em json} & The json describing the \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}}. \\
+\mbox{\texttt{ in}}  & {\em json} & The json describing the \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}. \\
 \hline
-\mbox{\texttt{ in}}  & {\em participant\+\_\+count} & How many participants the \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} to be read has. \\
+\mbox{\texttt{ in}}  & {\em participant\+\_\+count} & How many participants the \doxylink{classtattletale_1_1_interaction}{Interaction} to be read has. \\
 \hline
 \mbox{\texttt{ in}}  & {\em error\+\_\+preamble} & A string that will be prepended to the error message if the value is outside the range. \\
 \hline
-\mbox{\texttt{ out}}  & {\em out\+\_\+tendency} & Stores the read \mbox{\hyperlink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}}. \\
+\mbox{\texttt{ out}}  & {\em out\+\_\+tendency} & Stores the read \doxylink{structtattletale_1_1_interaction_tendency}{Interaction\+Tendency}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

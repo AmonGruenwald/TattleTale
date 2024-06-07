@@ -1,83 +1,83 @@
-\hypertarget{relationship_8hpp_source}{}\doxysection{relationship.\+hpp}
-\label{relationship_8hpp_source}\index{shared/kernels/resourcekernels/relationship.hpp@{shared/kernels/resourcekernels/relationship.hpp}}
+\doxysection{relationship.\+hpp}
+\hypertarget{relationship_8hpp_source}{}\label{relationship_8hpp_source}\index{shared/kernels/resourcekernels/relationship.hpp@{shared/kernels/resourcekernels/relationship.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}shared/kernels/resourcekernels/resource.hpp"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{11     \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}}
-\DoxyCodeLine{12     \{}
-\DoxyCodeLine{13         kLove,}
-\DoxyCodeLine{14         kAttraction,}
-\DoxyCodeLine{15         kFriendship,}
-\DoxyCodeLine{16         kAnger,}
-\DoxyCodeLine{17         kProtective,}
-\DoxyCodeLine{18         kLast}
-\DoxyCodeLine{19     \};}
-\DoxyCodeLine{27     \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
-\DoxyCodeLine{28     \{}
-\DoxyCodeLine{29     \textcolor{keyword}{public}:}
-\DoxyCodeLine{40         \textcolor{keyword}{static} \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}} \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string relationship\_string);}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{48         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a88a1893e3aa75c9dbdd50d8cefea3e95}{GetDefaultDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{56         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a41ee679c328a87fbf0000831890acb02}{GetDetailedDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{64         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a1100fd16b1ec4f96a5492e8ec0f03c13}{GetPassiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{72         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a5e046f6d92223adfe2c97dd6896e03a1}{GetActiveDescription}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{81         \textcolor{keyword}{virtual} std::vector<Actor *> \mbox{\hyperlink{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}{GetAllParticipants}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{84         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} CalculateChanceInfluence(\textcolor{keyword}{const} \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}} *interaction) \textcolor{keyword}{const override};}
-\DoxyCodeLine{85         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{86         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}} *other) \textcolor{keyword}{const};}
-\DoxyCodeLine{87         \textcolor{comment}{// TODO: documentation}}
-\DoxyCodeLine{88         \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}} GetType() \textcolor{keyword}{const};}
-\DoxyCodeLine{94         std::string \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999ba2482ea91a01a13b9d6e}{GetAdjective}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96     \textcolor{keyword}{private}:}
-\DoxyCodeLine{110         \mbox{\hyperlink{classtattletale_1_1_relationship_ac872de998ff01c865e1411fa35a27fd9}{Relationship}}(\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}} type, \textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{size\_t} tick, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *owner, \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *target, std::vector<Kernel *> reasons, \textcolor{keywordtype}{float} value);}
-\DoxyCodeLine{111         }
-\DoxyCodeLine{115         \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}} \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
-\DoxyCodeLine{119         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_relationship_a2f99fb2d444b6371efbb7087a01b0427}{positive\_name\_variants\_}} =}
-\DoxyCodeLine{120             \{\textcolor{stringliteral}{"{}love for"{}},}
-\DoxyCodeLine{121              \textcolor{stringliteral}{"{}attraction for"{}},}
-\DoxyCodeLine{122              \textcolor{stringliteral}{"{}friendship for"{}},}
-\DoxyCodeLine{123              \textcolor{stringliteral}{"{}anger for"{}},}
-\DoxyCodeLine{124              \textcolor{stringliteral}{"{}protective of"{}}\};}
-\DoxyCodeLine{128         \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keyword}{inline} std::vector<std::string> \mbox{\hyperlink{classtattletale_1_1_relationship_a1138c08151b4d8c004eaec8ddbb587ba}{negative\_name\_variants\_}} =}
-\DoxyCodeLine{129             \{\textcolor{stringliteral}{"{}hate for"{}},}
-\DoxyCodeLine{130              \textcolor{stringliteral}{"{}disgust for"{}},}
-\DoxyCodeLine{131              \textcolor{stringliteral}{"{}animosity for"{}},}
-\DoxyCodeLine{132              \textcolor{stringliteral}{"{}comfortable with"{}},}
-\DoxyCodeLine{133              \textcolor{stringliteral}{"{}dominant towards"{}}\};}
-\DoxyCodeLine{137         \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}} *\mbox{\hyperlink{classtattletale_1_1_relationship_a2dbb2545a1413360796b4dcbfcedbd29}{target\_}};}
-\DoxyCodeLine{141         \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
-\DoxyCodeLine{142     \};}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{144 \} \textcolor{comment}{// namespace tattletale}}
-\DoxyCodeLine{145 \textcolor{keyword}{template} <>}
-\DoxyCodeLine{146 \textcolor{keyword}{struct }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::RelationshipType> : formatter<string\_view>}
-\DoxyCodeLine{147 \{}
-\DoxyCodeLine{148     std::string relationship\_type\_names[6] = \{}
-\DoxyCodeLine{149         \textcolor{stringliteral}{"{}love"{}},}
-\DoxyCodeLine{150         \textcolor{stringliteral}{"{}attraction"{}},}
-\DoxyCodeLine{151         \textcolor{stringliteral}{"{}friendship"{}},}
-\DoxyCodeLine{152         \textcolor{stringliteral}{"{}anger"{}},}
-\DoxyCodeLine{153         \textcolor{stringliteral}{"{}protectiveness"{}},}
-\DoxyCodeLine{154         \textcolor{stringliteral}{"{}last"{}}\};}
-\DoxyCodeLine{155     \textcolor{comment}{// parse is inherited from formatter<string\_view>.}}
-\DoxyCodeLine{156     \textcolor{keyword}{template} <\textcolor{keyword}{typename} FormatContext>}
-\DoxyCodeLine{157     \textcolor{keyword}{auto} format(\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{tattletale::RelationshipType}} type, FormatContext \&ctx)}
-\DoxyCodeLine{158     \{}
-\DoxyCodeLine{159         \textcolor{keywordtype}{size\_t} enum\_index = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
-\DoxyCodeLine{160         string\_view name = relationship\_type\_names[enum\_index];}
-\DoxyCodeLine{161         \textcolor{keywordflow}{return} formatter<string\_view>::format(name, ctx);}
-\DoxyCodeLine{162     \}}
-\DoxyCodeLine{163 \};}
-\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}shared/kernels/resourcekernels/resource.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacetattletale}{tattletale}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ kLove,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ kAttraction,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ kFriendship,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ kAnger,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ kProtective,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ kLast}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classtattletale_1_1_resource}{Resource}}}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}\ \mbox{\hyperlink{classtattletale_1_1_relationship_a1403eddade0dfbf76b0a6fcdbe780572}{StringToRelationshipType}}(std::string\ relationship\_string);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_relationship_a88a1893e3aa75c9dbdd50d8cefea3e95}{GetDefaultDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_relationship_a41ee679c328a87fbf0000831890acb02}{GetDetailedDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_relationship_a1100fd16b1ec4f96a5492e8ec0f03c13}{GetPassiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_relationship_a5e046f6d92223adfe2c97dd6896e03a1}{GetActiveDescription}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<Actor\ *>\ \mbox{\hyperlink{classtattletale_1_1_relationship_a0ec1a591f255fc8b7a03d7b83a7b09b9}{GetAllParticipants}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ CalculateChanceInfluence(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtattletale_1_1_interaction}{Interaction}}\ *interaction)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ IsSameSpecificType(\mbox{\hyperlink{classtattletale_1_1_kernel}{Kernel}}\ *other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ documentation}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}\ GetType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classtattletale_1_1_relationship_a32664576999ba2482ea91a01a13b9d6e}{GetAdjective}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_relationship}{Relationship}}(\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}\ type,\ \textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{size\_t}\ tick,\ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *owner,\ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *target,\ std::vector<Kernel\ *>\ reasons,\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{RelationshipType}}\ \mbox{\hyperlink{classtattletale_1_1_relationship_a50cfd022d18694f68a770b4dce4c21b7}{type\_}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::string>\ \mbox{\hyperlink{classtattletale_1_1_relationship_a2f99fb2d444b6371efbb7087a01b0427}{positive\_name\_variants\_}}\ =}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}love\ for"{}},}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}attraction\ for"{}},}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}friendship\ for"{}},}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}anger\ for"{}},}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}protective\ of"{}}\};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<std::string>\ \mbox{\hyperlink{classtattletale_1_1_relationship_a1138c08151b4d8c004eaec8ddbb587ba}{negative\_name\_variants\_}}\ =}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}hate\ for"{}},}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}disgust\ for"{}},}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}animosity\ for"{}},}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}comfortable\ with"{}},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dominant\ towards"{}}\};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtattletale_1_1_actor}{Actor}}\ *\mbox{\hyperlink{classtattletale_1_1_relationship_a2dbb2545a1413360796b4dcbfcedbd29}{target\_}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classtattletale_1_1_chronicle}{Chronicle}};}
+\DoxyCodeLine{00142\ \ \ \ \ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \}\ \textcolor{comment}{//\ namespace\ tattletale}}
+\DoxyCodeLine{00145\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00146\ \textcolor{keyword}{struct\ }fmt::formatter<\mbox{\hyperlink{namespacetattletale}{tattletale}}::RelationshipType>\ :\ formatter<string\_view>}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ std::string\ relationship\_type\_names[6]\ =\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}love"{}},}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}attraction"{}},}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}friendship"{}},}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}anger"{}},}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}protectiveness"{}},}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}last"{}}\};}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ parse\ is\ inherited\ from\ formatter<string\_view>.}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FormatContext>}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{auto}\ format(\mbox{\hyperlink{namespacetattletale_a670d05138867becb57e23c6972bd5688}{tattletale::RelationshipType}}\ type,\ FormatContext\ \&ctx)}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ enum\_index\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(type);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ string\_view\ name\ =\ relationship\_type\_names[enum\_index];}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatter<string\_view>::format(name,\ ctx);}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TALE\_KERNELS\_RESOURCEKERNELS\_RELATIONSHIP\_H}}
 
 \end{DoxyCode}
